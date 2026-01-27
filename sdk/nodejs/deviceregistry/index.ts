@@ -15,6 +15,11 @@ export type AssetEndpointProfile = import("./assetEndpointProfile").AssetEndpoin
 export const AssetEndpointProfile: typeof import("./assetEndpointProfile").AssetEndpointProfile = null as any;
 utilities.lazyLoad(exports, ["AssetEndpointProfile"], () => require("./assetEndpointProfile"));
 
+export { CredentialArgs } from "./credential";
+export type Credential = import("./credential").Credential;
+export const Credential: typeof import("./credential").Credential = null as any;
+utilities.lazyLoad(exports, ["Credential"], () => require("./credential"));
+
 export { DiscoveredAssetArgs } from "./discoveredAsset";
 export type DiscoveredAsset = import("./discoveredAsset").DiscoveredAsset;
 export const DiscoveredAsset: typeof import("./discoveredAsset").DiscoveredAsset = null as any;
@@ -34,6 +39,11 @@ export { GetAssetEndpointProfileArgs, GetAssetEndpointProfileResult, GetAssetEnd
 export const getAssetEndpointProfile: typeof import("./getAssetEndpointProfile").getAssetEndpointProfile = null as any;
 export const getAssetEndpointProfileOutput: typeof import("./getAssetEndpointProfile").getAssetEndpointProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getAssetEndpointProfile","getAssetEndpointProfileOutput"], () => require("./getAssetEndpointProfile"));
+
+export { GetCredentialArgs, GetCredentialResult, GetCredentialOutputArgs } from "./getCredential";
+export const getCredential: typeof import("./getCredential").getCredential = null as any;
+export const getCredentialOutput: typeof import("./getCredential").getCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getCredential","getCredentialOutput"], () => require("./getCredential"));
 
 export { GetDiscoveredAssetArgs, GetDiscoveredAssetResult, GetDiscoveredAssetOutputArgs } from "./getDiscoveredAsset";
 export const getDiscoveredAsset: typeof import("./getDiscoveredAsset").getDiscoveredAsset = null as any;
@@ -69,6 +79,11 @@ export { GetNamespaceDiscoveredDeviceArgs, GetNamespaceDiscoveredDeviceResult, G
 export const getNamespaceDiscoveredDevice: typeof import("./getNamespaceDiscoveredDevice").getNamespaceDiscoveredDevice = null as any;
 export const getNamespaceDiscoveredDeviceOutput: typeof import("./getNamespaceDiscoveredDevice").getNamespaceDiscoveredDeviceOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceDiscoveredDevice","getNamespaceDiscoveredDeviceOutput"], () => require("./getNamespaceDiscoveredDevice"));
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
@@ -110,6 +125,11 @@ export type NamespaceDiscoveredDevice = import("./namespaceDiscoveredDevice").Na
 export const NamespaceDiscoveredDevice: typeof import("./namespaceDiscoveredDevice").NamespaceDiscoveredDevice = null as any;
 utilities.lazyLoad(exports, ["NamespaceDiscoveredDevice"], () => require("./namespaceDiscoveredDevice"));
 
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
@@ -137,6 +157,8 @@ const _module = {
                 return new Asset(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:AssetEndpointProfile":
                 return new AssetEndpointProfile(name, <any>undefined, { urn })
+            case "azure-native:deviceregistry:Credential":
+                return new Credential(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:DiscoveredAsset":
                 return new DiscoveredAsset(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:DiscoveredAssetEndpointProfile":
@@ -151,6 +173,8 @@ const _module = {
                 return new NamespaceDiscoveredAsset(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:NamespaceDiscoveredDevice":
                 return new NamespaceDiscoveredDevice(name, <any>undefined, { urn })
+            case "azure-native:deviceregistry:Policy":
+                return new Policy(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:SchemaRegistry":

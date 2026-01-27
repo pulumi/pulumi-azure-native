@@ -48,6 +48,7 @@ __all__ = [
     'HyperVLicenseType',
     'LicensingProgram',
     'LoadBalancerType',
+    'MigrationSpecificPropertiesInstanceType',
     'MigrationStrategy',
     'MoveType',
     'MultiSubnetIntent',
@@ -73,6 +74,7 @@ __all__ = [
     'TargetHydrationStorageProviderType',
     'TargetStorageAccessType',
     'TargetStorageProjectionType',
+    'TaskScope',
     'TimeRange',
     'WorkloadDeploymentTarget',
     'WorkloadDeploymentType',
@@ -1632,6 +1634,14 @@ class LoadBalancerType(_builtins.str, Enum):
     PUBLIC = "Public"
 
 
+@pulumi.type_token("azure-native:migrate:MigrationSpecificPropertiesInstanceType")
+class MigrationSpecificPropertiesInstanceType(_builtins.str, Enum):
+    """
+    Discriminator for migration specific properties.
+    """
+    SERVER_MIGRATION = "ServerMigration"
+
+
 @pulumi.type_token("azure-native:migrate:MigrationStrategy")
 class MigrationStrategy(_builtins.str, Enum):
     """
@@ -2005,6 +2015,25 @@ class TargetStorageProjectionType(_builtins.str, Enum):
     """
     CONTAINER_FILE_SYSTEM = "ContainerFileSystem"
     PERSISTENT_VOLUME = "PersistentVolume"
+
+
+@pulumi.type_token("azure-native:migrate:TaskScope")
+class TaskScope(_builtins.str, Enum):
+    """
+    Task Scope
+    """
+    WAVE = "Wave"
+    """
+    Wave task - typically related to a specific wave of migration
+    """
+    MIGRATION_ENTITY = "MigrationEntity"
+    """
+    Migration Entity task - typically related to a specific migration entity
+    """
+    MIGRATION_ENTITY_GROUP = "MigrationEntityGroup"
+    """
+    Migration Entity Group task - typically related to a specific migration entity group
+    """
 
 
 @pulumi.type_token("azure-native:migrate:TimeRange")

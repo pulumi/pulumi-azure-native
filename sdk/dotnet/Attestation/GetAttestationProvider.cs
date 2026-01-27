@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Attestation
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

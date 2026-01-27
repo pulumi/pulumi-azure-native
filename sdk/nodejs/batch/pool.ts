@@ -41,7 +41,13 @@ export class Pool extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pool.__pulumiType;
     }
 
+    /**
+     * Whether the pool is resizing.
+     */
     declare public /*out*/ readonly allocationState: pulumi.Output<string>;
+    /**
+     * The time at which the pool entered its current allocation state.
+     */
     declare public /*out*/ readonly allocationStateTransitionTime: pulumi.Output<string>;
     /**
      * The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
@@ -65,10 +71,25 @@ export class Pool extends pulumi.CustomResource {
      * Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
      */
     declare public readonly certificates: pulumi.Output<outputs.batch.CertificateReferenceResponse[] | undefined>;
+    /**
+     * The creation time of the pool.
+     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    /**
+     * The number of dedicated compute nodes currently in the pool.
+     */
     declare public /*out*/ readonly currentDedicatedNodes: pulumi.Output<number>;
+    /**
+     * The number of Spot/low-priority compute nodes currently in the pool.
+     */
     declare public /*out*/ readonly currentLowPriorityNodes: pulumi.Output<number>;
+    /**
+     * Determines how a pool communicates with the Batch service.
+     */
     declare public /*out*/ readonly currentNodeCommunicationMode: pulumi.Output<string>;
+    /**
+     * Deployment configuration properties.
+     */
     declare public readonly deploymentConfiguration: pulumi.Output<outputs.batch.DeploymentConfigurationResponse | undefined>;
     /**
      * The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
@@ -99,14 +120,20 @@ export class Pool extends pulumi.CustomResource {
      */
     declare public readonly mountConfiguration: pulumi.Output<outputs.batch.MountConfigurationResponse[] | undefined>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The network configuration for a pool.
      */
     declare public readonly networkConfiguration: pulumi.Output<outputs.batch.NetworkConfigurationResponse | undefined>;
+    /**
+     * The current state of the pool.
+     */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    /**
+     * The time at which the pool entered its current state.
+     */
     declare public /*out*/ readonly provisioningStateTransitionTime: pulumi.Output<string>;
     /**
      * Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
@@ -125,6 +152,10 @@ export class Pool extends pulumi.CustomResource {
      */
     declare public readonly startTask: pulumi.Output<outputs.batch.StartTaskResponse | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.batch.SystemDataResponse>;
+    /**
      * The tags of the resource.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -141,13 +172,16 @@ export class Pool extends pulumi.CustomResource {
      */
     declare public readonly taskSlotsPerNode: pulumi.Output<number | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Describes an upgrade policy - automatic, manual, or rolling.
      */
     declare public readonly upgradePolicy: pulumi.Output<outputs.batch.UpgradePolicyResponse | undefined>;
+    /**
+     * The list of user accounts to be created on each node in the pool.
+     */
     declare public readonly userAccounts: pulumi.Output<outputs.batch.UserAccountResponse[] | undefined>;
     /**
      * For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
@@ -208,6 +242,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["provisioningStateTransitionTime"] = undefined /*out*/;
             resourceInputs["resizeOperationStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allocationState"] = undefined /*out*/;
@@ -237,6 +272,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["scaleSettings"] = undefined /*out*/;
             resourceInputs["startTask"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetNodeCommunicationMode"] = undefined /*out*/;
             resourceInputs["taskSchedulingPolicy"] = undefined /*out*/;
@@ -258,7 +294,7 @@ export class Pool extends pulumi.CustomResource {
  */
 export interface PoolArgs {
     /**
-     * The name of the Batch account.
+     * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
     accountName: pulumi.Input<string>;
     /**
@@ -275,6 +311,9 @@ export interface PoolArgs {
      * Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.CertificateReferenceArgs>[]>;
+    /**
+     * Deployment configuration properties.
+     */
     deploymentConfiguration?: pulumi.Input<inputs.batch.DeploymentConfigurationArgs>;
     /**
      * The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
@@ -305,7 +344,7 @@ export interface PoolArgs {
      */
     poolName?: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the Batch account.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -340,6 +379,9 @@ export interface PoolArgs {
      * Describes an upgrade policy - automatic, manual, or rolling.
      */
     upgradePolicy?: pulumi.Input<inputs.batch.UpgradePolicyArgs>;
+    /**
+     * The list of user accounts to be created on each node in the pool.
+     */
     userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.UserAccountArgs>[]>;
     /**
      * For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).

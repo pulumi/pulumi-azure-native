@@ -193,7 +193,7 @@ class Appliance(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-27. In version 2.x of the Azure Native provider, it used API version 2022-10-27.
 
-        Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +218,7 @@ class Appliance(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-27. In version 2.x of the Azure Native provider, it used API version 2022-10-27.
 
-        Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ApplianceArgs args: The arguments to use to populate this resource's properties.
@@ -272,7 +272,7 @@ class Appliance(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourceconnector/v20211031preview:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20220415preview:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20221027:Appliance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourceconnector/v20211031preview:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20220415preview:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20221027:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20250301preview:Appliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Appliance, __self__).__init__(
             'azure-native:resourceconnector:Appliance',
@@ -337,7 +337,7 @@ class Appliance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="infrastructureConfig")
-    def infrastructure_config(self) -> pulumi.Output[Optional['outputs.AppliancePropertiesResponseInfrastructureConfig']]:
+    def infrastructure_config(self) -> pulumi.Output[Optional['outputs.AppliancePropertiesInfrastructureConfigResponse']]:
         """
         Contains infrastructure information about the Appliance
         """
@@ -379,7 +379,7 @@ class Appliance(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Appliance’s health and state of connection to on-prem
+        Appliance’s health and state of connection to on-prem. This list of values is not exhaustive.
         """
         return pulumi.get(self, "status")
 

@@ -38,6 +38,22 @@ export const ChownMode = {
  */
 export type ChownMode = (typeof ChownMode)[keyof typeof ChownMode];
 
+export const CifsChangeNotifyState = {
+    /**
+     * CIFS change notification is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * CIFS change notification is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Flag indicating whether a CIFS change notification is enabled for the cache.
+ */
+export type CifsChangeNotifyState = (typeof CifsChangeNotifyState)[keyof typeof CifsChangeNotifyState];
+
 export const CoolAccessRetrievalPolicy = {
     Default: "Default",
     OnRead: "OnRead",
@@ -62,6 +78,206 @@ export const CoolAccessTieringPolicy = {
  */
 export type CoolAccessTieringPolicy = (typeof CoolAccessTieringPolicy)[keyof typeof CoolAccessTieringPolicy];
 
+export const DayOfWeek = {
+    /**
+     * Take a snapshot each Sunday
+     */
+    Sunday: "Sunday",
+    /**
+     * Take a snapshot each Monday
+     */
+    Monday: "Monday",
+    /**
+     * Take a snapshot each Tuesday
+     */
+    Tuesday: "Tuesday",
+    /**
+     * Take a snapshot each Wednesday
+     */
+    Wednesday: "Wednesday",
+    /**
+     * Take a snapshot each Thursday
+     */
+    Thursday: "Thursday",
+    /**
+     * Take a snapshot each Friday
+     */
+    Friday: "Friday",
+    /**
+     * Take a snapshot each Saturday
+     */
+    Saturday: "Saturday",
+} as const;
+
+/**
+ * Day of the week
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+export const ElasticBackupPolicyState = {
+    /**
+     * Value indicating the policy is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * Value indicating the policy is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The property to identify whether Backup Policy is enabled or not
+ */
+export type ElasticBackupPolicyState = (typeof ElasticBackupPolicyState)[keyof typeof ElasticBackupPolicyState];
+
+export const ElasticNfsv3Access = {
+    /**
+     * Clients can connect to the volume using the NFSv3 protocol.
+     */
+    Enabled: "Enabled",
+    /**
+     * Clients can't connect to the volume using the NFSv3 protocol.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+ */
+export type ElasticNfsv3Access = (typeof ElasticNfsv3Access)[keyof typeof ElasticNfsv3Access];
+
+export const ElasticNfsv4Access = {
+    /**
+     * Clients can connect to the volume using the NFSv4 protocol.
+     */
+    Enabled: "Enabled",
+    /**
+     * Clients can't connect to the volume using the NFSv4 protocol.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Allows clients to access the volume with at least NFSv4.1 protocol.
+ */
+export type ElasticNfsv4Access = (typeof ElasticNfsv4Access)[keyof typeof ElasticNfsv4Access];
+
+export const ElasticPoolEncryptionKeySource = {
+    /**
+     * Represents the encryption key source of Elastic pool is Microsoft.NetApp
+     */
+    NetApp: "NetApp",
+    /**
+     * Represents the encryption key source of Elastic pool is Microsoft.KeyVault
+     */
+    KeyVault: "KeyVault",
+} as const;
+
+/**
+ * Pool Encryption Key Source.
+ */
+export type ElasticPoolEncryptionKeySource = (typeof ElasticPoolEncryptionKeySource)[keyof typeof ElasticPoolEncryptionKeySource];
+
+export const ElasticProtocolType = {
+    /**
+     * NFSv3 protocol type
+     */
+    NFSv3: "NFSv3",
+    /**
+     * NFSv4 protocol type
+     */
+    NFSv4: "NFSv4",
+    /**
+     * SMB/CIFS protocol type
+     */
+    SMB: "SMB",
+} as const;
+
+/**
+ * Protocol types for elastic volume
+ */
+export type ElasticProtocolType = (typeof ElasticProtocolType)[keyof typeof ElasticProtocolType];
+
+export const ElasticRootAccess = {
+    /**
+     * Root user access is enabled for clients affected by this rule
+     */
+    Enabled: "Enabled",
+    /**
+     * Root user access is disabled for clients affected by this rule
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether root access to the volume is granted to clients affected by this rule
+ */
+export type ElasticRootAccess = (typeof ElasticRootAccess)[keyof typeof ElasticRootAccess];
+
+export const ElasticServiceLevel = {
+    /**
+     * Zone redundant storage service level.
+     */
+    ZoneRedundant: "ZoneRedundant",
+} as const;
+
+/**
+ * The service level of the elastic capacity pool
+ */
+export type ElasticServiceLevel = (typeof ElasticServiceLevel)[keyof typeof ElasticServiceLevel];
+
+export const ElasticSmbEncryption = {
+    /**
+     * Value indicating the SMB encryption is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * Value indicating the SMB encryption is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+ */
+export type ElasticSmbEncryption = (typeof ElasticSmbEncryption)[keyof typeof ElasticSmbEncryption];
+
+export const ElasticUnixAccessRule = {
+    /**
+     * Clients connecting with this rule will only have read access to the volume
+     */
+    ReadOnly: "ReadOnly",
+    /**
+     * Clients connecting with this rule will have full read and write access to the volume
+     */
+    ReadWrite: "ReadWrite",
+    /**
+     * Clients connecting with this rule will have no access to the volume
+     */
+    NoAccess: "NoAccess",
+} as const;
+
+/**
+ * Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+ */
+export type ElasticUnixAccessRule = (typeof ElasticUnixAccessRule)[keyof typeof ElasticUnixAccessRule];
+
+export const ElasticVolumePolicyEnforcement = {
+    /**
+     * Value indicating the policy is enforced on the volume.
+     */
+    Enforced: "Enforced",
+    /**
+     * Value indicating the policy is not enforced on the volume.
+     */
+    NotEnforced: "NotEnforced",
+} as const;
+
+/**
+ * The property to decide policy is enforced or not on the volume
+ */
+export type ElasticVolumePolicyEnforcement = (typeof ElasticVolumePolicyEnforcement)[keyof typeof ElasticVolumePolicyEnforcement];
+
 export const EnableSubvolumes = {
     /**
      * subvolumes are enabled
@@ -77,6 +293,22 @@ export const EnableSubvolumes = {
  * Flag indicating whether subvolume operations are enabled on the volume
  */
 export type EnableSubvolumes = (typeof EnableSubvolumes)[keyof typeof EnableSubvolumes];
+
+export const EnableWriteBackState = {
+    /**
+     * Writeback cache is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * Writeback cache is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Flag indicating whether writeback is enabled for the cache.
+ */
+export type EnableWriteBackState = (typeof EnableWriteBackState)[keyof typeof EnableWriteBackState];
 
 export const EncryptionKeySource = {
     /**
@@ -120,6 +352,38 @@ export const EndpointType = {
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
+export const GlobalFileLockingState = {
+    /**
+     * Global file locking is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * Global file locking is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Flag indicating whether the global file lock is enabled for the cache.
+ */
+export type GlobalFileLockingState = (typeof GlobalFileLockingState)[keyof typeof GlobalFileLockingState];
+
+export const KerberosState = {
+    /**
+     * Kerberos is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * Kerberos is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Describe if a cache is Kerberos enabled.
+ */
+export type KerberosState = (typeof KerberosState)[keyof typeof KerberosState];
+
 export const KeySource = {
     /**
      * Microsoft-managed key encryption
@@ -132,9 +396,41 @@ export const KeySource = {
 } as const;
 
 /**
- * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+ * The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
  */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const LdapServerType = {
+    /**
+     * The volume should use Active Directory for LDAP connections.
+     */
+    ActiveDirectory: "ActiveDirectory",
+    /**
+     * The volume should use OpenLDAP for LDAP connections.
+     */
+    OpenLDAP: "OpenLDAP",
+} as const;
+
+/**
+ * Specifies the type of LDAP server for flexcache volume.
+ */
+export type LdapServerType = (typeof LdapServerType)[keyof typeof LdapServerType];
+
+export const LdapState = {
+    /**
+     * ldap is disabled.
+     */
+    Disabled: "Disabled",
+    /**
+     * ldap is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Specifies whether LDAP is enabled or not for flexcache volume.
+ */
+export type LdapState = (typeof LdapState)[keyof typeof LdapState];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -171,6 +467,42 @@ export const NetworkFeatures = {
  * The original value of the network features type available to the volume at the time it was created.
  */
 export type NetworkFeatures = (typeof NetworkFeatures)[keyof typeof NetworkFeatures];
+
+export const PolicyStatus = {
+    /**
+     * Value indicating the policy is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * Value indicating the policy is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Configures if the snapshot policy is enabled on the volumes connected to the policy.
+ */
+export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
+
+export const ProtocolTypes = {
+    /**
+     * NFSv3 protocol type
+     */
+    NFSv3: "NFSv3",
+    /**
+     * NFSv4 protocol type
+     */
+    NFSv4: "NFSv4",
+    /**
+     * SMB protocol type
+     */
+    SMB: "SMB",
+} as const;
+
+/**
+ * Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+ */
+export type ProtocolTypes = (typeof ProtocolTypes)[keyof typeof ProtocolTypes];
 
 export const QosType = {
     /**
@@ -249,6 +581,22 @@ export const SmbAccessBasedEnumeration = {
  */
 export type SmbAccessBasedEnumeration = (typeof SmbAccessBasedEnumeration)[keyof typeof SmbAccessBasedEnumeration];
 
+export const SmbEncryptionState = {
+    /**
+     * SMB encryption is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * SMB encryption is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+ */
+export type SmbEncryptionState = (typeof SmbEncryptionState)[keyof typeof SmbEncryptionState];
+
 export const SmbNonBrowsable = {
     /**
      * smbNonBrowsable share setting is disabled
@@ -264,6 +612,38 @@ export const SmbNonBrowsable = {
  * Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
  */
 export type SmbNonBrowsable = (typeof SmbNonBrowsable)[keyof typeof SmbNonBrowsable];
+
+export const SnapshotDirectoryVisibility = {
+    /**
+     * Value indicating the read-only snapshot directory is not visible
+     */
+    Hidden: "Hidden",
+    /**
+     * Value indicating the read-only snapshot directory is visible
+     */
+    Visible: "Visible",
+} as const;
+
+/**
+ * Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+ */
+export type SnapshotDirectoryVisibility = (typeof SnapshotDirectoryVisibility)[keyof typeof SnapshotDirectoryVisibility];
+
+export const SnapshotUsage = {
+    /**
+     * Value indicating an existing snapshot is used
+     */
+    UseExistingSnapshot: "UseExistingSnapshot",
+    /**
+     * Value indicating a new snapshot is created
+     */
+    CreateNewSnapshot: "CreateNewSnapshot",
+} as const;
+
+/**
+ * Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+ */
+export type SnapshotUsage = (typeof SnapshotUsage)[keyof typeof SnapshotUsage];
 
 export const Type = {
     /**

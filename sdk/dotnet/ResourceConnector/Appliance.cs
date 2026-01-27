@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ResourceConnector
     /// 
     /// Uses Azure REST API version 2022-10-27. In version 2.x of the Azure Native provider, it used API version 2022-10-27.
     /// 
-    /// Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourceconnector:Appliance")]
     public partial class Appliance : global::Pulumi.CustomResource
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// Contains infrastructure information about the Appliance
         /// </summary>
         [Output("infrastructureConfig")]
-        public Output<Outputs.AppliancePropertiesResponseInfrastructureConfig?> InfrastructureConfig { get; private set; } = null!;
+        public Output<Outputs.AppliancePropertiesInfrastructureConfigResponse?> InfrastructureConfig { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         public Output<string?> PublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// Appliance’s health and state of connection to on-prem
+        /// Appliance’s health and state of connection to on-prem. This list of values is not exhaustive.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.ResourceConnector
                     new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20211031preview:Appliance" },
                     new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20220415preview:Appliance" },
                     new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20221027:Appliance" },
+                    new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20250301preview:Appliance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -104,6 +104,8 @@ class PrivateLink(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -121,6 +123,8 @@ class PrivateLink(pulumi.CustomResource):
         A private link resource that enables secure, private connectivity to Microsoft Defender for Cloud services. This resource manages the lifecycle of private endpoint connections and provides the necessary infrastructure for private connectivity.
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkArgs args: The arguments to use to populate this resource's properties.
@@ -163,7 +167,7 @@ class PrivateLink(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20250901preview:PrivateLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20250901preview:PrivateLink"), pulumi.Alias(type_="azure-native:security/v20260101:PrivateLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLink, __self__).__init__(
             'azure-native:security:PrivateLink',

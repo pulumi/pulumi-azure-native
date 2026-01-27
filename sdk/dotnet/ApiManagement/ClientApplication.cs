@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Client application details.
     /// 
     /// Uses Azure REST API version 2024-10-01-preview.
+    /// 
+    /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ClientApplication")]
     public partial class ClientApplication : global::Pulumi.CustomResource
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20241001preview:ClientApplication" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20250301preview:ClientApplication" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Information used to connect to a CIFS file system.
+    /// </summary>
     public sealed class CIFSMountConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("mountOptions")]
         public Input<string>? MountOptions { get; set; }
 
+        /// <summary>
+        /// The password to use for authentication against the CIFS file system.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
@@ -27,9 +33,15 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("relativeMountPath", required: true)]
         public Input<string> RelativeMountPath { get; set; } = null!;
 
+        /// <summary>
+        /// The URI of the file system to mount.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
+        /// <summary>
+        /// The user to use for authentication against the CIFS file system.
+        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 

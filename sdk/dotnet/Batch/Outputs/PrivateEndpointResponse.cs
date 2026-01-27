@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class PrivateEndpointResponse
     {
+        /// <summary>
+        /// The ARM resource identifier of the private endpoint. This is of the form /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/privateEndpoints/{privateEndpoint}.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

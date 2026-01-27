@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The results and errors from an execution of a pool autoscale formula.
+    /// </summary>
     [OutputType]
     public sealed class AutoScaleRunResponse
     {
+        /// <summary>
+        /// An error that occurred when autoscaling a pool.
+        /// </summary>
         public readonly Outputs.AutoScaleRunErrorResponse? Error;
+        /// <summary>
+        /// The time at which the autoscale formula was last evaluated.
+        /// </summary>
         public readonly string EvaluationTime;
         /// <summary>
         /// Each variable value is returned in the form $variable=value, and variables are separated by semicolons.

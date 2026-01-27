@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// 
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
     /// 
-    /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:DataExport")]
     public partial class DataExport : global::Pulumi.CustomResource
@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataExport" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:DataExport" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:DataExport" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250701:DataExport" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

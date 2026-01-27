@@ -110,6 +110,11 @@ export type FleetspaceAccount = import("./fleetspaceAccount").FleetspaceAccount;
 export const FleetspaceAccount: typeof import("./fleetspaceAccount").FleetspaceAccount = null as any;
 utilities.lazyLoad(exports, ["FleetspaceAccount"], () => require("./fleetspaceAccount"));
 
+export { GarnetClusterArgs } from "./garnetCluster";
+export type GarnetCluster = import("./garnetCluster").GarnetCluster;
+export const GarnetCluster: typeof import("./garnetCluster").GarnetCluster = null as any;
+utilities.lazyLoad(exports, ["GarnetCluster"], () => require("./garnetCluster"));
+
 export { GetCassandraClusterArgs, GetCassandraClusterResult, GetCassandraClusterOutputArgs } from "./getCassandraCluster";
 export const getCassandraCluster: typeof import("./getCassandraCluster").getCassandraCluster = null as any;
 export const getCassandraClusterOutput: typeof import("./getCassandraCluster").getCassandraClusterOutput = null as any;
@@ -214,6 +219,11 @@ export { GetFleetspaceAccountArgs, GetFleetspaceAccountResult, GetFleetspaceAcco
 export const getFleetspaceAccount: typeof import("./getFleetspaceAccount").getFleetspaceAccount = null as any;
 export const getFleetspaceAccountOutput: typeof import("./getFleetspaceAccount").getFleetspaceAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getFleetspaceAccount","getFleetspaceAccountOutput"], () => require("./getFleetspaceAccount"));
+
+export { GetGarnetClusterArgs, GetGarnetClusterResult, GetGarnetClusterOutputArgs } from "./getGarnetCluster";
+export const getGarnetCluster: typeof import("./getGarnetCluster").getGarnetCluster = null as any;
+export const getGarnetClusterOutput: typeof import("./getGarnetCluster").getGarnetClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getGarnetCluster","getGarnetClusterOutput"], () => require("./getGarnetCluster"));
 
 export { GetGraphResourceGraphArgs, GetGraphResourceGraphResult, GetGraphResourceGraphOutputArgs } from "./getGraphResourceGraph";
 export const getGraphResourceGraph: typeof import("./getGraphResourceGraph").getGraphResourceGraph = null as any;
@@ -565,6 +575,8 @@ const _module = {
                 return new Fleetspace(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:FleetspaceAccount":
                 return new FleetspaceAccount(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:GarnetCluster":
+                return new GarnetCluster(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:GraphResourceGraph":
                 return new GraphResourceGraph(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:GremlinResourceGremlinDatabase":

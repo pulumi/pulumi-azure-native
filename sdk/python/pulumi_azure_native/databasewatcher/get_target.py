@@ -27,34 +27,22 @@ class GetTargetResult:
     """
     Concrete proxy resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, azure_api_version=None, connection_server_name=None, id=None, name=None, provisioning_state=None, system_data=None, target_authentication_type=None, target_type=None, target_vault=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
-        if connection_server_name and not isinstance(connection_server_name, str):
-            raise TypeError("Expected argument 'connection_server_name' to be a str")
-        pulumi.set(__self__, "connection_server_name", connection_server_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if target_authentication_type and not isinstance(target_authentication_type, str):
-            raise TypeError("Expected argument 'target_authentication_type' to be a str")
-        pulumi.set(__self__, "target_authentication_type", target_authentication_type)
-        if target_type and not isinstance(target_type, str):
-            raise TypeError("Expected argument 'target_type' to be a str")
-        pulumi.set(__self__, "target_type", target_type)
-        if target_vault and not isinstance(target_vault, dict):
-            raise TypeError("Expected argument 'target_vault' to be a dict")
-        pulumi.set(__self__, "target_vault", target_vault)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -66,14 +54,6 @@ class GetTargetResult:
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
-
-    @_builtins.property
-    @pulumi.getter(name="connectionServerName")
-    def connection_server_name(self) -> _builtins.str:
-        """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        """
-        return pulumi.get(self, "connection_server_name")
 
     @_builtins.property
     @pulumi.getter
@@ -92,12 +72,12 @@ class GetTargetResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
+    @pulumi.getter
+    def properties(self) -> Any:
         """
-        The provisioning state of the resource.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -106,30 +86,6 @@ class GetTargetResult:
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @_builtins.property
-    @pulumi.getter(name="targetAuthenticationType")
-    def target_authentication_type(self) -> _builtins.str:
-        """
-        The type of authentication to use when connecting to a target.
-        """
-        return pulumi.get(self, "target_authentication_type")
-
-    @_builtins.property
-    @pulumi.getter(name="targetType")
-    def target_type(self) -> _builtins.str:
-        """
-        Discriminator property for TargetProperties.
-        """
-        return pulumi.get(self, "target_type")
-
-    @_builtins.property
-    @pulumi.getter(name="targetVault")
-    def target_vault(self) -> Optional['outputs.VaultSecretResponse']:
-        """
-        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        """
-        return pulumi.get(self, "target_vault")
 
     @_builtins.property
     @pulumi.getter
@@ -147,14 +103,10 @@ class AwaitableGetTargetResult(GetTargetResult):
             yield self
         return GetTargetResult(
             azure_api_version=self.azure_api_version,
-            connection_server_name=self.connection_server_name,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
-            target_authentication_type=self.target_authentication_type,
-            target_type=self.target_type,
-            target_vault=self.target_vault,
             type=self.type)
 
 
@@ -183,14 +135,10 @@ def get_target(resource_group_name: Optional[_builtins.str] = None,
 
     return AwaitableGetTargetResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
-        connection_server_name=pulumi.get(__ret__, 'connection_server_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        target_authentication_type=pulumi.get(__ret__, 'target_authentication_type'),
-        target_type=pulumi.get(__ret__, 'target_type'),
-        target_vault=pulumi.get(__ret__, 'target_vault'),
         type=pulumi.get(__ret__, 'type'))
 def get_target_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                       target_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -216,12 +164,8 @@ def get_target_output(resource_group_name: Optional[pulumi.Input[_builtins.str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:databasewatcher:getTarget', __args__, opts=opts, typ=GetTargetResult)
     return __ret__.apply(lambda __response__: GetTargetResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
-        connection_server_name=pulumi.get(__response__, 'connection_server_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
-        target_authentication_type=pulumi.get(__response__, 'target_authentication_type'),
-        target_type=pulumi.get(__response__, 'target_type'),
-        target_vault=pulumi.get(__response__, 'target_vault'),
         type=pulumi.get(__response__, 'type')))

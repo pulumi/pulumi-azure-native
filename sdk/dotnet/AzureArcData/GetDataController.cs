@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 
-        /// Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 
-        /// Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 
-        /// Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());

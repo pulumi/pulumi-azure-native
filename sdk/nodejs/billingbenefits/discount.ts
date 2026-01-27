@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Resource definition for Discounts.
  *
  * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
+ *
+ * Other available API versions: 2025-05-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Discount extends pulumi.CustomResource {
     /**
@@ -137,7 +139,7 @@ export class Discount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billingbenefits/v20241101preview:Discount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billingbenefits/v20241101preview:Discount" }, { type: "azure-native:billingbenefits/v20250501preview:Discount" }, { type: "azure-native:billingbenefits/v20251201preview:Discount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Discount.__pulumiType, name, resourceInputs, opts);
     }

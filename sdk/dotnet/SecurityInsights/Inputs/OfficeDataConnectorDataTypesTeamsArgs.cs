@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
         /// </summary>
-        [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.DataTypeState>? State { get; set; }
+        [Input("state", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.DataTypeState> State { get; set; } = null!;
 
         public OfficeDataConnectorDataTypesTeamsArgs()
         {

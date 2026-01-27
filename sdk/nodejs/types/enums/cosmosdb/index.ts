@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AllocationState = {
+    Active: "Active",
+    Deallocated: "Deallocated",
+} as const;
+
+/**
+ * Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+ */
+export type AllocationState = (typeof AllocationState)[keyof typeof AllocationState];
+
 export const AnalyticalStorageSchemaType = {
     WellDefined: "WellDefined",
     FullFidelity: "FullFidelity",
@@ -65,6 +75,16 @@ export const BackupStorageRedundancy = {
  * Enum to indicate type of backup residency
  */
 export type BackupStorageRedundancy = (typeof BackupStorageRedundancy)[keyof typeof BackupStorageRedundancy];
+
+export const ClusterType = {
+    Production: "Production",
+    NonProduction: "NonProduction",
+} as const;
+
+/**
+ * Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+ */
+export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
 
 export const CompositePathSortOrder = {
     Ascending: "ascending",
@@ -171,6 +191,16 @@ export const DefaultConsistencyLevel = {
  * The default consistency level and configuration settings of the Cosmos DB account.
  */
 export type DefaultConsistencyLevel = (typeof DefaultConsistencyLevel)[keyof typeof DefaultConsistencyLevel];
+
+export const DefaultPriorityLevel = {
+    High: "High",
+    Low: "Low",
+} as const;
+
+/**
+ * Enum to indicate default Priority Level of request for Priority Based Execution.
+ */
+export type DefaultPriorityLevel = (typeof DefaultPriorityLevel)[keyof typeof DefaultPriorityLevel];
 
 export const DistanceFunction = {
     Euclidean: "euclidean",
@@ -438,6 +468,7 @@ export const VectorDataType = {
     Float32: "float32",
     Uint8: "uint8",
     Int8: "int8",
+    Float16: "float16",
 } as const;
 
 /**

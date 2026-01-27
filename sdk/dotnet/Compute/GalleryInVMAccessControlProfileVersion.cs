@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
     /// 
     /// Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
+    /// 
+    /// Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryInVMAccessControlProfileVersion")]
     public partial class GalleryInVMAccessControlProfileVersion : global::Pulumi.CustomResource
@@ -127,6 +129,7 @@ namespace Pulumi.AzureNative.Compute
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240303:GalleryInVMAccessControlProfileVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20250303:GalleryInVMAccessControlProfileVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

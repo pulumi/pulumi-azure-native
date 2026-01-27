@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
  *
- * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**
@@ -109,10 +109,6 @@ export class GalleryImage extends pulumi.CustomResource {
      * Specifies information about the gallery image version that you want to create or update.
      */
     declare public readonly version: pulumi.Output<outputs.azurestackhci.GalleryImageVersionResponse | undefined>;
-    /**
-     * The credentials used to login to the image repository that has access to the specified image
-     */
-    declare public readonly vmImageRepositoryCredentials: pulumi.Output<outputs.azurestackhci.VmImageRepositoryCredentialsResponse | undefined>;
 
     /**
      * Create a GalleryImage resource with the given unique name, arguments, and options.
@@ -144,7 +140,6 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["sourceVirtualMachineId"] = args?.sourceVirtualMachineId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["version"] = args?.version;
-            resourceInputs["vmImageRepositoryCredentials"] = args?.vmImageRepositoryCredentials;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -169,10 +164,9 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
-            resourceInputs["vmImageRepositoryCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240101:GalleryImage" }, { type: "azure-native:azurestackhci/v20240201preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240501preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240715preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240801preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20241001preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20250201preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20250401preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20250601preview:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240101:GalleryImage" }, { type: "azure-native:azurestackhci/v20240201preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240501preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240715preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240801preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20241001preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20250201preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20250401preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20250601preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20250901preview:GalleryImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImage.__pulumiType, name, resourceInputs, opts);
     }
@@ -234,8 +228,4 @@ export interface GalleryImageArgs {
      * Specifies information about the gallery image version that you want to create or update.
      */
     version?: pulumi.Input<inputs.azurestackhci.GalleryImageVersionArgs>;
-    /**
-     * The credentials used to login to the image repository that has access to the specified image
-     */
-    vmImageRepositoryCredentials?: pulumi.Input<inputs.azurestackhci.VmImageRepositoryCredentialsArgs>;
 }

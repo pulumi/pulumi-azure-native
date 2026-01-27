@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Resources.Inputs
     public sealed class DeploymentParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Input expression to the parameter.
+        /// </summary>
+        [Input("expression")]
+        public Input<string>? Expression { get; set; }
+
+        /// <summary>
         /// Azure Key Vault parameter reference.
         /// </summary>
         [Input("reference")]

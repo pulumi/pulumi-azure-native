@@ -18,10 +18,10 @@ from ._enums import *
 __all__ = [
     'AttestationServiceCreationSpecificParamsArgs',
     'AttestationServiceCreationSpecificParamsArgsDict',
-    'JSONWebKeySetArgs',
-    'JSONWebKeySetArgsDict',
-    'JSONWebKeyArgs',
-    'JSONWebKeyArgsDict',
+    'JsonWebKeySetArgs',
+    'JsonWebKeySetArgsDict',
+    'JsonWebKeyArgs',
+    'JsonWebKeyArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
 ]
@@ -33,7 +33,7 @@ if not MYPY:
         """
         Client supplied parameters used to create a new attestation provider.
         """
-        policy_signing_certificates: NotRequired[pulumi.Input['JSONWebKeySetArgsDict']]
+        policy_signing_certificates: NotRequired[pulumi.Input['JsonWebKeySetArgsDict']]
         """
         JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
         """
@@ -51,32 +51,36 @@ elif False:
 @pulumi.input_type
 class AttestationServiceCreationSpecificParamsArgs:
     def __init__(__self__, *,
-                 policy_signing_certificates: Optional[pulumi.Input['JSONWebKeySetArgs']] = None,
+                 policy_signing_certificates: Optional[pulumi.Input['JsonWebKeySetArgs']] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
                  tpm_attestation_authentication: Optional[pulumi.Input[Union[_builtins.str, 'TpmAttestationAuthenticationType']]] = None):
         """
         Client supplied parameters used to create a new attestation provider.
-        :param pulumi.Input['JSONWebKeySetArgs'] policy_signing_certificates: JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
+        :param pulumi.Input['JsonWebKeySetArgs'] policy_signing_certificates: JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']] public_network_access: Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
         :param pulumi.Input[Union[_builtins.str, 'TpmAttestationAuthenticationType']] tpm_attestation_authentication: The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
         """
         if policy_signing_certificates is not None:
             pulumi.set(__self__, "policy_signing_certificates", policy_signing_certificates)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if tpm_attestation_authentication is None:
+            tpm_attestation_authentication = 'Enabled'
         if tpm_attestation_authentication is not None:
             pulumi.set(__self__, "tpm_attestation_authentication", tpm_attestation_authentication)
 
     @_builtins.property
     @pulumi.getter(name="policySigningCertificates")
-    def policy_signing_certificates(self) -> Optional[pulumi.Input['JSONWebKeySetArgs']]:
+    def policy_signing_certificates(self) -> Optional[pulumi.Input['JsonWebKeySetArgs']]:
         """
         JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
         """
         return pulumi.get(self, "policy_signing_certificates")
 
     @policy_signing_certificates.setter
-    def policy_signing_certificates(self, value: Optional[pulumi.Input['JSONWebKeySetArgs']]):
+    def policy_signing_certificates(self, value: Optional[pulumi.Input['JsonWebKeySetArgs']]):
         pulumi.set(self, "policy_signing_certificates", value)
 
     @_builtins.property
@@ -105,8 +109,8 @@ class AttestationServiceCreationSpecificParamsArgs:
 
 
 if not MYPY:
-    class JSONWebKeySetArgsDict(TypedDict):
-        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgsDict']]]]
+    class JsonWebKeySetArgsDict(TypedDict):
+        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['JsonWebKeyArgsDict']]]]
         """
         The value of the "keys" parameter is an array of JWK values.  By
         default, the order of the JWK values within the array does not imply
@@ -115,14 +119,14 @@ if not MYPY:
         desired.
         """
 elif False:
-    JSONWebKeySetArgsDict: TypeAlias = Mapping[str, Any]
+    JsonWebKeySetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class JSONWebKeySetArgs:
+class JsonWebKeySetArgs:
     def __init__(__self__, *,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]] = None):
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input['JsonWebKeyArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]] keys: The value of the "keys" parameter is an array of JWK values.  By
+        :param pulumi.Input[Sequence[pulumi.Input['JsonWebKeyArgs']]] keys: The value of the "keys" parameter is an array of JWK values.  By
                default, the order of the JWK values within the array does not imply
                an order of preference among them, although applications of JWK Sets
                can choose to assign a meaning to the order for their purposes, if
@@ -133,7 +137,7 @@ class JSONWebKeySetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]:
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JsonWebKeyArgs']]]]:
         """
         The value of the "keys" parameter is an array of JWK values.  By
         default, the order of the JWK values within the array does not imply
@@ -144,12 +148,12 @@ class JSONWebKeySetArgs:
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]):
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JsonWebKeyArgs']]]]):
         pulumi.set(self, "keys", value)
 
 
 if not MYPY:
-    class JSONWebKeyArgsDict(TypedDict):
+    class JsonWebKeyArgsDict(TypedDict):
         kty: pulumi.Input[_builtins.str]
         """
         The "kty" (key type) parameter identifies the cryptographic algorithm
@@ -229,7 +233,7 @@ if not MYPY:
         """
         X coordinate for the Elliptic Curve point
         """
-        x5c: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        x5_c: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         The "x5c" (X.509 certificate chain) parameter contains a chain of one
         or more PKIX certificates [RFC5280].  The certificate chain is
@@ -244,10 +248,10 @@ if not MYPY:
         Y coordinate for the Elliptic Curve point
         """
 elif False:
-    JSONWebKeyArgsDict: TypeAlias = Mapping[str, Any]
+    JsonWebKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class JSONWebKeyArgs:
+class JsonWebKeyArgs:
     def __init__(__self__, *,
                  kty: pulumi.Input[_builtins.str],
                  alg: Optional[pulumi.Input[_builtins.str]] = None,
@@ -264,7 +268,7 @@ class JSONWebKeyArgs:
                  qi: Optional[pulumi.Input[_builtins.str]] = None,
                  use: Optional[pulumi.Input[_builtins.str]] = None,
                  x: Optional[pulumi.Input[_builtins.str]] = None,
-                 x5c: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x5_c: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  y: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kty: The "kty" (key type) parameter identifies the cryptographic algorithm
@@ -301,7 +305,7 @@ class JSONWebKeyArgs:
                a public key is used for encrypting data or verifying the signature
                on data. Values are commonly "sig" (signature) or "enc" (encryption).
         :param pulumi.Input[_builtins.str] x: X coordinate for the Elliptic Curve point
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x5c: The "x5c" (X.509 certificate chain) parameter contains a chain of one
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x5_c: The "x5c" (X.509 certificate chain) parameter contains a chain of one
                or more PKIX certificates [RFC5280].  The certificate chain is
                represented as a JSON array of certificate value strings.  Each
                string in the array is a base64-encoded (Section 4 of [RFC4648] --
@@ -339,8 +343,8 @@ class JSONWebKeyArgs:
             pulumi.set(__self__, "use", use)
         if x is not None:
             pulumi.set(__self__, "x", x)
-        if x5c is not None:
-            pulumi.set(__self__, "x5c", x5c)
+        if x5_c is not None:
+            pulumi.set(__self__, "x5_c", x5_c)
         if y is not None:
             pulumi.set(__self__, "y", y)
 
@@ -544,8 +548,8 @@ class JSONWebKeyArgs:
         pulumi.set(self, "x", value)
 
     @_builtins.property
-    @pulumi.getter
-    def x5c(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="x5C")
+    def x5_c(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The "x5c" (X.509 certificate chain) parameter contains a chain of one
         or more PKIX certificates [RFC5280].  The certificate chain is
@@ -555,11 +559,11 @@ class JSONWebKeyArgs:
         The PKIX certificate containing the key value MUST be the first
         certificate.
         """
-        return pulumi.get(self, "x5c")
+        return pulumi.get(self, "x5_c")
 
-    @x5c.setter
-    def x5c(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "x5c", value)
+    @x5_c.setter
+    def x5_c(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "x5_c", value)
 
     @_builtins.property
     @pulumi.getter

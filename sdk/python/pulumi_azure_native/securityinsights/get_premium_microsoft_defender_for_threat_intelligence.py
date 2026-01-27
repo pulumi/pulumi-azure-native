@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetPremiumMicrosoftDefenderForThreatIntelligenceResult:
     """
-    Represents Premium Microsoft Defender for Threat Intelligence data connector.
+    Represents Microsoft Defender for Threat Intelligence Premium data connector.
     """
     def __init__(__self__, azure_api_version=None, data_types=None, etag=None, id=None, kind=None, lookback_period=None, name=None, required_skus_present=None, system_data=None, tenant_id=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -137,7 +137,7 @@ class GetPremiumMicrosoftDefenderForThreatIntelligenceResult:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[_builtins.str]:
+    def tenant_id(self) -> _builtins.str:
         """
         The tenant id to connect to, and get the data from.
         """

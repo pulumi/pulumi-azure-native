@@ -70,7 +70,13 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The table name. Type: string (or Expression with resultType string).
+        /// The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("table")]
+        public Input<object>? Table { get; set; }
+
+        /// <summary>
+        /// This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
         /// </summary>
         [Input("tableName")]
         public Input<object>? TableName { get; set; }

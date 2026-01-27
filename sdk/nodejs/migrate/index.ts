@@ -150,6 +150,16 @@ export const getMigrateProjectsControllerMigrateProject: typeof import("./getMig
 export const getMigrateProjectsControllerMigrateProjectOutput: typeof import("./getMigrateProjectsControllerMigrateProject").getMigrateProjectsControllerMigrateProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getMigrateProjectsControllerMigrateProject","getMigrateProjectsControllerMigrateProjectOutput"], () => require("./getMigrateProjectsControllerMigrateProject"));
 
+export { GetMigrationEntityArgs, GetMigrationEntityResult, GetMigrationEntityOutputArgs } from "./getMigrationEntity";
+export const getMigrationEntity: typeof import("./getMigrationEntity").getMigrationEntity = null as any;
+export const getMigrationEntityOutput: typeof import("./getMigrationEntity").getMigrationEntityOutput = null as any;
+utilities.lazyLoad(exports, ["getMigrationEntity","getMigrationEntityOutput"], () => require("./getMigrationEntity"));
+
+export { GetMigrationEntityGroupArgs, GetMigrationEntityGroupResult, GetMigrationEntityGroupOutputArgs } from "./getMigrationEntityGroup";
+export const getMigrationEntityGroup: typeof import("./getMigrationEntityGroup").getMigrationEntityGroup = null as any;
+export const getMigrationEntityGroupOutput: typeof import("./getMigrationEntityGroup").getMigrationEntityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getMigrationEntityGroup","getMigrationEntityGroupOutput"], () => require("./getMigrationEntityGroup"));
+
 export { GetModernizeProjectArgs, GetModernizeProjectResult, GetModernizeProjectOutputArgs } from "./getModernizeProject";
 export const getModernizeProject: typeof import("./getModernizeProject").getModernizeProject = null as any;
 export const getModernizeProjectOutput: typeof import("./getModernizeProject").getModernizeProjectOutput = null as any;
@@ -220,6 +230,11 @@ export const getSqlCollectorOperation: typeof import("./getSqlCollectorOperation
 export const getSqlCollectorOperationOutput: typeof import("./getSqlCollectorOperation").getSqlCollectorOperationOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlCollectorOperation","getSqlCollectorOperationOutput"], () => require("./getSqlCollectorOperation"));
 
+export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
+export const getTask: typeof import("./getTask").getTask = null as any;
+export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
+
 export { GetVMwareCollectorArgs, GetVMwareCollectorResult, GetVMwareCollectorOutputArgs } from "./getVMwareCollector";
 export const getVMwareCollector: typeof import("./getVMwareCollector").getVMwareCollector = null as any;
 export const getVMwareCollectorOutput: typeof import("./getVMwareCollector").getVMwareCollectorOutput = null as any;
@@ -229,6 +244,11 @@ export { GetVmwareCollectorsOperationArgs, GetVmwareCollectorsOperationResult, G
 export const getVmwareCollectorsOperation: typeof import("./getVmwareCollectorsOperation").getVmwareCollectorsOperation = null as any;
 export const getVmwareCollectorsOperationOutput: typeof import("./getVmwareCollectorsOperation").getVmwareCollectorsOperationOutput = null as any;
 utilities.lazyLoad(exports, ["getVmwareCollectorsOperation","getVmwareCollectorsOperationOutput"], () => require("./getVmwareCollectorsOperation"));
+
+export { GetWaveArgs, GetWaveResult, GetWaveOutputArgs } from "./getWave";
+export const getWave: typeof import("./getWave").getWave = null as any;
+export const getWaveOutput: typeof import("./getWave").getWaveOutput = null as any;
+utilities.lazyLoad(exports, ["getWave","getWaveOutput"], () => require("./getWave"));
 
 export { GetWebAppAssessmentV2OperationArgs, GetWebAppAssessmentV2OperationResult, GetWebAppAssessmentV2OperationOutputArgs } from "./getWebAppAssessmentV2Operation";
 export const getWebAppAssessmentV2Operation: typeof import("./getWebAppAssessmentV2Operation").getWebAppAssessmentV2Operation = null as any;
@@ -320,6 +340,16 @@ export type MigrateProjectsControllerMigrateProject = import("./migrateProjectsC
 export const MigrateProjectsControllerMigrateProject: typeof import("./migrateProjectsControllerMigrateProject").MigrateProjectsControllerMigrateProject = null as any;
 utilities.lazyLoad(exports, ["MigrateProjectsControllerMigrateProject"], () => require("./migrateProjectsControllerMigrateProject"));
 
+export { MigrationEntityArgs } from "./migrationEntity";
+export type MigrationEntity = import("./migrationEntity").MigrationEntity;
+export const MigrationEntity: typeof import("./migrationEntity").MigrationEntity = null as any;
+utilities.lazyLoad(exports, ["MigrationEntity"], () => require("./migrationEntity"));
+
+export { MigrationEntityGroupArgs } from "./migrationEntityGroup";
+export type MigrationEntityGroup = import("./migrationEntityGroup").MigrationEntityGroup;
+export const MigrationEntityGroup: typeof import("./migrationEntityGroup").MigrationEntityGroup = null as any;
+utilities.lazyLoad(exports, ["MigrationEntityGroup"], () => require("./migrationEntityGroup"));
+
 export { ModernizeProjectArgs } from "./modernizeProject";
 export type ModernizeProject = import("./modernizeProject").ModernizeProject;
 export const ModernizeProject: typeof import("./modernizeProject").ModernizeProject = null as any;
@@ -385,6 +415,11 @@ export type SqlCollectorOperation = import("./sqlCollectorOperation").SqlCollect
 export const SqlCollectorOperation: typeof import("./sqlCollectorOperation").SqlCollectorOperation = null as any;
 utilities.lazyLoad(exports, ["SqlCollectorOperation"], () => require("./sqlCollectorOperation"));
 
+export { TaskArgs } from "./task";
+export type Task = import("./task").Task;
+export const Task: typeof import("./task").Task = null as any;
+utilities.lazyLoad(exports, ["Task"], () => require("./task"));
+
 export { VMwareCollectorArgs } from "./vmwareCollector";
 export type VMwareCollector = import("./vmwareCollector").VMwareCollector;
 export const VMwareCollector: typeof import("./vmwareCollector").VMwareCollector = null as any;
@@ -394,6 +429,11 @@ export { VmwareCollectorsOperationArgs } from "./vmwareCollectorsOperation";
 export type VmwareCollectorsOperation = import("./vmwareCollectorsOperation").VmwareCollectorsOperation;
 export const VmwareCollectorsOperation: typeof import("./vmwareCollectorsOperation").VmwareCollectorsOperation = null as any;
 utilities.lazyLoad(exports, ["VmwareCollectorsOperation"], () => require("./vmwareCollectorsOperation"));
+
+export { WaveArgs } from "./wave";
+export type Wave = import("./wave").Wave;
+export const Wave: typeof import("./wave").Wave = null as any;
+utilities.lazyLoad(exports, ["Wave"], () => require("./wave"));
 
 export { WebAppAssessmentV2OperationArgs } from "./webAppAssessmentV2Operation";
 export type WebAppAssessmentV2Operation = import("./webAppAssessmentV2Operation").WebAppAssessmentV2Operation;
@@ -468,6 +508,10 @@ const _module = {
                 return new MigrateProject(name, <any>undefined, { urn })
             case "azure-native:migrate:MigrateProjectsControllerMigrateProject":
                 return new MigrateProjectsControllerMigrateProject(name, <any>undefined, { urn })
+            case "azure-native:migrate:MigrationEntity":
+                return new MigrationEntity(name, <any>undefined, { urn })
+            case "azure-native:migrate:MigrationEntityGroup":
+                return new MigrationEntityGroup(name, <any>undefined, { urn })
             case "azure-native:migrate:ModernizeProject":
                 return new ModernizeProject(name, <any>undefined, { urn })
             case "azure-native:migrate:MoveCollection":
@@ -494,10 +538,14 @@ const _module = {
                 return new SqlAssessmentV3Operation(name, <any>undefined, { urn })
             case "azure-native:migrate:SqlCollectorOperation":
                 return new SqlCollectorOperation(name, <any>undefined, { urn })
+            case "azure-native:migrate:Task":
+                return new Task(name, <any>undefined, { urn })
             case "azure-native:migrate:VMwareCollector":
                 return new VMwareCollector(name, <any>undefined, { urn })
             case "azure-native:migrate:VmwareCollectorsOperation":
                 return new VmwareCollectorsOperation(name, <any>undefined, { urn })
+            case "azure-native:migrate:Wave":
+                return new Wave(name, <any>undefined, { urn })
             case "azure-native:migrate:WebAppAssessmentV2Operation":
                 return new WebAppAssessmentV2Operation(name, <any>undefined, { urn })
             case "azure-native:migrate:WebAppAssessmentV3Operation":

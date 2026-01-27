@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Properties used to create a user on an Azure Batch node.
+    /// </summary>
     [OutputType]
     public sealed class UserAccountResponse
     {
@@ -21,7 +24,13 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
         /// </summary>
         public readonly Outputs.LinuxUserConfigurationResponse? LinuxUserConfiguration;
+        /// <summary>
+        /// The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The password for the user account.
+        /// </summary>
         public readonly string Password;
         /// <summary>
         /// This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.

@@ -10,6 +10,11 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
+export { ActiveDirectoryConfigArgs } from "./activeDirectoryConfig";
+export type ActiveDirectoryConfig = import("./activeDirectoryConfig").ActiveDirectoryConfig;
+export const ActiveDirectoryConfig: typeof import("./activeDirectoryConfig").ActiveDirectoryConfig = null as any;
+utilities.lazyLoad(exports, ["ActiveDirectoryConfig"], () => require("./activeDirectoryConfig"));
+
 export { BackupArgs } from "./backup";
 export type Backup = import("./backup").Backup;
 export const Backup: typeof import("./backup").Backup = null as any;
@@ -40,6 +45,11 @@ export type CapacityPoolBucket = import("./capacityPoolBucket").CapacityPoolBuck
 export const CapacityPoolBucket: typeof import("./capacityPoolBucket").CapacityPoolBucket = null as any;
 utilities.lazyLoad(exports, ["CapacityPoolBucket"], () => require("./capacityPoolBucket"));
 
+export { CapacityPoolCacheArgs } from "./capacityPoolCache";
+export type CapacityPoolCache = import("./capacityPoolCache").CapacityPoolCache;
+export const CapacityPoolCache: typeof import("./capacityPoolCache").CapacityPoolCache = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolCache"], () => require("./capacityPoolCache"));
+
 export { CapacityPoolSnapshotArgs } from "./capacityPoolSnapshot";
 export type CapacityPoolSnapshot = import("./capacityPoolSnapshot").CapacityPoolSnapshot;
 export const CapacityPoolSnapshot: typeof import("./capacityPoolSnapshot").CapacityPoolSnapshot = null as any;
@@ -60,6 +70,46 @@ export type CapacityPoolVolumeQuotaRule = import("./capacityPoolVolumeQuotaRule"
 export const CapacityPoolVolumeQuotaRule: typeof import("./capacityPoolVolumeQuotaRule").CapacityPoolVolumeQuotaRule = null as any;
 utilities.lazyLoad(exports, ["CapacityPoolVolumeQuotaRule"], () => require("./capacityPoolVolumeQuotaRule"));
 
+export { ElasticAccountArgs } from "./elasticAccount";
+export type ElasticAccount = import("./elasticAccount").ElasticAccount;
+export const ElasticAccount: typeof import("./elasticAccount").ElasticAccount = null as any;
+utilities.lazyLoad(exports, ["ElasticAccount"], () => require("./elasticAccount"));
+
+export { ElasticBackupArgs } from "./elasticBackup";
+export type ElasticBackup = import("./elasticBackup").ElasticBackup;
+export const ElasticBackup: typeof import("./elasticBackup").ElasticBackup = null as any;
+utilities.lazyLoad(exports, ["ElasticBackup"], () => require("./elasticBackup"));
+
+export { ElasticBackupPolicyArgs } from "./elasticBackupPolicy";
+export type ElasticBackupPolicy = import("./elasticBackupPolicy").ElasticBackupPolicy;
+export const ElasticBackupPolicy: typeof import("./elasticBackupPolicy").ElasticBackupPolicy = null as any;
+utilities.lazyLoad(exports, ["ElasticBackupPolicy"], () => require("./elasticBackupPolicy"));
+
+export { ElasticBackupVaultArgs } from "./elasticBackupVault";
+export type ElasticBackupVault = import("./elasticBackupVault").ElasticBackupVault;
+export const ElasticBackupVault: typeof import("./elasticBackupVault").ElasticBackupVault = null as any;
+utilities.lazyLoad(exports, ["ElasticBackupVault"], () => require("./elasticBackupVault"));
+
+export { ElasticCapacityPoolArgs } from "./elasticCapacityPool";
+export type ElasticCapacityPool = import("./elasticCapacityPool").ElasticCapacityPool;
+export const ElasticCapacityPool: typeof import("./elasticCapacityPool").ElasticCapacityPool = null as any;
+utilities.lazyLoad(exports, ["ElasticCapacityPool"], () => require("./elasticCapacityPool"));
+
+export { ElasticSnapshotArgs } from "./elasticSnapshot";
+export type ElasticSnapshot = import("./elasticSnapshot").ElasticSnapshot;
+export const ElasticSnapshot: typeof import("./elasticSnapshot").ElasticSnapshot = null as any;
+utilities.lazyLoad(exports, ["ElasticSnapshot"], () => require("./elasticSnapshot"));
+
+export { ElasticSnapshotPolicyArgs } from "./elasticSnapshotPolicy";
+export type ElasticSnapshotPolicy = import("./elasticSnapshotPolicy").ElasticSnapshotPolicy;
+export const ElasticSnapshotPolicy: typeof import("./elasticSnapshotPolicy").ElasticSnapshotPolicy = null as any;
+utilities.lazyLoad(exports, ["ElasticSnapshotPolicy"], () => require("./elasticSnapshotPolicy"));
+
+export { ElasticVolumeArgs } from "./elasticVolume";
+export type ElasticVolume = import("./elasticVolume").ElasticVolume;
+export const ElasticVolume: typeof import("./elasticVolume").ElasticVolume = null as any;
+utilities.lazyLoad(exports, ["ElasticVolume"], () => require("./elasticVolume"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -74,6 +124,11 @@ export { GetAccountKeyVaultStatusArgs, GetAccountKeyVaultStatusResult, GetAccoun
 export const getAccountKeyVaultStatus: typeof import("./getAccountKeyVaultStatus").getAccountKeyVaultStatus = null as any;
 export const getAccountKeyVaultStatusOutput: typeof import("./getAccountKeyVaultStatus").getAccountKeyVaultStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getAccountKeyVaultStatus","getAccountKeyVaultStatusOutput"], () => require("./getAccountKeyVaultStatus"));
+
+export { GetActiveDirectoryConfigArgs, GetActiveDirectoryConfigResult, GetActiveDirectoryConfigOutputArgs } from "./getActiveDirectoryConfig";
+export const getActiveDirectoryConfig: typeof import("./getActiveDirectoryConfig").getActiveDirectoryConfig = null as any;
+export const getActiveDirectoryConfigOutput: typeof import("./getActiveDirectoryConfig").getActiveDirectoryConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getActiveDirectoryConfig","getActiveDirectoryConfigOutput"], () => require("./getActiveDirectoryConfig"));
 
 export { GetBackupArgs, GetBackupResult, GetBackupOutputArgs } from "./getBackup";
 export const getBackup: typeof import("./getBackup").getBackup = null as any;
@@ -105,6 +160,11 @@ export const getCapacityPoolBucket: typeof import("./getCapacityPoolBucket").get
 export const getCapacityPoolBucketOutput: typeof import("./getCapacityPoolBucket").getCapacityPoolBucketOutput = null as any;
 utilities.lazyLoad(exports, ["getCapacityPoolBucket","getCapacityPoolBucketOutput"], () => require("./getCapacityPoolBucket"));
 
+export { GetCapacityPoolCacheArgs, GetCapacityPoolCacheResult, GetCapacityPoolCacheOutputArgs } from "./getCapacityPoolCache";
+export const getCapacityPoolCache: typeof import("./getCapacityPoolCache").getCapacityPoolCache = null as any;
+export const getCapacityPoolCacheOutput: typeof import("./getCapacityPoolCache").getCapacityPoolCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolCache","getCapacityPoolCacheOutput"], () => require("./getCapacityPoolCache"));
+
 export { GetCapacityPoolSnapshotArgs, GetCapacityPoolSnapshotResult, GetCapacityPoolSnapshotOutputArgs } from "./getCapacityPoolSnapshot";
 export const getCapacityPoolSnapshot: typeof import("./getCapacityPoolSnapshot").getCapacityPoolSnapshot = null as any;
 export const getCapacityPoolSnapshotOutput: typeof import("./getCapacityPoolSnapshot").getCapacityPoolSnapshotOutput = null as any;
@@ -135,6 +195,46 @@ export const getCapacityPoolVolumeQuotaRule: typeof import("./getCapacityPoolVol
 export const getCapacityPoolVolumeQuotaRuleOutput: typeof import("./getCapacityPoolVolumeQuotaRule").getCapacityPoolVolumeQuotaRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getCapacityPoolVolumeQuotaRule","getCapacityPoolVolumeQuotaRuleOutput"], () => require("./getCapacityPoolVolumeQuotaRule"));
 
+export { GetElasticAccountArgs, GetElasticAccountResult, GetElasticAccountOutputArgs } from "./getElasticAccount";
+export const getElasticAccount: typeof import("./getElasticAccount").getElasticAccount = null as any;
+export const getElasticAccountOutput: typeof import("./getElasticAccount").getElasticAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticAccount","getElasticAccountOutput"], () => require("./getElasticAccount"));
+
+export { GetElasticBackupArgs, GetElasticBackupResult, GetElasticBackupOutputArgs } from "./getElasticBackup";
+export const getElasticBackup: typeof import("./getElasticBackup").getElasticBackup = null as any;
+export const getElasticBackupOutput: typeof import("./getElasticBackup").getElasticBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticBackup","getElasticBackupOutput"], () => require("./getElasticBackup"));
+
+export { GetElasticBackupPolicyArgs, GetElasticBackupPolicyResult, GetElasticBackupPolicyOutputArgs } from "./getElasticBackupPolicy";
+export const getElasticBackupPolicy: typeof import("./getElasticBackupPolicy").getElasticBackupPolicy = null as any;
+export const getElasticBackupPolicyOutput: typeof import("./getElasticBackupPolicy").getElasticBackupPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticBackupPolicy","getElasticBackupPolicyOutput"], () => require("./getElasticBackupPolicy"));
+
+export { GetElasticBackupVaultArgs, GetElasticBackupVaultResult, GetElasticBackupVaultOutputArgs } from "./getElasticBackupVault";
+export const getElasticBackupVault: typeof import("./getElasticBackupVault").getElasticBackupVault = null as any;
+export const getElasticBackupVaultOutput: typeof import("./getElasticBackupVault").getElasticBackupVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticBackupVault","getElasticBackupVaultOutput"], () => require("./getElasticBackupVault"));
+
+export { GetElasticCapacityPoolArgs, GetElasticCapacityPoolResult, GetElasticCapacityPoolOutputArgs } from "./getElasticCapacityPool";
+export const getElasticCapacityPool: typeof import("./getElasticCapacityPool").getElasticCapacityPool = null as any;
+export const getElasticCapacityPoolOutput: typeof import("./getElasticCapacityPool").getElasticCapacityPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticCapacityPool","getElasticCapacityPoolOutput"], () => require("./getElasticCapacityPool"));
+
+export { GetElasticSnapshotArgs, GetElasticSnapshotResult, GetElasticSnapshotOutputArgs } from "./getElasticSnapshot";
+export const getElasticSnapshot: typeof import("./getElasticSnapshot").getElasticSnapshot = null as any;
+export const getElasticSnapshotOutput: typeof import("./getElasticSnapshot").getElasticSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticSnapshot","getElasticSnapshotOutput"], () => require("./getElasticSnapshot"));
+
+export { GetElasticSnapshotPolicyArgs, GetElasticSnapshotPolicyResult, GetElasticSnapshotPolicyOutputArgs } from "./getElasticSnapshotPolicy";
+export const getElasticSnapshotPolicy: typeof import("./getElasticSnapshotPolicy").getElasticSnapshotPolicy = null as any;
+export const getElasticSnapshotPolicyOutput: typeof import("./getElasticSnapshotPolicy").getElasticSnapshotPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticSnapshotPolicy","getElasticSnapshotPolicyOutput"], () => require("./getElasticSnapshotPolicy"));
+
+export { GetElasticVolumeArgs, GetElasticVolumeResult, GetElasticVolumeOutputArgs } from "./getElasticVolume";
+export const getElasticVolume: typeof import("./getElasticVolume").getElasticVolume = null as any;
+export const getElasticVolumeOutput: typeof import("./getElasticVolume").getElasticVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticVolume","getElasticVolumeOutput"], () => require("./getElasticVolume"));
+
 export { GetSnapshotPolicyArgs, GetSnapshotPolicyResult, GetSnapshotPolicyOutputArgs } from "./getSnapshotPolicy";
 export const getSnapshotPolicy: typeof import("./getSnapshotPolicy").getSnapshotPolicy = null as any;
 export const getSnapshotPolicyOutput: typeof import("./getSnapshotPolicy").getSnapshotPolicyOutput = null as any;
@@ -144,6 +244,11 @@ export { GetVolumeGroupArgs, GetVolumeGroupResult, GetVolumeGroupOutputArgs } fr
 export const getVolumeGroup: typeof import("./getVolumeGroup").getVolumeGroup = null as any;
 export const getVolumeGroupOutput: typeof import("./getVolumeGroup").getVolumeGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
+
+export { ListCapacityPoolCachePeeringPassphrasesArgs, ListCapacityPoolCachePeeringPassphrasesResult, ListCapacityPoolCachePeeringPassphrasesOutputArgs } from "./listCapacityPoolCachePeeringPassphrases";
+export const listCapacityPoolCachePeeringPassphrases: typeof import("./listCapacityPoolCachePeeringPassphrases").listCapacityPoolCachePeeringPassphrases = null as any;
+export const listCapacityPoolCachePeeringPassphrasesOutput: typeof import("./listCapacityPoolCachePeeringPassphrases").listCapacityPoolCachePeeringPassphrasesOutput = null as any;
+utilities.lazyLoad(exports, ["listCapacityPoolCachePeeringPassphrases","listCapacityPoolCachePeeringPassphrasesOutput"], () => require("./listCapacityPoolCachePeeringPassphrases"));
 
 export { ListCapacityPoolVolumeQuotaReportArgs, ListCapacityPoolVolumeQuotaReportResult, ListCapacityPoolVolumeQuotaReportOutputArgs } from "./listCapacityPoolVolumeQuotaReport";
 export const listCapacityPoolVolumeQuotaReport: typeof import("./listCapacityPoolVolumeQuotaReport").listCapacityPoolVolumeQuotaReport = null as any;
@@ -175,6 +280,8 @@ const _module = {
         switch (type) {
             case "azure-native:netapp:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure-native:netapp:ActiveDirectoryConfig":
+                return new ActiveDirectoryConfig(name, <any>undefined, { urn })
             case "azure-native:netapp:Backup":
                 return new Backup(name, <any>undefined, { urn })
             case "azure-native:netapp:BackupPolicy":
@@ -187,6 +294,8 @@ const _module = {
                 return new CapacityPoolBackup(name, <any>undefined, { urn })
             case "azure-native:netapp:CapacityPoolBucket":
                 return new CapacityPoolBucket(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolCache":
+                return new CapacityPoolCache(name, <any>undefined, { urn })
             case "azure-native:netapp:CapacityPoolSnapshot":
                 return new CapacityPoolSnapshot(name, <any>undefined, { urn })
             case "azure-native:netapp:CapacityPoolSubvolume":
@@ -195,6 +304,22 @@ const _module = {
                 return new CapacityPoolVolume(name, <any>undefined, { urn })
             case "azure-native:netapp:CapacityPoolVolumeQuotaRule":
                 return new CapacityPoolVolumeQuotaRule(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticAccount":
+                return new ElasticAccount(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticBackup":
+                return new ElasticBackup(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticBackupPolicy":
+                return new ElasticBackupPolicy(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticBackupVault":
+                return new ElasticBackupVault(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticCapacityPool":
+                return new ElasticCapacityPool(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticSnapshot":
+                return new ElasticSnapshot(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticSnapshotPolicy":
+                return new ElasticSnapshotPolicy(name, <any>undefined, { urn })
+            case "azure-native:netapp:ElasticVolume":
+                return new ElasticVolume(name, <any>undefined, { urn })
             case "azure-native:netapp:SnapshotPolicy":
                 return new SnapshotPolicy(name, <any>undefined, { urn })
             case "azure-native:netapp:VolumeGroup":

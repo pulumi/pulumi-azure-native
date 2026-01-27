@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Retrieves the properties of an existing Azure Cosmos DB Cassandra Role Definition with the given Id.
  *
  * Uses Azure REST API version 2025-05-01-preview.
+ *
+ * Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCassandraResourceCassandraRoleDefinition(args: GetCassandraResourceCassandraRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +79,8 @@ export interface GetCassandraResourceCassandraRoleDefinitionResult {
  * Retrieves the properties of an existing Azure Cosmos DB Cassandra Role Definition with the given Id.
  *
  * Uses Azure REST API version 2025-05-01-preview.
+ *
+ * Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCassandraResourceCassandraRoleDefinitionOutput(args: GetCassandraResourceCassandraRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCassandraResourceCassandraRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

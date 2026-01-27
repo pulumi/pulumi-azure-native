@@ -17,6 +17,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
         /// </summary>
         public readonly Outputs.VMDiskSecurityProfileResponse? SecurityProfile;
+        /// <summary>
+        /// The storage account type for use in creating data disks or OS disk.
+        /// </summary>
         public readonly string? StorageAccountType;
 
         [OutputConstructor]

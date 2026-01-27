@@ -59,6 +59,8 @@ def list_client_application_secrets(client_application_id: Optional[_builtins.st
 
     Uses Azure REST API version 2024-10-01-preview.
 
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -81,6 +83,8 @@ def list_client_application_secrets_output(client_application_id: Optional[pulum
     Retrived client application secrets.
 
     Uses Azure REST API version 2024-10-01-preview.
+
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str client_application_id: Client Application identifier. Must be unique in the current API Management service instance.

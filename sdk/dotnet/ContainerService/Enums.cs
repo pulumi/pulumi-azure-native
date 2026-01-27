@@ -821,6 +821,51 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+    /// </summary>
+    [EnumType]
+    public readonly struct LabelSelectorOperator : IEquatable<LabelSelectorOperator>
+    {
+        private readonly string _value;
+
+        private LabelSelectorOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Label Selector Operator In
+        /// </summary>
+        public static LabelSelectorOperator In { get; } = new LabelSelectorOperator("In");
+        /// <summary>
+        /// Label Selector Operator NotIn
+        /// </summary>
+        public static LabelSelectorOperator NotIn { get; } = new LabelSelectorOperator("NotIn");
+        /// <summary>
+        /// Label Selector Operator Exists
+        /// </summary>
+        public static LabelSelectorOperator Exists { get; } = new LabelSelectorOperator("Exists");
+        /// <summary>
+        /// Label Selector Operator DoesNotExist
+        /// </summary>
+        public static LabelSelectorOperator DoesNotExist { get; } = new LabelSelectorOperator("DoesNotExist");
+
+        public static bool operator ==(LabelSelectorOperator left, LabelSelectorOperator right) => left.Equals(right);
+        public static bool operator !=(LabelSelectorOperator left, LabelSelectorOperator right) => !left.Equals(right);
+
+        public static explicit operator string(LabelSelectorOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LabelSelectorOperator other && Equals(other);
+        public bool Equals(LabelSelectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
     /// </summary>
     [EnumType]
@@ -887,6 +932,240 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LoadBalancerSku other && Equals(other);
         public bool Equals(LoadBalancerSku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Destination server for DNS queries to be forwarded from localDNS.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocalDNSForwardDestination : IEquatable<LocalDNSForwardDestination>
+    {
+        private readonly string _value;
+
+        private LocalDNSForwardDestination(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Forward DNS queries from localDNS to cluster CoreDNS.
+        /// </summary>
+        public static LocalDNSForwardDestination ClusterCoreDNS { get; } = new LocalDNSForwardDestination("ClusterCoreDNS");
+        /// <summary>
+        /// Forward DNS queries from localDNS to DNS server configured in the VNET. A VNET can have multiple DNS servers configured.
+        /// </summary>
+        public static LocalDNSForwardDestination VnetDNS { get; } = new LocalDNSForwardDestination("VnetDNS");
+
+        public static bool operator ==(LocalDNSForwardDestination left, LocalDNSForwardDestination right) => left.Equals(right);
+        public static bool operator !=(LocalDNSForwardDestination left, LocalDNSForwardDestination right) => !left.Equals(right);
+
+        public static explicit operator string(LocalDNSForwardDestination value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocalDNSForwardDestination other && Equals(other);
+        public bool Equals(LocalDNSForwardDestination other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocalDNSForwardPolicy : IEquatable<LocalDNSForwardPolicy>
+    {
+        private readonly string _value;
+
+        private LocalDNSForwardPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Implements sequential upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+        /// </summary>
+        public static LocalDNSForwardPolicy Sequential { get; } = new LocalDNSForwardPolicy("Sequential");
+        /// <summary>
+        /// Implements round robin upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+        /// </summary>
+        public static LocalDNSForwardPolicy RoundRobin { get; } = new LocalDNSForwardPolicy("RoundRobin");
+        /// <summary>
+        /// Implements random upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+        /// </summary>
+        public static LocalDNSForwardPolicy Random { get; } = new LocalDNSForwardPolicy("Random");
+
+        public static bool operator ==(LocalDNSForwardPolicy left, LocalDNSForwardPolicy right) => left.Equals(right);
+        public static bool operator !=(LocalDNSForwardPolicy left, LocalDNSForwardPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(LocalDNSForwardPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocalDNSForwardPolicy other && Equals(other);
+        public bool Equals(LocalDNSForwardPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Mode of enablement for localDNS.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocalDNSMode : IEquatable<LocalDNSMode>
+    {
+        private readonly string _value;
+
+        private LocalDNSMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// If the current orchestrator version supports this feature, prefer enabling localDNS.
+        /// </summary>
+        public static LocalDNSMode Preferred { get; } = new LocalDNSMode("Preferred");
+        /// <summary>
+        /// Enable localDNS.
+        /// </summary>
+        public static LocalDNSMode Required { get; } = new LocalDNSMode("Required");
+        /// <summary>
+        /// Disable localDNS.
+        /// </summary>
+        public static LocalDNSMode Disabled { get; } = new LocalDNSMode("Disabled");
+
+        public static bool operator ==(LocalDNSMode left, LocalDNSMode right) => left.Equals(right);
+        public static bool operator !=(LocalDNSMode left, LocalDNSMode right) => !left.Equals(right);
+
+        public static explicit operator string(LocalDNSMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocalDNSMode other && Equals(other);
+        public bool Equals(LocalDNSMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enforce TCP or prefer UDP protocol for connections from localDNS to upstream DNS server.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocalDNSProtocol : IEquatable<LocalDNSProtocol>
+    {
+        private readonly string _value;
+
+        private LocalDNSProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Prefer UDP protocol for connections from localDNS to upstream DNS server.
+        /// </summary>
+        public static LocalDNSProtocol PreferUDP { get; } = new LocalDNSProtocol("PreferUDP");
+        /// <summary>
+        /// Enforce TCP protocol for connections from localDNS to upstream DNS server.
+        /// </summary>
+        public static LocalDNSProtocol ForceTCP { get; } = new LocalDNSProtocol("ForceTCP");
+
+        public static bool operator ==(LocalDNSProtocol left, LocalDNSProtocol right) => left.Equals(right);
+        public static bool operator !=(LocalDNSProtocol left, LocalDNSProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(LocalDNSProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocalDNSProtocol other && Equals(other);
+        public bool Equals(LocalDNSProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Log level for DNS queries in localDNS.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocalDNSQueryLogging : IEquatable<LocalDNSQueryLogging>
+    {
+        private readonly string _value;
+
+        private LocalDNSQueryLogging(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enables error logging in localDNS. See [errors plugin](https://coredns.io/plugins/errors) for more information.
+        /// </summary>
+        public static LocalDNSQueryLogging Error { get; } = new LocalDNSQueryLogging("Error");
+        /// <summary>
+        /// Enables query logging in localDNS. See [log plugin](https://coredns.io/plugins/log) for more information.
+        /// </summary>
+        public static LocalDNSQueryLogging Log { get; } = new LocalDNSQueryLogging("Log");
+
+        public static bool operator ==(LocalDNSQueryLogging left, LocalDNSQueryLogging right) => left.Equals(right);
+        public static bool operator !=(LocalDNSQueryLogging left, LocalDNSQueryLogging right) => !left.Equals(right);
+
+        public static explicit operator string(LocalDNSQueryLogging value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocalDNSQueryLogging other && Equals(other);
+        public bool Equals(LocalDNSQueryLogging other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Policy for serving stale data. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocalDNSServeStale : IEquatable<LocalDNSServeStale>
+    {
+        private readonly string _value;
+
+        private LocalDNSServeStale(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Serve stale data with verification. First verify that an entry is still unavailable from the source before sending the expired entry to the client. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+        /// </summary>
+        public static LocalDNSServeStale Verify { get; } = new LocalDNSServeStale("Verify");
+        /// <summary>
+        /// Serve stale data immediately. Send the expired entry to the client before checking to see if the entry is available from the source. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+        /// </summary>
+        public static LocalDNSServeStale Immediate { get; } = new LocalDNSServeStale("Immediate");
+        /// <summary>
+        /// Disable serving stale data.
+        /// </summary>
+        public static LocalDNSServeStale Disable { get; } = new LocalDNSServeStale("Disable");
+
+        public static bool operator ==(LocalDNSServeStale left, LocalDNSServeStale right) => left.Equals(right);
+        public static bool operator !=(LocalDNSServeStale left, LocalDNSServeStale right) => !left.Equals(right);
+
+        public static explicit operator string(LocalDNSServeStale value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocalDNSServeStale other && Equals(other);
+        public bool Equals(LocalDNSServeStale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1670,6 +1949,43 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlacementType : IEquatable<PlacementType>
+    {
+        private readonly string _value;
+
+        private PlacementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// PickAll picks all clusters that satisfy the rules.
+        /// </summary>
+        public static PlacementType PickAll { get; } = new PlacementType("PickAll");
+        /// <summary>
+        /// PickFixed picks a fixed set of clusters.
+        /// </summary>
+        public static PlacementType PickFixed { get; } = new PlacementType("PickFixed");
+
+        public static bool operator ==(PlacementType left, PlacementType right) => left.Equals(right);
+        public static bool operator !=(PlacementType left, PlacementType right) => !left.Equals(right);
+
+        public static explicit operator string(PlacementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlacementType other && Equals(other);
+        public bool Equals(PlacementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
     /// </summary>
     [EnumType]
@@ -1740,6 +2056,92 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyRule other && Equals(other);
         public bool Equals(PolicyRule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the policy to be used. Default is Placement.
+    /// </summary>
+    [EnumType]
+    public readonly struct PropagationType : IEquatable<PropagationType>
+    {
+        private readonly string _value;
+
+        private PropagationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Using ClusterResourcePlacement.
+        /// </summary>
+        public static PropagationType Placement { get; } = new PropagationType("Placement");
+
+        public static bool operator ==(PropagationType left, PropagationType right) => left.Equals(right);
+        public static bool operator !=(PropagationType left, PropagationType right) => !left.Equals(right);
+
+        public static explicit operator string(PropagationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PropagationType other && Equals(other);
+        public bool Equals(PropagationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+    /// </summary>
+    [EnumType]
+    public readonly struct PropertySelectorOperator : IEquatable<PropertySelectorOperator>
+    {
+        private readonly string _value;
+
+        private PropertySelectorOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Gt dictates Fleet to select cluster if its observed value of a given property is greater than the value specified in the requirement.
+        /// </summary>
+        public static PropertySelectorOperator Gt { get; } = new PropertySelectorOperator("Gt");
+        /// <summary>
+        /// Ge dictates Fleet to select cluster if its observed value of a given property is greater than or equal to the value specified in the requirement.
+        /// </summary>
+        public static PropertySelectorOperator Ge { get; } = new PropertySelectorOperator("Ge");
+        /// <summary>
+        /// Eq dictates Fleet to select cluster if its observed value of a given property is equal to the values specified in the requirement.
+        /// </summary>
+        public static PropertySelectorOperator Eq { get; } = new PropertySelectorOperator("Eq");
+        /// <summary>
+        /// Ne dictates Fleet to select cluster if its observed value of a given property is not equal to the values specified in the requirement.
+        /// </summary>
+        public static PropertySelectorOperator Ne { get; } = new PropertySelectorOperator("Ne");
+        /// <summary>
+        /// Lt dictates Fleet to select cluster if its observed value of a given property is less than the value specified in the requirement.
+        /// </summary>
+        public static PropertySelectorOperator Lt { get; } = new PropertySelectorOperator("Lt");
+        /// <summary>
+        /// Le dictates Fleet to select cluster if its observed value of a given property is less than or equal to the value specified in the requirement.
+        /// </summary>
+        public static PropertySelectorOperator Le { get; } = new PropertySelectorOperator("Le");
+
+        public static bool operator ==(PropertySelectorOperator left, PropertySelectorOperator right) => left.Equals(right);
+        public static bool operator !=(PropertySelectorOperator left, PropertySelectorOperator right) => !left.Equals(right);
+
+        public static explicit operator string(PropertySelectorOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PropertySelectorOperator other && Equals(other);
+        public bool Equals(PropertySelectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2112,6 +2514,76 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaintEffect : IEquatable<TaintEffect>
+    {
+        private readonly string _value;
+
+        private TaintEffect(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.
+        /// </summary>
+        public static TaintEffect NoSchedule { get; } = new TaintEffect("NoSchedule");
+
+        public static bool operator ==(TaintEffect left, TaintEffect right) => left.Equals(right);
+        public static bool operator !=(TaintEffect left, TaintEffect right) => !left.Equals(right);
+
+        public static explicit operator string(TaintEffect value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaintEffect other && Equals(other);
+        public bool Equals(TaintEffect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+    /// </summary>
+    [EnumType]
+    public readonly struct TolerationOperator : IEquatable<TolerationOperator>
+    {
+        private readonly string _value;
+
+        private TolerationOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Toleration Operator Exists
+        /// </summary>
+        public static TolerationOperator Exists { get; } = new TolerationOperator("Exists");
+        /// <summary>
+        /// Toleration Operator Equal
+        /// </summary>
+        public static TolerationOperator Equal { get; } = new TolerationOperator("Equal");
+
+        public static bool operator ==(TolerationOperator left, TolerationOperator right) => left.Equals(right);
+        public static bool operator !=(TolerationOperator left, TolerationOperator right) => !left.Equals(right);
+
+        public static explicit operator string(TolerationOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TolerationOperator other && Equals(other);
+        public bool Equals(TolerationOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The week index. Specifies on which week of the month the dayOfWeek applies.
     /// </summary>
     [EnumType]
@@ -2303,6 +2775,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// Nodes will use Krustlet to run WASM workloads using the WASI provider (Preview).
         /// </summary>
         public static WorkloadRuntime WasmWasi { get; } = new WorkloadRuntime("WasmWasi");
+        /// <summary>
+        /// Nodes can use (Kata + Cloud Hypervisor + Hyper-V) to enable Nested VM-based pods. Due to the use Hyper-V, AKS node OS itself is a nested VM (the root OS) of Hyper-V. Thus it can only be used with VM series that support Nested Virtualization such as Dv3 series.
+        /// </summary>
+        public static WorkloadRuntime KataVmIsolation { get; } = new WorkloadRuntime("KataVmIsolation");
 
         public static bool operator ==(WorkloadRuntime left, WorkloadRuntime right) => left.Equals(right);
         public static bool operator !=(WorkloadRuntime left, WorkloadRuntime right) => !left.Equals(right);

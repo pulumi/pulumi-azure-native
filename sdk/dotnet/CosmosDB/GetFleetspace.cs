@@ -14,7 +14,9 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB fleetspace under a fleet
         /// 
-        /// Uses Azure REST API version 2025-05-01-preview.
+        /// Uses Azure REST API version 2025-10-15.
+        /// 
+        /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFleetspaceResult> InvokeAsync(GetFleetspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetspaceResult>("azure-native:cosmosdb:getFleetspace", args ?? new GetFleetspaceArgs(), options.WithDefaults());
@@ -22,7 +24,9 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB fleetspace under a fleet
         /// 
-        /// Uses Azure REST API version 2025-05-01-preview.
+        /// Uses Azure REST API version 2025-10-15.
+        /// 
+        /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFleetspaceResult> Invoke(GetFleetspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetspaceResult>("azure-native:cosmosdb:getFleetspace", args ?? new GetFleetspaceInvokeArgs(), options.WithDefaults());
@@ -30,7 +34,9 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB fleetspace under a fleet
         /// 
-        /// Uses Azure REST API version 2025-05-01-preview.
+        /// Uses Azure REST API version 2025-10-15.
+        /// 
+        /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFleetspaceResult> Invoke(GetFleetspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetspaceResult>("azure-native:cosmosdb:getFleetspace", args ?? new GetFleetspaceInvokeArgs(), options.WithDefaults());
@@ -98,6 +104,10 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
+        /// List of data regions assigned to the fleetspace. Eg [westus2]
+        /// </summary>
+        public readonly ImmutableArray<string> DataRegions;
+        /// <summary>
         /// The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
         /// </summary>
         public readonly string? FleetspaceApiKind;
@@ -113,6 +123,10 @@ namespace Pulumi.AzureNative.CosmosDB
         /// A provisioning state of the Fleetspace.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        /// </summary>
+        public readonly string? ServiceTier;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -130,6 +144,8 @@ namespace Pulumi.AzureNative.CosmosDB
         private GetFleetspaceResult(
             string azureApiVersion,
 
+            ImmutableArray<string> dataRegions,
+
             string? fleetspaceApiKind,
 
             string id,
@@ -138,6 +154,8 @@ namespace Pulumi.AzureNative.CosmosDB
 
             string provisioningState,
 
+            string? serviceTier,
+
             Outputs.SystemDataResponse systemData,
 
             Outputs.FleetspacePropertiesResponseThroughputPoolConfiguration? throughputPoolConfiguration,
@@ -145,10 +163,12 @@ namespace Pulumi.AzureNative.CosmosDB
             string type)
         {
             AzureApiVersion = azureApiVersion;
+            DataRegions = dataRegions;
             FleetspaceApiKind = fleetspaceApiKind;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            ServiceTier = serviceTier;
             SystemData = systemData;
             ThroughputPoolConfiguration = throughputPoolConfiguration;
             Type = type;

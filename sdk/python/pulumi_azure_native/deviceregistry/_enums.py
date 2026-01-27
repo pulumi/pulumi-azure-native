@@ -18,6 +18,7 @@ __all__ = [
     'NamespaceDiscoveredManagementActionType',
     'SchemaType',
     'StreamDestinationTarget',
+    'SupportedKeyType',
     'SystemAssignedServiceIdentityType',
     'TopicRetainType',
 ]
@@ -209,6 +210,17 @@ class StreamDestinationTarget(_builtins.str, Enum):
     STORAGE = "Storage"
     """
     Storage target.
+    """
+
+
+@pulumi.type_token("azure-native:deviceregistry:SupportedKeyType")
+class SupportedKeyType(_builtins.str, Enum):
+    """
+    Crypto type: ECC.
+    """
+    ECC = "ECC"
+    """
+    Indicates the ECC key type.
     """
 
 

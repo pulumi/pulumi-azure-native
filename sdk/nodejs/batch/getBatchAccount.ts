@@ -24,11 +24,11 @@ export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeO
 
 export interface GetBatchAccountArgs {
     /**
-     * The name of the Batch account.
+     * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
     accountName: string;
     /**
-     * The name of the resource group that contains the Batch account.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -41,6 +41,9 @@ export interface GetBatchAccountResult {
      * The account endpoint used to interact with the Batch service.
      */
     readonly accountEndpoint: string;
+    /**
+     * The active job and job schedule quota for the Batch account.
+     */
     readonly activeJobAndJobScheduleQuota: number;
     /**
      * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
@@ -71,7 +74,7 @@ export interface GetBatchAccountResult {
      */
     readonly encryption: outputs.batch.EncryptionPropertiesResponse;
     /**
-     * The ID of the resource.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -83,7 +86,7 @@ export interface GetBatchAccountResult {
      */
     readonly keyVaultReference: outputs.batch.KeyVaultReferenceResponse;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -91,7 +94,7 @@ export interface GetBatchAccountResult {
      */
     readonly lowPriorityCoreQuota: number;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -106,6 +109,9 @@ export interface GetBatchAccountResult {
      * The allocation mode for creating pools in the Batch account.
      */
     readonly poolAllocationMode: string;
+    /**
+     * The pool quota for the Batch account.
+     */
     readonly poolQuota: number;
     /**
      * List of private endpoint connections associated with the Batch account
@@ -116,15 +122,19 @@ export interface GetBatchAccountResult {
      */
     readonly provisioningState: string;
     /**
-     * If not specified, the default value is 'enabled'.
+     * The network access type for operating on the resources in the Batch account.
      */
     readonly publicNetworkAccess?: string;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly tags: {[key: string]: string};
+    readonly systemData: outputs.batch.SystemDataResponse;
     /**
-     * The type of the resource.
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -145,11 +155,11 @@ export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pu
 
 export interface GetBatchAccountOutputArgs {
     /**
-     * The name of the Batch account.
+     * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the Batch account.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

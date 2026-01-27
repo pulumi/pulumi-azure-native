@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Retrieves details of this Network Tap.
         /// 
         /// Uses Azure REST API version 2023-06-15.
+        /// 
+        /// Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNetworkTapResult> InvokeAsync(GetNetworkTapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkTapResult>("azure-native:managednetworkfabric:getNetworkTap", args ?? new GetNetworkTapArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Retrieves details of this Network Tap.
         /// 
         /// Uses Azure REST API version 2023-06-15.
+        /// 
+        /// Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkTapResult> Invoke(GetNetworkTapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkTapResult>("azure-native:managednetworkfabric:getNetworkTap", args ?? new GetNetworkTapInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Retrieves details of this Network Tap.
         /// 
         /// Uses Azure REST API version 2023-06-15.
+        /// 
+        /// Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkTapResult> Invoke(GetNetworkTapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkTapResult>("azure-native:managednetworkfabric:getNetworkTap", args ?? new GetNetworkTapInvokeArgs(), options.WithDefaults());

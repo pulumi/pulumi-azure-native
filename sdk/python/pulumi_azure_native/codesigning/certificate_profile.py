@@ -305,6 +305,7 @@ class CertificateProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["certificates"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
@@ -335,6 +336,7 @@ class CertificateProfile(pulumi.CustomResource):
         __props__ = CertificateProfileArgs.__new__(CertificateProfileArgs)
 
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["certificates"] = None
         __props__.__dict__["identity_validation_id"] = None
         __props__.__dict__["include_city"] = None
         __props__.__dict__["include_country"] = None
@@ -356,6 +358,14 @@ class CertificateProfile(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Output[Sequence['outputs.CertificateResponse']]:
+        """
+        List of renewed certificates.
+        """
+        return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter(name="identityValidationId")

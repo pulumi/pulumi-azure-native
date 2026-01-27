@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Specifies how tasks should be distributed across compute nodes.
+    /// </summary>
     [OutputType]
     public sealed class TaskSchedulingPolicyResponse
     {
+        /// <summary>
+        /// How tasks should be distributed across compute nodes.
+        /// </summary>
         public readonly string NodeFillType;
 
         [OutputConstructor]

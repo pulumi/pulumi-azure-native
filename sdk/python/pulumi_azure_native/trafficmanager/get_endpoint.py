@@ -101,7 +101,7 @@ class GetEndpointResult:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']]:
+    def custom_headers(self) -> Optional[Sequence['outputs.EndpointPropertiesCustomHeadersItemResponse']]:
         """
         List of custom headers.
         """
@@ -189,7 +189,7 @@ class GetEndpointResult:
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[Sequence['outputs.EndpointPropertiesResponseSubnets']]:
+    def subnets(self) -> Optional[Sequence['outputs.EndpointPropertiesSubnetsItemResponse']]:
         """
         The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         """

@@ -22,44 +22,23 @@ __all__ = ['TargetArgs', 'Target']
 @pulumi.input_type
 class TargetArgs:
     def __init__(__self__, *,
-                 connection_server_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']],
-                 target_type: pulumi.Input[_builtins.str],
                  watcher_name: pulumi.Input[_builtins.str],
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
+                 properties: Optional[pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]] = None,
+                 target_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
-        :param pulumi.Input[_builtins.str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
-        :param pulumi.Input[_builtins.str] target_type: Discriminator property for TargetProperties.
         :param pulumi.Input[_builtins.str] watcher_name: The database watcher name.
+        :param pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] target_name: The target resource name.
-        :param pulumi.Input['VaultSecretArgs'] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         """
-        pulumi.set(__self__, "connection_server_name", connection_server_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_authentication_type", target_authentication_type)
-        pulumi.set(__self__, "target_type", target_type)
         pulumi.set(__self__, "watcher_name", watcher_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if target_name is not None:
             pulumi.set(__self__, "target_name", target_name)
-        if target_vault is not None:
-            pulumi.set(__self__, "target_vault", target_vault)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionServerName")
-    def connection_server_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        """
-        return pulumi.get(self, "connection_server_name")
-
-    @connection_server_name.setter
-    def connection_server_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connection_server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -74,30 +53,6 @@ class TargetArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="targetAuthenticationType")
-    def target_authentication_type(self) -> pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]:
-        """
-        The type of authentication to use when connecting to a target.
-        """
-        return pulumi.get(self, "target_authentication_type")
-
-    @target_authentication_type.setter
-    def target_authentication_type(self, value: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]):
-        pulumi.set(self, "target_authentication_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetType")
-    def target_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Discriminator property for TargetProperties.
-        """
-        return pulumi.get(self, "target_type")
-
-    @target_type.setter
-    def target_type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "target_type", value)
-
-    @_builtins.property
     @pulumi.getter(name="watcherName")
     def watcher_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -108,6 +63,18 @@ class TargetArgs:
     @watcher_name.setter
     def watcher_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "watcher_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]]:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]]):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
@@ -121,18 +88,6 @@ class TargetArgs:
     def target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "target_name", value)
 
-    @_builtins.property
-    @pulumi.getter(name="targetVault")
-    def target_vault(self) -> Optional[pulumi.Input['VaultSecretArgs']]:
-        """
-        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        """
-        return pulumi.get(self, "target_vault")
-
-    @target_vault.setter
-    def target_vault(self, value: Optional[pulumi.Input['VaultSecretArgs']]):
-        pulumi.set(self, "target_vault", value)
-
 
 @pulumi.type_token("azure-native:databasewatcher:Target")
 class Target(pulumi.CustomResource):
@@ -140,12 +95,9 @@ class Target(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbElasticPoolTargetPropertiesArgsDict'], Union['SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgsDict'], Union['SqlMiTargetPropertiesArgs', 'SqlMiTargetPropertiesArgsDict'], Union['SqlVmTargetPropertiesArgs', 'SqlVmTargetPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_authentication_type: Optional[pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]] = None,
                  target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vault: Optional[pulumi.Input[Union['VaultSecretArgs', 'VaultSecretArgsDict']]] = None,
                  watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -157,12 +109,9 @@ class Target(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        :param pulumi.Input[Union[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbElasticPoolTargetPropertiesArgsDict'], Union['SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgsDict'], Union['SqlMiTargetPropertiesArgs', 'SqlMiTargetPropertiesArgsDict'], Union['SqlVmTargetPropertiesArgs', 'SqlVmTargetPropertiesArgsDict']]] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[_builtins.str] target_name: The target resource name.
-        :param pulumi.Input[_builtins.str] target_type: Discriminator property for TargetProperties.
-        :param pulumi.Input[Union['VaultSecretArgs', 'VaultSecretArgsDict']] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         :param pulumi.Input[_builtins.str] watcher_name: The database watcher name.
         """
         ...
@@ -193,12 +142,9 @@ class Target(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbElasticPoolTargetPropertiesArgsDict'], Union['SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgsDict'], Union['SqlMiTargetPropertiesArgs', 'SqlMiTargetPropertiesArgsDict'], Union['SqlVmTargetPropertiesArgs', 'SqlVmTargetPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_authentication_type: Optional[pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]] = None,
                  target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vault: Optional[pulumi.Input[Union['VaultSecretArgs', 'VaultSecretArgsDict']]] = None,
                  watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -209,26 +155,16 @@ class Target(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TargetArgs.__new__(TargetArgs)
 
-            if connection_server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_server_name'")
-            __props__.__dict__["connection_server_name"] = connection_server_name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if target_authentication_type is None and not opts.urn:
-                raise TypeError("Missing required property 'target_authentication_type'")
-            __props__.__dict__["target_authentication_type"] = target_authentication_type
             __props__.__dict__["target_name"] = target_name
-            if target_type is None and not opts.urn:
-                raise TypeError("Missing required property 'target_type'")
-            __props__.__dict__["target_type"] = target_type
-            __props__.__dict__["target_vault"] = target_vault
             if watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'watcher_name'")
             __props__.__dict__["watcher_name"] = watcher_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20230901preview:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20250102:Target")])
@@ -256,13 +192,9 @@ class Target(pulumi.CustomResource):
         __props__ = TargetArgs.__new__(TargetArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["connection_server_name"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["target_authentication_type"] = None
-        __props__.__dict__["target_type"] = None
-        __props__.__dict__["target_vault"] = None
         __props__.__dict__["type"] = None
         return Target(resource_name, opts=opts, __props__=__props__)
 
@@ -275,14 +207,6 @@ class Target(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="connectionServerName")
-    def connection_server_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        """
-        return pulumi.get(self, "connection_server_name")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -291,12 +215,12 @@ class Target(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Any]:
         """
-        The provisioning state of the resource.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -305,30 +229,6 @@ class Target(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @_builtins.property
-    @pulumi.getter(name="targetAuthenticationType")
-    def target_authentication_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of authentication to use when connecting to a target.
-        """
-        return pulumi.get(self, "target_authentication_type")
-
-    @_builtins.property
-    @pulumi.getter(name="targetType")
-    def target_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Discriminator property for TargetProperties.
-        """
-        return pulumi.get(self, "target_type")
-
-    @_builtins.property
-    @pulumi.getter(name="targetVault")
-    def target_vault(self) -> pulumi.Output[Optional['outputs.VaultSecretResponse']]:
-        """
-        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        """
-        return pulumi.get(self, "target_vault")
 
     @_builtins.property
     @pulumi.getter

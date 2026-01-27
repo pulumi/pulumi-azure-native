@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
     public sealed class FleetspacePropertiesResponseThroughputPoolConfiguration
     {
         /// <summary>
-        /// List of data regions assigned to the fleetspace. Eg [westus2]
-        /// </summary>
-        public readonly ImmutableArray<string> DataRegions;
-        /// <summary>
         /// Maximum throughput for the pool.
         /// </summary>
         public readonly int? MaxThroughput;
@@ -28,25 +24,15 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// Minimum throughput for the pool.
         /// </summary>
         public readonly int? MinThroughput;
-        /// <summary>
-        /// Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
-        /// </summary>
-        public readonly string? ServiceTier;
 
         [OutputConstructor]
         private FleetspacePropertiesResponseThroughputPoolConfiguration(
-            ImmutableArray<string> dataRegions,
-
             int? maxThroughput,
 
-            int? minThroughput,
-
-            string? serviceTier)
+            int? minThroughput)
         {
-            DataRegions = dataRegions;
             MaxThroughput = maxThroughput;
             MinThroughput = minThroughput;
-            ServiceTier = serviceTier;
         }
     }
 }

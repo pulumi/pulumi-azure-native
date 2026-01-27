@@ -7,12 +7,14 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AllocationState',
     'AnalyticalStorageSchemaType',
     'AuthenticationMethod',
     'AzureConnectionType',
     'BackupPolicyMigrationStatus',
     'BackupPolicyType',
     'BackupStorageRedundancy',
+    'ClusterType',
     'CompositePathSortOrder',
     'ConflictResolutionMode',
     'ConnectorOffer',
@@ -23,6 +25,7 @@ __all__ = [
     'DatabaseAccountOfferType',
     'DedicatedGatewayType',
     'DefaultConsistencyLevel',
+    'DefaultPriorityLevel',
     'DistanceFunction',
     'FleetspaceApiKind',
     'IndexKind',
@@ -50,6 +53,15 @@ __all__ = [
     'VectorDataType',
     'VectorIndexType',
 ]
+
+
+@pulumi.type_token("azure-native:cosmosdb:AllocationState")
+class AllocationState(_builtins.str, Enum):
+    """
+    Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+    """
+    ACTIVE = "Active"
+    DEALLOCATED = "Deallocated"
 
 
 @pulumi.type_token("azure-native:cosmosdb:AnalyticalStorageSchemaType")
@@ -108,6 +120,15 @@ class BackupStorageRedundancy(_builtins.str, Enum):
     GEO = "Geo"
     LOCAL = "Local"
     ZONE = "Zone"
+
+
+@pulumi.type_token("azure-native:cosmosdb:ClusterType")
+class ClusterType(_builtins.str, Enum):
+    """
+    Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+    """
+    PRODUCTION = "Production"
+    NON_PRODUCTION = "NonProduction"
 
 
 @pulumi.type_token("azure-native:cosmosdb:CompositePathSortOrder")
@@ -204,6 +225,15 @@ class DefaultConsistencyLevel(_builtins.str, Enum):
     BOUNDED_STALENESS = "BoundedStaleness"
     STRONG = "Strong"
     CONSISTENT_PREFIX = "ConsistentPrefix"
+
+
+@pulumi.type_token("azure-native:cosmosdb:DefaultPriorityLevel")
+class DefaultPriorityLevel(_builtins.str, Enum):
+    """
+    Enum to indicate default Priority Level of request for Priority Based Execution.
+    """
+    HIGH = "High"
+    LOW = "Low"
 
 
 @pulumi.type_token("azure-native:cosmosdb:DistanceFunction")
@@ -452,6 +482,7 @@ class VectorDataType(_builtins.str, Enum):
     FLOAT32 = "float32"
     UINT8 = "uint8"
     INT8 = "int8"
+    FLOAT16 = "float16"
 
 
 @pulumi.type_token("azure-native:cosmosdb:VectorIndexType")

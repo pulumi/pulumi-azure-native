@@ -40,6 +40,7 @@ __all__ = [
     'GalleryApplicationCustomActionParameterType',
     'GalleryApplicationScriptRebootBehavior',
     'GalleryExtendedLocationType',
+    'GalleryScriptParameterType',
     'GallerySharingPermissionTypes',
     'HostCaching',
     'HyperVGeneration',
@@ -80,6 +81,7 @@ __all__ = [
     'SettingNames',
     'SnapshotStorageAccountTypes',
     'StatusLevelTypes',
+    'StorageAccountStrategy',
     'StorageAccountType',
     'StorageAccountTypes',
     'UefiKeyType',
@@ -527,6 +529,33 @@ class GalleryExtendedLocationType(_builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:compute:GalleryScriptParameterType")
+class GalleryScriptParameterType(_builtins.str, Enum):
+    """
+    Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+    """
+    STRING = "String"
+    """
+    String gallery script parameter type
+    """
+    INT = "Int"
+    """
+    Int gallery script parameter type
+    """
+    DOUBLE = "Double"
+    """
+    Double gallery script parameter type
+    """
+    BOOLEAN = "Boolean"
+    """
+    Boolean gallery script parameter type
+    """
+    ENUM = "Enum"
+    """
+    Enum gallery script parameter type
+    """
+
+
 @pulumi.type_token("azure-native:compute:GallerySharingPermissionTypes")
 class GallerySharingPermissionTypes(_builtins.str, Enum):
     """
@@ -943,6 +972,21 @@ class StatusLevelTypes(_builtins.str, Enum):
     INFO = "Info"
     WARNING = "Warning"
     ERROR = "Error"
+
+
+@pulumi.type_token("azure-native:compute:StorageAccountStrategy")
+class StorageAccountStrategy(_builtins.str, Enum):
+    """
+    Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+    """
+    PREFER_STANDARD_ZRS = "PreferStandard_ZRS"
+    """
+    Choose Standard_ZRS storage if the region supports it, else choose Standard_LRS storage, unless overridden by specifying regional storageAccountType. If no storageAccountStrategy is specified, this is the default strategy (from API version 2025-03-03 onwards).
+    """
+    DEFAULT_STANDARD_LRS = "DefaultStandard_LRS"
+    """
+    Choose Standard_LRS storage unless overridden by specifying regional storageAccountType.
+    """
 
 
 @pulumi.type_token("azure-native:compute:StorageAccountType")

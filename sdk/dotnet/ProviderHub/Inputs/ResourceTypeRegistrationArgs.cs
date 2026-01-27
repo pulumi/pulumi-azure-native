@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    /// </summary>
     public sealed class ResourceTypeRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

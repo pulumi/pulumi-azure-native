@@ -40,25 +40,25 @@ class GetEntityResult:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> _builtins.int:
+    def count(self) -> Optional[_builtins.int]:
         """
-        Total count of records that match the filter
+        Total count of records that match the filter.
         """
         return pulumi.get(self, "count")
 
     @_builtins.property
     @pulumi.getter(name="nextLink")
-    def next_link(self) -> _builtins.str:
+    def next_link(self) -> Optional[_builtins.str]:
         """
-        The URL to use for getting the next set of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.EntityInfoResponse']]:
+    def value(self) -> Sequence['outputs.EntityInfoResponse']:
         """
-        The list of entities.
+        The EntityInfo items on this page
         """
         return pulumi.get(self, "value")
 
@@ -93,7 +93,7 @@ def get_entity(filter: Optional[_builtins.str] = None,
 
     :param _builtins.str filter: The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
     :param _builtins.str group_name: A filter which allows the get entities call to focus on a particular group (i.e. "$filter=name eq 'groupName'")
-    :param _builtins.str search: The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in. 
+    :param _builtins.str search: The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in.
            With $search=AllowedParents the API will return the entity info of all groups that the requested entity will be able to reparent to as determined by the user's permissions.
            With $search=AllowedChildren the API will return the entity info of all entities that can be added as children of the requested entity.
            With $search=ParentAndFirstLevelChildren the API will return the parent and  first level of children that the user has either direct access to or indirect access via one of their descendants.
@@ -101,7 +101,7 @@ def get_entity(filter: Optional[_builtins.str] = None,
            With $search=ChildrenOnly the API will return only the first level of children of the group entity info specified in $filter.  The user must have direct access to the children entities or one of it's descendants for it to show up in the results.
     :param _builtins.str select: This parameter specifies the fields to include in the response. Can include any combination of Name,DisplayName,Type,ParentDisplayNameChain,ParentChain, e.g. '$select=Name,DisplayName,Type,ParentDisplayNameChain,ParentNameChain'. When specified the $select parameter can override select in $skipToken.
     :param _builtins.int skip: Number of entities to skip over when retrieving results. Passing this in will override $skipToken.
-    :param _builtins.str skiptoken: Page continuation token is only used if a previous operation returned a partial result. 
+    :param _builtins.str skiptoken: Page continuation token is only used if a previous operation returned a partial result.
            If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
     :param _builtins.int top: Number of elements to return when retrieving results. Passing this in will override $skipToken.
     :param _builtins.str view: The view parameter allows clients to filter the type of data that is returned by the getEntities call.
@@ -141,7 +141,7 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = 
 
     :param _builtins.str filter: The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
     :param _builtins.str group_name: A filter which allows the get entities call to focus on a particular group (i.e. "$filter=name eq 'groupName'")
-    :param _builtins.str search: The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in. 
+    :param _builtins.str search: The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in.
            With $search=AllowedParents the API will return the entity info of all groups that the requested entity will be able to reparent to as determined by the user's permissions.
            With $search=AllowedChildren the API will return the entity info of all entities that can be added as children of the requested entity.
            With $search=ParentAndFirstLevelChildren the API will return the parent and  first level of children that the user has either direct access to or indirect access via one of their descendants.
@@ -149,7 +149,7 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = 
            With $search=ChildrenOnly the API will return only the first level of children of the group entity info specified in $filter.  The user must have direct access to the children entities or one of it's descendants for it to show up in the results.
     :param _builtins.str select: This parameter specifies the fields to include in the response. Can include any combination of Name,DisplayName,Type,ParentDisplayNameChain,ParentChain, e.g. '$select=Name,DisplayName,Type,ParentDisplayNameChain,ParentNameChain'. When specified the $select parameter can override select in $skipToken.
     :param _builtins.int skip: Number of entities to skip over when retrieving results. Passing this in will override $skipToken.
-    :param _builtins.str skiptoken: Page continuation token is only used if a previous operation returned a partial result. 
+    :param _builtins.str skiptoken: Page continuation token is only used if a previous operation returned a partial result.
            If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
     :param _builtins.int top: Number of elements to return when retrieving results. Passing this in will override $skipToken.
     :param _builtins.str view: The view parameter allows clients to filter the type of data that is returned by the getEntities call.

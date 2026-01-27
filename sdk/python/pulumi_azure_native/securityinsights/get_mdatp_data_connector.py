@@ -115,7 +115,7 @@ class GetMDATPDataConnectorResult:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[_builtins.str]:
+    def tenant_id(self) -> _builtins.str:
         """
         The tenant id to connect to, and get the data from.
         """

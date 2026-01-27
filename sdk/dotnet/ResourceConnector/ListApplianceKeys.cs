@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// Returns the cluster customer credentials for the dedicated appliance.
         /// 
         /// Uses Azure REST API version 2022-10-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListApplianceKeysResult> InvokeAsync(ListApplianceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplianceKeysResult>("azure-native:resourceconnector:listApplianceKeys", args ?? new ListApplianceKeysArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// Returns the cluster customer credentials for the dedicated appliance.
         /// 
         /// Uses Azure REST API version 2022-10-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListApplianceKeysResult> Invoke(ListApplianceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceKeysResult>("azure-native:resourceconnector:listApplianceKeys", args ?? new ListApplianceKeysInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// Returns the cluster customer credentials for the dedicated appliance.
         /// 
         /// Uses Azure REST API version 2022-10-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListApplianceKeysResult> Invoke(ListApplianceKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceKeysResult>("azure-native:resourceconnector:listApplianceKeys", args ?? new ListApplianceKeysInvokeArgs(), options.WithDefaults());

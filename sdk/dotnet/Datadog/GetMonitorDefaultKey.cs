@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMonitorDefaultKeyResult> InvokeAsync(GetMonitorDefaultKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitorDefaultKeyResult> Invoke(GetMonitorDefaultKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitorDefaultKeyResult> Invoke(GetMonitorDefaultKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());

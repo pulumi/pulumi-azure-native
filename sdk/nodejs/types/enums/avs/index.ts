@@ -14,6 +14,38 @@ export const AddonType = {
  */
 export type AddonType = (typeof AddonType)[keyof typeof AddonType];
 
+export const AffinityStrength = {
+    /**
+     * is should
+     */
+    Should: "Should",
+    /**
+     * is must
+     */
+    Must: "Must",
+} as const;
+
+/**
+ * vm-host placement policy affinity strength (should/must)
+ */
+export type AffinityStrength = (typeof AffinityStrength)[keyof typeof AffinityStrength];
+
+export const AffinityType = {
+    /**
+     * is affinity
+     */
+    Affinity: "Affinity",
+    /**
+     * is anti-affinity
+     */
+    AntiAffinity: "AntiAffinity",
+} as const;
+
+/**
+ * placement policy affinity type
+ */
+export type AffinityType = (typeof AffinityType)[keyof typeof AffinityType];
+
 export const AvailabilityStrategy = {
     /**
      * in single zone
@@ -29,6 +61,22 @@ export const AvailabilityStrategy = {
  * The availability strategy for the private cloud
  */
 export type AvailabilityStrategy = (typeof AvailabilityStrategy)[keyof typeof AvailabilityStrategy];
+
+export const AzureHybridBenefitType = {
+    /**
+     * is SqlHost
+     */
+    SqlHost: "SqlHost",
+    /**
+     * is None
+     */
+    None: "None",
+} as const;
+
+/**
+ * placement policy azure hybrid benefit opt-in type
+ */
+export type AzureHybridBenefitType = (typeof AzureHybridBenefitType)[keyof typeof AzureHybridBenefitType];
 
 export const DhcpTypeEnum = {
     SERVER: "SERVER",
@@ -115,6 +163,15 @@ export const InternetEnum = {
  * Connectivity to internet is enabled or disabled
  */
 export type InternetEnum = (typeof InternetEnum)[keyof typeof InternetEnum];
+
+export const LicenseKind = {
+    VmwareFirewall: "VmwareFirewall",
+} as const;
+
+/**
+ * License kind
+ */
+export type LicenseKind = (typeof LicenseKind)[keyof typeof LicenseKind];
 
 export const MountOptionEnum = {
     /**

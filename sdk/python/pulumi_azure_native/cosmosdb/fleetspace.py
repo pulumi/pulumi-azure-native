@@ -24,23 +24,31 @@ class FleetspaceArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 data_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  fleetspace_api_kind: Optional[pulumi.Input[Union[_builtins.str, 'FleetspaceApiKind']]] = None,
                  fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_tier: Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]] = None,
                  throughput_pool_configuration: Optional[pulumi.Input['FleetspacePropertiesThroughputPoolConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Fleetspace resource.
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_regions: List of data regions assigned to the fleetspace. Eg [westus2]
         :param pulumi.Input[Union[_builtins.str, 'FleetspaceApiKind']] fleetspace_api_kind: The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
         :param pulumi.Input[_builtins.str] fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
+        :param pulumi.Input[Union[_builtins.str, 'ServiceTier']] service_tier: Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
         :param pulumi.Input['FleetspacePropertiesThroughputPoolConfigurationArgs'] throughput_pool_configuration: Configuration for throughput pool in the fleetspace.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_regions is not None:
+            pulumi.set(__self__, "data_regions", data_regions)
         if fleetspace_api_kind is not None:
             pulumi.set(__self__, "fleetspace_api_kind", fleetspace_api_kind)
         if fleetspace_name is not None:
             pulumi.set(__self__, "fleetspace_name", fleetspace_name)
+        if service_tier is not None:
+            pulumi.set(__self__, "service_tier", service_tier)
         if throughput_pool_configuration is not None:
             pulumi.set(__self__, "throughput_pool_configuration", throughput_pool_configuration)
 
@@ -69,6 +77,18 @@ class FleetspaceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataRegions")
+    def data_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of data regions assigned to the fleetspace. Eg [westus2]
+        """
+        return pulumi.get(self, "data_regions")
+
+    @data_regions.setter
+    def data_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "data_regions", value)
+
+    @_builtins.property
     @pulumi.getter(name="fleetspaceApiKind")
     def fleetspace_api_kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FleetspaceApiKind']]]:
         """
@@ -93,6 +113,18 @@ class FleetspaceArgs:
         pulumi.set(self, "fleetspace_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="serviceTier")
+    def service_tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]]:
+        """
+        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+        return pulumi.get(self, "service_tier")
+
+    @service_tier.setter
+    def service_tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]]):
+        pulumi.set(self, "service_tier", value)
+
+    @_builtins.property
     @pulumi.getter(name="throughputPoolConfiguration")
     def throughput_pool_configuration(self) -> Optional[pulumi.Input['FleetspacePropertiesThroughputPoolConfigurationArgs']]:
         """
@@ -111,23 +143,29 @@ class Fleetspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
                  fleetspace_api_kind: Optional[pulumi.Input[Union[_builtins.str, 'FleetspaceApiKind']]] = None,
                  fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_tier: Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]] = None,
                  throughput_pool_configuration: Optional[pulumi.Input[Union['FleetspacePropertiesThroughputPoolConfigurationArgs', 'FleetspacePropertiesThroughputPoolConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB Fleetspace.
 
-        Uses Azure REST API version 2025-05-01-preview.
+        Uses Azure REST API version 2025-10-15.
+
+        Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_regions: List of data regions assigned to the fleetspace. Eg [westus2]
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[Union[_builtins.str, 'FleetspaceApiKind']] fleetspace_api_kind: The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
         :param pulumi.Input[_builtins.str] fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[_builtins.str, 'ServiceTier']] service_tier: Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
         :param pulumi.Input[Union['FleetspacePropertiesThroughputPoolConfigurationArgs', 'FleetspacePropertiesThroughputPoolConfigurationArgsDict']] throughput_pool_configuration: Configuration for throughput pool in the fleetspace.
         """
         ...
@@ -139,7 +177,9 @@ class Fleetspace(pulumi.CustomResource):
         """
         An Azure Cosmos DB Fleetspace.
 
-        Uses Azure REST API version 2025-05-01-preview.
+        Uses Azure REST API version 2025-10-15.
+
+        Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FleetspaceArgs args: The arguments to use to populate this resource's properties.
@@ -156,10 +196,12 @@ class Fleetspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
                  fleetspace_api_kind: Optional[pulumi.Input[Union[_builtins.str, 'FleetspaceApiKind']]] = None,
                  fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_tier: Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]] = None,
                  throughput_pool_configuration: Optional[pulumi.Input[Union['FleetspacePropertiesThroughputPoolConfigurationArgs', 'FleetspacePropertiesThroughputPoolConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -170,6 +212,7 @@ class Fleetspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetspaceArgs.__new__(FleetspaceArgs)
 
+            __props__.__dict__["data_regions"] = data_regions
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
@@ -178,13 +221,14 @@ class Fleetspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_tier"] = service_tier
             __props__.__dict__["throughput_pool_configuration"] = throughput_pool_configuration
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:Fleetspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:Fleetspace"), pulumi.Alias(type_="azure-native:cosmosdb/v20251015:Fleetspace"), pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:Fleetspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Fleetspace, __self__).__init__(
             'azure-native:cosmosdb:Fleetspace',
@@ -209,9 +253,11 @@ class Fleetspace(pulumi.CustomResource):
         __props__ = FleetspaceArgs.__new__(FleetspaceArgs)
 
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["data_regions"] = None
         __props__.__dict__["fleetspace_api_kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["service_tier"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["throughput_pool_configuration"] = None
         __props__.__dict__["type"] = None
@@ -224,6 +270,14 @@ class Fleetspace(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRegions")
+    def data_regions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of data regions assigned to the fleetspace. Eg [westus2]
+        """
+        return pulumi.get(self, "data_regions")
 
     @_builtins.property
     @pulumi.getter(name="fleetspaceApiKind")
@@ -248,6 +302,14 @@ class Fleetspace(pulumi.CustomResource):
         A provisioning state of the Fleetspace.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTier")
+    def service_tier(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+        return pulumi.get(self, "service_tier")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

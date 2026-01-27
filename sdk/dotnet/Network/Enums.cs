@@ -4827,6 +4827,66 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Name of a service gateway SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceGatewaySkuName : IEquatable<ServiceGatewaySkuName>
+    {
+        private readonly string _value;
+
+        private ServiceGatewaySkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceGatewaySkuName Standard { get; } = new ServiceGatewaySkuName("Standard");
+
+        public static bool operator ==(ServiceGatewaySkuName left, ServiceGatewaySkuName right) => left.Equals(right);
+        public static bool operator !=(ServiceGatewaySkuName left, ServiceGatewaySkuName right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceGatewaySkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceGatewaySkuName other && Equals(other);
+        public bool Equals(ServiceGatewaySkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tier of a service gateway SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceGatewaySkuTier : IEquatable<ServiceGatewaySkuTier>
+    {
+        private readonly string _value;
+
+        private ServiceGatewaySkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceGatewaySkuTier Regional { get; } = new ServiceGatewaySkuTier("Regional");
+
+        public static bool operator ==(ServiceGatewaySkuTier left, ServiceGatewaySkuTier right) => left.Equals(right);
+        public static bool operator !=(ServiceGatewaySkuTier left, ServiceGatewaySkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceGatewaySkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceGatewaySkuTier other && Equals(other);
+        public bool Equals(ServiceGatewaySkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The ServiceProviderProvisioningState state of the resource.
     /// </summary>
     [EnumType]

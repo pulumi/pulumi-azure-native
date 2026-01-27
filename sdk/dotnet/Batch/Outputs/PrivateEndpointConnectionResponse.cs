@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
         /// <summary>
-        /// The ID of the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -37,16 +37,23 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
         /// <summary>
-        /// The private link service connection state of the private endpoint connection
+        /// The private link service connection state of the private endpoint connection.
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The provisioning state of the private endpoint connection.
+        /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -66,6 +73,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -77,6 +86,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

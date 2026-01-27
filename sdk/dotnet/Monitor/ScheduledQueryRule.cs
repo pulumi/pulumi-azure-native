@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Monitor
     /// 
     /// Uses Azure REST API version 2025-01-01-preview.
     /// 
-    /// Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource
@@ -227,7 +227,6 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20220801preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20230315preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20231201:ScheduledQueryRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20240101preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20250101preview:ScheduledQueryRule" },
                 },
             };

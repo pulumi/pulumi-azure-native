@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Labels;
         /// <summary>
+        /// The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
+        /// </summary>
+        public readonly string? PortalFqdn;
+        /// <summary>
         /// The current provisioning state of the namespace.
         /// </summary>
         public readonly string ProvisioningState;
@@ -59,6 +63,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? labels,
 
+            string? portalFqdn,
+
             string provisioningState)
         {
             AdoptionPolicy = adoptionPolicy;
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             DefaultResourceQuota = defaultResourceQuota;
             DeletePolicy = deletePolicy;
             Labels = labels;
+            PortalFqdn = portalFqdn;
             ProvisioningState = provisioningState;
         }
     }

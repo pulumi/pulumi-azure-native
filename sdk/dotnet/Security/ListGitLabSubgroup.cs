@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListGitLabSubgroupResult> InvokeAsync(ListGitLabSubgroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGitLabSubgroupResult>("azure-native:security:listGitLabSubgroup", args ?? new ListGitLabSubgroupArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListGitLabSubgroupResult> Invoke(ListGitLabSubgroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGitLabSubgroupResult>("azure-native:security:listGitLabSubgroup", args ?? new ListGitLabSubgroupInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListGitLabSubgroupResult> Invoke(ListGitLabSubgroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListGitLabSubgroupResult>("azure-native:security:listGitLabSubgroup", args ?? new ListGitLabSubgroupInvokeArgs(), options.WithDefaults());

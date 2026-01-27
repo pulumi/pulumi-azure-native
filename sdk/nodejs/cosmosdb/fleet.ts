@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An Azure Cosmos DB FleetResource.
  *
- * Uses Azure REST API version 2025-05-01-preview.
+ * Uses Azure REST API version 2025-10-15.
+ *
+ * Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -101,7 +103,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20250501preview:Fleet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20250501preview:Fleet" }, { type: "azure-native:cosmosdb/v20251015:Fleet" }, { type: "azure-native:cosmosdb/v20251101preview:Fleet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }

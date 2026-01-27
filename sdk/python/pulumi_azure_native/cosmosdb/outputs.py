@@ -38,7 +38,9 @@ __all__ = [
     'ClientEncryptionIncludedPathResponse',
     'ClientEncryptionPolicyResponse',
     'ClusterKeyResponse',
+    'ClusterResourceResponseEndPoints',
     'ClusterResourceResponseProperties',
+    'ClusterResourceResponsePropertiesV1',
     'ColumnResponse',
     'CompositePathResponse',
     'ComputedPropertyResponse',
@@ -55,10 +57,13 @@ __all__ = [
     'DatabaseAccountConnectionStringResponse',
     'DatabaseAccountKeysMetadataResponse',
     'DatabaseRestoreResourceResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
     'FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties',
     'FleetspacePropertiesResponseThroughputPoolConfiguration',
+    'FullTextIndexPathResponse',
     'FullTextPathResponse',
     'FullTextPolicyResponse',
     'GraphAPIComputeRegionalServiceResourceResponse',
@@ -1276,6 +1281,54 @@ class ClusterKeyResponse(dict):
 
 
 @pulumi.output_type
+class ClusterResourceResponseEndPoints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterResourceResponseEndPoints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterResourceResponseEndPoints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterResourceResponseEndPoints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: Optional[_builtins.str] = None,
+                 port: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str ip_address: Ipv4 address of the endpoint
+        :param _builtins.int port: Port number
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[_builtins.str]:
+        """
+        Ipv4 address of the endpoint
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.int]:
+        """
+        Port number
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class ClusterResourceResponseProperties(dict):
     """
     Properties of a managed Cassandra cluster.
@@ -1546,6 +1599,182 @@ class ClusterResourceResponseProperties(dict):
         Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
         return pulumi.get(self, "repair_enabled")
+
+
+@pulumi.output_type
+class ClusterResourceResponsePropertiesV1(dict):
+    """
+    Properties of a Garnet cache cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endPoints":
+            suggest = "end_points"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allocationState":
+            suggest = "allocation_state"
+        elif key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "clusterType":
+            suggest = "cluster_type"
+        elif key == "nodeCount":
+            suggest = "node_count"
+        elif key == "nodeSku":
+            suggest = "node_sku"
+        elif key == "provisionError":
+            suggest = "provision_error"
+        elif key == "replicationFactor":
+            suggest = "replication_factor"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterResourceResponsePropertiesV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterResourceResponsePropertiesV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterResourceResponsePropertiesV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_points: Sequence['outputs.ClusterResourceResponseEndPoints'],
+                 provisioning_state: _builtins.str,
+                 allocation_state: Optional[_builtins.str] = None,
+                 availability_zone: Optional[_builtins.bool] = None,
+                 cluster_type: Optional[_builtins.str] = None,
+                 extensions: Optional[Sequence[_builtins.str]] = None,
+                 node_count: Optional[_builtins.int] = None,
+                 node_sku: Optional[_builtins.str] = None,
+                 provision_error: Optional['outputs.ErrorDetailResponse'] = None,
+                 replication_factor: Optional[_builtins.int] = None,
+                 subnet_id: Optional[_builtins.str] = None):
+        """
+        Properties of a Garnet cache cluster.
+        :param Sequence['ClusterResourceResponseEndPoints'] end_points: endpoints for clients to connect to the cluster.
+        :param _builtins.str provisioning_state: The status of the resource at the time the operation was called.
+        :param _builtins.str allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        :param _builtins.bool availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        :param _builtins.str cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        :param Sequence[_builtins.str] extensions: Extensions to be added or updated on cluster.
+        :param _builtins.int node_count: Number of nodes
+        :param _builtins.str node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        :param 'ErrorDetailResponse' provision_error: Error related to resource provisioning.
+        :param _builtins.int replication_factor: Number of copies of data maintained by the cluster
+        :param _builtins.str subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        pulumi.set(__self__, "end_points", end_points)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if allocation_state is not None:
+            pulumi.set(__self__, "allocation_state", allocation_state)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if cluster_type is not None:
+            pulumi.set(__self__, "cluster_type", cluster_type)
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if node_sku is not None:
+            pulumi.set(__self__, "node_sku", node_sku)
+        if provision_error is not None:
+            pulumi.set(__self__, "provision_error", provision_error)
+        if replication_factor is not None:
+            pulumi.set(__self__, "replication_factor", replication_factor)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="endPoints")
+    def end_points(self) -> Sequence['outputs.ClusterResourceResponseEndPoints']:
+        """
+        endpoints for clients to connect to the cluster.
+        """
+        return pulumi.get(self, "end_points")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the resource at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="allocationState")
+    def allocation_state(self) -> Optional[_builtins.str]:
+        """
+        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        """
+        return pulumi.get(self, "allocation_state")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[_builtins.bool]:
+        """
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def extensions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Extensions to be added or updated on cluster.
+        """
+        return pulumi.get(self, "extensions")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[_builtins.int]:
+        """
+        Number of nodes
+        """
+        return pulumi.get(self, "node_count")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeSku")
+    def node_sku(self) -> Optional[_builtins.str]:
+        """
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        """
+        return pulumi.get(self, "node_sku")
+
+    @_builtins.property
+    @pulumi.getter(name="provisionError")
+    def provision_error(self) -> Optional['outputs.ErrorDetailResponse']:
+        """
+        Error related to resource provisioning.
+        """
+        return pulumi.get(self, "provision_error")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationFactor")
+    def replication_factor(self) -> Optional[_builtins.int]:
+        """
+        Number of copies of data maintained by the cluster
+        """
+        return pulumi.get(self, "replication_factor")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -2660,6 +2889,122 @@ class DatabaseRestoreResourceResponse(dict):
 
 
 @pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: _builtins.str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param _builtins.str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: _builtins.str,
+                 target: _builtins.str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param _builtins.str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param _builtins.str message: The error message.
+        :param _builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class ExcludedPathResponse(dict):
     def __init__(__self__, *,
                  path: Optional[_builtins.str] = None):
@@ -2805,14 +3150,10 @@ class FleetspacePropertiesResponseThroughputPoolConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataRegions":
-            suggest = "data_regions"
-        elif key == "maxThroughput":
+        if key == "maxThroughput":
             suggest = "max_throughput"
         elif key == "minThroughput":
             suggest = "min_throughput"
-        elif key == "serviceTier":
-            suggest = "service_tier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FleetspacePropertiesResponseThroughputPoolConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -2826,33 +3167,17 @@ class FleetspacePropertiesResponseThroughputPoolConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_regions: Optional[Sequence[_builtins.str]] = None,
                  max_throughput: Optional[_builtins.int] = None,
-                 min_throughput: Optional[_builtins.int] = None,
-                 service_tier: Optional[_builtins.str] = None):
+                 min_throughput: Optional[_builtins.int] = None):
         """
         Configuration for throughput pool in the fleetspace.
-        :param Sequence[_builtins.str] data_regions: List of data regions assigned to the fleetspace. Eg [westus2]
         :param _builtins.int max_throughput: Maximum throughput for the pool.
         :param _builtins.int min_throughput: Minimum throughput for the pool.
-        :param _builtins.str service_tier: Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
         """
-        if data_regions is not None:
-            pulumi.set(__self__, "data_regions", data_regions)
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
         if min_throughput is not None:
             pulumi.set(__self__, "min_throughput", min_throughput)
-        if service_tier is not None:
-            pulumi.set(__self__, "service_tier", service_tier)
-
-    @_builtins.property
-    @pulumi.getter(name="dataRegions")
-    def data_regions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of data regions assigned to the fleetspace. Eg [westus2]
-        """
-        return pulumi.get(self, "data_regions")
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
@@ -2870,13 +3195,27 @@ class FleetspacePropertiesResponseThroughputPoolConfiguration(dict):
         """
         return pulumi.get(self, "min_throughput")
 
+
+@pulumi.output_type
+class FullTextIndexPathResponse(dict):
+    """
+    Represents the full text index path.
+    """
+    def __init__(__self__, *,
+                 path: _builtins.str):
+        """
+        Represents the full text index path.
+        :param _builtins.str path: The path to the full text field in the document.
+        """
+        pulumi.set(__self__, "path", path)
+
     @_builtins.property
-    @pulumi.getter(name="serviceTier")
-    def service_tier(self) -> Optional[_builtins.str]:
+    @pulumi.getter
+    def path(self) -> _builtins.str:
         """
-        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        The path to the full text field in the document.
         """
-        return pulumi.get(self, "service_tier")
+        return pulumi.get(self, "path")
 
 
 @pulumi.output_type
@@ -3760,6 +4099,8 @@ class IndexingPolicyResponse(dict):
             suggest = "composite_indexes"
         elif key == "excludedPaths":
             suggest = "excluded_paths"
+        elif key == "fullTextIndexes":
+            suggest = "full_text_indexes"
         elif key == "includedPaths":
             suggest = "included_paths"
         elif key == "indexingMode":
@@ -3784,6 +4125,7 @@ class IndexingPolicyResponse(dict):
                  automatic: Optional[_builtins.bool] = None,
                  composite_indexes: Optional[Sequence[Sequence['outputs.CompositePathResponse']]] = None,
                  excluded_paths: Optional[Sequence['outputs.ExcludedPathResponse']] = None,
+                 full_text_indexes: Optional[Sequence['outputs.FullTextIndexPathResponse']] = None,
                  included_paths: Optional[Sequence['outputs.IncludedPathResponse']] = None,
                  indexing_mode: Optional[_builtins.str] = None,
                  spatial_indexes: Optional[Sequence['outputs.SpatialSpecResponse']] = None,
@@ -3793,6 +4135,7 @@ class IndexingPolicyResponse(dict):
         :param _builtins.bool automatic: Indicates if the indexing policy is automatic
         :param Sequence[Sequence['CompositePathResponse']] composite_indexes: List of composite path list
         :param Sequence['ExcludedPathResponse'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['FullTextIndexPathResponse'] full_text_indexes: List of paths to include in the full text indexing
         :param Sequence['IncludedPathResponse'] included_paths: List of paths to include in the indexing
         :param _builtins.str indexing_mode: Indicates the indexing mode.
         :param Sequence['SpatialSpecResponse'] spatial_indexes: List of spatial specifics
@@ -3804,6 +4147,8 @@ class IndexingPolicyResponse(dict):
             pulumi.set(__self__, "composite_indexes", composite_indexes)
         if excluded_paths is not None:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if full_text_indexes is not None:
+            pulumi.set(__self__, "full_text_indexes", full_text_indexes)
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is None:
@@ -3838,6 +4183,14 @@ class IndexingPolicyResponse(dict):
         List of paths to exclude from indexing
         """
         return pulumi.get(self, "excluded_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="fullTextIndexes")
+    def full_text_indexes(self) -> Optional[Sequence['outputs.FullTextIndexPathResponse']]:
+        """
+        List of paths to include in the full text indexing
+        """
+        return pulumi.get(self, "full_text_indexes")
 
     @_builtins.property
     @pulumi.getter(name="includedPaths")
@@ -5441,6 +5794,8 @@ class RestoreParametersResponse(dict):
             suggest = "restore_timestamp_in_utc"
         elif key == "restoreWithTtlDisabled":
             suggest = "restore_with_ttl_disabled"
+        elif key == "sourceBackupLocation":
+            suggest = "source_backup_location"
         elif key == "tablesToRestore":
             suggest = "tables_to_restore"
 
@@ -5462,6 +5817,7 @@ class RestoreParametersResponse(dict):
                  restore_source: Optional[_builtins.str] = None,
                  restore_timestamp_in_utc: Optional[_builtins.str] = None,
                  restore_with_ttl_disabled: Optional[_builtins.bool] = None,
+                 source_backup_location: Optional[_builtins.str] = None,
                  tables_to_restore: Optional[Sequence[_builtins.str]] = None):
         """
         Parameters to indicate the information about the restore.
@@ -5471,6 +5827,7 @@ class RestoreParametersResponse(dict):
         :param _builtins.str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param _builtins.str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         :param _builtins.bool restore_with_ttl_disabled: Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        :param _builtins.str source_backup_location: The source backup location for restore.
         :param Sequence[_builtins.str] tables_to_restore: List of specific tables available for restore.
         """
         if databases_to_restore is not None:
@@ -5485,6 +5842,8 @@ class RestoreParametersResponse(dict):
             pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
         if restore_with_ttl_disabled is not None:
             pulumi.set(__self__, "restore_with_ttl_disabled", restore_with_ttl_disabled)
+        if source_backup_location is not None:
+            pulumi.set(__self__, "source_backup_location", source_backup_location)
         if tables_to_restore is not None:
             pulumi.set(__self__, "tables_to_restore", tables_to_restore)
 
@@ -5535,6 +5894,14 @@ class RestoreParametersResponse(dict):
         Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
         """
         return pulumi.get(self, "restore_with_ttl_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceBackupLocation")
+    def source_backup_location(self) -> Optional[_builtins.str]:
+        """
+        The source backup location for restore.
+        """
+        return pulumi.get(self, "source_backup_location")
 
     @_builtins.property
     @pulumi.getter(name="tablesToRestore")
@@ -6962,15 +7329,50 @@ class VectorEmbeddingResponse(dict):
 
 @pulumi.output_type
 class VectorIndexResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexingSearchListSize":
+            suggest = "indexing_search_list_size"
+        elif key == "quantizationByteSize":
+            suggest = "quantization_byte_size"
+        elif key == "vectorIndexShardKey":
+            suggest = "vector_index_shard_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VectorIndexResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VectorIndexResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VectorIndexResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  path: _builtins.str,
-                 type: _builtins.str):
+                 type: _builtins.str,
+                 indexing_search_list_size: Optional[_builtins.float] = None,
+                 quantization_byte_size: Optional[_builtins.float] = None,
+                 vector_index_shard_key: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str path: The path to the vector field in the document.
         :param _builtins.str type: The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+        :param _builtins.float indexing_search_list_size: This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+        :param _builtins.float quantization_byte_size: The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+        :param Sequence[_builtins.str] vector_index_shard_key: Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "type", type)
+        if indexing_search_list_size is None:
+            indexing_search_list_size = 100
+        if indexing_search_list_size is not None:
+            pulumi.set(__self__, "indexing_search_list_size", indexing_search_list_size)
+        if quantization_byte_size is not None:
+            pulumi.set(__self__, "quantization_byte_size", quantization_byte_size)
+        if vector_index_shard_key is not None:
+            pulumi.set(__self__, "vector_index_shard_key", vector_index_shard_key)
 
     @_builtins.property
     @pulumi.getter
@@ -6987,6 +7389,30 @@ class VectorIndexResponse(dict):
         The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="indexingSearchListSize")
+    def indexing_search_list_size(self) -> Optional[_builtins.float]:
+        """
+        This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+        """
+        return pulumi.get(self, "indexing_search_list_size")
+
+    @_builtins.property
+    @pulumi.getter(name="quantizationByteSize")
+    def quantization_byte_size(self) -> Optional[_builtins.float]:
+        """
+        The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+        """
+        return pulumi.get(self, "quantization_byte_size")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexShardKey")
+    def vector_index_shard_key(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
+        """
+        return pulumi.get(self, "vector_index_shard_key")
 
 
 @pulumi.output_type

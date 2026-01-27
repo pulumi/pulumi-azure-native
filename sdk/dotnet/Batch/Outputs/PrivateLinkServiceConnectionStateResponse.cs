@@ -16,8 +16,17 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class PrivateLinkServiceConnectionStateResponse
     {
+        /// <summary>
+        /// Action required on the private connection state
+        /// </summary>
         public readonly string ActionsRequired;
+        /// <summary>
+        /// Description of the private Connection state
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The status of the Batch private endpoint connection
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

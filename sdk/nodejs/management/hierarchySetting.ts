@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +50,7 @@ export class HierarchySetting extends pulumi.CustomResource {
      */
     declare public readonly defaultManagementGroup: pulumi.Output<string | undefined>;
     /**
-     * The name of the object. In this case, default.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -55,11 +58,15 @@ export class HierarchySetting extends pulumi.CustomResource {
      */
     declare public readonly requireAuthorizationForGroupCreation: pulumi.Output<boolean | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.management.SystemDataResponse>;
+    /**
      * The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
      */
     declare public /*out*/ readonly tenantId: pulumi.Output<string | undefined>;
     /**
-     * The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -82,6 +89,7 @@ export class HierarchySetting extends pulumi.CustomResource {
             resourceInputs["requireAuthorizationForGroupCreation"] = args?.requireAuthorizationForGroupCreation;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -89,6 +97,7 @@ export class HierarchySetting extends pulumi.CustomResource {
             resourceInputs["defaultManagementGroup"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["requireAuthorizationForGroupCreation"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

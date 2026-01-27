@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// Defines the properties of an Experiment
         /// 
         /// Uses Azure REST API version 2019-11-01.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:frontdoor:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// Defines the properties of an Experiment
         /// 
         /// Uses Azure REST API version 2019-11-01.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:frontdoor:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// Defines the properties of an Experiment
         /// 
         /// Uses Azure REST API version 2019-11-01.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:frontdoor:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());

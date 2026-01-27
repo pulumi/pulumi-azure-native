@@ -44,6 +44,11 @@ Be prepared for a larger PR that may require additional testing and review.
 Ask the user:
 - Which Azure service/namespace to upgrade (e.g., "cosmosdb", "compute", "storage")
 - What is the target API version? (Optional - if not provided, we'll identify latest available)
+- Check that the specified version exists in the available live versions of azure APIs listed in versions/az-provider-list.json and confirm it to the user. If it doesn't exist, read the live list from `az` CLI by running the following command:
+  ```bash
+  az provider list --query 'sort_by([*].{ namespace: namespace, resourceTypes: sort_by(resourceTypes[*].{ resourceType: resourceType, defaultApiVersion: defaultApiVersion, apiVersions: apiVersions, locations: locations }, &resourceType) }, &namespace)'
+  ```
+  then selectively update the file `versions/az-provider-list.json` with the new information about that specific service.
 - Is there a related GitHub issue number?
 
 ### 2. Check Current State
@@ -67,7 +72,7 @@ Ask the user:
 - Commit changes: `git commit -m "Update {Service} to API version {version}"`
 
 ### 5. Regenerate Schema (Fast Iteration)
-- Run `DEBUG_CODEGEN_NAMESPACES="{service}" make schema` to regenerate schema for just this service
+- Run `DEBUG_CODEGEN_NAMESPACES="{service namespace}" make schema` to regenerate schema for just this service
 - **Important**: This is faster for testing but generates full schema at the end
 - Check for errors in the output
 

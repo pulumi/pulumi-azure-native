@@ -46,33 +46,17 @@ export class Target extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-     */
-    declare public readonly connectionServerName: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * The provisioning state of the resource.
+     * The resource-specific properties for this resource.
      */
-    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    declare public readonly properties: pulumi.Output<outputs.databasewatcher.SqlDbElasticPoolTargetPropertiesResponse | outputs.databasewatcher.SqlDbSingleDatabaseTargetPropertiesResponse | outputs.databasewatcher.SqlMiTargetPropertiesResponse | outputs.databasewatcher.SqlVmTargetPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.databasewatcher.SystemDataResponse>;
-    /**
-     * The type of authentication to use when connecting to a target.
-     */
-    declare public readonly targetAuthenticationType: pulumi.Output<string>;
-    /**
-     * Discriminator property for TargetProperties.
-     */
-    declare public readonly targetType: pulumi.Output<string>;
-    /**
-     * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-     */
-    declare public readonly targetVault: pulumi.Output<outputs.databasewatcher.VaultSecretResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -89,42 +73,25 @@ export class Target extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectionServerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionServerName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (args?.targetAuthenticationType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'targetAuthenticationType'");
-            }
-            if (args?.targetType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'targetType'");
             }
             if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
-            resourceInputs["connectionServerName"] = args?.connectionServerName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["targetAuthenticationType"] = args?.targetAuthenticationType;
             resourceInputs["targetName"] = args?.targetName;
-            resourceInputs["targetType"] = args?.targetType;
-            resourceInputs["targetVault"] = args?.targetVault;
             resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["connectionServerName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["targetAuthenticationType"] = undefined /*out*/;
-            resourceInputs["targetType"] = undefined /*out*/;
-            resourceInputs["targetVault"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,29 +106,17 @@ export class Target extends pulumi.CustomResource {
  */
 export interface TargetArgs {
     /**
-     * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+     * The resource-specific properties for this resource.
      */
-    connectionServerName: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.databasewatcher.SqlDbElasticPoolTargetPropertiesArgs | inputs.databasewatcher.SqlDbSingleDatabaseTargetPropertiesArgs | inputs.databasewatcher.SqlMiTargetPropertiesArgs | inputs.databasewatcher.SqlVmTargetPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The type of authentication to use when connecting to a target.
-     */
-    targetAuthenticationType: pulumi.Input<string | enums.databasewatcher.TargetAuthenticationType>;
-    /**
      * The target resource name.
      */
     targetName?: pulumi.Input<string>;
-    /**
-     * Discriminator property for TargetProperties.
-     */
-    targetType: pulumi.Input<string>;
-    /**
-     * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-     */
-    targetVault?: pulumi.Input<inputs.databasewatcher.VaultSecretArgs>;
     /**
      * The database watcher name.
      */

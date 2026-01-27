@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
- * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PlacementPolicy extends pulumi.CustomResource {
     /**
@@ -46,21 +46,13 @@ export class PlacementPolicy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Display name of the placement policy
-     */
-    declare public readonly displayName: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * The provisioning state
+     * The resource-specific properties for this resource.
      */
-    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
-    /**
-     * Whether the placement policy is enabled or disabled
-     */
-    declare public readonly state: pulumi.Output<string | undefined>;
+    declare public readonly properties: pulumi.Output<outputs.avs.VmHostPlacementPolicyPropertiesResponse | outputs.avs.VmVmPlacementPolicyPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -68,7 +60,7 @@ export class PlacementPolicy extends pulumi.CustomResource {
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    declare public readonly type: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PlacementPolicy resource with the given unique name, arguments, and options.
@@ -90,31 +82,24 @@ export class PlacementPolicy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.type === undefined && !opts.urn) {
-                throw new Error("Missing required property 'type'");
-            }
             resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["placementPolicyName"] = args?.placementPolicyName;
             resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["state"] = args?.state;
-            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20211201:PlacementPolicy" }, { type: "azure-native:avs/v20220501:PlacementPolicy" }, { type: "azure-native:avs/v20230301:PlacementPolicy" }, { type: "azure-native:avs/v20230901:PlacementPolicy" }, { type: "azure-native:avs/v20240901:PlacementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20211201:PlacementPolicy" }, { type: "azure-native:avs/v20220501:PlacementPolicy" }, { type: "azure-native:avs/v20230301:PlacementPolicy" }, { type: "azure-native:avs/v20230901:PlacementPolicy" }, { type: "azure-native:avs/v20240901:PlacementPolicy" }, { type: "azure-native:avs/v20250901:PlacementPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PlacementPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -129,10 +114,6 @@ export interface PlacementPolicyArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Display name of the placement policy
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Name of the placement policy.
      */
     placementPolicyName?: pulumi.Input<string>;
@@ -141,15 +122,11 @@ export interface PlacementPolicyArgs {
      */
     privateCloudName: pulumi.Input<string>;
     /**
+     * The resource-specific properties for this resource.
+     */
+    properties?: pulumi.Input<inputs.avs.VmHostPlacementPolicyPropertiesArgs | inputs.avs.VmVmPlacementPolicyPropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Whether the placement policy is enabled or disabled
-     */
-    state?: pulumi.Input<string | enums.avs.PlacementPolicyState>;
-    /**
-     * Placement Policy type
-     */
-    type: pulumi.Input<string | enums.avs.PlacementPolicyType>;
 }

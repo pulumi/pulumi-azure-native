@@ -5,15 +5,65 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ConditionalCreditArgs } from "./conditionalCredit";
+export type ConditionalCredit = import("./conditionalCredit").ConditionalCredit;
+export const ConditionalCredit: typeof import("./conditionalCredit").ConditionalCredit = null as any;
+utilities.lazyLoad(exports, ["ConditionalCredit"], () => require("./conditionalCredit"));
+
+export { CreditArgs } from "./credit";
+export type Credit = import("./credit").Credit;
+export const Credit: typeof import("./credit").Credit = null as any;
+utilities.lazyLoad(exports, ["Credit"], () => require("./credit"));
+
 export { DiscountArgs } from "./discount";
 export type Discount = import("./discount").Discount;
 export const Discount: typeof import("./discount").Discount = null as any;
 utilities.lazyLoad(exports, ["Discount"], () => require("./discount"));
 
+export { FreeServiceArgs } from "./freeService";
+export type FreeService = import("./freeService").FreeService;
+export const FreeService: typeof import("./freeService").FreeService = null as any;
+utilities.lazyLoad(exports, ["FreeService"], () => require("./freeService"));
+
+export { GetConditionalCreditArgs, GetConditionalCreditResult, GetConditionalCreditOutputArgs } from "./getConditionalCredit";
+export const getConditionalCredit: typeof import("./getConditionalCredit").getConditionalCredit = null as any;
+export const getConditionalCreditOutput: typeof import("./getConditionalCredit").getConditionalCreditOutput = null as any;
+utilities.lazyLoad(exports, ["getConditionalCredit","getConditionalCreditOutput"], () => require("./getConditionalCredit"));
+
+export { GetCreditArgs, GetCreditResult, GetCreditOutputArgs } from "./getCredit";
+export const getCredit: typeof import("./getCredit").getCredit = null as any;
+export const getCreditOutput: typeof import("./getCredit").getCreditOutput = null as any;
+utilities.lazyLoad(exports, ["getCredit","getCreditOutput"], () => require("./getCredit"));
+
 export { GetDiscountArgs, GetDiscountResult, GetDiscountOutputArgs } from "./getDiscount";
 export const getDiscount: typeof import("./getDiscount").getDiscount = null as any;
 export const getDiscountOutput: typeof import("./getDiscount").getDiscountOutput = null as any;
 utilities.lazyLoad(exports, ["getDiscount","getDiscountOutput"], () => require("./getDiscount"));
+
+export { GetFreeServiceArgs, GetFreeServiceResult, GetFreeServiceOutputArgs } from "./getFreeService";
+export const getFreeService: typeof import("./getFreeService").getFreeService = null as any;
+export const getFreeServiceOutput: typeof import("./getFreeService").getFreeServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getFreeService","getFreeServiceOutput"], () => require("./getFreeService"));
+
+export { GetMaccArgs, GetMaccResult, GetMaccOutputArgs } from "./getMacc";
+export const getMacc: typeof import("./getMacc").getMacc = null as any;
+export const getMaccOutput: typeof import("./getMacc").getMaccOutput = null as any;
+utilities.lazyLoad(exports, ["getMacc","getMaccOutput"], () => require("./getMacc"));
+
+export { GetSourceArgs, GetSourceResult, GetSourceOutputArgs } from "./getSource";
+export const getSource: typeof import("./getSource").getSource = null as any;
+export const getSourceOutput: typeof import("./getSource").getSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getSource","getSourceOutput"], () => require("./getSource"));
+
+export { MaccArgs } from "./macc";
+export type Macc = import("./macc").Macc;
+export const Macc: typeof import("./macc").Macc = null as any;
+utilities.lazyLoad(exports, ["Macc"], () => require("./macc"));
+
+export { SourceArgs } from "./source";
+export type Source = import("./source").Source;
+export const Source: typeof import("./source").Source = null as any;
+utilities.lazyLoad(exports, ["Source"], () => require("./source"));
 
 
 // Export enums:
@@ -23,8 +73,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:billingbenefits:ConditionalCredit":
+                return new ConditionalCredit(name, <any>undefined, { urn })
+            case "azure-native:billingbenefits:Credit":
+                return new Credit(name, <any>undefined, { urn })
             case "azure-native:billingbenefits:Discount":
                 return new Discount(name, <any>undefined, { urn })
+            case "azure-native:billingbenefits:FreeService":
+                return new FreeService(name, <any>undefined, { urn })
+            case "azure-native:billingbenefits:Macc":
+                return new Macc(name, <any>undefined, { urn })
+            case "azure-native:billingbenefits:Source":
+                return new Source(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

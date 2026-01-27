@@ -13,6 +13,9 @@ from .afd_origin import *
 from .afd_origin_group import *
 from .afd_target_group import *
 from .custom_domain import *
+from .edge_action import *
+from .edge_action_execution_filter import *
+from .edge_action_version import *
 from .endpoint import *
 from .get_afd_custom_domain import *
 from .get_afd_endpoint import *
@@ -20,6 +23,10 @@ from .get_afd_origin import *
 from .get_afd_origin_group import *
 from .get_afd_target_group import *
 from .get_custom_domain import *
+from .get_edge_action import *
+from .get_edge_action_execution_filter import *
+from .get_edge_action_version import *
+from .get_edge_action_version_code import *
 from .get_endpoint import *
 from .get_key_group import *
 from .get_knowledge_source import *

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// A inbound NAT pool that can be used to address specific ports on compute nodes in a Batch pool externally.
+    /// </summary>
     [OutputType]
     public sealed class InboundNatPoolResponse
     {
@@ -33,6 +36,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkSecurityGroupRuleResponse> NetworkSecurityGroupRules;
+        /// <summary>
+        /// The protocol of the endpoint.
+        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

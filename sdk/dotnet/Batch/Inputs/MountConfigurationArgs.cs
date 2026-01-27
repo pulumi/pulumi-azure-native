@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// The file system to mount on each node.
+    /// </summary>
     public sealed class MountConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

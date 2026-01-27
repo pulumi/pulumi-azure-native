@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The available data types for the connector.
         /// </summary>
         [Output("dataTypes")]
-        public Output<Outputs.TIDataConnectorDataTypesResponse?> DataTypes { get; private set; } = null!;
+        public Output<Outputs.TIDataConnectorDataTypesResponse> DataTypes { get; private set; } = null!;
 
         /// <summary>
         /// Etag of the azure resource
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The tenant id to connect to, and get the data from.
         /// </summary>
         [Output("tenantId")]
-        public Output<string?> TenantId { get; private set; } = null!;
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The lookback period for the feed to be imported.
@@ -420,8 +420,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The available data types for the connector.
         /// </summary>
-        [Input("dataTypes")]
-        public Input<Inputs.TIDataConnectorDataTypesArgs>? DataTypes { get; set; }
+        [Input("dataTypes", required: true)]
+        public Input<Inputs.TIDataConnectorDataTypesArgs> DataTypes { get; set; } = null!;
 
         /// <summary>
         /// The kind of the data connector
@@ -439,8 +439,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The tenant id to connect to, and get the data from.
         /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        [Input("tenantId", required: true)]
+        public Input<string> TenantId { get; set; } = null!;
 
         /// <summary>
         /// The lookback period for the feed to be imported.

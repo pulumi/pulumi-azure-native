@@ -66,7 +66,7 @@ class GetOfficeDataConnectorResult:
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional['outputs.OfficeDataConnectorDataTypesResponse']:
+    def data_types(self) -> 'outputs.OfficeDataConnectorDataTypesResponse':
         """
         The available data types for the connector.
         """
@@ -115,7 +115,7 @@ class GetOfficeDataConnectorResult:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[_builtins.str]:
+    def tenant_id(self) -> _builtins.str:
         """
         The tenant id to connect to, and get the data from.
         """

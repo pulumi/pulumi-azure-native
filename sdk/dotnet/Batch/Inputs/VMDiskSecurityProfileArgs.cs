@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
     /// </summary>
     public sealed class VMDiskSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+        /// </summary>
         [Input("securityEncryptionType")]
         public InputUnion<string, Pulumi.AzureNative.Batch.SecurityEncryptionTypes>? SecurityEncryptionType { get; set; }
 

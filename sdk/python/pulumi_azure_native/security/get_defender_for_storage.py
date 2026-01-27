@@ -106,7 +106,7 @@ def get_defender_for_storage(resource_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2022-12-01-preview, 2024-08-01-preview, 2025-01-01, 2025-02-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-12-01-preview, 2024-08-01-preview, 2025-01-01, 2025-02-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_id: The identifier of the resource.
@@ -132,7 +132,7 @@ def get_defender_for_storage_output(resource_id: Optional[pulumi.Input[_builtins
 
     Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2022-12-01-preview, 2024-08-01-preview, 2025-01-01, 2025-02-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-12-01-preview, 2024-08-01-preview, 2025-01-01, 2025-02-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_id: The identifier of the resource.

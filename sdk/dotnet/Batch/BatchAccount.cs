@@ -25,6 +25,9 @@ namespace Pulumi.AzureNative.Batch
         [Output("accountEndpoint")]
         public Output<string> AccountEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The active job and job schedule quota for the Batch account.
+        /// </summary>
         [Output("activeJobAndJobScheduleQuota")]
         public Output<int> ActiveJobAndJobScheduleQuota { get; private set; } = null!;
 
@@ -83,7 +86,7 @@ namespace Pulumi.AzureNative.Batch
         public Output<Outputs.KeyVaultReferenceResponse> KeyVaultReference { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -95,7 +98,7 @@ namespace Pulumi.AzureNative.Batch
         public Output<int> LowPriorityCoreQuota { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -118,6 +121,9 @@ namespace Pulumi.AzureNative.Batch
         [Output("poolAllocationMode")]
         public Output<string> PoolAllocationMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The pool quota for the Batch account.
+        /// </summary>
         [Output("poolQuota")]
         public Output<int> PoolQuota { get; private set; } = null!;
 
@@ -134,19 +140,25 @@ namespace Pulumi.AzureNative.Batch
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// If not specified, the default value is 'enabled'.
+        /// The network access type for operating on the resources in the Batch account.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The tags of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -279,13 +291,13 @@ namespace Pulumi.AzureNative.Batch
         public Input<Pulumi.AzureNative.Batch.PoolAllocationMode>? PoolAllocationMode { get; set; }
 
         /// <summary>
-        /// If not specified, the default value is 'enabled'.
+        /// The network access type for operating on the resources in the Batch account.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<Pulumi.AzureNative.Batch.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -304,6 +316,7 @@ namespace Pulumi.AzureNative.Batch
 
         public BatchAccountArgs()
         {
+            PublicNetworkAccess = Pulumi.AzureNative.Batch.PublicNetworkAccessType.Enabled;
         }
         public static new BatchAccountArgs Empty => new BatchAccountArgs();
     }

@@ -65,7 +65,7 @@ class GetActionResult:
     @pulumi.getter
     def etag(self) -> Optional[_builtins.str]:
         """
-        Etag of the action.
+        ETag of the action.
         """
         return pulumi.get(self, "etag")
 

@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB FleetAnalytics under a fleet
  *
- * Uses Azure REST API version 2025-05-01-preview.
+ * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFleetAnalytic(args: GetFleetAnalyticArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetAnalyticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,7 +78,9 @@ export interface GetFleetAnalyticResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB FleetAnalytics under a fleet
  *
- * Uses Azure REST API version 2025-05-01-preview.
+ * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFleetAnalyticOutput(args: GetFleetAnalyticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetAnalyticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

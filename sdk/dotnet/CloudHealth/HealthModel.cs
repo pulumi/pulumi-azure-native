@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.CloudHealth
     /// A HealthModel resource
     /// 
     /// Uses Azure REST API version 2025-05-01-preview.
+    /// 
+    /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudhealth:HealthModel")]
     public partial class HealthModel : global::Pulumi.CustomResource
@@ -91,6 +93,7 @@ namespace Pulumi.AzureNative.CloudHealth
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cloudhealth/v20250501preview:HealthModel" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudhealth/v20260101preview:HealthModel" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

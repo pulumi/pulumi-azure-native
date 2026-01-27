@@ -484,6 +484,8 @@ __all__ = [
     'RouteMapRuleArgsDict',
     'RouteTableArgs',
     'RouteTableArgsDict',
+    'RouteTargetAddressPropertiesFormatArgs',
+    'RouteTargetAddressPropertiesFormatArgsDict',
     'RouteArgs',
     'RouteArgsDict',
     'RoutingConfigurationArgs',
@@ -506,6 +508,8 @@ __all__ = [
     'ServiceEndpointPolicyArgsDict',
     'ServiceEndpointPropertiesFormatArgs',
     'ServiceEndpointPropertiesFormatArgsDict',
+    'ServiceGatewaySkuArgs',
+    'ServiceGatewaySkuArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'StaticCidrPropertiesArgs',
@@ -578,6 +582,8 @@ __all__ = [
     'VirtualNetworkPeeringArgsDict',
     'VirtualNetworkTapArgs',
     'VirtualNetworkTapArgsDict',
+    'VirtualNetworkArgs',
+    'VirtualNetworkArgsDict',
     'VirtualRouterAutoScaleConfigurationArgs',
     'VirtualRouterAutoScaleConfigurationArgsDict',
     'VnetRouteArgs',
@@ -23916,6 +23922,82 @@ class RouteTableArgs:
 
 
 if not MYPY:
+    class RouteTargetAddressPropertiesFormatArgsDict(TypedDict):
+        """
+        Properties of route target address
+        """
+        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The private IPv4 or IPv6 address of the service gateway route target address.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]
+        """
+        The Private IP allocation method.
+        """
+        subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+        """
+        The reference to the subnet resource.
+        """
+elif False:
+    RouteTargetAddressPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RouteTargetAddressPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]] = None,
+                 subnet: Optional[pulumi.Input['SubnetArgs']] = None):
+        """
+        Properties of route target address
+        :param pulumi.Input[_builtins.str] private_ip_address: The private IPv4 or IPv6 address of the service gateway route target address.
+        :param pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']] private_ip_allocation_method: The Private IP allocation method.
+        :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
+        """
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The private IPv4 or IPv6 address of the service gateway route target address.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]:
+        """
+        The Private IP allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @private_ip_allocation_method.setter
+    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]):
+        pulumi.set(self, "private_ip_allocation_method", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
+        """
+        The reference to the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+if not MYPY:
     class RouteArgsDict(TypedDict):
         """
         Route resource.
@@ -25341,6 +25423,62 @@ class ServiceEndpointPropertiesFormatArgs:
 
 
 if not MYPY:
+    class ServiceGatewaySkuArgsDict(TypedDict):
+        """
+        SKU of a service gateway.
+        """
+        name: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuName']]]
+        """
+        Name of a service gateway SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuTier']]]
+        """
+        Tier of a service gateway SKU.
+        """
+elif False:
+    ServiceGatewaySkuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceGatewaySkuArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuName']]] = None,
+                 tier: Optional[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuTier']]] = None):
+        """
+        SKU of a service gateway.
+        :param pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuName']] name: Name of a service gateway SKU.
+        :param pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuTier']] tier: Tier of a service gateway SKU.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuName']]]:
+        """
+        Name of a service gateway SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuName']]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuTier']]]:
+        """
+        Tier of a service gateway SKU.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceGatewaySkuTier']]]):
+        pulumi.set(self, "tier", value)
+
+
+if not MYPY:
     class SkuArgsDict(TypedDict):
         """
         The sku of this Bastion Host.
@@ -25734,6 +25872,10 @@ if not MYPY:
         """
         An array of service endpoints.
         """
+        service_gateway: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to an existing service gateway.
+        """
         sharing_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'SharingScope']]]
         """
         Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
@@ -25768,6 +25910,7 @@ class SubnetArgs:
                  service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAssociationLinkArgs']]]] = None,
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None,
+                 service_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
                  sharing_scope: Optional[pulumi.Input[Union[_builtins.str, 'SharingScope']]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -25792,6 +25935,7 @@ class SubnetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAssociationLinkArgs']]] service_association_links: Gets an array of references to services injecting into this subnet.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input['SubResourceArgs'] service_gateway: Reference to an existing service gateway.
         :param pulumi.Input[Union[_builtins.str, 'SharingScope']] sharing_scope: Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
         :param pulumi.Input[_builtins.str] type: Resource type.
         """
@@ -25839,6 +25983,8 @@ class SubnetArgs:
             pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
         if service_endpoints is not None:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if service_gateway is not None:
+            pulumi.set(__self__, "service_gateway", service_gateway)
         if sharing_scope is not None:
             pulumi.set(__self__, "sharing_scope", sharing_scope)
         if type is not None:
@@ -26083,6 +26229,18 @@ class SubnetArgs:
     @service_endpoints.setter
     def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]]):
         pulumi.set(self, "service_endpoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceGateway")
+    def service_gateway(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Reference to an existing service gateway.
+        """
+        return pulumi.get(self, "service_gateway")
+
+    @service_gateway.setter
+    def service_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "service_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="sharingScope")
@@ -28902,6 +29060,346 @@ class VirtualNetworkTapArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+
+if not MYPY:
+    class VirtualNetworkArgsDict(TypedDict):
+        """
+        Virtual Network resource.
+        """
+        address_space: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
+        """
+        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        """
+        bgp_communities: NotRequired[pulumi.Input['VirtualNetworkBgpCommunitiesArgsDict']]
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        """
+        ddos_protection_plan: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The DDoS protection plan associated with the virtual network.
+        """
+        dhcp_options: NotRequired[pulumi.Input['DhcpOptionsArgsDict']]
+        """
+        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        """
+        enable_ddos_protection: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        """
+        enable_vm_protection: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Indicates if VM protection is enabled for all the subnets in the virtual network.
+        """
+        encryption: NotRequired[pulumi.Input['VirtualNetworkEncryptionArgsDict']]
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        extended_location: NotRequired[pulumi.Input['ExtendedLocationArgsDict']]
+        """
+        The extended location of the virtual network.
+        """
+        flow_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The FlowTimeout value (in minutes) for the Virtual Network
+        """
+        id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Resource ID.
+        """
+        ip_allocations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Array of IpAllocation which reference this VNET.
+        """
+        location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Resource location.
+        """
+        private_endpoint_v_net_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]
+        """
+        Private Endpoint VNet Policies.
+        """
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetArgsDict']]]]
+        """
+        A list of subnets in a Virtual Network.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        Resource tags.
+        """
+        virtual_network_peerings: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgsDict']]]]
+        """
+        A list of peerings in a Virtual Network.
+        """
+elif False:
+    VirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualNetworkArgs:
+    def __init__(__self__, *,
+                 address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+                 bgp_communities: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']] = None,
+                 ddos_protection_plan: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 dhcp_options: Optional[pulumi.Input['DhcpOptionsArgs']] = None,
+                 enable_ddos_protection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_vm_protection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 flow_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_endpoint_v_net_policies: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]] = None):
+        """
+        Virtual Network resource.
+        :param pulumi.Input['AddressSpaceArgs'] address_space: The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        :param pulumi.Input['VirtualNetworkBgpCommunitiesArgs'] bgp_communities: Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        :param pulumi.Input['SubResourceArgs'] ddos_protection_plan: The DDoS protection plan associated with the virtual network.
+        :param pulumi.Input['DhcpOptionsArgs'] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        :param pulumi.Input[_builtins.bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        :param pulumi.Input[_builtins.bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
+        :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the virtual network.
+        :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this VNET.
+        :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']] private_endpoint_v_net_policies: Private Endpoint VNet Policies.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] subnets: A list of subnets in a Virtual Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]] virtual_network_peerings: A list of peerings in a Virtual Network.
+        """
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+        if bgp_communities is not None:
+            pulumi.set(__self__, "bgp_communities", bgp_communities)
+        if ddos_protection_plan is not None:
+            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+        if dhcp_options is not None:
+            pulumi.set(__self__, "dhcp_options", dhcp_options)
+        if enable_ddos_protection is None:
+            enable_ddos_protection = False
+        if enable_ddos_protection is not None:
+            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
+        if enable_vm_protection is None:
+            enable_vm_protection = False
+        if enable_vm_protection is not None:
+            pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if flow_timeout_in_minutes is not None:
+            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_allocations is not None:
+            pulumi.set(__self__, "ip_allocations", ip_allocations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if private_endpoint_v_net_policies is not None:
+            pulumi.set(__self__, "private_endpoint_v_net_policies", private_endpoint_v_net_policies)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_peerings is not None:
+            pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
+
+    @_builtins.property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
+        """
+        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        """
+        return pulumi.get(self, "address_space")
+
+    @address_space.setter
+    def address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
+        pulumi.set(self, "address_space", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpCommunities")
+    def bgp_communities(self) -> Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']]:
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        """
+        return pulumi.get(self, "bgp_communities")
+
+    @bgp_communities.setter
+    def bgp_communities(self, value: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']]):
+        pulumi.set(self, "bgp_communities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ddosProtectionPlan")
+    def ddos_protection_plan(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The DDoS protection plan associated with the virtual network.
+        """
+        return pulumi.get(self, "ddos_protection_plan")
+
+    @ddos_protection_plan.setter
+    def ddos_protection_plan(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "ddos_protection_plan", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dhcpOptions")
+    def dhcp_options(self) -> Optional[pulumi.Input['DhcpOptionsArgs']]:
+        """
+        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        """
+        return pulumi.get(self, "dhcp_options")
+
+    @dhcp_options.setter
+    def dhcp_options(self, value: Optional[pulumi.Input['DhcpOptionsArgs']]):
+        pulumi.set(self, "dhcp_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableDdosProtection")
+    def enable_ddos_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        """
+        return pulumi.get(self, "enable_ddos_protection")
+
+    @enable_ddos_protection.setter
+    def enable_ddos_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_ddos_protection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableVmProtection")
+    def enable_vm_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates if VM protection is enabled for all the subnets in the virtual network.
+        """
+        return pulumi.get(self, "enable_vm_protection")
+
+    @enable_vm_protection.setter
+    def enable_vm_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_vm_protection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]:
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The extended location of the virtual network.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowTimeoutInMinutes")
+    def flow_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The FlowTimeout value (in minutes) for the Virtual Network
+        """
+        return pulumi.get(self, "flow_timeout_in_minutes")
+
+    @flow_timeout_in_minutes.setter
+    def flow_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "flow_timeout_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocations")
+    def ip_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Array of IpAllocation which reference this VNET.
+        """
+        return pulumi.get(self, "ip_allocations")
+
+    @ip_allocations.setter
+    def ip_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ip_allocations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointVNetPolicies")
+    def private_endpoint_v_net_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]:
+        """
+        Private Endpoint VNet Policies.
+        """
+        return pulumi.get(self, "private_endpoint_v_net_policies")
+
+    @private_endpoint_v_net_policies.setter
+    def private_endpoint_v_net_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]):
+        pulumi.set(self, "private_endpoint_v_net_policies", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
+        """
+        A list of subnets in a Virtual Network.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkPeerings")
+    def virtual_network_peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]]:
+        """
+        A list of peerings in a Virtual Network.
+        """
+        return pulumi.get(self, "virtual_network_peerings")
+
+    @virtual_network_peerings.setter
+    def virtual_network_peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]]):
+        pulumi.set(self, "virtual_network_peerings", value)
 
 
 if not MYPY:

@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'DependencyProcessFilter',
     'DependencyProcessFilterDict',
+    'OffAzureDiscoverySourceResourcePropertiesArgs',
+    'OffAzureDiscoverySourceResourcePropertiesArgsDict',
     'ProcessNameFilter',
     'ProcessNameFilterDict',
 ]
@@ -58,6 +60,63 @@ class DependencyProcessFilter:
     @process_name_filter.setter
     def process_name_filter(self, value: Optional['ProcessNameFilter']):
         pulumi.set(self, "process_name_filter", value)
+
+
+if not MYPY:
+    class OffAzureDiscoverySourceResourcePropertiesArgsDict(TypedDict):
+        """
+        OffAzure discovery source resource properties
+        """
+        source_id: pulumi.Input[_builtins.str]
+        """
+        Source ArmId of Discovery Source resource
+        """
+        source_type: pulumi.Input[_builtins.str]
+        """
+        Source type of the discoverySource
+        Expected value is 'OffAzure'.
+        """
+elif False:
+    OffAzureDiscoverySourceResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OffAzureDiscoverySourceResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 source_id: pulumi.Input[_builtins.str],
+                 source_type: pulumi.Input[_builtins.str]):
+        """
+        OffAzure discovery source resource properties
+        :param pulumi.Input[_builtins.str] source_id: Source ArmId of Discovery Source resource
+        :param pulumi.Input[_builtins.str] source_type: Source type of the discoverySource
+               Expected value is 'OffAzure'.
+        """
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "source_type", 'OffAzure')
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Source ArmId of Discovery Source resource
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Source type of the discoverySource
+        Expected value is 'OffAzure'.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_type", value)
 
 
 if not MYPY:

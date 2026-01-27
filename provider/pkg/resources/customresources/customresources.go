@@ -167,7 +167,7 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 
 	customResource, err := r.Schema(originalResource)
 	if err != nil {
-		if !resourceAlreadyExists && len(pkg.Resources) < 100 {
+		if !resourceAlreadyExists {
 			logging.V(5).Infof("warning: error applying custom resource schema modifications for %s: '%s'; continuing since this is likely a test run with only %d resources",
 				tok, err, len(pkg.Resources))
 			return nil

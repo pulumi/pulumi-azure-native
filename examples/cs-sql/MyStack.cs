@@ -108,7 +108,7 @@ class MyStack : Stack
             EndIpAddress = "222.222.222.222"
         });
 
-        var vnet = new VirtualNetwork("vnet", new VirtualNetworkArgs
+        var vnet = new VirtualNetwork("vnet", new ()
         {
             ResourceGroupName = resourceGroup.Name,
             Location = resourceGroup.Location,

@@ -11,15 +11,27 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
 {
 
     /// <summary>
-    /// Properties of a managed Cassandra cluster.
+    /// Properties of a Garnet cache cluster.
     /// </summary>
     public sealed class ClusterResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        /// </summary>
+        [Input("allocationState")]
+        public InputUnion<string, Pulumi.AzureNative.CosmosDB.AllocationState>? AllocationState { get; set; }
+
         /// <summary>
         /// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
         /// </summary>
         [Input("authenticationMethod")]
         public InputUnion<string, Pulumi.AzureNative.CosmosDB.AuthenticationMethod>? AuthenticationMethod { get; set; }
+
+        /// <summary>
+        /// If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<bool>? AvailabilityZone { get; set; }
 
         /// <summary>
         /// How to connect to the azure services needed for running the cluster
@@ -58,6 +70,12 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         public Input<string>? ClusterNameOverride { get; set; }
 
         /// <summary>
+        /// Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        /// </summary>
+        [Input("clusterType")]
+        public InputUnion<string, Pulumi.AzureNative.CosmosDB.ClusterType>? ClusterType { get; set; }
+
+        /// <summary>
         /// Whether the cluster and associated data centers has been deallocated.
         /// </summary>
         [Input("deallocated")]
@@ -68,6 +86,18 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         /// </summary>
         [Input("delegatedManagementSubnetId")]
         public Input<string>? DelegatedManagementSubnetId { get; set; }
+
+        [Input("extensions")]
+        private InputList<string>? _extensions;
+
+        /// <summary>
+        /// Extensions to be added or updated on cluster.
+        /// </summary>
+        public InputList<string> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<string>());
+            set => _extensions = value;
+        }
 
         [Input("externalGossipCertificates")]
         private InputList<Inputs.CertificateArgs>? _externalGossipCertificates;
@@ -106,6 +136,18 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         public Input<string>? InitialCassandraAdminPassword { get; set; }
 
         /// <summary>
+        /// Number of nodes
+        /// </summary>
+        [Input("nodeCount")]
+        public Input<int>? NodeCount { get; set; }
+
+        /// <summary>
+        /// Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        /// </summary>
+        [Input("nodeSku")]
+        public Input<string>? NodeSku { get; set; }
+
+        /// <summary>
         /// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         /// </summary>
         [Input("prometheusEndpoint")]
@@ -130,10 +172,22 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         public Input<bool>? RepairEnabled { get; set; }
 
         /// <summary>
+        /// Number of copies of data maintained by the cluster
+        /// </summary>
+        [Input("replicationFactor")]
+        public Input<int>? ReplicationFactor { get; set; }
+
+        /// <summary>
         /// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
         /// </summary>
         [Input("restoreFromBackupId")]
         public Input<string>? RestoreFromBackupId { get; set; }
+
+        /// <summary>
+        /// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/&lt;subscription id&gt;/resourceGroups/&lt;resource group&gt;/providers/Microsoft.Network/virtualNetworks/&lt;virtual network&gt;/subnets/&lt;subnet&gt;'
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         public ClusterResourcePropertiesArgs()
         {

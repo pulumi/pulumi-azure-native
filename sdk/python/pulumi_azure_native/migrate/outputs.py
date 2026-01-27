@@ -29,6 +29,7 @@ __all__ = [
     'AppInsightMonitoringPropertiesResponse',
     'AppSvcContainerSettingsResponse',
     'AppSvcNativeSettingsResponse',
+    'ArgResponse',
     'AssessmentDetailsResponse',
     'AssessmentPropertiesResponse',
     'AssessmentScopeParametersResponse',
@@ -104,6 +105,8 @@ __all__ = [
     'MigrateProjectPropertiesResponse',
     'MigrateProjectResponseTags',
     'MigrationConfigurationResponse',
+    'MigrationEntityGroupPropertiesResponse',
+    'MigrationEntityPropertiesResponse',
     'ModernizeProjectModelPropertiesResponse',
     'ModernizeProjectModelResponseSystemData',
     'MoveCollectionPropertiesResponse',
@@ -145,6 +148,7 @@ __all__ = [
     'SecretStoreDetailsResponse',
     'SecretStorePropertiesResponse',
     'SecuritySettingsResponse',
+    'ServerMigrationSpecificPropertiesResponse',
     'ServersProjectSummaryResponse',
     'ServersSolutionSummaryResponse',
     'SettingsResponse',
@@ -167,6 +171,7 @@ __all__ = [
     'SystemDataResponse',
     'TargetAssessmentArmIdsResponse',
     'TargetStorageProfileResponse',
+    'TaskPropertiesResponse',
     'ThirdPartyManagementSettingsResponse',
     'UserAssignedIdentityResponse',
     'VMwareMigrateAgentModelCustomPropertiesResponse',
@@ -174,6 +179,7 @@ __all__ = [
     'VirtualNetworkResourceSettingsResponse',
     'VirtualizationSoftwareSettingsResponse',
     'VmUptimeResponse',
+    'WavePropertiesResponse',
     'WebAppAssessmentSettingsResponse',
     'WebAppAssessmentV3PropertiesResponse',
     'WebApplicationConfigurationResponse',
@@ -1479,6 +1485,28 @@ class AppSvcNativeSettingsResponse(dict):
         Gets or sets the isolation required.
         """
         return pulumi.get(self, "isolation_required")
+
+
+@pulumi.output_type
+class ArgResponse(dict):
+    """
+    ARG query and other details to create workloads within a wave.
+    """
+    def __init__(__self__, *,
+                 query: _builtins.str):
+        """
+        ARG query and other details to create workloads within a wave.
+        :param _builtins.str query: The query to create workloads within the wave.
+        """
+        pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> _builtins.str:
+        """
+        The query to create workloads within the wave.
+        """
+        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -9045,6 +9073,407 @@ class MigrationConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class MigrationEntityGroupPropertiesResponse(dict):
+    """
+    Migration Entity Group Properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationDisplayName":
+            suggest = "application_display_name"
+        elif key == "applicationId":
+            suggest = "application_id"
+        elif key == "executionStartDate":
+            suggest = "execution_start_date"
+        elif key == "executionStatus":
+            suggest = "execution_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "associatedAssessmentId":
+            suggest = "associated_assessment_id"
+        elif key == "associatedWaveIds":
+            suggest = "associated_wave_ids"
+        elif key == "migrationPath":
+            suggest = "migration_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationEntityGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationEntityGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationEntityGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_display_name: _builtins.str,
+                 application_id: _builtins.str,
+                 execution_start_date: _builtins.str,
+                 execution_status: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 associated_assessment_id: Optional[_builtins.str] = None,
+                 associated_wave_ids: Optional[Sequence[_builtins.str]] = None,
+                 migration_path: Optional[_builtins.str] = None):
+        """
+        Migration Entity Group Properties class.
+        :param _builtins.str application_display_name: Display Name of the Workload.
+        :param _builtins.str application_id: Application id 
+        :param _builtins.str execution_start_date: Execution Start Date
+        :param _builtins.str execution_status: Migration Entity Group Status
+        :param _builtins.str provisioning_state: The status of the last operation.
+        :param _builtins.str associated_assessment_id: Associated Assessment Id
+        :param Sequence[_builtins.str] associated_wave_ids: associated Wave Id
+        :param _builtins.str migration_path: Migration path
+        """
+        pulumi.set(__self__, "application_display_name", application_display_name)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "execution_start_date", execution_start_date)
+        pulumi.set(__self__, "execution_status", execution_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if associated_assessment_id is not None:
+            pulumi.set(__self__, "associated_assessment_id", associated_assessment_id)
+        if associated_wave_ids is not None:
+            pulumi.set(__self__, "associated_wave_ids", associated_wave_ids)
+        if migration_path is not None:
+            pulumi.set(__self__, "migration_path", migration_path)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationDisplayName")
+    def application_display_name(self) -> _builtins.str:
+        """
+        Display Name of the Workload.
+        """
+        return pulumi.get(self, "application_display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> _builtins.str:
+        """
+        Application id 
+        """
+        return pulumi.get(self, "application_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionStartDate")
+    def execution_start_date(self) -> _builtins.str:
+        """
+        Execution Start Date
+        """
+        return pulumi.get(self, "execution_start_date")
+
+    @_builtins.property
+    @pulumi.getter(name="executionStatus")
+    def execution_status(self) -> _builtins.str:
+        """
+        Migration Entity Group Status
+        """
+        return pulumi.get(self, "execution_status")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedAssessmentId")
+    def associated_assessment_id(self) -> Optional[_builtins.str]:
+        """
+        Associated Assessment Id
+        """
+        return pulumi.get(self, "associated_assessment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedWaveIds")
+    def associated_wave_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        associated Wave Id
+        """
+        return pulumi.get(self, "associated_wave_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="migrationPath")
+    def migration_path(self) -> Optional[_builtins.str]:
+        """
+        Migration path
+        """
+        return pulumi.get(self, "migration_path")
+
+
+@pulumi.output_type
+class MigrationEntityPropertiesResponse(dict):
+    """
+    Migration Entity Properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedInventoryResourceId":
+            suggest = "associated_inventory_resource_id"
+        elif key == "executionReadiness":
+            suggest = "execution_readiness"
+        elif key == "executionStage":
+            suggest = "execution_stage"
+        elif key == "executionStartDate":
+            suggest = "execution_start_date"
+        elif key == "executionStatus":
+            suggest = "execution_status"
+        elif key == "inventoryDisplayName":
+            suggest = "inventory_display_name"
+        elif key == "migrationStrategy":
+            suggest = "migration_strategy"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "assessedEntityArmId":
+            suggest = "assessed_entity_arm_id"
+        elif key == "associatedAssessmentId":
+            suggest = "associated_assessment_id"
+        elif key == "associatedMigrationEntityGroupIds":
+            suggest = "associated_migration_entity_group_ids"
+        elif key == "associatedWaveId":
+            suggest = "associated_wave_id"
+        elif key == "migrationPath":
+            suggest = "migration_path"
+        elif key == "migrationSpecificProperties":
+            suggest = "migration_specific_properties"
+        elif key == "migrationTool":
+            suggest = "migration_tool"
+        elif key == "partnerResourceArmId":
+            suggest = "partner_resource_arm_id"
+        elif key == "targetAzureResourceArmId":
+            suggest = "target_azure_resource_arm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationEntityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationEntityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationEntityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associated_inventory_resource_id: _builtins.str,
+                 execution_readiness: _builtins.str,
+                 execution_stage: _builtins.str,
+                 execution_start_date: _builtins.str,
+                 execution_status: _builtins.str,
+                 inventory_display_name: _builtins.str,
+                 migration_strategy: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 assessed_entity_arm_id: Optional[_builtins.str] = None,
+                 associated_assessment_id: Optional[_builtins.str] = None,
+                 associated_migration_entity_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 associated_wave_id: Optional[_builtins.str] = None,
+                 migration_path: Optional[_builtins.str] = None,
+                 migration_specific_properties: Optional['outputs.ServerMigrationSpecificPropertiesResponse'] = None,
+                 migration_tool: Optional[_builtins.str] = None,
+                 partner_resource_arm_id: Optional[_builtins.str] = None,
+                 target: Optional[_builtins.str] = None,
+                 target_azure_resource_arm_id: Optional[_builtins.str] = None):
+        """
+        Migration Entity Properties class.
+        :param _builtins.str associated_inventory_resource_id: inventory resource id 
+        :param _builtins.str execution_readiness: Execution Readiness of Migration Entity.
+        :param _builtins.str execution_stage: Execution Stage of Migration Entity.
+        :param _builtins.str execution_start_date: Execution start date for Migration Entity.
+        :param _builtins.str execution_status: Execution Status of Migration Entity.
+        :param _builtins.str inventory_display_name: Display Name of the Workload.
+        :param _builtins.str migration_strategy: Strategy of Migration Entity.
+        :param _builtins.str provisioning_state: The status of the last operation.
+        :param _builtins.str assessed_entity_arm_id: Assessed Entity ARM Id
+        :param _builtins.str associated_assessment_id: Associated Assessment Id
+        :param Sequence[_builtins.str] associated_migration_entity_group_ids: associated Migration Entity Group Id
+        :param _builtins.str associated_wave_id: associated Wave Id
+        :param _builtins.str migration_path: Migration path
+        :param 'ServerMigrationSpecificPropertiesResponse' migration_specific_properties: Migration specific properties for the entity.
+        :param _builtins.str migration_tool: Migration Tool of the Migration Entity.
+        :param _builtins.str partner_resource_arm_id: ARM Resource Identifier for the partner resource.
+        :param _builtins.str target: Target of the Migration Entity.
+        :param _builtins.str target_azure_resource_arm_id: target Azure Resource ARM Id.
+        """
+        pulumi.set(__self__, "associated_inventory_resource_id", associated_inventory_resource_id)
+        pulumi.set(__self__, "execution_readiness", execution_readiness)
+        pulumi.set(__self__, "execution_stage", execution_stage)
+        pulumi.set(__self__, "execution_start_date", execution_start_date)
+        pulumi.set(__self__, "execution_status", execution_status)
+        pulumi.set(__self__, "inventory_display_name", inventory_display_name)
+        pulumi.set(__self__, "migration_strategy", migration_strategy)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if assessed_entity_arm_id is not None:
+            pulumi.set(__self__, "assessed_entity_arm_id", assessed_entity_arm_id)
+        if associated_assessment_id is not None:
+            pulumi.set(__self__, "associated_assessment_id", associated_assessment_id)
+        if associated_migration_entity_group_ids is not None:
+            pulumi.set(__self__, "associated_migration_entity_group_ids", associated_migration_entity_group_ids)
+        if associated_wave_id is not None:
+            pulumi.set(__self__, "associated_wave_id", associated_wave_id)
+        if migration_path is not None:
+            pulumi.set(__self__, "migration_path", migration_path)
+        if migration_specific_properties is not None:
+            pulumi.set(__self__, "migration_specific_properties", migration_specific_properties)
+        if migration_tool is not None:
+            pulumi.set(__self__, "migration_tool", migration_tool)
+        if partner_resource_arm_id is not None:
+            pulumi.set(__self__, "partner_resource_arm_id", partner_resource_arm_id)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if target_azure_resource_arm_id is not None:
+            pulumi.set(__self__, "target_azure_resource_arm_id", target_azure_resource_arm_id)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedInventoryResourceId")
+    def associated_inventory_resource_id(self) -> _builtins.str:
+        """
+        inventory resource id 
+        """
+        return pulumi.get(self, "associated_inventory_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionReadiness")
+    def execution_readiness(self) -> _builtins.str:
+        """
+        Execution Readiness of Migration Entity.
+        """
+        return pulumi.get(self, "execution_readiness")
+
+    @_builtins.property
+    @pulumi.getter(name="executionStage")
+    def execution_stage(self) -> _builtins.str:
+        """
+        Execution Stage of Migration Entity.
+        """
+        return pulumi.get(self, "execution_stage")
+
+    @_builtins.property
+    @pulumi.getter(name="executionStartDate")
+    def execution_start_date(self) -> _builtins.str:
+        """
+        Execution start date for Migration Entity.
+        """
+        return pulumi.get(self, "execution_start_date")
+
+    @_builtins.property
+    @pulumi.getter(name="executionStatus")
+    def execution_status(self) -> _builtins.str:
+        """
+        Execution Status of Migration Entity.
+        """
+        return pulumi.get(self, "execution_status")
+
+    @_builtins.property
+    @pulumi.getter(name="inventoryDisplayName")
+    def inventory_display_name(self) -> _builtins.str:
+        """
+        Display Name of the Workload.
+        """
+        return pulumi.get(self, "inventory_display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="migrationStrategy")
+    def migration_strategy(self) -> _builtins.str:
+        """
+        Strategy of Migration Entity.
+        """
+        return pulumi.get(self, "migration_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="assessedEntityArmId")
+    def assessed_entity_arm_id(self) -> Optional[_builtins.str]:
+        """
+        Assessed Entity ARM Id
+        """
+        return pulumi.get(self, "assessed_entity_arm_id")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedAssessmentId")
+    def associated_assessment_id(self) -> Optional[_builtins.str]:
+        """
+        Associated Assessment Id
+        """
+        return pulumi.get(self, "associated_assessment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedMigrationEntityGroupIds")
+    def associated_migration_entity_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        associated Migration Entity Group Id
+        """
+        return pulumi.get(self, "associated_migration_entity_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedWaveId")
+    def associated_wave_id(self) -> Optional[_builtins.str]:
+        """
+        associated Wave Id
+        """
+        return pulumi.get(self, "associated_wave_id")
+
+    @_builtins.property
+    @pulumi.getter(name="migrationPath")
+    def migration_path(self) -> Optional[_builtins.str]:
+        """
+        Migration path
+        """
+        return pulumi.get(self, "migration_path")
+
+    @_builtins.property
+    @pulumi.getter(name="migrationSpecificProperties")
+    def migration_specific_properties(self) -> Optional['outputs.ServerMigrationSpecificPropertiesResponse']:
+        """
+        Migration specific properties for the entity.
+        """
+        return pulumi.get(self, "migration_specific_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="migrationTool")
+    def migration_tool(self) -> Optional[_builtins.str]:
+        """
+        Migration Tool of the Migration Entity.
+        """
+        return pulumi.get(self, "migration_tool")
+
+    @_builtins.property
+    @pulumi.getter(name="partnerResourceArmId")
+    def partner_resource_arm_id(self) -> Optional[_builtins.str]:
+        """
+        ARM Resource Identifier for the partner resource.
+        """
+        return pulumi.get(self, "partner_resource_arm_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> Optional[_builtins.str]:
+        """
+        Target of the Migration Entity.
+        """
+        return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter(name="targetAzureResourceArmId")
+    def target_azure_resource_arm_id(self) -> Optional[_builtins.str]:
+        """
+        target Azure Resource ARM Id.
+        """
+        return pulumi.get(self, "target_azure_resource_arm_id")
+
+
+@pulumi.output_type
 class ModernizeProjectModelPropertiesResponse(dict):
     """
     ModernizeProject properties.
@@ -12230,6 +12659,75 @@ class SecuritySettingsResponse(dict):
 
 
 @pulumi.output_type
+class ServerMigrationSpecificPropertiesResponse(dict):
+    """
+    Represents a Server Migration Specific properties base model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "currentJobId":
+            suggest = "current_job_id"
+        elif key == "drApplianceInventoryId":
+            suggest = "dr_appliance_inventory_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerMigrationSpecificPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerMigrationSpecificPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerMigrationSpecificPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: _builtins.str,
+                 current_job_id: Optional[_builtins.str] = None,
+                 dr_appliance_inventory_id: Optional[_builtins.str] = None):
+        """
+        Represents a Server Migration Specific properties base model.
+        :param _builtins.str instance_type: Migration Specific Properties Instance Types.
+               Expected value is 'ServerMigration'.
+        :param _builtins.str current_job_id: A type definition that refers the id to an Azure Resource Manager resource.
+        :param _builtins.str dr_appliance_inventory_id: A type definition that refers the id to an Azure Resource Manager resource.
+        """
+        pulumi.set(__self__, "instance_type", 'ServerMigration')
+        if current_job_id is not None:
+            pulumi.set(__self__, "current_job_id", current_job_id)
+        if dr_appliance_inventory_id is not None:
+            pulumi.set(__self__, "dr_appliance_inventory_id", dr_appliance_inventory_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        Migration Specific Properties Instance Types.
+        Expected value is 'ServerMigration'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="currentJobId")
+    def current_job_id(self) -> Optional[_builtins.str]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
+        return pulumi.get(self, "current_job_id")
+
+    @_builtins.property
+    @pulumi.getter(name="drApplianceInventoryId")
+    def dr_appliance_inventory_id(self) -> Optional[_builtins.str]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
+        return pulumi.get(self, "dr_appliance_inventory_id")
+
+
+@pulumi.output_type
 class ServersProjectSummaryResponse(dict):
     """
     Class representing the servers project summary.
@@ -14285,6 +14783,156 @@ class TargetStorageProfileResponse(dict):
 
 
 @pulumi.output_type
+class TaskPropertiesResponse(dict):
+    """
+    Task Properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completionDate":
+            suggest = "completion_date"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "isEditable":
+            suggest = "is_editable"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "scopeId":
+            suggest = "scope_id"
+        elif key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completion_date: _builtins.str,
+                 display_name: _builtins.str,
+                 is_editable: _builtins.bool,
+                 provisioning_state: _builtins.str,
+                 scope: _builtins.str,
+                 scope_id: _builtins.str,
+                 status: _builtins.str,
+                 task_type: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 stage: Optional[_builtins.str] = None):
+        """
+        Task Properties class.
+        :param _builtins.str completion_date: Task completion Date
+        :param _builtins.str display_name: Task Dislay Name 
+        :param _builtins.bool is_editable: Indicates whether the task is editable.
+        :param _builtins.str provisioning_state: The status of the last operation.
+        :param _builtins.str scope: Task Scope
+        :param _builtins.str scope_id: associated Wave Id
+        :param _builtins.str status: Task Status
+        :param _builtins.str task_type: Task Type
+        :param _builtins.str description: Task Description
+        :param _builtins.str stage: Task Stage
+        """
+        pulumi.set(__self__, "completion_date", completion_date)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "is_editable", is_editable)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "scope_id", scope_id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "task_type", task_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+
+    @_builtins.property
+    @pulumi.getter(name="completionDate")
+    def completion_date(self) -> _builtins.str:
+        """
+        Task completion Date
+        """
+        return pulumi.get(self, "completion_date")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        Task Dislay Name 
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="isEditable")
+    def is_editable(self) -> _builtins.bool:
+        """
+        Indicates whether the task is editable.
+        """
+        return pulumi.get(self, "is_editable")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> _builtins.str:
+        """
+        Task Scope
+        """
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeId")
+    def scope_id(self) -> _builtins.str:
+        """
+        associated Wave Id
+        """
+        return pulumi.get(self, "scope_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Task Status
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> _builtins.str:
+        """
+        Task Type
+        """
+        return pulumi.get(self, "task_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Task Description
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> Optional[_builtins.str]:
+        """
+        Task Stage
+        """
+        return pulumi.get(self, "stage")
+
+
+@pulumi.output_type
 class ThirdPartyManagementSettingsResponse(dict):
     """
     Third Party Management settings.
@@ -14812,6 +15460,143 @@ class VmUptimeResponse(dict):
         Number of hours per day for VM uptime.
         """
         return pulumi.get(self, "hours_per_day")
+
+
+@pulumi.output_type
+class WavePropertiesResponse(dict):
+    """
+    Migration Wave Properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actualStartDate":
+            suggest = "actual_start_date"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "plannedStartDate":
+            suggest = "planned_start_date"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "plannedCompletionDate":
+            suggest = "planned_completion_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WavePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WavePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WavePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actual_start_date: _builtins.str,
+                 arg: 'outputs.ArgResponse',
+                 display_name: _builtins.str,
+                 planned_start_date: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 stage: _builtins.str,
+                 status: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 planned_completion_date: Optional[_builtins.str] = None):
+        """
+        Migration Wave Properties class.
+        :param _builtins.str actual_start_date: Actual start date of the wave.
+        :param 'ArgResponse' arg: ARG query and other details to create workloads within a wave
+        :param _builtins.str display_name: Display Name of the wave.
+        :param _builtins.str planned_start_date: Planned start date of the wave.
+        :param _builtins.str provisioning_state: The status of the last operation.
+        :param _builtins.str stage: The current stage of the wave.
+        :param _builtins.str status: The status of the wave.
+        :param _builtins.str description: Description of the wave.
+        :param _builtins.str planned_completion_date: Planned completion date of the wave.
+        """
+        pulumi.set(__self__, "actual_start_date", actual_start_date)
+        pulumi.set(__self__, "arg", arg)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "planned_start_date", planned_start_date)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "stage", stage)
+        pulumi.set(__self__, "status", status)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if planned_completion_date is not None:
+            pulumi.set(__self__, "planned_completion_date", planned_completion_date)
+
+    @_builtins.property
+    @pulumi.getter(name="actualStartDate")
+    def actual_start_date(self) -> _builtins.str:
+        """
+        Actual start date of the wave.
+        """
+        return pulumi.get(self, "actual_start_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def arg(self) -> 'outputs.ArgResponse':
+        """
+        ARG query and other details to create workloads within a wave
+        """
+        return pulumi.get(self, "arg")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        Display Name of the wave.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="plannedStartDate")
+    def planned_start_date(self) -> _builtins.str:
+        """
+        Planned start date of the wave.
+        """
+        return pulumi.get(self, "planned_start_date")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> _builtins.str:
+        """
+        The current stage of the wave.
+        """
+        return pulumi.get(self, "stage")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the wave.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the wave.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="plannedCompletionDate")
+    def planned_completion_date(self) -> Optional[_builtins.str]:
+        """
+        Planned completion date of the wave.
+        """
+        return pulumi.get(self, "planned_completion_date")
 
 
 @pulumi.output_type

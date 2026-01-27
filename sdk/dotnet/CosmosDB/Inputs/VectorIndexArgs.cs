@@ -13,10 +13,22 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
     public sealed class VectorIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+        /// </summary>
+        [Input("indexingSearchListSize")]
+        public Input<double>? IndexingSearchListSize { get; set; }
+
+        /// <summary>
         /// The path to the vector field in the document.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+        /// </summary>
+        [Input("quantizationByteSize")]
+        public Input<double>? QuantizationByteSize { get; set; }
 
         /// <summary>
         /// The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
@@ -24,8 +36,21 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.CosmosDB.VectorIndexType> Type { get; set; } = null!;
 
+        [Input("vectorIndexShardKey")]
+        private InputList<string>? _vectorIndexShardKey;
+
+        /// <summary>
+        /// Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
+        /// </summary>
+        public InputList<string> VectorIndexShardKey
+        {
+            get => _vectorIndexShardKey ?? (_vectorIndexShardKey = new InputList<string>());
+            set => _vectorIndexShardKey = value;
+        }
+
         public VectorIndexArgs()
         {
+            IndexingSearchListSize = 100;
         }
         public static new VectorIndexArgs Empty => new VectorIndexArgs();
     }

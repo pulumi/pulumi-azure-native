@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The available data types for the connector.
         /// </summary>
-        public readonly Outputs.TIDataConnectorDataTypesResponse? DataTypes;
+        public readonly Outputs.TIDataConnectorDataTypesResponse DataTypes;
         /// <summary>
         /// Etag of the azure resource
         /// </summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The tenant id to connect to, and get the data from.
         /// </summary>
-        public readonly string? TenantId;
+        public readonly string TenantId;
         /// <summary>
         /// The lookback period for the feed to be imported.
         /// </summary>
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         private GetTIDataConnectorResult(
             string azureApiVersion,
 
-            Outputs.TIDataConnectorDataTypesResponse? dataTypes,
+            Outputs.TIDataConnectorDataTypesResponse dataTypes,
 
             string? etag,
 
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.SystemDataResponse systemData,
 
-            string? tenantId,
+            string tenantId,
 
             string? tipLookbackPeriod,
 

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Alerts data type connection.
         /// </summary>
-        public readonly Outputs.DataConnectorDataTypeCommonResponse? Alerts;
+        public readonly Outputs.DataConnectorDataTypeCommonResponse Alerts;
         /// <summary>
         /// Discovery log data type connection.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
         [OutputConstructor]
         private MCASDataConnectorDataTypesResponse(
-            Outputs.DataConnectorDataTypeCommonResponse? alerts,
+            Outputs.DataConnectorDataTypeCommonResponse alerts,
 
             Outputs.DataConnectorDataTypeCommonResponse? discoveryLogs)
         {

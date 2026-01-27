@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Properties used to create a user account on a Linux node.
+    /// </summary>
     public sealed class LinuxUserConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

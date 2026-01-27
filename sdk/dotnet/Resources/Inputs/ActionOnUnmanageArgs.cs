@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Resources.Inputs
         [Input("resources", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Resources.DeploymentStacksDeleteDetachEnum> Resources { get; set; } = null!;
 
+        /// <summary>
+        /// Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        /// </summary>
+        [Input("resourcesWithoutDeleteSupport")]
+        public InputUnion<string, Pulumi.AzureNative.Resources.DeploymentStacksResourcesWithoutDeleteSupportEnum>? ResourcesWithoutDeleteSupport { get; set; }
+
         public ActionOnUnmanageArgs()
         {
         }

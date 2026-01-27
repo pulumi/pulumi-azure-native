@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The configuration for container-enabled pools.
+    /// </summary>
     [OutputType]
     public sealed class ContainerConfigurationResponse
     {
@@ -21,6 +24,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerRegistryResponse> ContainerRegistries;
+        /// <summary>
+        /// The container technology to be used.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

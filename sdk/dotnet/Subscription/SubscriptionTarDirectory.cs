@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Subscription
     /// Subscription Response for Changed Target Directory.
     /// 
     /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
+    /// 
+    /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription:SubscriptionTarDirectory")]
     public partial class SubscriptionTarDirectory : global::Pulumi.CustomResource
@@ -67,6 +69,7 @@ namespace Pulumi.AzureNative.Subscription
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20240801preview:SubscriptionTarDirectory" },
+                    new global::Pulumi.Alias { Type = "azure-native:subscription/v20251101preview:SubscriptionTarDirectory" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

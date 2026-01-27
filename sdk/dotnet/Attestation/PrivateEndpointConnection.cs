@@ -48,6 +48,12 @@ namespace Pulumi.AzureNative.Attestation
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -117,7 +123,7 @@ namespace Pulumi.AzureNative.Attestation
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
-        /// The name of the attestation provider.
+        /// Name of the attestation provider.
         /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;

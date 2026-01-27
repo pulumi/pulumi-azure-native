@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Management.Outputs
         /// <summary>
         /// The version number of the object.
         /// </summary>
-        public readonly double? Version;
+        public readonly int? Version;
 
         [OutputConstructor]
         private ManagementGroupDetailsResponse(
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Management.Outputs
 
             string? updatedTime,
 
-            double? version)
+            int? version)
         {
             ManagementGroupAncestors = managementGroupAncestors;
             ManagementGroupAncestorsChain = managementGroupAncestorsChain;

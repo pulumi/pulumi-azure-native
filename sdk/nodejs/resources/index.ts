@@ -55,6 +55,21 @@ export type DeploymentStackAtSubscription = import("./deploymentStackAtSubscript
 export const DeploymentStackAtSubscription: typeof import("./deploymentStackAtSubscription").DeploymentStackAtSubscription = null as any;
 utilities.lazyLoad(exports, ["DeploymentStackAtSubscription"], () => require("./deploymentStackAtSubscription"));
 
+export { DeploymentStacksWhatIfResultsAtManagementGroupArgs } from "./deploymentStacksWhatIfResultsAtManagementGroup";
+export type DeploymentStacksWhatIfResultsAtManagementGroup = import("./deploymentStacksWhatIfResultsAtManagementGroup").DeploymentStacksWhatIfResultsAtManagementGroup;
+export const DeploymentStacksWhatIfResultsAtManagementGroup: typeof import("./deploymentStacksWhatIfResultsAtManagementGroup").DeploymentStacksWhatIfResultsAtManagementGroup = null as any;
+utilities.lazyLoad(exports, ["DeploymentStacksWhatIfResultsAtManagementGroup"], () => require("./deploymentStacksWhatIfResultsAtManagementGroup"));
+
+export { DeploymentStacksWhatIfResultsAtResourceGroupArgs } from "./deploymentStacksWhatIfResultsAtResourceGroup";
+export type DeploymentStacksWhatIfResultsAtResourceGroup = import("./deploymentStacksWhatIfResultsAtResourceGroup").DeploymentStacksWhatIfResultsAtResourceGroup;
+export const DeploymentStacksWhatIfResultsAtResourceGroup: typeof import("./deploymentStacksWhatIfResultsAtResourceGroup").DeploymentStacksWhatIfResultsAtResourceGroup = null as any;
+utilities.lazyLoad(exports, ["DeploymentStacksWhatIfResultsAtResourceGroup"], () => require("./deploymentStacksWhatIfResultsAtResourceGroup"));
+
+export { DeploymentStacksWhatIfResultsAtSubscriptionArgs } from "./deploymentStacksWhatIfResultsAtSubscription";
+export type DeploymentStacksWhatIfResultsAtSubscription = import("./deploymentStacksWhatIfResultsAtSubscription").DeploymentStacksWhatIfResultsAtSubscription;
+export const DeploymentStacksWhatIfResultsAtSubscription: typeof import("./deploymentStacksWhatIfResultsAtSubscription").DeploymentStacksWhatIfResultsAtSubscription = null as any;
+utilities.lazyLoad(exports, ["DeploymentStacksWhatIfResultsAtSubscription"], () => require("./deploymentStacksWhatIfResultsAtSubscription"));
+
 export { GetAzureCliScriptArgs, GetAzureCliScriptResult, GetAzureCliScriptOutputArgs } from "./getAzureCliScript";
 export const getAzureCliScript: typeof import("./getAzureCliScript").getAzureCliScript = null as any;
 export const getAzureCliScriptOutput: typeof import("./getAzureCliScript").getAzureCliScriptOutput = null as any;
@@ -104,6 +119,21 @@ export { GetDeploymentStackAtSubscriptionArgs, GetDeploymentStackAtSubscriptionR
 export const getDeploymentStackAtSubscription: typeof import("./getDeploymentStackAtSubscription").getDeploymentStackAtSubscription = null as any;
 export const getDeploymentStackAtSubscriptionOutput: typeof import("./getDeploymentStackAtSubscription").getDeploymentStackAtSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentStackAtSubscription","getDeploymentStackAtSubscriptionOutput"], () => require("./getDeploymentStackAtSubscription"));
+
+export { GetDeploymentStacksWhatIfResultsAtManagementGroupArgs, GetDeploymentStacksWhatIfResultsAtManagementGroupResult, GetDeploymentStacksWhatIfResultsAtManagementGroupOutputArgs } from "./getDeploymentStacksWhatIfResultsAtManagementGroup";
+export const getDeploymentStacksWhatIfResultsAtManagementGroup: typeof import("./getDeploymentStacksWhatIfResultsAtManagementGroup").getDeploymentStacksWhatIfResultsAtManagementGroup = null as any;
+export const getDeploymentStacksWhatIfResultsAtManagementGroupOutput: typeof import("./getDeploymentStacksWhatIfResultsAtManagementGroup").getDeploymentStacksWhatIfResultsAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentStacksWhatIfResultsAtManagementGroup","getDeploymentStacksWhatIfResultsAtManagementGroupOutput"], () => require("./getDeploymentStacksWhatIfResultsAtManagementGroup"));
+
+export { GetDeploymentStacksWhatIfResultsAtResourceGroupArgs, GetDeploymentStacksWhatIfResultsAtResourceGroupResult, GetDeploymentStacksWhatIfResultsAtResourceGroupOutputArgs } from "./getDeploymentStacksWhatIfResultsAtResourceGroup";
+export const getDeploymentStacksWhatIfResultsAtResourceGroup: typeof import("./getDeploymentStacksWhatIfResultsAtResourceGroup").getDeploymentStacksWhatIfResultsAtResourceGroup = null as any;
+export const getDeploymentStacksWhatIfResultsAtResourceGroupOutput: typeof import("./getDeploymentStacksWhatIfResultsAtResourceGroup").getDeploymentStacksWhatIfResultsAtResourceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentStacksWhatIfResultsAtResourceGroup","getDeploymentStacksWhatIfResultsAtResourceGroupOutput"], () => require("./getDeploymentStacksWhatIfResultsAtResourceGroup"));
+
+export { GetDeploymentStacksWhatIfResultsAtSubscriptionArgs, GetDeploymentStacksWhatIfResultsAtSubscriptionResult, GetDeploymentStacksWhatIfResultsAtSubscriptionOutputArgs } from "./getDeploymentStacksWhatIfResultsAtSubscription";
+export const getDeploymentStacksWhatIfResultsAtSubscription: typeof import("./getDeploymentStacksWhatIfResultsAtSubscription").getDeploymentStacksWhatIfResultsAtSubscription = null as any;
+export const getDeploymentStacksWhatIfResultsAtSubscriptionOutput: typeof import("./getDeploymentStacksWhatIfResultsAtSubscription").getDeploymentStacksWhatIfResultsAtSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentStacksWhatIfResultsAtSubscription","getDeploymentStacksWhatIfResultsAtSubscriptionOutput"], () => require("./getDeploymentStacksWhatIfResultsAtSubscription"));
 
 export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
 export const getResource: typeof import("./getResource").getResource = null as any;
@@ -183,6 +213,12 @@ const _module = {
                 return new DeploymentStackAtResourceGroup(name, <any>undefined, { urn })
             case "azure-native:resources:DeploymentStackAtSubscription":
                 return new DeploymentStackAtSubscription(name, <any>undefined, { urn })
+            case "azure-native:resources:DeploymentStacksWhatIfResultsAtManagementGroup":
+                return new DeploymentStacksWhatIfResultsAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:resources:DeploymentStacksWhatIfResultsAtResourceGroup":
+                return new DeploymentStacksWhatIfResultsAtResourceGroup(name, <any>undefined, { urn })
+            case "azure-native:resources:DeploymentStacksWhatIfResultsAtSubscription":
+                return new DeploymentStacksWhatIfResultsAtSubscription(name, <any>undefined, { urn })
             case "azure-native:resources:Resource":
                 return new Resource(name, <any>undefined, { urn })
             case "azure-native:resources:ResourceGroup":

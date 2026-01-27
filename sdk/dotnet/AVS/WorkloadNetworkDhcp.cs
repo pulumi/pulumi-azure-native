@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// 
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
     /// 
-    /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDhcp")]
     public partial class WorkloadNetworkDhcp : global::Pulumi.CustomResource
@@ -26,40 +26,16 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Type of DHCP: SERVER or RELAY.
-        /// </summary>
-        [Output("dhcpType")]
-        public Output<string> DhcpType { get; private set; } = null!;
-
-        /// <summary>
-        /// Display name of the DHCP entity.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// NSX revision number.
-        /// </summary>
-        [Output("revision")]
-        public Output<double?> Revision { get; private set; } = null!;
-
-        /// <summary>
-        /// NSX Segments consuming DHCP.
-        /// </summary>
-        [Output("segments")]
-        public Output<ImmutableArray<string>> Segments { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -106,6 +82,7 @@ namespace Pulumi.AzureNative.AVS
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20240901:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20250901:WorkloadNetworkDhcp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,34 +113,22 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? DhcpId { get; set; }
 
         /// <summary>
-        /// Type of DHCP: SERVER or RELAY.
-        /// </summary>
-        [Input("dhcpType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.AVS.DhcpTypeEnum> DhcpType { get; set; } = null!;
-
-        /// <summary>
-        /// Display name of the DHCP entity.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
 
         /// <summary>
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        [Input("properties")]
+        public InputUnion<Inputs.WorkloadNetworkDhcpRelayArgs, Inputs.WorkloadNetworkDhcpServerArgs>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// NSX revision number.
-        /// </summary>
-        [Input("revision")]
-        public Input<double>? Revision { get; set; }
 
         public WorkloadNetworkDhcpArgs()
         {

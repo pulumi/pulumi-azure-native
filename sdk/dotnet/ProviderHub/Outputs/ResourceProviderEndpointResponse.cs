@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The feature rules.
         /// </summary>
-        public readonly Outputs.ResourceProviderEndpointResponseFeaturesRule? FeaturesRule;
+        public readonly Outputs.ResourceProviderEndpointFeaturesRuleResponse? FeaturesRule;
         /// <summary>
         /// The locations.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string? endpointUri,
 
-            Outputs.ResourceProviderEndpointResponseFeaturesRule? featuresRule,
+            Outputs.ResourceProviderEndpointFeaturesRuleResponse? featuresRule,
 
             ImmutableArray<string> locations,
 

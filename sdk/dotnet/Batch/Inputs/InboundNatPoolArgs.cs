@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// A inbound NAT pool that can be used to address specific ports on compute nodes in a Batch pool externally.
+    /// </summary>
     public sealed class InboundNatPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -48,6 +51,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
             set => _networkSecurityGroupRules = value;
         }
 
+        /// <summary>
+        /// The protocol of the endpoint.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<Pulumi.AzureNative.Batch.InboundEndpointProtocol> Protocol { get; set; } = null!;
 

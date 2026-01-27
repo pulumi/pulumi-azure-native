@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// The endpoint configuration for a pool.
+    /// </summary>
     public sealed class PoolEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("inboundNatPools", required: true)]

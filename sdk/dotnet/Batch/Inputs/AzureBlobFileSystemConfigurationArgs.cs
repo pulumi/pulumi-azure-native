@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Information used to connect to an Azure Storage Container using Blobfuse.
+    /// </summary>
     public sealed class AzureBlobFileSystemConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("accountKey")]
         public Input<string>? AccountKey { get; set; }
 
+        /// <summary>
+        /// The Azure Storage Account name.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
@@ -27,6 +33,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("blobfuseOptions")]
         public Input<string>? BlobfuseOptions { get; set; }
 
+        /// <summary>
+        /// The Azure Blob Storage Container name.
+        /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 

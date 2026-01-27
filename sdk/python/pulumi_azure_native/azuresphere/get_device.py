@@ -193,8 +193,6 @@ def get_device(catalog_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str device_group_name: Name of device group.
@@ -234,8 +232,6 @@ def get_device_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
 
     Uses Azure REST API version 2024-04-01.
-
-    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str catalog_name: Name of catalog

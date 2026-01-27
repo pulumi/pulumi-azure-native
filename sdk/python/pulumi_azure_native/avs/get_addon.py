@@ -27,10 +27,7 @@ class GetAddonResult:
     """
     An addon resource
     """
-    def __init__(__self__, addon_type=None, azure_api_version=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
-        if addon_type and not isinstance(addon_type, str):
-            raise TypeError("Expected argument 'addon_type' to be a str")
-        pulumi.set(__self__, "addon_type", addon_type)
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -40,23 +37,15 @@ class GetAddonResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> _builtins.str:
-        """
-        Addon type
-        """
-        return pulumi.get(self, "addon_type")
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")
@@ -83,12 +72,12 @@ class GetAddonResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
+    @pulumi.getter
+    def properties(self) -> Any:
         """
-        The state of the addon provisioning
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -113,11 +102,10 @@ class AwaitableGetAddonResult(GetAddonResult):
         if False:
             yield self
         return GetAddonResult(
-            addon_type=self.addon_type,
             azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -131,7 +119,7 @@ def get_addon(addon_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str addon_name: Name of the addon.
@@ -146,11 +134,10 @@ def get_addon(addon_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getAddon', __args__, opts=opts, typ=GetAddonResult).value
 
     return AwaitableGetAddonResult(
-        addon_type=pulumi.get(__ret__, 'addon_type'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_addon_output(addon_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -162,7 +149,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[_builtins.str]] = None,
 
     Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str addon_name: Name of the addon.
@@ -176,10 +163,9 @@ def get_addon_output(addon_name: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getAddon', __args__, opts=opts, typ=GetAddonResult)
     return __ret__.apply(lambda __response__: GetAddonResult(
-        addon_type=pulumi.get(__response__, 'addon_type'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

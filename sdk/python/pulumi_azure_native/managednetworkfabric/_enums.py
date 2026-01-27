@@ -11,6 +11,8 @@ __all__ = [
     'Action',
     'AddressFamilyType',
     'AllowASOverride',
+    'BmpExportPolicy',
+    'BmpMonitoredAddressFamily',
     'BooleanEnumProperty',
     'CommunityActionTypes',
     'Condition',
@@ -37,6 +39,8 @@ __all__ = [
     'RoutePolicyActionType',
     'RoutePolicyConditionType',
     'SourceDestinationType',
+    'StationConfigurationState',
+    'StationConnectionMode',
     'TapRuleActionType',
     'WellKnownCommunities',
 ]
@@ -77,6 +81,52 @@ class AllowASOverride(_builtins.str, Enum):
     """
     ENABLE = "Enable"
     DISABLE = "Disable"
+
+
+@pulumi.type_token("azure-native:managednetworkfabric:BmpExportPolicy")
+class BmpExportPolicy(_builtins.str, Enum):
+    """
+    Export Policy for the BMP Configuration.
+    """
+    PRE_POLICY = "Pre-Policy"
+    """
+    BMP ExportPolicy Pre-Policy
+    """
+    POST_POLICY = "Post-Policy"
+    """
+    BMP ExportPolicy Post-Policy
+    """
+    ALL = "All"
+    """
+    BMP ExportPolicy All
+    """
+
+
+@pulumi.type_token("azure-native:managednetworkfabric:BmpMonitoredAddressFamily")
+class BmpMonitoredAddressFamily(_builtins.str, Enum):
+    """
+    Monitored Address Family.
+    """
+    IPV4_UNICAST = "ipv4Unicast"
+    """
+    IPv4 Unicast
+    """
+    IPV6_UNICAST = "ipv6Unicast"
+    """
+    IPv6 Unicast
+    """
+    VPN_IPV4 = "vpnIpv4"
+    """
+    VPN IPv4
+    """
+    VPN_IPV6 = "vpnIpv6"
+    """
+    VPN IPv6
+    """
+    ALL = "All"
+    """
+    All Address Families
+    """
 
 
 @pulumi.type_token("azure-native:managednetworkfabric:BooleanEnumProperty")
@@ -316,6 +366,36 @@ class SourceDestinationType(_builtins.str, Enum):
     """
     SOURCE_IP = "SourceIP"
     DESTINATION_IP = "DestinationIP"
+
+
+@pulumi.type_token("azure-native:managednetworkfabric:StationConfigurationState")
+class StationConfigurationState(_builtins.str, Enum):
+    """
+    Enabling a station. Either True/False.
+    """
+    ENABLED = "Enabled"
+    """
+    StationConfigurationState Enabled
+    """
+    DISABLED = "Disabled"
+    """
+    StationConfigurationState Disabled
+    """
+
+
+@pulumi.type_token("azure-native:managednetworkfabric:StationConnectionMode")
+class StationConnectionMode(_builtins.str, Enum):
+    """
+    Station Connection Mode.
+    """
+    ACTIVE = "Active"
+    """
+    StationConnectionMode Active
+    """
+    PASSIVE = "Passive"
+    """
+    StationConnectionMode Passive
+    """
 
 
 @pulumi.type_token("azure-native:managednetworkfabric:TapRuleActionType")

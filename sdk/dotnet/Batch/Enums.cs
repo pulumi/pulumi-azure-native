@@ -122,6 +122,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of caching to enable for the disk.
+    /// </summary>
     [EnumType]
     public readonly struct CachingType : IEquatable<CachingType>
     {
@@ -280,6 +283,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// How tasks should be distributed across compute nodes.
+    /// </summary>
     [EnumType]
     public readonly struct ComputeNodeFillType : IEquatable<ComputeNodeFillType>
     {
@@ -314,6 +320,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The paths which will be mounted to container task's container.
+    /// </summary>
     [EnumType]
     public readonly struct ContainerHostDataPath : IEquatable<ContainerHostDataPath>
     {
@@ -364,6 +373,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The container technology to be used.
+    /// </summary>
     [EnumType]
     public readonly struct ContainerType : IEquatable<ContainerType>
     {
@@ -398,6 +410,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+    /// </summary>
     [EnumType]
     public readonly struct ContainerWorkingDirectory : IEquatable<ContainerWorkingDirectory>
     {
@@ -446,7 +461,7 @@ namespace Pulumi.AzureNative.Batch
         }
 
         /// <summary>
-        /// The Ephemeral OS Disk is stored on the VM cache.
+        /// The OS disk will be placed on the cache disk of the VM.
         /// </summary>
         public static DiffDiskPlacement CacheDisk { get; } = new DiffDiskPlacement("CacheDisk");
 
@@ -502,6 +517,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The scope of dynamic vnet assignment.
+    /// </summary>
     [EnumType]
     public readonly struct DynamicVNetAssignmentScope : IEquatable<DynamicVNetAssignmentScope>
     {
@@ -684,6 +702,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The protocol of the endpoint.
+    /// </summary>
     [EnumType]
     public readonly struct InboundEndpointProtocol : IEquatable<InboundEndpointProtocol>
     {
@@ -829,6 +850,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action that should be taken for a specified IP address, subnet range or tag.
+    /// </summary>
     [EnumType]
     public readonly struct NetworkSecurityGroupRuleAccess : IEquatable<NetworkSecurityGroupRuleAccess>
     {
@@ -1016,7 +1040,7 @@ namespace Pulumi.AzureNative.Batch
     }
 
     /// <summary>
-    /// If not specified, the default value is 'enabled'.
+    /// The network access type for operating on the resources in the Batch account.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
@@ -1097,6 +1121,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+    /// </summary>
     [EnumType]
     public readonly struct SecurityEncryptionTypes : IEquatable<SecurityEncryptionTypes>
     {
@@ -1125,6 +1152,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+    /// </summary>
     [EnumType]
     public readonly struct SecurityTypes : IEquatable<SecurityTypes>
     {
@@ -1159,6 +1189,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The storage account type for use in creating data disks or OS disk.
+    /// </summary>
     [EnumType]
     public readonly struct StorageAccountType : IEquatable<StorageAccountType>
     {
@@ -1197,6 +1230,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the mode of an upgrade to virtual machines in the scale set.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.&lt;br /&gt;&lt;br /&gt; **Automatic** - All virtual machines in the scale set are automatically updated at the same time.&lt;br /&gt;&lt;br /&gt; **Rolling** - Scale set performs updates in batches with an optional pause time in between.
+    /// </summary>
     [EnumType]
     public readonly struct UpgradeMode : IEquatable<UpgradeMode>
     {

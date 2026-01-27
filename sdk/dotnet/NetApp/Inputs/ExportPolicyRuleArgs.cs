@@ -40,6 +40,30 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<bool>? HasRootAccess { get; set; }
 
         /// <summary>
+        /// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        [Input("kerberos5IReadOnly")]
+        public Input<bool>? Kerberos5IReadOnly { get; set; }
+
+        /// <summary>
+        /// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        [Input("kerberos5IReadWrite")]
+        public Input<bool>? Kerberos5IReadWrite { get; set; }
+
+        /// <summary>
+        /// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        [Input("kerberos5PReadOnly")]
+        public Input<bool>? Kerberos5PReadOnly { get; set; }
+
+        /// <summary>
+        /// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        [Input("kerberos5PReadWrite")]
+        public Input<bool>? Kerberos5PReadWrite { get; set; }
+
+        /// <summary>
         /// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
         /// </summary>
         [Input("kerberos5ReadOnly")]
@@ -109,6 +133,10 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         {
             ChownMode = "Restricted";
             HasRootAccess = true;
+            Kerberos5IReadOnly = false;
+            Kerberos5IReadWrite = false;
+            Kerberos5PReadOnly = false;
+            Kerberos5PReadWrite = false;
             Kerberos5ReadOnly = false;
             Kerberos5ReadWrite = false;
             Kerberos5iReadOnly = false;

@@ -20,16 +20,12 @@ __all__ = ['ManagementGroupSubscriptionArgs', 'ManagementGroupSubscription']
 @pulumi.input_type
 class ManagementGroupSubscriptionArgs:
     def __init__(__self__, *,
-                 group_id: pulumi.Input[_builtins.str],
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ManagementGroupSubscription resource.
         :param pulumi.Input[_builtins.str] group_id: Management Group ID.
-        :param pulumi.Input[_builtins.str] subscription_id: Subscription ID.
         """
         pulumi.set(__self__, "group_id", group_id)
-        if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
@@ -43,18 +39,6 @@ class ManagementGroupSubscriptionArgs:
     def group_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "group_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Subscription ID.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "subscription_id", value)
-
 
 @pulumi.type_token("azure-native:management:ManagementGroupSubscription")
 class ManagementGroupSubscription(pulumi.CustomResource):
@@ -63,7 +47,6 @@ class ManagementGroupSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The details of subscription under management group.
@@ -75,7 +58,6 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: Management Group ID.
-        :param pulumi.Input[_builtins.str] subscription_id: Subscription ID.
         """
         ...
     @overload
@@ -106,7 +88,6 @@ class ManagementGroupSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -119,12 +100,12 @@ class ManagementGroupSubscription(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
-            __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["display_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["parent"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:management/v20200501:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20201001:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20210401:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20230401:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20240201preview:ManagementGroupSubscription")])
@@ -156,6 +137,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["parent"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant"] = None
         __props__.__dict__["type"] = None
         return ManagementGroupSubscription(resource_name, opts=opts, __props__=__props__)
@@ -180,7 +162,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -201,6 +183,14 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         return pulumi.get(self, "state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tenant(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -212,7 +202,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

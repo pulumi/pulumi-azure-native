@@ -136,7 +136,50 @@ export const EdgeDeviceKind = {
  */
 export type EdgeDeviceKind = (typeof EdgeDeviceKind)[keyof typeof EdgeDeviceKind];
 
+export const EdgeMachineJobType = {
+    /**
+     * Job to collect logs from the device.
+     */
+    CollectLog: "CollectLog",
+    /**
+     * Job to provide remote support to the device.
+     */
+    RemoteSupport: "RemoteSupport",
+    /**
+     * Job to provision operating system in the device.
+     */
+    ProvisionOs: "ProvisionOs",
+    /**
+     * Job to download OS packages on to the device
+     */
+    DownloadOs: "DownloadOs",
+} as const;
+
+/**
+ * Job Type to support polymorphic resource.
+ */
+export type EdgeMachineJobType = (typeof EdgeMachineJobType)[keyof typeof EdgeMachineJobType];
+
+export const EdgeMachineKind = {
+    /**
+     * EdgeMachine resource created using Zero-touch provisioning.
+     */
+    Standard: "Standard",
+    /**
+     * EdgeMachine resource created for brownfield HCI customers without zero touch provisioning.
+     */
+    Dedicated: "Dedicated",
+} as const;
+
+/**
+ * Edge Machine type.
+ */
+export type EdgeMachineKind = (typeof EdgeMachineKind)[keyof typeof EdgeMachineKind];
+
 export const ExtendedLocationTypes = {
+    /**
+     * Custom extended location type
+     */
     CustomLocation: "CustomLocation",
 } as const;
 
@@ -209,6 +252,22 @@ export const IPPoolTypeEnum = {
  */
 export type IPPoolTypeEnum = (typeof IPPoolTypeEnum)[keyof typeof IPPoolTypeEnum];
 
+export const InboundNATRuleProtocol = {
+    /**
+     * TCP - load balance only tcp traffic
+     */
+    TCP: "Tcp",
+    /**
+     * Udp - load balance only UDP traffic
+     */
+    UDP: "Udp",
+} as const;
+
+/**
+ * Protocol for the NAT rule
+ */
+export type InboundNATRuleProtocol = (typeof InboundNATRuleProtocol)[keyof typeof InboundNATRuleProtocol];
+
 export const IpAllocationMethodEnum = {
     Dynamic: "Dynamic",
     Static: "Static",
@@ -218,6 +277,94 @@ export const IpAllocationMethodEnum = {
  * IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
  */
 export type IpAllocationMethodEnum = (typeof IpAllocationMethodEnum)[keyof typeof IpAllocationMethodEnum];
+
+export const IpAssignmentType = {
+    /**
+     * Automatic IP assignment
+     */
+    Automatic: "Automatic",
+    /**
+     * Manual IP assignment
+     */
+    Manual: "Manual",
+} as const;
+
+/**
+ * Type of IP assignment.
+ */
+export type IpAssignmentType = (typeof IpAssignmentType)[keyof typeof IpAssignmentType];
+
+export const LoadBalancerBackendAddressAdminState = {
+    /**
+     * Up - forced admin state up
+     */
+    Up: "Up",
+    /**
+     * Down - forced admin state down
+     */
+    Down: "Down",
+} as const;
+
+/**
+ * admin state - if set to false, the address is removed from the pool
+ */
+export type LoadBalancerBackendAddressAdminState = (typeof LoadBalancerBackendAddressAdminState)[keyof typeof LoadBalancerBackendAddressAdminState];
+
+export const LoadBalancerProbeProtocol = {
+    /**
+     * TCP - TCP port checking
+     */
+    TCP: "Tcp",
+    /**
+     * HTTP - HTTP request
+     */
+    HTTP: "Http",
+} as const;
+
+/**
+ * Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+ */
+export type LoadBalancerProbeProtocol = (typeof LoadBalancerProbeProtocol)[keyof typeof LoadBalancerProbeProtocol];
+
+export const LoadBalancerRuleSessionPersistenceType = {
+    /**
+     * Default - 5-tuple hashing
+     */
+    Default: "Default",
+    /**
+     * Source IP - 2-tuple hashing looking at src-dst ip
+     */
+    SourceIP: "SourceIP",
+    /**
+     * SourceIPProtocol - 3-tuple hashing looking at src-dst ip and ip protocol
+     */
+    SourceIPProtocol: "SourceIPProtocol",
+} as const;
+
+/**
+ * SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+ */
+export type LoadBalancerRuleSessionPersistenceType = (typeof LoadBalancerRuleSessionPersistenceType)[keyof typeof LoadBalancerRuleSessionPersistenceType];
+
+export const LoadBalancerRuleTransportProtocol = {
+    /**
+     * TCP - load balance only tcp traffic
+     */
+    TCP: "Tcp",
+    /**
+     * Udp - load balance only UDP traffic
+     */
+    UDP: "Udp",
+    /**
+     * All - load balance all UDP and TCP traffic
+     */
+    All: "All",
+} as const;
+
+/**
+ * IP Protocol that the rule must load-balance
+ */
+export type LoadBalancerRuleTransportProtocol = (typeof LoadBalancerRuleTransportProtocol)[keyof typeof LoadBalancerRuleTransportProtocol];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -247,6 +394,38 @@ export const NetworkTypeEnum = {
  * Type of the network
  */
 export type NetworkTypeEnum = (typeof NetworkTypeEnum)[keyof typeof NetworkTypeEnum];
+
+export const OSOperationType = {
+    /**
+     * OS Provisioning operation
+     */
+    Provision: "Provision",
+    /**
+     * OS Update operation
+     */
+    Update: "Update",
+    /**
+     * OS ReImage operation
+     */
+    ReImage: "ReImage",
+} as const;
+
+/**
+ * Operation sub type of OS Provisioning
+ */
+export type OSOperationType = (typeof OSOperationType)[keyof typeof OSOperationType];
+
+export const OnboardingResourceType = {
+    /**
+     * Hybrid Compute Machine.
+     */
+    HybridComputeMachine: "HybridComputeMachine",
+} as const;
+
+/**
+ * Type of the onboarding resource to support polymorphic resource.
+ */
+export type OnboardingResourceType = (typeof OnboardingResourceType)[keyof typeof OnboardingResourceType];
 
 export const OperatingSystemTypes = {
     /**
@@ -290,6 +469,18 @@ export const OsTypeEnum = {
  */
 export type OsTypeEnum = (typeof OsTypeEnum)[keyof typeof OsTypeEnum];
 
+export const OwnerKeyType = {
+    /**
+     * Owner is Microsoft managed key
+     */
+    MicrosoftManaged: "MicrosoftManaged",
+} as const;
+
+/**
+ * Owner key type
+ */
+export type OwnerKeyType = (typeof OwnerKeyType)[keyof typeof OwnerKeyType];
+
 export const ProvisioningAction = {
     /**
      * Install guest agent
@@ -309,6 +500,38 @@ export const ProvisioningAction = {
  * The guest agent provisioning action.
  */
 export type ProvisioningAction = (typeof ProvisioningAction)[keyof typeof ProvisioningAction];
+
+export const ProvisioningOsType = {
+    /**
+     * AzureLinux OS.
+     */
+    AzureLinux: "AzureLinux",
+    /**
+     * HCI OS.
+     */
+    HCI: "HCI",
+} as const;
+
+/**
+ * Target operating system to support polymorphic resource.
+ */
+export type ProvisioningOsType = (typeof ProvisioningOsType)[keyof typeof ProvisioningOsType];
+
+export const PublicIPAddressType = {
+    /**
+     * IPv4 IP Address
+     */
+    IPv4: "IPv4",
+    /**
+     * IPv6 IP Address
+     */
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * Whether the public IP is v4 or v6. Defaults to IPv4
+ */
+export type PublicIPAddressType = (typeof PublicIPAddressType)[keyof typeof PublicIPAddressType];
 
 export const RemoteSupportAccessLevel = {
     /**
@@ -332,11 +555,11 @@ export type RemoteSupportAccessLevel = (typeof RemoteSupportAccessLevel)[keyof t
 
 export const RemoteSupportType = {
     /**
-     * Enables remote support for the edge device.
+     * Enable remote support for the cluster.
      */
     Enable: "Enable",
     /**
-     * Revokes previously granted remote support access for the edge device.
+     * Revoke previously enabled remote support for the cluster.
      */
     Revoke: "Revoke",
 } as const;
@@ -354,6 +577,22 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SecretType = {
+    /**
+     * Key Vault based authentication
+     */
+    KeyVault: "KeyVault",
+    /**
+     * SSH Public Key based authentication
+     */
+    SshPubKey: "SshPubKey",
+} as const;
+
+/**
+ * Type of the secret used for authentication.
+ */
+export type SecretType = (typeof SecretType)[keyof typeof SecretType];
 
 export const SecurityEncryptionType = {
     /**

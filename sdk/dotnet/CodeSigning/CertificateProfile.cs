@@ -26,6 +26,12 @@ namespace Pulumi.AzureNative.CodeSigning
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// List of renewed certificates.
+        /// </summary>
+        [Output("certificates")]
+        public Output<ImmutableArray<Outputs.CertificateResponse>> Certificates { get; private set; } = null!;
+
+        /// <summary>
         /// Identity validation id used for the certificate subject name.
         /// </summary>
         [Output("identityValidationId")]

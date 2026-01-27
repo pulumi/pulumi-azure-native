@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The ARM ID for a Network Interface.
+    /// The Azure Resource ID for a Network Interface.
     /// </summary>
     [OutputType]
     public sealed class SubnetIpConfigurationReferenceResponse
     {
         /// <summary>
-        /// The ARM ID for a Network Interface.
+        /// The Azure Resource ID for a Network Interface.
         /// </summary>
         public readonly string? Id;
 

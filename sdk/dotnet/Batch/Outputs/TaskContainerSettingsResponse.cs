@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The container settings for a task.
+    /// </summary>
     [OutputType]
     public sealed class TaskContainerSettingsResponse
     {
@@ -29,6 +32,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// This setting can be omitted if was already provided at pool creation.
         /// </summary>
         public readonly Outputs.ContainerRegistryResponse? Registry;
+        /// <summary>
+        /// A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+        /// </summary>
         public readonly string? WorkingDirectory;
 
         [OutputConstructor]

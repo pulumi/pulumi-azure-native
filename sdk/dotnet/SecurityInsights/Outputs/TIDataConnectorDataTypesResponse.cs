@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Data type for indicators connection.
         /// </summary>
-        public readonly Outputs.TIDataConnectorDataTypesResponseIndicators? Indicators;
+        public readonly Outputs.TIDataConnectorDataTypesResponseIndicators Indicators;
 
         [OutputConstructor]
-        private TIDataConnectorDataTypesResponse(Outputs.TIDataConnectorDataTypesResponseIndicators? indicators)
+        private TIDataConnectorDataTypesResponse(Outputs.TIDataConnectorDataTypesResponseIndicators indicators)
         {
             Indicators = indicators;
         }

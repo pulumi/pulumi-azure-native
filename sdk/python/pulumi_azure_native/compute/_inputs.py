@@ -152,6 +152,16 @@ __all__ = [
     'GalleryInVMAccessControlProfilePropertiesArgsDict',
     'GalleryOSDiskImageArgs',
     'GalleryOSDiskImageArgsDict',
+    'GalleryScriptParameterArgs',
+    'GalleryScriptParameterArgsDict',
+    'GalleryScriptPropertiesArgs',
+    'GalleryScriptPropertiesArgsDict',
+    'GalleryScriptVersionPropertiesArgs',
+    'GalleryScriptVersionPropertiesArgsDict',
+    'GalleryScriptVersionPublishingProfileArgs',
+    'GalleryScriptVersionPublishingProfileArgsDict',
+    'GalleryScriptVersionSafetyProfileArgs',
+    'GalleryScriptVersionSafetyProfileArgsDict',
     'GalleryTargetExtendedLocationArgs',
     'GalleryTargetExtendedLocationArgsDict',
     'HardwareProfileArgs',
@@ -268,6 +278,8 @@ __all__ = [
     'ScheduledEventsPolicyArgsDict',
     'ScheduledEventsProfileArgs',
     'ScheduledEventsProfileArgsDict',
+    'ScriptSourceArgs',
+    'ScriptSourceArgsDict',
     'SecurityPostureReferenceArgs',
     'SecurityPostureReferenceArgsDict',
     'SecurityProfileArgs',
@@ -4350,7 +4362,7 @@ if not MYPY:
         """
         storage_account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]
         """
-        Specifies the storage account type to be used to store the image. This property is not updatable.
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         """
         target_extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgsDict']]]]
         """
@@ -4390,7 +4402,7 @@ class GalleryApplicationVersionPublishingProfileArgs:
         :param pulumi.Input[_builtins.int] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param pulumi.Input[Union[_builtins.str, 'ReplicationMode']] replication_mode: Optional parameter which specifies the mode to be used for replication. This property is not updatable.
         :param pulumi.Input['UserArtifactSettingsArgs'] settings: Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
-        :param pulumi.Input[Union[_builtins.str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param pulumi.Input[Union[_builtins.str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         :param pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgs']]] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
         :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -4541,7 +4553,7 @@ class GalleryApplicationVersionPublishingProfileArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]:
         """
-        Specifies the storage account type to be used to store the image. This property is not updatable.
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -5114,7 +5126,7 @@ if not MYPY:
         """
         storage_account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]
         """
-        Specifies the storage account type to be used to store the image. This property is not updatable.
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         """
         target_extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgsDict']]]]
         """
@@ -5143,7 +5155,7 @@ class GalleryImageVersionPublishingProfileArgs:
         :param pulumi.Input[_builtins.bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param pulumi.Input[_builtins.int] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param pulumi.Input[Union[_builtins.str, 'ReplicationMode']] replication_mode: Optional parameter which specifies the mode to be used for replication. This property is not updatable.
-        :param pulumi.Input[Union[_builtins.str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param pulumi.Input[Union[_builtins.str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         :param pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgs']]] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
         :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -5214,7 +5226,7 @@ class GalleryImageVersionPublishingProfileArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]:
         """
-        Specifies the storage account type to be used to store the image. This property is not updatable.
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -5563,6 +5575,602 @@ class GalleryOSDiskImageArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input['GalleryDiskImageSourceArgs']]):
         pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class GalleryScriptParameterArgsDict(TypedDict):
+        """
+        The definition of a parameter that can be passed to a script of a Gallery Script Version.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the parameter.
+        """
+        default_value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The default value of the parameter, only applies to string types.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A description to help users understand what this parameter means
+        """
+        enum_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        A list of permissible values. Only applicable values are from 'enum' values defined in 'GalleryScriptParameter'.
+        """
+        max_value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The minimum value of parameter.
+        """
+        min_value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The minimum value of parameter.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Indicates whether this parameter must be passed.
+        """
+        type: NotRequired[pulumi.Input[Union[_builtins.str, 'GalleryScriptParameterType']]]
+        """
+        Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+        """
+elif False:
+    GalleryScriptParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GalleryScriptParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enum_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 min_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'GalleryScriptParameterType']]] = None):
+        """
+        The definition of a parameter that can be passed to a script of a Gallery Script Version.
+        :param pulumi.Input[_builtins.str] name: The name of the parameter.
+        :param pulumi.Input[_builtins.str] default_value: The default value of the parameter, only applies to string types.
+        :param pulumi.Input[_builtins.str] description: A description to help users understand what this parameter means
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enum_values: A list of permissible values. Only applicable values are from 'enum' values defined in 'GalleryScriptParameter'.
+        :param pulumi.Input[_builtins.str] max_value: The minimum value of parameter.
+        :param pulumi.Input[_builtins.str] min_value: The minimum value of parameter.
+        :param pulumi.Input[_builtins.bool] required: Indicates whether this parameter must be passed.
+        :param pulumi.Input[Union[_builtins.str, 'GalleryScriptParameterType']] type: Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+        """
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enum_values is not None:
+            pulumi.set(__self__, "enum_values", enum_values)
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default value of the parameter, only applies to string types.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description to help users understand what this parameter means
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enumValues")
+    def enum_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of permissible values. Only applicable values are from 'enum' values defined in 'GalleryScriptParameter'.
+        """
+        return pulumi.get(self, "enum_values")
+
+    @enum_values.setter
+    def enum_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "enum_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The minimum value of parameter.
+        """
+        return pulumi.get(self, "max_value")
+
+    @max_value.setter
+    def max_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "max_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The minimum value of parameter.
+        """
+        return pulumi.get(self, "min_value")
+
+    @min_value.setter
+    def min_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "min_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether this parameter must be passed.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GalleryScriptParameterType']]]:
+        """
+        Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GalleryScriptParameterType']]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class GalleryScriptPropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of a gallery script definition.
+        """
+        supported_os_type: pulumi.Input['OperatingSystemTypes']
+        """
+        This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The description of this gallery script definition resource. This property is updatable.
+        """
+        end_of_life_date: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The end of life date of the gallery Script Definition. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        eula: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Eula agreement (End User License Agreement) for the gallery Script Definition.
+        """
+        privacy_statement_uri: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The privacy statement uri.
+        """
+        release_note_uri: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The release note uri.
+        """
+elif False:
+    GalleryScriptPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GalleryScriptPropertiesArgs:
+    def __init__(__self__, *,
+                 supported_os_type: pulumi.Input['OperatingSystemTypes'],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 eula: Optional[pulumi.Input[_builtins.str]] = None,
+                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Describes the properties of a gallery script definition.
+        :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
+        :param pulumi.Input[_builtins.str] description: The description of this gallery script definition resource. This property is updatable.
+        :param pulumi.Input[_builtins.str] end_of_life_date: The end of life date of the gallery Script Definition. This property can be used for decommissioning purposes. This property is updatable.
+        :param pulumi.Input[_builtins.str] eula: The Eula agreement (End User License Agreement) for the gallery Script Definition.
+        :param pulumi.Input[_builtins.str] privacy_statement_uri: The privacy statement uri.
+        :param pulumi.Input[_builtins.str] release_note_uri: The release note uri.
+        """
+        pulumi.set(__self__, "supported_os_type", supported_os_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+        if eula is not None:
+            pulumi.set(__self__, "eula", eula)
+        if privacy_statement_uri is not None:
+            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
+        if release_note_uri is not None:
+            pulumi.set(__self__, "release_note_uri", release_note_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedOSType")
+    def supported_os_type(self) -> pulumi.Input['OperatingSystemTypes']:
+        """
+        This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
+        """
+        return pulumi.get(self, "supported_os_type")
+
+    @supported_os_type.setter
+    def supported_os_type(self, value: pulumi.Input['OperatingSystemTypes']):
+        pulumi.set(self, "supported_os_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The description of this gallery script definition resource. This property is updatable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The end of life date of the gallery Script Definition. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @end_of_life_date.setter
+    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_of_life_date", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def eula(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Eula agreement (End User License Agreement) for the gallery Script Definition.
+        """
+        return pulumi.get(self, "eula")
+
+    @eula.setter
+    def eula(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "eula", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privacyStatementUri")
+    def privacy_statement_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The privacy statement uri.
+        """
+        return pulumi.get(self, "privacy_statement_uri")
+
+    @privacy_statement_uri.setter
+    def privacy_statement_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "privacy_statement_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="releaseNoteUri")
+    def release_note_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The release note uri.
+        """
+        return pulumi.get(self, "release_note_uri")
+
+    @release_note_uri.setter
+    def release_note_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "release_note_uri", value)
+
+
+if not MYPY:
+    class GalleryScriptVersionPropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of a gallery script version.
+        """
+        publishing_profile: pulumi.Input['GalleryScriptVersionPublishingProfileArgsDict']
+        """
+        The publishing profile of a gallery image version.
+        """
+        safety_profile: NotRequired[pulumi.Input['GalleryScriptVersionSafetyProfileArgsDict']]
+        """
+        The safety profile of the Gallery Script Version.
+        """
+elif False:
+    GalleryScriptVersionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GalleryScriptVersionPropertiesArgs:
+    def __init__(__self__, *,
+                 publishing_profile: pulumi.Input['GalleryScriptVersionPublishingProfileArgs'],
+                 safety_profile: Optional[pulumi.Input['GalleryScriptVersionSafetyProfileArgs']] = None):
+        """
+        Describes the properties of a gallery script version.
+        :param pulumi.Input['GalleryScriptVersionPublishingProfileArgs'] publishing_profile: The publishing profile of a gallery image version.
+        :param pulumi.Input['GalleryScriptVersionSafetyProfileArgs'] safety_profile: The safety profile of the Gallery Script Version.
+        """
+        pulumi.set(__self__, "publishing_profile", publishing_profile)
+        if safety_profile is not None:
+            pulumi.set(__self__, "safety_profile", safety_profile)
+
+    @_builtins.property
+    @pulumi.getter(name="publishingProfile")
+    def publishing_profile(self) -> pulumi.Input['GalleryScriptVersionPublishingProfileArgs']:
+        """
+        The publishing profile of a gallery image version.
+        """
+        return pulumi.get(self, "publishing_profile")
+
+    @publishing_profile.setter
+    def publishing_profile(self, value: pulumi.Input['GalleryScriptVersionPublishingProfileArgs']):
+        pulumi.set(self, "publishing_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="safetyProfile")
+    def safety_profile(self) -> Optional[pulumi.Input['GalleryScriptVersionSafetyProfileArgs']]:
+        """
+        The safety profile of the Gallery Script Version.
+        """
+        return pulumi.get(self, "safety_profile")
+
+    @safety_profile.setter
+    def safety_profile(self, value: Optional[pulumi.Input['GalleryScriptVersionSafetyProfileArgs']]):
+        pulumi.set(self, "safety_profile", value)
+
+
+if not MYPY:
+    class GalleryScriptVersionPublishingProfileArgsDict(TypedDict):
+        """
+        The publishing profile of a gallery image version.
+        """
+        source: pulumi.Input['ScriptSourceArgsDict']
+        """
+        The source script from which the Script Version is going to be created.
+        """
+        end_of_life_date: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        exclude_from_latest: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+        """
+        replica_count: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        """
+        replication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationMode']]]
+        """
+        Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        """
+        storage_account_strategy: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAccountStrategy']]]
+        """
+        Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]
+        """
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
+        """
+        target_extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgsDict']]]]
+        """
+        The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        """
+        target_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgsDict']]]]
+        """
+        The target regions where the Image Version is going to be replicated to. This property is updatable.
+        """
+elif False:
+    GalleryScriptVersionPublishingProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GalleryScriptVersionPublishingProfileArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['ScriptSourceArgs'],
+                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
+                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 replication_mode: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationMode']]] = None,
+                 storage_account_strategy: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountStrategy']]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]] = None,
+                 target_extended_locations: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgs']]]] = None,
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
+        """
+        The publishing profile of a gallery image version.
+        :param pulumi.Input['ScriptSourceArgs'] source: The source script from which the Script Version is going to be created.
+        :param pulumi.Input[_builtins.str] end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+        :param pulumi.Input[_builtins.bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+        :param pulumi.Input[_builtins.int] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param pulumi.Input[Union[_builtins.str, 'ReplicationMode']] replication_mode: Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        :param pulumi.Input[Union[_builtins.str, 'StorageAccountStrategy']] storage_account_strategy: Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+        :param pulumi.Input[Union[_builtins.str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
+        :param pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgs']]] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        """
+        pulumi.set(__self__, "source", source)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+        if exclude_from_latest is not None:
+            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+        if replica_count is not None:
+            pulumi.set(__self__, "replica_count", replica_count)
+        if replication_mode is not None:
+            pulumi.set(__self__, "replication_mode", replication_mode)
+        if storage_account_strategy is not None:
+            pulumi.set(__self__, "storage_account_strategy", storage_account_strategy)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if target_extended_locations is not None:
+            pulumi.set(__self__, "target_extended_locations", target_extended_locations)
+        if target_regions is not None:
+            pulumi.set(__self__, "target_regions", target_regions)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['ScriptSourceArgs']:
+        """
+        The source script from which the Script Version is going to be created.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['ScriptSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @end_of_life_date.setter
+    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_of_life_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFromLatest")
+    def exclude_from_latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+        """
+        return pulumi.get(self, "exclude_from_latest")
+
+    @exclude_from_latest.setter
+    def exclude_from_latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "exclude_from_latest", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        """
+        return pulumi.get(self, "replica_count")
+
+    @replica_count.setter
+    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "replica_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationMode")
+    def replication_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationMode']]]:
+        """
+        Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        """
+        return pulumi.get(self, "replication_mode")
+
+    @replication_mode.setter
+    def replication_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationMode']]]):
+        pulumi.set(self, "replication_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountStrategy")
+    def storage_account_strategy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountStrategy']]]:
+        """
+        Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+        """
+        return pulumi.get(self, "storage_account_strategy")
+
+    @storage_account_strategy.setter
+    def storage_account_strategy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountStrategy']]]):
+        pulumi.set(self, "storage_account_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]:
+        """
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]):
+        pulumi.set(self, "storage_account_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetExtendedLocations")
+    def target_extended_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgs']]]]:
+        """
+        The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        """
+        return pulumi.get(self, "target_extended_locations")
+
+    @target_extended_locations.setter
+    def target_extended_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgs']]]]):
+        pulumi.set(self, "target_extended_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetRegions")
+    def target_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]:
+        """
+        The target regions where the Image Version is going to be replicated to. This property is updatable.
+        """
+        return pulumi.get(self, "target_regions")
+
+    @target_regions.setter
+    def target_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]):
+        pulumi.set(self, "target_regions", value)
+
+
+if not MYPY:
+    class GalleryScriptVersionSafetyProfileArgsDict(TypedDict):
+        """
+        The safety profile of the Gallery Script Version.
+        """
+        allow_deletion_of_replicated_locations: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+        """
+elif False:
+    GalleryScriptVersionSafetyProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GalleryScriptVersionSafetyProfileArgs:
+    def __init__(__self__, *,
+                 allow_deletion_of_replicated_locations: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        The safety profile of the Gallery Script Version.
+        :param pulumi.Input[_builtins.bool] allow_deletion_of_replicated_locations: Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+        """
+        if allow_deletion_of_replicated_locations is not None:
+            pulumi.set(__self__, "allow_deletion_of_replicated_locations", allow_deletion_of_replicated_locations)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDeletionOfReplicatedLocations")
+    def allow_deletion_of_replicated_locations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+        """
+        return pulumi.get(self, "allow_deletion_of_replicated_locations")
+
+    @allow_deletion_of_replicated_locations.setter
+    def allow_deletion_of_replicated_locations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_deletion_of_replicated_locations", value)
 
 
 if not MYPY:
@@ -10051,6 +10659,61 @@ class ScheduledEventsProfileArgs:
     @terminate_notification_profile.setter
     def terminate_notification_profile(self, value: Optional[pulumi.Input['TerminateNotificationProfileArgs']]):
         pulumi.set(self, "terminate_notification_profile", value)
+
+
+if not MYPY:
+    class ScriptSourceArgsDict(TypedDict):
+        """
+        The source script from which the Script Version is going to be created.
+        """
+        script_link: pulumi.Input[_builtins.str]
+        """
+        Required. The link of the source script, it must be a readable storage blob with SAS URI or publicly accessible URI or managed identity enabled.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryScriptParameterArgsDict']]]]
+        """
+        Optional. Any input parameters that needs to passed to the script and are accessed within the script for its execution.
+        """
+elif False:
+    ScriptSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScriptSourceArgs:
+    def __init__(__self__, *,
+                 script_link: pulumi.Input[_builtins.str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryScriptParameterArgs']]]] = None):
+        """
+        The source script from which the Script Version is going to be created.
+        :param pulumi.Input[_builtins.str] script_link: Required. The link of the source script, it must be a readable storage blob with SAS URI or publicly accessible URI or managed identity enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['GalleryScriptParameterArgs']]] parameters: Optional. Any input parameters that needs to passed to the script and are accessed within the script for its execution.
+        """
+        pulumi.set(__self__, "script_link", script_link)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="scriptLink")
+    def script_link(self) -> pulumi.Input[_builtins.str]:
+        """
+        Required. The link of the source script, it must be a readable storage blob with SAS URI or publicly accessible URI or managed identity enabled.
+        """
+        return pulumi.get(self, "script_link")
+
+    @script_link.setter
+    def script_link(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "script_link", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GalleryScriptParameterArgs']]]]:
+        """
+        Optional. Any input parameters that needs to passed to the script and are accessed within the script for its execution.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryScriptParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
 
 
 if not MYPY:

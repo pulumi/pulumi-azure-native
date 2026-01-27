@@ -29,7 +29,7 @@ class PrivateEndpointConnectionArgs:
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[_builtins.str] provider_name: The name of the attestation provider.
+        :param pulumi.Input[_builtins.str] provider_name: Name of the attestation provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
         """
@@ -55,7 +55,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the attestation provider.
+        Name of the attestation provider.
         """
         return pulumi.get(self, "provider_name")
 
@@ -108,7 +108,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[_builtins.str] provider_name: The name of the attestation provider.
+        :param pulumi.Input[_builtins.str] provider_name: Name of the attestation provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -164,6 +164,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:attestation/v20201001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:attestation/v20210601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:attestation/v20210601preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -194,6 +195,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -236,6 +238,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter

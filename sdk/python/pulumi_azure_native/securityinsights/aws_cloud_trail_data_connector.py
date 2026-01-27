@@ -22,22 +22,23 @@ __all__ = ['AwsCloudTrailDataConnectorArgs', 'AwsCloudTrailDataConnector']
 @pulumi.input_type
 class AwsCloudTrailDataConnectorArgs:
     def __init__(__self__, *,
+                 data_types: pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs'],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs']] = None):
+                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AwsCloudTrailDataConnector resource.
+        :param pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
                Expected value is 'AmazonWebServicesCloudTrail'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] aws_role_arn: The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
         :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
-        :param pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
         """
+        pulumi.set(__self__, "data_types", data_types)
         pulumi.set(__self__, "kind", 'AmazonWebServicesCloudTrail')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -45,8 +46,18 @@ class AwsCloudTrailDataConnectorArgs:
             pulumi.set(__self__, "aws_role_arn", aws_role_arn)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
-        if data_types is not None:
-            pulumi.set(__self__, "data_types", data_types)
+
+    @_builtins.property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs']:
+        """
+        The available data types for the connector.
+        """
+        return pulumi.get(self, "data_types")
+
+    @data_types.setter
+    def data_types(self, value: pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs']):
+        pulumi.set(self, "data_types", value)
 
     @_builtins.property
     @pulumi.getter
@@ -108,18 +119,6 @@ class AwsCloudTrailDataConnectorArgs:
     @data_connector_id.setter
     def data_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "data_connector_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional[pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs']]:
-        """
-        The available data types for the connector.
-        """
-        return pulumi.get(self, "data_types")
-
-    @data_types.setter
-    def data_types(self, value: Optional[pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs']]):
-        pulumi.set(self, "data_types", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:AwsCloudTrailDataConnector")
@@ -193,6 +192,8 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["aws_role_arn"] = aws_role_arn
             __props__.__dict__["data_connector_id"] = data_connector_id
+            if data_types is None and not opts.urn:
+                raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -260,7 +261,7 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
-    def data_types(self) -> pulumi.Output[Optional['outputs.AwsCloudTrailDataConnectorDataTypesResponse']]:
+    def data_types(self) -> pulumi.Output['outputs.AwsCloudTrailDataConnectorDataTypesResponse']:
         """
         The available data types for the connector.
         """

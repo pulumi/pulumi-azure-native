@@ -35,6 +35,8 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
 
@@ -54,6 +56,7 @@ class PrivateEndpointConnectionResponse(dict):
                  name: _builtins.str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
@@ -62,6 +65,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
@@ -69,6 +73,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -104,6 +109,14 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter

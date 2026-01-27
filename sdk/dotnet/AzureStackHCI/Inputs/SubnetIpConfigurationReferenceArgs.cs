@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
     /// <summary>
-    /// The ARM ID for a Network Interface.
+    /// The Azure Resource ID for a Network Interface.
     /// </summary>
     public sealed class SubnetIpConfigurationReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARM ID for a Network Interface.
+        /// The Azure Resource ID for a Network Interface.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

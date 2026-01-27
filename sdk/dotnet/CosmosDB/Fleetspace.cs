@@ -12,7 +12,9 @@ namespace Pulumi.AzureNative.CosmosDB
     /// <summary>
     /// An Azure Cosmos DB Fleetspace.
     /// 
-    /// Uses Azure REST API version 2025-05-01-preview.
+    /// Uses Azure REST API version 2025-10-15.
+    /// 
+    /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:Fleetspace")]
     public partial class Fleetspace : global::Pulumi.CustomResource
@@ -22,6 +24,12 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         [Output("azureApiVersion")]
         public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// List of data regions assigned to the fleetspace. Eg [westus2]
+        /// </summary>
+        [Output("dataRegions")]
+        public Output<ImmutableArray<string>> DataRegions { get; private set; } = null!;
 
         /// <summary>
         /// The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
@@ -40,6 +48,12 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        /// </summary>
+        [Output("serviceTier")]
+        public Output<string?> ServiceTier { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -85,6 +99,8 @@ namespace Pulumi.AzureNative.CosmosDB
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:Fleetspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:Fleetspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:Fleetspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,6 +124,18 @@ namespace Pulumi.AzureNative.CosmosDB
 
     public sealed class FleetspaceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dataRegions")]
+        private InputList<string>? _dataRegions;
+
+        /// <summary>
+        /// List of data regions assigned to the fleetspace. Eg [westus2]
+        /// </summary>
+        public InputList<string> DataRegions
+        {
+            get => _dataRegions ?? (_dataRegions = new InputList<string>());
+            set => _dataRegions = value;
+        }
+
         /// <summary>
         /// Cosmos DB fleet name. Needs to be unique under a subscription.
         /// </summary>
@@ -131,6 +159,12 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        /// </summary>
+        [Input("serviceTier")]
+        public InputUnion<string, Pulumi.AzureNative.CosmosDB.ServiceTier>? ServiceTier { get; set; }
 
         /// <summary>
         /// Configuration for throughput pool in the fleetspace.

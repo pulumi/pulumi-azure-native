@@ -91,6 +91,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:HciEdgeDeviceJob" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250915preview:HciEdgeDeviceJob" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20251001:HciEdgeDeviceJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20251101preview:HciEdgeDeviceJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20251201preview:HciEdgeDeviceJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20260201:HciEdgeDeviceJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

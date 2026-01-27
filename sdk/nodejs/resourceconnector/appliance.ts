@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-10-27. In version 2.x of the Azure Native provider, it used API version 2022-10-27.
  *
- * Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Appliance extends pulumi.CustomResource {
     /**
@@ -56,7 +56,7 @@ export class Appliance extends pulumi.CustomResource {
     /**
      * Contains infrastructure information about the Appliance
      */
-    declare public readonly infrastructureConfig: pulumi.Output<outputs.resourceconnector.AppliancePropertiesResponseInfrastructureConfig | undefined>;
+    declare public readonly infrastructureConfig: pulumi.Output<outputs.resourceconnector.AppliancePropertiesInfrastructureConfigResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -74,7 +74,7 @@ export class Appliance extends pulumi.CustomResource {
      */
     declare public readonly publicKey: pulumi.Output<string | undefined>;
     /**
-     * Appliance’s health and state of connection to on-prem
+     * Appliance’s health and state of connection to on-prem. This list of values is not exhaustive.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class Appliance extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resourceconnector/v20211031preview:Appliance" }, { type: "azure-native:resourceconnector/v20220415preview:Appliance" }, { type: "azure-native:resourceconnector/v20221027:Appliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resourceconnector/v20211031preview:Appliance" }, { type: "azure-native:resourceconnector/v20220415preview:Appliance" }, { type: "azure-native:resourceconnector/v20221027:Appliance" }, { type: "azure-native:resourceconnector/v20250301preview:Appliance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Appliance.__pulumiType, name, resourceInputs, opts);
     }

@@ -27,7 +27,7 @@ class GetManagementGroupResult:
     """
     The management group details.
     """
-    def __init__(__self__, azure_api_version=None, children=None, details=None, display_name=None, id=None, name=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, children=None, details=None, display_name=None, id=None, name=None, system_data=None, tenant_id=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -46,6 +46,9 @@ class GetManagementGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -89,7 +92,7 @@ class GetManagementGroupResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -97,9 +100,17 @@ class GetManagementGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -113,7 +124,7 @@ class GetManagementGroupResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.  For example, Microsoft.Management/managementGroups
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -130,6 +141,7 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
             display_name=self.display_name,
             id=self.id,
             name=self.name,
+            system_data=self.system_data,
             tenant_id=self.tenant_id,
             type=self.type)
 
@@ -167,6 +179,7 @@ def get_management_group(expand: Optional[_builtins.str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_management_group_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -201,5 +214,6 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[_builtins
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tenant_id=pulumi.get(__response__, 'tenant_id'),
         type=pulumi.get(__response__, 'type')))

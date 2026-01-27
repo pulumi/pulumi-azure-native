@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         /// </summary>
         public readonly string Resources;
+        /// <summary>
+        /// Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        /// </summary>
+        public readonly string? ResourcesWithoutDeleteSupport;
 
         [OutputConstructor]
         private ActionOnUnmanageResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
             string? resourceGroups,
 
-            string resources)
+            string resources,
+
+            string? resourcesWithoutDeleteSupport)
         {
             ManagementGroups = managementGroups;
             ResourceGroups = resourceGroups;
             Resources = resources;
+            ResourcesWithoutDeleteSupport = resourcesWithoutDeleteSupport;
         }
     }
 }

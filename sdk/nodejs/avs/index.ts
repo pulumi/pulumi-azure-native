@@ -70,6 +70,11 @@ export const getIscsiPath: typeof import("./getIscsiPath").getIscsiPath = null a
 export const getIscsiPathOutput: typeof import("./getIscsiPath").getIscsiPathOutput = null as any;
 utilities.lazyLoad(exports, ["getIscsiPath","getIscsiPathOutput"], () => require("./getIscsiPath"));
 
+export { GetLicenseArgs, GetLicenseResult, GetLicenseOutputArgs } from "./getLicense";
+export const getLicense: typeof import("./getLicense").getLicense = null as any;
+export const getLicenseOutput: typeof import("./getLicense").getLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getLicense","getLicenseOutput"], () => require("./getLicense"));
+
 export { GetPlacementPolicyArgs, GetPlacementPolicyResult, GetPlacementPolicyOutputArgs } from "./getPlacementPolicy";
 export const getPlacementPolicy: typeof import("./getPlacementPolicy").getPlacementPolicy = null as any;
 export const getPlacementPolicyOutput: typeof import("./getPlacementPolicy").getPlacementPolicyOutput = null as any;
@@ -79,6 +84,11 @@ export { GetPrivateCloudArgs, GetPrivateCloudResult, GetPrivateCloudOutputArgs }
 export const getPrivateCloud: typeof import("./getPrivateCloud").getPrivateCloud = null as any;
 export const getPrivateCloudOutput: typeof import("./getPrivateCloud").getPrivateCloudOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
+
+export { GetPrivateCloudVcfLicenseArgs, GetPrivateCloudVcfLicenseResult, GetPrivateCloudVcfLicenseOutputArgs } from "./getPrivateCloudVcfLicense";
+export const getPrivateCloudVcfLicense: typeof import("./getPrivateCloudVcfLicense").getPrivateCloudVcfLicense = null as any;
+export const getPrivateCloudVcfLicenseOutput: typeof import("./getPrivateCloudVcfLicense").getPrivateCloudVcfLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateCloudVcfLicense","getPrivateCloudVcfLicenseOutput"], () => require("./getPrivateCloudVcfLicense"));
 
 export { GetPureStoragePolicyArgs, GetPureStoragePolicyResult, GetPureStoragePolicyOutputArgs } from "./getPureStoragePolicy";
 export const getPureStoragePolicy: typeof import("./getPureStoragePolicy").getPureStoragePolicy = null as any;
@@ -144,6 +154,11 @@ export { IscsiPathArgs } from "./iscsiPath";
 export type IscsiPath = import("./iscsiPath").IscsiPath;
 export const IscsiPath: typeof import("./iscsiPath").IscsiPath = null as any;
 utilities.lazyLoad(exports, ["IscsiPath"], () => require("./iscsiPath"));
+
+export { LicenseArgs } from "./license";
+export type License = import("./license").License;
+export const License: typeof import("./license").License = null as any;
+utilities.lazyLoad(exports, ["License"], () => require("./license"));
 
 export { ListClusterZonesArgs, ListClusterZonesResult, ListClusterZonesOutputArgs } from "./listClusterZones";
 export const listClusterZones: typeof import("./listClusterZones").listClusterZones = null as any;
@@ -234,6 +249,8 @@ const _module = {
                 return new HcxEnterpriseSite(name, <any>undefined, { urn })
             case "azure-native:avs:IscsiPath":
                 return new IscsiPath(name, <any>undefined, { urn })
+            case "azure-native:avs:License":
+                return new License(name, <any>undefined, { urn })
             case "azure-native:avs:PlacementPolicy":
                 return new PlacementPolicy(name, <any>undefined, { urn })
             case "azure-native:avs:PrivateCloud":

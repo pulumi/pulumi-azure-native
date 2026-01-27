@@ -45,7 +45,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name. Type: string (or Expression with resultType string).
+        /// The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Table;
+        /// <summary>
+        /// This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
         /// </summary>
         public readonly object? TableName;
         /// <summary>
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? structure,
 
+            object? table,
+
             object? tableName,
 
             string type)
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Schema = schema;
             Structure = structure;
+            Table = table;
             TableName = tableName;
             Type = type;
         }

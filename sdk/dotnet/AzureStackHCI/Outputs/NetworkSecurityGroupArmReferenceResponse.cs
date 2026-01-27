@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The ARM ID for a Network Security Group.
+    /// The Azure Resource ID for a Network Security Group.
     /// </summary>
     [OutputType]
     public sealed class NetworkSecurityGroupArmReferenceResponse
     {
         /// <summary>
-        /// The ARM ID for a Network Security Group.
+        /// The Azure Resource ID for a Network Security Group.
         /// </summary>
         public readonly string? Id;
 

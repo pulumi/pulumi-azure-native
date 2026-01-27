@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.CosmosDB
 {
     /// <summary>
+    /// Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+    /// </summary>
+    [EnumType]
+    public readonly struct AllocationState : IEquatable<AllocationState>
+    {
+        private readonly string _value;
+
+        private AllocationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllocationState Active { get; } = new AllocationState("Active");
+        public static AllocationState Deallocated { get; } = new AllocationState("Deallocated");
+
+        public static bool operator ==(AllocationState left, AllocationState right) => left.Equals(right);
+        public static bool operator !=(AllocationState left, AllocationState right) => !left.Equals(right);
+
+        public static explicit operator string(AllocationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllocationState other && Equals(other);
+        public bool Equals(AllocationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the types of schema for analytical storage.
     /// </summary>
     [EnumType]
@@ -190,6 +221,37 @@ namespace Pulumi.AzureNative.CosmosDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BackupStorageRedundancy other && Equals(other);
         public bool Equals(BackupStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterType : IEquatable<ClusterType>
+    {
+        private readonly string _value;
+
+        private ClusterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterType Production { get; } = new ClusterType("Production");
+        public static ClusterType NonProduction { get; } = new ClusterType("NonProduction");
+
+        public static bool operator ==(ClusterType left, ClusterType right) => left.Equals(right);
+        public static bool operator !=(ClusterType left, ClusterType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterType other && Equals(other);
+        public bool Equals(ClusterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -506,6 +568,37 @@ namespace Pulumi.AzureNative.CosmosDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DefaultConsistencyLevel other && Equals(other);
         public bool Equals(DefaultConsistencyLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum to indicate default Priority Level of request for Priority Based Execution.
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultPriorityLevel : IEquatable<DefaultPriorityLevel>
+    {
+        private readonly string _value;
+
+        private DefaultPriorityLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultPriorityLevel High { get; } = new DefaultPriorityLevel("High");
+        public static DefaultPriorityLevel Low { get; } = new DefaultPriorityLevel("Low");
+
+        public static bool operator ==(DefaultPriorityLevel left, DefaultPriorityLevel right) => left.Equals(right);
+        public static bool operator !=(DefaultPriorityLevel left, DefaultPriorityLevel right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultPriorityLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultPriorityLevel other && Equals(other);
+        public bool Equals(DefaultPriorityLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1295,6 +1388,7 @@ namespace Pulumi.AzureNative.CosmosDB
         public static VectorDataType Float32 { get; } = new VectorDataType("float32");
         public static VectorDataType Uint8 { get; } = new VectorDataType("uint8");
         public static VectorDataType Int8 { get; } = new VectorDataType("int8");
+        public static VectorDataType Float16 { get; } = new VectorDataType("float16");
 
         public static bool operator ==(VectorDataType left, VectorDataType right) => left.Equals(right);
         public static bool operator !=(VectorDataType left, VectorDataType right) => !left.Equals(right);

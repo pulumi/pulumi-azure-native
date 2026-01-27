@@ -8,12 +8,16 @@ from enum import Enum
 
 __all__ = [
     'AddonType',
+    'AffinityStrength',
+    'AffinityType',
     'AvailabilityStrategy',
+    'AzureHybridBenefitType',
     'DhcpTypeEnum',
     'DnsServiceLogLevelEnum',
     'DnsZoneType',
     'EncryptionState',
     'InternetEnum',
+    'LicenseKind',
     'MountOptionEnum',
     'PlacementPolicyState',
     'PlacementPolicyType',
@@ -36,6 +40,36 @@ class AddonType(_builtins.str, Enum):
     ARC = "Arc"
 
 
+@pulumi.type_token("azure-native:avs:AffinityStrength")
+class AffinityStrength(_builtins.str, Enum):
+    """
+    vm-host placement policy affinity strength (should/must)
+    """
+    SHOULD = "Should"
+    """
+    is should
+    """
+    MUST = "Must"
+    """
+    is must
+    """
+
+
+@pulumi.type_token("azure-native:avs:AffinityType")
+class AffinityType(_builtins.str, Enum):
+    """
+    placement policy affinity type
+    """
+    AFFINITY = "Affinity"
+    """
+    is affinity
+    """
+    ANTI_AFFINITY = "AntiAffinity"
+    """
+    is anti-affinity
+    """
+
+
 @pulumi.type_token("azure-native:avs:AvailabilityStrategy")
 class AvailabilityStrategy(_builtins.str, Enum):
     """
@@ -48,6 +82,21 @@ class AvailabilityStrategy(_builtins.str, Enum):
     DUAL_ZONE = "DualZone"
     """
     in two zones
+    """
+
+
+@pulumi.type_token("azure-native:avs:AzureHybridBenefitType")
+class AzureHybridBenefitType(_builtins.str, Enum):
+    """
+    placement policy azure hybrid benefit opt-in type
+    """
+    SQL_HOST = "SqlHost"
+    """
+    is SqlHost
+    """
+    NONE = "None"
+    """
+    is None
     """
 
 
@@ -130,6 +179,14 @@ class InternetEnum(_builtins.str, Enum):
     """
     is disabled
     """
+
+
+@pulumi.type_token("azure-native:avs:LicenseKind")
+class LicenseKind(_builtins.str, Enum):
+    """
+    License kind
+    """
+    VMWARE_FIREWALL = "VmwareFirewall"
 
 
 @pulumi.type_token("azure-native:avs:MountOptionEnum")

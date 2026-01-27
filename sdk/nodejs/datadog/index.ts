@@ -15,6 +15,11 @@ export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
 
+export { GetMonitorDefaultApplicationKeyArgs, GetMonitorDefaultApplicationKeyResult, GetMonitorDefaultApplicationKeyOutputArgs } from "./getMonitorDefaultApplicationKey";
+export const getMonitorDefaultApplicationKey: typeof import("./getMonitorDefaultApplicationKey").getMonitorDefaultApplicationKey = null as any;
+export const getMonitorDefaultApplicationKeyOutput: typeof import("./getMonitorDefaultApplicationKey").getMonitorDefaultApplicationKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitorDefaultApplicationKey","getMonitorDefaultApplicationKeyOutput"], () => require("./getMonitorDefaultApplicationKey"));
+
 export { GetMonitorDefaultKeyArgs, GetMonitorDefaultKeyResult, GetMonitorDefaultKeyOutputArgs } from "./getMonitorDefaultKey";
 export const getMonitorDefaultKey: typeof import("./getMonitorDefaultKey").getMonitorDefaultKey = null as any;
 export const getMonitorDefaultKeyOutput: typeof import("./getMonitorDefaultKey").getMonitorDefaultKeyOutput = null as any;

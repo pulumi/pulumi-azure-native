@@ -50,10 +50,16 @@ namespace Pulumi.AzureNative.Batch
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -62,7 +68,7 @@ namespace Pulumi.AzureNative.Batch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -135,7 +141,7 @@ namespace Pulumi.AzureNative.Batch
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -165,7 +171,7 @@ namespace Pulumi.AzureNative.Batch
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

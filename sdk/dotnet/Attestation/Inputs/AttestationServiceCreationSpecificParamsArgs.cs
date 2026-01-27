@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Attestation.Inputs
         /// JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
         /// </summary>
         [Input("policySigningCertificates")]
-        public Input<Inputs.JSONWebKeySetArgs>? PolicySigningCertificates { get; set; }
+        public Input<Inputs.JsonWebKeySetArgs>? PolicySigningCertificates { get; set; }
 
         /// <summary>
         /// Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
@@ -35,6 +35,8 @@ namespace Pulumi.AzureNative.Attestation.Inputs
 
         public AttestationServiceCreationSpecificParamsArgs()
         {
+            PublicNetworkAccess = "Enabled";
+            TpmAttestationAuthentication = "Enabled";
         }
         public static new AttestationServiceCreationSpecificParamsArgs Empty => new AttestationServiceCreationSpecificParamsArgs();
     }

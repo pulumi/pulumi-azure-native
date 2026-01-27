@@ -74,7 +74,7 @@ class GetAwsCloudTrailDataConnectorResult:
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional['outputs.AwsCloudTrailDataConnectorDataTypesResponse']:
+    def data_types(self) -> 'outputs.AwsCloudTrailDataConnectorDataTypesResponse':
         """
         The available data types for the connector.
         """

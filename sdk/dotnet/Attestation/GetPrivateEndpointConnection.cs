@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Attestation
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the attestation provider.
+        /// Name of the attestation provider.
         /// </summary>
         [Input("providerName", required: true)]
         public string ProviderName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Attestation
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the attestation provider.
+        /// Name of the attestation provider.
         /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.Attestation
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Attestation
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.Attestation
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

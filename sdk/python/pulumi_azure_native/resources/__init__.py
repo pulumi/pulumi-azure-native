@@ -17,6 +17,9 @@ from .deployment_at_tenant_scope import *
 from .deployment_stack_at_management_group import *
 from .deployment_stack_at_resource_group import *
 from .deployment_stack_at_subscription import *
+from .deployment_stacks_what_if_results_at_management_group import *
+from .deployment_stacks_what_if_results_at_resource_group import *
+from .deployment_stacks_what_if_results_at_subscription import *
 from .get_azure_cli_script import *
 from .get_azure_power_shell_script import *
 from .get_deployment import *
@@ -27,6 +30,9 @@ from .get_deployment_at_tenant_scope import *
 from .get_deployment_stack_at_management_group import *
 from .get_deployment_stack_at_resource_group import *
 from .get_deployment_stack_at_subscription import *
+from .get_deployment_stacks_what_if_results_at_management_group import *
+from .get_deployment_stacks_what_if_results_at_resource_group import *
+from .get_deployment_stacks_what_if_results_at_subscription import *
 from .get_resource import *
 from .get_resource_group import *
 from .get_tag_at_scope import *

@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string CurrentOrchestratorVersion;
         /// <summary>
-        /// Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+        /// Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal eTag convention.
         /// </summary>
         public readonly string ETag;
         /// <summary>
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// The OS configuration of Linux agent nodes.
         /// </summary>
         public readonly Outputs.LinuxOSConfigResponse? LinuxOSConfig;
+        /// <summary>
+        /// Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+        /// </summary>
+        public readonly Outputs.LocalDNSProfileResponse? LocalDNSProfile;
         /// <summary>
         /// The maximum number of nodes for auto-scaling
         /// </summary>
@@ -271,6 +275,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             Outputs.LinuxOSConfigResponse? linuxOSConfig,
 
+            Outputs.LocalDNSProfileResponse? localDNSProfile,
+
             int? maxCount,
 
             int? maxPods,
@@ -361,6 +367,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             KubeletConfig = kubeletConfig;
             KubeletDiskType = kubeletDiskType;
             LinuxOSConfig = linuxOSConfig;
+            LocalDNSProfile = localDNSProfile;
             MaxCount = maxCount;
             MaxPods = maxPods;
             MessageOfTheDay = messageOfTheDay;

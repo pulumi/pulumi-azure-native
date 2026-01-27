@@ -178,6 +178,8 @@ def get_internet_gateway_rule(internet_gateway_rule_name: Optional[_builtins.str
 
     Uses Azure REST API version 2023-06-15.
 
+    Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str internet_gateway_rule_name: Name of the Internet Gateway rule.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -207,6 +209,8 @@ def get_internet_gateway_rule_output(internet_gateway_rule_name: Optional[pulumi
     Gets an Internet Gateway Rule resource.
 
     Uses Azure REST API version 2023-06-15.
+
+    Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str internet_gateway_rule_name: Name of the Internet Gateway rule.

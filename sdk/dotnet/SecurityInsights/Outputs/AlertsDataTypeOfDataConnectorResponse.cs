@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Alerts data type connection.
         /// </summary>
-        public readonly Outputs.DataConnectorDataTypeCommonResponse? Alerts;
+        public readonly Outputs.DataConnectorDataTypeCommonResponse Alerts;
 
         [OutputConstructor]
-        private AlertsDataTypeOfDataConnectorResponse(Outputs.DataConnectorDataTypeCommonResponse? alerts)
+        private AlertsDataTypeOfDataConnectorResponse(Outputs.DataConnectorDataTypeCommonResponse alerts)
         {
             Alerts = alerts;
         }

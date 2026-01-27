@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
     /// <summary>
-    /// The ARM ID for a Network Security Group.
+    /// The Azure Resource ID for a Network Security Group.
     /// </summary>
     public sealed class NetworkSecurityGroupArmReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARM ID for a Network Security Group.
+        /// The Azure Resource ID for a Network Security Group.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

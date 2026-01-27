@@ -53,6 +53,9 @@ __all__ = [
     'FailureStatusCodeRangeResponse',
     'FrontendConfigurationResponse',
     'GatewayConfigurationApiResponse',
+    'GatewayHostnameBindingCertificateResponse',
+    'GatewayHostnameBindingKeyVaultLastStatusResponse',
+    'GatewayHostnameBindingKeyVaultResponse',
     'GroupContractPropertiesResponse',
     'HostnameConfigurationResponse',
     'HttpMessageDiagnosticResponse',
@@ -1964,6 +1967,168 @@ class GatewayConfigurationApiResponse(dict):
         Hostname to which the agent connects to propagate configuration to the cloud.
         """
         return pulumi.get(self, "hostname")
+
+
+@pulumi.output_type
+class GatewayHostnameBindingCertificateResponse(dict):
+    def __init__(__self__, *,
+                 expiry: _builtins.str,
+                 subject: _builtins.str,
+                 thumbprint: _builtins.str):
+        """
+        :param _builtins.str expiry: The expiration date of the certificate.
+        :param _builtins.str subject: The subject of the certificate.
+        :param _builtins.str thumbprint: The thumbprint of the certificate.
+        """
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @_builtins.property
+    @pulumi.getter
+    def expiry(self) -> _builtins.str:
+        """
+        The expiration date of the certificate.
+        """
+        return pulumi.get(self, "expiry")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @_builtins.property
+    @pulumi.getter
+    def thumbprint(self) -> _builtins.str:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class GatewayHostnameBindingKeyVaultLastStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastSuccessTimeStampUtc":
+            suggest = "last_success_time_stamp_utc"
+        elif key == "timeStampUtc":
+            suggest = "time_stamp_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayHostnameBindingKeyVaultLastStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayHostnameBindingKeyVaultLastStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayHostnameBindingKeyVaultLastStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 last_success_time_stamp_utc: _builtins.str,
+                 time_stamp_utc: _builtins.str):
+        """
+        :param _builtins.str code: The last status of the Key Vault certificate fetch process.
+        :param _builtins.str last_success_time_stamp_utc: The last time the Key Vault certificate fetch process was successful. Only when the fetch process has succeeded at least once and current state is failed.  The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        :param _builtins.str time_stamp_utc: The last time the Key Vault certificate fetch process was attempted. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "last_success_time_stamp_utc", last_success_time_stamp_utc)
+        pulumi.set(__self__, "time_stamp_utc", time_stamp_utc)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The last status of the Key Vault certificate fetch process.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSuccessTimeStampUtc")
+    def last_success_time_stamp_utc(self) -> _builtins.str:
+        """
+        The last time the Key Vault certificate fetch process was successful. Only when the fetch process has succeeded at least once and current state is failed.  The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        return pulumi.get(self, "last_success_time_stamp_utc")
+
+    @_builtins.property
+    @pulumi.getter(name="timeStampUtc")
+    def time_stamp_utc(self) -> _builtins.str:
+        """
+        The last time the Key Vault certificate fetch process was attempted. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        return pulumi.get(self, "time_stamp_utc")
+
+
+@pulumi.output_type
+class GatewayHostnameBindingKeyVaultResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretId":
+            suggest = "secret_id"
+        elif key == "identityClientId":
+            suggest = "identity_client_id"
+        elif key == "lastStatus":
+            suggest = "last_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayHostnameBindingKeyVaultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayHostnameBindingKeyVaultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayHostnameBindingKeyVaultResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_id: _builtins.str,
+                 identity_client_id: Optional[_builtins.str] = None,
+                 last_status: Optional['outputs.GatewayHostnameBindingKeyVaultLastStatusResponse'] = None):
+        """
+        :param _builtins.str secret_id: The current provisioning state of the API Management gateway hostname binding.
+        :param _builtins.str identity_client_id: The default hostname of the data-plane gateway.
+        :param 'GatewayHostnameBindingKeyVaultLastStatusResponse' last_status: The last status of the Key Vault certificate fetch process.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if last_status is not None:
+            pulumi.set(__self__, "last_status", last_status)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        The current provisioning state of the API Management gateway hostname binding.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @_builtins.property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[_builtins.str]:
+        """
+        The default hostname of the data-plane gateway.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="lastStatus")
+    def last_status(self) -> Optional['outputs.GatewayHostnameBindingKeyVaultLastStatusResponse']:
+        """
+        The last status of the Key Vault certificate fetch process.
+        """
+        return pulumi.get(self, "last_status")
 
 
 @pulumi.output_type

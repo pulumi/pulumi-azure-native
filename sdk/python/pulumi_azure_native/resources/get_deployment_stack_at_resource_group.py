@@ -334,7 +334,7 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[_buil
 
     Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str deployment_stack_name: Name of the deployment stack.
@@ -379,7 +379,7 @@ def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optiona
 
     Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str deployment_stack_name: Name of the deployment stack.

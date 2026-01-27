@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
         /// </summary>
-        public readonly string? State;
+        public readonly string State;
 
         [OutputConstructor]
-        private DataConnectorDataTypeCommonResponse(string? state)
+        private DataConnectorDataTypeCommonResponse(string state)
         {
             State = state;
         }

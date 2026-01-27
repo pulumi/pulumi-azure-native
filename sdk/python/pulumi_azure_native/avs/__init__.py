@@ -20,8 +20,10 @@ from .get_datastore import *
 from .get_global_reach_connection import *
 from .get_hcx_enterprise_site import *
 from .get_iscsi_path import *
+from .get_license import *
 from .get_placement_policy import *
 from .get_private_cloud import *
+from .get_private_cloud_vcf_license import *
 from .get_pure_storage_policy import *
 from .get_script_execution import *
 from .get_script_execution_logs import *
@@ -35,6 +37,7 @@ from .get_workload_network_vm_group import *
 from .global_reach_connection import *
 from .hcx_enterprise_site import *
 from .iscsi_path import *
+from .license import *
 from .list_cluster_zones import *
 from .list_private_cloud_admin_credentials import *
 from .placement_policy import *

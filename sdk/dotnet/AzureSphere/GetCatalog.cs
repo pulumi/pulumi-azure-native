@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.AzureSphere
         /// Get a Catalog
         /// 
         /// Uses Azure REST API version 2024-04-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCatalogResult> InvokeAsync(GetCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.AzureSphere
         /// Get a Catalog
         /// 
         /// Uses Azure REST API version 2024-04-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.AzureSphere
         /// Get a Catalog
         /// 
         /// Uses Azure REST API version 2024-04-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());

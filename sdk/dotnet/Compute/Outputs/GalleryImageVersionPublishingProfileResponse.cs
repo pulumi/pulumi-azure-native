@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? ReplicationMode;
         /// <summary>
-        /// Specifies the storage account type to be used to store the image. This property is not updatable.
+        /// Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         /// </summary>
         public readonly string? StorageAccountType;
         /// <summary>

@@ -184,6 +184,8 @@ __all__ = [
     'ServerPortMatchConditionParametersArgsDict',
     'SharedPrivateLinkResourcePropertiesArgs',
     'SharedPrivateLinkResourcePropertiesArgsDict',
+    'SkuTypeArgs',
+    'SkuTypeArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'SocketAddrMatchConditionParametersArgs',
@@ -6994,6 +6996,60 @@ class SharedPrivateLinkResourcePropertiesArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input['SharedPrivateLinkResourceStatus']]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class SkuTypeArgsDict(TypedDict):
+        """
+        The SKU type for the edge action
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the SKU
+        """
+        tier: pulumi.Input[_builtins.str]
+        """
+        The tier of the SKU
+        """
+elif False:
+    SkuTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SkuTypeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 tier: pulumi.Input[_builtins.str]):
+        """
+        The SKU type for the edge action
+        :param pulumi.Input[_builtins.str] name: The name of the SKU
+        :param pulumi.Input[_builtins.str] tier: The tier of the SKU
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SKU
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tier of the SKU
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tier", value)
 
 
 if not MYPY:

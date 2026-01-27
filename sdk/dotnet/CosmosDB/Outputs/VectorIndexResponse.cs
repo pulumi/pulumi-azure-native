@@ -14,22 +14,43 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
     public sealed class VectorIndexResponse
     {
         /// <summary>
+        /// This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+        /// </summary>
+        public readonly double? IndexingSearchListSize;
+        /// <summary>
         /// The path to the vector field in the document.
         /// </summary>
         public readonly string Path;
         /// <summary>
+        /// The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+        /// </summary>
+        public readonly double? QuantizationByteSize;
+        /// <summary>
         /// The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
+        /// </summary>
+        public readonly ImmutableArray<string> VectorIndexShardKey;
 
         [OutputConstructor]
         private VectorIndexResponse(
+            double? indexingSearchListSize,
+
             string path,
 
-            string type)
+            double? quantizationByteSize,
+
+            string type,
+
+            ImmutableArray<string> vectorIndexShardKey)
         {
+            IndexingSearchListSize = indexingSearchListSize;
             Path = path;
+            QuantizationByteSize = quantizationByteSize;
             Type = type;
+            VectorIndexShardKey = vectorIndexShardKey;
         }
     }
 }

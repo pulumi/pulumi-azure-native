@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
+    /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    /// 
     /// Uses Azure REST API version 2024-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:CustomRollout")]

@@ -59,6 +59,22 @@ export const DeploymentStacksDeleteDetachEnum = {
  */
 export type DeploymentStacksDeleteDetachEnum = (typeof DeploymentStacksDeleteDetachEnum)[keyof typeof DeploymentStacksDeleteDetachEnum];
 
+export const DeploymentStacksResourcesWithoutDeleteSupportEnum = {
+    /**
+     * Detach the specified resources from the deployment stack and continue
+     */
+    Detach: "detach",
+    /**
+     * Fail the deployment stack if resources cannot be deleted
+     */
+    Fail: "fail",
+} as const;
+
+/**
+ * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+ */
+export type DeploymentStacksResourcesWithoutDeleteSupportEnum = (typeof DeploymentStacksResourcesWithoutDeleteSupportEnum)[keyof typeof DeploymentStacksResourcesWithoutDeleteSupportEnum];
+
 export const ExpressionEvaluationOptionsScopeType = {
     NotSpecified: "NotSpecified",
     Outer: "Outer",
@@ -119,3 +135,23 @@ export const ScriptType = {
  * Type of the script.
  */
 export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
+
+export const ValidationLevel = {
+    /**
+     * Static analysis of the template is performed.
+     */
+    Template: "Template",
+    /**
+     * Static analysis of the template is performed and resource declarations are sent to resource providers for semantic validation. Validates that the caller has RBAC write permissions on each resource.
+     */
+    Provider: "Provider",
+    /**
+     * Static analysis of the template is performed and resource declarations are sent to resource providers for semantic validation. Skips validating that the caller has RBAC write permissions on each resource.
+     */
+    ProviderNoRbac: "ProviderNoRbac",
+} as const;
+
+/**
+ * The validation level of the deployment stack
+ */
+export type ValidationLevel = (typeof ValidationLevel)[keyof typeof ValidationLevel];

@@ -18,15 +18,18 @@ namespace Pulumi.AzureNative.Batch.Inputs
         /// <summary>
         /// Values are:
         /// 
-        ///  none - The caching mode for the disk is not enabled.
-        ///  readOnly - The caching mode for the disk is read only.
-        ///  readWrite - The caching mode for the disk is read and write.
+        /// none - The caching mode for the disk is not enabled.
+        /// readOnly - The caching mode for the disk is read only.
+        /// readWrite - The caching mode for the disk is read and write.
         /// 
-        ///  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        /// The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
         /// </summary>
         [Input("caching")]
         public Input<Pulumi.AzureNative.Batch.CachingType>? Caching { get; set; }
 
+        /// <summary>
+        /// The initial disk size in GB when creating new data disk.
+        /// </summary>
         [Input("diskSizeGB", required: true)]
         public Input<int> DiskSizeGB { get; set; } = null!;
 
@@ -39,8 +42,8 @@ namespace Pulumi.AzureNative.Batch.Inputs
         /// <summary>
         /// If omitted, the default is "Standard_LRS". Values are:
         /// 
-        ///  Standard_LRS - The data disk should use standard locally redundant storage.
-        ///  Premium_LRS - The data disk should use premium locally redundant storage.
+        /// Standard_LRS - The data disk should use standard locally redundant storage.
+        /// Premium_LRS - The data disk should use premium locally redundant storage.
         /// </summary>
         [Input("storageAccountType")]
         public Input<Pulumi.AzureNative.Batch.StorageAccountType>? StorageAccountType { get; set; }

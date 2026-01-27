@@ -14,7 +14,6 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Get the details of the management group.
         /// 
-        /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
@@ -25,7 +24,6 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Get the details of the management group.
         /// 
-        /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
@@ -35,7 +33,6 @@ namespace Pulumi.AzureNative.Management
 
         /// <summary>
         /// Get the details of the management group.
-        /// 
         /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
@@ -131,19 +128,23 @@ namespace Pulumi.AzureNative.Management
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of the resource.  For example, Microsoft.Management/managementGroups
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -161,6 +162,8 @@ namespace Pulumi.AzureNative.Management
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string? tenantId,
 
             string type)
@@ -171,6 +174,7 @@ namespace Pulumi.AzureNative.Management
             DisplayName = displayName;
             Id = id;
             Name = name;
+            SystemData = systemData;
             TenantId = tenantId;
             Type = type;
         }

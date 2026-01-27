@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// <summary>
         /// Logs data type.
         /// </summary>
-        [Input("logs")]
-        public Input<Inputs.AwsCloudTrailDataConnectorDataTypesLogsArgs>? Logs { get; set; }
+        [Input("logs", required: true)]
+        public Input<Inputs.AwsCloudTrailDataConnectorDataTypesLogsArgs> Logs { get; set; } = null!;
 
         public AwsCloudTrailDataConnectorDataTypesArgs()
         {

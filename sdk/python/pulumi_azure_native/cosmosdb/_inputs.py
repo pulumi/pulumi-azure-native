@@ -84,6 +84,8 @@ __all__ = [
     'FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict',
     'FleetspacePropertiesThroughputPoolConfigurationArgs',
     'FleetspacePropertiesThroughputPoolConfigurationArgsDict',
+    'FullTextIndexPathArgs',
+    'FullTextIndexPathArgsDict',
     'FullTextPathArgs',
     'FullTextPathArgsDict',
     'FullTextPolicyArgs',
@@ -1224,11 +1226,19 @@ class ClusterKeyArgs:
 if not MYPY:
     class ClusterResourcePropertiesArgsDict(TypedDict):
         """
-        Properties of a managed Cassandra cluster.
+        Properties of a Garnet cache cluster.
+        """
+        allocation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationState']]]
+        """
+        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
         """
         authentication_method: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]
         """
         Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        """
+        availability_zone: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
         """
         azure_connection_method: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureConnectionType']]]
         """
@@ -1250,6 +1260,10 @@ if not MYPY:
         """
         If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
         """
+        cluster_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterType']]]
+        """
+        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        """
         deallocated: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Whether the cluster and associated data centers has been deallocated.
@@ -1257,6 +1271,10 @@ if not MYPY:
         delegated_management_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Extensions to be added or updated on cluster.
         """
         external_gossip_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateArgsDict']]]]
         """
@@ -1274,6 +1292,14 @@ if not MYPY:
         """
         Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
         """
+        node_count: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of nodes
+        """
+        node_sku: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        """
         prometheus_endpoint: NotRequired[pulumi.Input['SeedNodeArgsDict']]
         """
         Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
@@ -1290,9 +1316,17 @@ if not MYPY:
         """
         Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
+        replication_factor: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of copies of data maintained by the cluster
+        """
         restore_from_backup_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+        """
+        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         """
 elif False:
     ClusterResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1300,45 +1334,65 @@ elif False:
 @pulumi.input_type
 class ClusterResourcePropertiesArgs:
     def __init__(__self__, *,
+                 allocation_state: Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]] = None,
                  authentication_method: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]] = None,
+                 availability_zone: Optional[pulumi.Input[_builtins.bool]] = None,
                  azure_connection_method: Optional[pulumi.Input[Union[_builtins.str, 'AzureConnectionType']]] = None,
                  cassandra_audit_logging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  cassandra_version: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
                  cluster_name_override: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_type: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]] = None,
                  deallocated: Optional[pulumi.Input[_builtins.bool]] = None,
                  delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_gossip_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
                  external_seed_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]]] = None,
                  hours_between_backups: Optional[pulumi.Input[_builtins.int]] = None,
                  initial_cassandra_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 node_sku: Optional[pulumi.Input[_builtins.str]] = None,
                  prometheus_endpoint: Optional[pulumi.Input['SeedNodeArgs']] = None,
                  provision_error: Optional[pulumi.Input['CassandraErrorArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ManagedCassandraProvisioningState']]] = None,
                  repair_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restore_from_backup_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
+                 restore_from_backup_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Properties of a managed Cassandra cluster.
+        Properties of a Garnet cache cluster.
+        :param pulumi.Input[Union[_builtins.str, 'AllocationState']] allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']] authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        :param pulumi.Input[_builtins.bool] availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
         :param pulumi.Input[Union[_builtins.str, 'AzureConnectionType']] azure_connection_method: How to connect to the azure services needed for running the cluster
         :param pulumi.Input[_builtins.bool] cassandra_audit_logging_enabled: Whether Cassandra audit logging is enabled
         :param pulumi.Input[_builtins.str] cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
         :param pulumi.Input[_builtins.str] cluster_name_override: If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+        :param pulumi.Input[Union[_builtins.str, 'ClusterType']] cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
         :param pulumi.Input[_builtins.bool] deallocated: Whether the cluster and associated data centers has been deallocated.
         :param pulumi.Input[_builtins.str] delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: Extensions to be added or updated on cluster.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
         :param pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
         :param pulumi.Input[_builtins.int] hours_between_backups: (Deprecated) Number of hours to wait between taking a backup of the cluster.
         :param pulumi.Input[_builtins.str] initial_cassandra_admin_password: Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+        :param pulumi.Input[_builtins.int] node_count: Number of nodes
+        :param pulumi.Input[_builtins.str] node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
         :param pulumi.Input['SeedNodeArgs'] prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         :param pulumi.Input['CassandraErrorArgs'] provision_error: Error related to resource provisioning.
         :param pulumi.Input[Union[_builtins.str, 'ManagedCassandraProvisioningState']] provisioning_state: The status of the resource at the time the operation was called.
         :param pulumi.Input[_builtins.bool] repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+        :param pulumi.Input[_builtins.int] replication_factor: Number of copies of data maintained by the cluster
         :param pulumi.Input[_builtins.str] restore_from_backup_id: To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+        :param pulumi.Input[_builtins.str] subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         """
+        if allocation_state is not None:
+            pulumi.set(__self__, "allocation_state", allocation_state)
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if azure_connection_method is not None:
             pulumi.set(__self__, "azure_connection_method", azure_connection_method)
         if cassandra_audit_logging_enabled is not None:
@@ -1349,10 +1403,14 @@ class ClusterResourcePropertiesArgs:
             pulumi.set(__self__, "client_certificates", client_certificates)
         if cluster_name_override is not None:
             pulumi.set(__self__, "cluster_name_override", cluster_name_override)
+        if cluster_type is not None:
+            pulumi.set(__self__, "cluster_type", cluster_type)
         if deallocated is not None:
             pulumi.set(__self__, "deallocated", deallocated)
         if delegated_management_subnet_id is not None:
             pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
         if external_gossip_certificates is not None:
             pulumi.set(__self__, "external_gossip_certificates", external_gossip_certificates)
         if external_seed_nodes is not None:
@@ -1361,6 +1419,10 @@ class ClusterResourcePropertiesArgs:
             pulumi.set(__self__, "hours_between_backups", hours_between_backups)
         if initial_cassandra_admin_password is not None:
             pulumi.set(__self__, "initial_cassandra_admin_password", initial_cassandra_admin_password)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if node_sku is not None:
+            pulumi.set(__self__, "node_sku", node_sku)
         if prometheus_endpoint is not None:
             pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
         if provision_error is not None:
@@ -1369,8 +1431,24 @@ class ClusterResourcePropertiesArgs:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if repair_enabled is not None:
             pulumi.set(__self__, "repair_enabled", repair_enabled)
+        if replication_factor is not None:
+            pulumi.set(__self__, "replication_factor", replication_factor)
         if restore_from_backup_id is not None:
             pulumi.set(__self__, "restore_from_backup_id", restore_from_backup_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationState")
+    def allocation_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]]:
+        """
+        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        """
+        return pulumi.get(self, "allocation_state")
+
+    @allocation_state.setter
+    def allocation_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]]):
+        pulumi.set(self, "allocation_state", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
@@ -1383,6 +1461,18 @@ class ClusterResourcePropertiesArgs:
     @authentication_method.setter
     def authentication_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]):
         pulumi.set(self, "authentication_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="azureConnectionMethod")
@@ -1445,6 +1535,18 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "cluster_name_override", value)
 
     @_builtins.property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]:
+        """
+        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @cluster_type.setter
+    def cluster_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]):
+        pulumi.set(self, "cluster_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def deallocated(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1467,6 +1569,18 @@ class ClusterResourcePropertiesArgs:
     @delegated_management_subnet_id.setter
     def delegated_management_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "delegated_management_subnet_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Extensions to be added or updated on cluster.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="externalGossipCertificates")
@@ -1517,6 +1631,30 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "initial_cassandra_admin_password", value)
 
     @_builtins.property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of nodes
+        """
+        return pulumi.get(self, "node_count")
+
+    @node_count.setter
+    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "node_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeSku")
+    def node_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        """
+        return pulumi.get(self, "node_sku")
+
+    @node_sku.setter
+    def node_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "node_sku", value)
+
+    @_builtins.property
     @pulumi.getter(name="prometheusEndpoint")
     def prometheus_endpoint(self) -> Optional[pulumi.Input['SeedNodeArgs']]:
         """
@@ -1565,6 +1703,18 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "repair_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="replicationFactor")
+    def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of copies of data maintained by the cluster
+        """
+        return pulumi.get(self, "replication_factor")
+
+    @replication_factor.setter
+    def replication_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "replication_factor", value)
+
+    @_builtins.property
     @pulumi.getter(name="restoreFromBackupId")
     def restore_from_backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1575,6 +1725,18 @@ class ClusterResourcePropertiesArgs:
     @restore_from_backup_id.setter
     def restore_from_backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "restore_from_backup_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 if not MYPY:
@@ -2800,10 +2962,6 @@ if not MYPY:
         """
         Configuration for throughput pool in the fleetspace.
         """
-        data_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of data regions assigned to the fleetspace. Eg [westus2]
-        """
         max_throughput: NotRequired[pulumi.Input[_builtins.int]]
         """
         Maximum throughput for the pool.
@@ -2812,47 +2970,23 @@ if not MYPY:
         """
         Minimum throughput for the pool.
         """
-        service_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceTier']]]
-        """
-        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
-        """
 elif False:
     FleetspacePropertiesThroughputPoolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetspacePropertiesThroughputPoolConfigurationArgs:
     def __init__(__self__, *,
-                 data_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  max_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_tier: Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]] = None):
+                 min_throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration for throughput pool in the fleetspace.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_regions: List of data regions assigned to the fleetspace. Eg [westus2]
         :param pulumi.Input[_builtins.int] max_throughput: Maximum throughput for the pool.
         :param pulumi.Input[_builtins.int] min_throughput: Minimum throughput for the pool.
-        :param pulumi.Input[Union[_builtins.str, 'ServiceTier']] service_tier: Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
         """
-        if data_regions is not None:
-            pulumi.set(__self__, "data_regions", data_regions)
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
         if min_throughput is not None:
             pulumi.set(__self__, "min_throughput", min_throughput)
-        if service_tier is not None:
-            pulumi.set(__self__, "service_tier", service_tier)
-
-    @_builtins.property
-    @pulumi.getter(name="dataRegions")
-    def data_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of data regions assigned to the fleetspace. Eg [westus2]
-        """
-        return pulumi.get(self, "data_regions")
-
-    @data_regions.setter
-    def data_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "data_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
@@ -2878,17 +3012,40 @@ class FleetspacePropertiesThroughputPoolConfigurationArgs:
     def min_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "min_throughput", value)
 
-    @_builtins.property
-    @pulumi.getter(name="serviceTier")
-    def service_tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]]:
-        """
-        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
-        """
-        return pulumi.get(self, "service_tier")
 
-    @service_tier.setter
-    def service_tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceTier']]]):
-        pulumi.set(self, "service_tier", value)
+if not MYPY:
+    class FullTextIndexPathArgsDict(TypedDict):
+        """
+        Represents the full text index path.
+        """
+        path: pulumi.Input[_builtins.str]
+        """
+        The path to the full text field in the document.
+        """
+elif False:
+    FullTextIndexPathArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FullTextIndexPathArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str]):
+        """
+        Represents the full text index path.
+        :param pulumi.Input[_builtins.str] path: The path to the full text field in the document.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The path to the full text field in the document.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
 
 
 if not MYPY:
@@ -3594,6 +3751,10 @@ if not MYPY:
         """
         List of paths to exclude from indexing
         """
+        full_text_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FullTextIndexPathArgsDict']]]]
+        """
+        List of paths to include in the full text indexing
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgsDict']]]]
         """
         List of paths to include in the indexing
@@ -3619,6 +3780,7 @@ class IndexingPolicyArgs:
                  automatic: Optional[pulumi.Input[_builtins.bool]] = None,
                  composite_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]] = None,
+                 full_text_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['FullTextIndexPathArgs']]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]] = None,
                  indexing_mode: Optional[pulumi.Input[Union[_builtins.str, 'IndexingMode']]] = None,
                  spatial_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]] = None,
@@ -3628,6 +3790,7 @@ class IndexingPolicyArgs:
         :param pulumi.Input[_builtins.bool] automatic: Indicates if the indexing policy is automatic
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]] composite_indexes: List of composite path list
         :param pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]] excluded_paths: List of paths to exclude from indexing
+        :param pulumi.Input[Sequence[pulumi.Input['FullTextIndexPathArgs']]] full_text_indexes: List of paths to include in the full text indexing
         :param pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]] included_paths: List of paths to include in the indexing
         :param pulumi.Input[Union[_builtins.str, 'IndexingMode']] indexing_mode: Indicates the indexing mode.
         :param pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]] spatial_indexes: List of spatial specifics
@@ -3639,6 +3802,8 @@ class IndexingPolicyArgs:
             pulumi.set(__self__, "composite_indexes", composite_indexes)
         if excluded_paths is not None:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if full_text_indexes is not None:
+            pulumi.set(__self__, "full_text_indexes", full_text_indexes)
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is None:
@@ -3685,6 +3850,18 @@ class IndexingPolicyArgs:
     @excluded_paths.setter
     def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]]):
         pulumi.set(self, "excluded_paths", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fullTextIndexes")
+    def full_text_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FullTextIndexPathArgs']]]]:
+        """
+        List of paths to include in the full text indexing
+        """
+        return pulumi.get(self, "full_text_indexes")
+
+    @full_text_indexes.setter
+    def full_text_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FullTextIndexPathArgs']]]]):
+        pulumi.set(self, "full_text_indexes", value)
 
     @_builtins.property
     @pulumi.getter(name="includedPaths")
@@ -5086,6 +5263,10 @@ if not MYPY:
         """
         Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
         """
+        source_backup_location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The source backup location for restore.
+        """
         tables_to_restore: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         List of specific tables available for restore.
@@ -5102,6 +5283,7 @@ class RestoreParametersArgs:
                  restore_source: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_timestamp_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_with_ttl_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 source_backup_location: Optional[pulumi.Input[_builtins.str]] = None,
                  tables_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Parameters to indicate the information about the restore.
@@ -5111,6 +5293,7 @@ class RestoreParametersArgs:
         :param pulumi.Input[_builtins.str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param pulumi.Input[_builtins.str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         :param pulumi.Input[_builtins.bool] restore_with_ttl_disabled: Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        :param pulumi.Input[_builtins.str] source_backup_location: The source backup location for restore.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tables_to_restore: List of specific tables available for restore.
         """
         if databases_to_restore is not None:
@@ -5125,6 +5308,8 @@ class RestoreParametersArgs:
             pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
         if restore_with_ttl_disabled is not None:
             pulumi.set(__self__, "restore_with_ttl_disabled", restore_with_ttl_disabled)
+        if source_backup_location is not None:
+            pulumi.set(__self__, "source_backup_location", source_backup_location)
         if tables_to_restore is not None:
             pulumi.set(__self__, "tables_to_restore", tables_to_restore)
 
@@ -5199,6 +5384,18 @@ class RestoreParametersArgs:
     @restore_with_ttl_disabled.setter
     def restore_with_ttl_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "restore_with_ttl_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceBackupLocation")
+    def source_backup_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The source backup location for restore.
+        """
+        return pulumi.get(self, "source_backup_location")
+
+    @source_backup_location.setter
+    def source_backup_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_backup_location", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToRestore")
@@ -6291,6 +6488,18 @@ if not MYPY:
         """
         The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
         """
+        indexing_search_list_size: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+        """
+        quantization_byte_size: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+        """
+        vector_index_shard_key: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
+        """
 elif False:
     VectorIndexArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6298,13 +6507,27 @@ elif False:
 class VectorIndexArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[Union[_builtins.str, 'VectorIndexType']]):
+                 type: pulumi.Input[Union[_builtins.str, 'VectorIndexType']],
+                 indexing_search_list_size: Optional[pulumi.Input[_builtins.float]] = None,
+                 quantization_byte_size: Optional[pulumi.Input[_builtins.float]] = None,
+                 vector_index_shard_key: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] path: The path to the vector field in the document.
         :param pulumi.Input[Union[_builtins.str, 'VectorIndexType']] type: The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+        :param pulumi.Input[_builtins.float] indexing_search_list_size: This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+        :param pulumi.Input[_builtins.float] quantization_byte_size: The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vector_index_shard_key: Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "type", type)
+        if indexing_search_list_size is None:
+            indexing_search_list_size = 100
+        if indexing_search_list_size is not None:
+            pulumi.set(__self__, "indexing_search_list_size", indexing_search_list_size)
+        if quantization_byte_size is not None:
+            pulumi.set(__self__, "quantization_byte_size", quantization_byte_size)
+        if vector_index_shard_key is not None:
+            pulumi.set(__self__, "vector_index_shard_key", vector_index_shard_key)
 
     @_builtins.property
     @pulumi.getter
@@ -6329,6 +6552,42 @@ class VectorIndexArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[_builtins.str, 'VectorIndexType']]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="indexingSearchListSize")
+    def indexing_search_list_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+        """
+        return pulumi.get(self, "indexing_search_list_size")
+
+    @indexing_search_list_size.setter
+    def indexing_search_list_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "indexing_search_list_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quantizationByteSize")
+    def quantization_byte_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+        """
+        return pulumi.get(self, "quantization_byte_size")
+
+    @quantization_byte_size.setter
+    def quantization_byte_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "quantization_byte_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexShardKey")
+    def vector_index_shard_key(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
+        """
+        return pulumi.get(self, "vector_index_shard_key")
+
+    @vector_index_shard_key.setter
+    def vector_index_shard_key(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "vector_index_shard_key", value)
 
 
 if not MYPY:

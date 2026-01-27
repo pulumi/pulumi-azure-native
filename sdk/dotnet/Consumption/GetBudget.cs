@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Consumption
         public string BudgetName { get; set; } = null!;
 
         /// <summary>
-        /// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Consumption
         public Input<string> BudgetName { get; set; } = null!;
 
         /// <summary>
-        /// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -116,17 +116,21 @@ namespace Pulumi.AzureNative.Consumption
         /// </summary>
         public readonly Outputs.ForecastSpendResponse ForecastSpend;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.NotificationResponse>? Notifications;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
         /// </summary>
@@ -136,7 +140,7 @@ namespace Pulumi.AzureNative.Consumption
         /// </summary>
         public readonly Outputs.BudgetTimePeriodResponse TimePeriod;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.Consumption
 
             ImmutableDictionary<string, Outputs.NotificationResponse>? notifications,
 
+            Outputs.SystemDataResponse systemData,
+
             string timeGrain,
 
             Outputs.BudgetTimePeriodResponse timePeriod,
@@ -178,6 +184,7 @@ namespace Pulumi.AzureNative.Consumption
             Id = id;
             Name = name;
             Notifications = notifications;
+            SystemData = systemData;
             TimeGrain = timeGrain;
             TimePeriod = timePeriod;
             Type = type;

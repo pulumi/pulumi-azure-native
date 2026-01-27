@@ -107,6 +107,43 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
+    /// Flag indicating whether a CIFS change notification is enabled for the cache.
+    /// </summary>
+    [EnumType]
+    public readonly struct CifsChangeNotifyState : IEquatable<CifsChangeNotifyState>
+    {
+        private readonly string _value;
+
+        private CifsChangeNotifyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// CIFS change notification is disabled
+        /// </summary>
+        public static CifsChangeNotifyState Disabled { get; } = new CifsChangeNotifyState("Disabled");
+        /// <summary>
+        /// CIFS change notification is enabled
+        /// </summary>
+        public static CifsChangeNotifyState Enabled { get; } = new CifsChangeNotifyState("Enabled");
+
+        public static bool operator ==(CifsChangeNotifyState left, CifsChangeNotifyState right) => left.Equals(right);
+        public static bool operator !=(CifsChangeNotifyState left, CifsChangeNotifyState right) => !left.Equals(right);
+
+        public static explicit operator string(CifsChangeNotifyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CifsChangeNotifyState other && Equals(other);
+        public bool Equals(CifsChangeNotifyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
     ///  Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
     ///  OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
@@ -173,6 +210,437 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
+    /// Day of the week
+    /// </summary>
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Take a snapshot each Sunday
+        /// </summary>
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        /// <summary>
+        /// Take a snapshot each Monday
+        /// </summary>
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        /// <summary>
+        /// Take a snapshot each Tuesday
+        /// </summary>
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        /// <summary>
+        /// Take a snapshot each Wednesday
+        /// </summary>
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        /// <summary>
+        /// Take a snapshot each Thursday
+        /// </summary>
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        /// <summary>
+        /// Take a snapshot each Friday
+        /// </summary>
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        /// <summary>
+        /// Take a snapshot each Saturday
+        /// </summary>
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The property to identify whether Backup Policy is enabled or not
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticBackupPolicyState : IEquatable<ElasticBackupPolicyState>
+    {
+        private readonly string _value;
+
+        private ElasticBackupPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Value indicating the policy is enabled
+        /// </summary>
+        public static ElasticBackupPolicyState Enabled { get; } = new ElasticBackupPolicyState("Enabled");
+        /// <summary>
+        /// Value indicating the policy is disabled
+        /// </summary>
+        public static ElasticBackupPolicyState Disabled { get; } = new ElasticBackupPolicyState("Disabled");
+
+        public static bool operator ==(ElasticBackupPolicyState left, ElasticBackupPolicyState right) => left.Equals(right);
+        public static bool operator !=(ElasticBackupPolicyState left, ElasticBackupPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticBackupPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticBackupPolicyState other && Equals(other);
+        public bool Equals(ElasticBackupPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticNfsv3Access : IEquatable<ElasticNfsv3Access>
+    {
+        private readonly string _value;
+
+        private ElasticNfsv3Access(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Clients can connect to the volume using the NFSv3 protocol.
+        /// </summary>
+        public static ElasticNfsv3Access Enabled { get; } = new ElasticNfsv3Access("Enabled");
+        /// <summary>
+        /// Clients can't connect to the volume using the NFSv3 protocol.
+        /// </summary>
+        public static ElasticNfsv3Access Disabled { get; } = new ElasticNfsv3Access("Disabled");
+
+        public static bool operator ==(ElasticNfsv3Access left, ElasticNfsv3Access right) => left.Equals(right);
+        public static bool operator !=(ElasticNfsv3Access left, ElasticNfsv3Access right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticNfsv3Access value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticNfsv3Access other && Equals(other);
+        public bool Equals(ElasticNfsv3Access other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allows clients to access the volume with at least NFSv4.1 protocol.
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticNfsv4Access : IEquatable<ElasticNfsv4Access>
+    {
+        private readonly string _value;
+
+        private ElasticNfsv4Access(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Clients can connect to the volume using the NFSv4 protocol.
+        /// </summary>
+        public static ElasticNfsv4Access Enabled { get; } = new ElasticNfsv4Access("Enabled");
+        /// <summary>
+        /// Clients can't connect to the volume using the NFSv4 protocol.
+        /// </summary>
+        public static ElasticNfsv4Access Disabled { get; } = new ElasticNfsv4Access("Disabled");
+
+        public static bool operator ==(ElasticNfsv4Access left, ElasticNfsv4Access right) => left.Equals(right);
+        public static bool operator !=(ElasticNfsv4Access left, ElasticNfsv4Access right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticNfsv4Access value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticNfsv4Access other && Equals(other);
+        public bool Equals(ElasticNfsv4Access other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Pool Encryption Key Source.
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticPoolEncryptionKeySource : IEquatable<ElasticPoolEncryptionKeySource>
+    {
+        private readonly string _value;
+
+        private ElasticPoolEncryptionKeySource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Represents the encryption key source of Elastic pool is Microsoft.NetApp
+        /// </summary>
+        public static ElasticPoolEncryptionKeySource NetApp { get; } = new ElasticPoolEncryptionKeySource("NetApp");
+        /// <summary>
+        /// Represents the encryption key source of Elastic pool is Microsoft.KeyVault
+        /// </summary>
+        public static ElasticPoolEncryptionKeySource KeyVault { get; } = new ElasticPoolEncryptionKeySource("KeyVault");
+
+        public static bool operator ==(ElasticPoolEncryptionKeySource left, ElasticPoolEncryptionKeySource right) => left.Equals(right);
+        public static bool operator !=(ElasticPoolEncryptionKeySource left, ElasticPoolEncryptionKeySource right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticPoolEncryptionKeySource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticPoolEncryptionKeySource other && Equals(other);
+        public bool Equals(ElasticPoolEncryptionKeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Protocol types for elastic volume
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticProtocolType : IEquatable<ElasticProtocolType>
+    {
+        private readonly string _value;
+
+        private ElasticProtocolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// NFSv3 protocol type
+        /// </summary>
+        public static ElasticProtocolType NFSv3 { get; } = new ElasticProtocolType("NFSv3");
+        /// <summary>
+        /// NFSv4 protocol type
+        /// </summary>
+        public static ElasticProtocolType NFSv4 { get; } = new ElasticProtocolType("NFSv4");
+        /// <summary>
+        /// SMB/CIFS protocol type
+        /// </summary>
+        public static ElasticProtocolType SMB { get; } = new ElasticProtocolType("SMB");
+
+        public static bool operator ==(ElasticProtocolType left, ElasticProtocolType right) => left.Equals(right);
+        public static bool operator !=(ElasticProtocolType left, ElasticProtocolType right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticProtocolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticProtocolType other && Equals(other);
+        public bool Equals(ElasticProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether root access to the volume is granted to clients affected by this rule
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticRootAccess : IEquatable<ElasticRootAccess>
+    {
+        private readonly string _value;
+
+        private ElasticRootAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Root user access is enabled for clients affected by this rule
+        /// </summary>
+        public static ElasticRootAccess Enabled { get; } = new ElasticRootAccess("Enabled");
+        /// <summary>
+        /// Root user access is disabled for clients affected by this rule
+        /// </summary>
+        public static ElasticRootAccess Disabled { get; } = new ElasticRootAccess("Disabled");
+
+        public static bool operator ==(ElasticRootAccess left, ElasticRootAccess right) => left.Equals(right);
+        public static bool operator !=(ElasticRootAccess left, ElasticRootAccess right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticRootAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticRootAccess other && Equals(other);
+        public bool Equals(ElasticRootAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The service level of the elastic capacity pool
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticServiceLevel : IEquatable<ElasticServiceLevel>
+    {
+        private readonly string _value;
+
+        private ElasticServiceLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Zone redundant storage service level.
+        /// </summary>
+        public static ElasticServiceLevel ZoneRedundant { get; } = new ElasticServiceLevel("ZoneRedundant");
+
+        public static bool operator ==(ElasticServiceLevel left, ElasticServiceLevel right) => left.Equals(right);
+        public static bool operator !=(ElasticServiceLevel left, ElasticServiceLevel right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticServiceLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticServiceLevel other && Equals(other);
+        public bool Equals(ElasticServiceLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticSmbEncryption : IEquatable<ElasticSmbEncryption>
+    {
+        private readonly string _value;
+
+        private ElasticSmbEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Value indicating the SMB encryption is enabled
+        /// </summary>
+        public static ElasticSmbEncryption Enabled { get; } = new ElasticSmbEncryption("Enabled");
+        /// <summary>
+        /// Value indicating the SMB encryption is disabled
+        /// </summary>
+        public static ElasticSmbEncryption Disabled { get; } = new ElasticSmbEncryption("Disabled");
+
+        public static bool operator ==(ElasticSmbEncryption left, ElasticSmbEncryption right) => left.Equals(right);
+        public static bool operator !=(ElasticSmbEncryption left, ElasticSmbEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticSmbEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticSmbEncryption other && Equals(other);
+        public bool Equals(ElasticSmbEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticUnixAccessRule : IEquatable<ElasticUnixAccessRule>
+    {
+        private readonly string _value;
+
+        private ElasticUnixAccessRule(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Clients connecting with this rule will only have read access to the volume
+        /// </summary>
+        public static ElasticUnixAccessRule ReadOnly { get; } = new ElasticUnixAccessRule("ReadOnly");
+        /// <summary>
+        /// Clients connecting with this rule will have full read and write access to the volume
+        /// </summary>
+        public static ElasticUnixAccessRule ReadWrite { get; } = new ElasticUnixAccessRule("ReadWrite");
+        /// <summary>
+        /// Clients connecting with this rule will have no access to the volume
+        /// </summary>
+        public static ElasticUnixAccessRule NoAccess { get; } = new ElasticUnixAccessRule("NoAccess");
+
+        public static bool operator ==(ElasticUnixAccessRule left, ElasticUnixAccessRule right) => left.Equals(right);
+        public static bool operator !=(ElasticUnixAccessRule left, ElasticUnixAccessRule right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticUnixAccessRule value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticUnixAccessRule other && Equals(other);
+        public bool Equals(ElasticUnixAccessRule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The property to decide policy is enforced or not on the volume
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticVolumePolicyEnforcement : IEquatable<ElasticVolumePolicyEnforcement>
+    {
+        private readonly string _value;
+
+        private ElasticVolumePolicyEnforcement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Value indicating the policy is enforced on the volume.
+        /// </summary>
+        public static ElasticVolumePolicyEnforcement Enforced { get; } = new ElasticVolumePolicyEnforcement("Enforced");
+        /// <summary>
+        /// Value indicating the policy is not enforced on the volume.
+        /// </summary>
+        public static ElasticVolumePolicyEnforcement NotEnforced { get; } = new ElasticVolumePolicyEnforcement("NotEnforced");
+
+        public static bool operator ==(ElasticVolumePolicyEnforcement left, ElasticVolumePolicyEnforcement right) => left.Equals(right);
+        public static bool operator !=(ElasticVolumePolicyEnforcement left, ElasticVolumePolicyEnforcement right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticVolumePolicyEnforcement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticVolumePolicyEnforcement other && Equals(other);
+        public bool Equals(ElasticVolumePolicyEnforcement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Flag indicating whether subvolume operations are enabled on the volume
     /// </summary>
     [EnumType]
@@ -202,6 +670,43 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EnableSubvolumes other && Equals(other);
         public bool Equals(EnableSubvolumes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Flag indicating whether writeback is enabled for the cache.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnableWriteBackState : IEquatable<EnableWriteBackState>
+    {
+        private readonly string _value;
+
+        private EnableWriteBackState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Writeback cache is disabled
+        /// </summary>
+        public static EnableWriteBackState Disabled { get; } = new EnableWriteBackState("Disabled");
+        /// <summary>
+        /// Writeback cache is enabled
+        /// </summary>
+        public static EnableWriteBackState Enabled { get; } = new EnableWriteBackState("Enabled");
+
+        public static bool operator ==(EnableWriteBackState left, EnableWriteBackState right) => left.Equals(right);
+        public static bool operator !=(EnableWriteBackState left, EnableWriteBackState right) => !left.Equals(right);
+
+        public static explicit operator string(EnableWriteBackState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnableWriteBackState other && Equals(other);
+        public bool Equals(EnableWriteBackState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -315,7 +820,81 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
-    /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+    /// Flag indicating whether the global file lock is enabled for the cache.
+    /// </summary>
+    [EnumType]
+    public readonly struct GlobalFileLockingState : IEquatable<GlobalFileLockingState>
+    {
+        private readonly string _value;
+
+        private GlobalFileLockingState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Global file locking is disabled
+        /// </summary>
+        public static GlobalFileLockingState Disabled { get; } = new GlobalFileLockingState("Disabled");
+        /// <summary>
+        /// Global file locking is enabled
+        /// </summary>
+        public static GlobalFileLockingState Enabled { get; } = new GlobalFileLockingState("Enabled");
+
+        public static bool operator ==(GlobalFileLockingState left, GlobalFileLockingState right) => left.Equals(right);
+        public static bool operator !=(GlobalFileLockingState left, GlobalFileLockingState right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalFileLockingState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalFileLockingState other && Equals(other);
+        public bool Equals(GlobalFileLockingState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describe if a cache is Kerberos enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct KerberosState : IEquatable<KerberosState>
+    {
+        private readonly string _value;
+
+        private KerberosState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Kerberos is disabled
+        /// </summary>
+        public static KerberosState Disabled { get; } = new KerberosState("Disabled");
+        /// <summary>
+        /// Kerberos is enabled
+        /// </summary>
+        public static KerberosState Enabled { get; } = new KerberosState("Enabled");
+
+        public static bool operator ==(KerberosState left, KerberosState right) => left.Equals(right);
+        public static bool operator !=(KerberosState left, KerberosState right) => !left.Equals(right);
+
+        public static explicit operator string(KerberosState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KerberosState other && Equals(other);
+        public bool Equals(KerberosState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
     /// </summary>
     [EnumType]
     public readonly struct KeySource : IEquatable<KeySource>
@@ -344,6 +923,80 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
         public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of LDAP server for flexcache volume.
+    /// </summary>
+    [EnumType]
+    public readonly struct LdapServerType : IEquatable<LdapServerType>
+    {
+        private readonly string _value;
+
+        private LdapServerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The volume should use Active Directory for LDAP connections.
+        /// </summary>
+        public static LdapServerType ActiveDirectory { get; } = new LdapServerType("ActiveDirectory");
+        /// <summary>
+        /// The volume should use OpenLDAP for LDAP connections.
+        /// </summary>
+        public static LdapServerType OpenLDAP { get; } = new LdapServerType("OpenLDAP");
+
+        public static bool operator ==(LdapServerType left, LdapServerType right) => left.Equals(right);
+        public static bool operator !=(LdapServerType left, LdapServerType right) => !left.Equals(right);
+
+        public static explicit operator string(LdapServerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LdapServerType other && Equals(other);
+        public bool Equals(LdapServerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether LDAP is enabled or not for flexcache volume.
+    /// </summary>
+    [EnumType]
+    public readonly struct LdapState : IEquatable<LdapState>
+    {
+        private readonly string _value;
+
+        private LdapState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// ldap is disabled.
+        /// </summary>
+        public static LdapState Disabled { get; } = new LdapState("Disabled");
+        /// <summary>
+        /// ldap is enabled
+        /// </summary>
+        public static LdapState Enabled { get; } = new LdapState("Enabled");
+
+        public static bool operator ==(LdapState left, LdapState right) => left.Equals(right);
+        public static bool operator !=(LdapState left, LdapState right) => !left.Equals(right);
+
+        public static explicit operator string(LdapState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LdapState other && Equals(other);
+        public bool Equals(LdapState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -422,6 +1075,84 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkFeatures other && Equals(other);
         public bool Equals(NetworkFeatures other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Configures if the snapshot policy is enabled on the volumes connected to the policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyStatus : IEquatable<PolicyStatus>
+    {
+        private readonly string _value;
+
+        private PolicyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Value indicating the policy is enabled
+        /// </summary>
+        public static PolicyStatus Enabled { get; } = new PolicyStatus("Enabled");
+        /// <summary>
+        /// Value indicating the policy is disabled
+        /// </summary>
+        public static PolicyStatus Disabled { get; } = new PolicyStatus("Disabled");
+
+        public static bool operator ==(PolicyStatus left, PolicyStatus right) => left.Equals(right);
+        public static bool operator !=(PolicyStatus left, PolicyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyStatus other && Equals(other);
+        public bool Equals(PolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtocolTypes : IEquatable<ProtocolTypes>
+    {
+        private readonly string _value;
+
+        private ProtocolTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// NFSv3 protocol type
+        /// </summary>
+        public static ProtocolTypes NFSv3 { get; } = new ProtocolTypes("NFSv3");
+        /// <summary>
+        /// NFSv4 protocol type
+        /// </summary>
+        public static ProtocolTypes NFSv4 { get; } = new ProtocolTypes("NFSv4");
+        /// <summary>
+        /// SMB protocol type
+        /// </summary>
+        public static ProtocolTypes SMB { get; } = new ProtocolTypes("SMB");
+
+        public static bool operator ==(ProtocolTypes left, ProtocolTypes right) => left.Equals(right);
+        public static bool operator !=(ProtocolTypes left, ProtocolTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ProtocolTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtocolTypes other && Equals(other);
+        public bool Equals(ProtocolTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -612,6 +1343,43 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
+    /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+    /// </summary>
+    [EnumType]
+    public readonly struct SmbEncryptionState : IEquatable<SmbEncryptionState>
+    {
+        private readonly string _value;
+
+        private SmbEncryptionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SMB encryption is disabled
+        /// </summary>
+        public static SmbEncryptionState Disabled { get; } = new SmbEncryptionState("Disabled");
+        /// <summary>
+        /// SMB encryption is enabled
+        /// </summary>
+        public static SmbEncryptionState Enabled { get; } = new SmbEncryptionState("Enabled");
+
+        public static bool operator ==(SmbEncryptionState left, SmbEncryptionState right) => left.Equals(right);
+        public static bool operator !=(SmbEncryptionState left, SmbEncryptionState right) => !left.Equals(right);
+
+        public static explicit operator string(SmbEncryptionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SmbEncryptionState other && Equals(other);
+        public bool Equals(SmbEncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
     /// </summary>
     [EnumType]
@@ -641,6 +1409,80 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SmbNonBrowsable other && Equals(other);
         public bool Equals(SmbNonBrowsable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotDirectoryVisibility : IEquatable<SnapshotDirectoryVisibility>
+    {
+        private readonly string _value;
+
+        private SnapshotDirectoryVisibility(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Value indicating the read-only snapshot directory is not visible
+        /// </summary>
+        public static SnapshotDirectoryVisibility Hidden { get; } = new SnapshotDirectoryVisibility("Hidden");
+        /// <summary>
+        /// Value indicating the read-only snapshot directory is visible
+        /// </summary>
+        public static SnapshotDirectoryVisibility Visible { get; } = new SnapshotDirectoryVisibility("Visible");
+
+        public static bool operator ==(SnapshotDirectoryVisibility left, SnapshotDirectoryVisibility right) => left.Equals(right);
+        public static bool operator !=(SnapshotDirectoryVisibility left, SnapshotDirectoryVisibility right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotDirectoryVisibility value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotDirectoryVisibility other && Equals(other);
+        public bool Equals(SnapshotDirectoryVisibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotUsage : IEquatable<SnapshotUsage>
+    {
+        private readonly string _value;
+
+        private SnapshotUsage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Value indicating an existing snapshot is used
+        /// </summary>
+        public static SnapshotUsage UseExistingSnapshot { get; } = new SnapshotUsage("UseExistingSnapshot");
+        /// <summary>
+        /// Value indicating a new snapshot is created
+        /// </summary>
+        public static SnapshotUsage CreateNewSnapshot { get; } = new SnapshotUsage("CreateNewSnapshot");
+
+        public static bool operator ==(SnapshotUsage left, SnapshotUsage right) => left.Equals(right);
+        public static bool operator !=(SnapshotUsage left, SnapshotUsage right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotUsage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotUsage other && Equals(other);
+        public bool Equals(SnapshotUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

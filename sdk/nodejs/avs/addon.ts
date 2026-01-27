@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
- * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Addon extends pulumi.CustomResource {
     /**
@@ -42,10 +42,6 @@ export class Addon extends pulumi.CustomResource {
     }
 
     /**
-     * Addon type
-     */
-    declare public readonly addonType: pulumi.Output<string>;
-    /**
      * The Azure API version of the resource.
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
@@ -54,9 +50,9 @@ export class Addon extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * The state of the addon provisioning
+     * The resource-specific properties for this resource.
      */
-    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    declare public readonly properties: pulumi.Output<outputs.avs.AddonArcPropertiesResponse | outputs.avs.AddonHcxPropertiesResponse | outputs.avs.AddonSrmPropertiesResponse | outputs.avs.AddonVrPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -77,9 +73,6 @@ export class Addon extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.addonType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'addonType'");
-            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -87,24 +80,22 @@ export class Addon extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addonName"] = args?.addonName;
-            resourceInputs["addonType"] = args?.addonType;
             resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["addonType"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:Addon" }, { type: "azure-native:avs/v20210101preview:Addon" }, { type: "azure-native:avs/v20210601:Addon" }, { type: "azure-native:avs/v20211201:Addon" }, { type: "azure-native:avs/v20220501:Addon" }, { type: "azure-native:avs/v20230301:Addon" }, { type: "azure-native:avs/v20230901:Addon" }, { type: "azure-native:avs/v20240901:Addon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:Addon" }, { type: "azure-native:avs/v20210101preview:Addon" }, { type: "azure-native:avs/v20210601:Addon" }, { type: "azure-native:avs/v20211201:Addon" }, { type: "azure-native:avs/v20220501:Addon" }, { type: "azure-native:avs/v20230301:Addon" }, { type: "azure-native:avs/v20230901:Addon" }, { type: "azure-native:avs/v20240901:Addon" }, { type: "azure-native:avs/v20250901:Addon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Addon.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,13 +110,13 @@ export interface AddonArgs {
      */
     addonName?: pulumi.Input<string>;
     /**
-     * Addon type
-     */
-    addonType: pulumi.Input<string | enums.avs.AddonType>;
-    /**
      * Name of the private cloud
      */
     privateCloudName: pulumi.Input<string>;
+    /**
+     * The resource-specific properties for this resource.
+     */
+    properties?: pulumi.Input<inputs.avs.AddonArcPropertiesArgs | inputs.avs.AddonHcxPropertiesArgs | inputs.avs.AddonSrmPropertiesArgs | inputs.avs.AddonVrPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -26,6 +26,12 @@ __all__ = [
     'DebugSettingArgsDict',
     'DenySettingsArgs',
     'DenySettingsArgsDict',
+    'DeploymentExtensionConfigItemArgs',
+    'DeploymentExtensionConfigItemArgsDict',
+    'DeploymentExternalInputDefinitionArgs',
+    'DeploymentExternalInputDefinitionArgsDict',
+    'DeploymentExternalInputArgs',
+    'DeploymentExternalInputArgsDict',
     'DeploymentParameterArgs',
     'DeploymentParameterArgsDict',
     'DeploymentPropertiesArgs',
@@ -36,6 +42,8 @@ __all__ = [
     'DeploymentStacksParametersLinkArgsDict',
     'DeploymentStacksTemplateLinkArgs',
     'DeploymentStacksTemplateLinkArgsDict',
+    'DeploymentStacksWhatIfResultPropertiesArgs',
+    'DeploymentStacksWhatIfResultPropertiesArgsDict',
     'EnvironmentVariableArgs',
     'EnvironmentVariableArgsDict',
     'ExpressionEvaluationOptionsArgs',
@@ -87,6 +95,10 @@ if not MYPY:
         """
         Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         """
+        resources_without_delete_support: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]
+        """
+        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
 elif False:
     ActionOnUnmanageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -95,18 +107,22 @@ class ActionOnUnmanageArgs:
     def __init__(__self__, *,
                  resources: pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']],
                  management_groups: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]] = None,
-                 resource_groups: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]] = None):
+                 resource_groups: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]] = None,
+                 resources_without_delete_support: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]] = None):
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
         :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']] resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         """
         pulumi.set(__self__, "resources", resources)
         if management_groups is not None:
             pulumi.set(__self__, "management_groups", management_groups)
         if resource_groups is not None:
             pulumi.set(__self__, "resource_groups", resource_groups)
+        if resources_without_delete_support is not None:
+            pulumi.set(__self__, "resources_without_delete_support", resources_without_delete_support)
 
     @_builtins.property
     @pulumi.getter
@@ -143,6 +159,18 @@ class ActionOnUnmanageArgs:
     @resource_groups.setter
     def resource_groups(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]):
         pulumi.set(self, "resource_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesWithoutDeleteSupport")
+    def resources_without_delete_support(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]:
+        """
+        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        return pulumi.get(self, "resources_without_delete_support")
+
+    @resources_without_delete_support.setter
+    def resources_without_delete_support(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]):
+        pulumi.set(self, "resources_without_delete_support", value)
 
 
 if not MYPY:
@@ -388,9 +416,159 @@ class DenySettingsArgs:
 
 
 if not MYPY:
+    class DeploymentExtensionConfigItemArgsDict(TypedDict):
+        """
+        The value or how to get a value for an extension config property.
+        """
+        key_vault_reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
+        """
+        The key vault reference of the config item.
+        """
+        value: NotRequired[Any]
+        """
+        The value of the config item. The type is determined by the extension config schema.
+        """
+elif False:
+    DeploymentExtensionConfigItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentExtensionConfigItemArgs:
+    def __init__(__self__, *,
+                 key_vault_reference: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']] = None,
+                 value: Optional[Any] = None):
+        """
+        The value or how to get a value for an extension config property.
+        :param pulumi.Input['KeyVaultParameterReferenceArgs'] key_vault_reference: The key vault reference of the config item.
+        :param Any value: The value of the config item. The type is determined by the extension config schema.
+        """
+        if key_vault_reference is not None:
+            pulumi.set(__self__, "key_vault_reference", key_vault_reference)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultReference")
+    def key_vault_reference(self) -> Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]:
+        """
+        The key vault reference of the config item.
+        """
+        return pulumi.get(self, "key_vault_reference")
+
+    @key_vault_reference.setter
+    def key_vault_reference(self, value: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]):
+        pulumi.set(self, "key_vault_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        The value of the config item. The type is determined by the extension config schema.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[Any]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DeploymentExternalInputDefinitionArgsDict(TypedDict):
+        """
+        Deployment external input definition for parameterization.
+        """
+        kind: pulumi.Input[_builtins.str]
+        """
+        The kind of external input.
+        """
+        config: NotRequired[Any]
+        """
+        Configuration for the external input.
+        """
+elif False:
+    DeploymentExternalInputDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentExternalInputDefinitionArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[_builtins.str],
+                 config: Optional[Any] = None):
+        """
+        Deployment external input definition for parameterization.
+        :param pulumi.Input[_builtins.str] kind: The kind of external input.
+        :param Any config: Configuration for the external input.
+        """
+        pulumi.set(__self__, "kind", kind)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[_builtins.str]:
+        """
+        The kind of external input.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> Optional[Any]:
+        """
+        Configuration for the external input.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[Any]):
+        pulumi.set(self, "config", value)
+
+
+if not MYPY:
+    class DeploymentExternalInputArgsDict(TypedDict):
+        """
+        Deployment external input for parameterization.
+        """
+        value: Any
+        """
+        External input value.
+        """
+elif False:
+    DeploymentExternalInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentExternalInputArgs:
+    def __init__(__self__, *,
+                 value: Any):
+        """
+        Deployment external input for parameterization.
+        :param Any value: External input value.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Any:
+        """
+        External input value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Any):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class DeploymentParameterArgsDict(TypedDict):
         """
         Deployment parameter for the template.
+        """
+        expression: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Input expression to the parameter.
         """
         reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
         """
@@ -410,21 +588,37 @@ elif False:
 @pulumi.input_type
 class DeploymentParameterArgs:
     def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[_builtins.str]] = None,
                  reference: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[Any] = None):
         """
         Deployment parameter for the template.
+        :param pulumi.Input[_builtins.str] expression: Input expression to the parameter.
         :param pulumi.Input['KeyVaultParameterReferenceArgs'] reference: Azure Key Vault parameter reference.
         :param pulumi.Input[_builtins.str] type: Type of the value.
         :param Any value: Input value to the parameter.
         """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
         if reference is not None:
             pulumi.set(__self__, "reference", reference)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Input expression to the parameter.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter
@@ -843,6 +1037,318 @@ class DeploymentStacksTemplateLinkArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class DeploymentStacksWhatIfResultPropertiesArgsDict(TypedDict):
+        """
+        DeploymentStack WhatIfResult Properties
+        """
+        action_on_unmanage: pulumi.Input['ActionOnUnmanageArgsDict']
+        """
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        """
+        deny_settings: pulumi.Input['DenySettingsArgsDict']
+        """
+        Defines how resources deployed by the stack are locked.
+        """
+        deployment_stack_resource_id: pulumi.Input[_builtins.str]
+        """
+        The deployment stack id to use as the basis for comparison.
+        """
+        retention_interval: pulumi.Input[_builtins.str]
+        """
+        The interval to persist the deployment stack what-if result in ISO 8601 format.
+        """
+        debug_setting: NotRequired[pulumi.Input['DeploymentStacksDebugSettingArgsDict']]
+        """
+        The debug setting of the deployment.
+        """
+        deployment_scope: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Deployment stack description. Max length of 4096 characters.
+        """
+        extension_configs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgsDict']]]]]]
+        """
+        The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
+        """
+        external_input_definitions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgsDict']]]]
+        """
+        External input definitions, used by external tooling to define expected external input values.
+        """
+        external_inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgsDict']]]]
+        """
+        External input values, used by external tooling for parameter evaluation.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
+        """
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        parameters_link: NotRequired[pulumi.Input['DeploymentStacksParametersLinkArgsDict']]
+        """
+        The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        template: NotRequired[Any]
+        """
+        The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+        """
+        template_link: NotRequired[pulumi.Input['DeploymentStacksTemplateLinkArgsDict']]
+        """
+        The URI of the template. Use either the templateLink property or the template property, but not both.
+        """
+        validation_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]
+        """
+        The validation level of the deployment stack
+        """
+elif False:
+    DeploymentStacksWhatIfResultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentStacksWhatIfResultPropertiesArgs:
+    def __init__(__self__, *,
+                 action_on_unmanage: pulumi.Input['ActionOnUnmanageArgs'],
+                 deny_settings: pulumi.Input['DenySettingsArgs'],
+                 deployment_stack_resource_id: pulumi.Input[_builtins.str],
+                 retention_interval: pulumi.Input[_builtins.str],
+                 debug_setting: Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']] = None,
+                 deployment_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_configs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]] = None,
+                 external_input_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]] = None,
+                 external_inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
+                 parameters_link: Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']] = None,
+                 template: Optional[Any] = None,
+                 template_link: Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']] = None,
+                 validation_level: Optional[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]] = None):
+        """
+        DeploymentStack WhatIfResult Properties
+        :param pulumi.Input['ActionOnUnmanageArgs'] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        :param pulumi.Input['DenySettingsArgs'] deny_settings: Defines how resources deployed by the stack are locked.
+        :param pulumi.Input[_builtins.str] deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
+        :param pulumi.Input[_builtins.str] retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
+        :param pulumi.Input['DeploymentStacksDebugSettingArgs'] debug_setting: The debug setting of the deployment.
+        :param pulumi.Input[_builtins.str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        :param pulumi.Input[_builtins.str] description: Deployment stack description. Max length of 4096 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]] extension_configs: The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]] external_input_definitions: External input definitions, used by external tooling to define expected external input values.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]] external_inputs: External input values, used by external tooling for parameter evaluation.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        :param pulumi.Input['DeploymentStacksParametersLinkArgs'] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+        :param pulumi.Input['DeploymentStacksTemplateLinkArgs'] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
+        :param pulumi.Input[Union[_builtins.str, 'ValidationLevel']] validation_level: The validation level of the deployment stack
+        """
+        pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
+        pulumi.set(__self__, "deny_settings", deny_settings)
+        pulumi.set(__self__, "deployment_stack_resource_id", deployment_stack_resource_id)
+        pulumi.set(__self__, "retention_interval", retention_interval)
+        if debug_setting is not None:
+            pulumi.set(__self__, "debug_setting", debug_setting)
+        if deployment_scope is not None:
+            pulumi.set(__self__, "deployment_scope", deployment_scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if extension_configs is not None:
+            pulumi.set(__self__, "extension_configs", extension_configs)
+        if external_input_definitions is not None:
+            pulumi.set(__self__, "external_input_definitions", external_input_definitions)
+        if external_inputs is not None:
+            pulumi.set(__self__, "external_inputs", external_inputs)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if parameters_link is not None:
+            pulumi.set(__self__, "parameters_link", parameters_link)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if template_link is not None:
+            pulumi.set(__self__, "template_link", template_link)
+        if validation_level is not None:
+            pulumi.set(__self__, "validation_level", validation_level)
+
+    @_builtins.property
+    @pulumi.getter(name="actionOnUnmanage")
+    def action_on_unmanage(self) -> pulumi.Input['ActionOnUnmanageArgs']:
+        """
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        """
+        return pulumi.get(self, "action_on_unmanage")
+
+    @action_on_unmanage.setter
+    def action_on_unmanage(self, value: pulumi.Input['ActionOnUnmanageArgs']):
+        pulumi.set(self, "action_on_unmanage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="denySettings")
+    def deny_settings(self) -> pulumi.Input['DenySettingsArgs']:
+        """
+        Defines how resources deployed by the stack are locked.
+        """
+        return pulumi.get(self, "deny_settings")
+
+    @deny_settings.setter
+    def deny_settings(self, value: pulumi.Input['DenySettingsArgs']):
+        pulumi.set(self, "deny_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStackResourceId")
+    def deployment_stack_resource_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The deployment stack id to use as the basis for comparison.
+        """
+        return pulumi.get(self, "deployment_stack_resource_id")
+
+    @deployment_stack_resource_id.setter
+    def deployment_stack_resource_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "deployment_stack_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionInterval")
+    def retention_interval(self) -> pulumi.Input[_builtins.str]:
+        """
+        The interval to persist the deployment stack what-if result in ISO 8601 format.
+        """
+        return pulumi.get(self, "retention_interval")
+
+    @retention_interval.setter
+    def retention_interval(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "retention_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="debugSetting")
+    def debug_setting(self) -> Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']]:
+        """
+        The debug setting of the deployment.
+        """
+        return pulumi.get(self, "debug_setting")
+
+    @debug_setting.setter
+    def debug_setting(self, value: Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']]):
+        pulumi.set(self, "debug_setting", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentScope")
+    def deployment_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        """
+        return pulumi.get(self, "deployment_scope")
+
+    @deployment_scope.setter
+    def deployment_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "deployment_scope", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Deployment stack description. Max length of 4096 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionConfigs")
+    def extension_configs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]]:
+        """
+        The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
+        """
+        return pulumi.get(self, "extension_configs")
+
+    @extension_configs.setter
+    def extension_configs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgs']]]]]]):
+        pulumi.set(self, "extension_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalInputDefinitions")
+    def external_input_definitions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]]:
+        """
+        External input definitions, used by external tooling to define expected external input values.
+        """
+        return pulumi.get(self, "external_input_definitions")
+
+    @external_input_definitions.setter
+    def external_input_definitions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgs']]]]):
+        pulumi.set(self, "external_input_definitions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalInputs")
+    def external_inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]]:
+        """
+        External input values, used by external tooling for parameter evaluation.
+        """
+        return pulumi.get(self, "external_inputs")
+
+    @external_inputs.setter
+    def external_inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgs']]]]):
+        pulumi.set(self, "external_inputs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]:
+        """
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parametersLink")
+    def parameters_link(self) -> Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']]:
+        """
+        The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters_link")
+
+    @parameters_link.setter
+    def parameters_link(self, value: Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']]):
+        pulumi.set(self, "parameters_link", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def template(self) -> Optional[Any]:
+        """
+        The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[Any]):
+        pulumi.set(self, "template", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateLink")
+    def template_link(self) -> Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']]:
+        """
+        The URI of the template. Use either the templateLink property or the template property, but not both.
+        """
+        return pulumi.get(self, "template_link")
+
+    @template_link.setter
+    def template_link(self, value: Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']]):
+        pulumi.set(self, "template_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationLevel")
+    def validation_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]:
+        """
+        The validation level of the deployment stack
+        """
+        return pulumi.get(self, "validation_level")
+
+    @validation_level.setter
+    def validation_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]):
+        pulumi.set(self, "validation_level", value)
 
 
 if not MYPY:

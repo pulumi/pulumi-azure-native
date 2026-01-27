@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Deployment configuration properties.
+    /// </summary>
     [OutputType]
     public sealed class DeploymentConfigurationResponse
     {
+        /// <summary>
+        /// The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+        /// </summary>
         public readonly Outputs.VirtualMachineConfigurationResponse? VirtualMachineConfiguration;
 
         [OutputConstructor]

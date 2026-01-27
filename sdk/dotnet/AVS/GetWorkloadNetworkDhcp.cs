@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AVS
         /// 
         /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AVS
         /// 
         /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AVS
         /// 
         /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
@@ -104,14 +104,6 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Type of DHCP: SERVER or RELAY.
-        /// </summary>
-        public readonly string DhcpType;
-        /// <summary>
-        /// Display name of the DHCP entity.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -120,17 +112,9 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// NSX revision number.
-        /// </summary>
-        public readonly double? Revision;
-        /// <summary>
-        /// NSX Segments consuming DHCP.
-        /// </summary>
-        public readonly ImmutableArray<string> Segments;
+        public readonly Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -144,32 +128,20 @@ namespace Pulumi.AzureNative.AVS
         private GetWorkloadNetworkDhcpResult(
             string azureApiVersion,
 
-            string dhcpType,
-
-            string? displayName,
-
             string id,
 
             string name,
 
-            string provisioningState,
-
-            double? revision,
-
-            ImmutableArray<string> segments,
+            Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             AzureApiVersion = azureApiVersion;
-            DhcpType = dhcpType;
-            DisplayName = displayName;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            Revision = revision;
-            Segments = segments;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBackupsAutomaticAndOnDemand(args: GetBackupsAutomaticAndOnDemandArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupsAutomaticAndOnDemandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,7 +80,7 @@ export interface GetBackupsAutomaticAndOnDemandResult {
  *
  * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBackupsAutomaticAndOnDemandOutput(args: GetBackupsAutomaticAndOnDemandOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupsAutomaticAndOnDemandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

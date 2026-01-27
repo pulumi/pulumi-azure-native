@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetHierarchySettingResult',
@@ -26,7 +27,7 @@ class GetHierarchySettingResult:
     """
     Settings defined at the Management Group scope.
     """
-    def __init__(__self__, azure_api_version=None, default_management_group=None, id=None, name=None, require_authorization_for_group_creation=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, default_management_group=None, id=None, name=None, require_authorization_for_group_creation=None, system_data=None, tenant_id=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -42,6 +43,9 @@ class GetHierarchySettingResult:
         if require_authorization_for_group_creation and not isinstance(require_authorization_for_group_creation, bool):
             raise TypeError("Expected argument 'require_authorization_for_group_creation' to be a bool")
         pulumi.set(__self__, "require_authorization_for_group_creation", require_authorization_for_group_creation)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -69,7 +73,7 @@ class GetHierarchySettingResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -77,7 +81,7 @@ class GetHierarchySettingResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the object. In this case, default.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -88,6 +92,14 @@ class GetHierarchySettingResult:
         Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
         return pulumi.get(self, "require_authorization_for_group_creation")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -101,7 +113,7 @@ class GetHierarchySettingResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -117,6 +129,7 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
             id=self.id,
             name=self.name,
             require_authorization_for_group_creation=self.require_authorization_for_group_creation,
+            system_data=self.system_data,
             tenant_id=self.tenant_id,
             type=self.type)
 
@@ -144,6 +157,7 @@ def get_hierarchy_setting(group_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         require_authorization_for_group_creation=pulumi.get(__ret__, 'require_authorization_for_group_creation'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -168,5 +182,6 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[_builtins.str]]
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         require_authorization_for_group_creation=pulumi.get(__response__, 'require_authorization_for_group_creation'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tenant_id=pulumi.get(__response__, 'tenant_id'),
         type=pulumi.get(__response__, 'type')))

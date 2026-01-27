@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['HierarchySettingArgs', 'HierarchySetting']
 
@@ -141,6 +142,7 @@ class HierarchySetting(pulumi.CustomResource):
             __props__.__dict__["require_authorization_for_group_creation"] = require_authorization_for_group_creation
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:management/v20200201:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20200501:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20201001:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20210401:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20230401:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20240201preview:HierarchySetting")])
@@ -171,6 +173,7 @@ class HierarchySetting(pulumi.CustomResource):
         __props__.__dict__["default_management_group"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["require_authorization_for_group_creation"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return HierarchySetting(resource_name, opts=opts, __props__=__props__)
@@ -195,7 +198,7 @@ class HierarchySetting(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the object. In this case, default.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -206,6 +209,14 @@ class HierarchySetting(pulumi.CustomResource):
         Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
         return pulumi.get(self, "require_authorization_for_group_creation")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -219,7 +230,7 @@ class HierarchySetting(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

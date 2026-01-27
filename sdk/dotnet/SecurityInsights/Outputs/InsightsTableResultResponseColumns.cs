@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
     public sealed class InsightsTableResultResponseColumns
     {
         /// <summary>
-        /// the name of the colum
+        /// the name of the column
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// the type of the colum
+        /// the type of the column
         /// </summary>
         public readonly string? Type;
 

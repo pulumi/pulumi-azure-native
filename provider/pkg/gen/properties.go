@@ -355,7 +355,14 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 
 	typeSpec, err := m.genTypeSpec(name, schema, context, variants.isOutput)
 	if err != nil {
-		return nil, nil, fmt.Errorf("failed to generate type spec for property %q: %w", name, err)
+		if variants.isOutput {
+			logging.V(5).Infof("warning: error generating type spec for output property %q: '%s'; defaulting to type(Any)", name, err)
+			typeSpec = &pschema.TypeSpec{
+				Ref: "pulumi.json#/Any",
+			}
+		} else {
+			return nil, nil, fmt.Errorf("failed to generate type spec for property %q: %w", name, err)
+		}
 	}
 
 	// Nil type means empty: e.g., when an input type has only read-only properties. Bubble the nil up.

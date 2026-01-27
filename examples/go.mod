@@ -9,8 +9,8 @@ require (
 	github.com/pulumi/providertest v0.4.1
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.11.0-alpha.1763062140
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.11.0-alpha.1763062140
-	github.com/pulumi/pulumi/pkg/v3 v3.213.0
-	github.com/pulumi/pulumi/sdk/v3 v3.213.0
+	github.com/pulumi/pulumi/pkg/v3 v3.216.0
+	github.com/pulumi/pulumi/sdk/v3 v3.216.0
 	github.com/stretchr/testify v1.11.1
 )
 

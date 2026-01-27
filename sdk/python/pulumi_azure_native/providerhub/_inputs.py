@@ -186,8 +186,6 @@ __all__ = [
     'ResourceTypeOnBehalfOfTokenArgsDict',
     'ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs',
     'ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict',
-    'ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs',
-    'ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgsDict',
     'ResourceTypeRegistrationPropertiesCapacityRuleArgs',
     'ResourceTypeRegistrationPropertiesCapacityRuleArgsDict',
     'ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs',
@@ -206,14 +204,16 @@ __all__ = [
     'ResourceTypeRegistrationPropertiesManagementArgsDict',
     'ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs',
     'ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict',
-    'ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs',
-    'ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgsDict',
     'ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs',
     'ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesResourceCacheArgs',
     'ResourceTypeRegistrationPropertiesResourceCacheArgsDict',
     'ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs',
     'ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict',
     'ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs',
     'ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesResourceMovePolicyArgs',
@@ -5619,7 +5619,7 @@ if not MYPY:
         """
         The profit center program id for the subscription.
         """
-        resource_access_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]]
+        resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
         """
         The resource access policy.
         """
@@ -5652,7 +5652,7 @@ class ResourceProviderManifestPropertiesManagementArgs:
                  manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  pc_code: Optional[pulumi.Input[_builtins.str]] = None,
                  profit_center_program_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_policy: Optional[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]] = None,
+                 resource_access_policy: Optional[pulumi.Input['ResourceAccessPolicy']] = None,
                  resource_access_roles: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]] = None,
                  schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
@@ -5669,7 +5669,7 @@ class ResourceProviderManifestPropertiesManagementArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manifest_owners: The manifest owners.
         :param pulumi.Input[_builtins.str] pc_code: The profit center code for the subscription.
         :param pulumi.Input[_builtins.str] profit_center_program_id: The profit center program id for the subscription.
-        :param pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']] resource_access_policy: The resource access policy.
+        :param pulumi.Input['ResourceAccessPolicy'] resource_access_policy: The resource access policy.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]] resource_access_roles: The resource access roles.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schema_owners: The schema owners.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]] service_tree_infos: The service tree infos.
@@ -5839,14 +5839,14 @@ class ResourceProviderManifestPropertiesManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessPolicy")
-    def resource_access_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]]:
+    def resource_access_policy(self) -> Optional[pulumi.Input['ResourceAccessPolicy']]:
         """
         The resource access policy.
         """
         return pulumi.get(self, "resource_access_policy")
 
     @resource_access_policy.setter
-    def resource_access_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]]):
+    def resource_access_policy(self, value: Optional[pulumi.Input['ResourceAccessPolicy']]):
         pulumi.set(self, "resource_access_policy", value)
 
     @_builtins.property
@@ -6817,42 +6817,6 @@ class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs:
 
 
 if not MYPY:
-    class ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgsDict(TypedDict):
-        """
-        Batch provisioning support.
-        """
-        supported_operations: NotRequired[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]
-        """
-        Supported operations.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs:
-    def __init__(__self__, *,
-                 supported_operations: Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]] = None):
-        """
-        Batch provisioning support.
-        :param pulumi.Input[Union[_builtins.str, 'SupportedOperations']] supported_operations: Supported operations.
-        """
-        if supported_operations is not None:
-            pulumi.set(__self__, "supported_operations", supported_operations)
-
-    @_builtins.property
-    @pulumi.getter(name="supportedOperations")
-    def supported_operations(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]:
-        """
-        Supported operations.
-        """
-        return pulumi.get(self, "supported_operations")
-
-    @supported_operations.setter
-    def supported_operations(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]):
-        pulumi.set(self, "supported_operations", value)
-
-
-if not MYPY:
     class ResourceTypeRegistrationPropertiesCapacityRuleArgsDict(TypedDict):
         """
         Capacity rule.
@@ -7277,7 +7241,7 @@ if not MYPY:
         """
         The profit center program id for the subscription.
         """
-        resource_access_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]]
+        resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
         """
         The resource access policy.
         """
@@ -7310,7 +7274,7 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
                  manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  pc_code: Optional[pulumi.Input[_builtins.str]] = None,
                  profit_center_program_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_policy: Optional[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]] = None,
+                 resource_access_policy: Optional[pulumi.Input['ResourceAccessPolicy']] = None,
                  resource_access_roles: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]] = None,
                  schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
@@ -7327,7 +7291,7 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manifest_owners: The manifest owners.
         :param pulumi.Input[_builtins.str] pc_code: The profit center code for the subscription.
         :param pulumi.Input[_builtins.str] profit_center_program_id: The profit center program id for the subscription.
-        :param pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']] resource_access_policy: The resource access policy.
+        :param pulumi.Input['ResourceAccessPolicy'] resource_access_policy: The resource access policy.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]] resource_access_roles: The resource access roles.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schema_owners: The schema owners.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]] service_tree_infos: The service tree infos.
@@ -7497,14 +7461,14 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessPolicy")
-    def resource_access_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]]:
+    def resource_access_policy(self) -> Optional[pulumi.Input['ResourceAccessPolicy']]:
         """
         The resource access policy.
         """
         return pulumi.get(self, "resource_access_policy")
 
     @resource_access_policy.setter
-    def resource_access_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceAccessPolicy']]]):
+    def resource_access_policy(self, value: Optional[pulumi.Input['ResourceAccessPolicy']]):
         pulumi.set(self, "resource_access_policy", value)
 
     @_builtins.property
@@ -7578,42 +7542,6 @@ class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs:
     @add_on_plan_conversion_allowed.setter
     def add_on_plan_conversion_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "add_on_plan_conversion_allowed", value)
-
-
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgsDict(TypedDict):
-        """
-        Nested provisioning support.
-        """
-        minimum_api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Minimum API version.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs:
-    def __init__(__self__, *,
-                 minimum_api_version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Nested provisioning support.
-        :param pulumi.Input[_builtins.str] minimum_api_version: Minimum API version.
-        """
-        if minimum_api_version is not None:
-            pulumi.set(__self__, "minimum_api_version", minimum_api_version)
-
-    @_builtins.property
-    @pulumi.getter(name="minimumApiVersion")
-    def minimum_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Minimum API version.
-        """
-        return pulumi.get(self, "minimum_api_version")
-
-    @minimum_api_version.setter
-    def minimum_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "minimum_api_version", value)
 
 
 if not MYPY:
@@ -7785,11 +7713,83 @@ class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
 
 
 if not MYPY:
+    class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict(TypedDict):
+        """
+        Batch provisioning support.
+        """
+        supported_operations: NotRequired[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]
+        """
+        Supported operations.
+        """
+elif False:
+    ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs:
+    def __init__(__self__, *,
+                 supported_operations: Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]] = None):
+        """
+        Batch provisioning support.
+        :param pulumi.Input[Union[_builtins.str, 'SupportedOperations']] supported_operations: Supported operations.
+        """
+        if supported_operations is not None:
+            pulumi.set(__self__, "supported_operations", supported_operations)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedOperations")
+    def supported_operations(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]:
+        """
+        Supported operations.
+        """
+        return pulumi.get(self, "supported_operations")
+
+    @supported_operations.setter
+    def supported_operations(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]):
+        pulumi.set(self, "supported_operations", value)
+
+
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict(TypedDict):
+        """
+        Nested provisioning support.
+        """
+        minimum_api_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Minimum API version.
+        """
+elif False:
+    ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs:
+    def __init__(__self__, *,
+                 minimum_api_version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Nested provisioning support.
+        :param pulumi.Input[_builtins.str] minimum_api_version: Minimum API version.
+        """
+        if minimum_api_version is not None:
+            pulumi.set(__self__, "minimum_api_version", minimum_api_version)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumApiVersion")
+    def minimum_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Minimum API version.
+        """
+        return pulumi.get(self, "minimum_api_version")
+
+    @minimum_api_version.setter
+    def minimum_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "minimum_api_version", value)
+
+
+if not MYPY:
     class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict(TypedDict):
         """
         Resource management options.
         """
-        batch_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgsDict']]
+        batch_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict']]
         """
         Batch provisioning support.
         """
@@ -7797,7 +7797,7 @@ if not MYPY:
         """
         Delete dependencies.
         """
-        nested_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgsDict']]
+        nested_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict']]
         """
         Nested provisioning support.
         """
@@ -7807,14 +7807,14 @@ elif False:
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
     def __init__(__self__, *,
-                 batch_provisioning_support: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs']] = None,
+                 batch_provisioning_support: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']] = None,
                  delete_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]]] = None,
-                 nested_provisioning_support: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs']] = None):
+                 nested_provisioning_support: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']] = None):
         """
         Resource management options.
-        :param pulumi.Input['ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs'] batch_provisioning_support: Batch provisioning support.
+        :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs'] batch_provisioning_support: Batch provisioning support.
         :param pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]] delete_dependencies: Delete dependencies.
-        :param pulumi.Input['ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs'] nested_provisioning_support: Nested provisioning support.
+        :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs'] nested_provisioning_support: Nested provisioning support.
         """
         if batch_provisioning_support is not None:
             pulumi.set(__self__, "batch_provisioning_support", batch_provisioning_support)
@@ -7825,14 +7825,14 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchProvisioningSupport")
-    def batch_provisioning_support(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs']]:
+    def batch_provisioning_support(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']]:
         """
         Batch provisioning support.
         """
         return pulumi.get(self, "batch_provisioning_support")
 
     @batch_provisioning_support.setter
-    def batch_provisioning_support(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs']]):
+    def batch_provisioning_support(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']]):
         pulumi.set(self, "batch_provisioning_support", value)
 
     @_builtins.property
@@ -7849,14 +7849,14 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="nestedProvisioningSupport")
-    def nested_provisioning_support(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs']]:
+    def nested_provisioning_support(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']]:
         """
         Nested provisioning support.
         """
         return pulumi.get(self, "nested_provisioning_support")
 
     @nested_provisioning_support.setter
-    def nested_provisioning_support(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs']]):
+    def nested_provisioning_support(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']]):
         pulumi.set(self, "nested_provisioning_support", value)
 
 
@@ -8396,11 +8396,11 @@ if not MYPY:
         """
         Marketplace options.
         """
-        marketplace_type: NotRequired[pulumi.Input[Union[_builtins.str, 'MarketplaceType']]]
+        marketplace_type: NotRequired[pulumi.Input['MarketplaceType']]
         """
         The marketplace type.
         """
-        metadata: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        metadata: NotRequired[Any]
         """
         The metadata.
         """
@@ -8575,8 +8575,8 @@ class ResourceTypeRegistrationPropertiesArgs:
                  management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgs']] = None,
                  manifest_link: Optional[pulumi.Input[_builtins.str]] = None,
                  marketplace_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs']] = None,
-                 marketplace_type: Optional[pulumi.Input[Union[_builtins.str, 'MarketplaceType']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 marketplace_type: Optional[pulumi.Input['MarketplaceType']] = None,
+                 metadata: Optional[Any] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]] = None,
                  on_behalf_of_tokens: Optional[pulumi.Input['ResourceTypeOnBehalfOfTokenArgs']] = None,
                  open_api_configuration: Optional[pulumi.Input['OpenApiConfigurationArgs']] = None,
@@ -8650,8 +8650,8 @@ class ResourceTypeRegistrationPropertiesArgs:
         :param pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgs'] management: The resource provider management.
         :param pulumi.Input[_builtins.str] manifest_link: Manifest link.
         :param pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs'] marketplace_options: Marketplace options.
-        :param pulumi.Input[Union[_builtins.str, 'MarketplaceType']] marketplace_type: The marketplace type.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
+        :param pulumi.Input['MarketplaceType'] marketplace_type: The marketplace type.
+        :param Any metadata: The metadata.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]] notifications: The notifications.
         :param pulumi.Input['ResourceTypeOnBehalfOfTokenArgs'] on_behalf_of_tokens: The on behalf of tokens.
         :param pulumi.Input['OpenApiConfigurationArgs'] open_api_configuration: The open api configuration.
@@ -9327,26 +9327,26 @@ class ResourceTypeRegistrationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="marketplaceType")
-    def marketplace_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MarketplaceType']]]:
+    def marketplace_type(self) -> Optional[pulumi.Input['MarketplaceType']]:
         """
         The marketplace type.
         """
         return pulumi.get(self, "marketplace_type")
 
     @marketplace_type.setter
-    def marketplace_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MarketplaceType']]]):
+    def marketplace_type(self, value: Optional[pulumi.Input['MarketplaceType']]):
         pulumi.set(self, "marketplace_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
@@ -9724,6 +9724,9 @@ class ResourceTypeRegistrationPropertiesArgs:
 
 if not MYPY:
     class ResourceTypeRegistrationArgsDict(TypedDict):
+        """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+        """
         kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]
         """
         Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -9738,6 +9741,7 @@ class ResourceTypeRegistrationArgs:
                  kind: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
                  properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
         :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         if kind is None:

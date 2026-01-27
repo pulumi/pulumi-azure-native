@@ -14,49 +14,30 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
+from ._inputs import *
 
 __all__ = ['WorkloadNetworkDhcpArgs', 'WorkloadNetworkDhcp']
 
 @pulumi.input_type
 class WorkloadNetworkDhcpArgs:
     def __init__(__self__, *,
-                 dhcp_type: pulumi.Input[Union[_builtins.str, 'DhcpTypeEnum']],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  dhcp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None):
+                 properties: Optional[pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkDhcp resource.
-        :param pulumi.Input[Union[_builtins.str, 'DhcpTypeEnum']] dhcp_type: Type of DHCP: SERVER or RELAY.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] dhcp_id: The ID of the DHCP configuration
-        :param pulumi.Input[_builtins.str] display_name: Display name of the DHCP entity.
-        :param pulumi.Input[_builtins.float] revision: NSX revision number.
+        :param pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "dhcp_type", dhcp_type)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dhcp_id is not None:
             pulumi.set(__self__, "dhcp_id", dhcp_id)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-
-    @_builtins.property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> pulumi.Input[Union[_builtins.str, 'DhcpTypeEnum']]:
-        """
-        Type of DHCP: SERVER or RELAY.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @dhcp_type.setter
-    def dhcp_type(self, value: pulumi.Input[Union[_builtins.str, 'DhcpTypeEnum']]):
-        pulumi.set(self, "dhcp_type", value)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -95,28 +76,16 @@ class WorkloadNetworkDhcpArgs:
         pulumi.set(self, "dhcp_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
-
-    @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def properties(self) -> Optional[pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]]:
         """
-        NSX revision number.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "revision")
+        return pulumi.get(self, "properties")
 
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "revision", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.type_token("azure-native:avs:WorkloadNetworkDhcp")
@@ -126,27 +95,23 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dhcp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dhcp_type: Optional[pulumi.Input[Union[_builtins.str, 'DhcpTypeEnum']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpRelayArgsDict'], Union['WorkloadNetworkDhcpServerArgs', 'WorkloadNetworkDhcpServerArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None,
                  __props__=None):
         """
         NSX DHCP
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dhcp_id: The ID of the DHCP configuration
-        :param pulumi.Input[Union[_builtins.str, 'DhcpTypeEnum']] dhcp_type: Type of DHCP: SERVER or RELAY.
-        :param pulumi.Input[_builtins.str] display_name: Display name of the DHCP entity.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
+        :param pulumi.Input[Union[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpRelayArgsDict'], Union['WorkloadNetworkDhcpServerArgs', 'WorkloadNetworkDhcpServerArgsDict']]] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.float] revision: NSX revision number.
         """
         ...
     @overload
@@ -159,7 +124,7 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDhcpArgs args: The arguments to use to populate this resource's properties.
@@ -177,11 +142,9 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dhcp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dhcp_type: Optional[pulumi.Input[Union[_builtins.str, 'DhcpTypeEnum']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpRelayArgsDict'], Union['WorkloadNetworkDhcpServerArgs', 'WorkloadNetworkDhcpServerArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -192,24 +155,18 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
             __props__ = WorkloadNetworkDhcpArgs.__new__(WorkloadNetworkDhcpArgs)
 
             __props__.__dict__["dhcp_id"] = dhcp_id
-            if dhcp_type is None and not opts.urn:
-                raise TypeError("Missing required property 'dhcp_type'")
-            __props__.__dict__["dhcp_type"] = dhcp_type
-            __props__.__dict__["display_name"] = display_name
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__.__dict__["private_cloud_name"] = private_cloud_name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["revision"] = revision
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["segments"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20240901:WorkloadNetworkDhcp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20240901:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20250901:WorkloadNetworkDhcp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkDhcp, __self__).__init__(
             'azure-native:avs:WorkloadNetworkDhcp',
@@ -234,12 +191,8 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         __props__ = WorkloadNetworkDhcpArgs.__new__(WorkloadNetworkDhcpArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["dhcp_type"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["revision"] = None
-        __props__.__dict__["segments"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WorkloadNetworkDhcp(resource_name, opts=opts, __props__=__props__)
@@ -253,22 +206,6 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of DHCP: SERVER or RELAY.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -277,28 +214,12 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The provisioning state
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
     @pulumi.getter
-    def revision(self) -> pulumi.Output[Optional[_builtins.float]]:
+    def properties(self) -> pulumi.Output[Any]:
         """
-        NSX revision number.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "revision")
-
-    @_builtins.property
-    @pulumi.getter
-    def segments(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        NSX Segments consuming DHCP.
-        """
-        return pulumi.get(self, "segments")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

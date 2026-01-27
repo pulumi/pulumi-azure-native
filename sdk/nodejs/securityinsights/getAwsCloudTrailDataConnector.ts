@@ -51,7 +51,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
     /**
      * The available data types for the connector.
      */
-    readonly dataTypes?: outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponse;
+    readonly dataTypes: outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponse;
     /**
      * Etag of the azure resource
      */

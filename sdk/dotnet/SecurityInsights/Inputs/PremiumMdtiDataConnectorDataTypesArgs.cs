@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
 {
 
     /// <summary>
-    /// The available data types for Premium Microsoft Defender for Threat Intelligence data connector.
+    /// The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
     /// </summary>
     public sealed class PremiumMdtiDataConnectorDataTypesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        /// Data type for Microsoft Defender for Threat Intelligence Premium data connector.
         /// </summary>
         [Input("connector", required: true)]
         public Input<Inputs.PremiumMdtiDataConnectorDataTypesConnectorArgs> Connector { get; set; } = null!;

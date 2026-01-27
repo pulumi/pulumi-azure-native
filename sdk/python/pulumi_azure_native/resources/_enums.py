@@ -11,12 +11,14 @@ __all__ = [
     'DenySettingsMode',
     'DeploymentMode',
     'DeploymentStacksDeleteDetachEnum',
+    'DeploymentStacksResourcesWithoutDeleteSupportEnum',
     'ExpressionEvaluationOptionsScopeType',
     'ExtendedLocationType',
     'ManagedServiceIdentityType',
     'OnErrorDeploymentType',
     'ResourceIdentityType',
     'ScriptType',
+    'ValidationLevel',
 ]
 
 
@@ -73,6 +75,21 @@ class DeploymentStacksDeleteDetachEnum(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:resources:DeploymentStacksResourcesWithoutDeleteSupportEnum")
+class DeploymentStacksResourcesWithoutDeleteSupportEnum(_builtins.str, Enum):
+    """
+    Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+    """
+    DETACH = "detach"
+    """
+    Detach the specified resources from the deployment stack and continue
+    """
+    FAIL = "fail"
+    """
+    Fail the deployment stack if resources cannot be deleted
+    """
+
+
 @pulumi.type_token("azure-native:resources:ExpressionEvaluationOptionsScopeType")
 class ExpressionEvaluationOptionsScopeType(_builtins.str, Enum):
     """
@@ -126,3 +143,22 @@ class ScriptType(_builtins.str, Enum):
     """
     AZURE_POWER_SHELL = "AzurePowerShell"
     AZURE_CLI = "AzureCLI"
+
+
+@pulumi.type_token("azure-native:resources:ValidationLevel")
+class ValidationLevel(_builtins.str, Enum):
+    """
+    The validation level of the deployment stack
+    """
+    TEMPLATE = "Template"
+    """
+    Static analysis of the template is performed.
+    """
+    PROVIDER = "Provider"
+    """
+    Static analysis of the template is performed and resource declarations are sent to resource providers for semantic validation. Validates that the caller has RBAC write permissions on each resource.
+    """
+    PROVIDER_NO_RBAC = "ProviderNoRbac"
+    """
+    Static analysis of the template is performed and resource declarations are sent to resource providers for semantic validation. Skips validating that the caller has RBAC write permissions on each resource.
+    """

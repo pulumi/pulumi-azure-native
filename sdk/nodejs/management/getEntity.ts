@@ -39,7 +39,7 @@ export interface GetEntityArgs {
      */
     groupName?: string;
     /**
-     * The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in. 
+     * The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in.
      * With $search=AllowedParents the API will return the entity info of all groups that the requested entity will be able to reparent to as determined by the user's permissions.
      * With $search=AllowedChildren the API will return the entity info of all entities that can be added as children of the requested entity.
      * With $search=ParentAndFirstLevelChildren the API will return the parent and  first level of children that the user has either direct access to or indirect access via one of their descendants.
@@ -56,7 +56,7 @@ export interface GetEntityArgs {
      */
     skip?: number;
     /**
-     * Page continuation token is only used if a previous operation returned a partial result. 
+     * Page continuation token is only used if a previous operation returned a partial result.
      * If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
      */
     skiptoken?: string;
@@ -75,17 +75,17 @@ export interface GetEntityArgs {
  */
 export interface GetEntityResult {
     /**
-     * Total count of records that match the filter
+     * Total count of records that match the filter.
      */
-    readonly count: number;
+    readonly count?: number;
     /**
-     * The URL to use for getting the next set of results.
+     * The link to the next page of items
      */
-    readonly nextLink: string;
+    readonly nextLink?: string;
     /**
-     * The list of entities.
+     * The EntityInfo items on this page
      */
-    readonly value?: outputs.management.EntityInfoResponse[];
+    readonly value: outputs.management.EntityInfoResponse[];
 }
 /**
  * List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
@@ -119,7 +119,7 @@ export interface GetEntityOutputArgs {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in. 
+     * The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in.
      * With $search=AllowedParents the API will return the entity info of all groups that the requested entity will be able to reparent to as determined by the user's permissions.
      * With $search=AllowedChildren the API will return the entity info of all entities that can be added as children of the requested entity.
      * With $search=ParentAndFirstLevelChildren the API will return the parent and  first level of children that the user has either direct access to or indirect access via one of their descendants.
@@ -136,7 +136,7 @@ export interface GetEntityOutputArgs {
      */
     skip?: pulumi.Input<number>;
     /**
-     * Page continuation token is only used if a previous operation returned a partial result. 
+     * Page continuation token is only used if a previous operation returned a partial result.
      * If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
      */
     skiptoken?: pulumi.Input<string>;

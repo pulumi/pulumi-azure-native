@@ -140,14 +140,13 @@ import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managednetwork from "./managednetwork";
 import * as managednetworkfabric from "./managednetworkfabric";
+import * as managedops from "./managedops";
 import * as managedservices from "./managedservices";
 import * as manufacturingplatform from "./manufacturingplatform";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
 import * as migrate from "./migrate";
 import * as mission from "./mission";
-import * as mixedreality from "./mixedreality";
-import * as mobilenetwork from "./mobilenetwork";
 import * as mongocluster from "./mongocluster";
 import * as monitor from "./monitor";
 import * as mysqldiscovery from "./mysqldiscovery";
@@ -214,7 +213,6 @@ import * as synapse from "./synapse";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as trafficmanager from "./trafficmanager";
-import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -364,14 +362,13 @@ export {
     maintenance,
     managednetwork,
     managednetworkfabric,
+    managedops,
     managedservices,
     manufacturingplatform,
     maps,
     marketplace,
     migrate,
     mission,
-    mixedreality,
-    mobilenetwork,
     mongocluster,
     monitor,
     mysqldiscovery,
@@ -438,7 +435,6 @@ export {
     testbase,
     timeseriesinsights,
     trafficmanager,
-    videoanalyzer,
     videoindexer,
     virtualmachineimages,
     vmwarecloudsimple,

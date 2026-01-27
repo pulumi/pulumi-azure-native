@@ -383,6 +383,8 @@ def get_site_certificate(certificate_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-11-01.
 
+    Other available API versions: 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str certificate_name: Name of the certificate.
     :param _builtins.str name: Name of the site.
@@ -432,6 +434,8 @@ def get_site_certificate_output(certificate_name: Optional[pulumi.Input[_builtin
     SSL certificate for an app.
 
     Uses Azure REST API version 2024-11-01.
+
+    Other available API versions: 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str certificate_name: Name of the certificate.

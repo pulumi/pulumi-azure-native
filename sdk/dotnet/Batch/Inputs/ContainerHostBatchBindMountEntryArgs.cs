@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// The entry of path and mount mode you want to mount into task container.
+    /// </summary>
     public sealed class ContainerHostBatchBindMountEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
 
+        /// <summary>
+        /// The paths which will be mounted to container task's container.
+        /// </summary>
         [Input("source")]
         public InputUnion<string, Pulumi.AzureNative.Batch.ContainerHostDataPath>? Source { get; set; }
 

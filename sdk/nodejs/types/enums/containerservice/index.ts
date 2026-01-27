@@ -353,6 +353,30 @@ export const KubernetesSupportPlan = {
  */
 export type KubernetesSupportPlan = (typeof KubernetesSupportPlan)[keyof typeof KubernetesSupportPlan];
 
+export const LabelSelectorOperator = {
+    /**
+     * Label Selector Operator In
+     */
+    In: "In",
+    /**
+     * Label Selector Operator NotIn
+     */
+    NotIn: "NotIn",
+    /**
+     * Label Selector Operator Exists
+     */
+    Exists: "Exists",
+    /**
+     * Label Selector Operator DoesNotExist
+     */
+    DoesNotExist: "DoesNotExist",
+} as const;
+
+/**
+ * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+ */
+export type LabelSelectorOperator = (typeof LabelSelectorOperator)[keyof typeof LabelSelectorOperator];
+
 export const LicenseType = {
     /**
      * No additional licensing is applied.
@@ -384,6 +408,114 @@ export const LoadBalancerSku = {
  * The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
  */
 export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancerSku];
+
+export const LocalDNSForwardDestination = {
+    /**
+     * Forward DNS queries from localDNS to cluster CoreDNS.
+     */
+    ClusterCoreDNS: "ClusterCoreDNS",
+    /**
+     * Forward DNS queries from localDNS to DNS server configured in the VNET. A VNET can have multiple DNS servers configured.
+     */
+    VnetDNS: "VnetDNS",
+} as const;
+
+/**
+ * Destination server for DNS queries to be forwarded from localDNS.
+ */
+export type LocalDNSForwardDestination = (typeof LocalDNSForwardDestination)[keyof typeof LocalDNSForwardDestination];
+
+export const LocalDNSForwardPolicy = {
+    /**
+     * Implements sequential upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+     */
+    Sequential: "Sequential",
+    /**
+     * Implements round robin upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+     */
+    RoundRobin: "RoundRobin",
+    /**
+     * Implements random upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+     */
+    Random: "Random",
+} as const;
+
+/**
+ * Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+ */
+export type LocalDNSForwardPolicy = (typeof LocalDNSForwardPolicy)[keyof typeof LocalDNSForwardPolicy];
+
+export const LocalDNSMode = {
+    /**
+     * If the current orchestrator version supports this feature, prefer enabling localDNS.
+     */
+    Preferred: "Preferred",
+    /**
+     * Enable localDNS.
+     */
+    Required: "Required",
+    /**
+     * Disable localDNS.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Mode of enablement for localDNS.
+ */
+export type LocalDNSMode = (typeof LocalDNSMode)[keyof typeof LocalDNSMode];
+
+export const LocalDNSProtocol = {
+    /**
+     * Prefer UDP protocol for connections from localDNS to upstream DNS server.
+     */
+    PreferUDP: "PreferUDP",
+    /**
+     * Enforce TCP protocol for connections from localDNS to upstream DNS server.
+     */
+    ForceTCP: "ForceTCP",
+} as const;
+
+/**
+ * Enforce TCP or prefer UDP protocol for connections from localDNS to upstream DNS server.
+ */
+export type LocalDNSProtocol = (typeof LocalDNSProtocol)[keyof typeof LocalDNSProtocol];
+
+export const LocalDNSQueryLogging = {
+    /**
+     * Enables error logging in localDNS. See [errors plugin](https://coredns.io/plugins/errors) for more information.
+     */
+    Error: "Error",
+    /**
+     * Enables query logging in localDNS. See [log plugin](https://coredns.io/plugins/log) for more information.
+     */
+    Log: "Log",
+} as const;
+
+/**
+ * Log level for DNS queries in localDNS.
+ */
+export type LocalDNSQueryLogging = (typeof LocalDNSQueryLogging)[keyof typeof LocalDNSQueryLogging];
+
+export const LocalDNSServeStale = {
+    /**
+     * Serve stale data with verification. First verify that an entry is still unavailable from the source before sending the expired entry to the client. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+     */
+    Verify: "Verify",
+    /**
+     * Serve stale data immediately. Send the expired entry to the client before checking to see if the entry is available from the source. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+     */
+    Immediate: "Immediate",
+    /**
+     * Disable serving stale data.
+     */
+    Disable: "Disable",
+} as const;
+
+/**
+ * Policy for serving stale data. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+ */
+export type LocalDNSServeStale = (typeof LocalDNSServeStale)[keyof typeof LocalDNSServeStale];
 
 export const ManagedClusterSKUName = {
     /**
@@ -761,6 +893,22 @@ export const OutboundType = {
  */
 export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
 
+export const PlacementType = {
+    /**
+     * PickAll picks all clusters that satisfy the rules.
+     */
+    PickAll: "PickAll",
+    /**
+     * PickFixed picks a fixed set of clusters.
+     */
+    PickFixed: "PickFixed",
+} as const;
+
+/**
+ * Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+ */
+export type PlacementType = (typeof PlacementType)[keyof typeof PlacementType];
+
 export const PodIPAllocationMode = {
     /**
      * Each node gets allocated with a non-contiguous list of IP addresses assignable to pods. This is better for maximizing a small to medium subnet of size /16 or smaller. The Azure CNI cluster with dynamic IP allocation defaults to this mode if the customer does not explicitly specify a podIPAllocationMode
@@ -796,6 +944,50 @@ export const PolicyRule = {
  * Ingress policy for the network.
  */
 export type PolicyRule = (typeof PolicyRule)[keyof typeof PolicyRule];
+
+export const PropagationType = {
+    /**
+     * Using ClusterResourcePlacement.
+     */
+    Placement: "Placement",
+} as const;
+
+/**
+ * The type of the policy to be used. Default is Placement.
+ */
+export type PropagationType = (typeof PropagationType)[keyof typeof PropagationType];
+
+export const PropertySelectorOperator = {
+    /**
+     * Gt dictates Fleet to select cluster if its observed value of a given property is greater than the value specified in the requirement.
+     */
+    Gt: "Gt",
+    /**
+     * Ge dictates Fleet to select cluster if its observed value of a given property is greater than or equal to the value specified in the requirement.
+     */
+    Ge: "Ge",
+    /**
+     * Eq dictates Fleet to select cluster if its observed value of a given property is equal to the values specified in the requirement.
+     */
+    Eq: "Eq",
+    /**
+     * Ne dictates Fleet to select cluster if its observed value of a given property is not equal to the values specified in the requirement.
+     */
+    Ne: "Ne",
+    /**
+     * Lt dictates Fleet to select cluster if its observed value of a given property is less than the value specified in the requirement.
+     */
+    Lt: "Lt",
+    /**
+     * Le dictates Fleet to select cluster if its observed value of a given property is less than or equal to the value specified in the requirement.
+     */
+    Le: "Le",
+} as const;
+
+/**
+ * Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+ */
+export type PropertySelectorOperator = (typeof PropertySelectorOperator)[keyof typeof PropertySelectorOperator];
 
 export const Protocol = {
     /**
@@ -951,6 +1143,34 @@ export const SnapshotType = {
  */
 export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
 
+export const TaintEffect = {
+    /**
+     * Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.
+     */
+    NoSchedule: "NoSchedule",
+} as const;
+
+/**
+ * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+ */
+export type TaintEffect = (typeof TaintEffect)[keyof typeof TaintEffect];
+
+export const TolerationOperator = {
+    /**
+     * Toleration Operator Exists
+     */
+    Exists: "Exists",
+    /**
+     * Toleration Operator Equal
+     */
+    Equal: "Equal",
+} as const;
+
+/**
+ * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+ */
+export type TolerationOperator = (typeof TolerationOperator)[keyof typeof TolerationOperator];
+
 export const Type = {
     /**
      * First week of the month.
@@ -1047,6 +1267,10 @@ export const WorkloadRuntime = {
      * Nodes will use Krustlet to run WASM workloads using the WASI provider (Preview).
      */
     WasmWasi: "WasmWasi",
+    /**
+     * Nodes can use (Kata + Cloud Hypervisor + Hyper-V) to enable Nested VM-based pods. Due to the use Hyper-V, AKS node OS itself is a nested VM (the root OS) of Hyper-V. Thus it can only be used with VM series that support Nested Virtualization such as Dv3 series.
+     */
+    KataVmIsolation: "KataVmIsolation",
 } as const;
 
 /**

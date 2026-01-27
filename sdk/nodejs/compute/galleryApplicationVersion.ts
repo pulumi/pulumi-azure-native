@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
  *
- * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:GalleryApplicationVersion" }, { type: "azure-native:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-native:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-native:compute/v20200930:GalleryApplicationVersion" }, { type: "azure-native:compute/v20210701:GalleryApplicationVersion" }, { type: "azure-native:compute/v20211001:GalleryApplicationVersion" }, { type: "azure-native:compute/v20220103:GalleryApplicationVersion" }, { type: "azure-native:compute/v20220303:GalleryApplicationVersion" }, { type: "azure-native:compute/v20220803:GalleryApplicationVersion" }, { type: "azure-native:compute/v20230703:GalleryApplicationVersion" }, { type: "azure-native:compute/v20240303:GalleryApplicationVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:GalleryApplicationVersion" }, { type: "azure-native:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-native:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-native:compute/v20200930:GalleryApplicationVersion" }, { type: "azure-native:compute/v20210701:GalleryApplicationVersion" }, { type: "azure-native:compute/v20211001:GalleryApplicationVersion" }, { type: "azure-native:compute/v20220103:GalleryApplicationVersion" }, { type: "azure-native:compute/v20220303:GalleryApplicationVersion" }, { type: "azure-native:compute/v20220803:GalleryApplicationVersion" }, { type: "azure-native:compute/v20230703:GalleryApplicationVersion" }, { type: "azure-native:compute/v20240303:GalleryApplicationVersion" }, { type: "azure-native:compute/v20250303:GalleryApplicationVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryApplicationVersion.__pulumiType, name, resourceInputs, opts);
     }
