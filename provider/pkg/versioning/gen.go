@@ -187,9 +187,8 @@ func (v VersionMetadata) WriteTo(outputDir string) ([]string, error) {
 }
 
 type VersionSources struct {
-	MajorVersion              int
-	ProviderList              providerlist.ProviderList
-	requiredExplicitResources []string
+	MajorVersion int
+	ProviderList providerlist.ProviderList
 	// map[ModuleName]map[DefinitionName]ApiVersion
 	PreviousDefaultVersions openapi.DefaultVersions
 	RemovedVersions         openapi.ModuleVersionList
@@ -208,11 +207,6 @@ type VersionSources struct {
 
 func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersion int) (VersionSources, error) {
 	providerList, err := providerlist.ReadProviderList(filepath.Join(rootDir, "versions", "az-provider-list.json"))
-	if err != nil {
-		return VersionSources{}, err
-	}
-
-	knownExplicitResources, err := ReadRequiredExplicitResources(filepath.Join(rootDir, "versions", "required-explicit-resources.txt"))
 	if err != nil {
 		return VersionSources{}, err
 	}
@@ -267,23 +261,21 @@ func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersi
 	}
 
 	return VersionSources{
-		MajorVersion:              majorVersion,
-		ProviderList:              *providerList,
-		requiredExplicitResources: knownExplicitResources,
-		PreviousDefaultVersions:   previousLock,
-		RemovedVersions:           removed,
-		Spec:                      spec,
-		Config:                    config,
-		ConfigPath:                configPath,
-		AllResourcesByVersion:     FindAllResources(modules),
-		ResourcesToRemove:         resourcesToRemove,
-		RemovedInvokes:            removedInvokes,
-		NextResourcesToRemove:     nextResourcesToRemove,
-		PreviousTokenPaths:        previousTokenPaths,
+		MajorVersion:            majorVersion,
+		ProviderList:            *providerList,
+		PreviousDefaultVersions: previousLock,
+		RemovedVersions:         removed,
+		Spec:                    spec,
+		Config:                  config,
+		ConfigPath:              configPath,
+		AllResourcesByVersion:   FindAllResources(modules),
+		ResourcesToRemove:       resourcesToRemove,
+		RemovedInvokes:          removedInvokes,
+		NextResourcesToRemove:   nextResourcesToRemove,
+		PreviousTokenPaths:      previousTokenPaths,
 	}, nil
 }
 
-// ReadRequiredExplicitResources reads a list of resource tokens which map to an equivalent resource which can be migrated to.
 type ResourceRemovals map[string]string
 
 func ReadResourceRemovals(path string) (ResourceRemovals, error) {
@@ -337,23 +329,6 @@ func (s ResourceRemovals) PreserveResources(tokens []string) {
 			delete(s, token)
 		}
 	}
-}
-
-func ReadRequiredExplicitResources(path string) ([]string, error) {
-	txtFile, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	defer txtFile.Close()
-	// Read each line into an array
-	bytes, err := io.ReadAll(txtFile)
-	if err != nil {
-		return nil, err
-	}
-
-	// Split on new line
-	lines := strings.Split(string(bytes), "\r")
-	return lines, nil
 }
 
 func FindRemovedInvokesFromResources(modules openapi.AzureModules, removedResources openapi.RemovableResources) openapi.RemovableResources {
