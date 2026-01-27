@@ -137,6 +137,11 @@ func shouldRetryConflict(resp *http.Response) bool {
 			if responseErr.ErrorCode == "ConcurrentFederatedIdentityCredentialsWritesForSingleManagedIdentity" {
 				return true
 			}
+
+			// handle StorageAccount specific in-progress operation errors
+			if responseErr.ErrorCode == "StorageAccountOperationInProgress" {
+				return true
+			}
 		}
 	}
 	return false
