@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Information used to connect to an Azure Storage Container using Blobfuse.
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobFileSystemConfigurationResponse
     {
@@ -17,11 +20,17 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
         /// </summary>
         public readonly string? AccountKey;
+        /// <summary>
+        /// The Azure Storage Account name.
+        /// </summary>
         public readonly string AccountName;
         /// <summary>
         /// These are 'net use' options in Windows and 'mount' options in Linux.
         /// </summary>
         public readonly string? BlobfuseOptions;
+        /// <summary>
+        /// The Azure Blob Storage Container name.
+        /// </summary>
         public readonly string ContainerName;
         /// <summary>
         /// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.

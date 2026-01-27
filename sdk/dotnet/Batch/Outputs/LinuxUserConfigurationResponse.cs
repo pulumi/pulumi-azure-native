@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Properties used to create a user account on a Linux node.
+    /// </summary>
     [OutputType]
     public sealed class LinuxUserConfigurationResponse
     {

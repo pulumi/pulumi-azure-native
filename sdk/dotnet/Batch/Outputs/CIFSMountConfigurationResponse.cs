@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Information used to connect to a CIFS file system.
+    /// </summary>
     [OutputType]
     public sealed class CIFSMountConfigurationResponse
     {
@@ -17,12 +20,21 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// These are 'net use' options in Windows and 'mount' options in Linux.
         /// </summary>
         public readonly string? MountOptions;
+        /// <summary>
+        /// The password to use for authentication against the CIFS file system.
+        /// </summary>
         public readonly string Password;
         /// <summary>
         /// All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         /// </summary>
         public readonly string RelativeMountPath;
+        /// <summary>
+        /// The URI of the file system to mount.
+        /// </summary>
         public readonly string Source;
+        /// <summary>
+        /// The user to use for authentication against the CIFS file system.
+        /// </summary>
         public readonly string UserName;
 
         [OutputConstructor]

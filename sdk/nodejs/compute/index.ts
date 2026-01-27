@@ -90,6 +90,16 @@ export type GalleryInVMAccessControlProfileVersion = import("./galleryInVMAccess
 export const GalleryInVMAccessControlProfileVersion: typeof import("./galleryInVMAccessControlProfileVersion").GalleryInVMAccessControlProfileVersion = null as any;
 utilities.lazyLoad(exports, ["GalleryInVMAccessControlProfileVersion"], () => require("./galleryInVMAccessControlProfileVersion"));
 
+export { GalleryScriptArgs } from "./galleryScript";
+export type GalleryScript = import("./galleryScript").GalleryScript;
+export const GalleryScript: typeof import("./galleryScript").GalleryScript = null as any;
+utilities.lazyLoad(exports, ["GalleryScript"], () => require("./galleryScript"));
+
+export { GalleryScriptVersionArgs } from "./galleryScriptVersion";
+export type GalleryScriptVersion = import("./galleryScriptVersion").GalleryScriptVersion;
+export const GalleryScriptVersion: typeof import("./galleryScriptVersion").GalleryScriptVersion = null as any;
+utilities.lazyLoad(exports, ["GalleryScriptVersion"], () => require("./galleryScriptVersion"));
+
 export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
 export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
 export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
@@ -174,6 +184,16 @@ export { GetGalleryInVMAccessControlProfileVersionArgs, GetGalleryInVMAccessCont
 export const getGalleryInVMAccessControlProfileVersion: typeof import("./getGalleryInVMAccessControlProfileVersion").getGalleryInVMAccessControlProfileVersion = null as any;
 export const getGalleryInVMAccessControlProfileVersionOutput: typeof import("./getGalleryInVMAccessControlProfileVersion").getGalleryInVMAccessControlProfileVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getGalleryInVMAccessControlProfileVersion","getGalleryInVMAccessControlProfileVersionOutput"], () => require("./getGalleryInVMAccessControlProfileVersion"));
+
+export { GetGalleryScriptArgs, GetGalleryScriptResult, GetGalleryScriptOutputArgs } from "./getGalleryScript";
+export const getGalleryScript: typeof import("./getGalleryScript").getGalleryScript = null as any;
+export const getGalleryScriptOutput: typeof import("./getGalleryScript").getGalleryScriptOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryScript","getGalleryScriptOutput"], () => require("./getGalleryScript"));
+
+export { GetGalleryScriptVersionArgs, GetGalleryScriptVersionResult, GetGalleryScriptVersionOutputArgs } from "./getGalleryScriptVersion";
+export const getGalleryScriptVersion: typeof import("./getGalleryScriptVersion").getGalleryScriptVersion = null as any;
+export const getGalleryScriptVersionOutput: typeof import("./getGalleryScriptVersion").getGalleryScriptVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryScriptVersion","getGalleryScriptVersionOutput"], () => require("./getGalleryScriptVersion"));
 
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
@@ -367,6 +387,10 @@ const _module = {
                 return new GalleryInVMAccessControlProfile(name, <any>undefined, { urn })
             case "azure-native:compute:GalleryInVMAccessControlProfileVersion":
                 return new GalleryInVMAccessControlProfileVersion(name, <any>undefined, { urn })
+            case "azure-native:compute:GalleryScript":
+                return new GalleryScript(name, <any>undefined, { urn })
+            case "azure-native:compute:GalleryScriptVersion":
+                return new GalleryScriptVersion(name, <any>undefined, { urn })
             case "azure-native:compute:Image":
                 return new Image(name, <any>undefined, { urn })
             case "azure-native:compute:ProximityPlacementGroup":

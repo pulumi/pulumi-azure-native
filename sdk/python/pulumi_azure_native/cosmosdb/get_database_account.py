@@ -27,7 +27,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, analytical_storage_configuration=None, api_properties=None, azure_api_version=None, backup_policy=None, capabilities=None, capacity=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, customer_managed_key_status=None, database_account_offer_type=None, default_identity=None, disable_key_based_metadata_write_access=None, disable_local_auth=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_burst_capacity=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, enable_partition_merge=None, enable_per_region_per_partition_autoscale=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, keys_metadata=None, kind=None, location=None, locations=None, minimal_tls_version=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, analytical_storage_configuration=None, api_properties=None, azure_api_version=None, backup_policy=None, capabilities=None, capacity=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, customer_managed_key_status=None, database_account_offer_type=None, default_identity=None, default_priority_level=None, disable_key_based_metadata_write_access=None, disable_local_auth=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_burst_capacity=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, enable_partition_merge=None, enable_per_region_per_partition_autoscale=None, enable_priority_based_execution=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, key_vault_key_uri_version=None, keys_metadata=None, kind=None, location=None, locations=None, minimal_tls_version=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if analytical_storage_configuration and not isinstance(analytical_storage_configuration, dict):
             raise TypeError("Expected argument 'analytical_storage_configuration' to be a dict")
         pulumi.set(__self__, "analytical_storage_configuration", analytical_storage_configuration)
@@ -67,6 +67,9 @@ class GetDatabaseAccountResult:
         if default_identity and not isinstance(default_identity, str):
             raise TypeError("Expected argument 'default_identity' to be a str")
         pulumi.set(__self__, "default_identity", default_identity)
+        if default_priority_level and not isinstance(default_priority_level, str):
+            raise TypeError("Expected argument 'default_priority_level' to be a str")
+        pulumi.set(__self__, "default_priority_level", default_priority_level)
         if disable_key_based_metadata_write_access and not isinstance(disable_key_based_metadata_write_access, bool):
             raise TypeError("Expected argument 'disable_key_based_metadata_write_access' to be a bool")
         pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
@@ -100,6 +103,9 @@ class GetDatabaseAccountResult:
         if enable_per_region_per_partition_autoscale and not isinstance(enable_per_region_per_partition_autoscale, bool):
             raise TypeError("Expected argument 'enable_per_region_per_partition_autoscale' to be a bool")
         pulumi.set(__self__, "enable_per_region_per_partition_autoscale", enable_per_region_per_partition_autoscale)
+        if enable_priority_based_execution and not isinstance(enable_priority_based_execution, bool):
+            raise TypeError("Expected argument 'enable_priority_based_execution' to be a bool")
+        pulumi.set(__self__, "enable_priority_based_execution", enable_priority_based_execution)
         if failover_policies and not isinstance(failover_policies, list):
             raise TypeError("Expected argument 'failover_policies' to be a list")
         pulumi.set(__self__, "failover_policies", failover_policies)
@@ -121,6 +127,9 @@ class GetDatabaseAccountResult:
         if key_vault_key_uri and not isinstance(key_vault_key_uri, str):
             raise TypeError("Expected argument 'key_vault_key_uri' to be a str")
         pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+        if key_vault_key_uri_version and not isinstance(key_vault_key_uri_version, str):
+            raise TypeError("Expected argument 'key_vault_key_uri_version' to be a str")
+        pulumi.set(__self__, "key_vault_key_uri_version", key_vault_key_uri_version)
         if keys_metadata and not isinstance(keys_metadata, dict):
             raise TypeError("Expected argument 'keys_metadata' to be a dict")
         pulumi.set(__self__, "keys_metadata", keys_metadata)
@@ -281,6 +290,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "default_identity")
 
     @_builtins.property
+    @pulumi.getter(name="defaultPriorityLevel")
+    def default_priority_level(self) -> Optional[_builtins.str]:
+        """
+        Enum to indicate default Priority Level of request for Priority Based Execution.
+        """
+        return pulumi.get(self, "default_priority_level")
+
+    @_builtins.property
     @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
     def disable_key_based_metadata_write_access(self) -> Optional[_builtins.bool]:
         """
@@ -369,6 +386,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "enable_per_region_per_partition_autoscale")
 
     @_builtins.property
+    @pulumi.getter(name="enablePriorityBasedExecution")
+    def enable_priority_based_execution(self) -> Optional[_builtins.bool]:
+        """
+        Flag to indicate enabling/disabling of Priority Based Execution Preview feature on the account
+        """
+        return pulumi.get(self, "enable_priority_based_execution")
+
+    @_builtins.property
     @pulumi.getter(name="failoverPolicies")
     def failover_policies(self) -> Sequence['outputs.FailoverPolicyResponse']:
         """
@@ -423,6 +448,14 @@ class GetDatabaseAccountResult:
         The URI of the key vault
         """
         return pulumi.get(self, "key_vault_key_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyUriVersion")
+    def key_vault_key_uri_version(self) -> _builtins.str:
+        """
+        The version of the Customer Managed Key currently being used by the account
+        """
+        return pulumi.get(self, "key_vault_key_uri_version")
 
     @_builtins.property
     @pulumi.getter(name="keysMetadata")
@@ -588,6 +621,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             customer_managed_key_status=self.customer_managed_key_status,
             database_account_offer_type=self.database_account_offer_type,
             default_identity=self.default_identity,
+            default_priority_level=self.default_priority_level,
             disable_key_based_metadata_write_access=self.disable_key_based_metadata_write_access,
             disable_local_auth=self.disable_local_auth,
             document_endpoint=self.document_endpoint,
@@ -599,6 +633,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             enable_partition_merge=self.enable_partition_merge,
             enable_per_region_per_partition_autoscale=self.enable_per_region_per_partition_autoscale,
+            enable_priority_based_execution=self.enable_priority_based_execution,
             failover_policies=self.failover_policies,
             id=self.id,
             identity=self.identity,
@@ -606,6 +641,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             ip_rules=self.ip_rules,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
             key_vault_key_uri=self.key_vault_key_uri,
+            key_vault_key_uri_version=self.key_vault_key_uri_version,
             keys_metadata=self.keys_metadata,
             kind=self.kind,
             location=self.location,
@@ -632,9 +668,9 @@ def get_database_account(account_name: Optional[_builtins.str] = None,
     """
     Retrieves the properties of an existing Azure Cosmos DB database account.
 
-    Uses Azure REST API version 2025-04-15.
+    Uses Azure REST API version 2025-10-15.
 
-    Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str account_name: Cosmos DB database account name.
@@ -660,6 +696,7 @@ def get_database_account(account_name: Optional[_builtins.str] = None,
         customer_managed_key_status=pulumi.get(__ret__, 'customer_managed_key_status'),
         database_account_offer_type=pulumi.get(__ret__, 'database_account_offer_type'),
         default_identity=pulumi.get(__ret__, 'default_identity'),
+        default_priority_level=pulumi.get(__ret__, 'default_priority_level'),
         disable_key_based_metadata_write_access=pulumi.get(__ret__, 'disable_key_based_metadata_write_access'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
         document_endpoint=pulumi.get(__ret__, 'document_endpoint'),
@@ -671,6 +708,7 @@ def get_database_account(account_name: Optional[_builtins.str] = None,
         enable_multiple_write_locations=pulumi.get(__ret__, 'enable_multiple_write_locations'),
         enable_partition_merge=pulumi.get(__ret__, 'enable_partition_merge'),
         enable_per_region_per_partition_autoscale=pulumi.get(__ret__, 'enable_per_region_per_partition_autoscale'),
+        enable_priority_based_execution=pulumi.get(__ret__, 'enable_priority_based_execution'),
         failover_policies=pulumi.get(__ret__, 'failover_policies'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -678,6 +716,7 @@ def get_database_account(account_name: Optional[_builtins.str] = None,
         ip_rules=pulumi.get(__ret__, 'ip_rules'),
         is_virtual_network_filter_enabled=pulumi.get(__ret__, 'is_virtual_network_filter_enabled'),
         key_vault_key_uri=pulumi.get(__ret__, 'key_vault_key_uri'),
+        key_vault_key_uri_version=pulumi.get(__ret__, 'key_vault_key_uri_version'),
         keys_metadata=pulumi.get(__ret__, 'keys_metadata'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
@@ -702,9 +741,9 @@ def get_database_account_output(account_name: Optional[pulumi.Input[_builtins.st
     """
     Retrieves the properties of an existing Azure Cosmos DB database account.
 
-    Uses Azure REST API version 2025-04-15.
+    Uses Azure REST API version 2025-10-15.
 
-    Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str account_name: Cosmos DB database account name.
@@ -729,6 +768,7 @@ def get_database_account_output(account_name: Optional[pulumi.Input[_builtins.st
         customer_managed_key_status=pulumi.get(__response__, 'customer_managed_key_status'),
         database_account_offer_type=pulumi.get(__response__, 'database_account_offer_type'),
         default_identity=pulumi.get(__response__, 'default_identity'),
+        default_priority_level=pulumi.get(__response__, 'default_priority_level'),
         disable_key_based_metadata_write_access=pulumi.get(__response__, 'disable_key_based_metadata_write_access'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
         document_endpoint=pulumi.get(__response__, 'document_endpoint'),
@@ -740,6 +780,7 @@ def get_database_account_output(account_name: Optional[pulumi.Input[_builtins.st
         enable_multiple_write_locations=pulumi.get(__response__, 'enable_multiple_write_locations'),
         enable_partition_merge=pulumi.get(__response__, 'enable_partition_merge'),
         enable_per_region_per_partition_autoscale=pulumi.get(__response__, 'enable_per_region_per_partition_autoscale'),
+        enable_priority_based_execution=pulumi.get(__response__, 'enable_priority_based_execution'),
         failover_policies=pulumi.get(__response__, 'failover_policies'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -747,6 +788,7 @@ def get_database_account_output(account_name: Optional[pulumi.Input[_builtins.st
         ip_rules=pulumi.get(__response__, 'ip_rules'),
         is_virtual_network_filter_enabled=pulumi.get(__response__, 'is_virtual_network_filter_enabled'),
         key_vault_key_uri=pulumi.get(__response__, 'key_vault_key_uri'),
+        key_vault_key_uri_version=pulumi.get(__response__, 'key_vault_key_uri_version'),
         keys_metadata=pulumi.get(__response__, 'keys_metadata'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),

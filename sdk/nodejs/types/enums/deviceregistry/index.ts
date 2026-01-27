@@ -202,6 +202,18 @@ export const StreamDestinationTarget = {
  */
 export type StreamDestinationTarget = (typeof StreamDestinationTarget)[keyof typeof StreamDestinationTarget];
 
+export const SupportedKeyType = {
+    /**
+     * Indicates the ECC key type.
+     */
+    ECC: "ECC",
+} as const;
+
+/**
+ * Crypto type: ECC.
+ */
+export type SupportedKeyType = (typeof SupportedKeyType)[keyof typeof SupportedKeyType];
+
 export const SystemAssignedServiceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",

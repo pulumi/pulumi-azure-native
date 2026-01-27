@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.Batch
     public sealed class GetBatchAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,13 +66,13 @@ namespace Pulumi.AzureNative.Batch
     public sealed class GetBatchAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -91,6 +91,9 @@ namespace Pulumi.AzureNative.Batch
         /// The account endpoint used to interact with the Batch service.
         /// </summary>
         public readonly string AccountEndpoint;
+        /// <summary>
+        /// The active job and job schedule quota for the Batch account.
+        /// </summary>
         public readonly int ActiveJobAndJobScheduleQuota;
         /// <summary>
         /// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
@@ -121,7 +124,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly Outputs.EncryptionPropertiesResponse Encryption;
         /// <summary>
-        /// The ID of the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -133,7 +136,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly Outputs.KeyVaultReferenceResponse KeyVaultReference;
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -141,7 +144,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly int LowPriorityCoreQuota;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -156,6 +159,9 @@ namespace Pulumi.AzureNative.Batch
         /// The allocation mode for creating pools in the Batch account.
         /// </summary>
         public readonly string PoolAllocationMode;
+        /// <summary>
+        /// The pool quota for the Batch account.
+        /// </summary>
         public readonly int PoolQuota;
         /// <summary>
         /// List of private endpoint connections associated with the Batch account
@@ -166,15 +172,19 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// If not specified, the default value is 'enabled'.
+        /// The network access type for operating on the resources in the Batch account.
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
-        /// The tags of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the resource.
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -224,7 +234,9 @@ namespace Pulumi.AzureNative.Batch
 
             string? publicNetworkAccess,
 
-            ImmutableDictionary<string, string> tags,
+            Outputs.SystemDataResponse systemData,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
@@ -250,6 +262,7 @@ namespace Pulumi.AzureNative.Batch
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

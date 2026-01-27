@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// A private container registry.
+    /// </summary>
     [OutputType]
     public sealed class ContainerRegistryResponse
     {
@@ -17,11 +20,17 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
         /// </summary>
         public readonly Outputs.ComputeNodeIdentityReferenceResponse? IdentityReference;
+        /// <summary>
+        /// The password to log into the registry server.
+        /// </summary>
         public readonly string? Password;
         /// <summary>
         /// If omitted, the default is "docker.io".
         /// </summary>
         public readonly string? RegistryServer;
+        /// <summary>
+        /// The user name to log into the registry server.
+        /// </summary>
         public readonly string? UserName;
 
         [OutputConstructor]

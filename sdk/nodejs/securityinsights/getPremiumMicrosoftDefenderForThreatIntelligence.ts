@@ -37,7 +37,7 @@ export interface GetPremiumMicrosoftDefenderForThreatIntelligenceArgs {
 }
 
 /**
- * Represents Premium Microsoft Defender for Threat Intelligence data connector.
+ * Represents Microsoft Defender for Threat Intelligence Premium data connector.
  */
 export interface GetPremiumMicrosoftDefenderForThreatIntelligenceResult {
     /**
@@ -80,7 +80,7 @@ export interface GetPremiumMicrosoftDefenderForThreatIntelligenceResult {
     /**
      * The tenant id to connect to, and get the data from.
      */
-    readonly tenantId?: string;
+    readonly tenantId: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

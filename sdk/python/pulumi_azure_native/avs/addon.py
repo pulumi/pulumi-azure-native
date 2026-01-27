@@ -14,41 +14,30 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
+from ._inputs import *
 
 __all__ = ['AddonArgs', 'Addon']
 
 @pulumi.input_type
 class AddonArgs:
     def __init__(__self__, *,
-                 addon_type: pulumi.Input[Union[_builtins.str, 'AddonType']],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Addon resource.
-        :param pulumi.Input[Union[_builtins.str, 'AddonType']] addon_type: Addon type
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] addon_name: Name of the addon.
+        :param pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "addon_type", addon_type)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if addon_name is not None:
             pulumi.set(__self__, "addon_name", addon_name)
-
-    @_builtins.property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[Union[_builtins.str, 'AddonType']]:
-        """
-        Addon type
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[Union[_builtins.str, 'AddonType']]):
-        pulumi.set(self, "addon_type", value)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -86,6 +75,18 @@ class AddonArgs:
     def addon_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "addon_name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]]:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]]):
+        pulumi.set(self, "properties", value)
+
 
 @pulumi.type_token("azure-native:avs:Addon")
 class Addon(pulumi.CustomResource):
@@ -94,8 +95,8 @@ class Addon(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_type: Optional[pulumi.Input[Union[_builtins.str, 'AddonType']]] = None,
                  private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AddonArcPropertiesArgs', 'AddonArcPropertiesArgsDict'], Union['AddonHcxPropertiesArgs', 'AddonHcxPropertiesArgsDict'], Union['AddonSrmPropertiesArgs', 'AddonSrmPropertiesArgsDict'], Union['AddonVrPropertiesArgs', 'AddonVrPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -103,13 +104,13 @@ class Addon(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_name: Name of the addon.
-        :param pulumi.Input[Union[_builtins.str, 'AddonType']] addon_type: Addon type
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
+        :param pulumi.Input[Union[Union['AddonArcPropertiesArgs', 'AddonArcPropertiesArgsDict'], Union['AddonHcxPropertiesArgs', 'AddonHcxPropertiesArgsDict'], Union['AddonSrmPropertiesArgs', 'AddonSrmPropertiesArgsDict'], Union['AddonVrPropertiesArgs', 'AddonVrPropertiesArgsDict']]] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -123,7 +124,7 @@ class Addon(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.
@@ -141,8 +142,8 @@ class Addon(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_type: Optional[pulumi.Input[Union[_builtins.str, 'AddonType']]] = None,
                  private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AddonArcPropertiesArgs', 'AddonArcPropertiesArgsDict'], Union['AddonHcxPropertiesArgs', 'AddonHcxPropertiesArgsDict'], Union['AddonSrmPropertiesArgs', 'AddonSrmPropertiesArgsDict'], Union['AddonVrPropertiesArgs', 'AddonVrPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -154,21 +155,18 @@ class Addon(pulumi.CustomResource):
             __props__ = AddonArgs.__new__(AddonArgs)
 
             __props__.__dict__["addon_name"] = addon_name
-            if addon_type is None and not opts.urn:
-                raise TypeError("Missing required property 'addon_type'")
-            __props__.__dict__["addon_type"] = addon_type
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__.__dict__["private_cloud_name"] = private_cloud_name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:Addon"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Addon"), pulumi.Alias(type_="azure-native:avs/v20210601:Addon"), pulumi.Alias(type_="azure-native:avs/v20211201:Addon"), pulumi.Alias(type_="azure-native:avs/v20220501:Addon"), pulumi.Alias(type_="azure-native:avs/v20230301:Addon"), pulumi.Alias(type_="azure-native:avs/v20230901:Addon"), pulumi.Alias(type_="azure-native:avs/v20240901:Addon")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:Addon"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Addon"), pulumi.Alias(type_="azure-native:avs/v20210601:Addon"), pulumi.Alias(type_="azure-native:avs/v20211201:Addon"), pulumi.Alias(type_="azure-native:avs/v20220501:Addon"), pulumi.Alias(type_="azure-native:avs/v20230301:Addon"), pulumi.Alias(type_="azure-native:avs/v20230901:Addon"), pulumi.Alias(type_="azure-native:avs/v20240901:Addon"), pulumi.Alias(type_="azure-native:avs/v20250901:Addon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Addon, __self__).__init__(
             'azure-native:avs:Addon',
@@ -192,21 +190,12 @@ class Addon(pulumi.CustomResource):
 
         __props__ = AddonArgs.__new__(AddonArgs)
 
-        __props__.__dict__["addon_type"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Addon(resource_name, opts=opts, __props__=__props__)
-
-    @_builtins.property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Addon type
-        """
-        return pulumi.get(self, "addon_type")
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")
@@ -225,12 +214,12 @@ class Addon(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Any]:
         """
-        The state of the addon provisioning
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

@@ -157,8 +157,6 @@ def get_deployment(catalog_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str deployment_name: Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
@@ -195,8 +193,6 @@ def get_deployment_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = 
     Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
 
     Uses Azure REST API version 2024-04-01.
-
-    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str catalog_name: Name of catalog

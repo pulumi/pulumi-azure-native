@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAdministratorsMicrosoftEntra(args: GetAdministratorsMicrosoftEntraArgs, opts?: pulumi.InvokeOptions): Promise<GetAdministratorsMicrosoftEntraResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,7 +84,7 @@ export interface GetAdministratorsMicrosoftEntraResult {
  *
  * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAdministratorsMicrosoftEntraOutput(args: GetAdministratorsMicrosoftEntraOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdministratorsMicrosoftEntraResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

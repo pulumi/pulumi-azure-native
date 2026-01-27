@@ -27,7 +27,7 @@ class GetPoolResult:
     """
     Contains information about a pool.
     """
-    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, azure_api_version=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, current_node_communication_mode=None, deployment_configuration=None, display_name=None, etag=None, id=None, identity=None, inter_node_communication=None, last_modified=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, resource_tags=None, scale_settings=None, start_task=None, tags=None, target_node_communication_mode=None, task_scheduling_policy=None, task_slots_per_node=None, type=None, upgrade_policy=None, user_accounts=None, vm_size=None):
+    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, azure_api_version=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, current_node_communication_mode=None, deployment_configuration=None, display_name=None, etag=None, id=None, identity=None, inter_node_communication=None, last_modified=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, resource_tags=None, scale_settings=None, start_task=None, system_data=None, tags=None, target_node_communication_mode=None, task_scheduling_policy=None, task_slots_per_node=None, type=None, upgrade_policy=None, user_accounts=None, vm_size=None):
         if allocation_state and not isinstance(allocation_state, str):
             raise TypeError("Expected argument 'allocation_state' to be a str")
         pulumi.set(__self__, "allocation_state", allocation_state)
@@ -112,6 +112,9 @@ class GetPoolResult:
         if start_task and not isinstance(start_task, dict):
             raise TypeError("Expected argument 'start_task' to be a dict")
         pulumi.set(__self__, "start_task", start_task)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -140,11 +143,17 @@ class GetPoolResult:
     @_builtins.property
     @pulumi.getter(name="allocationState")
     def allocation_state(self) -> _builtins.str:
+        """
+        Whether the pool is resizing.
+        """
         return pulumi.get(self, "allocation_state")
 
     @_builtins.property
     @pulumi.getter(name="allocationStateTransitionTime")
     def allocation_state_transition_time(self) -> _builtins.str:
+        """
+        The time at which the pool entered its current allocation state.
+        """
         return pulumi.get(self, "allocation_state_transition_time")
 
     @_builtins.property
@@ -192,26 +201,41 @@ class GetPoolResult:
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
+        """
+        The creation time of the pool.
+        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="currentDedicatedNodes")
     def current_dedicated_nodes(self) -> _builtins.int:
+        """
+        The number of dedicated compute nodes currently in the pool.
+        """
         return pulumi.get(self, "current_dedicated_nodes")
 
     @_builtins.property
     @pulumi.getter(name="currentLowPriorityNodes")
     def current_low_priority_nodes(self) -> _builtins.int:
+        """
+        The number of Spot/low-priority compute nodes currently in the pool.
+        """
         return pulumi.get(self, "current_low_priority_nodes")
 
     @_builtins.property
     @pulumi.getter(name="currentNodeCommunicationMode")
     def current_node_communication_mode(self) -> _builtins.str:
+        """
+        Determines how a pool communicates with the Batch service.
+        """
         return pulumi.get(self, "current_node_communication_mode")
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional['outputs.DeploymentConfigurationResponse']:
+        """
+        Deployment configuration properties.
+        """
         return pulumi.get(self, "deployment_configuration")
 
     @_builtins.property
@@ -234,7 +258,7 @@ class GetPoolResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ID of the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -282,7 +306,7 @@ class GetPoolResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -297,11 +321,17 @@ class GetPoolResult:
     @_builtins.property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
+        """
+        The current state of the pool.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter(name="provisioningStateTransitionTime")
     def provisioning_state_transition_time(self) -> _builtins.str:
+        """
+        The time at which the pool entered its current state.
+        """
         return pulumi.get(self, "provisioning_state_transition_time")
 
     @_builtins.property
@@ -335,6 +365,14 @@ class GetPoolResult:
         In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         """
         return pulumi.get(self, "start_task")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -372,7 +410,7 @@ class GetPoolResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -387,6 +425,9 @@ class GetPoolResult:
     @_builtins.property
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> Optional[Sequence['outputs.UserAccountResponse']]:
+        """
+        The list of user accounts to be created on each node in the pool.
+        """
         return pulumi.get(self, "user_accounts")
 
     @_builtins.property
@@ -432,6 +473,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             resource_tags=self.resource_tags,
             scale_settings=self.scale_settings,
             start_task=self.start_task,
+            system_data=self.system_data,
             tags=self.tags,
             target_node_communication_mode=self.target_node_communication_mode,
             task_scheduling_policy=self.task_scheduling_policy,
@@ -454,9 +496,9 @@ def get_pool(account_name: Optional[_builtins.str] = None,
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str pool_name: The pool name. This must be unique within the account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -494,6 +536,7 @@ def get_pool(account_name: Optional[_builtins.str] = None,
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         scale_settings=pulumi.get(__ret__, 'scale_settings'),
         start_task=pulumi.get(__ret__, 'start_task'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         target_node_communication_mode=pulumi.get(__ret__, 'target_node_communication_mode'),
         task_scheduling_policy=pulumi.get(__ret__, 'task_scheduling_policy'),
@@ -514,9 +557,9 @@ def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str pool_name: The pool name. This must be unique within the account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -553,6 +596,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
         resource_tags=pulumi.get(__response__, 'resource_tags'),
         scale_settings=pulumi.get(__response__, 'scale_settings'),
         start_task=pulumi.get(__response__, 'start_task'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         target_node_communication_mode=pulumi.get(__response__, 'target_node_communication_mode'),
         task_scheduling_policy=pulumi.get(__response__, 'task_scheduling_policy'),

@@ -16,21 +16,35 @@ __all__ = [
     'DiskFileFormat',
     'EceSecrets',
     'EdgeDeviceKind',
+    'EdgeMachineJobType',
+    'EdgeMachineKind',
     'ExtendedLocationTypes',
     'GpuAssignmentTypeEnum',
     'HciEdgeDeviceJobType',
     'HyperVGeneration',
     'IPPoolTypeEnum',
+    'InboundNATRuleProtocol',
     'IpAllocationMethodEnum',
+    'IpAssignmentType',
+    'LoadBalancerBackendAddressAdminState',
+    'LoadBalancerProbeProtocol',
+    'LoadBalancerRuleSessionPersistenceType',
+    'LoadBalancerRuleTransportProtocol',
     'ManagedServiceIdentityType',
     'NetworkTypeEnum',
+    'OSOperationType',
+    'OnboardingResourceType',
     'OperatingSystemTypes',
     'OperationType',
     'OsTypeEnum',
+    'OwnerKeyType',
     'ProvisioningAction',
+    'ProvisioningOsType',
+    'PublicIPAddressType',
     'RemoteSupportAccessLevel',
     'RemoteSupportType',
     'ResourceIdentityType',
+    'SecretType',
     'SecurityEncryptionType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
@@ -171,12 +185,53 @@ class EdgeDeviceKind(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:EdgeMachineJobType")
+class EdgeMachineJobType(_builtins.str, Enum):
+    """
+    Job Type to support polymorphic resource.
+    """
+    COLLECT_LOG = "CollectLog"
+    """
+    Job to collect logs from the device.
+    """
+    REMOTE_SUPPORT = "RemoteSupport"
+    """
+    Job to provide remote support to the device.
+    """
+    PROVISION_OS = "ProvisionOs"
+    """
+    Job to provision operating system in the device.
+    """
+    DOWNLOAD_OS = "DownloadOs"
+    """
+    Job to download OS packages on to the device
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:EdgeMachineKind")
+class EdgeMachineKind(_builtins.str, Enum):
+    """
+    Edge Machine type.
+    """
+    STANDARD = "Standard"
+    """
+    EdgeMachine resource created using Zero-touch provisioning.
+    """
+    DEDICATED = "Dedicated"
+    """
+    EdgeMachine resource created for brownfield HCI customers without zero touch provisioning.
+    """
+
+
 @pulumi.type_token("azure-native:azurestackhci:ExtendedLocationTypes")
 class ExtendedLocationTypes(_builtins.str, Enum):
     """
     The type of the extended location.
     """
     CUSTOM_LOCATION = "CustomLocation"
+    """
+    Custom extended location type
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:GpuAssignmentTypeEnum")
@@ -239,6 +294,21 @@ class IPPoolTypeEnum(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:InboundNATRuleProtocol")
+class InboundNATRuleProtocol(_builtins.str, Enum):
+    """
+    Protocol for the NAT rule
+    """
+    TCP = "Tcp"
+    """
+    TCP - load balance only tcp traffic
+    """
+    UDP = "Udp"
+    """
+    Udp - load balance only UDP traffic
+    """
+
+
 @pulumi.type_token("azure-native:azurestackhci:IpAllocationMethodEnum")
 class IpAllocationMethodEnum(_builtins.str, Enum):
     """
@@ -246,6 +316,89 @@ class IpAllocationMethodEnum(_builtins.str, Enum):
     """
     DYNAMIC = "Dynamic"
     STATIC = "Static"
+
+
+@pulumi.type_token("azure-native:azurestackhci:IpAssignmentType")
+class IpAssignmentType(_builtins.str, Enum):
+    """
+    Type of IP assignment.
+    """
+    AUTOMATIC = "Automatic"
+    """
+    Automatic IP assignment
+    """
+    MANUAL = "Manual"
+    """
+    Manual IP assignment
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerBackendAddressAdminState")
+class LoadBalancerBackendAddressAdminState(_builtins.str, Enum):
+    """
+    admin state - if set to false, the address is removed from the pool
+    """
+    UP = "Up"
+    """
+    Up - forced admin state up
+    """
+    DOWN = "Down"
+    """
+    Down - forced admin state down
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerProbeProtocol")
+class LoadBalancerProbeProtocol(_builtins.str, Enum):
+    """
+    Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+    """
+    TCP = "Tcp"
+    """
+    TCP - TCP port checking
+    """
+    HTTP = "Http"
+    """
+    HTTP - HTTP request
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerRuleSessionPersistenceType")
+class LoadBalancerRuleSessionPersistenceType(_builtins.str, Enum):
+    """
+    SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+    """
+    DEFAULT = "Default"
+    """
+    Default - 5-tuple hashing
+    """
+    SOURCE_IP = "SourceIP"
+    """
+    Source IP - 2-tuple hashing looking at src-dst ip
+    """
+    SOURCE_IP_PROTOCOL = "SourceIPProtocol"
+    """
+    SourceIPProtocol - 3-tuple hashing looking at src-dst ip and ip protocol
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerRuleTransportProtocol")
+class LoadBalancerRuleTransportProtocol(_builtins.str, Enum):
+    """
+    IP Protocol that the rule must load-balance
+    """
+    TCP = "Tcp"
+    """
+    TCP - load balance only tcp traffic
+    """
+    UDP = "Udp"
+    """
+    Udp - load balance only UDP traffic
+    """
+    ALL = "All"
+    """
+    All - load balance all UDP and TCP traffic
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:ManagedServiceIdentityType")
@@ -273,6 +426,36 @@ class NetworkTypeEnum(_builtins.str, Enum):
     OVERLAY = "Overlay"
     INTERNAL = "Internal"
     MIRRORED = "Mirrored"
+
+
+@pulumi.type_token("azure-native:azurestackhci:OSOperationType")
+class OSOperationType(_builtins.str, Enum):
+    """
+    Operation sub type of OS Provisioning
+    """
+    PROVISION = "Provision"
+    """
+    OS Provisioning operation
+    """
+    UPDATE = "Update"
+    """
+    OS Update operation
+    """
+    RE_IMAGE = "ReImage"
+    """
+    OS ReImage operation
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:OnboardingResourceType")
+class OnboardingResourceType(_builtins.str, Enum):
+    """
+    Type of the onboarding resource to support polymorphic resource.
+    """
+    HYBRID_COMPUTE_MACHINE = "HybridComputeMachine"
+    """
+    Hybrid Compute Machine.
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:OperatingSystemTypes")
@@ -314,6 +497,17 @@ class OsTypeEnum(_builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:azurestackhci:OwnerKeyType")
+class OwnerKeyType(_builtins.str, Enum):
+    """
+    Owner key type
+    """
+    MICROSOFT_MANAGED = "MicrosoftManaged"
+    """
+    Owner is Microsoft managed key
+    """
+
+
 @pulumi.type_token("azure-native:azurestackhci:ProvisioningAction")
 class ProvisioningAction(_builtins.str, Enum):
     """
@@ -330,6 +524,36 @@ class ProvisioningAction(_builtins.str, Enum):
     REPAIR = "repair"
     """
     Repair guest agent
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:ProvisioningOsType")
+class ProvisioningOsType(_builtins.str, Enum):
+    """
+    Target operating system to support polymorphic resource.
+    """
+    AZURE_LINUX = "AzureLinux"
+    """
+    AzureLinux OS.
+    """
+    HCI = "HCI"
+    """
+    HCI OS.
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:PublicIPAddressType")
+class PublicIPAddressType(_builtins.str, Enum):
+    """
+    Whether the public IP is v4 or v6. Defaults to IPv4
+    """
+    I_PV4 = "IPv4"
+    """
+    IPv4 IP Address
+    """
+    I_PV6 = "IPv6"
+    """
+    IPv6 IP Address
     """
 
 
@@ -359,11 +583,11 @@ class RemoteSupportType(_builtins.str, Enum):
     """
     ENABLE = "Enable"
     """
-    Enables remote support for the edge device.
+    Enable remote support for the cluster.
     """
     REVOKE = "Revoke"
     """
-    Revokes previously granted remote support access for the edge device.
+    Revoke previously enabled remote support for the cluster.
     """
 
 
@@ -373,6 +597,21 @@ class ResourceIdentityType(_builtins.str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+@pulumi.type_token("azure-native:azurestackhci:SecretType")
+class SecretType(_builtins.str, Enum):
+    """
+    Type of the secret used for authentication.
+    """
+    KEY_VAULT = "KeyVault"
+    """
+    Key Vault based authentication
+    """
+    SSH_PUB_KEY = "SshPubKey"
+    """
+    SSH Public Key based authentication
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:SecurityEncryptionType")

@@ -25,6 +25,11 @@ export type ApiGatewayConfigConnection = import("./apiGatewayConfigConnection").
 export const ApiGatewayConfigConnection: typeof import("./apiGatewayConfigConnection").ApiGatewayConfigConnection = null as any;
 utilities.lazyLoad(exports, ["ApiGatewayConfigConnection"], () => require("./apiGatewayConfigConnection"));
 
+export { ApiGatewayHostnameBindingArgs } from "./apiGatewayHostnameBinding";
+export type ApiGatewayHostnameBinding = import("./apiGatewayHostnameBinding").ApiGatewayHostnameBinding;
+export const ApiGatewayHostnameBinding: typeof import("./apiGatewayHostnameBinding").ApiGatewayHostnameBinding = null as any;
+utilities.lazyLoad(exports, ["ApiGatewayHostnameBinding"], () => require("./apiGatewayHostnameBinding"));
+
 export { ApiIssueArgs } from "./apiIssue";
 export type ApiIssue = import("./apiIssue").ApiIssue;
 export const ApiIssue: typeof import("./apiIssue").ApiIssue = null as any;
@@ -74,6 +79,11 @@ export { ApiTagDescriptionArgs } from "./apiTagDescription";
 export type ApiTagDescription = import("./apiTagDescription").ApiTagDescription;
 export const ApiTagDescription: typeof import("./apiTagDescription").ApiTagDescription = null as any;
 utilities.lazyLoad(exports, ["ApiTagDescription"], () => require("./apiTagDescription"));
+
+export { ApiToolArgs } from "./apiTool";
+export type ApiTool = import("./apiTool").ApiTool;
+export const ApiTool: typeof import("./apiTool").ApiTool = null as any;
+utilities.lazyLoad(exports, ["ApiTool"], () => require("./apiTool"));
 
 export { ApiVersionSetArgs } from "./apiVersionSet";
 export type ApiVersionSet = import("./apiVersionSet").ApiVersionSet;
@@ -195,6 +205,11 @@ export const getApiGatewayConfigConnection: typeof import("./getApiGatewayConfig
 export const getApiGatewayConfigConnectionOutput: typeof import("./getApiGatewayConfigConnection").getApiGatewayConfigConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getApiGatewayConfigConnection","getApiGatewayConfigConnectionOutput"], () => require("./getApiGatewayConfigConnection"));
 
+export { GetApiGatewayHostnameBindingArgs, GetApiGatewayHostnameBindingResult, GetApiGatewayHostnameBindingOutputArgs } from "./getApiGatewayHostnameBinding";
+export const getApiGatewayHostnameBinding: typeof import("./getApiGatewayHostnameBinding").getApiGatewayHostnameBinding = null as any;
+export const getApiGatewayHostnameBindingOutput: typeof import("./getApiGatewayHostnameBinding").getApiGatewayHostnameBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getApiGatewayHostnameBinding","getApiGatewayHostnameBindingOutput"], () => require("./getApiGatewayHostnameBinding"));
+
 export { GetApiIssueArgs, GetApiIssueResult, GetApiIssueOutputArgs } from "./getApiIssue";
 export const getApiIssue: typeof import("./getApiIssue").getApiIssue = null as any;
 export const getApiIssueOutput: typeof import("./getApiIssue").getApiIssueOutput = null as any;
@@ -254,6 +269,11 @@ export { GetApiTagDescriptionArgs, GetApiTagDescriptionResult, GetApiTagDescript
 export const getApiTagDescription: typeof import("./getApiTagDescription").getApiTagDescription = null as any;
 export const getApiTagDescriptionOutput: typeof import("./getApiTagDescription").getApiTagDescriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getApiTagDescription","getApiTagDescriptionOutput"], () => require("./getApiTagDescription"));
+
+export { GetApiToolArgs, GetApiToolResult, GetApiToolOutputArgs } from "./getApiTool";
+export const getApiTool: typeof import("./getApiTool").getApiTool = null as any;
+export const getApiToolOutput: typeof import("./getApiTool").getApiToolOutput = null as any;
+utilities.lazyLoad(exports, ["getApiTool","getApiToolOutput"], () => require("./getApiTool"));
 
 export { GetApiVersionSetArgs, GetApiVersionSetResult, GetApiVersionSetOutputArgs } from "./getApiVersionSet";
 export const getApiVersionSet: typeof import("./getApiVersionSet").getApiVersionSet = null as any;
@@ -1026,6 +1046,8 @@ const _module = {
                 return new ApiGateway(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiGatewayConfigConnection":
                 return new ApiGatewayConfigConnection(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ApiGatewayHostnameBinding":
+                return new ApiGatewayHostnameBinding(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssue":
                 return new ApiIssue(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssueAttachment":
@@ -1046,6 +1068,8 @@ const _module = {
                 return new ApiSchema(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiTagDescription":
                 return new ApiTagDescription(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ApiTool":
+                return new ApiTool(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiVersionSet":
                 return new ApiVersionSet(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiWiki":

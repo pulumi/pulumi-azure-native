@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Logs data type.
         /// </summary>
-        public readonly Outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs? Logs;
+        public readonly Outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs Logs;
 
         [OutputConstructor]
-        private AwsCloudTrailDataConnectorDataTypesResponse(Outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs? logs)
+        private AwsCloudTrailDataConnectorDataTypesResponse(Outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs logs)
         {
             Logs = logs;
         }

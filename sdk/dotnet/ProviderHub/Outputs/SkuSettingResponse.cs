@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The capacity.
         /// </summary>
-        public readonly Outputs.SkuSettingResponseCapacity? Capacity;
+        public readonly Outputs.SkuSettingCapacityResponse? Capacity;
         /// <summary>
         /// The costs.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         private SkuSettingResponse(
             ImmutableArray<Outputs.SkuCapabilityResponse> capabilities,
 
-            Outputs.SkuSettingResponseCapacity? capacity,
+            Outputs.SkuSettingCapacityResponse? capacity,
 
             ImmutableArray<Outputs.SkuCostResponse> costs,
 

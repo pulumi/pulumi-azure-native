@@ -16,6 +16,7 @@ package gen
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -27,6 +28,44 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
+
+// extractNumericSuffix extracts the numeric suffix from a string.
+// Returns the suffix as an integer
+func extractNumericSuffix(s string) (int, string) {
+	// Find where the numeric suffix starts
+	i := len(s)
+	for i > 0 && s[i-1] >= '0' && s[i-1] <= '9' {
+		i--
+	}
+
+	if i == len(s) {
+		// No numeric suffix found
+		return 0, s
+	}
+
+	// convert the suffix to an integer
+	suffix := s[i:]
+	rest := s[:i]
+	if numericSuffix, err := strconv.Atoi(suffix); err == nil {
+		return numericSuffix, rest
+	}
+	return 0, s
+}
+
+func (m *moduleGenerator) disambiguateTypeToken(token string) (string, error) {
+	// while the token is taken, keep trying to disambiguate by adding a numeric suffix
+	numericSuffix, original := extractNumericSuffix(token)
+	for true {
+		newToken := fmt.Sprintf("%sV%d", original, numericSuffix+1)
+		if _, seen := m.pkg.Types[newToken]; !seen {
+			// newToken hasn't been used yet
+			return newToken, nil
+		}
+		numericSuffix++
+	}
+
+	return token, nil
+}
 
 func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
@@ -130,12 +169,19 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			}
 
 			if existing, has := m.pkg.Types[tok]; has {
-				merged, err := mergeTypes(spec, existing, isOutput)
-				if err != nil {
-					return nil, fmt.Errorf("incompatible type %q for resource %q (%q): %w", tok, m.resourceName,
-						m.resourceToken, err)
+				if merged, err := mergeTypes(spec, existing, isOutput); err == nil {
+					// types were merged, continue with the merged type
+					spec = *merged
+				} else {
+					// if we are unable to merge types, rename the token to avoid collision
+					// for example if the type token is module:ResponseType and a type of that token
+					// already exists, then we should try to rename it with a numeric suffix
+					// so that it becomes module:ResponseTypeV1, module:ResponseTypeV2, etc.
+					tok, err = m.disambiguateTypeToken(tok)
+					if err != nil {
+						return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
+					}
 				}
-				spec = *merged
 			}
 
 			m.pkg.Types[tok] = spec

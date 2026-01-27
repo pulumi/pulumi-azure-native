@@ -15,16 +15,6 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
-export { ClusterPoolArgs } from "./clusterPool";
-export type ClusterPool = import("./clusterPool").ClusterPool;
-export const ClusterPool: typeof import("./clusterPool").ClusterPool = null as any;
-utilities.lazyLoad(exports, ["ClusterPool"], () => require("./clusterPool"));
-
-export { ClusterPoolClusterArgs } from "./clusterPoolCluster";
-export type ClusterPoolCluster = import("./clusterPoolCluster").ClusterPoolCluster;
-export const ClusterPoolCluster: typeof import("./clusterPoolCluster").ClusterPoolCluster = null as any;
-utilities.lazyLoad(exports, ["ClusterPoolCluster"], () => require("./clusterPoolCluster"));
-
 export { ExtensionArgs } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
@@ -59,16 +49,6 @@ export { GetClusterGatewaySettingsArgs, GetClusterGatewaySettingsResult, GetClus
 export const getClusterGatewaySettings: typeof import("./getClusterGatewaySettings").getClusterGatewaySettings = null as any;
 export const getClusterGatewaySettingsOutput: typeof import("./getClusterGatewaySettings").getClusterGatewaySettingsOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterGatewaySettings","getClusterGatewaySettingsOutput"], () => require("./getClusterGatewaySettings"));
-
-export { GetClusterPoolArgs, GetClusterPoolResult, GetClusterPoolOutputArgs } from "./getClusterPool";
-export const getClusterPool: typeof import("./getClusterPool").getClusterPool = null as any;
-export const getClusterPoolOutput: typeof import("./getClusterPool").getClusterPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getClusterPool","getClusterPoolOutput"], () => require("./getClusterPool"));
-
-export { GetClusterPoolClusterArgs, GetClusterPoolClusterResult, GetClusterPoolClusterOutputArgs } from "./getClusterPoolCluster";
-export const getClusterPoolCluster: typeof import("./getClusterPoolCluster").getClusterPoolCluster = null as any;
-export const getClusterPoolClusterOutput: typeof import("./getClusterPoolCluster").getClusterPoolClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getClusterPoolCluster","getClusterPoolClusterOutput"], () => require("./getClusterPoolCluster"));
 
 export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
@@ -112,10 +92,6 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "azure-native:hdinsight:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-native:hdinsight:ClusterPool":
-                return new ClusterPool(name, <any>undefined, { urn })
-            case "azure-native:hdinsight:ClusterPoolCluster":
-                return new ClusterPoolCluster(name, <any>undefined, { urn })
             case "azure-native:hdinsight:Extension":
                 return new Extension(name, <any>undefined, { urn })
             case "azure-native:hdinsight:ExtensionAzureMonitorAgentStatus":

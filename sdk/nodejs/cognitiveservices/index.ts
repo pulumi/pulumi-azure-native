@@ -20,6 +20,16 @@ export type AccountConnection = import("./accountConnection").AccountConnection;
 export const AccountConnection: typeof import("./accountConnection").AccountConnection = null as any;
 utilities.lazyLoad(exports, ["AccountConnection"], () => require("./accountConnection"));
 
+export { AgentApplicationArgs } from "./agentApplication";
+export type AgentApplication = import("./agentApplication").AgentApplication;
+export const AgentApplication: typeof import("./agentApplication").AgentApplication = null as any;
+utilities.lazyLoad(exports, ["AgentApplication"], () => require("./agentApplication"));
+
+export { AgentDeploymentArgs } from "./agentDeployment";
+export type AgentDeployment = import("./agentDeployment").AgentDeployment;
+export const AgentDeployment: typeof import("./agentDeployment").AgentDeployment = null as any;
+utilities.lazyLoad(exports, ["AgentDeployment"], () => require("./agentDeployment"));
+
 export { CommitmentPlanArgs } from "./commitmentPlan";
 export type CommitmentPlan = import("./commitmentPlan").CommitmentPlan;
 export const CommitmentPlan: typeof import("./commitmentPlan").CommitmentPlan = null as any;
@@ -55,6 +65,16 @@ export const getAccountConnection: typeof import("./getAccountConnection").getAc
 export const getAccountConnectionOutput: typeof import("./getAccountConnection").getAccountConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getAccountConnection","getAccountConnectionOutput"], () => require("./getAccountConnection"));
 
+export { GetAgentApplicationArgs, GetAgentApplicationResult, GetAgentApplicationOutputArgs } from "./getAgentApplication";
+export const getAgentApplication: typeof import("./getAgentApplication").getAgentApplication = null as any;
+export const getAgentApplicationOutput: typeof import("./getAgentApplication").getAgentApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentApplication","getAgentApplicationOutput"], () => require("./getAgentApplication"));
+
+export { GetAgentDeploymentArgs, GetAgentDeploymentResult, GetAgentDeploymentOutputArgs } from "./getAgentDeployment";
+export const getAgentDeployment: typeof import("./getAgentDeployment").getAgentDeployment = null as any;
+export const getAgentDeploymentOutput: typeof import("./getAgentDeployment").getAgentDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentDeployment","getAgentDeploymentOutput"], () => require("./getAgentDeployment"));
+
 export { GetCommitmentPlanArgs, GetCommitmentPlanResult, GetCommitmentPlanOutputArgs } from "./getCommitmentPlan";
 export const getCommitmentPlan: typeof import("./getCommitmentPlan").getCommitmentPlan = null as any;
 export const getCommitmentPlanOutput: typeof import("./getCommitmentPlan").getCommitmentPlanOutput = null as any;
@@ -74,6 +94,11 @@ export { GetEncryptionScopeArgs, GetEncryptionScopeResult, GetEncryptionScopeOut
 export const getEncryptionScope: typeof import("./getEncryptionScope").getEncryptionScope = null as any;
 export const getEncryptionScopeOutput: typeof import("./getEncryptionScope").getEncryptionScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getEncryptionScope","getEncryptionScopeOutput"], () => require("./getEncryptionScope"));
+
+export { GetOutboundRuleArgs, GetOutboundRuleResult, GetOutboundRuleOutputArgs } from "./getOutboundRule";
+export const getOutboundRule: typeof import("./getOutboundRule").getOutboundRule = null as any;
+export const getOutboundRuleOutput: typeof import("./getOutboundRule").getOutboundRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getOutboundRule","getOutboundRuleOutput"], () => require("./getOutboundRule"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
@@ -105,10 +130,20 @@ export const getRaiBlocklistItem: typeof import("./getRaiBlocklistItem").getRaiB
 export const getRaiBlocklistItemOutput: typeof import("./getRaiBlocklistItem").getRaiBlocklistItemOutput = null as any;
 utilities.lazyLoad(exports, ["getRaiBlocklistItem","getRaiBlocklistItemOutput"], () => require("./getRaiBlocklistItem"));
 
+export { GetRaiExternalSafetyProviderArgs, GetRaiExternalSafetyProviderResult, GetRaiExternalSafetyProviderOutputArgs } from "./getRaiExternalSafetyProvider";
+export const getRaiExternalSafetyProvider: typeof import("./getRaiExternalSafetyProvider").getRaiExternalSafetyProvider = null as any;
+export const getRaiExternalSafetyProviderOutput: typeof import("./getRaiExternalSafetyProvider").getRaiExternalSafetyProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getRaiExternalSafetyProvider","getRaiExternalSafetyProviderOutput"], () => require("./getRaiExternalSafetyProvider"));
+
 export { GetRaiPolicyArgs, GetRaiPolicyResult, GetRaiPolicyOutputArgs } from "./getRaiPolicy";
 export const getRaiPolicy: typeof import("./getRaiPolicy").getRaiPolicy = null as any;
 export const getRaiPolicyOutput: typeof import("./getRaiPolicy").getRaiPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getRaiPolicy","getRaiPolicyOutput"], () => require("./getRaiPolicy"));
+
+export { GetRaiToolLabelArgs, GetRaiToolLabelResult, GetRaiToolLabelOutputArgs } from "./getRaiToolLabel";
+export const getRaiToolLabel: typeof import("./getRaiToolLabel").getRaiToolLabel = null as any;
+export const getRaiToolLabelOutput: typeof import("./getRaiToolLabel").getRaiToolLabelOutput = null as any;
+utilities.lazyLoad(exports, ["getRaiToolLabel","getRaiToolLabelOutput"], () => require("./getRaiToolLabel"));
 
 export { GetRaiTopicArgs, GetRaiTopicResult, GetRaiTopicOutputArgs } from "./getRaiTopic";
 export const getRaiTopic: typeof import("./getRaiTopic").getRaiTopic = null as any;
@@ -120,10 +155,25 @@ export const getSharedCommitmentPlan: typeof import("./getSharedCommitmentPlan")
 export const getSharedCommitmentPlanOutput: typeof import("./getSharedCommitmentPlan").getSharedCommitmentPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getSharedCommitmentPlan","getSharedCommitmentPlanOutput"], () => require("./getSharedCommitmentPlan"));
 
+export { GetSubscriptionRaiPolicyArgs, GetSubscriptionRaiPolicyResult, GetSubscriptionRaiPolicyOutputArgs } from "./getSubscriptionRaiPolicy";
+export const getSubscriptionRaiPolicy: typeof import("./getSubscriptionRaiPolicy").getSubscriptionRaiPolicy = null as any;
+export const getSubscriptionRaiPolicyOutput: typeof import("./getSubscriptionRaiPolicy").getSubscriptionRaiPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionRaiPolicy","getSubscriptionRaiPolicyOutput"], () => require("./getSubscriptionRaiPolicy"));
+
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
+
+export { ListAgentApplicationAgentsArgs, ListAgentApplicationAgentsResult, ListAgentApplicationAgentsOutputArgs } from "./listAgentApplicationAgents";
+export const listAgentApplicationAgents: typeof import("./listAgentApplicationAgents").listAgentApplicationAgents = null as any;
+export const listAgentApplicationAgentsOutput: typeof import("./listAgentApplicationAgents").listAgentApplicationAgentsOutput = null as any;
+utilities.lazyLoad(exports, ["listAgentApplicationAgents","listAgentApplicationAgentsOutput"], () => require("./listAgentApplicationAgents"));
+
+export { OutboundRuleArgs } from "./outboundRule";
+export type OutboundRule = import("./outboundRule").OutboundRule;
+export const OutboundRule: typeof import("./outboundRule").OutboundRule = null as any;
+utilities.lazyLoad(exports, ["OutboundRule"], () => require("./outboundRule"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -155,10 +205,20 @@ export type RaiBlocklistItem = import("./raiBlocklistItem").RaiBlocklistItem;
 export const RaiBlocklistItem: typeof import("./raiBlocklistItem").RaiBlocklistItem = null as any;
 utilities.lazyLoad(exports, ["RaiBlocklistItem"], () => require("./raiBlocklistItem"));
 
+export { RaiExternalSafetyProviderArgs } from "./raiExternalSafetyProvider";
+export type RaiExternalSafetyProvider = import("./raiExternalSafetyProvider").RaiExternalSafetyProvider;
+export const RaiExternalSafetyProvider: typeof import("./raiExternalSafetyProvider").RaiExternalSafetyProvider = null as any;
+utilities.lazyLoad(exports, ["RaiExternalSafetyProvider"], () => require("./raiExternalSafetyProvider"));
+
 export { RaiPolicyArgs } from "./raiPolicy";
 export type RaiPolicy = import("./raiPolicy").RaiPolicy;
 export const RaiPolicy: typeof import("./raiPolicy").RaiPolicy = null as any;
 utilities.lazyLoad(exports, ["RaiPolicy"], () => require("./raiPolicy"));
+
+export { RaiToolLabelArgs } from "./raiToolLabel";
+export type RaiToolLabel = import("./raiToolLabel").RaiToolLabel;
+export const RaiToolLabel: typeof import("./raiToolLabel").RaiToolLabel = null as any;
+utilities.lazyLoad(exports, ["RaiToolLabel"], () => require("./raiToolLabel"));
 
 export { RaiTopicArgs } from "./raiTopic";
 export type RaiTopic = import("./raiTopic").RaiTopic;
@@ -169,6 +229,11 @@ export { SharedCommitmentPlanArgs } from "./sharedCommitmentPlan";
 export type SharedCommitmentPlan = import("./sharedCommitmentPlan").SharedCommitmentPlan;
 export const SharedCommitmentPlan: typeof import("./sharedCommitmentPlan").SharedCommitmentPlan = null as any;
 utilities.lazyLoad(exports, ["SharedCommitmentPlan"], () => require("./sharedCommitmentPlan"));
+
+export { SubscriptionRaiPolicyArgs } from "./subscriptionRaiPolicy";
+export type SubscriptionRaiPolicy = import("./subscriptionRaiPolicy").SubscriptionRaiPolicy;
+export const SubscriptionRaiPolicy: typeof import("./subscriptionRaiPolicy").SubscriptionRaiPolicy = null as any;
+utilities.lazyLoad(exports, ["SubscriptionRaiPolicy"], () => require("./subscriptionRaiPolicy"));
 
 
 // Export enums:
@@ -184,6 +249,10 @@ const _module = {
                 return new AccountCapabilityHost(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:AccountConnection":
                 return new AccountConnection(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:AgentApplication":
+                return new AgentApplication(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:AgentDeployment":
+                return new AgentDeployment(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:CommitmentPlan":
                 return new CommitmentPlan(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:CommitmentPlanAssociation":
@@ -192,6 +261,8 @@ const _module = {
                 return new Deployment(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:EncryptionScope":
                 return new EncryptionScope(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:OutboundRule":
+                return new OutboundRule(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:Project":
@@ -204,12 +275,18 @@ const _module = {
                 return new RaiBlocklist(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:RaiBlocklistItem":
                 return new RaiBlocklistItem(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:RaiExternalSafetyProvider":
+                return new RaiExternalSafetyProvider(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:RaiPolicy":
                 return new RaiPolicy(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:RaiToolLabel":
+                return new RaiToolLabel(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:RaiTopic":
                 return new RaiTopic(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:SharedCommitmentPlan":
                 return new SharedCommitmentPlan(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:SubscriptionRaiPolicy":
+                return new SubscriptionRaiPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'AzureMonitorWorkspaceIntegrationResponse',
+    'DashboardDefinitionPropertiesResponse',
     'EnterpriseConfigurationsResponse',
     'GrafanaConfigurationsResponse',
     'GrafanaIntegrationsResponse',
@@ -76,6 +77,59 @@ class AzureMonitorWorkspaceIntegrationResponse(dict):
         The resource Id of the connected Azure Monitor Workspace.
         """
         return pulumi.get(self, "azure_monitor_workspace_resource_id")
+
+
+@pulumi.output_type
+class DashboardDefinitionPropertiesResponse(dict):
+    """
+    Properties specific to the dashboard definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serializedData":
+            suggest = "serialized_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 serialized_data: Optional[_builtins.str] = None):
+        """
+        Properties specific to the dashboard definition.
+        :param _builtins.str provisioning_state: The provisioning state of the dashboard definition resource.
+        :param _builtins.str serialized_data: The dashboard definition data in JSON format.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if serialized_data is not None:
+            pulumi.set(__self__, "serialized_data", serialized_data)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the dashboard definition resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="serializedData")
+    def serialized_data(self) -> Optional[_builtins.str]:
+        """
+        The dashboard definition data in JSON format.
+        """
+        return pulumi.get(self, "serialized_data")
 
 
 @pulumi.output_type

@@ -27,7 +27,7 @@ class GetManagementGroupSubscriptionResult:
     """
     The details of subscription under management group.
     """
-    def __init__(__self__, azure_api_version=None, display_name=None, id=None, name=None, parent=None, state=None, tenant=None, type=None):
+    def __init__(__self__, azure_api_version=None, display_name=None, id=None, name=None, parent=None, state=None, system_data=None, tenant=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -46,6 +46,9 @@ class GetManagementGroupSubscriptionResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tenant and not isinstance(tenant, str):
             raise TypeError("Expected argument 'tenant' to be a str")
         pulumi.set(__self__, "tenant", tenant)
@@ -73,7 +76,7 @@ class GetManagementGroupSubscriptionResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -81,7 +84,7 @@ class GetManagementGroupSubscriptionResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -102,6 +105,14 @@ class GetManagementGroupSubscriptionResult:
         return pulumi.get(self, "state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tenant(self) -> Optional[_builtins.str]:
         """
@@ -113,7 +124,7 @@ class GetManagementGroupSubscriptionResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -130,12 +141,12 @@ class AwaitableGetManagementGroupSubscriptionResult(GetManagementGroupSubscripti
             name=self.name,
             parent=self.parent,
             state=self.state,
+            system_data=self.system_data,
             tenant=self.tenant,
             type=self.type)
 
 
 def get_management_group_subscription(group_id: Optional[_builtins.str] = None,
-                                      subscription_id: Optional[_builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupSubscriptionResult:
     """
     Retrieves details about given subscription which is associated with the management group.
@@ -146,11 +157,9 @@ def get_management_group_subscription(group_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str group_id: Management Group ID.
-    :param _builtins.str subscription_id: Subscription ID.
     """
     __args__ = dict()
     __args__['groupId'] = group_id
-    __args__['subscriptionId'] = subscription_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:management:getManagementGroupSubscription', __args__, opts=opts, typ=GetManagementGroupSubscriptionResult).value
 
@@ -161,10 +170,10 @@ def get_management_group_subscription(group_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         parent=pulumi.get(__ret__, 'parent'),
         state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tenant=pulumi.get(__ret__, 'tenant'),
         type=pulumi.get(__ret__, 'type'))
 def get_management_group_subscription_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                             subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupSubscriptionResult]:
     """
     Retrieves details about given subscription which is associated with the management group.
@@ -175,11 +184,9 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[_bu
 
 
     :param _builtins.str group_id: Management Group ID.
-    :param _builtins.str subscription_id: Subscription ID.
     """
     __args__ = dict()
     __args__['groupId'] = group_id
-    __args__['subscriptionId'] = subscription_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:management:getManagementGroupSubscription', __args__, opts=opts, typ=GetManagementGroupSubscriptionResult)
     return __ret__.apply(lambda __response__: GetManagementGroupSubscriptionResult(
@@ -189,5 +196,6 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[_bu
         name=pulumi.get(__response__, 'name'),
         parent=pulumi.get(__response__, 'parent'),
         state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tenant=pulumi.get(__response__, 'tenant'),
         type=pulumi.get(__response__, 'type')))

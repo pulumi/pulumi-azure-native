@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.CloudHealth.Outputs
     public sealed class EvaluationRuleResponse
     {
         /// <summary>
-        /// Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+        /// Degraded rule with static threshold.
         /// </summary>
         public readonly Outputs.ThresholdRuleResponse? DegradedRule;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CloudHealth.Outputs
         /// </summary>
         public readonly Outputs.DynamicDetectionRuleResponse? DynamicDetectionRule;
         /// <summary>
-        /// Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+        /// Unhealthy rule with static threshold.
         /// </summary>
         public readonly Outputs.ThresholdRuleResponse? UnhealthyRule;
 

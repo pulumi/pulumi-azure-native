@@ -11,6 +11,7 @@ from .api import *
 from .api_diagnostic import *
 from .api_gateway import *
 from .api_gateway_config_connection import *
+from .api_gateway_hostname_binding import *
 from .api_issue import *
 from .api_issue_attachment import *
 from .api_issue_comment import *
@@ -21,6 +22,7 @@ from .api_policy import *
 from .api_release import *
 from .api_schema import *
 from .api_tag_description import *
+from .api_tool import *
 from .api_version_set import *
 from .api_wiki import *
 from .authorization import *
@@ -45,6 +47,7 @@ from .get_api import *
 from .get_api_diagnostic import *
 from .get_api_gateway import *
 from .get_api_gateway_config_connection import *
+from .get_api_gateway_hostname_binding import *
 from .get_api_issue import *
 from .get_api_issue_attachment import *
 from .get_api_issue_comment import *
@@ -57,6 +60,7 @@ from .get_api_policy import *
 from .get_api_release import *
 from .get_api_schema import *
 from .get_api_tag_description import *
+from .get_api_tool import *
 from .get_api_version_set import *
 from .get_api_wiki import *
 from .get_authorization import *

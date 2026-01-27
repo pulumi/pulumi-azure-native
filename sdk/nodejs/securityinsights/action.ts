@@ -46,7 +46,7 @@ export class Action extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Etag of the action.
+     * ETag of the action.
      */
     declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**

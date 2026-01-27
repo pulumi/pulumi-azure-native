@@ -221,6 +221,8 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
 
+        Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'EndpointAccess']] default_access: This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
@@ -245,6 +247,8 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
 
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
+
+        Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GalleryInVMAccessControlProfileVersionArgs args: The arguments to use to populate this resource's properties.
@@ -309,7 +313,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
             __props__.__dict__["replication_status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20240303:GalleryInVMAccessControlProfileVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20240303:GalleryInVMAccessControlProfileVersion"), pulumi.Alias(type_="azure-native:compute/v20250303:GalleryInVMAccessControlProfileVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryInVMAccessControlProfileVersion, __self__).__init__(
             'azure-native:compute:GalleryInVMAccessControlProfileVersion',

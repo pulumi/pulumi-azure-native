@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// 
     /// Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
     /// 
-    /// Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource
@@ -188,6 +188,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220803:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230703:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240303:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20250303:GalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

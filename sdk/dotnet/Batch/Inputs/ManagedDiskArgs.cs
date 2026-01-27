@@ -18,6 +18,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("securityProfile")]
         public Input<Inputs.VMDiskSecurityProfileArgs>? SecurityProfile { get; set; }
 
+        /// <summary>
+        /// The storage account type for use in creating data disks or OS disk.
+        /// </summary>
         [Input("storageAccountType")]
         public Input<Pulumi.AzureNative.Batch.StorageAccountType>? StorageAccountType { get; set; }
 

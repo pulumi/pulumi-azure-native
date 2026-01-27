@@ -137,6 +137,7 @@ from .get_security_user_rule import *
 from .get_security_user_rule_collection import *
 from .get_service_endpoint_policy import *
 from .get_service_endpoint_policy_definition import *
+from .get_service_gateway import *
 from .get_static_cidr import *
 from .get_static_member import *
 from .get_subnet import *
@@ -150,6 +151,7 @@ from .get_virtual_hub_bgp_connection import *
 from .get_virtual_hub_ip_configuration import *
 from .get_virtual_hub_route_table_v2 import *
 from .get_virtual_network import *
+from .get_virtual_network_appliance import *
 from .get_virtual_network_gateway import *
 from .get_virtual_network_gateway_advertised_routes import *
 from .get_virtual_network_gateway_bgp_peer_status import *
@@ -254,6 +256,7 @@ from .security_user_rule import *
 from .security_user_rule_collection import *
 from .service_endpoint_policy import *
 from .service_endpoint_policy_definition import *
+from .service_gateway import *
 from .static_cidr import *
 from .static_member import *
 from .subnet import *
@@ -267,6 +270,7 @@ from .virtual_hub_bgp_connection import *
 from .virtual_hub_ip_configuration import *
 from .virtual_hub_route_table_v2 import *
 from .virtual_network import *
+from .virtual_network_appliance import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
 from .virtual_network_gateway_nat_rule import *

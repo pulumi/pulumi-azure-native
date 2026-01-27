@@ -80,6 +80,7 @@ class EntityInfoResponse(dict):
         :param _builtins.str inherited_permissions: The users specific permissions to this item.
         :param _builtins.int number_of_child_groups: Number of children is the number of Groups that are exactly one level underneath the current Group.
         :param _builtins.int number_of_children: Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
+        :param _builtins.int number_of_descendants: Number of Descendants
         :param 'EntityParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
         :param Sequence[_builtins.str] parent_display_name_chain: The parent display name chain from the root group to the immediate parent
         :param Sequence[_builtins.str] parent_name_chain: The parent name chain from the root group to the immediate parent
@@ -169,6 +170,9 @@ class EntityInfoResponse(dict):
     @_builtins.property
     @pulumi.getter(name="numberOfDescendants")
     def number_of_descendants(self) -> Optional[_builtins.int]:
+        """
+        Number of Descendants
+        """
         return pulumi.get(self, "number_of_descendants")
 
     @_builtins.property
@@ -358,7 +362,7 @@ class ManagementGroupDetailsResponse(dict):
                  path: Optional[Sequence['outputs.ManagementGroupPathElementResponse']] = None,
                  updated_by: Optional[_builtins.str] = None,
                  updated_time: Optional[_builtins.str] = None,
-                 version: Optional[_builtins.float] = None):
+                 version: Optional[_builtins.int] = None):
         """
         The details of a management group.
         :param Sequence[_builtins.str] management_group_ancestors: The ancestors of the management group.
@@ -367,7 +371,7 @@ class ManagementGroupDetailsResponse(dict):
         :param Sequence['ManagementGroupPathElementResponse'] path: The path from the root to the current group.
         :param _builtins.str updated_by: The identity of the principal or process that updated the object.
         :param _builtins.str updated_time: The date and time when this object was last updated.
-        :param _builtins.float version: The version number of the object.
+        :param _builtins.int version: The version number of the object.
         """
         if management_group_ancestors is not None:
             pulumi.set(__self__, "management_group_ancestors", management_group_ancestors)
@@ -434,7 +438,7 @@ class ManagementGroupDetailsResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[_builtins.float]:
+    def version(self) -> Optional[_builtins.int]:
         """
         The version number of the object.
         """

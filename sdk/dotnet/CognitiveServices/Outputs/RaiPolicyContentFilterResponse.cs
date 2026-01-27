@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class RaiPolicyContentFilterResponse
     {
         /// <summary>
+        /// The action types to apply to the content filters
+        /// </summary>
+        public readonly string? Action;
+        /// <summary>
         /// If blocking would occur.
         /// </summary>
         public readonly bool? Blocking;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
         [OutputConstructor]
         private RaiPolicyContentFilterResponse(
+            string? action,
+
             bool? blocking,
 
             bool? enabled,
@@ -49,6 +55,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             string? source)
         {
+            Action = action;
             Blocking = blocking;
             Enabled = enabled;
             Name = name;

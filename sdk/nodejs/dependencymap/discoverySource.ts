@@ -54,17 +54,9 @@ export class DiscoverySource extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * Provisioning state of Discovery Source resource.
+     * The resource-specific properties for this resource.
      */
-    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
-    /**
-     * Source ArmId of Discovery Source resource
-     */
-    declare public readonly sourceId: pulumi.Output<string>;
-    /**
-     * Source type of Discovery Source resource.
-     */
-    declare public readonly sourceType: pulumi.Output<string>;
+    declare public readonly properties: pulumi.Output<outputs.dependencymap.OffAzureDiscoverySourceResourcePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -95,31 +87,21 @@ export class DiscoverySource extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sourceId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sourceId'");
-            }
-            if (args?.sourceType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sourceType'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["mapName"] = args?.mapName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["sourceId"] = args?.sourceId;
             resourceInputs["sourceName"] = args?.sourceName;
-            resourceInputs["sourceType"] = args?.sourceType;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sourceId"] = undefined /*out*/;
-            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -144,21 +126,17 @@ export interface DiscoverySourceArgs {
      */
     mapName: pulumi.Input<string>;
     /**
+     * The resource-specific properties for this resource.
+     */
+    properties?: pulumi.Input<inputs.dependencymap.OffAzureDiscoverySourceResourcePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Source ArmId of Discovery Source resource
-     */
-    sourceId: pulumi.Input<string>;
-    /**
      * discovery source resource
      */
     sourceName?: pulumi.Input<string>;
-    /**
-     * Source type of Discovery Source resource.
-     */
-    sourceType: pulumi.Input<string | enums.dependencymap.SourceType>;
     /**
      * Resource tags.
      */

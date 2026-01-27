@@ -27,7 +27,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, azure_api_version=None, capacity_reservation_group_id=None, count=None, creation_data=None, current_orchestrator_version=None, e_tag=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_fips=None, enable_node_public_ip=None, enable_ultra_ssd=None, gateway_profile=None, gpu_instance_profile=None, gpu_profile=None, host_group_id=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, message_of_the_day=None, min_count=None, mode=None, name=None, network_profile=None, node_image_version=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_sku=None, os_type=None, pod_ip_allocation_mode=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_down_mode=None, scale_set_eviction_policy=None, scale_set_priority=None, security_profile=None, spot_max_price=None, status=None, tags=None, type=None, upgrade_settings=None, virtual_machine_nodes_status=None, virtual_machines_profile=None, vm_size=None, vnet_subnet_id=None, windows_profile=None, workload_runtime=None):
+    def __init__(__self__, availability_zones=None, azure_api_version=None, capacity_reservation_group_id=None, count=None, creation_data=None, current_orchestrator_version=None, e_tag=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_fips=None, enable_node_public_ip=None, enable_ultra_ssd=None, gateway_profile=None, gpu_instance_profile=None, gpu_profile=None, host_group_id=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, local_dns_profile=None, max_count=None, max_pods=None, message_of_the_day=None, min_count=None, mode=None, name=None, network_profile=None, node_image_version=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_sku=None, os_type=None, pod_ip_allocation_mode=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_down_mode=None, scale_set_eviction_policy=None, scale_set_priority=None, security_profile=None, spot_max_price=None, status=None, tags=None, type=None, upgrade_settings=None, virtual_machine_nodes_status=None, virtual_machines_profile=None, vm_size=None, vnet_subnet_id=None, windows_profile=None, workload_runtime=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -88,6 +88,9 @@ class GetAgentPoolResult:
         if linux_os_config and not isinstance(linux_os_config, dict):
             raise TypeError("Expected argument 'linux_os_config' to be a dict")
         pulumi.set(__self__, "linux_os_config", linux_os_config)
+        if local_dns_profile and not isinstance(local_dns_profile, dict):
+            raise TypeError("Expected argument 'local_dns_profile' to be a dict")
+        pulumi.set(__self__, "local_dns_profile", local_dns_profile)
         if max_count and not isinstance(max_count, int):
             raise TypeError("Expected argument 'max_count' to be a int")
         pulumi.set(__self__, "max_count", max_count)
@@ -249,7 +252,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="eTag")
     def e_tag(self) -> _builtins.str:
         """
-        Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+        Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal eTag convention.
         """
         return pulumi.get(self, "e_tag")
 
@@ -356,6 +359,14 @@ class GetAgentPoolResult:
         The OS configuration of Linux agent nodes.
         """
         return pulumi.get(self, "linux_os_config")
+
+    @_builtins.property
+    @pulumi.getter(name="localDNSProfile")
+    def local_dns_profile(self) -> Optional['outputs.LocalDNSProfileResponse']:
+        """
+        Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+        """
+        return pulumi.get(self, "local_dns_profile")
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
@@ -672,6 +683,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             kubelet_config=self.kubelet_config,
             kubelet_disk_type=self.kubelet_disk_type,
             linux_os_config=self.linux_os_config,
+            local_dns_profile=self.local_dns_profile,
             max_count=self.max_count,
             max_pods=self.max_pods,
             message_of_the_day=self.message_of_the_day,
@@ -717,9 +729,9 @@ def get_agent_pool(agent_pool_name: Optional[_builtins.str] = None,
     """
     Agent Pool.
 
-    Uses Azure REST API version 2025-08-01.
+    Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview, 2025-08-01, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str agent_pool_name: The name of the agent pool.
@@ -754,6 +766,7 @@ def get_agent_pool(agent_pool_name: Optional[_builtins.str] = None,
         kubelet_config=pulumi.get(__ret__, 'kubelet_config'),
         kubelet_disk_type=pulumi.get(__ret__, 'kubelet_disk_type'),
         linux_os_config=pulumi.get(__ret__, 'linux_os_config'),
+        local_dns_profile=pulumi.get(__ret__, 'local_dns_profile'),
         max_count=pulumi.get(__ret__, 'max_count'),
         max_pods=pulumi.get(__ret__, 'max_pods'),
         message_of_the_day=pulumi.get(__ret__, 'message_of_the_day'),
@@ -797,9 +810,9 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[_builtins.str]]
     """
     Agent Pool.
 
-    Uses Azure REST API version 2025-08-01.
+    Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview, 2025-08-01, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str agent_pool_name: The name of the agent pool.
@@ -833,6 +846,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[_builtins.str]]
         kubelet_config=pulumi.get(__response__, 'kubelet_config'),
         kubelet_disk_type=pulumi.get(__response__, 'kubelet_disk_type'),
         linux_os_config=pulumi.get(__response__, 'linux_os_config'),
+        local_dns_profile=pulumi.get(__response__, 'local_dns_profile'),
         max_count=pulumi.get(__response__, 'max_count'),
         max_pods=pulumi.get(__response__, 'max_pods'),
         message_of_the_day=pulumi.get(__response__, 'message_of_the_day'),

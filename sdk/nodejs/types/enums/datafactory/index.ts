@@ -404,6 +404,17 @@ export const HDInsightClusterAuthenticationType = {
  */
 export type HDInsightClusterAuthenticationType = (typeof HDInsightClusterAuthenticationType)[keyof typeof HDInsightClusterAuthenticationType];
 
+export const HDInsightOndemandClusterResourceGroupAuthenticationType = {
+    ServicePrincipalKey: "ServicePrincipalKey",
+    SystemAssignedManagedIdentity: "SystemAssignedManagedIdentity",
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
+} as const;
+
+/**
+ * HDInsight On-demand cluster resource group authentication type.
+ */
+export type HDInsightOndemandClusterResourceGroupAuthenticationType = (typeof HDInsightOndemandClusterResourceGroupAuthenticationType)[keyof typeof HDInsightOndemandClusterResourceGroupAuthenticationType];
+
 export const HiveAuthenticationType = {
     Anonymous: "Anonymous",
     Username: "Username",
@@ -564,6 +575,16 @@ export const MongoDbAuthenticationType = {
  * The authentication type to be used to connect to the MongoDB database.
  */
 export type MongoDbAuthenticationType = (typeof MongoDbAuthenticationType)[keyof typeof MongoDbAuthenticationType];
+
+export const NetezzaSecurityLevelType = {
+    PreferredUnSecured: "PreferredUnSecured",
+    OnlyUnSecured: "OnlyUnSecured",
+} as const;
+
+/**
+ * Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+ */
+export type NetezzaSecurityLevelType = (typeof NetezzaSecurityLevelType)[keyof typeof NetezzaSecurityLevelType];
 
 export const NotebookParameterType = {
     String: "string",

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStandbyVirtualMachinePoolResult> InvokeAsync(GetStandbyVirtualMachinePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());

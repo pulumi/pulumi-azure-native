@@ -20,6 +20,10 @@ __all__ = [
     'AdapterPropertyOverridesArgsDict',
     'ArcConnectivityPropertiesArgs',
     'ArcConnectivityPropertiesArgsDict',
+    'BackendAddressPoolPropertiesArgs',
+    'BackendAddressPoolPropertiesArgsDict',
+    'BackendAddressPoolArgs',
+    'BackendAddressPoolArgsDict',
     'ClusterDesiredPropertiesArgs',
     'ClusterDesiredPropertiesArgsDict',
     'DeploymentClusterArgs',
@@ -32,10 +36,26 @@ __all__ = [
     'DeploymentSecuritySettingsArgsDict',
     'DeviceConfigurationArgs',
     'DeviceConfigurationArgsDict',
+    'DownloadOsJobPropertiesArgs',
+    'DownloadOsJobPropertiesArgsDict',
+    'DownloadOsProfileArgs',
+    'DownloadOsProfileArgsDict',
+    'DownloadRequestArgs',
+    'DownloadRequestArgsDict',
     'EceDeploymentSecretsArgs',
     'EceDeploymentSecretsArgsDict',
+    'EdgeMachineCollectLogJobPropertiesArgs',
+    'EdgeMachineCollectLogJobPropertiesArgsDict',
+    'EdgeMachinePropertiesArgs',
+    'EdgeMachinePropertiesArgsDict',
+    'EdgeMachineRemoteSupportJobPropertiesArgs',
+    'EdgeMachineRemoteSupportJobPropertiesArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
+    'FrontendIPConfigurationPropertiesArgs',
+    'FrontendIPConfigurationPropertiesArgsDict',
+    'FrontendIPConfigurationArgs',
+    'FrontendIPConfigurationArgsDict',
     'GalleryImageIdentifierArgs',
     'GalleryImageIdentifierArgsDict',
     'GalleryImageVersionArgs',
@@ -52,6 +72,8 @@ __all__ = [
     'HostNetworkArgsDict',
     'HttpProxyConfigurationArgs',
     'HttpProxyConfigurationArgsDict',
+    'IPConfigurationArmReferenceArgs',
+    'IPConfigurationArmReferenceArgsDict',
     'IPConfigurationPropertiesArgs',
     'IPConfigurationPropertiesArgsDict',
     'IPConfigurationArgs',
@@ -62,20 +84,50 @@ __all__ = [
     'IdentityArgsDict',
     'ImageArmReferenceArgs',
     'ImageArmReferenceArgsDict',
+    'InboundNATRulePropertiesArgs',
+    'InboundNATRulePropertiesArgsDict',
+    'InboundNATRuleArgs',
+    'InboundNATRuleArgsDict',
     'InfrastructureNetworkArgs',
     'InfrastructureNetworkArgsDict',
     'IntentsArgs',
     'IntentsArgsDict',
     'InterfaceDNSSettingsArgs',
     'InterfaceDNSSettingsArgsDict',
+    'IpAddressRangeArgs',
+    'IpAddressRangeArgsDict',
     'IpPoolsArgs',
     'IpPoolsArgsDict',
+    'LoadBalancerBackendAddressPoolReferenceArgs',
+    'LoadBalancerBackendAddressPoolReferenceArgsDict',
+    'LoadBalancerBackendAddressPropertiesArgs',
+    'LoadBalancerBackendAddressPropertiesArgsDict',
+    'LoadBalancerBackendAddressArgs',
+    'LoadBalancerBackendAddressArgsDict',
+    'LoadBalancerFrontendIPConfigurationReferenceArgs',
+    'LoadBalancerFrontendIPConfigurationReferenceArgsDict',
+    'LoadBalancerProbeReferenceArgs',
+    'LoadBalancerProbeReferenceArgsDict',
+    'LoadBalancerPropertiesArgs',
+    'LoadBalancerPropertiesArgsDict',
+    'LoadBalancerRulePropertiesArgs',
+    'LoadBalancerRulePropertiesArgsDict',
+    'LoadBalancerRuleArgs',
+    'LoadBalancerRuleArgsDict',
     'LogicalNetworkArmReferenceArgs',
     'LogicalNetworkArmReferenceArgsDict',
     'LogicalNetworkPropertiesDhcpOptionsArgs',
     'LogicalNetworkPropertiesDhcpOptionsArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'NatGatewayArmReferenceArgs',
+    'NatGatewayArmReferenceArgsDict',
+    'NatGatewayPropertiesArgs',
+    'NatGatewayPropertiesArgsDict',
+    'NetworkAdapterArgs',
+    'NetworkAdapterArgsDict',
+    'NetworkConfigurationArgs',
+    'NetworkConfigurationArgsDict',
     'NetworkControllerArgs',
     'NetworkControllerArgsDict',
     'NetworkInterfaceArmReferenceArgs',
@@ -86,10 +138,30 @@ __all__ = [
     'NicDetailArgsDict',
     'ObservabilityArgs',
     'ObservabilityArgsDict',
+    'OnboardingConfigurationArgs',
+    'OnboardingConfigurationArgsDict',
     'OptionalServicesArgs',
     'OptionalServicesArgsDict',
+    'OsProvisionProfileArgs',
+    'OsProvisionProfileArgsDict',
+    'OwnershipVoucherDetailsArgs',
+    'OwnershipVoucherDetailsArgsDict',
     'PhysicalNodesArgs',
     'PhysicalNodesArgsDict',
+    'ProbePropertiesArgs',
+    'ProbePropertiesArgsDict',
+    'ProbeArgs',
+    'ProbeArgsDict',
+    'ProvisionOsJobPropertiesArgs',
+    'ProvisionOsJobPropertiesArgsDict',
+    'ProvisioningDetailsArgs',
+    'ProvisioningDetailsArgsDict',
+    'ProvisioningRequestArgs',
+    'ProvisioningRequestArgsDict',
+    'PublicIPAddressArmReferenceArgs',
+    'PublicIPAddressArmReferenceArgsDict',
+    'PublicIPAddressPropertiesArgs',
+    'PublicIPAddressPropertiesArgsDict',
     'QosPolicyOverridesArgs',
     'QosPolicyOverridesArgsDict',
     'RouteTableArgs',
@@ -110,6 +182,8 @@ __all__ = [
     'SdnIntegrationArgsDict',
     'ServiceConfigurationArgs',
     'ServiceConfigurationArgsDict',
+    'SiteDetailsArgs',
+    'SiteDetailsArgsDict',
     'SoftwareAssurancePropertiesArgs',
     'SoftwareAssurancePropertiesArgsDict',
     'SshConfigurationArgs',
@@ -120,6 +194,8 @@ __all__ = [
     'StepArgsDict',
     'StorageAdapterIPInfoArgs',
     'StorageAdapterIPInfoArgsDict',
+    'StorageConfigurationArgs',
+    'StorageConfigurationArgsDict',
     'StorageNetworksArgs',
     'StorageNetworksArgsDict',
     'StorageArgs',
@@ -128,8 +204,14 @@ __all__ = [
     'SubnetIpConfigurationReferenceArgsDict',
     'SubnetArgs',
     'SubnetArgsDict',
+    'TargetDeviceConfigurationArgs',
+    'TargetDeviceConfigurationArgsDict',
+    'TimeConfigurationArgs',
+    'TimeConfigurationArgsDict',
     'UpdatePrerequisiteArgs',
     'UpdatePrerequisiteArgsDict',
+    'UserDetailsArgs',
+    'UserDetailsArgsDict',
     'VMDiskSecurityProfileArgs',
     'VMDiskSecurityProfileArgsDict',
     'VirtualHardDiskArmReferenceArgs',
@@ -192,6 +274,8 @@ __all__ = [
     'VirtualMachinePropertiesUefiSettingsArgsDict',
     'VirtualMachinePropertiesWindowsConfigurationArgs',
     'VirtualMachinePropertiesWindowsConfigurationArgsDict',
+    'VirtualNetworkArmReferenceArgs',
+    'VirtualNetworkArmReferenceArgsDict',
     'VirtualNetworkPropertiesDhcpOptionsArgs',
     'VirtualNetworkPropertiesDhcpOptionsArgsDict',
     'VirtualNetworkPropertiesIpConfigurationReferencesArgs',
@@ -202,10 +286,14 @@ __all__ = [
     'VirtualNetworkPropertiesRoutesArgsDict',
     'VirtualNetworkPropertiesSubnetsArgs',
     'VirtualNetworkPropertiesSubnetsArgsDict',
+    'VirtualNetworkSubnetArmReferenceArgs',
+    'VirtualNetworkSubnetArmReferenceArgsDict',
+    'VirtualNetworkSubnetPropertiesArgs',
+    'VirtualNetworkSubnetPropertiesArgsDict',
     'VirtualSwitchConfigurationOverridesArgs',
     'VirtualSwitchConfigurationOverridesArgsDict',
-    'VmImageRepositoryCredentialsArgs',
-    'VmImageRepositoryCredentialsArgsDict',
+    'WebProxyConfigurationArgs',
+    'WebProxyConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -340,6 +428,136 @@ class ArcConnectivityPropertiesArgs:
     @service_configurations.setter
     def service_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]]]):
         pulumi.set(self, "service_configurations", value)
+
+
+if not MYPY:
+    class BackendAddressPoolPropertiesArgsDict(TypedDict):
+        """
+        Backend address pool for the load balancer.
+        """
+        load_balancer_backend_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgsDict']]]]
+        """
+        List of backend addresses for the backend pool
+        """
+        logical_network: NotRequired[pulumi.Input['LogicalNetworkArmReferenceArgsDict']]
+        """
+        Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        """
+        virtual_network: NotRequired[pulumi.Input['VirtualNetworkArmReferenceArgsDict']]
+        """
+        Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+elif False:
+    BackendAddressPoolPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackendAddressPoolPropertiesArgs:
+    def __init__(__self__, *,
+                 load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
+                 logical_network: Optional[pulumi.Input['LogicalNetworkArmReferenceArgs']] = None,
+                 virtual_network: Optional[pulumi.Input['VirtualNetworkArmReferenceArgs']] = None):
+        """
+        Backend address pool for the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: List of backend addresses for the backend pool
+        :param pulumi.Input['LogicalNetworkArmReferenceArgs'] logical_network: Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        :param pulumi.Input['VirtualNetworkArmReferenceArgs'] virtual_network: Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+        if load_balancer_backend_addresses is not None:
+            pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
+        if logical_network is not None:
+            pulumi.set(__self__, "logical_network", logical_network)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerBackendAddresses")
+    def load_balancer_backend_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]]:
+        """
+        List of backend addresses for the backend pool
+        """
+        return pulumi.get(self, "load_balancer_backend_addresses")
+
+    @load_balancer_backend_addresses.setter
+    def load_balancer_backend_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]]):
+        pulumi.set(self, "load_balancer_backend_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logicalNetwork")
+    def logical_network(self) -> Optional[pulumi.Input['LogicalNetworkArmReferenceArgs']]:
+        """
+        Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        """
+        return pulumi.get(self, "logical_network")
+
+    @logical_network.setter
+    def logical_network(self, value: Optional[pulumi.Input['LogicalNetworkArmReferenceArgs']]):
+        pulumi.set(self, "logical_network", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional[pulumi.Input['VirtualNetworkArmReferenceArgs']]:
+        """
+        Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @virtual_network.setter
+    def virtual_network(self, value: Optional[pulumi.Input['VirtualNetworkArmReferenceArgs']]):
+        pulumi.set(self, "virtual_network", value)
+
+
+if not MYPY:
+    class BackendAddressPoolArgsDict(TypedDict):
+        """
+        Backend address pool for the load balancer.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the backend pool.
+        """
+        properties: pulumi.Input['BackendAddressPoolPropertiesArgsDict']
+        """
+        properties for the backend pool
+        """
+elif False:
+    BackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackendAddressPoolArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['BackendAddressPoolPropertiesArgs']):
+        """
+        Backend address pool for the load balancer.
+        :param pulumi.Input[_builtins.str] name: name of the backend pool.
+        :param pulumi.Input['BackendAddressPoolPropertiesArgs'] properties: properties for the backend pool
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the backend pool.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BackendAddressPoolPropertiesArgs']:
+        """
+        properties for the backend pool
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['BackendAddressPoolPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 if not MYPY:
@@ -1158,6 +1376,293 @@ class DeviceConfigurationArgs:
 
 
 if not MYPY:
+    class DownloadOsJobPropertiesArgsDict(TypedDict):
+        """
+        Represents the properties of Download Os job.
+        """
+        download_request: pulumi.Input['DownloadRequestArgsDict']
+        """
+        Download OS request.
+        """
+        job_type: pulumi.Input[_builtins.str]
+        """
+        Job Type supported.
+        Expected value is 'DownloadOs'.
+        """
+        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+        """
+        Deployment mode to trigger job.
+        """
+elif False:
+    DownloadOsJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DownloadOsJobPropertiesArgs:
+    def __init__(__self__, *,
+                 download_request: pulumi.Input['DownloadRequestArgs'],
+                 job_type: pulumi.Input[_builtins.str],
+                 deployment_mode: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]] = None):
+        """
+        Represents the properties of Download Os job.
+        :param pulumi.Input['DownloadRequestArgs'] download_request: Download OS request.
+        :param pulumi.Input[_builtins.str] job_type: Job Type supported.
+               Expected value is 'DownloadOs'.
+        :param pulumi.Input[Union[_builtins.str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "download_request", download_request)
+        pulumi.set(__self__, "job_type", 'DownloadOs')
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="downloadRequest")
+    def download_request(self) -> pulumi.Input['DownloadRequestArgs']:
+        """
+        Download OS request.
+        """
+        return pulumi.get(self, "download_request")
+
+    @download_request.setter
+    def download_request(self, value: pulumi.Input['DownloadRequestArgs']):
+        pulumi.set(self, "download_request", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Job Type supported.
+        Expected value is 'DownloadOs'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+
+if not MYPY:
+    class DownloadOsProfileArgsDict(TypedDict):
+        """
+        Operating system profile.
+        """
+        gpg_pub_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        GPG Public Key used for package verification
+        """
+        image_hash: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Hash of the OS package downloaded
+        """
+        os_image_location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Location of the operating system image.
+        """
+        os_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the operating system.
+        """
+        os_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Type of the operating system.
+        """
+        os_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Version of the operating system.
+        """
+        vsr_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Validated Solution Recipe version to be used for the job
+        """
+elif False:
+    DownloadOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DownloadOsProfileArgs:
+    def __init__(__self__, *,
+                 gpg_pub_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 os_image_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 os_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 os_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 vsr_version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Operating system profile.
+        :param pulumi.Input[_builtins.str] gpg_pub_key: GPG Public Key used for package verification
+        :param pulumi.Input[_builtins.str] image_hash: Hash of the OS package downloaded
+        :param pulumi.Input[_builtins.str] os_image_location: Location of the operating system image.
+        :param pulumi.Input[_builtins.str] os_name: Name of the operating system.
+        :param pulumi.Input[_builtins.str] os_type: Type of the operating system.
+        :param pulumi.Input[_builtins.str] os_version: Version of the operating system.
+        :param pulumi.Input[_builtins.str] vsr_version: Validated Solution Recipe version to be used for the job
+        """
+        if gpg_pub_key is not None:
+            pulumi.set(__self__, "gpg_pub_key", gpg_pub_key)
+        if image_hash is not None:
+            pulumi.set(__self__, "image_hash", image_hash)
+        if os_image_location is not None:
+            pulumi.set(__self__, "os_image_location", os_image_location)
+        if os_name is not None:
+            pulumi.set(__self__, "os_name", os_name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if os_version is not None:
+            pulumi.set(__self__, "os_version", os_version)
+        if vsr_version is not None:
+            pulumi.set(__self__, "vsr_version", vsr_version)
+
+    @_builtins.property
+    @pulumi.getter(name="gpgPubKey")
+    def gpg_pub_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        GPG Public Key used for package verification
+        """
+        return pulumi.get(self, "gpg_pub_key")
+
+    @gpg_pub_key.setter
+    def gpg_pub_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gpg_pub_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageHash")
+    def image_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Hash of the OS package downloaded
+        """
+        return pulumi.get(self, "image_hash")
+
+    @image_hash.setter
+    def image_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "image_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osImageLocation")
+    def os_image_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Location of the operating system image.
+        """
+        return pulumi.get(self, "os_image_location")
+
+    @os_image_location.setter
+    def os_image_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_image_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the operating system.
+        """
+        return pulumi.get(self, "os_name")
+
+    @os_name.setter
+    def os_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Type of the operating system.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version of the operating system.
+        """
+        return pulumi.get(self, "os_version")
+
+    @os_version.setter
+    def os_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vsrVersion")
+    def vsr_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Validated Solution Recipe version to be used for the job
+        """
+        return pulumi.get(self, "vsr_version")
+
+    @vsr_version.setter
+    def vsr_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vsr_version", value)
+
+
+if not MYPY:
+    class DownloadRequestArgsDict(TypedDict):
+        """
+        Download Request properties
+        """
+        os_profile: pulumi.Input['DownloadOsProfileArgsDict']
+        """
+        Operating system profile.
+        """
+        target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]
+        """
+        Target operating system to support polymorphic resource.
+        """
+elif False:
+    DownloadRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DownloadRequestArgs:
+    def __init__(__self__, *,
+                 os_profile: pulumi.Input['DownloadOsProfileArgs'],
+                 target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]):
+        """
+        Download Request properties
+        :param pulumi.Input['DownloadOsProfileArgs'] os_profile: Operating system profile.
+        :param pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']] target: Target operating system to support polymorphic resource.
+        """
+        pulumi.set(__self__, "os_profile", os_profile)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> pulumi.Input['DownloadOsProfileArgs']:
+        """
+        Operating system profile.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @os_profile.setter
+    def os_profile(self, value: pulumi.Input['DownloadOsProfileArgs']):
+        pulumi.set(self, "os_profile", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]:
+        """
+        Target operating system to support polymorphic resource.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]):
+        pulumi.set(self, "target", value)
+
+
+if not MYPY:
     class EceDeploymentSecretsArgsDict(TypedDict):
         """
         Protected parameters list stored in keyvault.
@@ -1234,6 +1739,373 @@ class EceDeploymentSecretsArgs:
 
 
 if not MYPY:
+    class EdgeMachineCollectLogJobPropertiesArgsDict(TypedDict):
+        """
+        Properties for pausing a server in the cluster.
+        """
+        from_date: pulumi.Input[_builtins.str]
+        """
+        From date for log collection.
+        """
+        job_type: pulumi.Input[_builtins.str]
+        """
+        Job Type supported.
+        Expected value is 'CollectLog'.
+        """
+        to_date: pulumi.Input[_builtins.str]
+        """
+        To date for log collection.
+        """
+        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+        """
+        Deployment mode to trigger job.
+        """
+elif False:
+    EdgeMachineCollectLogJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EdgeMachineCollectLogJobPropertiesArgs:
+    def __init__(__self__, *,
+                 from_date: pulumi.Input[_builtins.str],
+                 job_type: pulumi.Input[_builtins.str],
+                 to_date: pulumi.Input[_builtins.str],
+                 deployment_mode: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]] = None):
+        """
+        Properties for pausing a server in the cluster.
+        :param pulumi.Input[_builtins.str] from_date: From date for log collection.
+        :param pulumi.Input[_builtins.str] job_type: Job Type supported.
+               Expected value is 'CollectLog'.
+        :param pulumi.Input[_builtins.str] to_date: To date for log collection.
+        :param pulumi.Input[Union[_builtins.str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "from_date", from_date)
+        pulumi.set(__self__, "job_type", 'CollectLog')
+        pulumi.set(__self__, "to_date", to_date)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="fromDate")
+    def from_date(self) -> pulumi.Input[_builtins.str]:
+        """
+        From date for log collection.
+        """
+        return pulumi.get(self, "from_date")
+
+    @from_date.setter
+    def from_date(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "from_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Job Type supported.
+        Expected value is 'CollectLog'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toDate")
+    def to_date(self) -> pulumi.Input[_builtins.str]:
+        """
+        To date for log collection.
+        """
+        return pulumi.get(self, "to_date")
+
+    @to_date.setter
+    def to_date(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "to_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+
+if not MYPY:
+    class EdgeMachinePropertiesArgsDict(TypedDict):
+        """
+        Properties for edge machine.
+        """
+        arc_gateway_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Link to Arc Gateway ARM resource Id
+        """
+        arc_machine_resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Optional property to create arc machine in custom resource group.
+        """
+        arc_machine_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Arc machine instance resource id.
+        """
+        edge_machine_kind: NotRequired[pulumi.Input[Union[_builtins.str, 'EdgeMachineKind']]]
+        """
+        Edge Machine type.
+        """
+        ownership_voucher_details: NotRequired[pulumi.Input['OwnershipVoucherDetailsArgsDict']]
+        """
+        Ownership voucher details for provisioned machine.
+        """
+        provisioning_details: NotRequired[pulumi.Input['ProvisioningDetailsArgsDict']]
+        """
+        Details for device provisioning.
+        """
+        site_details: NotRequired[pulumi.Input['SiteDetailsArgsDict']]
+        """
+        Service fetches common configuration from site.
+        """
+elif False:
+    EdgeMachinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EdgeMachinePropertiesArgs:
+    def __init__(__self__, *,
+                 arc_gateway_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_machine_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_machine_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 edge_machine_kind: Optional[pulumi.Input[Union[_builtins.str, 'EdgeMachineKind']]] = None,
+                 ownership_voucher_details: Optional[pulumi.Input['OwnershipVoucherDetailsArgs']] = None,
+                 provisioning_details: Optional[pulumi.Input['ProvisioningDetailsArgs']] = None,
+                 site_details: Optional[pulumi.Input['SiteDetailsArgs']] = None):
+        """
+        Properties for edge machine.
+        :param pulumi.Input[_builtins.str] arc_gateway_resource_id: Link to Arc Gateway ARM resource Id
+        :param pulumi.Input[_builtins.str] arc_machine_resource_group_id: Optional property to create arc machine in custom resource group.
+        :param pulumi.Input[_builtins.str] arc_machine_resource_id: Arc machine instance resource id.
+        :param pulumi.Input[Union[_builtins.str, 'EdgeMachineKind']] edge_machine_kind: Edge Machine type.
+        :param pulumi.Input['OwnershipVoucherDetailsArgs'] ownership_voucher_details: Ownership voucher details for provisioned machine.
+        :param pulumi.Input['ProvisioningDetailsArgs'] provisioning_details: Details for device provisioning.
+        :param pulumi.Input['SiteDetailsArgs'] site_details: Service fetches common configuration from site.
+        """
+        if arc_gateway_resource_id is not None:
+            pulumi.set(__self__, "arc_gateway_resource_id", arc_gateway_resource_id)
+        if arc_machine_resource_group_id is not None:
+            pulumi.set(__self__, "arc_machine_resource_group_id", arc_machine_resource_group_id)
+        if arc_machine_resource_id is not None:
+            pulumi.set(__self__, "arc_machine_resource_id", arc_machine_resource_id)
+        if edge_machine_kind is not None:
+            pulumi.set(__self__, "edge_machine_kind", edge_machine_kind)
+        if ownership_voucher_details is not None:
+            pulumi.set(__self__, "ownership_voucher_details", ownership_voucher_details)
+        if provisioning_details is not None:
+            pulumi.set(__self__, "provisioning_details", provisioning_details)
+        if site_details is not None:
+            pulumi.set(__self__, "site_details", site_details)
+
+    @_builtins.property
+    @pulumi.getter(name="arcGatewayResourceId")
+    def arc_gateway_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Link to Arc Gateway ARM resource Id
+        """
+        return pulumi.get(self, "arc_gateway_resource_id")
+
+    @arc_gateway_resource_id.setter
+    def arc_gateway_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arc_gateway_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="arcMachineResourceGroupId")
+    def arc_machine_resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Optional property to create arc machine in custom resource group.
+        """
+        return pulumi.get(self, "arc_machine_resource_group_id")
+
+    @arc_machine_resource_group_id.setter
+    def arc_machine_resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arc_machine_resource_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="arcMachineResourceId")
+    def arc_machine_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Arc machine instance resource id.
+        """
+        return pulumi.get(self, "arc_machine_resource_id")
+
+    @arc_machine_resource_id.setter
+    def arc_machine_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arc_machine_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeMachineKind")
+    def edge_machine_kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EdgeMachineKind']]]:
+        """
+        Edge Machine type.
+        """
+        return pulumi.get(self, "edge_machine_kind")
+
+    @edge_machine_kind.setter
+    def edge_machine_kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EdgeMachineKind']]]):
+        pulumi.set(self, "edge_machine_kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownershipVoucherDetails")
+    def ownership_voucher_details(self) -> Optional[pulumi.Input['OwnershipVoucherDetailsArgs']]:
+        """
+        Ownership voucher details for provisioned machine.
+        """
+        return pulumi.get(self, "ownership_voucher_details")
+
+    @ownership_voucher_details.setter
+    def ownership_voucher_details(self, value: Optional[pulumi.Input['OwnershipVoucherDetailsArgs']]):
+        pulumi.set(self, "ownership_voucher_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningDetails")
+    def provisioning_details(self) -> Optional[pulumi.Input['ProvisioningDetailsArgs']]:
+        """
+        Details for device provisioning.
+        """
+        return pulumi.get(self, "provisioning_details")
+
+    @provisioning_details.setter
+    def provisioning_details(self, value: Optional[pulumi.Input['ProvisioningDetailsArgs']]):
+        pulumi.set(self, "provisioning_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteDetails")
+    def site_details(self) -> Optional[pulumi.Input['SiteDetailsArgs']]:
+        """
+        Service fetches common configuration from site.
+        """
+        return pulumi.get(self, "site_details")
+
+    @site_details.setter
+    def site_details(self, value: Optional[pulumi.Input['SiteDetailsArgs']]):
+        pulumi.set(self, "site_details", value)
+
+
+if not MYPY:
+    class EdgeMachineRemoteSupportJobPropertiesArgsDict(TypedDict):
+        """
+        Properties for adding a server in the cluster.
+        """
+        access_level: pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']]
+        """
+        Remote support access level.
+        """
+        expiration_timestamp: pulumi.Input[_builtins.str]
+        """
+        Remote support expiration timestamp.
+        """
+        job_type: pulumi.Input[_builtins.str]
+        """
+        Job Type supported.
+        Expected value is 'RemoteSupport'.
+        """
+        type: pulumi.Input[Union[_builtins.str, 'RemoteSupportType']]
+        """
+        Remote support type.
+        """
+        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+        """
+        Deployment mode to trigger job.
+        """
+elif False:
+    EdgeMachineRemoteSupportJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EdgeMachineRemoteSupportJobPropertiesArgs:
+    def __init__(__self__, *,
+                 access_level: pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']],
+                 expiration_timestamp: pulumi.Input[_builtins.str],
+                 job_type: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[Union[_builtins.str, 'RemoteSupportType']],
+                 deployment_mode: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]] = None):
+        """
+        Properties for adding a server in the cluster.
+        :param pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']] access_level: Remote support access level.
+        :param pulumi.Input[_builtins.str] expiration_timestamp: Remote support expiration timestamp.
+        :param pulumi.Input[_builtins.str] job_type: Job Type supported.
+               Expected value is 'RemoteSupport'.
+        :param pulumi.Input[Union[_builtins.str, 'RemoteSupportType']] type: Remote support type.
+        :param pulumi.Input[Union[_builtins.str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "access_level", access_level)
+        pulumi.set(__self__, "expiration_timestamp", expiration_timestamp)
+        pulumi.set(__self__, "job_type", 'RemoteSupport')
+        pulumi.set(__self__, "type", type)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="accessLevel")
+    def access_level(self) -> pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']]:
+        """
+        Remote support access level.
+        """
+        return pulumi.get(self, "access_level")
+
+    @access_level.setter
+    def access_level(self, value: pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']]):
+        pulumi.set(self, "access_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expirationTimestamp")
+    def expiration_timestamp(self) -> pulumi.Input[_builtins.str]:
+        """
+        Remote support expiration timestamp.
+        """
+        return pulumi.get(self, "expiration_timestamp")
+
+    @expiration_timestamp.setter
+    def expiration_timestamp(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expiration_timestamp", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Job Type supported.
+        Expected value is 'RemoteSupport'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'RemoteSupportType']]:
+        """
+        Remote support type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'RemoteSupportType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+
+if not MYPY:
     class ExtendedLocationArgsDict(TypedDict):
         """
         The complex type of the extended location.
@@ -1287,6 +2159,156 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class FrontendIPConfigurationPropertiesArgsDict(TypedDict):
+        """
+        FrontendIP Configuration object for a load balancer.
+        """
+        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
+        """
+        privateIPAllocationMethod - set to Static for requesting a specific IP
+        """
+        public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]
+        """
+        Public IP 
+        """
+        subnet: NotRequired[pulumi.Input['VirtualNetworkSubnetArmReferenceArgsDict']]
+        """
+        subnet - the subnet from which to allocate the private IP
+        """
+elif False:
+    FrontendIPConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontendIPConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]] = None,
+                 public_ip_address: Optional[pulumi.Input['PublicIPAddressArmReferenceArgs']] = None,
+                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArmReferenceArgs']] = None):
+        """
+        FrontendIP Configuration object for a load balancer.
+        :param pulumi.Input[_builtins.str] private_ip_address: Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        :param pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']] private_ip_allocation_method: privateIPAllocationMethod - set to Static for requesting a specific IP
+        :param pulumi.Input['PublicIPAddressArmReferenceArgs'] public_ip_address: Public IP 
+        :param pulumi.Input['VirtualNetworkSubnetArmReferenceArgs'] subnet: subnet - the subnet from which to allocate the private IP
+        """
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]:
+        """
+        privateIPAllocationMethod - set to Static for requesting a specific IP
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @private_ip_allocation_method.setter
+    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]):
+        pulumi.set(self, "private_ip_allocation_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional[pulumi.Input['PublicIPAddressArmReferenceArgs']]:
+        """
+        Public IP 
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: Optional[pulumi.Input['PublicIPAddressArmReferenceArgs']]):
+        pulumi.set(self, "public_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArmReferenceArgs']]:
+        """
+        subnet - the subnet from which to allocate the private IP
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArmReferenceArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+if not MYPY:
+    class FrontendIPConfigurationArgsDict(TypedDict):
+        """
+        FrontendIP Configuration object for a load balancer.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name for the frontend IP configuration.
+        """
+        properties: pulumi.Input['FrontendIPConfigurationPropertiesArgsDict']
+        """
+        properties for this frontendIPConfiguration
+        """
+elif False:
+    FrontendIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontendIPConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['FrontendIPConfigurationPropertiesArgs']):
+        """
+        FrontendIP Configuration object for a load balancer.
+        :param pulumi.Input[_builtins.str] name: name for the frontend IP configuration.
+        :param pulumi.Input['FrontendIPConfigurationPropertiesArgs'] properties: properties for this frontendIPConfiguration
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name for the frontend IP configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['FrontendIPConfigurationPropertiesArgs']:
+        """
+        properties for this frontendIPConfiguration
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['FrontendIPConfigurationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 if not MYPY:
@@ -1898,6 +2920,42 @@ class HttpProxyConfigurationArgs:
 
 
 if not MYPY:
+    class IPConfigurationArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        """
+elif False:
+    IPConfigurationArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPConfigurationArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID of an IPConfiguration resource
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
     class IPConfigurationPropertiesArgsDict(TypedDict):
         """
         InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
@@ -2144,11 +3202,11 @@ class IdentityArgs:
 if not MYPY:
     class ImageArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Gallery Image.
+        The Azure Resource ID for a Gallery Image.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for an image resource used by the virtual machine instance.
         """
 elif False:
     ImageArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2158,8 +3216,8 @@ class ImageArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Gallery Image.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for a Gallery Image.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for an image resource used by the virtual machine instance.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2168,13 +3226,178 @@ class ImageArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for an image resource used by the virtual machine instance.
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class InboundNATRulePropertiesArgsDict(TypedDict):
+        """
+        Inbound nat rule properties
+        """
+        backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgsDict']
+        """
+        IP configuration for the target backend.
+        """
+        backend_port: pulumi.Input[_builtins.int]
+        """
+        backend Port for the inbound rule
+        """
+        frontend_port: pulumi.Input[_builtins.int]
+        """
+        Frontend Port for the inbound rule
+        """
+        protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]
+        """
+        Protocol for the NAT rule
+        """
+        public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgsDict']
+        """
+        Public IP Address for this NAT rule
+        """
+elif False:
+    InboundNATRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InboundNATRulePropertiesArgs:
+    def __init__(__self__, *,
+                 backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgs'],
+                 backend_port: pulumi.Input[_builtins.int],
+                 frontend_port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']],
+                 public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgs']):
+        """
+        Inbound nat rule properties
+        :param pulumi.Input['IPConfigurationArmReferenceArgs'] backend_ip_configuration: IP configuration for the target backend.
+        :param pulumi.Input[_builtins.int] backend_port: backend Port for the inbound rule
+        :param pulumi.Input[_builtins.int] frontend_port: Frontend Port for the inbound rule
+        :param pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']] protocol: Protocol for the NAT rule
+        :param pulumi.Input['PublicIPAddressArmReferenceArgs'] public_ip_address: Public IP Address for this NAT rule
+        """
+        pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @_builtins.property
+    @pulumi.getter(name="backendIPConfiguration")
+    def backend_ip_configuration(self) -> pulumi.Input['IPConfigurationArmReferenceArgs']:
+        """
+        IP configuration for the target backend.
+        """
+        return pulumi.get(self, "backend_ip_configuration")
+
+    @backend_ip_configuration.setter
+    def backend_ip_configuration(self, value: pulumi.Input['IPConfigurationArmReferenceArgs']):
+        pulumi.set(self, "backend_ip_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        backend Port for the inbound rule
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "backend_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Frontend Port for the inbound rule
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "frontend_port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]:
+        """
+        Protocol for the NAT rule
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> pulumi.Input['PublicIPAddressArmReferenceArgs']:
+        """
+        Public IP Address for this NAT rule
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: pulumi.Input['PublicIPAddressArmReferenceArgs']):
+        pulumi.set(self, "public_ip_address", value)
+
+
+if not MYPY:
+    class InboundNATRuleArgsDict(TypedDict):
+        """
+        Inbound nat rule properties
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the inbound nat rule
+        """
+        properties: pulumi.Input['InboundNATRulePropertiesArgsDict']
+        """
+        properties of the inbound nat rule
+        """
+elif False:
+    InboundNATRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InboundNATRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['InboundNATRulePropertiesArgs']):
+        """
+        Inbound nat rule properties
+        :param pulumi.Input[_builtins.str] name: name of the inbound nat rule
+        :param pulumi.Input['InboundNATRulePropertiesArgs'] properties: properties of the inbound nat rule
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the inbound nat rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['InboundNATRulePropertiesArgs']:
+        """
+        properties of the inbound nat rule
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['InboundNATRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 if not MYPY:
@@ -2532,6 +3755,60 @@ class InterfaceDNSSettingsArgs:
 
 
 if not MYPY:
+    class IpAddressRangeArgsDict(TypedDict):
+        """
+        IP address range configuration.
+        """
+        end_ip: pulumi.Input[_builtins.str]
+        """
+        End IP address.
+        """
+        start_ip: pulumi.Input[_builtins.str]
+        """
+        Start IP address.
+        """
+elif False:
+    IpAddressRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IpAddressRangeArgs:
+    def __init__(__self__, *,
+                 end_ip: pulumi.Input[_builtins.str],
+                 start_ip: pulumi.Input[_builtins.str]):
+        """
+        IP address range configuration.
+        :param pulumi.Input[_builtins.str] end_ip: End IP address.
+        :param pulumi.Input[_builtins.str] start_ip: Start IP address.
+        """
+        pulumi.set(__self__, "end_ip", end_ip)
+        pulumi.set(__self__, "start_ip", start_ip)
+
+    @_builtins.property
+    @pulumi.getter(name="endIp")
+    def end_ip(self) -> pulumi.Input[_builtins.str]:
+        """
+        End IP address.
+        """
+        return pulumi.get(self, "end_ip")
+
+    @end_ip.setter
+    def end_ip(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "end_ip", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startIp")
+    def start_ip(self) -> pulumi.Input[_builtins.str]:
+        """
+        Start IP address.
+        """
+        return pulumi.get(self, "start_ip")
+
+    @start_ip.setter
+    def start_ip(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "start_ip", value)
+
+
+if not MYPY:
     class IpPoolsArgsDict(TypedDict):
         """
         The dnsServers of a device.
@@ -2588,13 +3865,550 @@ class IpPoolsArgs:
 
 
 if not MYPY:
+    class LoadBalancerBackendAddressPoolReferenceArgsDict(TypedDict):
+        """
+        Reference to a LoadBalancer backend address pool reference
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the backend address pool
+        """
+elif False:
+    LoadBalancerBackendAddressPoolReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerBackendAddressPoolReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Reference to a LoadBalancer backend address pool reference
+        :param pulumi.Input[_builtins.str] name: name of the backend address pool
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the backend address pool
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class LoadBalancerBackendAddressPropertiesArgsDict(TypedDict):
+        """
+        LoadBalancer Backend Address properties
+        """
+        admin_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]
+        """
+        admin state - if set to false, the address is removed from the pool
+        """
+        network_interface_ip_configuration: NotRequired[pulumi.Input['IPConfigurationArmReferenceArgsDict']]
+        """
+        Nic Based backend-ip association
+        """
+elif False:
+    LoadBalancerBackendAddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerBackendAddressPropertiesArgs:
+    def __init__(__self__, *,
+                 admin_state: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]] = None,
+                 network_interface_ip_configuration: Optional[pulumi.Input['IPConfigurationArmReferenceArgs']] = None):
+        """
+        LoadBalancer Backend Address properties
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']] admin_state: admin state - if set to false, the address is removed from the pool
+        :param pulumi.Input['IPConfigurationArmReferenceArgs'] network_interface_ip_configuration: Nic Based backend-ip association
+        """
+        if admin_state is not None:
+            pulumi.set(__self__, "admin_state", admin_state)
+        if network_interface_ip_configuration is not None:
+            pulumi.set(__self__, "network_interface_ip_configuration", network_interface_ip_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]:
+        """
+        admin state - if set to false, the address is removed from the pool
+        """
+        return pulumi.get(self, "admin_state")
+
+    @admin_state.setter
+    def admin_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]):
+        pulumi.set(self, "admin_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceIPConfiguration")
+    def network_interface_ip_configuration(self) -> Optional[pulumi.Input['IPConfigurationArmReferenceArgs']]:
+        """
+        Nic Based backend-ip association
+        """
+        return pulumi.get(self, "network_interface_ip_configuration")
+
+    @network_interface_ip_configuration.setter
+    def network_interface_ip_configuration(self, value: Optional[pulumi.Input['IPConfigurationArmReferenceArgs']]):
+        pulumi.set(self, "network_interface_ip_configuration", value)
+
+
+if not MYPY:
+    class LoadBalancerBackendAddressArgsDict(TypedDict):
+        """
+        LoadBalancer Backend Address
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the backend address
+        """
+        properties: pulumi.Input['LoadBalancerBackendAddressPropertiesArgsDict']
+        """
+        backend address properties
+        """
+elif False:
+    LoadBalancerBackendAddressArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerBackendAddressArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['LoadBalancerBackendAddressPropertiesArgs']):
+        """
+        LoadBalancer Backend Address
+        :param pulumi.Input[_builtins.str] name: name of the backend address
+        :param pulumi.Input['LoadBalancerBackendAddressPropertiesArgs'] properties: backend address properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the backend address
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LoadBalancerBackendAddressPropertiesArgs']:
+        """
+        backend address properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LoadBalancerBackendAddressPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class LoadBalancerFrontendIPConfigurationReferenceArgsDict(TypedDict):
+        """
+        Reference to a LoadBalancer Frontend IPConfiguration
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the frontnedIPConfiguration
+        """
+elif False:
+    LoadBalancerFrontendIPConfigurationReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerFrontendIPConfigurationReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Reference to a LoadBalancer Frontend IPConfiguration
+        :param pulumi.Input[_builtins.str] name: name of the frontnedIPConfiguration
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the frontnedIPConfiguration
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class LoadBalancerProbeReferenceArgsDict(TypedDict):
+        """
+        Reference to a LoadBalancer health probe
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the health probe
+        """
+elif False:
+    LoadBalancerProbeReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerProbeReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Reference to a LoadBalancer health probe
+        :param pulumi.Input[_builtins.str] name: name of the health probe
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the health probe
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class LoadBalancerPropertiesArgsDict(TypedDict):
+        """
+        Load Balancer resource properties
+        """
+        frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgsDict']]]
+        """
+        Frontend IPs for the loadbalancer.
+        """
+        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgsDict']]]]
+        """
+        backendAddressPools for the loadbalancer
+        """
+        load_balancing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgsDict']]]]
+        """
+        load balancer rules
+        """
+        probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProbeArgsDict']]]]
+        """
+        load balancer health probes
+        """
+elif False:
+    LoadBalancerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerPropertiesArgs:
+    def __init__(__self__, *,
+                 frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]],
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]] = None):
+        """
+        Load Balancer resource properties
+        :param pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]] frontend_ip_configurations: Frontend IPs for the loadbalancer.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]] backend_address_pools: backendAddressPools for the loadbalancer
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]] load_balancing_rules: load balancer rules
+        :param pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]] probes: load balancer health probes
+        """
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if load_balancing_rules is not None:
+            pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]:
+        """
+        Frontend IPs for the loadbalancer.
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @frontend_ip_configurations.setter
+    def frontend_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]):
+        pulumi.set(self, "frontend_ip_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]]:
+        """
+        backendAddressPools for the loadbalancer
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @backend_address_pools.setter
+    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]]):
+        pulumi.set(self, "backend_address_pools", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancingRules")
+    def load_balancing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]]]:
+        """
+        load balancer rules
+        """
+        return pulumi.get(self, "load_balancing_rules")
+
+    @load_balancing_rules.setter
+    def load_balancing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]]]):
+        pulumi.set(self, "load_balancing_rules", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]]:
+        """
+        load balancer health probes
+        """
+        return pulumi.get(self, "probes")
+
+    @probes.setter
+    def probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]]):
+        pulumi.set(self, "probes", value)
+
+
+if not MYPY:
+    class LoadBalancerRulePropertiesArgsDict(TypedDict):
+        """
+        Properties for LoadBalancerRules
+        """
+        backend_address_pool: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgsDict']
+        """
+        arm reference to backend pool being used by ths pool
+        """
+        backend_port: pulumi.Input[_builtins.int]
+        """
+        backendPort to forward connections
+        """
+        frontend_ip_configuration: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgsDict']
+        """
+        arm reference to frontend IP being used by this LB
+        """
+        frontend_port: pulumi.Input[_builtins.int]
+        """
+        Frontend port to accept connections
+        """
+        protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]
+        """
+        IP Protocol that the rule must load-balance
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Time for which connections are preserved before being torn down.
+        """
+        load_distribution: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]
+        """
+        SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        """
+        probe: NotRequired[pulumi.Input['LoadBalancerProbeReferenceArgsDict']]
+        """
+        Reference for the health probe for this connection
+        """
+elif False:
+    LoadBalancerRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerRulePropertiesArgs:
+    def __init__(__self__, *,
+                 backend_address_pool: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs'],
+                 backend_port: pulumi.Input[_builtins.int],
+                 frontend_ip_configuration: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs'],
+                 frontend_port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']],
+                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 load_distribution: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]] = None,
+                 probe: Optional[pulumi.Input['LoadBalancerProbeReferenceArgs']] = None):
+        """
+        Properties for LoadBalancerRules
+        :param pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs'] backend_address_pool: arm reference to backend pool being used by ths pool
+        :param pulumi.Input[_builtins.int] backend_port: backendPort to forward connections
+        :param pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs'] frontend_ip_configuration: arm reference to frontend IP being used by this LB
+        :param pulumi.Input[_builtins.int] frontend_port: Frontend port to accept connections
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']] protocol: IP Protocol that the rule must load-balance
+        :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Time for which connections are preserved before being torn down.
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']] load_distribution: SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        :param pulumi.Input['LoadBalancerProbeReferenceArgs'] probe: Reference for the health probe for this connection
+        """
+        pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if load_distribution is None:
+            load_distribution = 'Default'
+        if load_distribution is not None:
+            pulumi.set(__self__, "load_distribution", load_distribution)
+        if probe is not None:
+            pulumi.set(__self__, "probe", probe)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']:
+        """
+        arm reference to backend pool being used by ths pool
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @backend_address_pool.setter
+    def backend_address_pool(self, value: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']):
+        pulumi.set(self, "backend_address_pool", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        backendPort to forward connections
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "backend_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIPConfiguration")
+    def frontend_ip_configuration(self) -> pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs']:
+        """
+        arm reference to frontend IP being used by this LB
+        """
+        return pulumi.get(self, "frontend_ip_configuration")
+
+    @frontend_ip_configuration.setter
+    def frontend_ip_configuration(self, value: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs']):
+        pulumi.set(self, "frontend_ip_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Frontend port to accept connections
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "frontend_port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]:
+        """
+        IP Protocol that the rule must load-balance
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time for which connections are preserved before being torn down.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadDistribution")
+    def load_distribution(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]:
+        """
+        SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        """
+        return pulumi.get(self, "load_distribution")
+
+    @load_distribution.setter
+    def load_distribution(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]):
+        pulumi.set(self, "load_distribution", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def probe(self) -> Optional[pulumi.Input['LoadBalancerProbeReferenceArgs']]:
+        """
+        Reference for the health probe for this connection
+        """
+        return pulumi.get(self, "probe")
+
+    @probe.setter
+    def probe(self, value: Optional[pulumi.Input['LoadBalancerProbeReferenceArgs']]):
+        pulumi.set(self, "probe", value)
+
+
+if not MYPY:
+    class LoadBalancerRuleArgsDict(TypedDict):
+        """
+        LoadBalancer Rules
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the load balancer rule
+        """
+        properties: pulumi.Input['LoadBalancerRulePropertiesArgsDict']
+        """
+        load balancer rule properties
+        """
+elif False:
+    LoadBalancerRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['LoadBalancerRulePropertiesArgs']):
+        """
+        LoadBalancer Rules
+        :param pulumi.Input[_builtins.str] name: name of the load balancer rule
+        :param pulumi.Input['LoadBalancerRulePropertiesArgs'] properties: load balancer rule properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the load balancer rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LoadBalancerRulePropertiesArgs']:
+        """
+        load balancer rule properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LoadBalancerRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
     class LogicalNetworkArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
         """
 elif False:
     LogicalNetworkArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2604,8 +4418,8 @@ class LogicalNetworkArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Logical Network.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Logical Network.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2614,7 +4428,7 @@ class LogicalNetworkArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
         """
         return pulumi.get(self, "id")
 
@@ -2715,6 +4529,329 @@ class ManagedServiceIdentityArgs:
 
 
 if not MYPY:
+    class NatGatewayArmReferenceArgsDict(TypedDict):
+        """
+        The ARM ID for a Network Security Group.
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARM ID for a Network Security Group.
+        """
+elif False:
+    NatGatewayArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatGatewayArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The ARM ID for a Network Security Group.
+        :param pulumi.Input[_builtins.str] resource_id: The ARM ID for a Network Security Group.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARM ID for a Network Security Group.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class NatGatewayPropertiesArgsDict(TypedDict):
+        """
+        Nat Gateway resource properties
+        """
+        inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgsDict']]]]
+        """
+        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        """
+        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]]]
+        """
+        List of public ip addresses that the gateway can use for NAT.
+        """
+elif False:
+    NatGatewayPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatGatewayPropertiesArgs:
+    def __init__(__self__, *,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]]] = None):
+        """
+        Nat Gateway resource properties
+        :param pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]] inbound_nat_rules: List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        :param pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]] public_ip_addresses: List of public ip addresses that the gateway can use for NAT.
+        """
+        if inbound_nat_rules is not None:
+            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundNATRules")
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]]]:
+        """
+        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @inbound_nat_rules.setter
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]]]):
+        pulumi.set(self, "inbound_nat_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]]]:
+        """
+        List of public ip addresses that the gateway can use for NAT.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @public_ip_addresses.setter
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]]]):
+        pulumi.set(self, "public_ip_addresses", value)
+
+
+if not MYPY:
+    class NetworkAdapterArgsDict(TypedDict):
+        """
+        Network adapter configuration.
+        """
+        ip_assignment_type: pulumi.Input[Union[_builtins.str, 'IpAssignmentType']]
+        """
+        Type of IP assignment.
+        """
+        adapter_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Adapter Name.
+        """
+        dns_address_array: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Array of DNS addresses.
+        """
+        gateway: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Gateway id.
+        """
+        ip_address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        IP address.
+        """
+        ip_address_range: NotRequired[pulumi.Input['IpAddressRangeArgsDict']]
+        """
+        IP address range.
+        """
+        mac_address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        MAC address.
+        """
+        subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Subnet mask.
+        """
+        vlan_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        VLAN ID for the network setup.
+        """
+elif False:
+    NetworkAdapterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkAdapterArgs:
+    def __init__(__self__, *,
+                 ip_assignment_type: pulumi.Input[Union[_builtins.str, 'IpAssignmentType']],
+                 adapter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_address_array: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_address_range: Optional[pulumi.Input['IpAddressRangeArgs']] = None,
+                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_mask: Optional[pulumi.Input[_builtins.str]] = None,
+                 vlan_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Network adapter configuration.
+        :param pulumi.Input[Union[_builtins.str, 'IpAssignmentType']] ip_assignment_type: Type of IP assignment.
+        :param pulumi.Input[_builtins.str] adapter_name: Adapter Name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_address_array: Array of DNS addresses.
+        :param pulumi.Input[_builtins.str] gateway: Gateway id.
+        :param pulumi.Input[_builtins.str] ip_address: IP address.
+        :param pulumi.Input['IpAddressRangeArgs'] ip_address_range: IP address range.
+        :param pulumi.Input[_builtins.str] mac_address: MAC address.
+        :param pulumi.Input[_builtins.str] subnet_mask: Subnet mask.
+        :param pulumi.Input[_builtins.str] vlan_id: VLAN ID for the network setup.
+        """
+        pulumi.set(__self__, "ip_assignment_type", ip_assignment_type)
+        if adapter_name is not None:
+            pulumi.set(__self__, "adapter_name", adapter_name)
+        if dns_address_array is not None:
+            pulumi.set(__self__, "dns_address_array", dns_address_array)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_address_range is not None:
+            pulumi.set(__self__, "ip_address_range", ip_address_range)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+        if subnet_mask is not None:
+            pulumi.set(__self__, "subnet_mask", subnet_mask)
+        if vlan_id is not None:
+            pulumi.set(__self__, "vlan_id", vlan_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAssignmentType")
+    def ip_assignment_type(self) -> pulumi.Input[Union[_builtins.str, 'IpAssignmentType']]:
+        """
+        Type of IP assignment.
+        """
+        return pulumi.get(self, "ip_assignment_type")
+
+    @ip_assignment_type.setter
+    def ip_assignment_type(self, value: pulumi.Input[Union[_builtins.str, 'IpAssignmentType']]):
+        pulumi.set(self, "ip_assignment_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adapterName")
+    def adapter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Adapter Name.
+        """
+        return pulumi.get(self, "adapter_name")
+
+    @adapter_name.setter
+    def adapter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "adapter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsAddressArray")
+    def dns_address_array(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Array of DNS addresses.
+        """
+        return pulumi.get(self, "dns_address_array")
+
+    @dns_address_array.setter
+    def dns_address_array(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "dns_address_array", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Gateway id.
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressRange")
+    def ip_address_range(self) -> Optional[pulumi.Input['IpAddressRangeArgs']]:
+        """
+        IP address range.
+        """
+        return pulumi.get(self, "ip_address_range")
+
+    @ip_address_range.setter
+    def ip_address_range(self, value: Optional[pulumi.Input['IpAddressRangeArgs']]):
+        pulumi.set(self, "ip_address_range", value)
+
+    @_builtins.property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        MAC address.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @mac_address.setter
+    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mac_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetMask")
+    def subnet_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Subnet mask.
+        """
+        return pulumi.get(self, "subnet_mask")
+
+    @subnet_mask.setter
+    def subnet_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_mask", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        VLAN ID for the network setup.
+        """
+        return pulumi.get(self, "vlan_id")
+
+    @vlan_id.setter
+    def vlan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vlan_id", value)
+
+
+if not MYPY:
+    class NetworkConfigurationArgsDict(TypedDict):
+        """
+        Network configuration.
+        """
+        network_adapters: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkAdapterArgsDict']]]]
+        """
+        List of network adapters.
+        """
+elif False:
+    NetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 network_adapters: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAdapterArgs']]]] = None):
+        """
+        Network configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAdapterArgs']]] network_adapters: List of network adapters.
+        """
+        if network_adapters is not None:
+            pulumi.set(__self__, "network_adapters", network_adapters)
+
+    @_builtins.property
+    @pulumi.getter(name="networkAdapters")
+    def network_adapters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAdapterArgs']]]]:
+        """
+        List of network adapters.
+        """
+        return pulumi.get(self, "network_adapters")
+
+    @network_adapters.setter
+    def network_adapters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAdapterArgs']]]]):
+        pulumi.set(self, "network_adapters", value)
+
+
+if not MYPY:
     class NetworkControllerArgsDict(TypedDict):
         """
         network controller config for SDN Integration to deploy AzureStackHCI Cluster.
@@ -2793,11 +4930,11 @@ class NetworkControllerArgs:
 if not MYPY:
     class NetworkInterfaceArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
 elif False:
     NetworkInterfaceArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2807,8 +4944,8 @@ class NetworkInterfaceArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Network Interface.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Network Interface.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2817,7 +4954,7 @@ class NetworkInterfaceArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         return pulumi.get(self, "id")
 
@@ -2829,11 +4966,11 @@ class NetworkInterfaceArmReferenceArgs:
 if not MYPY:
     class NetworkSecurityGroupArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
         """
 elif False:
     NetworkSecurityGroupArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2843,8 +4980,8 @@ class NetworkSecurityGroupArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Network Security Group.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Network Security Group.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2853,7 +4990,7 @@ class NetworkSecurityGroupArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
         """
         return pulumi.get(self, "id")
 
@@ -3141,6 +5278,122 @@ class ObservabilityArgs:
 
 
 if not MYPY:
+    class OnboardingConfigurationArgsDict(TypedDict):
+        """
+        Onboarding configuration.
+        """
+        arc_virtual_machine_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Azure Arc virtual machine ID.
+        """
+        location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Location of the resource.
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Resource ID.
+        """
+        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Tenant ID of the resource.
+        """
+        type: NotRequired[pulumi.Input[Union[_builtins.str, 'OnboardingResourceType']]]
+        """
+        Type of the onboarding resource to support polymorphic resource.
+        """
+elif False:
+    OnboardingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OnboardingConfigurationArgs:
+    def __init__(__self__, *,
+                 arc_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'OnboardingResourceType']]] = None):
+        """
+        Onboarding configuration.
+        :param pulumi.Input[_builtins.str] arc_virtual_machine_id: Azure Arc virtual machine ID.
+        :param pulumi.Input[_builtins.str] location: Location of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: Resource ID.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant ID of the resource.
+        :param pulumi.Input[Union[_builtins.str, 'OnboardingResourceType']] type: Type of the onboarding resource to support polymorphic resource.
+        """
+        if arc_virtual_machine_id is not None:
+            pulumi.set(__self__, "arc_virtual_machine_id", arc_virtual_machine_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="arcVirtualMachineId")
+    def arc_virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Azure Arc virtual machine ID.
+        """
+        return pulumi.get(self, "arc_virtual_machine_id")
+
+    @arc_virtual_machine_id.setter
+    def arc_virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arc_virtual_machine_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Tenant ID of the resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OnboardingResourceType']]]:
+        """
+        Type of the onboarding resource to support polymorphic resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OnboardingResourceType']]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class OptionalServicesArgsDict(TypedDict):
         """
         The OptionalServices of AzureStackHCI Cluster.
@@ -3174,6 +5427,238 @@ class OptionalServicesArgs:
     @custom_location.setter
     def custom_location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "custom_location", value)
+
+
+if not MYPY:
+    class OsProvisionProfileArgsDict(TypedDict):
+        """
+        Operating system profile.
+        """
+        gpg_pub_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        GPG Public Key used for package verification
+        """
+        image_hash: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Hash of the OS package downloaded
+        """
+        operation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSOperationType']]]
+        """
+        Operation sub type of OS Provisioning
+        """
+        os_image_location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Location of the operating system image.
+        """
+        os_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the operating system.
+        """
+        os_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Type of the operating system.
+        """
+        os_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Version of the operating system.
+        """
+        vsr_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Validated Solution Recipe version to be used for the job
+        """
+elif False:
+    OsProvisionProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OsProvisionProfileArgs:
+    def __init__(__self__, *,
+                 gpg_pub_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[_builtins.str, 'OSOperationType']]] = None,
+                 os_image_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 os_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 os_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 vsr_version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Operating system profile.
+        :param pulumi.Input[_builtins.str] gpg_pub_key: GPG Public Key used for package verification
+        :param pulumi.Input[_builtins.str] image_hash: Hash of the OS package downloaded
+        :param pulumi.Input[Union[_builtins.str, 'OSOperationType']] operation_type: Operation sub type of OS Provisioning
+        :param pulumi.Input[_builtins.str] os_image_location: Location of the operating system image.
+        :param pulumi.Input[_builtins.str] os_name: Name of the operating system.
+        :param pulumi.Input[_builtins.str] os_type: Type of the operating system.
+        :param pulumi.Input[_builtins.str] os_version: Version of the operating system.
+        :param pulumi.Input[_builtins.str] vsr_version: Validated Solution Recipe version to be used for the job
+        """
+        if gpg_pub_key is not None:
+            pulumi.set(__self__, "gpg_pub_key", gpg_pub_key)
+        if image_hash is not None:
+            pulumi.set(__self__, "image_hash", image_hash)
+        if operation_type is None:
+            operation_type = 'Provision'
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
+        if os_image_location is not None:
+            pulumi.set(__self__, "os_image_location", os_image_location)
+        if os_name is not None:
+            pulumi.set(__self__, "os_name", os_name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if os_version is not None:
+            pulumi.set(__self__, "os_version", os_version)
+        if vsr_version is not None:
+            pulumi.set(__self__, "vsr_version", vsr_version)
+
+    @_builtins.property
+    @pulumi.getter(name="gpgPubKey")
+    def gpg_pub_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        GPG Public Key used for package verification
+        """
+        return pulumi.get(self, "gpg_pub_key")
+
+    @gpg_pub_key.setter
+    def gpg_pub_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gpg_pub_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageHash")
+    def image_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Hash of the OS package downloaded
+        """
+        return pulumi.get(self, "image_hash")
+
+    @image_hash.setter
+    def image_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "image_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OSOperationType']]]:
+        """
+        Operation sub type of OS Provisioning
+        """
+        return pulumi.get(self, "operation_type")
+
+    @operation_type.setter
+    def operation_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OSOperationType']]]):
+        pulumi.set(self, "operation_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osImageLocation")
+    def os_image_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Location of the operating system image.
+        """
+        return pulumi.get(self, "os_image_location")
+
+    @os_image_location.setter
+    def os_image_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_image_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the operating system.
+        """
+        return pulumi.get(self, "os_name")
+
+    @os_name.setter
+    def os_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Type of the operating system.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version of the operating system.
+        """
+        return pulumi.get(self, "os_version")
+
+    @os_version.setter
+    def os_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vsrVersion")
+    def vsr_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Validated Solution Recipe version to be used for the job
+        """
+        return pulumi.get(self, "vsr_version")
+
+    @vsr_version.setter
+    def vsr_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vsr_version", value)
+
+
+if not MYPY:
+    class OwnershipVoucherDetailsArgsDict(TypedDict):
+        """
+        Details for ownership voucher.
+        """
+        owner_key_type: pulumi.Input[Union[_builtins.str, 'OwnerKeyType']]
+        """
+        Owner key type
+        """
+        ownership_voucher: pulumi.Input[_builtins.str]
+        """
+        Ownership voucher in base64 encoded format
+        """
+elif False:
+    OwnershipVoucherDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OwnershipVoucherDetailsArgs:
+    def __init__(__self__, *,
+                 owner_key_type: pulumi.Input[Union[_builtins.str, 'OwnerKeyType']],
+                 ownership_voucher: pulumi.Input[_builtins.str]):
+        """
+        Details for ownership voucher.
+        :param pulumi.Input[Union[_builtins.str, 'OwnerKeyType']] owner_key_type: Owner key type
+        :param pulumi.Input[_builtins.str] ownership_voucher: Ownership voucher in base64 encoded format
+        """
+        pulumi.set(__self__, "owner_key_type", owner_key_type)
+        pulumi.set(__self__, "ownership_voucher", ownership_voucher)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerKeyType")
+    def owner_key_type(self) -> pulumi.Input[Union[_builtins.str, 'OwnerKeyType']]:
+        """
+        Owner key type
+        """
+        return pulumi.get(self, "owner_key_type")
+
+    @owner_key_type.setter
+    def owner_key_type(self, value: pulumi.Input[Union[_builtins.str, 'OwnerKeyType']]):
+        pulumi.set(self, "owner_key_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownershipVoucher")
+    def ownership_voucher(self) -> pulumi.Input[_builtins.str]:
+        """
+        Ownership voucher in base64 encoded format
+        """
+        return pulumi.get(self, "ownership_voucher")
+
+    @ownership_voucher.setter
+    def ownership_voucher(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ownership_voucher", value)
 
 
 if not MYPY:
@@ -3230,6 +5715,556 @@ class PhysicalNodesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ProbePropertiesArgsDict(TypedDict):
+        """
+        properties for LoadBalancer health probes
+        """
+        port: pulumi.Input[_builtins.int]
+        """
+        Port on the backend address to probe
+        """
+        protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]
+        """
+        Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        """
+        interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Probe interval in seconds (5-300) default 15
+        """
+        number_of_probes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        number of consecutive probe failures before marking unhealthy (1-20) default 2
+        """
+        request_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        For http probes, specify the request path e.g. /health
+        """
+elif False:
+    ProbePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProbePropertiesArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']],
+                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 number_of_probes: Optional[pulumi.Input[_builtins.int]] = None,
+                 request_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        properties for LoadBalancer health probes
+        :param pulumi.Input[_builtins.int] port: Port on the backend address to probe
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']] protocol: Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        :param pulumi.Input[_builtins.int] interval_in_seconds: Probe interval in seconds (5-300) default 15
+        :param pulumi.Input[_builtins.int] number_of_probes: number of consecutive probe failures before marking unhealthy (1-20) default 2
+        :param pulumi.Input[_builtins.str] request_path: For http probes, specify the request path e.g. /health
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        if interval_in_seconds is None:
+            interval_in_seconds = 15
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if number_of_probes is None:
+            number_of_probes = 2
+        if number_of_probes is not None:
+            pulumi.set(__self__, "number_of_probes", number_of_probes)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Port on the backend address to probe
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]:
+        """
+        Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Probe interval in seconds (5-300) default 15
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfProbes")
+    def number_of_probes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        number of consecutive probe failures before marking unhealthy (1-20) default 2
+        """
+        return pulumi.get(self, "number_of_probes")
+
+    @number_of_probes.setter
+    def number_of_probes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "number_of_probes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For http probes, specify the request path e.g. /health
+        """
+        return pulumi.get(self, "request_path")
+
+    @request_path.setter
+    def request_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "request_path", value)
+
+
+if not MYPY:
+    class ProbeArgsDict(TypedDict):
+        """
+        Load balancer health probes
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the load balancer health probe
+        """
+        properties: pulumi.Input['ProbePropertiesArgsDict']
+        """
+        load balancer rule properties
+        """
+elif False:
+    ProbeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProbeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['ProbePropertiesArgs']):
+        """
+        Load balancer health probes
+        :param pulumi.Input[_builtins.str] name: name of the load balancer health probe
+        :param pulumi.Input['ProbePropertiesArgs'] properties: load balancer rule properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the load balancer health probe
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ProbePropertiesArgs']:
+        """
+        load balancer rule properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ProbePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class ProvisionOsJobPropertiesArgsDict(TypedDict):
+        """
+        Represents the properties of an Azure Linux restricted operating environment Provision Os job.
+        """
+        job_type: pulumi.Input[_builtins.str]
+        """
+        Job Type supported.
+        Expected value is 'ProvisionOs'.
+        """
+        provisioning_request: pulumi.Input['ProvisioningRequestArgsDict']
+        """
+        Os Provisioning request.
+        """
+        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+        """
+        Deployment mode to trigger job.
+        """
+elif False:
+    ProvisionOsJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProvisionOsJobPropertiesArgs:
+    def __init__(__self__, *,
+                 job_type: pulumi.Input[_builtins.str],
+                 provisioning_request: pulumi.Input['ProvisioningRequestArgs'],
+                 deployment_mode: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]] = None):
+        """
+        Represents the properties of an Azure Linux restricted operating environment Provision Os job.
+        :param pulumi.Input[_builtins.str] job_type: Job Type supported.
+               Expected value is 'ProvisionOs'.
+        :param pulumi.Input['ProvisioningRequestArgs'] provisioning_request: Os Provisioning request.
+        :param pulumi.Input[Union[_builtins.str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "job_type", 'ProvisionOs')
+        pulumi.set(__self__, "provisioning_request", provisioning_request)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Job Type supported.
+        Expected value is 'ProvisionOs'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningRequest")
+    def provisioning_request(self) -> pulumi.Input['ProvisioningRequestArgs']:
+        """
+        Os Provisioning request.
+        """
+        return pulumi.get(self, "provisioning_request")
+
+    @provisioning_request.setter
+    def provisioning_request(self, value: pulumi.Input['ProvisioningRequestArgs']):
+        pulumi.set(self, "provisioning_request", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+
+if not MYPY:
+    class ProvisioningDetailsArgsDict(TypedDict):
+        """
+        Details for device provisioning.
+        """
+        os_profile: pulumi.Input['OsProvisionProfileArgsDict']
+        """
+        Operating system profile.
+        """
+        user_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgsDict']]]]
+        """
+        User configuration.
+        """
+elif False:
+    ProvisioningDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProvisioningDetailsArgs:
+    def __init__(__self__, *,
+                 os_profile: pulumi.Input['OsProvisionProfileArgs'],
+                 user_details: Optional[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]]] = None):
+        """
+        Details for device provisioning.
+        :param pulumi.Input['OsProvisionProfileArgs'] os_profile: Operating system profile.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]] user_details: User configuration.
+        """
+        pulumi.set(__self__, "os_profile", os_profile)
+        if user_details is not None:
+            pulumi.set(__self__, "user_details", user_details)
+
+    @_builtins.property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> pulumi.Input['OsProvisionProfileArgs']:
+        """
+        Operating system profile.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @os_profile.setter
+    def os_profile(self, value: pulumi.Input['OsProvisionProfileArgs']):
+        pulumi.set(self, "os_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userDetails")
+    def user_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]]]:
+        """
+        User configuration.
+        """
+        return pulumi.get(self, "user_details")
+
+    @user_details.setter
+    def user_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]]]):
+        pulumi.set(self, "user_details", value)
+
+
+if not MYPY:
+    class ProvisioningRequestArgsDict(TypedDict):
+        """
+        Represents a provisioning request.
+        """
+        os_profile: pulumi.Input['OsProvisionProfileArgsDict']
+        """
+        Operating system profile.
+        """
+        target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]
+        """
+        Target operating system to support polymorphic resource.
+        """
+        custom_configuration: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Base64 encoded custom configuration for CAPI to use
+        """
+        device_configuration: NotRequired[pulumi.Input['TargetDeviceConfigurationArgsDict']]
+        """
+        Device configuration.
+        """
+        onboarding_configuration: NotRequired[pulumi.Input['OnboardingConfigurationArgsDict']]
+        """
+        Onboarding configuration.
+        """
+        user_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgsDict']]]]
+        """
+        User configuration.
+        """
+elif False:
+    ProvisioningRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProvisioningRequestArgs:
+    def __init__(__self__, *,
+                 os_profile: pulumi.Input['OsProvisionProfileArgs'],
+                 target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']],
+                 custom_configuration: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_configuration: Optional[pulumi.Input['TargetDeviceConfigurationArgs']] = None,
+                 onboarding_configuration: Optional[pulumi.Input['OnboardingConfigurationArgs']] = None,
+                 user_details: Optional[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]]] = None):
+        """
+        Represents a provisioning request.
+        :param pulumi.Input['OsProvisionProfileArgs'] os_profile: Operating system profile.
+        :param pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']] target: Target operating system to support polymorphic resource.
+        :param pulumi.Input[_builtins.str] custom_configuration: Base64 encoded custom configuration for CAPI to use
+        :param pulumi.Input['TargetDeviceConfigurationArgs'] device_configuration: Device configuration.
+        :param pulumi.Input['OnboardingConfigurationArgs'] onboarding_configuration: Onboarding configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]] user_details: User configuration.
+        """
+        pulumi.set(__self__, "os_profile", os_profile)
+        pulumi.set(__self__, "target", target)
+        if custom_configuration is not None:
+            pulumi.set(__self__, "custom_configuration", custom_configuration)
+        if device_configuration is not None:
+            pulumi.set(__self__, "device_configuration", device_configuration)
+        if onboarding_configuration is not None:
+            pulumi.set(__self__, "onboarding_configuration", onboarding_configuration)
+        if user_details is not None:
+            pulumi.set(__self__, "user_details", user_details)
+
+    @_builtins.property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> pulumi.Input['OsProvisionProfileArgs']:
+        """
+        Operating system profile.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @os_profile.setter
+    def os_profile(self, value: pulumi.Input['OsProvisionProfileArgs']):
+        pulumi.set(self, "os_profile", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]:
+        """
+        Target operating system to support polymorphic resource.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customConfiguration")
+    def custom_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Base64 encoded custom configuration for CAPI to use
+        """
+        return pulumi.get(self, "custom_configuration")
+
+    @custom_configuration.setter
+    def custom_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceConfiguration")
+    def device_configuration(self) -> Optional[pulumi.Input['TargetDeviceConfigurationArgs']]:
+        """
+        Device configuration.
+        """
+        return pulumi.get(self, "device_configuration")
+
+    @device_configuration.setter
+    def device_configuration(self, value: Optional[pulumi.Input['TargetDeviceConfigurationArgs']]):
+        pulumi.set(self, "device_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="onboardingConfiguration")
+    def onboarding_configuration(self) -> Optional[pulumi.Input['OnboardingConfigurationArgs']]:
+        """
+        Onboarding configuration.
+        """
+        return pulumi.get(self, "onboarding_configuration")
+
+    @onboarding_configuration.setter
+    def onboarding_configuration(self, value: Optional[pulumi.Input['OnboardingConfigurationArgs']]):
+        pulumi.set(self, "onboarding_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userDetails")
+    def user_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]]]:
+        """
+        User configuration.
+        """
+        return pulumi.get(self, "user_details")
+
+    @user_details.setter
+    def user_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgs']]]]):
+        pulumi.set(self, "user_details", value)
+
+
+if not MYPY:
+    class PublicIPAddressArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID of a Public IP resource
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID of a Public IP resource
+        """
+elif False:
+    PublicIPAddressArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicIPAddressArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID of a Public IP resource
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID of a Public IP resource
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID of a Public IP resource
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class PublicIPAddressPropertiesArgsDict(TypedDict):
+        """
+        Public IP Properties resource.
+        """
+        ip_address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        """
+        ip_allocation_scope: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        """
+        public_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]
+        """
+        Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+elif False:
+    PublicIPAddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicIPAddressPropertiesArgs:
+    def __init__(__self__, *,
+                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_allocation_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]] = None):
+        """
+        Public IP Properties resource.
+        :param pulumi.Input[_builtins.str] ip_address: IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        :param pulumi.Input[_builtins.str] ip_allocation_scope: ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        :param pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']] public_ip_address_version: Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_allocation_scope is not None:
+            pulumi.set(__self__, "ip_allocation_scope", ip_allocation_scope)
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocationScope")
+    def ip_allocation_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        """
+        return pulumi.get(self, "ip_allocation_scope")
+
+    @ip_allocation_scope.setter
+    def ip_allocation_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_allocation_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]:
+        """
+        Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]):
+        pulumi.set(self, "public_ip_address_version", value)
 
 
 if not MYPY:
@@ -3890,6 +6925,61 @@ class ServiceConfigurationArgs:
 
 
 if not MYPY:
+    class SiteDetailsArgsDict(TypedDict):
+        """
+        Site Details consists of common configurations.
+        """
+        site_resource_id: pulumi.Input[_builtins.str]
+        """
+        Site resource Id to be set during Edge Machine resource creation.
+        """
+        device_configuration: NotRequired[pulumi.Input['TargetDeviceConfigurationArgsDict']]
+        """
+        Edge Device configuration received from site common configuration.
+        """
+elif False:
+    SiteDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SiteDetailsArgs:
+    def __init__(__self__, *,
+                 site_resource_id: pulumi.Input[_builtins.str],
+                 device_configuration: Optional[pulumi.Input['TargetDeviceConfigurationArgs']] = None):
+        """
+        Site Details consists of common configurations.
+        :param pulumi.Input[_builtins.str] site_resource_id: Site resource Id to be set during Edge Machine resource creation.
+        :param pulumi.Input['TargetDeviceConfigurationArgs'] device_configuration: Edge Device configuration received from site common configuration.
+        """
+        pulumi.set(__self__, "site_resource_id", site_resource_id)
+        if device_configuration is not None:
+            pulumi.set(__self__, "device_configuration", device_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="siteResourceId")
+    def site_resource_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Site resource Id to be set during Edge Machine resource creation.
+        """
+        return pulumi.get(self, "site_resource_id")
+
+    @site_resource_id.setter
+    def site_resource_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceConfiguration")
+    def device_configuration(self) -> Optional[pulumi.Input['TargetDeviceConfigurationArgs']]:
+        """
+        Edge Device configuration received from site common configuration.
+        """
+        return pulumi.get(self, "device_configuration")
+
+    @device_configuration.setter
+    def device_configuration(self, value: Optional[pulumi.Input['TargetDeviceConfigurationArgs']]):
+        pulumi.set(self, "device_configuration", value)
+
+
+if not MYPY:
     class SoftwareAssurancePropertiesArgsDict(TypedDict):
         """
         Software Assurance properties of the cluster.
@@ -4290,6 +7380,42 @@ class StorageAdapterIPInfoArgs:
 
 
 if not MYPY:
+    class StorageConfigurationArgsDict(TypedDict):
+        """
+        Storage configuration.
+        """
+        partition_size: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Partition size.
+        """
+elif False:
+    StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageConfigurationArgs:
+    def __init__(__self__, *,
+                 partition_size: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Storage configuration.
+        :param pulumi.Input[_builtins.str] partition_size: Partition size.
+        """
+        if partition_size is not None:
+            pulumi.set(__self__, "partition_size", partition_size)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSize")
+    def partition_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Partition size.
+        """
+        return pulumi.get(self, "partition_size")
+
+    @partition_size.setter
+    def partition_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "partition_size", value)
+
+
+if not MYPY:
     class StorageNetworksArgsDict(TypedDict):
         """
         The StorageNetworks of a cluster.
@@ -4426,11 +7552,11 @@ class StorageArgs:
 if not MYPY:
     class SubnetIpConfigurationReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
 elif False:
     SubnetIpConfigurationReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -4440,8 +7566,8 @@ class SubnetIpConfigurationReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Network Interface.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Network Interface.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -4450,7 +7576,7 @@ class SubnetIpConfigurationReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         return pulumi.get(self, "id")
 
@@ -4656,6 +7782,198 @@ class SubnetArgs:
 
 
 if not MYPY:
+    class TargetDeviceConfigurationArgsDict(TypedDict):
+        """
+        Device configuration.
+        """
+        host_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Hostname of the device.
+        """
+        network: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
+        """
+        Network configuration.
+        """
+        storage: NotRequired[pulumi.Input['StorageConfigurationArgsDict']]
+        """
+        Storage configuration.
+        """
+        time: NotRequired[pulumi.Input['TimeConfigurationArgsDict']]
+        """
+        Time configuration.
+        """
+        web_proxy: NotRequired[pulumi.Input['WebProxyConfigurationArgsDict']]
+        """
+        Web proxy configuration.
+        """
+elif False:
+    TargetDeviceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetDeviceConfigurationArgs:
+    def __init__(__self__, *,
+                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
+                 storage: Optional[pulumi.Input['StorageConfigurationArgs']] = None,
+                 time: Optional[pulumi.Input['TimeConfigurationArgs']] = None,
+                 web_proxy: Optional[pulumi.Input['WebProxyConfigurationArgs']] = None):
+        """
+        Device configuration.
+        :param pulumi.Input[_builtins.str] host_name: Hostname of the device.
+        :param pulumi.Input['NetworkConfigurationArgs'] network: Network configuration.
+        :param pulumi.Input['StorageConfigurationArgs'] storage: Storage configuration.
+        :param pulumi.Input['TimeConfigurationArgs'] time: Time configuration.
+        :param pulumi.Input['WebProxyConfigurationArgs'] web_proxy: Web proxy configuration.
+        """
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+        if web_proxy is not None:
+            pulumi.set(__self__, "web_proxy", web_proxy)
+
+    @_builtins.property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Hostname of the device.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "host_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['NetworkConfigurationArgs']]:
+        """
+        Network configuration.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['NetworkConfigurationArgs']]):
+        pulumi.set(self, "network", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['StorageConfigurationArgs']]:
+        """
+        Storage configuration.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['StorageConfigurationArgs']]):
+        pulumi.set(self, "storage", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input['TimeConfigurationArgs']]:
+        """
+        Time configuration.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input['TimeConfigurationArgs']]):
+        pulumi.set(self, "time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webProxy")
+    def web_proxy(self) -> Optional[pulumi.Input['WebProxyConfigurationArgs']]:
+        """
+        Web proxy configuration.
+        """
+        return pulumi.get(self, "web_proxy")
+
+    @web_proxy.setter
+    def web_proxy(self, value: Optional[pulumi.Input['WebProxyConfigurationArgs']]):
+        pulumi.set(self, "web_proxy", value)
+
+
+if not MYPY:
+    class TimeConfigurationArgsDict(TypedDict):
+        """
+        Time configuration.
+        """
+        primary_time_server: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Primary NTP server.
+        """
+        secondary_time_server: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Secondary NTP server.
+        """
+        time_zone: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Time zone.
+        """
+elif False:
+    TimeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TimeConfigurationArgs:
+    def __init__(__self__, *,
+                 primary_time_server: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_time_server: Optional[pulumi.Input[_builtins.str]] = None,
+                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Time configuration.
+        :param pulumi.Input[_builtins.str] primary_time_server: Primary NTP server.
+        :param pulumi.Input[_builtins.str] secondary_time_server: Secondary NTP server.
+        :param pulumi.Input[_builtins.str] time_zone: Time zone.
+        """
+        if primary_time_server is not None:
+            pulumi.set(__self__, "primary_time_server", primary_time_server)
+        if secondary_time_server is not None:
+            pulumi.set(__self__, "secondary_time_server", secondary_time_server)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryTimeServer")
+    def primary_time_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Primary NTP server.
+        """
+        return pulumi.get(self, "primary_time_server")
+
+    @primary_time_server.setter
+    def primary_time_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "primary_time_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryTimeServer")
+    def secondary_time_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Secondary NTP server.
+        """
+        return pulumi.get(self, "secondary_time_server")
+
+    @secondary_time_server.setter
+    def secondary_time_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secondary_time_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Time zone.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+if not MYPY:
     class UpdatePrerequisiteArgsDict(TypedDict):
         """
         If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
@@ -4732,6 +8050,100 @@ class UpdatePrerequisiteArgs:
 
 
 if not MYPY:
+    class UserDetailsArgsDict(TypedDict):
+        """
+        User configuration.
+        """
+        secret_type: pulumi.Input[Union[_builtins.str, 'SecretType']]
+        """
+        Type of the secret used for authentication.
+        """
+        user_name: pulumi.Input[_builtins.str]
+        """
+        Name of the user.
+        """
+        secret_location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Location of the secret used for authentication.
+        """
+        ssh_pub_key: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        SSH Public Key for the user.
+        """
+elif False:
+    UserDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserDetailsArgs:
+    def __init__(__self__, *,
+                 secret_type: pulumi.Input[Union[_builtins.str, 'SecretType']],
+                 user_name: pulumi.Input[_builtins.str],
+                 secret_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 ssh_pub_key: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        User configuration.
+        :param pulumi.Input[Union[_builtins.str, 'SecretType']] secret_type: Type of the secret used for authentication.
+        :param pulumi.Input[_builtins.str] user_name: Name of the user.
+        :param pulumi.Input[_builtins.str] secret_location: Location of the secret used for authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_pub_key: SSH Public Key for the user.
+        """
+        pulumi.set(__self__, "secret_type", secret_type)
+        pulumi.set(__self__, "user_name", user_name)
+        if secret_location is not None:
+            pulumi.set(__self__, "secret_location", secret_location)
+        if ssh_pub_key is not None:
+            pulumi.set(__self__, "ssh_pub_key", ssh_pub_key)
+
+    @_builtins.property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> pulumi.Input[Union[_builtins.str, 'SecretType']]:
+        """
+        Type of the secret used for authentication.
+        """
+        return pulumi.get(self, "secret_type")
+
+    @secret_type.setter
+    def secret_type(self, value: pulumi.Input[Union[_builtins.str, 'SecretType']]):
+        pulumi.set(self, "secret_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "user_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretLocation")
+    def secret_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Location of the secret used for authentication.
+        """
+        return pulumi.get(self, "secret_location")
+
+    @secret_location.setter
+    def secret_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secret_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sshPubKey")
+    def ssh_pub_key(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        SSH Public Key for the user.
+        """
+        return pulumi.get(self, "ssh_pub_key")
+
+    @ssh_pub_key.setter
+    def ssh_pub_key(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ssh_pub_key", value)
+
+
+if not MYPY:
     class VMDiskSecurityProfileArgsDict(TypedDict):
         """
         Specifies the security profile settings for the managed disk. NOTE: It can only be set for Confidential VMs
@@ -4770,11 +8182,11 @@ class VMDiskSecurityProfileArgs:
 if not MYPY:
     class VirtualHardDiskArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
 elif False:
     VirtualHardDiskArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -4784,8 +8196,8 @@ class VirtualHardDiskArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Virtual Hard Disk.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Virtual Hard Disk.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -4794,7 +8206,7 @@ class VirtualHardDiskArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         return pulumi.get(self, "id")
 
@@ -5603,7 +9015,7 @@ if not MYPY:
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         managed_disk: NotRequired[pulumi.Input['VirtualMachineInstanceManagedDiskParametersArgsDict']]
         """
@@ -5624,7 +9036,7 @@ class VirtualMachineInstancePropertiesStorageProfileOsDiskArgs:
                  os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None):
         """
         VHD to attach as OS disk
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Virtual Hard Disk.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Virtual Hard Disk.
         :param pulumi.Input['VirtualMachineInstanceManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
         """
@@ -5639,7 +9051,7 @@ class VirtualMachineInstancePropertiesStorageProfileOsDiskArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         return pulumi.get(self, "id")
 
@@ -6741,6 +10153,42 @@ class VirtualMachinePropertiesWindowsConfigurationArgs:
 
 
 if not MYPY:
+    class VirtualNetworkArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID for a Virtual Network
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID for a Virtual Network.
+        """
+elif False:
+    VirtualNetworkArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualNetworkArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID for a Virtual Network
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID for a Virtual Network.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID for a Virtual Network.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
     class VirtualNetworkPropertiesDhcpOptionsArgsDict(TypedDict):
         """
         DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
@@ -7141,6 +10589,137 @@ class VirtualNetworkPropertiesSubnetsArgs:
 
 
 if not MYPY:
+    class VirtualNetworkSubnetArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID for a Virtual Network subnet
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID for a Virtual Network subnet.
+        """
+elif False:
+    VirtualNetworkSubnetArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualNetworkSubnetArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID for a Virtual Network subnet
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID for a Virtual Network subnet.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID for a Virtual Network subnet.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class VirtualNetworkSubnetPropertiesArgsDict(TypedDict):
+        """
+        VirtualNetwork subnet resource
+        """
+        address_prefix: pulumi.Input[_builtins.str]
+        """
+        Subnet CIDR
+        """
+        nat_gateway: NotRequired[pulumi.Input['NatGatewayArmReferenceArgsDict']]
+        """
+        Nat Gateway attached to the subnet for non-vnet traffic.
+        """
+        network_security_group: NotRequired[pulumi.Input['NetworkSecurityGroupArmReferenceArgsDict']]
+        """
+        Network Security Group attached to the subnet.
+        """
+        route_table: NotRequired[pulumi.Input['RouteTableArgsDict']]
+        """
+        RouteTable defining custom routes for the subnet.
+        """
+elif False:
+    VirtualNetworkSubnetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualNetworkSubnetPropertiesArgs:
+    def __init__(__self__, *,
+                 address_prefix: pulumi.Input[_builtins.str],
+                 nat_gateway: Optional[pulumi.Input['NatGatewayArmReferenceArgs']] = None,
+                 network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']] = None,
+                 route_table: Optional[pulumi.Input['RouteTableArgs']] = None):
+        """
+        VirtualNetwork subnet resource
+        :param pulumi.Input[_builtins.str] address_prefix: Subnet CIDR
+        :param pulumi.Input['NatGatewayArmReferenceArgs'] nat_gateway: Nat Gateway attached to the subnet for non-vnet traffic.
+        :param pulumi.Input['NetworkSecurityGroupArmReferenceArgs'] network_security_group: Network Security Group attached to the subnet.
+        :param pulumi.Input['RouteTableArgs'] route_table: RouteTable defining custom routes for the subnet.
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        Subnet CIDR
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional[pulumi.Input['NatGatewayArmReferenceArgs']]:
+        """
+        Nat Gateway attached to the subnet for non-vnet traffic.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: Optional[pulumi.Input['NatGatewayArmReferenceArgs']]):
+        pulumi.set(self, "nat_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]:
+        """
+        Network Security Group attached to the subnet.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @network_security_group.setter
+    def network_security_group(self, value: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]):
+        pulumi.set(self, "network_security_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional[pulumi.Input['RouteTableArgs']]:
+        """
+        RouteTable defining custom routes for the subnet.
+        """
+        return pulumi.get(self, "route_table")
+
+    @route_table.setter
+    def route_table(self, value: Optional[pulumi.Input['RouteTableArgs']]):
+        pulumi.set(self, "route_table", value)
+
+
+if not MYPY:
     class VirtualSwitchConfigurationOverridesArgsDict(TypedDict):
         """
         The VirtualSwitchConfigurationOverrides of a cluster.
@@ -7197,56 +10776,78 @@ class VirtualSwitchConfigurationOverridesArgs:
 
 
 if not MYPY:
-    class VmImageRepositoryCredentialsArgsDict(TypedDict):
+    class WebProxyConfigurationArgsDict(TypedDict):
         """
-        The credentials used to login to the image repository that has access to the specified image
+        Web proxy configuration.
         """
-        password: pulumi.Input[_builtins.str]
+        bypass_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        Password for accessing image repository
+        Bypass list for the web proxy.
         """
-        username: pulumi.Input[_builtins.str]
+        connection_uri: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Username for accessing image repository
+        Connection URI of the web proxy.
+        """
+        port: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Port of the web proxy.
         """
 elif False:
-    VmImageRepositoryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+    WebProxyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class VmImageRepositoryCredentialsArgs:
+class WebProxyConfigurationArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[_builtins.str],
-                 username: pulumi.Input[_builtins.str]):
+                 bypass_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 port: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The credentials used to login to the image repository that has access to the specified image
-        :param pulumi.Input[_builtins.str] password: Password for accessing image repository
-        :param pulumi.Input[_builtins.str] username: Username for accessing image repository
+        Web proxy configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypass_list: Bypass list for the web proxy.
+        :param pulumi.Input[_builtins.str] connection_uri: Connection URI of the web proxy.
+        :param pulumi.Input[_builtins.str] port: Port of the web proxy.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if bypass_list is not None:
+            pulumi.set(__self__, "bypass_list", bypass_list)
+        if connection_uri is not None:
+            pulumi.set(__self__, "connection_uri", connection_uri)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter(name="bypassList")
+    def bypass_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Bypass list for the web proxy.
+        """
+        return pulumi.get(self, "bypass_list")
+
+    @bypass_list.setter
+    def bypass_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "bypass_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionUri")
+    def connection_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Connection URI of the web proxy.
+        """
+        return pulumi.get(self, "connection_uri")
+
+    @connection_uri.setter
+    def connection_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> pulumi.Input[_builtins.str]:
+    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Password for accessing image repository
+        Port of the web proxy.
         """
-        return pulumi.get(self, "password")
+        return pulumi.get(self, "port")
 
-    @password.setter
-    def password(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "password", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        Username for accessing image repository
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "username", value)
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "port", value)
 
 

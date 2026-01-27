@@ -14,29 +14,28 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
-__all__ = ['ProjectCapabilityHostArgs', 'ProjectCapabilityHost']
+__all__ = ['ProjectCapabilityHostInitArgs', 'ProjectCapabilityHost']
 
 @pulumi.input_type
-class ProjectCapabilityHostArgs:
+class ProjectCapabilityHostInitArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 capability_host_properties: pulumi.Input['CapabilityHostArgs'],
+                 project_capability_host_properties: pulumi.Input['ProjectCapabilityHostArgs'],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  capability_host_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectCapabilityHost resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input['CapabilityHostArgs'] capability_host_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['ProjectCapabilityHostArgs'] project_capability_host_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] capability_host_name: The name of the capability host associated with the Cognitive Services Resource
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "capability_host_properties", capability_host_properties)
+        pulumi.set(__self__, "project_capability_host_properties", project_capability_host_properties)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if capability_host_name is not None:
@@ -55,16 +54,16 @@ class ProjectCapabilityHostArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="capabilityHostProperties")
-    def capability_host_properties(self) -> pulumi.Input['CapabilityHostArgs']:
+    @pulumi.getter(name="projectCapabilityHostProperties")
+    def project_capability_host_properties(self) -> pulumi.Input['ProjectCapabilityHostArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "capability_host_properties")
+        return pulumi.get(self, "project_capability_host_properties")
 
-    @capability_host_properties.setter
-    def capability_host_properties(self, value: pulumi.Input['CapabilityHostArgs']):
-        pulumi.set(self, "capability_host_properties", value)
+    @project_capability_host_properties.setter
+    def project_capability_host_properties(self, value: pulumi.Input['ProjectCapabilityHostArgs']):
+        pulumi.set(self, "project_capability_host_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -111,22 +110,22 @@ class ProjectCapabilityHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  capability_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 capability_host_properties: Optional[pulumi.Input[Union['CapabilityHostArgs', 'CapabilityHostArgsDict']]] = None,
+                 project_capability_host_properties: Optional[pulumi.Input[Union['ProjectCapabilityHostArgs', 'ProjectCapabilityHostArgsDict']]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Azure Resource Manager resource envelope.
+        Azure Resource Manager resource envelope for Project CapabilityHost.
 
         Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] capability_host_name: The name of the capability host associated with the Cognitive Services Resource
-        :param pulumi.Input[Union['CapabilityHostArgs', 'CapabilityHostArgsDict']] capability_host_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union['ProjectCapabilityHostArgs', 'ProjectCapabilityHostArgsDict']] project_capability_host_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -134,22 +133,22 @@ class ProjectCapabilityHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProjectCapabilityHostArgs,
+                 args: ProjectCapabilityHostInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure Resource Manager resource envelope.
+        Azure Resource Manager resource envelope for Project CapabilityHost.
 
         Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
-        :param ProjectCapabilityHostArgs args: The arguments to use to populate this resource's properties.
+        :param ProjectCapabilityHostInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProjectCapabilityHostArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectCapabilityHostInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -160,7 +159,7 @@ class ProjectCapabilityHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  capability_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 capability_host_properties: Optional[pulumi.Input[Union['CapabilityHostArgs', 'CapabilityHostArgsDict']]] = None,
+                 project_capability_host_properties: Optional[pulumi.Input[Union['ProjectCapabilityHostArgs', 'ProjectCapabilityHostArgsDict']]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -170,15 +169,15 @@ class ProjectCapabilityHost(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProjectCapabilityHostArgs.__new__(ProjectCapabilityHostArgs)
+            __props__ = ProjectCapabilityHostInitArgs.__new__(ProjectCapabilityHostInitArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["capability_host_name"] = capability_host_name
-            if capability_host_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'capability_host_properties'")
-            __props__.__dict__["capability_host_properties"] = capability_host_properties
+            if project_capability_host_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'project_capability_host_properties'")
+            __props__.__dict__["project_capability_host_properties"] = project_capability_host_properties
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
@@ -188,7 +187,7 @@ class ProjectCapabilityHost(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:ProjectCapabilityHost"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250601:ProjectCapabilityHost"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250701preview:ProjectCapabilityHost"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250901:ProjectCapabilityHost")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:ProjectCapabilityHost"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250601:ProjectCapabilityHost"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250701preview:ProjectCapabilityHost"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250901:ProjectCapabilityHost"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:ProjectCapabilityHost")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProjectCapabilityHost, __self__).__init__(
             'azure-native:cognitiveservices:ProjectCapabilityHost',
@@ -210,11 +209,11 @@ class ProjectCapabilityHost(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ProjectCapabilityHostArgs.__new__(ProjectCapabilityHostArgs)
+        __props__ = ProjectCapabilityHostInitArgs.__new__(ProjectCapabilityHostInitArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["capability_host_properties"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["project_capability_host_properties"] = None
         __props__.__dict__["type"] = None
         return ProjectCapabilityHost(resource_name, opts=opts, __props__=__props__)
 
@@ -227,20 +226,20 @@ class ProjectCapabilityHost(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="capabilityHostProperties")
-    def capability_host_properties(self) -> pulumi.Output['outputs.CapabilityHostResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "capability_host_properties")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="projectCapabilityHostProperties")
+    def project_capability_host_properties(self) -> pulumi.Output['outputs.ProjectCapabilityHostResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "project_capability_host_properties")
 
     @_builtins.property
     @pulumi.getter

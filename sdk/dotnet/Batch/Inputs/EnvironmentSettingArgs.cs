@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// An environment variable to be set on a task process.
+    /// </summary>
     public sealed class EnvironmentSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the environment variable.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the environment variable.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

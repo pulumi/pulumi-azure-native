@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Fixed scale settings for the pool.
+    /// </summary>
     public sealed class FixedScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

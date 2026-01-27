@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Properties used to create a user on an Azure Batch node.
+    /// </summary>
     public sealed class UserAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -24,9 +27,15 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("linuxUserConfiguration")]
         public Input<Inputs.LinuxUserConfigurationArgs>? LinuxUserConfiguration { get; set; }
 
+        /// <summary>
+        /// The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The password for the user account.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 

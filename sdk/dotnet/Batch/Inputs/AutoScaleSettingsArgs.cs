@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// AutoScale settings for the pool.
+    /// </summary>
     public sealed class AutoScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("evaluationInterval")]
         public Input<string>? EvaluationInterval { get; set; }
 
+        /// <summary>
+        /// A formula for the desired number of compute nodes in the pool.
+        /// </summary>
         [Input("formula", required: true)]
         public Input<string> Formula { get; set; } = null!;
 

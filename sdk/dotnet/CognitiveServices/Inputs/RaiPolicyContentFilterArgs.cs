@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     public sealed class RaiPolicyContentFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The action types to apply to the content filters
+        /// </summary>
+        [Input("action")]
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.RaiActionType>? Action { get; set; }
+
+        /// <summary>
         /// If blocking would occur.
         /// </summary>
         [Input("blocking")]

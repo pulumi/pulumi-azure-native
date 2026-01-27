@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The tenant id to connect to, and get the data from.
         /// </summary>
         [Output("tenantId")]
-        public Output<string?> TenantId { get; private set; } = null!;
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -433,8 +433,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The tenant id to connect to, and get the data from.
         /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        [Input("tenantId", required: true)]
+        public Input<string> TenantId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

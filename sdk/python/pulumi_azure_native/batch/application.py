@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['ApplicationArgs', 'Application']
 
@@ -28,8 +29,8 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] account_name: The name of the Batch account.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] allow_updates: A value indicating whether packages within the application may be overwritten using the same version string.
         :param pulumi.Input[_builtins.str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[_builtins.str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
@@ -53,7 +54,7 @@ class ApplicationArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Batch account.
+        A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         """
         return pulumi.get(self, "account_name")
 
@@ -65,7 +66,7 @@ class ApplicationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group that contains the Batch account.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -157,12 +158,12 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_name: The name of the Batch account.
+        :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         :param pulumi.Input[_builtins.bool] allow_updates: A value indicating whether packages within the application may be overwritten using the same version string.
         :param pulumi.Input[_builtins.str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[_builtins.str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         :param pulumi.Input[_builtins.str] display_name: The display name for the application.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         """
         ...
@@ -223,6 +224,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20151201:Application"), pulumi.Alias(type_="azure-native:batch/v20170101:Application"), pulumi.Alias(type_="azure-native:batch/v20170501:Application"), pulumi.Alias(type_="azure-native:batch/v20170901:Application"), pulumi.Alias(type_="azure-native:batch/v20181201:Application"), pulumi.Alias(type_="azure-native:batch/v20190401:Application"), pulumi.Alias(type_="azure-native:batch/v20190801:Application"), pulumi.Alias(type_="azure-native:batch/v20200301:Application"), pulumi.Alias(type_="azure-native:batch/v20200501:Application"), pulumi.Alias(type_="azure-native:batch/v20200901:Application"), pulumi.Alias(type_="azure-native:batch/v20210101:Application"), pulumi.Alias(type_="azure-native:batch/v20210601:Application"), pulumi.Alias(type_="azure-native:batch/v20220101:Application"), pulumi.Alias(type_="azure-native:batch/v20220601:Application"), pulumi.Alias(type_="azure-native:batch/v20221001:Application"), pulumi.Alias(type_="azure-native:batch/v20230501:Application"), pulumi.Alias(type_="azure-native:batch/v20231101:Application"), pulumi.Alias(type_="azure-native:batch/v20240201:Application"), pulumi.Alias(type_="azure-native:batch/v20240701:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -254,6 +256,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
@@ -302,9 +305,17 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -318,7 +329,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

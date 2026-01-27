@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The available data types for the connector.
         /// </summary>
         [Output("dataTypes")]
-        public Output<Outputs.AwsCloudTrailDataConnectorDataTypesResponse?> DataTypes { get; private set; } = null!;
+        public Output<Outputs.AwsCloudTrailDataConnectorDataTypesResponse> DataTypes { get; private set; } = null!;
 
         /// <summary>
         /// Etag of the azure resource
@@ -420,8 +420,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The available data types for the connector.
         /// </summary>
-        [Input("dataTypes")]
-        public Input<Inputs.AwsCloudTrailDataConnectorDataTypesArgs>? DataTypes { get; set; }
+        [Input("dataTypes", required: true)]
+        public Input<Inputs.AwsCloudTrailDataConnectorDataTypesArgs> DataTypes { get; set; } = null!;
 
         /// <summary>
         /// The kind of the data connector

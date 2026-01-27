@@ -10,21 +10,43 @@ __all__ = [
     'ApplicationType',
     'AvsDataStore',
     'ChownMode',
+    'CifsChangeNotifyState',
     'CoolAccessRetrievalPolicy',
     'CoolAccessTieringPolicy',
+    'DayOfWeek',
+    'ElasticBackupPolicyState',
+    'ElasticNfsv3Access',
+    'ElasticNfsv4Access',
+    'ElasticPoolEncryptionKeySource',
+    'ElasticProtocolType',
+    'ElasticRootAccess',
+    'ElasticServiceLevel',
+    'ElasticSmbEncryption',
+    'ElasticUnixAccessRule',
+    'ElasticVolumePolicyEnforcement',
     'EnableSubvolumes',
+    'EnableWriteBackState',
     'EncryptionKeySource',
     'EncryptionType',
     'EndpointType',
+    'GlobalFileLockingState',
+    'KerberosState',
     'KeySource',
+    'LdapServerType',
+    'LdapState',
     'ManagedServiceIdentityType',
     'NetworkFeatures',
+    'PolicyStatus',
+    'ProtocolTypes',
     'QosType',
     'ReplicationSchedule',
     'SecurityStyle',
     'ServiceLevel',
     'SmbAccessBasedEnumeration',
+    'SmbEncryptionState',
     'SmbNonBrowsable',
+    'SnapshotDirectoryVisibility',
+    'SnapshotUsage',
     'Type',
 ]
 
@@ -62,6 +84,21 @@ class ChownMode(_builtins.str, Enum):
     UNRESTRICTED = "Unrestricted"
 
 
+@pulumi.type_token("azure-native:netapp:CifsChangeNotifyState")
+class CifsChangeNotifyState(_builtins.str, Enum):
+    """
+    Flag indicating whether a CIFS change notification is enabled for the cache.
+    """
+    DISABLED = "Disabled"
+    """
+    CIFS change notification is disabled
+    """
+    ENABLED = "Enabled"
+    """
+    CIFS change notification is enabled
+    """
+
+
 @pulumi.type_token("azure-native:netapp:CoolAccessRetrievalPolicy")
 class CoolAccessRetrievalPolicy(_builtins.str, Enum):
     """
@@ -84,6 +121,195 @@ class CoolAccessTieringPolicy(_builtins.str, Enum):
     SNAPSHOT_ONLY = "SnapshotOnly"
 
 
+@pulumi.type_token("azure-native:netapp:DayOfWeek")
+class DayOfWeek(_builtins.str, Enum):
+    """
+    Day of the week
+    """
+    SUNDAY = "Sunday"
+    """
+    Take a snapshot each Sunday
+    """
+    MONDAY = "Monday"
+    """
+    Take a snapshot each Monday
+    """
+    TUESDAY = "Tuesday"
+    """
+    Take a snapshot each Tuesday
+    """
+    WEDNESDAY = "Wednesday"
+    """
+    Take a snapshot each Wednesday
+    """
+    THURSDAY = "Thursday"
+    """
+    Take a snapshot each Thursday
+    """
+    FRIDAY = "Friday"
+    """
+    Take a snapshot each Friday
+    """
+    SATURDAY = "Saturday"
+    """
+    Take a snapshot each Saturday
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticBackupPolicyState")
+class ElasticBackupPolicyState(_builtins.str, Enum):
+    """
+    The property to identify whether Backup Policy is enabled or not
+    """
+    ENABLED = "Enabled"
+    """
+    Value indicating the policy is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    Value indicating the policy is disabled
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticNfsv3Access")
+class ElasticNfsv3Access(_builtins.str, Enum):
+    """
+    Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+    """
+    ENABLED = "Enabled"
+    """
+    Clients can connect to the volume using the NFSv3 protocol.
+    """
+    DISABLED = "Disabled"
+    """
+    Clients can't connect to the volume using the NFSv3 protocol.
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticNfsv4Access")
+class ElasticNfsv4Access(_builtins.str, Enum):
+    """
+    Allows clients to access the volume with at least NFSv4.1 protocol.
+    """
+    ENABLED = "Enabled"
+    """
+    Clients can connect to the volume using the NFSv4 protocol.
+    """
+    DISABLED = "Disabled"
+    """
+    Clients can't connect to the volume using the NFSv4 protocol.
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticPoolEncryptionKeySource")
+class ElasticPoolEncryptionKeySource(_builtins.str, Enum):
+    """
+    Pool Encryption Key Source.
+    """
+    NET_APP = "NetApp"
+    """
+    Represents the encryption key source of Elastic pool is Microsoft.NetApp
+    """
+    KEY_VAULT = "KeyVault"
+    """
+    Represents the encryption key source of Elastic pool is Microsoft.KeyVault
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticProtocolType")
+class ElasticProtocolType(_builtins.str, Enum):
+    """
+    Protocol types for elastic volume
+    """
+    NF_SV3 = "NFSv3"
+    """
+    NFSv3 protocol type
+    """
+    NF_SV4 = "NFSv4"
+    """
+    NFSv4 protocol type
+    """
+    SMB = "SMB"
+    """
+    SMB/CIFS protocol type
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticRootAccess")
+class ElasticRootAccess(_builtins.str, Enum):
+    """
+    Indicates whether root access to the volume is granted to clients affected by this rule
+    """
+    ENABLED = "Enabled"
+    """
+    Root user access is enabled for clients affected by this rule
+    """
+    DISABLED = "Disabled"
+    """
+    Root user access is disabled for clients affected by this rule
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticServiceLevel")
+class ElasticServiceLevel(_builtins.str, Enum):
+    """
+    The service level of the elastic capacity pool
+    """
+    ZONE_REDUNDANT = "ZoneRedundant"
+    """
+    Zone redundant storage service level.
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticSmbEncryption")
+class ElasticSmbEncryption(_builtins.str, Enum):
+    """
+    Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+    """
+    ENABLED = "Enabled"
+    """
+    Value indicating the SMB encryption is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    Value indicating the SMB encryption is disabled
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticUnixAccessRule")
+class ElasticUnixAccessRule(_builtins.str, Enum):
+    """
+    Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+    """
+    READ_ONLY = "ReadOnly"
+    """
+    Clients connecting with this rule will only have read access to the volume
+    """
+    READ_WRITE = "ReadWrite"
+    """
+    Clients connecting with this rule will have full read and write access to the volume
+    """
+    NO_ACCESS = "NoAccess"
+    """
+    Clients connecting with this rule will have no access to the volume
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ElasticVolumePolicyEnforcement")
+class ElasticVolumePolicyEnforcement(_builtins.str, Enum):
+    """
+    The property to decide policy is enforced or not on the volume
+    """
+    ENFORCED = "Enforced"
+    """
+    Value indicating the policy is enforced on the volume.
+    """
+    NOT_ENFORCED = "NotEnforced"
+    """
+    Value indicating the policy is not enforced on the volume.
+    """
+
+
 @pulumi.type_token("azure-native:netapp:EnableSubvolumes")
 class EnableSubvolumes(_builtins.str, Enum):
     """
@@ -96,6 +322,21 @@ class EnableSubvolumes(_builtins.str, Enum):
     DISABLED = "Disabled"
     """
     subvolumes are not enabled
+    """
+
+
+@pulumi.type_token("azure-native:netapp:EnableWriteBackState")
+class EnableWriteBackState(_builtins.str, Enum):
+    """
+    Flag indicating whether writeback is enabled for the cache.
+    """
+    DISABLED = "Disabled"
+    """
+    Writeback cache is disabled
+    """
+    ENABLED = "Enabled"
+    """
+    Writeback cache is enabled
     """
 
 
@@ -138,10 +379,40 @@ class EndpointType(_builtins.str, Enum):
     DST = "dst"
 
 
+@pulumi.type_token("azure-native:netapp:GlobalFileLockingState")
+class GlobalFileLockingState(_builtins.str, Enum):
+    """
+    Flag indicating whether the global file lock is enabled for the cache.
+    """
+    DISABLED = "Disabled"
+    """
+    Global file locking is disabled
+    """
+    ENABLED = "Enabled"
+    """
+    Global file locking is enabled
+    """
+
+
+@pulumi.type_token("azure-native:netapp:KerberosState")
+class KerberosState(_builtins.str, Enum):
+    """
+    Describe if a cache is Kerberos enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    Kerberos is disabled
+    """
+    ENABLED = "Enabled"
+    """
+    Kerberos is enabled
+    """
+
+
 @pulumi.type_token("azure-native:netapp:KeySource")
 class KeySource(_builtins.str, Enum):
     """
-    The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+    The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
     """
     MICROSOFT_NET_APP = "Microsoft.NetApp"
     """
@@ -150,6 +421,36 @@ class KeySource(_builtins.str, Enum):
     MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
     """
     Customer-managed key encryption
+    """
+
+
+@pulumi.type_token("azure-native:netapp:LdapServerType")
+class LdapServerType(_builtins.str, Enum):
+    """
+    Specifies the type of LDAP server for flexcache volume.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
+    """
+    The volume should use Active Directory for LDAP connections.
+    """
+    OPEN_LDAP = "OpenLDAP"
+    """
+    The volume should use OpenLDAP for LDAP connections.
+    """
+
+
+@pulumi.type_token("azure-native:netapp:LdapState")
+class LdapState(_builtins.str, Enum):
+    """
+    Specifies whether LDAP is enabled or not for flexcache volume.
+    """
+    DISABLED = "Disabled"
+    """
+    ldap is disabled.
+    """
+    ENABLED = "Enabled"
+    """
+    ldap is enabled
     """
 
 
@@ -184,6 +485,40 @@ class NetworkFeatures(_builtins.str, Enum):
     STANDARD_BASIC = "Standard_Basic"
     """
     Updating from Standard to Basic network features.
+    """
+
+
+@pulumi.type_token("azure-native:netapp:PolicyStatus")
+class PolicyStatus(_builtins.str, Enum):
+    """
+    Configures if the snapshot policy is enabled on the volumes connected to the policy.
+    """
+    ENABLED = "Enabled"
+    """
+    Value indicating the policy is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    Value indicating the policy is disabled
+    """
+
+
+@pulumi.type_token("azure-native:netapp:ProtocolTypes")
+class ProtocolTypes(_builtins.str, Enum):
+    """
+    Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+    """
+    NF_SV3 = "NFSv3"
+    """
+    NFSv3 protocol type
+    """
+    NF_SV4 = "NFSv4"
+    """
+    NFSv4 protocol type
+    """
+    SMB = "SMB"
+    """
+    SMB protocol type
     """
 
 
@@ -259,6 +594,21 @@ class SmbAccessBasedEnumeration(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:SmbEncryptionState")
+class SmbEncryptionState(_builtins.str, Enum):
+    """
+    Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+    """
+    DISABLED = "Disabled"
+    """
+    SMB encryption is disabled
+    """
+    ENABLED = "Enabled"
+    """
+    SMB encryption is enabled
+    """
+
+
 @pulumi.type_token("azure-native:netapp:SmbNonBrowsable")
 class SmbNonBrowsable(_builtins.str, Enum):
     """
@@ -271,6 +621,36 @@ class SmbNonBrowsable(_builtins.str, Enum):
     ENABLED = "Enabled"
     """
     smbNonBrowsable share setting is enabled
+    """
+
+
+@pulumi.type_token("azure-native:netapp:SnapshotDirectoryVisibility")
+class SnapshotDirectoryVisibility(_builtins.str, Enum):
+    """
+    Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+    """
+    HIDDEN = "Hidden"
+    """
+    Value indicating the read-only snapshot directory is not visible
+    """
+    VISIBLE = "Visible"
+    """
+    Value indicating the read-only snapshot directory is visible
+    """
+
+
+@pulumi.type_token("azure-native:netapp:SnapshotUsage")
+class SnapshotUsage(_builtins.str, Enum):
+    """
+    Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+    """
+    USE_EXISTING_SNAPSHOT = "UseExistingSnapshot"
+    """
+    Value indicating an existing snapshot is used
+    """
+    CREATE_NEW_SNAPSHOT = "CreateNewSnapshot"
+    """
+    Value indicating a new snapshot is created
     """
 
 

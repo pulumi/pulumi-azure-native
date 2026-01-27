@@ -84,6 +84,8 @@ class CustomRollout(pulumi.CustomResource):
                  rollout_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2024-09-01.
 
         :param str resource_name: The name of the resource.
@@ -99,6 +101,8 @@ class CustomRollout(pulumi.CustomResource):
                  args: CustomRolloutArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2024-09-01.
 
         :param str resource_name: The name of the resource.

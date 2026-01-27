@@ -119,6 +119,8 @@ def get_discovery_rule(discovery_rule_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-05-01-preview.
 
+    Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str discovery_rule_name: Name of the discovery rule. Must be unique within a health model.
     :param _builtins.str health_model_name: Name of health model resource
@@ -146,6 +148,8 @@ def get_discovery_rule_output(discovery_rule_name: Optional[pulumi.Input[_builti
     Get a DiscoveryRule
 
     Uses Azure REST API version 2025-05-01-preview.
+
+    Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str discovery_rule_name: Name of the discovery rule. Must be unique within a health model.

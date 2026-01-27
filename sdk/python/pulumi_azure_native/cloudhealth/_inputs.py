@@ -888,7 +888,7 @@ if not MYPY:
         """
         degraded_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
         """
-        Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+        Degraded rule with static threshold.
         """
         dynamic_detection_rule: NotRequired[pulumi.Input['DynamicDetectionRuleArgsDict']]
         """
@@ -896,7 +896,7 @@ if not MYPY:
         """
         unhealthy_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
         """
-        Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+        Unhealthy rule with static threshold.
         """
 elif False:
     EvaluationRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -909,9 +909,9 @@ class EvaluationRuleArgs:
                  unhealthy_rule: Optional[pulumi.Input['ThresholdRuleArgs']] = None):
         """
         Evaluation rule for a signal definition
-        :param pulumi.Input['ThresholdRuleArgs'] degraded_rule: Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+        :param pulumi.Input['ThresholdRuleArgs'] degraded_rule: Degraded rule with static threshold.
         :param pulumi.Input['DynamicDetectionRuleArgs'] dynamic_detection_rule: Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
-        :param pulumi.Input['ThresholdRuleArgs'] unhealthy_rule: Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+        :param pulumi.Input['ThresholdRuleArgs'] unhealthy_rule: Unhealthy rule with static threshold.
         """
         if degraded_rule is not None:
             pulumi.set(__self__, "degraded_rule", degraded_rule)
@@ -924,7 +924,7 @@ class EvaluationRuleArgs:
     @pulumi.getter(name="degradedRule")
     def degraded_rule(self) -> Optional[pulumi.Input['ThresholdRuleArgs']]:
         """
-        Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+        Degraded rule with static threshold.
         """
         return pulumi.get(self, "degraded_rule")
 
@@ -948,7 +948,7 @@ class EvaluationRuleArgs:
     @pulumi.getter(name="unhealthyRule")
     def unhealthy_rule(self) -> Optional[pulumi.Input['ThresholdRuleArgs']]:
         """
-        Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+        Unhealthy rule with static threshold.
         """
         return pulumi.get(self, "unhealthy_rule")
 

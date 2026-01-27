@@ -31,7 +31,7 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,7 +79,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the private endpoint connection.
+        The name of the private endpoint connection associated with the Azure resource.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -104,11 +104,11 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-08.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
@@ -124,7 +124,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-08.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -171,7 +171,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250801:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20260101preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:dbforpostgresql:PrivateEndpointConnection',

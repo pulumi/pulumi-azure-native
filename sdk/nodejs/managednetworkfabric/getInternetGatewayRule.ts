@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets an Internet Gateway Rule resource.
  *
  * Uses Azure REST API version 2023-06-15.
+ *
+ * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getInternetGatewayRule(args: GetInternetGatewayRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,6 +86,8 @@ export interface GetInternetGatewayRuleResult {
  * Gets an Internet Gateway Rule resource.
  *
  * Uses Azure REST API version 2023-06-15.
+ *
+ * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getInternetGatewayRuleOutput(args: GetInternetGatewayRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternetGatewayRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

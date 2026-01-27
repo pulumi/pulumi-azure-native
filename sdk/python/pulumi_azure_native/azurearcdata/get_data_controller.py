@@ -154,7 +154,7 @@ def get_data_controller(data_controller_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-03-01-preview.
 
-    Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str data_controller_name: The name of the data controller
@@ -184,7 +184,7 @@ def get_data_controller_output(data_controller_name: Optional[pulumi.Input[_buil
 
     Uses Azure REST API version 2025-03-01-preview.
 
-    Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str data_controller_name: The name of the data controller

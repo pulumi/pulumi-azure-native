@@ -37,6 +37,7 @@ class DatabaseAccountArgs:
                  create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
                  customer_managed_key_status: Optional[pulumi.Input[_builtins.str]] = None,
                  default_identity: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_priority_level: Optional[pulumi.Input[Union[_builtins.str, 'DefaultPriorityLevel']]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -47,6 +48,7 @@ class DatabaseAccountArgs:
                  enable_multiple_write_locations: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_per_region_per_partition_autoscale: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_priority_based_execution: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -77,6 +79,7 @@ class DatabaseAccountArgs:
         :param pulumi.Input[Union[_builtins.str, 'CreateMode']] create_mode: Enum to indicate the mode of account creation.
         :param pulumi.Input[_builtins.str] customer_managed_key_status: Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
         :param pulumi.Input[_builtins.str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        :param pulumi.Input[Union[_builtins.str, 'DefaultPriorityLevel']] default_priority_level: Enum to indicate default Priority Level of request for Priority Based Execution.
         :param pulumi.Input[_builtins.bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[_builtins.bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[_builtins.bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
@@ -87,6 +90,7 @@ class DatabaseAccountArgs:
         :param pulumi.Input[_builtins.bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input[_builtins.bool] enable_partition_merge: Flag to indicate enabling/disabling of Partition Merge feature on the account
         :param pulumi.Input[_builtins.bool] enable_per_region_per_partition_autoscale: Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        :param pulumi.Input[_builtins.bool] enable_priority_based_execution: Flag to indicate enabling/disabling of Priority Based Execution Preview feature on the account
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
         :param pulumi.Input[_builtins.bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -130,6 +134,8 @@ class DatabaseAccountArgs:
             pulumi.set(__self__, "customer_managed_key_status", customer_managed_key_status)
         if default_identity is not None:
             pulumi.set(__self__, "default_identity", default_identity)
+        if default_priority_level is not None:
+            pulumi.set(__self__, "default_priority_level", default_priority_level)
         if disable_key_based_metadata_write_access is not None:
             pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
         if disable_local_auth is not None:
@@ -150,6 +156,8 @@ class DatabaseAccountArgs:
             pulumi.set(__self__, "enable_partition_merge", enable_partition_merge)
         if enable_per_region_per_partition_autoscale is not None:
             pulumi.set(__self__, "enable_per_region_per_partition_autoscale", enable_per_region_per_partition_autoscale)
+        if enable_priority_based_execution is not None:
+            pulumi.set(__self__, "enable_priority_based_execution", enable_priority_based_execution)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if ip_rules is not None:
@@ -360,6 +368,18 @@ class DatabaseAccountArgs:
         pulumi.set(self, "default_identity", value)
 
     @_builtins.property
+    @pulumi.getter(name="defaultPriorityLevel")
+    def default_priority_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultPriorityLevel']]]:
+        """
+        Enum to indicate default Priority Level of request for Priority Based Execution.
+        """
+        return pulumi.get(self, "default_priority_level")
+
+    @default_priority_level.setter
+    def default_priority_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DefaultPriorityLevel']]]):
+        pulumi.set(self, "default_priority_level", value)
+
+    @_builtins.property
     @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
     def disable_key_based_metadata_write_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -478,6 +498,18 @@ class DatabaseAccountArgs:
     @enable_per_region_per_partition_autoscale.setter
     def enable_per_region_per_partition_autoscale(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_per_region_per_partition_autoscale", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enablePriorityBasedExecution")
+    def enable_priority_based_execution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Flag to indicate enabling/disabling of Priority Based Execution Preview feature on the account
+        """
+        return pulumi.get(self, "enable_priority_based_execution")
+
+    @enable_priority_based_execution.setter
+    def enable_priority_based_execution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_priority_based_execution", value)
 
     @_builtins.property
     @pulumi.getter
@@ -655,6 +687,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  customer_managed_key_status: Optional[pulumi.Input[_builtins.str]] = None,
                  database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
                  default_identity: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_priority_level: Optional[pulumi.Input[Union[_builtins.str, 'DefaultPriorityLevel']]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -665,6 +698,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  enable_multiple_write_locations: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_per_region_per_partition_autoscale: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_priority_based_execution: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -684,9 +718,9 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
-        Uses Azure REST API version 2025-04-15.
+        Uses Azure REST API version 2025-10-15.
 
-        Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -703,6 +737,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] customer_managed_key_status: Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
         :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[_builtins.str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        :param pulumi.Input[Union[_builtins.str, 'DefaultPriorityLevel']] default_priority_level: Enum to indicate default Priority Level of request for Priority Based Execution.
         :param pulumi.Input[_builtins.bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[_builtins.bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[_builtins.bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
@@ -713,6 +748,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input[_builtins.bool] enable_partition_merge: Flag to indicate enabling/disabling of Partition Merge feature on the account
         :param pulumi.Input[_builtins.bool] enable_per_region_per_partition_autoscale: Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        :param pulumi.Input[_builtins.bool] enable_priority_based_execution: Flag to indicate enabling/disabling of Priority Based Execution Preview feature on the account
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]] ip_rules: List of IpRules.
         :param pulumi.Input[_builtins.bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -738,9 +774,9 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
-        Uses Azure REST API version 2025-04-15.
+        Uses Azure REST API version 2025-10-15.
 
-        Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountArgs args: The arguments to use to populate this resource's properties.
@@ -770,6 +806,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  customer_managed_key_status: Optional[pulumi.Input[_builtins.str]] = None,
                  database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
                  default_identity: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_priority_level: Optional[pulumi.Input[Union[_builtins.str, 'DefaultPriorityLevel']]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -780,6 +817,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  enable_multiple_write_locations: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_per_region_per_partition_autoscale: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_priority_based_execution: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -821,6 +859,7 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_account_offer_type'")
             __props__.__dict__["database_account_offer_type"] = database_account_offer_type
             __props__.__dict__["default_identity"] = default_identity
+            __props__.__dict__["default_priority_level"] = default_priority_level
             __props__.__dict__["disable_key_based_metadata_write_access"] = disable_key_based_metadata_write_access
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["enable_analytical_storage"] = enable_analytical_storage
@@ -831,6 +870,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
             __props__.__dict__["enable_partition_merge"] = enable_partition_merge
             __props__.__dict__["enable_per_region_per_partition_autoscale"] = enable_per_region_per_partition_autoscale
+            __props__.__dict__["enable_priority_based_execution"] = enable_priority_based_execution
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_rules"] = ip_rules
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
@@ -856,6 +896,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__.__dict__["document_endpoint"] = None
             __props__.__dict__["failover_policies"] = None
             __props__.__dict__["instance_id"] = None
+            __props__.__dict__["key_vault_key_uri_version"] = None
             __props__.__dict__["keys_metadata"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
@@ -864,7 +905,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["write_locations"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210301preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210315:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210401preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210415:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210515:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210615:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210701preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20211015:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20211015preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20211115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220215preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220515:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220515preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220815:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220815preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20221115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20221115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230301preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230315:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230315preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230415:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230915:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230915preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20231115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20231115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240215preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240515:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240515preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240815:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240901preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20241115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20250415:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230415:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230915:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20231115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240515:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240815:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240901preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20241115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb:DatabaseAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210301preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210315:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210401preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210415:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210515:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210615:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20210701preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20211015:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20211015preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20211115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220215preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220515:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220515preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220815:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20220815preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20221115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20221115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230301preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230315:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230315preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230415:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230915:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20230915preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20231115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20231115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240215preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240515:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240515preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240815:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240901preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20241115:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20250415:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20251015:DatabaseAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230415:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230915:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20231115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240515:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240815:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240901preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20241115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb:DatabaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccount, __self__).__init__(
             'azure-native:cosmosdb:DatabaseAccount',
@@ -901,6 +942,7 @@ class DatabaseAccount(pulumi.CustomResource):
         __props__.__dict__["customer_managed_key_status"] = None
         __props__.__dict__["database_account_offer_type"] = None
         __props__.__dict__["default_identity"] = None
+        __props__.__dict__["default_priority_level"] = None
         __props__.__dict__["disable_key_based_metadata_write_access"] = None
         __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["document_endpoint"] = None
@@ -912,12 +954,14 @@ class DatabaseAccount(pulumi.CustomResource):
         __props__.__dict__["enable_multiple_write_locations"] = None
         __props__.__dict__["enable_partition_merge"] = None
         __props__.__dict__["enable_per_region_per_partition_autoscale"] = None
+        __props__.__dict__["enable_priority_based_execution"] = None
         __props__.__dict__["failover_policies"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["instance_id"] = None
         __props__.__dict__["ip_rules"] = None
         __props__.__dict__["is_virtual_network_filter_enabled"] = None
         __props__.__dict__["key_vault_key_uri"] = None
+        __props__.__dict__["key_vault_key_uri_version"] = None
         __props__.__dict__["keys_metadata"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -1043,6 +1087,14 @@ class DatabaseAccount(pulumi.CustomResource):
         return pulumi.get(self, "default_identity")
 
     @_builtins.property
+    @pulumi.getter(name="defaultPriorityLevel")
+    def default_priority_level(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Enum to indicate default Priority Level of request for Priority Based Execution.
+        """
+        return pulumi.get(self, "default_priority_level")
+
+    @_builtins.property
     @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
     def disable_key_based_metadata_write_access(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -1131,6 +1183,14 @@ class DatabaseAccount(pulumi.CustomResource):
         return pulumi.get(self, "enable_per_region_per_partition_autoscale")
 
     @_builtins.property
+    @pulumi.getter(name="enablePriorityBasedExecution")
+    def enable_priority_based_execution(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Flag to indicate enabling/disabling of Priority Based Execution Preview feature on the account
+        """
+        return pulumi.get(self, "enable_priority_based_execution")
+
+    @_builtins.property
     @pulumi.getter(name="failoverPolicies")
     def failover_policies(self) -> pulumi.Output[Sequence['outputs.FailoverPolicyResponse']]:
         """
@@ -1177,6 +1237,14 @@ class DatabaseAccount(pulumi.CustomResource):
         The URI of the key vault
         """
         return pulumi.get(self, "key_vault_key_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyUriVersion")
+    def key_vault_key_uri_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        The version of the Customer Managed Key currently being used by the account
+        """
+        return pulumi.get(self, "key_vault_key_uri_version")
 
     @_builtins.property
     @pulumi.getter(name="keysMetadata")

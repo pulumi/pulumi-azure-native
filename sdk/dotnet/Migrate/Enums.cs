@@ -2461,6 +2461,36 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
+    /// Discriminator for migration specific properties.
+    /// </summary>
+    [EnumType]
+    public readonly struct MigrationSpecificPropertiesInstanceType : IEquatable<MigrationSpecificPropertiesInstanceType>
+    {
+        private readonly string _value;
+
+        private MigrationSpecificPropertiesInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MigrationSpecificPropertiesInstanceType ServerMigration { get; } = new MigrationSpecificPropertiesInstanceType("ServerMigration");
+
+        public static bool operator ==(MigrationSpecificPropertiesInstanceType left, MigrationSpecificPropertiesInstanceType right) => left.Equals(right);
+        public static bool operator !=(MigrationSpecificPropertiesInstanceType left, MigrationSpecificPropertiesInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(MigrationSpecificPropertiesInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MigrationSpecificPropertiesInstanceType other && Equals(other);
+        public bool Equals(MigrationSpecificPropertiesInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Migration Strategy.
     /// </summary>
     [EnumType]
@@ -3378,6 +3408,47 @@ namespace Pulumi.AzureNative.Migrate
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TargetStorageProjectionType other && Equals(other);
         public bool Equals(TargetStorageProjectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Task Scope
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskScope : IEquatable<TaskScope>
+    {
+        private readonly string _value;
+
+        private TaskScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Wave task - typically related to a specific wave of migration
+        /// </summary>
+        public static TaskScope Wave { get; } = new TaskScope("Wave");
+        /// <summary>
+        /// Migration Entity task - typically related to a specific migration entity
+        /// </summary>
+        public static TaskScope MigrationEntity { get; } = new TaskScope("MigrationEntity");
+        /// <summary>
+        /// Migration Entity Group task - typically related to a specific migration entity group
+        /// </summary>
+        public static TaskScope MigrationEntityGroup { get; } = new TaskScope("MigrationEntityGroup");
+
+        public static bool operator ==(TaskScope left, TaskScope right) => left.Equals(right);
+        public static bool operator !=(TaskScope left, TaskScope right) => !left.Equals(right);
+
+        public static explicit operator string(TaskScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskScope other && Equals(other);
+        public bool Equals(TaskScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

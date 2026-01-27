@@ -364,19 +364,13 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         /// The marketplace type.
         /// </summary>
         [Input("marketplaceType")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.MarketplaceType>? MarketplaceType { get; set; }
-
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
+        public Input<Pulumi.AzureNative.ProviderHub.MarketplaceType>? MarketplaceType { get; set; }
 
         /// <summary>
         /// The metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         [Input("notifications")]
         private InputList<Inputs.NotificationArgs>? _notifications;

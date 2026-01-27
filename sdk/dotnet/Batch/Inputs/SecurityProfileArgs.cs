@@ -21,6 +21,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("encryptionAtHost")]
         public Input<bool>? EncryptionAtHost { get; set; }
 
+        /// <summary>
+        /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+        /// </summary>
         [Input("securityType")]
         public Input<Pulumi.AzureNative.Batch.SecurityTypes>? SecurityType { get; set; }
 

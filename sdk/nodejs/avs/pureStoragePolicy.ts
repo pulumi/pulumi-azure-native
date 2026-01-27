@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * An instance describing a Pure Storage Policy Based Management policy
  *
  * Uses Azure REST API version 2024-09-01.
+ *
+ * Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PureStoragePolicy extends pulumi.CustomResource {
     /**
@@ -111,7 +113,7 @@ export class PureStoragePolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20240901:PureStoragePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20240901:PureStoragePolicy" }, { type: "azure-native:avs/v20250901:PureStoragePolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PureStoragePolicy.__pulumiType, name, resourceInputs, opts);
     }

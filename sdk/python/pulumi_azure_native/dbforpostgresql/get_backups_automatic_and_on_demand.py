@@ -143,7 +143,7 @@ def get_backups_automatic_and_on_demand(backup_name: Optional[_builtins.str] = N
 
     Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str backup_name: Name of the backup.
@@ -175,7 +175,7 @@ def get_backups_automatic_and_on_demand_output(backup_name: Optional[pulumi.Inpu
 
     Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str backup_name: Name of the backup.

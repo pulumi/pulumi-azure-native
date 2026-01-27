@@ -4,7 +4,10 @@ ADHybridHealthService: {}
 AVS:
     tracking: "2023-09-01"
     additions:
+        License: "2025-09-01"
         PureStoragePolicy: "2024-09-01"
+        getLicense: "2025-09-01"
+        getPrivateCloudVcfLicense: "2025-09-01"
 Aad:
     tracking: "2022-12-01"
 AadIam:
@@ -37,6 +40,8 @@ ApiManagement:
     additions:
         ApiGateway: 2024-06-01-preview
         ApiGatewayConfigConnection: 2024-06-01-preview
+        ApiGatewayHostnameBinding: 2025-03-01-preview
+        ApiTool: 2025-03-01-preview
         ClientApplication: 2024-10-01-preview
         ClientApplicationProductLink: 2024-10-01-preview
         PolicyRestriction: 2024-06-01-preview
@@ -159,20 +164,26 @@ AzureStackHCI:
     tracking: "2024-04-01"
     additions:
         EdgeDeviceJob: 2024-12-01-preview
+        EdgeMachine: 2025-12-01-preview
+        EdgeMachineJob: 2025-12-01-preview
         GalleryImage: 2025-02-01-preview
         GuestAgent: 2025-02-01-preview
         HybridIdentityMetadatum: 2022-12-15-preview
+        LoadBalancer: 2025-09-01-preview
         LogicalNetwork: 2025-02-01-preview
         MachineExtension: 2022-12-15-preview
         MarketplaceGalleryImage: 2025-02-01-preview
+        NatGateway: 2025-09-01-preview
         NetworkInterface: 2025-02-01-preview
         NetworkSecurityGroup: 2025-02-01-preview
+        PublicIPAddress: 2025-09-01-preview
         SecurityRule: 2025-02-01-preview
         StorageContainer: 2025-02-01-preview
         VirtualHardDisk: 2025-02-01-preview
         VirtualMachine: 2022-12-15-preview
         VirtualMachineInstance: 2025-02-01-preview
         VirtualNetwork: 2023-07-01-preview
+        VirtualNetworkSubnet: 2025-09-01-preview
 AzureTerraform: {}
 BareMetalInfrastructure:
     tracking: 2024-08-01-preview
@@ -182,6 +193,13 @@ Billing:
     tracking: "2024-04-01"
 BillingBenefits:
     tracking: 2024-11-01-preview
+    additions:
+        ConditionalCredit: 2025-05-01-preview
+        Credit: 2025-05-01-preview
+        FreeService: 2025-12-01-preview
+        Macc: 2025-05-01-preview
+        Source: 2025-05-01-preview
+        listSellerResource: 2025-05-01-preview
 Blueprint:
     tracking: 2018-11-01-preview
 BotService:
@@ -192,11 +210,15 @@ Cdn:
     tracking: "2025-06-01"
     additions:
         AFDTargetGroup: 2024-06-01-preview
+        EdgeAction: 2025-09-01-preview
+        EdgeActionExecutionFilter: 2025-09-01-preview
+        EdgeActionVersion: 2025-09-01-preview
         KeyGroup: 2024-06-01-preview
         KnowledgeSource: 2025-09-01-preview
         ProfileAgent: 2025-09-01-preview
         TunnelPolicy: 2024-06-01-preview
         WebAgent: 2025-09-01-preview
+        getEdgeActionVersionCode: 2025-09-01-preview
 CertificateRegistration:
     tracking: "2024-04-01"
 ChangeAnalysis:
@@ -214,10 +236,17 @@ CognitiveServices:
     additions:
         AccountCapabilityHost: 2025-04-01-preview
         AccountConnection: 2025-04-01-preview
+        AgentApplication: 2025-10-01-preview
+        AgentDeployment: 2025-10-01-preview
+        OutboundRule: 2025-10-01-preview
         Project: 2025-04-01-preview
         ProjectCapabilityHost: 2025-04-01-preview
         ProjectConnection: 2025-04-01-preview
+        RaiExternalSafetyProvider: 2025-10-01-preview
+        RaiToolLabel: 2025-10-01-preview
         RaiTopic: 2025-07-01-preview
+        SubscriptionRaiPolicy: 2025-10-01-preview
+        listAgentApplicationAgents: 2025-10-01-preview
 Commerce: {}
 Communication:
     tracking: 2023-06-01-preview
@@ -244,6 +273,8 @@ Compute:
         GalleryImageVersion: "2024-03-03"
         GalleryInVMAccessControlProfile: "2024-03-03"
         GalleryInVMAccessControlProfileVersion: "2024-03-03"
+        GalleryScript: "2025-03-03"
+        GalleryScriptVersion: "2025-03-03"
         Image: "2024-11-01"
         ProximityPlacementGroup: "2024-11-01"
         RestorePoint: "2024-11-01"
@@ -260,6 +291,8 @@ Compute:
         VirtualMachineScaleSetVMRunCommand: "2024-11-01"
         getLogAnalyticExportRequestRateByInterval: "2024-11-01"
         getLogAnalyticExportThrottledRequests: "2024-11-01"
+ComputeLimit:
+    tracking: "2025-08-15"
 ComputeSchedule:
     tracking: 2025-04-15-preview
 ConfidentialLedger:
@@ -322,38 +355,29 @@ ContainerRegistry:
 ContainerService:
     tracking: "2025-09-01"
     additions:
-        AgentPool: "2025-08-01"
         AutoUpgradeProfile: 2024-05-02-preview
         DeploymentSafeguard: 2025-04-02-preview
         Fleet: 2024-05-02-preview
+        FleetManagedNamespace: 2025-08-01-preview
         FleetMember: 2024-05-02-preview
         FleetUpdateStrategy: 2024-05-02-preview
         IdentityBinding: 2025-06-02-preview
         JWTAuthenticator: 2025-07-02-preview
         LoadBalancer: 2024-10-02-preview
-        MaintenanceConfiguration: "2025-08-01"
-        ManagedCluster: "2025-08-01"
         ManagedClusterSnapshot: 2024-10-02-preview
-        ManagedNamespace: 2025-04-02-preview
+        MeshMembership: 2025-08-02-preview
         Namespace: 2025-02-02-preview
         NodeCustomization: 2025-08-02-preview
-        PrivateEndpointConnection: "2025-08-01"
-        Snapshot: "2025-08-01"
-        TrustedAccessRoleBinding: "2025-08-01"
         UpdateRun: 2024-05-02-preview
         listFleetCredentials: 2024-05-02-preview
         listManagedClusterAccessProfile: "2020-03-01"
-        listManagedClusterAdminCredentials: "2025-08-01"
-        listManagedClusterMonitoringUserCredentials: "2025-08-01"
-        listManagedClusterUserCredentials: "2025-08-01"
-        listManagedNamespaceCredential: 2025-04-02-preview
         listNamespaceCredential: 2025-02-02-preview
 ContainerStorage:
     tracking: 2023-07-01-preview
 Contoso:
     tracking: "2021-11-01"
 CosmosDB:
-    tracking: "2025-04-15"
+    tracking: "2025-10-15"
     additions:
         CassandraResourceCassandraRoleAssignment: 2025-05-01-preview
         CassandraResourceCassandraRoleDefinition: 2025-05-01-preview
@@ -367,10 +391,8 @@ CosmosDB:
         DatabaseAccountSqlContainer: "2016-03-31"
         DatabaseAccountSqlDatabase: "2016-03-31"
         DatabaseAccountTable: "2016-03-31"
-        Fleet: 2025-05-01-preview
-        FleetAnalytic: 2025-05-01-preview
-        Fleetspace: 2025-05-01-preview
-        FleetspaceAccount: 2025-05-01-preview
+        FleetAnalytic: 2025-11-01-preview
+        GarnetCluster: 2025-11-01-preview
         GraphResourceGraph: 2024-12-01-preview
         GremlinResourceGremlinRoleAssignment: 2025-05-01-preview
         GremlinResourceGremlinRoleDefinition: 2025-05-01-preview
@@ -408,6 +430,7 @@ DBforMySQL:
         Configuration: "2023-12-30"
         Database: "2023-12-30"
         FirewallRule: "2023-12-30"
+        LongRunningBackup: 2025-06-01-preview
         PrivateEndpointConnection: "2023-06-30"
         SingleServer: "2017-12-01"
         SingleServerConfiguration: "2017-12-01"
@@ -516,6 +539,21 @@ DBforMySQL:
         - modulename: DBforMySQL
           resourcename: Server
           detail: version 2024-12-30 is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Configuration
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Database
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: FirewallRule
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2025-06-01-preview is greater than 2018-06-01
+        - modulename: DBforMySQL
+          resourcename: Server
+          detail: version 2025-06-01-preview is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2025-08-01"
     additions:
@@ -663,10 +701,26 @@ DBforPostgreSQL:
         - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2026-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2026-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2026-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2026-01-01-preview is greater than 2018-06-01
+        - modulename: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2026-01-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2024-10-01"
     additions:
         Dashboard: 2024-11-01-preview
+        DashboardDefinition: 2025-09-01-preview
 DataBox:
     tracking: 2024-03-01-preview
 DataBoxEdge:
@@ -702,6 +756,8 @@ Databricks:
     tracking: "2024-05-01"
 Datadog:
     tracking: "2023-10-20"
+    additions:
+        getMonitorDefaultApplicationKey: 2025-11-03-preview
 DelegatedNetwork:
     tracking: 2023-06-27-preview
 DependencyMap:
@@ -743,6 +799,7 @@ DeviceProvisioningServices:
 DeviceRegistry:
     tracking: "2024-11-01"
     additions:
+        Credential: 2025-11-01-preview
         DiscoveredAsset: 2024-09-01-preview
         DiscoveredAssetEndpointProfile: 2024-09-01-preview
         Namespace: 2025-07-01-preview
@@ -750,6 +807,7 @@ DeviceRegistry:
         NamespaceDevice: 2025-07-01-preview
         NamespaceDiscoveredAsset: 2025-07-01-preview
         NamespaceDiscoveredDevice: 2025-07-01-preview
+        Policy: 2025-11-01-preview
         Schema: 2024-09-01-preview
         SchemaRegistry: 2024-09-01-preview
         SchemaVersion: 2024-09-01-preview
@@ -834,6 +892,8 @@ FileShares:
     tracking: 2025-06-01-preview
 FluidRelay:
     tracking: "2022-06-01"
+    additions:
+        FluidRelayPrivateEndpointConnection: 2025-06-20-preview
 FrontDoor:
     tracking: "2024-02-01"
     additions:
@@ -847,9 +907,6 @@ GuestConfiguration:
     tracking: "2024-04-05"
 HDInsight:
     tracking: 2024-08-01-preview
-    additions:
-        ClusterPool: 2024-05-01-preview
-        ClusterPoolCluster: 2024-05-01-preview
 HanaOnAzure: {}
 HardwareSecurityModules:
     tracking: 2024-06-30-preview
@@ -1024,11 +1081,14 @@ ManagedNetwork:
 ManagedNetworkFabric:
     tracking: "2023-06-15"
     additions:
+        NetworkMonitor: 2024-06-15-preview
         getL2IsolationDomainArpEntries: 2023-02-01-preview
         getNetworkDeviceDynamicInterfaceMaps: 2023-02-01-preview
         getNetworkDeviceStaticInterfaceMaps: 2023-02-01-preview
         getNetworkDeviceStatus: 2023-02-01-preview
         getNetworkInterfaceStatus: 2023-02-01-preview
+ManagedOps:
+    tracking: 2025-07-28-preview
 ManagedServices:
     tracking: "2022-10-01"
 Management:
@@ -1071,6 +1131,8 @@ Migrate:
         MigrateAgent: 2022-05-01-preview
         MigrateProject: 2018-09-01-preview
         MigrateProjectsControllerMigrateProject: "2020-05-01"
+        MigrationEntity: 2025-03-30-preview
+        MigrationEntityGroup: 2025-03-30-preview
         ModernizeProject: 2022-05-01-preview
         MoveCollection: "2023-08-01"
         MoveResource: "2023-08-01"
@@ -1084,8 +1146,10 @@ Migrate:
         SqlAssessmentV2Operation: 2024-01-01-preview
         SqlAssessmentV3Operation: 2024-03-03-preview
         SqlCollectorOperation: 2024-01-01-preview
+        Task: 2025-03-30-preview
         VMwareCollector: "2019-10-01"
         VmwareCollectorsOperation: 2024-01-01-preview
+        Wave: 2025-03-30-preview
         WebAppAssessmentV2Operation: 2024-01-01-preview
         WebAppAssessmentV3Operation: 2024-03-03-preview
         WebAppCollectorOperation: 2024-01-01-preview
@@ -1112,12 +1176,6 @@ Migrate:
           detail: version 2024-01-15 is greater than 2023-03-15
 Mission:
     tracking: 2025-05-01-preview
-MixedReality:
-    tracking: 2021-03-01-preview
-MobileNetwork:
-    tracking: "2024-04-01"
-    additions:
-        listMobileNetworkSimIds: 2022-04-01-preview
 MongoCluster:
     tracking: "2024-07-01"
     additions:
@@ -1155,9 +1213,20 @@ MySQLDiscovery:
 NetApp:
     tracking: "2024-09-01"
     additions:
+        ActiveDirectoryConfig: 2025-09-01-preview
         CapacityPoolBackup: "2022-11-01"
         CapacityPoolBucket: 2025-01-01-preview
+        CapacityPoolCache: 2025-09-01-preview
+        ElasticAccount: 2025-09-01-preview
+        ElasticBackup: 2025-09-01-preview
+        ElasticBackupPolicy: 2025-09-01-preview
+        ElasticBackupVault: 2025-09-01-preview
+        ElasticCapacityPool: 2025-09-01-preview
+        ElasticSnapshot: 2025-09-01-preview
+        ElasticSnapshotPolicy: 2025-09-01-preview
+        ElasticVolume: 2025-09-01-preview
         getAccountKeyVaultStatus: 2024-09-01-preview
+        listCapacityPoolCachePeeringPassphrases: 2025-09-01-preview
         listCapacityPoolVolumeQuotaReport: 2024-09-01-preview
 Network:
     additions:
@@ -1251,6 +1320,7 @@ Network:
         SecurityUserRuleCollection: "2024-05-01"
         ServiceEndpointPolicy: "2024-05-01"
         ServiceEndpointPolicyDefinition: "2024-05-01"
+        ServiceGateway: "2025-05-01"
         StaticCidr: "2024-05-01"
         StaticMember: "2024-05-01"
         Subnet: "2024-05-01"
@@ -1264,6 +1334,7 @@ Network:
         VirtualHubIpConfiguration: "2024-05-01"
         VirtualHubRouteTableV2: "2024-05-01"
         VirtualNetwork: "2024-05-01"
+        VirtualNetworkAppliance: "2025-05-01"
         VirtualNetworkGateway: "2024-05-01"
         VirtualNetworkGatewayConnection: "2024-05-01"
         VirtualNetworkGatewayNatRule: "2024-05-01"
@@ -1353,6 +1424,15 @@ Network:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-10-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2025-01-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2025-03-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2025-05-01 is greater than 2022-09-01
 NetworkCloud:
     tracking: "2025-02-01"
 NetworkFunction:
@@ -1387,6 +1467,7 @@ OperationalInsights:
         QueryPack: "2023-09-01"
         SavedSearch: "2023-09-01"
         StorageInsightConfig: "2023-09-01"
+        SummaryLog: "2025-07-01"
         Table: "2023-09-01"
         Workspace: "2023-09-01"
         getSharedKeys: "2023-09-01"
@@ -1487,6 +1568,9 @@ Resources:
         DeploymentStackAtManagementGroup: "2024-03-01"
         DeploymentStackAtResourceGroup: "2024-03-01"
         DeploymentStackAtSubscription: "2024-03-01"
+        DeploymentStacksWhatIfResultsAtManagementGroup: "2025-07-01"
+        DeploymentStacksWhatIfResultsAtResourceGroup: "2025-07-01"
+        DeploymentStacksWhatIfResultsAtSubscription: "2025-07-01"
         Resource: "2024-03-01"
         ResourceGroup: "2024-03-01"
         TagAtScope: "2024-03-01"
@@ -1551,7 +1635,6 @@ SecurityInsights:
     tracking: "2024-09-01"
     additions:
         BookmarkRelation: 2025-01-01-preview
-        BusinessApplicationAgent: 2025-01-01-preview
         EntityQuery: 2025-01-01-preview
         FileImport: 2025-01-01-preview
         Hunt: 2025-01-01-preview
@@ -1559,7 +1642,6 @@ SecurityInsights:
         HuntRelation: 2025-01-01-preview
         ProductSetting: 2025-01-01-preview
         SourceControl: 2023-05-01-preview
-        System: 2025-01-01-preview
         WorkspaceManagerAssignment: 2025-01-01-preview
         WorkspaceManagerConfiguration: 2025-01-01-preview
         WorkspaceManagerGroup: 2025-01-01-preview
@@ -1568,7 +1650,6 @@ SecurityInsights:
         getEntityInsights: 2025-01-01-preview
         listGeodataByIp: 2025-01-01-preview
         listSourceControlRepositories: 2025-01-01-preview
-        listSystemActions: 2025-01-01-preview
         listWhoisByDomain: 2025-01-01-preview
 SerialConsole:
     tracking: "2018-05-01"
@@ -1625,6 +1706,18 @@ ServiceFabric:
         - modulename: ServiceFabric
           resourcename: Service
           detail: version 2025-06-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Application
+          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationType
+          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationTypeVersion
+          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Service
+          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
@@ -1699,8 +1792,6 @@ VMwareCloudSimple:
     tracking: "2019-04-01"
 VerifiedId:
     tracking: 2024-01-26-preview
-VideoAnalyzer:
-    tracking: 2021-11-01-preview
 VideoIndexer:
     tracking: "2024-01-01"
     additions:
@@ -1721,6 +1812,8 @@ Web:
         SiteCertificateSlot: "2024-11-01"
         WebAppAuthSettingsV2: "2021-02-01"
         WebAppAuthSettingsV2Slot: "2021-02-01"
+        getAppServicePlanServerFarmRdpPassword: "2025-03-01"
+        listAppServicePlanServerFarmInstanceDetails: "2025-03-01"
         listConnectionConsentLinks: "2016-06-01"
         listConnectionKeys: 2015-08-01-preview
         listCustomApiWsdlInterfaces: "2016-06-01"

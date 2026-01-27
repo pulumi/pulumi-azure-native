@@ -45,6 +45,9 @@ export class BatchAccount extends pulumi.CustomResource {
      * The account endpoint used to interact with the Batch service.
      */
     declare public /*out*/ readonly accountEndpoint: pulumi.Output<string>;
+    /**
+     * The active job and job schedule quota for the Batch account.
+     */
     declare public /*out*/ readonly activeJobAndJobScheduleQuota: pulumi.Output<number>;
     /**
      * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
@@ -83,7 +86,7 @@ export class BatchAccount extends pulumi.CustomResource {
      */
     declare public readonly keyVaultReference: pulumi.Output<outputs.batch.KeyVaultReferenceResponse>;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string>;
     /**
@@ -91,7 +94,7 @@ export class BatchAccount extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lowPriorityCoreQuota: pulumi.Output<number>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -106,6 +109,9 @@ export class BatchAccount extends pulumi.CustomResource {
      * The allocation mode for creating pools in the Batch account.
      */
     declare public readonly poolAllocationMode: pulumi.Output<string>;
+    /**
+     * The pool quota for the Batch account.
+     */
     declare public /*out*/ readonly poolQuota: pulumi.Output<number>;
     /**
      * List of private endpoint connections associated with the Batch account
@@ -116,15 +122,19 @@ export class BatchAccount extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
-     * If not specified, the default value is 'enabled'.
+     * The network access type for operating on the resources in the Batch account.
      */
     declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.batch.SystemDataResponse>;
     /**
-     * The type of the resource.
+     * Resource tags.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -151,7 +161,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["networkProfile"] = args?.networkProfile;
             resourceInputs["poolAllocationMode"] = args?.poolAllocationMode;
-            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["accountEndpoint"] = undefined /*out*/;
@@ -166,6 +176,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["poolQuota"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accountEndpoint"] = undefined /*out*/;
@@ -189,6 +200,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -240,11 +252,11 @@ export interface BatchAccountArgs {
      */
     poolAllocationMode?: pulumi.Input<enums.batch.PoolAllocationMode>;
     /**
-     * If not specified, the default value is 'enabled'.
+     * The network access type for operating on the resources in the Batch account.
      */
     publicNetworkAccess?: pulumi.Input<enums.batch.PublicNetworkAccessType>;
     /**
-     * The name of the resource group that contains the Batch account.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

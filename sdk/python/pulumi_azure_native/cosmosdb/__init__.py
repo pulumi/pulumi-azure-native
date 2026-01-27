@@ -28,6 +28,7 @@ from .fleet import *
 from .fleet_analytic import *
 from .fleetspace import *
 from .fleetspace_account import *
+from .garnet_cluster import *
 from .get_cassandra_cluster import *
 from .get_cassandra_data_center import *
 from .get_cassandra_resource_cassandra_keyspace import *
@@ -49,6 +50,7 @@ from .get_fleet import *
 from .get_fleet_analytic import *
 from .get_fleetspace import *
 from .get_fleetspace_account import *
+from .get_garnet_cluster import *
 from .get_graph_resource_graph import *
 from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *

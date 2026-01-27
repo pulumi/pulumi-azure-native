@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Exchange data type connection.
         /// </summary>
-        public readonly Outputs.OfficeDataConnectorDataTypesResponseExchange? Exchange;
+        public readonly Outputs.OfficeDataConnectorDataTypesResponseExchange Exchange;
         /// <summary>
         /// SharePoint data type connection.
         /// </summary>
-        public readonly Outputs.OfficeDataConnectorDataTypesResponseSharePoint? SharePoint;
+        public readonly Outputs.OfficeDataConnectorDataTypesResponseSharePoint SharePoint;
         /// <summary>
         /// Teams data type connection.
         /// </summary>
-        public readonly Outputs.OfficeDataConnectorDataTypesResponseTeams? Teams;
+        public readonly Outputs.OfficeDataConnectorDataTypesResponseTeams Teams;
 
         [OutputConstructor]
         private OfficeDataConnectorDataTypesResponse(
-            Outputs.OfficeDataConnectorDataTypesResponseExchange? exchange,
+            Outputs.OfficeDataConnectorDataTypesResponseExchange exchange,
 
-            Outputs.OfficeDataConnectorDataTypesResponseSharePoint? sharePoint,
+            Outputs.OfficeDataConnectorDataTypesResponseSharePoint sharePoint,
 
-            Outputs.OfficeDataConnectorDataTypesResponseTeams? teams)
+            Outputs.OfficeDataConnectorDataTypesResponseTeams teams)
         {
             Exchange = exchange;
             SharePoint = sharePoint;

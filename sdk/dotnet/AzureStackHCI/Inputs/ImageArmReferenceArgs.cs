@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
     /// <summary>
-    /// The ARM ID for a Gallery Image.
+    /// The Azure Resource ID for a Gallery Image.
     /// </summary>
     public sealed class ImageArmReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARM ID for an image resource used by the virtual machine instance.
+        /// The Azure Resource ID for an image resource used by the virtual machine instance.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

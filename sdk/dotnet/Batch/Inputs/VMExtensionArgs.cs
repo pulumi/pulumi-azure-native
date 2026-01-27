@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// The configuration for virtual machine extensions.
+    /// </summary>
     public sealed class VMExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -24,11 +27,14 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("enableAutomaticUpgrade")]
         public Input<bool>? EnableAutomaticUpgrade { get; set; }
 
+        /// <summary>
+        /// The name of the virtual machine extension.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
+        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
         [Input("protectedSettings")]
         public Input<object>? ProtectedSettings { get; set; }
@@ -45,15 +51,27 @@ namespace Pulumi.AzureNative.Batch.Inputs
             set => _provisionAfterExtensions = value;
         }
 
+        /// <summary>
+        /// The name of the extension handler publisher.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
+        /// <summary>
+        /// JSON formatted public settings for the extension.
+        /// </summary>
         [Input("settings")]
         public Input<object>? Settings { get; set; }
 
+        /// <summary>
+        /// The type of the extensions.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The version of script handler.
+        /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }
 

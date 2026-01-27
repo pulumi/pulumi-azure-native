@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2023-10-20. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
  *
- * Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-native:datadog/v20210301:Monitor" }, { type: "azure-native:datadog/v20220601:Monitor" }, { type: "azure-native:datadog/v20220801:Monitor" }, { type: "azure-native:datadog/v20230101:Monitor" }, { type: "azure-native:datadog/v20230707:Monitor" }, { type: "azure-native:datadog/v20231020:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-native:datadog/v20210301:Monitor" }, { type: "azure-native:datadog/v20220601:Monitor" }, { type: "azure-native:datadog/v20220801:Monitor" }, { type: "azure-native:datadog/v20230101:Monitor" }, { type: "azure-native:datadog/v20230707:Monitor" }, { type: "azure-native:datadog/v20231020:Monitor" }, { type: "azure-native:datadog/v20240301:Monitor" }, { type: "azure-native:datadog/v20250107:Monitor" }, { type: "azure-native:datadog/v20250611:Monitor" }, { type: "azure-native:datadog/v20251103preview:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }

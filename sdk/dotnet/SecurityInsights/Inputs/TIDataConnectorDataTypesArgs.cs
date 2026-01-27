@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// <summary>
         /// Data type for indicators connection.
         /// </summary>
-        [Input("indicators")]
-        public Input<Inputs.TIDataConnectorDataTypesIndicatorsArgs>? Indicators { get; set; }
+        [Input("indicators", required: true)]
+        public Input<Inputs.TIDataConnectorDataTypesIndicatorsArgs> Indicators { get; set; } = null!;
 
         public TIDataConnectorDataTypesArgs()
         {

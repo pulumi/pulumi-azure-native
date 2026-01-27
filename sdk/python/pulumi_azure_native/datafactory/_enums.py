@@ -44,6 +44,7 @@ __all__ = [
     'HBaseAuthenticationType',
     'HDInsightActivityDebugInfoOption',
     'HDInsightClusterAuthenticationType',
+    'HDInsightOndemandClusterResourceGroupAuthenticationType',
     'HiveAuthenticationType',
     'HiveServerType',
     'HiveThriftTransportProtocol',
@@ -59,6 +60,7 @@ __all__ = [
     'ManagedVirtualNetworkReferenceType',
     'MappingType',
     'MongoDbAuthenticationType',
+    'NetezzaSecurityLevelType',
     'NotebookParameterType',
     'NotebookReferenceType',
     'ODataAadServicePrincipalCredentialType',
@@ -472,6 +474,16 @@ class HDInsightClusterAuthenticationType(_builtins.str, Enum):
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
+@pulumi.type_token("azure-native:datafactory:HDInsightOndemandClusterResourceGroupAuthenticationType")
+class HDInsightOndemandClusterResourceGroupAuthenticationType(_builtins.str, Enum):
+    """
+    HDInsight On-demand cluster resource group authentication type.
+    """
+    SERVICE_PRINCIPAL_KEY = "ServicePrincipalKey"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+
+
 @pulumi.type_token("azure-native:datafactory:HiveAuthenticationType")
 class HiveAuthenticationType(_builtins.str, Enum):
     """
@@ -616,6 +628,15 @@ class MongoDbAuthenticationType(_builtins.str, Enum):
     """
     BASIC = "Basic"
     ANONYMOUS = "Anonymous"
+
+
+@pulumi.type_token("azure-native:datafactory:NetezzaSecurityLevelType")
+class NetezzaSecurityLevelType(_builtins.str, Enum):
+    """
+    Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+    """
+    PREFERRED_UN_SECURED = "PreferredUnSecured"
+    ONLY_UN_SECURED = "OnlyUnSecured"
 
 
 @pulumi.type_token("azure-native:datafactory:NotebookParameterType")

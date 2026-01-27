@@ -17,8 +17,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AutomaticShortfallSuppressReasonResponse',
     'CatalogClaimsItemResponse',
+    'CommitmentResponse',
     'ConditionsItemResponse',
+    'CreditBreakdownItemResponse',
+    'CreditDimensionResponse',
+    'CreditPoliciesResponse',
+    'CreditReasonResponse',
     'CustomPricePropertiesResponse',
     'DiscountCustomPriceMultiCurrencyResponse',
     'DiscountCustomPriceResponse',
@@ -27,14 +33,52 @@ __all__ = [
     'DiscountTypeProductSkuResponse',
     'EntityTypeAffiliateDiscountResponse',
     'EntityTypePrimaryDiscountResponse',
+    'MaccMilestoneResponse',
     'ManagedServiceIdentityResponse',
     'MarketSetPricesItemsResponse',
     'PlanResponse',
     'PriceGuaranteePropertiesResponse',
+    'PriceResponse',
+    'ShortfallResponse',
     'SkuResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class AutomaticShortfallSuppressReasonResponse(dict):
+    """
+    Optional field to record suppression reason for automatic shortfall.
+    """
+    def __init__(__self__, *,
+                 code: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None):
+        """
+        Optional field to record suppression reason for automatic shortfall.
+        :param _builtins.str code: Code for the suppression reason.
+        :param _builtins.str message: Message for suppression reason.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[_builtins.str]:
+        """
+        Code for the suppression reason.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        """
+        Message for suppression reason.
+        """
+        return pulumi.get(self, "message")
+
 
 @pulumi.output_type
 class CatalogClaimsItemResponse(dict):
@@ -78,6 +122,66 @@ class CatalogClaimsItemResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CommitmentResponse(dict):
+    """
+    Commitment towards the benefit.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currencyCode":
+            suggest = "currency_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommitmentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommitmentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommitmentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amount: Optional[_builtins.float] = None,
+                 currency_code: Optional[_builtins.str] = None,
+                 grain: Optional[_builtins.str] = None):
+        """
+        Commitment towards the benefit.
+        :param _builtins.str currency_code: The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        :param _builtins.str grain: The grain of the commitment.
+        """
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if currency_code is not None:
+            pulumi.set(__self__, "currency_code", currency_code)
+        if grain is not None:
+            pulumi.set(__self__, "grain", grain)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter(name="currencyCode")
+    def currency_code(self) -> Optional[_builtins.str]:
+        """
+        The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+        return pulumi.get(self, "currency_code")
+
+    @_builtins.property
+    @pulumi.getter
+    def grain(self) -> Optional[_builtins.str]:
+        """
+        The grain of the commitment.
+        """
+        return pulumi.get(self, "grain")
 
 
 @pulumi.output_type
@@ -134,6 +238,185 @@ class ConditionsItemResponse(dict):
         These items are open-ended strings.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CreditBreakdownItemResponse(dict):
+    """
+    Credit breakdown item representing a milestone, line-item, or no-charge service
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endAt":
+            suggest = "end_at"
+        elif key == "startAt":
+            suggest = "start_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreditBreakdownItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreditBreakdownItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreditBreakdownItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation: Optional['outputs.CommitmentResponse'] = None,
+                 dimensions: Optional[Sequence['outputs.CreditDimensionResponse']] = None,
+                 end_at: Optional[_builtins.str] = None,
+                 start_at: Optional[_builtins.str] = None):
+        """
+        Credit breakdown item representing a milestone, line-item, or no-charge service
+        :param 'CommitmentResponse' allocation: Allocation details including currency and amount for this breakdown item
+        :param Sequence['CreditDimensionResponse'] dimensions: Key-value pairs for additional parameters and metadata
+        :param _builtins.str end_at: End DateTime in UTC.
+        :param _builtins.str start_at: Start DateTime.
+        """
+        if allocation is not None:
+            pulumi.set(__self__, "allocation", allocation)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def allocation(self) -> Optional['outputs.CommitmentResponse']:
+        """
+        Allocation details including currency and amount for this breakdown item
+        """
+        return pulumi.get(self, "allocation")
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.CreditDimensionResponse']]:
+        """
+        Key-value pairs for additional parameters and metadata
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[_builtins.str]:
+        """
+        End DateTime in UTC.
+        """
+        return pulumi.get(self, "end_at")
+
+    @_builtins.property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[_builtins.str]:
+        """
+        Start DateTime.
+        """
+        return pulumi.get(self, "start_at")
+
+
+@pulumi.output_type
+class CreditDimensionResponse(dict):
+    """
+    Key-value pair for additional credit parameters and metadata
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        Key-value pair for additional credit parameters and metadata
+        :param _builtins.str key: The dimension key (e.g., productFamily, description, creditType)
+        :param _builtins.str value: The dimension value
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The dimension key (e.g., productFamily, description, creditType)
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The dimension value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CreditPoliciesResponse(dict):
+    """
+    Credit breakdown item representing a milestone, line-item, or no-charge service
+    """
+    def __init__(__self__, *,
+                 expiration: Optional[_builtins.str] = None,
+                 redemption: Optional[_builtins.str] = None):
+        """
+        Credit breakdown item representing a milestone, line-item, or no-charge service
+        :param _builtins.str expiration: Expiration policy of the Credit
+        :param _builtins.str redemption: Redemption policy of the Credit
+        """
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if redemption is not None:
+            pulumi.set(__self__, "redemption", redemption)
+
+    @_builtins.property
+    @pulumi.getter
+    def expiration(self) -> Optional[_builtins.str]:
+        """
+        Expiration policy of the Credit
+        """
+        return pulumi.get(self, "expiration")
+
+    @_builtins.property
+    @pulumi.getter
+    def redemption(self) -> Optional[_builtins.str]:
+        """
+        Redemption policy of the Credit
+        """
+        return pulumi.get(self, "redemption")
+
+
+@pulumi.output_type
+class CreditReasonResponse(dict):
+    """
+    The reason for the credit. Not required if not applicable.
+    """
+    def __init__(__self__, *,
+                 code: _builtins.float,
+                 description: _builtins.str):
+        """
+        The reason for the credit. Not required if not applicable.
+        :param _builtins.float code: The reason code for credit.
+        :param _builtins.str description: The free string description of the credit.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.float:
+        """
+        The reason code for credit.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        The free string description of the credit.
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -1416,6 +1699,124 @@ class EntityTypePrimaryDiscountResponse(dict):
 
 
 @pulumi.output_type
+class MaccMilestoneResponse(dict):
+    """
+    MACC milestone represents interim targets within the period of MACC.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automaticShortfall":
+            suggest = "automatic_shortfall"
+        elif key == "automaticShortfallSuppressReason":
+            suggest = "automatic_shortfall_suppress_reason"
+        elif key == "endAt":
+            suggest = "end_at"
+        elif key == "milestoneId":
+            suggest = "milestone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaccMilestoneResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaccMilestoneResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaccMilestoneResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automatic_shortfall: Optional[_builtins.str] = None,
+                 automatic_shortfall_suppress_reason: Optional['outputs.AutomaticShortfallSuppressReasonResponse'] = None,
+                 commitment: Optional['outputs.PriceResponse'] = None,
+                 end_at: Optional[_builtins.str] = None,
+                 milestone_id: Optional[_builtins.str] = None,
+                 shortfall: Optional['outputs.ShortfallResponse'] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        MACC milestone represents interim targets within the period of MACC.
+        :param _builtins.str automatic_shortfall: Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+        :param 'AutomaticShortfallSuppressReasonResponse' automatic_shortfall_suppress_reason: Optional field to record suppression reason for automatic shortfall.
+        :param 'PriceResponse' commitment: Commitment associated with this milestone.
+        :param _builtins.str end_at: End date time for the milestone. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
+        :param _builtins.str milestone_id: Globally unique identifier for the milestone. Format: {guid}
+        :param 'ShortfallResponse' shortfall: Details of the shortfall associated with this milestone.
+        :param _builtins.str status: Represents the current status of the Milestone.
+        """
+        if automatic_shortfall is not None:
+            pulumi.set(__self__, "automatic_shortfall", automatic_shortfall)
+        if automatic_shortfall_suppress_reason is not None:
+            pulumi.set(__self__, "automatic_shortfall_suppress_reason", automatic_shortfall_suppress_reason)
+        if commitment is not None:
+            pulumi.set(__self__, "commitment", commitment)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if milestone_id is not None:
+            pulumi.set(__self__, "milestone_id", milestone_id)
+        if shortfall is not None:
+            pulumi.set(__self__, "shortfall", shortfall)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticShortfall")
+    def automatic_shortfall(self) -> Optional[_builtins.str]:
+        """
+        Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+        """
+        return pulumi.get(self, "automatic_shortfall")
+
+    @_builtins.property
+    @pulumi.getter(name="automaticShortfallSuppressReason")
+    def automatic_shortfall_suppress_reason(self) -> Optional['outputs.AutomaticShortfallSuppressReasonResponse']:
+        """
+        Optional field to record suppression reason for automatic shortfall.
+        """
+        return pulumi.get(self, "automatic_shortfall_suppress_reason")
+
+    @_builtins.property
+    @pulumi.getter
+    def commitment(self) -> Optional['outputs.PriceResponse']:
+        """
+        Commitment associated with this milestone.
+        """
+        return pulumi.get(self, "commitment")
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[_builtins.str]:
+        """
+        End date time for the milestone. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
+        """
+        return pulumi.get(self, "end_at")
+
+    @_builtins.property
+    @pulumi.getter(name="milestoneId")
+    def milestone_id(self) -> Optional[_builtins.str]:
+        """
+        Globally unique identifier for the milestone. Format: {guid}
+        """
+        return pulumi.get(self, "milestone_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def shortfall(self) -> Optional['outputs.ShortfallResponse']:
+        """
+        Details of the shortfall associated with this milestone.
+        """
+        return pulumi.get(self, "shortfall")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Represents the current status of the Milestone.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
     Managed service identity (system assigned and/or user assigned identities)
@@ -1563,7 +1964,7 @@ class PlanResponse(dict):
         """
         Plan for the resource.
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param _builtins.str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param _builtins.str version: The version of the desired product/artifact.
@@ -1588,7 +1989,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def product(self) -> _builtins.str:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         """
         return pulumi.get(self, "product")
 
@@ -1672,6 +2073,172 @@ class PriceGuaranteePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PriceResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currencyCode":
+            suggest = "currency_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PriceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PriceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PriceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amount: Optional[_builtins.float] = None,
+                 currency_code: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str currency_code: The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if currency_code is not None:
+            pulumi.set(__self__, "currency_code", currency_code)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter(name="currencyCode")
+    def currency_code(self) -> Optional[_builtins.str]:
+        """
+        The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+        return pulumi.get(self, "currency_code")
+
+
+@pulumi.output_type
+class ShortfallResponse(dict):
+    """
+    MACC shortfall
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "balanceVersion":
+            suggest = "balance_version"
+        elif key == "endAt":
+            suggest = "end_at"
+        elif key == "productCode":
+            suggest = "product_code"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "startAt":
+            suggest = "start_at"
+        elif key == "systemId":
+            suggest = "system_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShortfallResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShortfallResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShortfallResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 balance_version: Optional[_builtins.float] = None,
+                 charge: Optional['outputs.CommitmentResponse'] = None,
+                 end_at: Optional[_builtins.str] = None,
+                 product_code: Optional[_builtins.str] = None,
+                 resource_id: Optional[_builtins.str] = None,
+                 start_at: Optional[_builtins.str] = None,
+                 system_id: Optional[_builtins.str] = None):
+        """
+        MACC shortfall
+        :param _builtins.float balance_version: Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
+        :param 'CommitmentResponse' charge: Shortfall amount with grain.
+        :param _builtins.str end_at: End DateTime in UTC.
+        :param _builtins.str product_code: Represents catalog UPN.
+        :param _builtins.str resource_id: Fully-qualified resource identifier of the credits associated with the shortfall.
+        :param _builtins.str start_at: Start DateTime.
+        :param _builtins.str system_id: This is an identifier of the shortfall which will not change for its lifetime.
+        """
+        if balance_version is not None:
+            pulumi.set(__self__, "balance_version", balance_version)
+        if charge is not None:
+            pulumi.set(__self__, "charge", charge)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if product_code is not None:
+            pulumi.set(__self__, "product_code", product_code)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+
+    @_builtins.property
+    @pulumi.getter(name="balanceVersion")
+    def balance_version(self) -> Optional[_builtins.float]:
+        """
+        Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
+        """
+        return pulumi.get(self, "balance_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def charge(self) -> Optional['outputs.CommitmentResponse']:
+        """
+        Shortfall amount with grain.
+        """
+        return pulumi.get(self, "charge")
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[_builtins.str]:
+        """
+        End DateTime in UTC.
+        """
+        return pulumi.get(self, "end_at")
+
+    @_builtins.property
+    @pulumi.getter(name="productCode")
+    def product_code(self) -> Optional[_builtins.str]:
+        """
+        Represents catalog UPN.
+        """
+        return pulumi.get(self, "product_code")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        Fully-qualified resource identifier of the credits associated with the shortfall.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[_builtins.str]:
+        """
+        Start DateTime.
+        """
+        return pulumi.get(self, "start_at")
+
+    @_builtins.property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[_builtins.str]:
+        """
+        This is an identifier of the shortfall which will not change for its lifetime.
+        """
+        return pulumi.get(self, "system_id")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The resource model definition representing SKU
@@ -1687,7 +2254,7 @@ class SkuResponse(dict):
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param _builtins.str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -1728,7 +2295,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def size(self) -> Optional[_builtins.str]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         """
         return pulumi.get(self, "size")
 

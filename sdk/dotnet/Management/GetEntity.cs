@@ -14,7 +14,6 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
         /// 
-        /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
@@ -25,7 +24,6 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
         /// 
-        /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
@@ -35,7 +33,6 @@ namespace Pulumi.AzureNative.Management
 
         /// <summary>
         /// List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
-        /// 
         /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
@@ -61,7 +58,7 @@ namespace Pulumi.AzureNative.Management
         public string? GroupName { get; set; }
 
         /// <summary>
-        /// The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in. 
+        /// The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in.
         /// With $search=AllowedParents the API will return the entity info of all groups that the requested entity will be able to reparent to as determined by the user's permissions.
         /// With $search=AllowedChildren the API will return the entity info of all entities that can be added as children of the requested entity.
         /// With $search=ParentAndFirstLevelChildren the API will return the parent and  first level of children that the user has either direct access to or indirect access via one of their descendants.
@@ -84,7 +81,7 @@ namespace Pulumi.AzureNative.Management
         public int? Skip { get; set; }
 
         /// <summary>
-        /// Page continuation token is only used if a previous operation returned a partial result. 
+        /// Page continuation token is only used if a previous operation returned a partial result.
         /// If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
         /// </summary>
         [Input("skiptoken")]
@@ -123,7 +120,7 @@ namespace Pulumi.AzureNative.Management
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in. 
+        /// The $search parameter is used in conjunction with the $filter parameter to return three different outputs depending on the parameter passed in.
         /// With $search=AllowedParents the API will return the entity info of all groups that the requested entity will be able to reparent to as determined by the user's permissions.
         /// With $search=AllowedChildren the API will return the entity info of all entities that can be added as children of the requested entity.
         /// With $search=ParentAndFirstLevelChildren the API will return the parent and  first level of children that the user has either direct access to or indirect access via one of their descendants.
@@ -146,7 +143,7 @@ namespace Pulumi.AzureNative.Management
         public Input<int>? Skip { get; set; }
 
         /// <summary>
-        /// Page continuation token is only used if a previous operation returned a partial result. 
+        /// Page continuation token is only used if a previous operation returned a partial result.
         /// If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
         /// </summary>
         [Input("skiptoken")]
@@ -175,23 +172,23 @@ namespace Pulumi.AzureNative.Management
     public sealed class GetEntityResult
     {
         /// <summary>
-        /// Total count of records that match the filter
+        /// Total count of records that match the filter.
         /// </summary>
-        public readonly int Count;
+        public readonly int? Count;
         /// <summary>
-        /// The URL to use for getting the next set of results.
+        /// The link to the next page of items
         /// </summary>
-        public readonly string NextLink;
+        public readonly string? NextLink;
         /// <summary>
-        /// The list of entities.
+        /// The EntityInfo items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.EntityInfoResponse> Value;
 
         [OutputConstructor]
         private GetEntityResult(
-            int count,
+            int? count,
 
-            string nextLink,
+            string? nextLink,
 
             ImmutableArray<Outputs.EntityInfoResponse> value)
         {

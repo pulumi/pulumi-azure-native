@@ -143,7 +143,7 @@ def get_application_type(application_type_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2025-03-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str application_type_name: The name of the application type name resource.
@@ -175,7 +175,7 @@ def get_application_type_output(application_type_name: Optional[pulumi.Input[_bu
 
     Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2025-03-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str application_type_name: The name of the application type name resource.

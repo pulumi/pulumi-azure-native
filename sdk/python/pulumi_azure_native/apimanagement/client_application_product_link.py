@@ -117,6 +117,8 @@ class ClientApplicationProductLink(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-10-01-preview.
 
+        Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
@@ -135,6 +137,8 @@ class ClientApplicationProductLink(pulumi.CustomResource):
         Specifies Client Application - Product link assignment
 
         Uses Azure REST API version 2024-10-01-preview.
+
+        Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ClientApplicationProductLinkArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +185,7 @@ class ClientApplicationProductLink(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:ClientApplicationProductLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:ClientApplicationProductLink"), pulumi.Alias(type_="azure-native:apimanagement/v20250301preview:ClientApplicationProductLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClientApplicationProductLink, __self__).__init__(
             'azure-native:apimanagement:ClientApplicationProductLink',

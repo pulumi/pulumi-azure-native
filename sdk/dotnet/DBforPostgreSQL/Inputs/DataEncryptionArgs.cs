@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
     public sealed class DataEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
-        /// </summary>
-        [Input("geoBackupEncryptionKeyStatus")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.EncryptionKeyStatus>? GeoBackupEncryptionKeyStatus { get; set; }
-
-        /// <summary>
         /// Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         /// </summary>
         [Input("geoBackupKeyURI")]
@@ -32,12 +26,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// </summary>
         [Input("geoBackupUserAssignedIdentityId")]
         public Input<string>? GeoBackupUserAssignedIdentityId { get; set; }
-
-        /// <summary>
-        /// Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
-        /// </summary>
-        [Input("primaryEncryptionKeyStatus")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.EncryptionKeyStatus>? PrimaryEncryptionKeyStatus { get; set; }
 
         /// <summary>
         /// URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.

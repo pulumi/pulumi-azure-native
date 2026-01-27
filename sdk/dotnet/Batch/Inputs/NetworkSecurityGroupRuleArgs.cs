@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// A network security group rule to apply to an inbound endpoint.
+    /// </summary>
     public sealed class NetworkSecurityGroupRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that should be taken for a specified IP address, subnet range or tag.
+        /// </summary>
         [Input("access", required: true)]
         public Input<Pulumi.AzureNative.Batch.NetworkSecurityGroupRuleAccess> Access { get; set; } = null!;
 

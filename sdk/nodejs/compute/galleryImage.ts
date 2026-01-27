@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
  *
- * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**
@@ -206,7 +206,7 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20180601:GalleryImage" }, { type: "azure-native:compute/v20190301:GalleryImage" }, { type: "azure-native:compute/v20190701:GalleryImage" }, { type: "azure-native:compute/v20191201:GalleryImage" }, { type: "azure-native:compute/v20200930:GalleryImage" }, { type: "azure-native:compute/v20210701:GalleryImage" }, { type: "azure-native:compute/v20211001:GalleryImage" }, { type: "azure-native:compute/v20220103:GalleryImage" }, { type: "azure-native:compute/v20220303:GalleryImage" }, { type: "azure-native:compute/v20220803:GalleryImage" }, { type: "azure-native:compute/v20230703:GalleryImage" }, { type: "azure-native:compute/v20240303:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20180601:GalleryImage" }, { type: "azure-native:compute/v20190301:GalleryImage" }, { type: "azure-native:compute/v20190701:GalleryImage" }, { type: "azure-native:compute/v20191201:GalleryImage" }, { type: "azure-native:compute/v20200930:GalleryImage" }, { type: "azure-native:compute/v20210701:GalleryImage" }, { type: "azure-native:compute/v20211001:GalleryImage" }, { type: "azure-native:compute/v20220103:GalleryImage" }, { type: "azure-native:compute/v20220303:GalleryImage" }, { type: "azure-native:compute/v20220803:GalleryImage" }, { type: "azure-native:compute/v20230703:GalleryImage" }, { type: "azure-native:compute/v20240303:GalleryImage" }, { type: "azure-native:compute/v20250303:GalleryImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImage.__pulumiType, name, resourceInputs, opts);
     }

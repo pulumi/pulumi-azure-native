@@ -33,6 +33,22 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly bool? HasRootAccess;
         /// <summary>
+        /// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        public readonly bool? Kerberos5IReadOnly;
+        /// <summary>
+        /// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        public readonly bool? Kerberos5IReadWrite;
+        /// <summary>
+        /// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        public readonly bool? Kerberos5PReadOnly;
+        /// <summary>
+        /// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        /// </summary>
+        public readonly bool? Kerberos5PReadWrite;
+        /// <summary>
         /// Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
         /// </summary>
         public readonly bool? Kerberos5ReadOnly;
@@ -87,6 +103,14 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             bool? hasRootAccess,
 
+            bool? kerberos5IReadOnly,
+
+            bool? kerberos5IReadWrite,
+
+            bool? kerberos5PReadOnly,
+
+            bool? kerberos5PReadWrite,
+
             bool? kerberos5ReadOnly,
 
             bool? kerberos5ReadWrite,
@@ -113,6 +137,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             ChownMode = chownMode;
             Cifs = cifs;
             HasRootAccess = hasRootAccess;
+            Kerberos5IReadOnly = kerberos5IReadOnly;
+            Kerberos5IReadWrite = kerberos5IReadWrite;
+            Kerberos5PReadOnly = kerberos5PReadOnly;
+            Kerberos5PReadWrite = kerberos5PReadWrite;
             Kerberos5ReadOnly = kerberos5ReadOnly;
             Kerberos5ReadWrite = kerberos5ReadWrite;
             Kerberos5iReadOnly = kerberos5iReadOnly;

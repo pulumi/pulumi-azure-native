@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// An error that occurred when resizing a pool.
+    /// </summary>
     [OutputType]
     public sealed class ResizeErrorResponse
     {
@@ -17,6 +20,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
         /// </summary>
         public readonly string Code;
+        /// <summary>
+        /// Additional details about the error.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ResizeErrorResponse> Details;
         /// <summary>
         /// A message describing the error, intended to be suitable for display in a user interface.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDeploymentStackAtManagementGroupResult> InvokeAsync(GetDeploymentStackAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStackAtManagementGroupResult>("azure-native:resources:getDeploymentStackAtManagementGroup", args ?? new GetDeploymentStackAtManagementGroupArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeploymentStackAtManagementGroupResult> Invoke(GetDeploymentStackAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtManagementGroupResult>("azure-native:resources:getDeploymentStackAtManagementGroup", args ?? new GetDeploymentStackAtManagementGroupInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Resources
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeploymentStackAtManagementGroupResult> Invoke(GetDeploymentStackAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtManagementGroupResult>("azure-native:resources:getDeploymentStackAtManagementGroup", args ?? new GetDeploymentStackAtManagementGroupInvokeArgs(), options.WithDefaults());

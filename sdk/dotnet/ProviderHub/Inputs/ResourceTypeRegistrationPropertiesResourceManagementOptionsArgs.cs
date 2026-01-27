@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         /// Batch provisioning support.
         /// </summary>
         [Input("batchProvisioningSupport")]
-        public Input<Inputs.ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs>? BatchProvisioningSupport { get; set; }
+        public Input<Inputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs>? BatchProvisioningSupport { get; set; }
 
         [Input("deleteDependencies")]
         private InputList<Inputs.DeleteDependencyArgs>? _deleteDependencies;
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         /// Nested provisioning support.
         /// </summary>
         [Input("nestedProvisioningSupport")]
-        public Input<Inputs.ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs>? NestedProvisioningSupport { get; set; }
+        public Input<Inputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs>? NestedProvisioningSupport { get; set; }
 
         public ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs()
         {

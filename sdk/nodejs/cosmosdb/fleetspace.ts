@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An Azure Cosmos DB Fleetspace.
  *
- * Uses Azure REST API version 2025-05-01-preview.
+ * Uses Azure REST API version 2025-10-15.
+ *
+ * Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Fleetspace extends pulumi.CustomResource {
     /**
@@ -44,6 +46,10 @@ export class Fleetspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
+     * List of data regions assigned to the fleetspace. Eg [westus2]
+     */
+    declare public readonly dataRegions: pulumi.Output<string[] | undefined>;
+    /**
      * The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
      */
     declare public readonly fleetspaceApiKind: pulumi.Output<string | undefined>;
@@ -55,6 +61,10 @@ export class Fleetspace extends pulumi.CustomResource {
      * A provisioning state of the Fleetspace.
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    /**
+     * Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+     */
+    declare public readonly serviceTier: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -85,10 +95,12 @@ export class Fleetspace extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["dataRegions"] = args?.dataRegions;
             resourceInputs["fleetName"] = args?.fleetName;
             resourceInputs["fleetspaceApiKind"] = args?.fleetspaceApiKind;
             resourceInputs["fleetspaceName"] = args?.fleetspaceName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceTier"] = args?.serviceTier;
             resourceInputs["throughputPoolConfiguration"] = args?.throughputPoolConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -97,15 +109,17 @@ export class Fleetspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["dataRegions"] = undefined /*out*/;
             resourceInputs["fleetspaceApiKind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceTier"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["throughputPoolConfiguration"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20250501preview:Fleetspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20250501preview:Fleetspace" }, { type: "azure-native:cosmosdb/v20251015:Fleetspace" }, { type: "azure-native:cosmosdb/v20251101preview:Fleetspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleetspace.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,6 +129,10 @@ export class Fleetspace extends pulumi.CustomResource {
  * The set of arguments for constructing a Fleetspace resource.
  */
 export interface FleetspaceArgs {
+    /**
+     * List of data regions assigned to the fleetspace. Eg [westus2]
+     */
+    dataRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
@@ -131,6 +149,10 @@ export interface FleetspaceArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+     */
+    serviceTier?: pulumi.Input<string | enums.cosmosdb.ServiceTier>;
     /**
      * Configuration for throughput pool in the fleetspace.
      */

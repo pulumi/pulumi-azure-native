@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.TrafficManager.Outputs
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MonitorConfigResponseCustomHeaders> CustomHeaders;
+        public readonly ImmutableArray<Outputs.MonitorConfigCustomHeadersItemResponse> CustomHeaders;
         /// <summary>
         /// List of expected status code ranges.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MonitorConfigResponseExpectedStatusCodeRanges> ExpectedStatusCodeRanges;
+        public readonly ImmutableArray<Outputs.MonitorConfigExpectedStatusCodeRangesItemResponse> ExpectedStatusCodeRanges;
         /// <summary>
         /// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         /// </summary>
@@ -55,9 +55,9 @@ namespace Pulumi.AzureNative.TrafficManager.Outputs
 
         [OutputConstructor]
         private MonitorConfigResponse(
-            ImmutableArray<Outputs.MonitorConfigResponseCustomHeaders> customHeaders,
+            ImmutableArray<Outputs.MonitorConfigCustomHeadersItemResponse> customHeaders,
 
-            ImmutableArray<Outputs.MonitorConfigResponseExpectedStatusCodeRanges> expectedStatusCodeRanges,
+            ImmutableArray<Outputs.MonitorConfigExpectedStatusCodeRangesItemResponse> expectedStatusCodeRanges,
 
             double? intervalInSeconds,
 

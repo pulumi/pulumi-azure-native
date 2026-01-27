@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a gallery inVMAccessControlProfile.
         /// 
         /// Uses Azure REST API version 2024-03-03.
+        /// 
+        /// Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGalleryInVMAccessControlProfileResult> InvokeAsync(GetGalleryInVMAccessControlProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryInVMAccessControlProfileResult>("azure-native:compute:getGalleryInVMAccessControlProfile", args ?? new GetGalleryInVMAccessControlProfileArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a gallery inVMAccessControlProfile.
         /// 
         /// Uses Azure REST API version 2024-03-03.
+        /// 
+        /// Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryInVMAccessControlProfileResult> Invoke(GetGalleryInVMAccessControlProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryInVMAccessControlProfileResult>("azure-native:compute:getGalleryInVMAccessControlProfile", args ?? new GetGalleryInVMAccessControlProfileInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a gallery inVMAccessControlProfile.
         /// 
         /// Uses Azure REST API version 2024-03-03.
+        /// 
+        /// Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryInVMAccessControlProfileResult> Invoke(GetGalleryInVMAccessControlProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryInVMAccessControlProfileResult>("azure-native:compute:getGalleryInVMAccessControlProfile", args ?? new GetGalleryInVMAccessControlProfileInvokeArgs(), options.WithDefaults());

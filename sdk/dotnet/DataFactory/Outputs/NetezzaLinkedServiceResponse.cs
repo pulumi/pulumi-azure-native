@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        public readonly object? Database;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -41,14 +45,30 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        public readonly object? Port;
+        /// <summary>
         /// The Azure key vault secret reference of password in connection string.
         /// </summary>
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Pwd;
+        /// <summary>
+        /// Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+        /// </summary>
+        public readonly string? SecurityLevel;
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        public readonly object? Server;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Netezza'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        public readonly object? Uid;
         /// <summary>
         /// Version of the linked service.
         /// </summary>
@@ -62,26 +82,41 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? connectionString,
 
+            object? database,
+
             string? description,
 
             string? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            object? port,
+
             Outputs.AzureKeyVaultSecretReferenceResponse? pwd,
 
+            string? securityLevel,
+
+            object? server,
+
             string type,
+
+            object? uid,
 
             string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Database = database;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
+            Port = port;
             Pwd = pwd;
+            SecurityLevel = securityLevel;
+            Server = server;
             Type = type;
+            Uid = uid;
             Version = version;
         }
     }

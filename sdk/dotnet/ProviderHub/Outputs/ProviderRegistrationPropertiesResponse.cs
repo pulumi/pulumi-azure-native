@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The dsts configuration.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseDstsConfiguration? DstsConfiguration;
+        public readonly Outputs.ResourceProviderManifestPropertiesDstsConfigurationResponse? DstsConfiguration;
         /// <summary>
         /// The enable tenant linked notification.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The features rule.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseFeaturesRule? FeaturesRule;
+        public readonly Outputs.ResourceProviderManifestPropertiesFeaturesRuleResponse? FeaturesRule;
         /// <summary>
         /// The global notification endpoints.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The resource provider management.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseManagement? Management;
+        public readonly Outputs.ResourceProviderManifestPropertiesManagementResponse? Management;
         /// <summary>
         /// Management groups global notification endpoints.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Notification settings.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseNotificationSettings? NotificationSettings;
+        public readonly Outputs.ResourceProviderManifestPropertiesNotificationSettingsResponse? NotificationSettings;
         /// <summary>
         /// The notifications.
         /// </summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The private resource provider configuration.
         /// </summary>
-        public readonly Outputs.ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration? PrivateResourceProviderConfiguration;
+        public readonly Outputs.ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse? PrivateResourceProviderConfiguration;
         /// <summary>
         /// The provider authentication.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseProviderAuthentication? ProviderAuthentication;
+        public readonly Outputs.ResourceProviderManifestPropertiesProviderAuthenticationResponse? ProviderAuthentication;
         /// <summary>
         /// The provider authorizations.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The provider hub metadata.
         /// </summary>
-        public readonly Outputs.ProviderRegistrationPropertiesResponseProviderHubMetadata? ProviderHubMetadata;
+        public readonly Outputs.ProviderRegistrationPropertiesProviderHubMetadataResponse? ProviderHubMetadata;
         /// <summary>
         /// The provider type.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The request header options.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions? RequestHeaderOptions;
+        public readonly Outputs.ResourceProviderManifestPropertiesRequestHeaderOptionsResponse? RequestHeaderOptions;
         /// <summary>
         /// The required features.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Resource group lock option during move.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove? ResourceGroupLockOptionDuringMove;
+        public readonly Outputs.ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse? ResourceGroupLockOptionDuringMove;
         /// <summary>
         /// resource hydration accounts
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Response options.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseResponseOptions? ResponseOptions;
+        public readonly Outputs.ResourceProviderManifestPropertiesResponseOptionsResponse? ResponseOptions;
         /// <summary>
         /// The service name.
         /// </summary>
@@ -148,11 +148,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The subscription lifecycle notification specifications.
         /// </summary>
-        public readonly Outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications? SubscriptionLifecycleNotificationSpecifications;
+        public readonly Outputs.ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse? SubscriptionLifecycleNotificationSpecifications;
         /// <summary>
         /// The template deployment options.
         /// </summary>
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions? TemplateDeploymentOptions;
+        public readonly Outputs.ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse? TemplateDeploymentOptions;
         /// <summary>
         /// The token auth configuration.
         /// </summary>
@@ -166,11 +166,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string? customManifestVersion,
 
-            Outputs.ResourceProviderManifestPropertiesResponseDstsConfiguration? dstsConfiguration,
+            Outputs.ResourceProviderManifestPropertiesDstsConfigurationResponse? dstsConfiguration,
 
             bool? enableTenantLinkedNotification,
 
-            Outputs.ResourceProviderManifestPropertiesResponseFeaturesRule? featuresRule,
+            Outputs.ResourceProviderManifestPropertiesFeaturesRuleResponse? featuresRule,
 
             ImmutableArray<Outputs.ResourceProviderEndpointResponse> globalNotificationEndpoints,
 
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<Outputs.FanoutLinkedNotificationRuleResponse> linkedNotificationRules,
 
-            Outputs.ResourceProviderManifestPropertiesResponseManagement? management,
+            Outputs.ResourceProviderManifestPropertiesManagementResponse? management,
 
             ImmutableArray<Outputs.ResourceProviderEndpointResponse> managementGroupGlobalNotificationEndpoints,
 
@@ -190,19 +190,19 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string? notificationOptions,
 
-            Outputs.ResourceProviderManifestPropertiesResponseNotificationSettings? notificationSettings,
+            Outputs.ResourceProviderManifestPropertiesNotificationSettingsResponse? notificationSettings,
 
             ImmutableArray<Outputs.NotificationResponse> notifications,
 
             ImmutableArray<string> optionalFeatures,
 
-            Outputs.ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration? privateResourceProviderConfiguration,
+            Outputs.ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse? privateResourceProviderConfiguration,
 
-            Outputs.ResourceProviderManifestPropertiesResponseProviderAuthentication? providerAuthentication,
+            Outputs.ResourceProviderManifestPropertiesProviderAuthenticationResponse? providerAuthentication,
 
             ImmutableArray<Outputs.ResourceProviderAuthorizationResponse> providerAuthorizations,
 
-            Outputs.ProviderRegistrationPropertiesResponseProviderHubMetadata? providerHubMetadata,
+            Outputs.ProviderRegistrationPropertiesProviderHubMetadataResponse? providerHubMetadata,
 
             string? providerType,
 
@@ -210,25 +210,25 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string provisioningState,
 
-            Outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions? requestHeaderOptions,
+            Outputs.ResourceProviderManifestPropertiesRequestHeaderOptionsResponse? requestHeaderOptions,
 
             ImmutableArray<string> requiredFeatures,
 
-            Outputs.ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove? resourceGroupLockOptionDuringMove,
+            Outputs.ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse? resourceGroupLockOptionDuringMove,
 
             ImmutableArray<Outputs.ResourceHydrationAccountResponse> resourceHydrationAccounts,
 
             Outputs.ResourceProviderAuthorizationRulesResponse? resourceProviderAuthorizationRules,
 
-            Outputs.ResourceProviderManifestPropertiesResponseResponseOptions? responseOptions,
+            Outputs.ResourceProviderManifestPropertiesResponseOptionsResponse? responseOptions,
 
             string? serviceName,
 
             ImmutableArray<Outputs.ResourceProviderServiceResponse> services,
 
-            Outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications? subscriptionLifecycleNotificationSpecifications,
+            Outputs.ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse? subscriptionLifecycleNotificationSpecifications,
 
-            Outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions? templateDeploymentOptions,
+            Outputs.ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse? templateDeploymentOptions,
 
             Outputs.TokenAuthConfigurationResponse? tokenAuthConfiguration)
         {

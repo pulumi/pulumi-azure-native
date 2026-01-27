@@ -136,7 +136,13 @@ MYPY = False
 
 if not MYPY:
     class ApplicationPackageReferenceArgsDict(TypedDict):
+        """
+        Link to an application package inside the batch account
+        """
         id: pulumi.Input[_builtins.str]
+        """
+        The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
+        """
         version: NotRequired[pulumi.Input[_builtins.str]]
         """
         If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.
@@ -150,6 +156,8 @@ class ApplicationPackageReferenceArgs:
                  id: pulumi.Input[_builtins.str],
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Link to an application package inside the batch account
+        :param pulumi.Input[_builtins.str] id: The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
         :param pulumi.Input[_builtins.str] version: If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.
         """
         pulumi.set(__self__, "id", id)
@@ -159,6 +167,9 @@ class ApplicationPackageReferenceArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -180,7 +191,13 @@ class ApplicationPackageReferenceArgs:
 
 if not MYPY:
     class AutoScaleSettingsArgsDict(TypedDict):
+        """
+        AutoScale settings for the pool.
+        """
         formula: pulumi.Input[_builtins.str]
+        """
+        A formula for the desired number of compute nodes in the pool.
+        """
         evaluation_interval: NotRequired[pulumi.Input[_builtins.str]]
         """
         If omitted, the default value is 15 minutes (PT15M).
@@ -194,6 +211,8 @@ class AutoScaleSettingsArgs:
                  formula: pulumi.Input[_builtins.str],
                  evaluation_interval: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        AutoScale settings for the pool.
+        :param pulumi.Input[_builtins.str] formula: A formula for the desired number of compute nodes in the pool.
         :param pulumi.Input[_builtins.str] evaluation_interval: If omitted, the default value is 15 minutes (PT15M).
         """
         pulumi.set(__self__, "formula", formula)
@@ -203,6 +222,9 @@ class AutoScaleSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def formula(self) -> pulumi.Input[_builtins.str]:
+        """
+        A formula for the desired number of compute nodes in the pool.
+        """
         return pulumi.get(self, "formula")
 
     @formula.setter
@@ -301,6 +323,9 @@ class AutoStorageBasePropertiesArgs:
 
 if not MYPY:
     class AutoUserSpecificationArgsDict(TypedDict):
+        """
+        Specifies the parameters for the auto user that runs a task on the Batch service.
+        """
         elevation_level: NotRequired[pulumi.Input['ElevationLevel']]
         """
         The default value is nonAdmin.
@@ -318,6 +343,7 @@ class AutoUserSpecificationArgs:
                  elevation_level: Optional[pulumi.Input['ElevationLevel']] = None,
                  scope: Optional[pulumi.Input['AutoUserScope']] = None):
         """
+        Specifies the parameters for the auto user that runs a task on the Batch service.
         :param pulumi.Input['ElevationLevel'] elevation_level: The default value is nonAdmin.
         :param pulumi.Input['AutoUserScope'] scope: The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
         """
@@ -449,8 +475,17 @@ class AutomaticOSUpgradePolicyArgs:
 
 if not MYPY:
     class AzureBlobFileSystemConfigurationArgsDict(TypedDict):
+        """
+        Information used to connect to an Azure Storage Container using Blobfuse.
+        """
         account_name: pulumi.Input[_builtins.str]
+        """
+        The Azure Storage Account name.
+        """
         container_name: pulumi.Input[_builtins.str]
+        """
+        The Azure Blob Storage Container name.
+        """
         relative_mount_path: pulumi.Input[_builtins.str]
         """
         All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
@@ -485,6 +520,9 @@ class AzureBlobFileSystemConfigurationArgs:
                  identity_reference: Optional[pulumi.Input['ComputeNodeIdentityReferenceArgs']] = None,
                  sas_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Information used to connect to an Azure Storage Container using Blobfuse.
+        :param pulumi.Input[_builtins.str] account_name: The Azure Storage Account name.
+        :param pulumi.Input[_builtins.str] container_name: The Azure Blob Storage Container name.
         :param pulumi.Input[_builtins.str] relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         :param pulumi.Input[_builtins.str] account_key: This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
         :param pulumi.Input[_builtins.str] blobfuse_options: These are 'net use' options in Windows and 'mount' options in Linux.
@@ -506,6 +544,9 @@ class AzureBlobFileSystemConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure Storage Account name.
+        """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
@@ -515,6 +556,9 @@ class AzureBlobFileSystemConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure Blob Storage Container name.
+        """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
@@ -584,8 +628,17 @@ class AzureBlobFileSystemConfigurationArgs:
 
 if not MYPY:
     class AzureFileShareConfigurationArgsDict(TypedDict):
+        """
+        Information used to connect to an Azure Fileshare.
+        """
         account_key: pulumi.Input[_builtins.str]
+        """
+        The Azure Storage account key.
+        """
         account_name: pulumi.Input[_builtins.str]
+        """
+        The Azure Storage account name.
+        """
         azure_file_url: pulumi.Input[_builtins.str]
         """
         This is of the form 'https://{account}.file.core.windows.net/'.
@@ -610,6 +663,9 @@ class AzureFileShareConfigurationArgs:
                  relative_mount_path: pulumi.Input[_builtins.str],
                  mount_options: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Information used to connect to an Azure Fileshare.
+        :param pulumi.Input[_builtins.str] account_key: The Azure Storage account key.
+        :param pulumi.Input[_builtins.str] account_name: The Azure Storage account name.
         :param pulumi.Input[_builtins.str] azure_file_url: This is of the form 'https://{account}.file.core.windows.net/'.
         :param pulumi.Input[_builtins.str] relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         :param pulumi.Input[_builtins.str] mount_options: These are 'net use' options in Windows and 'mount' options in Linux.
@@ -624,6 +680,9 @@ class AzureFileShareConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="accountKey")
     def account_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure Storage account key.
+        """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
@@ -633,6 +692,9 @@ class AzureFileShareConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure Storage account name.
+        """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
@@ -788,13 +850,25 @@ class BatchPoolIdentityArgs:
 
 if not MYPY:
     class CIFSMountConfigurationArgsDict(TypedDict):
+        """
+        Information used to connect to a CIFS file system.
+        """
         password: pulumi.Input[_builtins.str]
+        """
+        The password to use for authentication against the CIFS file system.
+        """
         relative_mount_path: pulumi.Input[_builtins.str]
         """
         All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         """
         source: pulumi.Input[_builtins.str]
+        """
+        The URI of the file system to mount.
+        """
         user_name: pulumi.Input[_builtins.str]
+        """
+        The user to use for authentication against the CIFS file system.
+        """
         mount_options: NotRequired[pulumi.Input[_builtins.str]]
         """
         These are 'net use' options in Windows and 'mount' options in Linux.
@@ -811,7 +885,11 @@ class CIFSMountConfigurationArgs:
                  user_name: pulumi.Input[_builtins.str],
                  mount_options: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Information used to connect to a CIFS file system.
+        :param pulumi.Input[_builtins.str] password: The password to use for authentication against the CIFS file system.
         :param pulumi.Input[_builtins.str] relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
+        :param pulumi.Input[_builtins.str] source: The URI of the file system to mount.
+        :param pulumi.Input[_builtins.str] user_name: The user to use for authentication against the CIFS file system.
         :param pulumi.Input[_builtins.str] mount_options: These are 'net use' options in Windows and 'mount' options in Linux.
         """
         pulumi.set(__self__, "password", password)
@@ -824,6 +902,9 @@ class CIFSMountConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[_builtins.str]:
+        """
+        The password to use for authentication against the CIFS file system.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -845,6 +926,9 @@ class CIFSMountConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The URI of the file system to mount.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -854,6 +938,9 @@ class CIFSMountConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The user to use for authentication against the CIFS file system.
+        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -879,6 +966,9 @@ if not MYPY:
         Warning: This object is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         """
         id: pulumi.Input[_builtins.str]
+        """
+        The fully qualified ID of the certificate to install on the pool. This must be inside the same batch account as the pool.
+        """
         store_location: NotRequired[pulumi.Input['CertificateStoreLocation']]
         """
         The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
@@ -888,6 +978,9 @@ if not MYPY:
         This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
         """
         visibility: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]]
+        """
+        Which user accounts on the compute node should have access to the private data of the certificate.
+        """
 elif False:
     CertificateReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -900,8 +993,10 @@ class CertificateReferenceArgs:
                  visibility: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]] = None):
         """
         Warning: This object is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
+        :param pulumi.Input[_builtins.str] id: The fully qualified ID of the certificate to install on the pool. This must be inside the same batch account as the pool.
         :param pulumi.Input['CertificateStoreLocation'] store_location: The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         :param pulumi.Input[_builtins.str] store_name: This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]] visibility: Which user accounts on the compute node should have access to the private data of the certificate.
         """
         pulumi.set(__self__, "id", id)
         if store_location is not None:
@@ -914,6 +1009,9 @@ class CertificateReferenceArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The fully qualified ID of the certificate to install on the pool. This must be inside the same batch account as the pool.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -947,6 +1045,9 @@ class CertificateReferenceArgs:
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]]:
+        """
+        Which user accounts on the compute node should have access to the private data of the certificate.
+        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -992,7 +1093,13 @@ class ComputeNodeIdentityReferenceArgs:
 
 if not MYPY:
     class ContainerConfigurationArgsDict(TypedDict):
+        """
+        The configuration for container-enabled pools.
+        """
         type: pulumi.Input[Union[_builtins.str, 'ContainerType']]
+        """
+        The container technology to be used.
+        """
         container_image_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
@@ -1011,6 +1118,8 @@ class ContainerConfigurationArgs:
                  container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]]] = None):
         """
+        The configuration for container-enabled pools.
+        :param pulumi.Input[Union[_builtins.str, 'ContainerType']] type: The container technology to be used.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_image_names: This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]] container_registries: If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
         """
@@ -1023,6 +1132,9 @@ class ContainerConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[_builtins.str, 'ContainerType']]:
+        """
+        The container technology to be used.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1056,11 +1168,17 @@ class ContainerConfigurationArgs:
 
 if not MYPY:
     class ContainerHostBatchBindMountEntryArgsDict(TypedDict):
+        """
+        The entry of path and mount mode you want to mount into task container.
+        """
         is_read_only: NotRequired[pulumi.Input[_builtins.bool]]
         """
         For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
         """
         source: NotRequired[pulumi.Input[Union[_builtins.str, 'ContainerHostDataPath']]]
+        """
+        The paths which will be mounted to container task's container.
+        """
 elif False:
     ContainerHostBatchBindMountEntryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1070,7 +1188,9 @@ class ContainerHostBatchBindMountEntryArgs:
                  is_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  source: Optional[pulumi.Input[Union[_builtins.str, 'ContainerHostDataPath']]] = None):
         """
+        The entry of path and mount mode you want to mount into task container.
         :param pulumi.Input[_builtins.bool] is_read_only: For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
+        :param pulumi.Input[Union[_builtins.str, 'ContainerHostDataPath']] source: The paths which will be mounted to container task's container.
         """
         if is_read_only is not None:
             pulumi.set(__self__, "is_read_only", is_read_only)
@@ -1092,6 +1212,9 @@ class ContainerHostBatchBindMountEntryArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContainerHostDataPath']]]:
+        """
+        The paths which will be mounted to container task's container.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -1101,16 +1224,25 @@ class ContainerHostBatchBindMountEntryArgs:
 
 if not MYPY:
     class ContainerRegistryArgsDict(TypedDict):
+        """
+        A private container registry.
+        """
         identity_reference: NotRequired[pulumi.Input['ComputeNodeIdentityReferenceArgsDict']]
         """
         The reference to a user assigned identity associated with the Batch pool which a compute node will use.
         """
         password: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The password to log into the registry server.
+        """
         registry_server: NotRequired[pulumi.Input[_builtins.str]]
         """
         If omitted, the default is "docker.io".
         """
         user_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The user name to log into the registry server.
+        """
 elif False:
     ContainerRegistryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1122,8 +1254,11 @@ class ContainerRegistryArgs:
                  registry_server: Optional[pulumi.Input[_builtins.str]] = None,
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        A private container registry.
         :param pulumi.Input['ComputeNodeIdentityReferenceArgs'] identity_reference: The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        :param pulumi.Input[_builtins.str] password: The password to log into the registry server.
         :param pulumi.Input[_builtins.str] registry_server: If omitted, the default is "docker.io".
+        :param pulumi.Input[_builtins.str] user_name: The user name to log into the registry server.
         """
         if identity_reference is not None:
             pulumi.set(__self__, "identity_reference", identity_reference)
@@ -1149,6 +1284,9 @@ class ContainerRegistryArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The password to log into the registry server.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -1170,6 +1308,9 @@ class ContainerRegistryArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user name to log into the registry server.
+        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -1183,6 +1324,9 @@ if not MYPY:
         Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
         """
         disk_size_gb: pulumi.Input[_builtins.int]
+        """
+        The initial disk size in GB when creating new data disk.
+        """
         lun: pulumi.Input[_builtins.int]
         """
         The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
@@ -1191,18 +1335,18 @@ if not MYPY:
         """
         Values are:
 
-         none - The caching mode for the disk is not enabled.
-         readOnly - The caching mode for the disk is read only.
-         readWrite - The caching mode for the disk is read and write.
+        none - The caching mode for the disk is not enabled.
+        readOnly - The caching mode for the disk is read only.
+        readWrite - The caching mode for the disk is read and write.
 
-         The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
         """
         storage_account_type: NotRequired[pulumi.Input['StorageAccountType']]
         """
         If omitted, the default is "Standard_LRS". Values are:
 
-         Standard_LRS - The data disk should use standard locally redundant storage.
-         Premium_LRS - The data disk should use premium locally redundant storage.
+        Standard_LRS - The data disk should use standard locally redundant storage.
+        Premium_LRS - The data disk should use premium locally redundant storage.
         """
 elif False:
     DataDiskArgsDict: TypeAlias = Mapping[str, Any]
@@ -1216,18 +1360,19 @@ class DataDiskArgs:
                  storage_account_type: Optional[pulumi.Input['StorageAccountType']] = None):
         """
         Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
+        :param pulumi.Input[_builtins.int] disk_size_gb: The initial disk size in GB when creating new data disk.
         :param pulumi.Input[_builtins.int] lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
         :param pulumi.Input['CachingType'] caching: Values are:
                
-                none - The caching mode for the disk is not enabled.
-                readOnly - The caching mode for the disk is read only.
-                readWrite - The caching mode for the disk is read and write.
+               none - The caching mode for the disk is not enabled.
+               readOnly - The caching mode for the disk is read only.
+               readWrite - The caching mode for the disk is read and write.
                
-                The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+               The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
         :param pulumi.Input['StorageAccountType'] storage_account_type: If omitted, the default is "Standard_LRS". Values are:
                
-                Standard_LRS - The data disk should use standard locally redundant storage.
-                Premium_LRS - The data disk should use premium locally redundant storage.
+               Standard_LRS - The data disk should use standard locally redundant storage.
+               Premium_LRS - The data disk should use premium locally redundant storage.
         """
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         pulumi.set(__self__, "lun", lun)
@@ -1239,6 +1384,9 @@ class DataDiskArgs:
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
     def disk_size_gb(self) -> pulumi.Input[_builtins.int]:
+        """
+        The initial disk size in GB when creating new data disk.
+        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -1263,11 +1411,11 @@ class DataDiskArgs:
         """
         Values are:
 
-         none - The caching mode for the disk is not enabled.
-         readOnly - The caching mode for the disk is read only.
-         readWrite - The caching mode for the disk is read and write.
+        none - The caching mode for the disk is not enabled.
+        readOnly - The caching mode for the disk is read only.
+        readWrite - The caching mode for the disk is read and write.
 
-         The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
         """
         return pulumi.get(self, "caching")
 
@@ -1281,8 +1429,8 @@ class DataDiskArgs:
         """
         If omitted, the default is "Standard_LRS". Values are:
 
-         Standard_LRS - The data disk should use standard locally redundant storage.
-         Premium_LRS - The data disk should use premium locally redundant storage.
+        Standard_LRS - The data disk should use standard locally redundant storage.
+        Premium_LRS - The data disk should use premium locally redundant storage.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1293,7 +1441,13 @@ class DataDiskArgs:
 
 if not MYPY:
     class DeploymentConfigurationArgsDict(TypedDict):
+        """
+        Deployment configuration properties.
+        """
         virtual_machine_configuration: NotRequired[pulumi.Input['VirtualMachineConfigurationArgsDict']]
+        """
+        The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+        """
 elif False:
     DeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1301,12 +1455,19 @@ elif False:
 class DeploymentConfigurationArgs:
     def __init__(__self__, *,
                  virtual_machine_configuration: Optional[pulumi.Input['VirtualMachineConfigurationArgs']] = None):
+        """
+        Deployment configuration properties.
+        :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+        """
         if virtual_machine_configuration is not None:
             pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineConfiguration")
     def virtual_machine_configuration(self) -> Optional[pulumi.Input['VirtualMachineConfigurationArgs']]:
+        """
+        The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+        """
         return pulumi.get(self, "virtual_machine_configuration")
 
     @virtual_machine_configuration.setter
@@ -1316,6 +1477,9 @@ class DeploymentConfigurationArgs:
 
 if not MYPY:
     class DiffDiskSettingsArgsDict(TypedDict):
+        """
+        Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        """
         placement: NotRequired[pulumi.Input['DiffDiskPlacement']]
         """
         This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
@@ -1328,6 +1492,7 @@ class DiffDiskSettingsArgs:
     def __init__(__self__, *,
                  placement: Optional[pulumi.Input['DiffDiskPlacement']] = None):
         """
+        Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
         :param pulumi.Input['DiffDiskPlacement'] placement: This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
         """
         if placement is not None:
@@ -1495,8 +1660,17 @@ class EndpointAccessProfileArgs:
 
 if not MYPY:
     class EnvironmentSettingArgsDict(TypedDict):
+        """
+        An environment variable to be set on a task process.
+        """
         name: pulumi.Input[_builtins.str]
+        """
+        The name of the environment variable.
+        """
         value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The value of the environment variable.
+        """
 elif False:
     EnvironmentSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1505,6 +1679,11 @@ class EnvironmentSettingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        An environment variable to be set on a task process.
+        :param pulumi.Input[_builtins.str] name: The name of the environment variable.
+        :param pulumi.Input[_builtins.str] value: The value of the environment variable.
+        """
         pulumi.set(__self__, "name", name)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -1512,6 +1691,9 @@ class EnvironmentSettingArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the environment variable.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1521,6 +1703,9 @@ class EnvironmentSettingArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1530,6 +1715,9 @@ class EnvironmentSettingArgs:
 
 if not MYPY:
     class FixedScaleSettingsArgsDict(TypedDict):
+        """
+        Fixed scale settings for the pool.
+        """
         node_deallocation_option: NotRequired[pulumi.Input['ComputeNodeDeallocationOption']]
         """
         If omitted, the default value is Requeue.
@@ -1557,6 +1745,7 @@ class FixedScaleSettingsArgs:
                  target_dedicated_nodes: Optional[pulumi.Input[_builtins.int]] = None,
                  target_low_priority_nodes: Optional[pulumi.Input[_builtins.int]] = None):
         """
+        Fixed scale settings for the pool.
         :param pulumi.Input['ComputeNodeDeallocationOption'] node_deallocation_option: If omitted, the default value is Requeue.
         :param pulumi.Input[_builtins.str] resize_timeout: The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         :param pulumi.Input[_builtins.int] target_dedicated_nodes: At least one of targetDedicatedNodes, targetLowPriorityNodes must be set.
@@ -1678,6 +1867,9 @@ class IPRuleArgs:
 
 if not MYPY:
     class ImageReferenceArgsDict(TypedDict):
+        """
+        A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+        """
         community_gallery_image_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
@@ -1720,6 +1912,7 @@ class ImageReferenceArgs:
                  sku: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
         :param pulumi.Input[_builtins.str] community_gallery_image_id: This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
         :param pulumi.Input[_builtins.str] id: This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         :param pulumi.Input[_builtins.str] offer: For example, UbuntuServer or WindowsServer.
@@ -1830,6 +2023,9 @@ class ImageReferenceArgs:
 
 if not MYPY:
     class InboundNatPoolArgsDict(TypedDict):
+        """
+        A inbound NAT pool that can be used to address specific ports on compute nodes in a Batch pool externally.
+        """
         backend_port: pulumi.Input[_builtins.int]
         """
         This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
@@ -1847,6 +2043,9 @@ if not MYPY:
         The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.
         """
         protocol: pulumi.Input['InboundEndpointProtocol']
+        """
+        The protocol of the endpoint.
+        """
         network_security_group_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgsDict']]]]
         """
         The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
@@ -1864,10 +2063,12 @@ class InboundNatPoolArgs:
                  protocol: pulumi.Input['InboundEndpointProtocol'],
                  network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]]] = None):
         """
+        A inbound NAT pool that can be used to address specific ports on compute nodes in a Batch pool externally.
         :param pulumi.Input[_builtins.int] backend_port: This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[_builtins.int] frontend_port_range_end: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[_builtins.int] frontend_port_range_start: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[_builtins.str] name: The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.
+        :param pulumi.Input['InboundEndpointProtocol'] protocol: The protocol of the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]] network_security_group_rules: The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -1929,6 +2130,9 @@ class InboundNatPoolArgs:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['InboundEndpointProtocol']:
+        """
+        The protocol of the endpoint.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -1957,9 +2161,9 @@ if not MYPY:
         """
         Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
 
-         The Batch Account has a System Assigned identity
-         The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-         The KeyVault has soft-delete and purge protection enabled
+        The Batch Account has a System Assigned identity
+        The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+        The KeyVault has soft-delete and purge protection enabled
         """
 elif False:
     KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1972,9 +2176,9 @@ class KeyVaultPropertiesArgs:
         KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
         :param pulumi.Input[_builtins.str] key_identifier: Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
                
-                The Batch Account has a System Assigned identity
-                The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-                The KeyVault has soft-delete and purge protection enabled
+               The Batch Account has a System Assigned identity
+               The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+               The KeyVault has soft-delete and purge protection enabled
         """
         if key_identifier is not None:
             pulumi.set(__self__, "key_identifier", key_identifier)
@@ -1985,9 +2189,9 @@ class KeyVaultPropertiesArgs:
         """
         Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
 
-         The Batch Account has a System Assigned identity
-         The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-         The KeyVault has soft-delete and purge protection enabled
+        The Batch Account has a System Assigned identity
+        The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+        The KeyVault has soft-delete and purge protection enabled
         """
         return pulumi.get(self, "key_identifier")
 
@@ -2052,6 +2256,9 @@ class KeyVaultReferenceArgs:
 
 if not MYPY:
     class LinuxUserConfigurationArgsDict(TypedDict):
+        """
+        Properties used to create a user account on a Linux node.
+        """
         gid: NotRequired[pulumi.Input[_builtins.int]]
         """
         The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
@@ -2074,6 +2281,7 @@ class LinuxUserConfigurationArgs:
                  ssh_private_key: Optional[pulumi.Input[_builtins.str]] = None,
                  uid: Optional[pulumi.Input[_builtins.int]] = None):
         """
+        Properties used to create a user account on a Linux node.
         :param pulumi.Input[_builtins.int] gid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
         :param pulumi.Input[_builtins.str] ssh_private_key: The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
         :param pulumi.Input[_builtins.int] uid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
@@ -2129,6 +2337,9 @@ if not MYPY:
         Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
         """
         storage_account_type: NotRequired[pulumi.Input['StorageAccountType']]
+        """
+        The storage account type for use in creating data disks or OS disk.
+        """
 elif False:
     ManagedDiskArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2139,6 +2350,7 @@ class ManagedDiskArgs:
                  storage_account_type: Optional[pulumi.Input['StorageAccountType']] = None):
         """
         :param pulumi.Input['VMDiskSecurityProfileArgs'] security_profile: Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+        :param pulumi.Input['StorageAccountType'] storage_account_type: The storage account type for use in creating data disks or OS disk.
         """
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
@@ -2160,6 +2372,9 @@ class ManagedDiskArgs:
     @_builtins.property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input['StorageAccountType']]:
+        """
+        The storage account type for use in creating data disks or OS disk.
+        """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
@@ -2173,7 +2388,13 @@ if not MYPY:
         The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
         """
         name: pulumi.Input[_builtins.str]
+        """
+        The name of the metadata item.
+        """
         value: pulumi.Input[_builtins.str]
+        """
+        The value of the metadata item.
+        """
 elif False:
     MetadataItemArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2184,6 +2405,8 @@ class MetadataItemArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
+        :param pulumi.Input[_builtins.str] name: The name of the metadata item.
+        :param pulumi.Input[_builtins.str] value: The value of the metadata item.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2191,6 +2414,9 @@ class MetadataItemArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the metadata item.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2200,6 +2426,9 @@ class MetadataItemArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value of the metadata item.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2209,6 +2438,9 @@ class MetadataItemArgs:
 
 if not MYPY:
     class MountConfigurationArgsDict(TypedDict):
+        """
+        The file system to mount on each node.
+        """
         azure_blob_file_system_configuration: NotRequired[pulumi.Input['AzureBlobFileSystemConfigurationArgsDict']]
         """
         This property is mutually exclusive with all other properties.
@@ -2236,6 +2468,7 @@ class MountConfigurationArgs:
                  cifs_mount_configuration: Optional[pulumi.Input['CIFSMountConfigurationArgs']] = None,
                  nfs_mount_configuration: Optional[pulumi.Input['NFSMountConfigurationArgs']] = None):
         """
+        The file system to mount on each node.
         :param pulumi.Input['AzureBlobFileSystemConfigurationArgs'] azure_blob_file_system_configuration: This property is mutually exclusive with all other properties.
         :param pulumi.Input['AzureFileShareConfigurationArgs'] azure_file_share_configuration: This property is mutually exclusive with all other properties.
         :param pulumi.Input['CIFSMountConfigurationArgs'] cifs_mount_configuration: This property is mutually exclusive with all other properties.
@@ -2301,11 +2534,17 @@ class MountConfigurationArgs:
 
 if not MYPY:
     class NFSMountConfigurationArgsDict(TypedDict):
+        """
+        Information used to connect to an NFS file system.
+        """
         relative_mount_path: pulumi.Input[_builtins.str]
         """
         All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         """
         source: pulumi.Input[_builtins.str]
+        """
+        The URI of the file system to mount.
+        """
         mount_options: NotRequired[pulumi.Input[_builtins.str]]
         """
         These are 'net use' options in Windows and 'mount' options in Linux.
@@ -2320,7 +2559,9 @@ class NFSMountConfigurationArgs:
                  source: pulumi.Input[_builtins.str],
                  mount_options: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Information used to connect to an NFS file system.
         :param pulumi.Input[_builtins.str] relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
+        :param pulumi.Input[_builtins.str] source: The URI of the file system to mount.
         :param pulumi.Input[_builtins.str] mount_options: These are 'net use' options in Windows and 'mount' options in Linux.
         """
         pulumi.set(__self__, "relative_mount_path", relative_mount_path)
@@ -2343,6 +2584,9 @@ class NFSMountConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The URI of the file system to mount.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -2368,11 +2612,17 @@ if not MYPY:
         The network configuration for a pool.
         """
         dynamic_vnet_assignment_scope: NotRequired[pulumi.Input['DynamicVNetAssignmentScope']]
+        """
+        The scope of dynamic vnet assignment.
+        """
         enable_accelerated_networking: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
         """
         endpoint_configuration: NotRequired[pulumi.Input['PoolEndpointConfigurationArgsDict']]
+        """
+        The endpoint configuration for a pool.
+        """
         public_ip_address_configuration: NotRequired[pulumi.Input['PublicIPAddressConfigurationArgsDict']]
         """
         The public IP Address configuration of the networking configuration of a Pool.
@@ -2394,7 +2644,9 @@ class NetworkConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The network configuration for a pool.
+        :param pulumi.Input['DynamicVNetAssignmentScope'] dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment.
         :param pulumi.Input[_builtins.bool] enable_accelerated_networking: Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
+        :param pulumi.Input['PoolEndpointConfigurationArgs'] endpoint_configuration: The endpoint configuration for a pool.
         :param pulumi.Input['PublicIPAddressConfigurationArgs'] public_ip_address_configuration: The public IP Address configuration of the networking configuration of a Pool.
         :param pulumi.Input[_builtins.str] subnet_id: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication，including ports 29876 and 29877. Also enable outbound connections to Azure Storage on port 443. For more details see: https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
@@ -2414,6 +2666,9 @@ class NetworkConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="dynamicVnetAssignmentScope")
     def dynamic_vnet_assignment_scope(self) -> Optional[pulumi.Input['DynamicVNetAssignmentScope']]:
+        """
+        The scope of dynamic vnet assignment.
+        """
         return pulumi.get(self, "dynamic_vnet_assignment_scope")
 
     @dynamic_vnet_assignment_scope.setter
@@ -2435,6 +2690,9 @@ class NetworkConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional[pulumi.Input['PoolEndpointConfigurationArgs']]:
+        """
+        The endpoint configuration for a pool.
+        """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
@@ -2524,7 +2782,13 @@ class NetworkProfileArgs:
 
 if not MYPY:
     class NetworkSecurityGroupRuleArgsDict(TypedDict):
+        """
+        A network security group rule to apply to an inbound endpoint.
+        """
         access: pulumi.Input['NetworkSecurityGroupRuleAccess']
+        """
+        The action that should be taken for a specified IP address, subnet range or tag.
+        """
         priority: pulumi.Input[_builtins.int]
         """
         Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
@@ -2548,6 +2812,8 @@ class NetworkSecurityGroupRuleArgs:
                  source_address_prefix: pulumi.Input[_builtins.str],
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
+        A network security group rule to apply to an inbound endpoint.
+        :param pulumi.Input['NetworkSecurityGroupRuleAccess'] access: The action that should be taken for a specified IP address, subnet range or tag.
         :param pulumi.Input[_builtins.int] priority: Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[_builtins.str] source_address_prefix: Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_port_ranges: Valid values are '*' (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. 100-200). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be *.
@@ -2561,6 +2827,9 @@ class NetworkSecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def access(self) -> pulumi.Input['NetworkSecurityGroupRuleAccess']:
+        """
+        The action that should be taken for a specified IP address, subnet range or tag.
+        """
         return pulumi.get(self, "access")
 
     @access.setter
@@ -2642,11 +2911,26 @@ class NodePlacementConfigurationArgs:
 
 if not MYPY:
     class OSDiskArgsDict(TypedDict):
+        """
+        Settings for the operating system disk of the virtual machine.
+        """
         caching: NotRequired[pulumi.Input['CachingType']]
+        """
+        The type of caching to enable for the disk.
+        """
         disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The initial disk size in GB when creating new OS disk.
+        """
         ephemeral_os_disk_settings: NotRequired[pulumi.Input['DiffDiskSettingsArgsDict']]
+        """
+        Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        """
         managed_disk: NotRequired[pulumi.Input['ManagedDiskArgsDict']]
         write_accelerator_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        """
 elif False:
     OSDiskArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2658,6 +2942,13 @@ class OSDiskArgs:
                  ephemeral_os_disk_settings: Optional[pulumi.Input['DiffDiskSettingsArgs']] = None,
                  managed_disk: Optional[pulumi.Input['ManagedDiskArgs']] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Settings for the operating system disk of the virtual machine.
+        :param pulumi.Input['CachingType'] caching: The type of caching to enable for the disk.
+        :param pulumi.Input[_builtins.int] disk_size_gb: The initial disk size in GB when creating new OS disk.
+        :param pulumi.Input['DiffDiskSettingsArgs'] ephemeral_os_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        """
         if caching is not None:
             pulumi.set(__self__, "caching", caching)
         if disk_size_gb is not None:
@@ -2672,6 +2963,9 @@ class OSDiskArgs:
     @_builtins.property
     @pulumi.getter
     def caching(self) -> Optional[pulumi.Input['CachingType']]:
+        """
+        The type of caching to enable for the disk.
+        """
         return pulumi.get(self, "caching")
 
     @caching.setter
@@ -2681,6 +2975,9 @@ class OSDiskArgs:
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
     def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The initial disk size in GB when creating new OS disk.
+        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -2690,6 +2987,9 @@ class OSDiskArgs:
     @_builtins.property
     @pulumi.getter(name="ephemeralOSDiskSettings")
     def ephemeral_os_disk_settings(self) -> Optional[pulumi.Input['DiffDiskSettingsArgs']]:
+        """
+        Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        """
         return pulumi.get(self, "ephemeral_os_disk_settings")
 
     @ephemeral_os_disk_settings.setter
@@ -2708,6 +3008,9 @@ class OSDiskArgs:
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
     def write_accelerator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        """
         return pulumi.get(self, "write_accelerator_enabled")
 
     @write_accelerator_enabled.setter
@@ -2717,6 +3020,9 @@ class OSDiskArgs:
 
 if not MYPY:
     class PoolEndpointConfigurationArgsDict(TypedDict):
+        """
+        The endpoint configuration for a pool.
+        """
         inbound_nat_pools: pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgsDict']]]
         """
         The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
@@ -2729,6 +3035,7 @@ class PoolEndpointConfigurationArgs:
     def __init__(__self__, *,
                  inbound_nat_pools: pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]):
         """
+        The endpoint configuration for a pool.
         :param pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]] inbound_nat_pools: The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
         """
         pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
@@ -2804,6 +3111,9 @@ class PublicIPAddressConfigurationArgs:
 
 if not MYPY:
     class ResourceFileArgsDict(TypedDict):
+        """
+        A single file or multiple files to be downloaded to a compute node.
+        """
         auto_storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
         """
         The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
@@ -2846,6 +3156,7 @@ class ResourceFileArgs:
                  identity_reference: Optional[pulumi.Input['ComputeNodeIdentityReferenceArgs']] = None,
                  storage_container_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        A single file or multiple files to be downloaded to a compute node.
         :param pulumi.Input[_builtins.str] auto_storage_container_name: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
         :param pulumi.Input[_builtins.str] blob_prefix: The property is valid only when autoStorageContainerName or storageContainerUrl is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
         :param pulumi.Input[_builtins.str] file_mode: This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a resourceFile which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
@@ -3176,6 +3487,9 @@ if not MYPY:
         This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
         """
         security_type: NotRequired[pulumi.Input['SecurityTypes']]
+        """
+        Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+        """
         uefi_settings: NotRequired[pulumi.Input['UefiSettingsArgsDict']]
         """
         Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
@@ -3192,6 +3506,7 @@ class SecurityProfileArgs:
         """
         Specifies the security profile settings for the virtual machine or virtual machine scale set.
         :param pulumi.Input[_builtins.bool] encryption_at_host: This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
+        :param pulumi.Input['SecurityTypes'] security_type: Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
         :param pulumi.Input['UefiSettingsArgs'] uefi_settings: Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
         """
         if encryption_at_host is not None:
@@ -3216,6 +3531,9 @@ class SecurityProfileArgs:
     @_builtins.property
     @pulumi.getter(name="securityType")
     def security_type(self) -> Optional[pulumi.Input['SecurityTypes']]:
+        """
+        Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+        """
         return pulumi.get(self, "security_type")
 
     @security_type.setter
@@ -3284,11 +3602,17 @@ if not MYPY:
         When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         """
         environment_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgsDict']]]]
+        """
+        A list of environment variable settings for the start task.
+        """
         max_task_retry_count: NotRequired[pulumi.Input[_builtins.int]]
         """
         The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0
         """
         resource_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceFileArgsDict']]]]
+        """
+        A list of files that the Batch service will download to the compute node before running the command line.
+        """
         user_identity: NotRequired[pulumi.Input['UserIdentityArgsDict']]
         """
         If omitted, the task runs as a non-administrative user unique to the task.
@@ -3314,7 +3638,9 @@ class StartTaskArgs:
         In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
         :param pulumi.Input[_builtins.str] command_line: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
         :param pulumi.Input['TaskContainerSettingsArgs'] container_settings: When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]] environment_settings: A list of environment variable settings for the start task.
         :param pulumi.Input[_builtins.int] max_task_retry_count: The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceFileArgs']]] resource_files: A list of files that the Batch service will download to the compute node before running the command line.
         :param pulumi.Input['UserIdentityArgs'] user_identity: If omitted, the task runs as a non-administrative user unique to the task.
         :param pulumi.Input[_builtins.bool] wait_for_success: If true and the start task fails on a compute node, the Batch service retries the start task up to its maximum retry count (maxTaskRetryCount). If the task has still not completed successfully after all retries, then the Batch service marks the compute node unusable, and will not schedule tasks to it. This condition can be detected via the node state and scheduling error detail. If false, the Batch service will not wait for the start task to complete. In this case, other tasks can start executing on the compute node while the start task is still running; and even if the start task fails, new tasks will continue to be scheduled on the node. The default is true.
         """
@@ -3362,6 +3688,9 @@ class StartTaskArgs:
     @_builtins.property
     @pulumi.getter(name="environmentSettings")
     def environment_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]]:
+        """
+        A list of environment variable settings for the start task.
+        """
         return pulumi.get(self, "environment_settings")
 
     @environment_settings.setter
@@ -3383,6 +3712,9 @@ class StartTaskArgs:
     @_builtins.property
     @pulumi.getter(name="resourceFiles")
     def resource_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceFileArgs']]]]:
+        """
+        A list of files that the Batch service will download to the compute node before running the command line.
+        """
         return pulumi.get(self, "resource_files")
 
     @resource_files.setter
@@ -3416,6 +3748,9 @@ class StartTaskArgs:
 
 if not MYPY:
     class TaskContainerSettingsArgsDict(TypedDict):
+        """
+        The container settings for a task.
+        """
         image_name: pulumi.Input[_builtins.str]
         """
         This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
@@ -3433,6 +3768,9 @@ if not MYPY:
         This setting can be omitted if was already provided at pool creation.
         """
         working_directory: NotRequired[pulumi.Input['ContainerWorkingDirectory']]
+        """
+        A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+        """
 elif False:
     TaskContainerSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3445,10 +3783,12 @@ class TaskContainerSettingsArgs:
                  registry: Optional[pulumi.Input['ContainerRegistryArgs']] = None,
                  working_directory: Optional[pulumi.Input['ContainerWorkingDirectory']] = None):
         """
+        The container settings for a task.
         :param pulumi.Input[_builtins.str] image_name: This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerHostBatchBindMountEntryArgs']]] container_host_batch_bind_mounts: If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
         :param pulumi.Input[_builtins.str] container_run_options: These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         :param pulumi.Input['ContainerRegistryArgs'] registry: This setting can be omitted if was already provided at pool creation.
+        :param pulumi.Input['ContainerWorkingDirectory'] working_directory: A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
         """
         pulumi.set(__self__, "image_name", image_name)
         if container_host_batch_bind_mounts is not None:
@@ -3511,6 +3851,9 @@ class TaskContainerSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input['ContainerWorkingDirectory']]:
+        """
+        A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -3520,7 +3863,13 @@ class TaskContainerSettingsArgs:
 
 if not MYPY:
     class TaskSchedulingPolicyArgsDict(TypedDict):
+        """
+        Specifies how tasks should be distributed across compute nodes.
+        """
         node_fill_type: pulumi.Input['ComputeNodeFillType']
+        """
+        How tasks should be distributed across compute nodes.
+        """
 elif False:
     TaskSchedulingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3528,6 +3877,10 @@ elif False:
 class TaskSchedulingPolicyArgs:
     def __init__(__self__, *,
                  node_fill_type: Optional[pulumi.Input['ComputeNodeFillType']] = None):
+        """
+        Specifies how tasks should be distributed across compute nodes.
+        :param pulumi.Input['ComputeNodeFillType'] node_fill_type: How tasks should be distributed across compute nodes.
+        """
         if node_fill_type is None:
             node_fill_type = 'Spread'
         pulumi.set(__self__, "node_fill_type", node_fill_type)
@@ -3535,6 +3888,9 @@ class TaskSchedulingPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="nodeFillType")
     def node_fill_type(self) -> pulumi.Input['ComputeNodeFillType']:
+        """
+        How tasks should be distributed across compute nodes.
+        """
         return pulumi.get(self, "node_fill_type")
 
     @node_fill_type.setter
@@ -3604,6 +3960,9 @@ if not MYPY:
         Describes an upgrade policy - automatic, manual, or rolling.
         """
         mode: pulumi.Input['UpgradeMode']
+        """
+        Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
+        """
         automatic_os_upgrade_policy: NotRequired[pulumi.Input['AutomaticOSUpgradePolicyArgsDict']]
         """
         The configuration parameters used for performing automatic OS upgrade.
@@ -3623,6 +3982,7 @@ class UpgradePolicyArgs:
                  rolling_upgrade_policy: Optional[pulumi.Input['RollingUpgradePolicyArgs']] = None):
         """
         Describes an upgrade policy - automatic, manual, or rolling.
+        :param pulumi.Input['UpgradeMode'] mode: Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
         :param pulumi.Input['AutomaticOSUpgradePolicyArgs'] automatic_os_upgrade_policy: The configuration parameters used for performing automatic OS upgrade.
         :param pulumi.Input['RollingUpgradePolicyArgs'] rolling_upgrade_policy: The configuration parameters used while performing a rolling upgrade.
         """
@@ -3635,6 +3995,9 @@ class UpgradePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> pulumi.Input['UpgradeMode']:
+        """
+        Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -3668,8 +4031,17 @@ class UpgradePolicyArgs:
 
 if not MYPY:
     class UserAccountArgsDict(TypedDict):
+        """
+        Properties used to create a user on an Azure Batch node.
+        """
         name: pulumi.Input[_builtins.str]
+        """
+        The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
+        """
         password: pulumi.Input[_builtins.str]
+        """
+        The password for the user account.
+        """
         elevation_level: NotRequired[pulumi.Input['ElevationLevel']]
         """
         nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -3694,6 +4066,9 @@ class UserAccountArgs:
                  linux_user_configuration: Optional[pulumi.Input['LinuxUserConfigurationArgs']] = None,
                  windows_user_configuration: Optional[pulumi.Input['WindowsUserConfigurationArgs']] = None):
         """
+        Properties used to create a user on an Azure Batch node.
+        :param pulumi.Input[_builtins.str] name: The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
+        :param pulumi.Input[_builtins.str] password: The password for the user account.
         :param pulumi.Input['ElevationLevel'] elevation_level: nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         :param pulumi.Input['LinuxUserConfigurationArgs'] linux_user_configuration: This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
         :param pulumi.Input['WindowsUserConfigurationArgs'] windows_user_configuration: This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
@@ -3710,6 +4085,9 @@ class UserAccountArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3719,6 +4097,9 @@ class UserAccountArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[_builtins.str]:
+        """
+        The password for the user account.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -3824,6 +4205,9 @@ if not MYPY:
         Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
         """
         security_encryption_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityEncryptionTypes']]]
+        """
+        Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+        """
 elif False:
     VMDiskSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3833,6 +4217,7 @@ class VMDiskSecurityProfileArgs:
                  security_encryption_type: Optional[pulumi.Input[Union[_builtins.str, 'SecurityEncryptionTypes']]] = None):
         """
         Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+        :param pulumi.Input[Union[_builtins.str, 'SecurityEncryptionTypes']] security_encryption_type: Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
         """
         if security_encryption_type is not None:
             pulumi.set(__self__, "security_encryption_type", security_encryption_type)
@@ -3840,6 +4225,9 @@ class VMDiskSecurityProfileArgs:
     @_builtins.property
     @pulumi.getter(name="securityEncryptionType")
     def security_encryption_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecurityEncryptionTypes']]]:
+        """
+        Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+        """
         return pulumi.get(self, "security_encryption_type")
 
     @security_encryption_type.setter
@@ -3849,9 +4237,21 @@ class VMDiskSecurityProfileArgs:
 
 if not MYPY:
     class VMExtensionArgsDict(TypedDict):
+        """
+        The configuration for virtual machine extensions.
+        """
         name: pulumi.Input[_builtins.str]
+        """
+        The name of the virtual machine extension.
+        """
         publisher: pulumi.Input[_builtins.str]
+        """
+        The name of the extension handler publisher.
+        """
         type: pulumi.Input[_builtins.str]
+        """
+        The type of the extensions.
+        """
         auto_upgrade_minor_version: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -3862,14 +4262,20 @@ if not MYPY:
         """
         protected_settings: NotRequired[Any]
         """
-        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
         provision_after_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         Collection of extension names after which this extension needs to be provisioned.
         """
         settings: NotRequired[Any]
+        """
+        JSON formatted public settings for the extension.
+        """
         type_handler_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of script handler.
+        """
 elif False:
     VMExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3886,10 +4292,16 @@ class VMExtensionArgs:
                  settings: Optional[Any] = None,
                  type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        The configuration for virtual machine extensions.
+        :param pulumi.Input[_builtins.str] name: The name of the virtual machine extension.
+        :param pulumi.Input[_builtins.str] publisher: The name of the extension handler publisher.
+        :param pulumi.Input[_builtins.str] type: The type of the extensions.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[_builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
-        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
+        :param Any settings: JSON formatted public settings for the extension.
+        :param pulumi.Input[_builtins.str] type_handler_version: The version of script handler.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -3910,6 +4322,9 @@ class VMExtensionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the virtual machine extension.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3919,6 +4334,9 @@ class VMExtensionArgs:
     @_builtins.property
     @pulumi.getter
     def publisher(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the extension handler publisher.
+        """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
@@ -3928,6 +4346,9 @@ class VMExtensionArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of the extensions.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3962,7 +4383,7 @@ class VMExtensionArgs:
     @pulumi.getter(name="protectedSettings")
     def protected_settings(self) -> Optional[Any]:
         """
-        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -3985,6 +4406,9 @@ class VMExtensionArgs:
     @_builtins.property
     @pulumi.getter
     def settings(self) -> Optional[Any]:
+        """
+        JSON formatted public settings for the extension.
+        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -3994,6 +4418,9 @@ class VMExtensionArgs:
     @_builtins.property
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of script handler.
+        """
         return pulumi.get(self, "type_handler_version")
 
     @type_handler_version.setter
@@ -4003,7 +4430,13 @@ class VMExtensionArgs:
 
 if not MYPY:
     class VirtualMachineConfigurationArgsDict(TypedDict):
+        """
+        The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+        """
         image_reference: pulumi.Input['ImageReferenceArgsDict']
+        """
+        A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+        """
         node_agent_sku_id: pulumi.Input[_builtins.str]
         """
         The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
@@ -4028,8 +4461,8 @@ if not MYPY:
         """
         This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 
-         Windows_Server - The on-premises license is for Windows Server.
-         Windows_Client - The on-premises license is for Windows Client.
+        Windows_Server - The on-premises license is for Windows Server.
+        Windows_Client - The on-premises license is for Windows Client.
         """
         node_placement_configuration: NotRequired[pulumi.Input['NodePlacementConfigurationArgsDict']]
         """
@@ -4070,6 +4503,8 @@ class VirtualMachineConfigurationArgs:
                  service_artifact_reference: Optional[pulumi.Input['ServiceArtifactReferenceArgs']] = None,
                  windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
+        The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+        :param pulumi.Input['ImageReferenceArgs'] image_reference: A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
         :param pulumi.Input[_builtins.str] node_agent_sku_id: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
         :param pulumi.Input['ContainerConfigurationArgs'] container_configuration: If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
         :param pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]] data_disks: This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
@@ -4077,8 +4512,8 @@ class VirtualMachineConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VMExtensionArgs']]] extensions: If specified, the extensions mentioned in this configuration will be installed on each node.
         :param pulumi.Input[_builtins.str] license_type: This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
                
-                Windows_Server - The on-premises license is for Windows Server.
-                Windows_Client - The on-premises license is for Windows Client.
+               Windows_Server - The on-premises license is for Windows Server.
+               Windows_Client - The on-premises license is for Windows Client.
         :param pulumi.Input['NodePlacementConfigurationArgs'] node_placement_configuration: This configuration will specify rules on how nodes in the pool will be physically allocated.
         :param pulumi.Input['OSDiskArgs'] os_disk: Contains configuration for ephemeral OSDisk settings.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the security profile settings for the virtual machine or virtual machine scale set.
@@ -4111,6 +4546,9 @@ class VirtualMachineConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="imageReference")
     def image_reference(self) -> pulumi.Input['ImageReferenceArgs']:
+        """
+        A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+        """
         return pulumi.get(self, "image_reference")
 
     @image_reference.setter
@@ -4183,8 +4621,8 @@ class VirtualMachineConfigurationArgs:
         """
         This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 
-         Windows_Server - The on-premises license is for Windows Server.
-         Windows_Client - The on-premises license is for Windows Client.
+        Windows_Server - The on-premises license is for Windows Server.
+        Windows_Client - The on-premises license is for Windows Client.
         """
         return pulumi.get(self, "license_type")
 
@@ -4255,6 +4693,9 @@ class VirtualMachineConfigurationArgs:
 
 if not MYPY:
     class WindowsConfigurationArgsDict(TypedDict):
+        """
+        Windows operating system settings to apply to the virtual machine.
+        """
         enable_automatic_updates: NotRequired[pulumi.Input[_builtins.bool]]
         """
         If omitted, the default value is true.
@@ -4267,6 +4708,7 @@ class WindowsConfigurationArgs:
     def __init__(__self__, *,
                  enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None):
         """
+        Windows operating system settings to apply to the virtual machine.
         :param pulumi.Input[_builtins.bool] enable_automatic_updates: If omitted, the default value is true.
         """
         if enable_automatic_updates is not None:
@@ -4287,6 +4729,9 @@ class WindowsConfigurationArgs:
 
 if not MYPY:
     class WindowsUserConfigurationArgsDict(TypedDict):
+        """
+        Properties used to create a user account on a Windows node.
+        """
         login_mode: NotRequired[pulumi.Input['LoginMode']]
         """
         Specifies login mode for the user. The default value is Interactive.
@@ -4299,6 +4744,7 @@ class WindowsUserConfigurationArgs:
     def __init__(__self__, *,
                  login_mode: Optional[pulumi.Input['LoginMode']] = None):
         """
+        Properties used to create a user account on a Windows node.
         :param pulumi.Input['LoginMode'] login_mode: Specifies login mode for the user. The default value is Interactive.
         """
         if login_mode is not None:

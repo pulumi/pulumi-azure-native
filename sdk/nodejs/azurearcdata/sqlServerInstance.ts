@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
  *
- * Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20240101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20250301preview:SqlServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20240101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20250301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20260101:SqlServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerInstance.__pulumiType, name, resourceInputs, opts);
     }

@@ -329,10 +329,6 @@ if not MYPY:
         """
         Data encryption properties of a server.
         """
-        geo_backup_encryption_key_status: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]
-        """
-        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
-        """
         geo_backup_key_uri: NotRequired[pulumi.Input[_builtins.str]]
         """
         Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
@@ -340,10 +336,6 @@ if not MYPY:
         geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
-        """
-        primary_encryption_key_status: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]
-        """
-        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         """
         primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -363,49 +355,29 @@ elif False:
 @pulumi.input_type
 class DataEncryptionArgs:
     def __init__(__self__, *,
-                 geo_backup_encryption_key_status: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]] = None,
                  geo_backup_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  geo_backup_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_encryption_key_status: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]] = None,
                  primary_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]] = None):
         """
         Data encryption properties of a server.
-        :param pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']] geo_backup_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         :param pulumi.Input[_builtins.str] geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         :param pulumi.Input[_builtins.str] geo_backup_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
-        :param pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']] primary_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         :param pulumi.Input[_builtins.str] primary_key_uri: URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
         :param pulumi.Input[Union[_builtins.str, 'DataEncryptionType']] type: Data encryption type used by a server.
         """
-        if geo_backup_encryption_key_status is not None:
-            pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
         if geo_backup_key_uri is not None:
             pulumi.set(__self__, "geo_backup_key_uri", geo_backup_key_uri)
         if geo_backup_user_assigned_identity_id is not None:
             pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
-        if primary_encryption_key_status is not None:
-            pulumi.set(__self__, "primary_encryption_key_status", primary_encryption_key_status)
         if primary_key_uri is not None:
             pulumi.set(__self__, "primary_key_uri", primary_key_uri)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="geoBackupEncryptionKeyStatus")
-    def geo_backup_encryption_key_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]:
-        """
-        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
-        """
-        return pulumi.get(self, "geo_backup_encryption_key_status")
-
-    @geo_backup_encryption_key_status.setter
-    def geo_backup_encryption_key_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]):
-        pulumi.set(self, "geo_backup_encryption_key_status", value)
 
     @_builtins.property
     @pulumi.getter(name="geoBackupKeyURI")
@@ -430,18 +402,6 @@ class DataEncryptionArgs:
     @geo_backup_user_assigned_identity_id.setter
     def geo_backup_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "geo_backup_user_assigned_identity_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="primaryEncryptionKeyStatus")
-    def primary_encryption_key_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]:
-        """
-        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
-        """
-        return pulumi.get(self, "primary_encryption_key_status")
-
-    @primary_encryption_key_status.setter
-    def primary_encryption_key_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]):
-        pulumi.set(self, "primary_encryption_key_status", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyURI")
@@ -485,7 +445,7 @@ if not MYPY:
         """
         High availability properties of a server.
         """
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]]
+        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]
         """
         High availability mode for a server.
         """
@@ -499,11 +459,11 @@ elif False:
 @pulumi.input_type
 class HighAvailabilityArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]] = None,
+                 mode: Optional[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]] = None,
                  standby_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         High availability properties of a server.
-        :param pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']] mode: High availability mode for a server.
+        :param pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']] mode: High availability mode for a server.
         :param pulumi.Input[_builtins.str] standby_availability_zone: Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         """
         if mode is None:
@@ -517,14 +477,14 @@ class HighAvailabilityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]]:
+    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]:
         """
         High availability mode for a server.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]]):
+    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property

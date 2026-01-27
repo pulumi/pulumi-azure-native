@@ -104,6 +104,11 @@ __all__ = [
     'GalleryImageVersionUefiSettingsResponse',
     'GalleryInVMAccessControlProfilePropertiesResponse',
     'GalleryOSDiskImageResponse',
+    'GalleryScriptParameterResponse',
+    'GalleryScriptPropertiesResponse',
+    'GalleryScriptVersionPropertiesResponse',
+    'GalleryScriptVersionPublishingProfileResponse',
+    'GalleryScriptVersionSafetyProfileResponse',
     'GalleryTargetExtendedLocationResponse',
     'HardwareProfileResponse',
     'HostEndpointSettingsResponse',
@@ -176,6 +181,7 @@ __all__ = [
     'ScheduledEventsAdditionalPublishingTargetsResponse',
     'ScheduledEventsPolicyResponse',
     'ScheduledEventsProfileResponse',
+    'ScriptSourceResponse',
     'SecurityPostureReferenceResponse',
     'SecurityProfileResponse',
     'ServiceArtifactReferenceResponse',
@@ -4382,25 +4388,32 @@ class ExecutedValidationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 status: _builtins.str,
                  execution_time: Optional[_builtins.str] = None,
-                 status: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None,
                  version: Optional[_builtins.str] = None):
         """
         This is the executed Validation.
-        :param _builtins.str execution_time: This property specifies the starting timestamp.
         :param _builtins.str status: This property specifies the status of the validationProfile of the image version.
+        :param _builtins.str execution_time: This property specifies the starting timestamp.
         :param _builtins.str type: This property specifies the type of image version validation.
         :param _builtins.str version: This property specifies the valid version of the validation.
         """
+        pulumi.set(__self__, "status", status)
         if execution_time is not None:
             pulumi.set(__self__, "execution_time", execution_time)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        This property specifies the status of the validationProfile of the image version.
+        """
+        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="executionTime")
@@ -4409,14 +4422,6 @@ class ExecutedValidationResponse(dict):
         This property specifies the starting timestamp.
         """
         return pulumi.get(self, "execution_time")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        """
-        This property specifies the status of the validationProfile of the image version.
-        """
-        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
@@ -4720,7 +4725,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         :param _builtins.int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param _builtins.str replication_mode: Optional parameter which specifies the mode to be used for replication. This property is not updatable.
         :param 'UserArtifactSettingsResponse' settings: Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
-        :param _builtins.str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param _builtins.str storage_account_type: Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         :param Sequence['GalleryTargetExtendedLocationResponse'] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
         :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -4840,7 +4845,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[_builtins.str]:
         """
-        Specifies the storage account type to be used to store the image. This property is not updatable.
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -5415,7 +5420,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
         :param _builtins.bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param _builtins.int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param _builtins.str replication_mode: Optional parameter which specifies the mode to be used for replication. This property is not updatable.
-        :param _builtins.str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param _builtins.str storage_account_type: Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         :param Sequence['GalleryTargetExtendedLocationResponse'] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
         :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -5479,7 +5484,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[_builtins.str]:
         """
-        Specifies the storage account type to be used to store the image. This property is not updatable.
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -5840,6 +5845,534 @@ class GalleryOSDiskImageResponse(dict):
         The source for the disk image.
         """
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class GalleryScriptParameterResponse(dict):
+    """
+    The definition of a parameter that can be passed to a script of a Gallery Script Version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "enumValues":
+            suggest = "enum_values"
+        elif key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryScriptParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryScriptParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryScriptParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 default_value: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 enum_values: Optional[Sequence[_builtins.str]] = None,
+                 max_value: Optional[_builtins.str] = None,
+                 min_value: Optional[_builtins.str] = None,
+                 required: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        The definition of a parameter that can be passed to a script of a Gallery Script Version.
+        :param _builtins.str name: The name of the parameter.
+        :param _builtins.str default_value: The default value of the parameter, only applies to string types.
+        :param _builtins.str description: A description to help users understand what this parameter means
+        :param Sequence[_builtins.str] enum_values: A list of permissible values. Only applicable values are from 'enum' values defined in 'GalleryScriptParameter'.
+        :param _builtins.str max_value: The minimum value of parameter.
+        :param _builtins.str min_value: The minimum value of parameter.
+        :param _builtins.bool required: Indicates whether this parameter must be passed.
+        :param _builtins.str type: Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+        """
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enum_values is not None:
+            pulumi.set(__self__, "enum_values", enum_values)
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        """
+        The default value of the parameter, only applies to string types.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description to help users understand what this parameter means
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enumValues")
+    def enum_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of permissible values. Only applicable values are from 'enum' values defined in 'GalleryScriptParameter'.
+        """
+        return pulumi.get(self, "enum_values")
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[_builtins.str]:
+        """
+        The minimum value of parameter.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[_builtins.str]:
+        """
+        The minimum value of parameter.
+        """
+        return pulumi.get(self, "min_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether this parameter must be passed.
+        """
+        return pulumi.get(self, "required")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GalleryScriptPropertiesResponse(dict):
+    """
+    Describes the properties of a gallery script definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "supportedOSType":
+            suggest = "supported_os_type"
+        elif key == "endOfLifeDate":
+            suggest = "end_of_life_date"
+        elif key == "privacyStatementUri":
+            suggest = "privacy_statement_uri"
+        elif key == "releaseNoteUri":
+            suggest = "release_note_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryScriptPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryScriptPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryScriptPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 supported_os_type: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 end_of_life_date: Optional[_builtins.str] = None,
+                 eula: Optional[_builtins.str] = None,
+                 privacy_statement_uri: Optional[_builtins.str] = None,
+                 release_note_uri: Optional[_builtins.str] = None):
+        """
+        Describes the properties of a gallery script definition.
+        :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
+        :param _builtins.str supported_os_type: This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
+        :param _builtins.str description: The description of this gallery script definition resource. This property is updatable.
+        :param _builtins.str end_of_life_date: The end of life date of the gallery Script Definition. This property can be used for decommissioning purposes. This property is updatable.
+        :param _builtins.str eula: The Eula agreement (End User License Agreement) for the gallery Script Definition.
+        :param _builtins.str privacy_statement_uri: The privacy statement uri.
+        :param _builtins.str release_note_uri: The release note uri.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "supported_os_type", supported_os_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+        if eula is not None:
+            pulumi.set(__self__, "eula", eula)
+        if privacy_statement_uri is not None:
+            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
+        if release_note_uri is not None:
+            pulumi.set(__self__, "release_note_uri", release_note_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedOSType")
+    def supported_os_type(self) -> _builtins.str:
+        """
+        This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
+        """
+        return pulumi.get(self, "supported_os_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of this gallery script definition resource. This property is updatable.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[_builtins.str]:
+        """
+        The end of life date of the gallery Script Definition. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def eula(self) -> Optional[_builtins.str]:
+        """
+        The Eula agreement (End User License Agreement) for the gallery Script Definition.
+        """
+        return pulumi.get(self, "eula")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyStatementUri")
+    def privacy_statement_uri(self) -> Optional[_builtins.str]:
+        """
+        The privacy statement uri.
+        """
+        return pulumi.get(self, "privacy_statement_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="releaseNoteUri")
+    def release_note_uri(self) -> Optional[_builtins.str]:
+        """
+        The release note uri.
+        """
+        return pulumi.get(self, "release_note_uri")
+
+
+@pulumi.output_type
+class GalleryScriptVersionPropertiesResponse(dict):
+    """
+    Describes the properties of a gallery script version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publishingProfile":
+            suggest = "publishing_profile"
+        elif key == "replicationStatus":
+            suggest = "replication_status"
+        elif key == "safetyProfile":
+            suggest = "safety_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryScriptVersionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryScriptVersionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryScriptVersionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 publishing_profile: 'outputs.GalleryScriptVersionPublishingProfileResponse',
+                 replication_status: 'outputs.ReplicationStatusResponse',
+                 safety_profile: Optional['outputs.GalleryScriptVersionSafetyProfileResponse'] = None):
+        """
+        Describes the properties of a gallery script version.
+        :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
+        :param 'GalleryScriptVersionPublishingProfileResponse' publishing_profile: The publishing profile of a gallery image version.
+        :param 'ReplicationStatusResponse' replication_status: This is the replication status of the gallery image version.
+        :param 'GalleryScriptVersionSafetyProfileResponse' safety_profile: The safety profile of the Gallery Script Version.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "publishing_profile", publishing_profile)
+        pulumi.set(__self__, "replication_status", replication_status)
+        if safety_profile is not None:
+            pulumi.set(__self__, "safety_profile", safety_profile)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="publishingProfile")
+    def publishing_profile(self) -> 'outputs.GalleryScriptVersionPublishingProfileResponse':
+        """
+        The publishing profile of a gallery image version.
+        """
+        return pulumi.get(self, "publishing_profile")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationStatus")
+    def replication_status(self) -> 'outputs.ReplicationStatusResponse':
+        """
+        This is the replication status of the gallery image version.
+        """
+        return pulumi.get(self, "replication_status")
+
+    @_builtins.property
+    @pulumi.getter(name="safetyProfile")
+    def safety_profile(self) -> Optional['outputs.GalleryScriptVersionSafetyProfileResponse']:
+        """
+        The safety profile of the Gallery Script Version.
+        """
+        return pulumi.get(self, "safety_profile")
+
+
+@pulumi.output_type
+class GalleryScriptVersionPublishingProfileResponse(dict):
+    """
+    The publishing profile of a gallery image version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishedDate":
+            suggest = "published_date"
+        elif key == "endOfLifeDate":
+            suggest = "end_of_life_date"
+        elif key == "excludeFromLatest":
+            suggest = "exclude_from_latest"
+        elif key == "replicaCount":
+            suggest = "replica_count"
+        elif key == "replicationMode":
+            suggest = "replication_mode"
+        elif key == "storageAccountStrategy":
+            suggest = "storage_account_strategy"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "targetExtendedLocations":
+            suggest = "target_extended_locations"
+        elif key == "targetRegions":
+            suggest = "target_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryScriptVersionPublishingProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryScriptVersionPublishingProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryScriptVersionPublishingProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 published_date: _builtins.str,
+                 source: 'outputs.ScriptSourceResponse',
+                 end_of_life_date: Optional[_builtins.str] = None,
+                 exclude_from_latest: Optional[_builtins.bool] = None,
+                 replica_count: Optional[_builtins.int] = None,
+                 replication_mode: Optional[_builtins.str] = None,
+                 storage_account_strategy: Optional[_builtins.str] = None,
+                 storage_account_type: Optional[_builtins.str] = None,
+                 target_extended_locations: Optional[Sequence['outputs.GalleryTargetExtendedLocationResponse']] = None,
+                 target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None):
+        """
+        The publishing profile of a gallery image version.
+        :param _builtins.str published_date: The timestamp for when the gallery image version is published.
+        :param 'ScriptSourceResponse' source: The source script from which the Script Version is going to be created.
+        :param _builtins.str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+        :param _builtins.bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+        :param _builtins.int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param _builtins.str replication_mode: Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        :param _builtins.str storage_account_strategy: Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+        :param _builtins.str storage_account_type: Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
+        :param Sequence['GalleryTargetExtendedLocationResponse'] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        """
+        pulumi.set(__self__, "published_date", published_date)
+        pulumi.set(__self__, "source", source)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+        if exclude_from_latest is not None:
+            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+        if replica_count is not None:
+            pulumi.set(__self__, "replica_count", replica_count)
+        if replication_mode is not None:
+            pulumi.set(__self__, "replication_mode", replication_mode)
+        if storage_account_strategy is not None:
+            pulumi.set(__self__, "storage_account_strategy", storage_account_strategy)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if target_extended_locations is not None:
+            pulumi.set(__self__, "target_extended_locations", target_extended_locations)
+        if target_regions is not None:
+            pulumi.set(__self__, "target_regions", target_regions)
+
+    @_builtins.property
+    @pulumi.getter(name="publishedDate")
+    def published_date(self) -> _builtins.str:
+        """
+        The timestamp for when the gallery image version is published.
+        """
+        return pulumi.get(self, "published_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.ScriptSourceResponse':
+        """
+        The source script from which the Script Version is going to be created.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[_builtins.str]:
+        """
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFromLatest")
+    def exclude_from_latest(self) -> Optional[_builtins.bool]:
+        """
+        If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+        """
+        return pulumi.get(self, "exclude_from_latest")
+
+    @_builtins.property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> Optional[_builtins.int]:
+        """
+        The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        """
+        return pulumi.get(self, "replica_count")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationMode")
+    def replication_mode(self) -> Optional[_builtins.str]:
+        """
+        Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        """
+        return pulumi.get(self, "replication_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountStrategy")
+    def storage_account_strategy(self) -> Optional[_builtins.str]:
+        """
+        Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+        """
+        return pulumi.get(self, "storage_account_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[_builtins.str]:
+        """
+        Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetExtendedLocations")
+    def target_extended_locations(self) -> Optional[Sequence['outputs.GalleryTargetExtendedLocationResponse']]:
+        """
+        The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        """
+        return pulumi.get(self, "target_extended_locations")
+
+    @_builtins.property
+    @pulumi.getter(name="targetRegions")
+    def target_regions(self) -> Optional[Sequence['outputs.TargetRegionResponse']]:
+        """
+        The target regions where the Image Version is going to be replicated to. This property is updatable.
+        """
+        return pulumi.get(self, "target_regions")
+
+
+@pulumi.output_type
+class GalleryScriptVersionSafetyProfileResponse(dict):
+    """
+    The safety profile of the Gallery Script Version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDeletionOfReplicatedLocations":
+            suggest = "allow_deletion_of_replicated_locations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryScriptVersionSafetyProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryScriptVersionSafetyProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryScriptVersionSafetyProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_deletion_of_replicated_locations: Optional[_builtins.bool] = None):
+        """
+        The safety profile of the Gallery Script Version.
+        :param _builtins.bool allow_deletion_of_replicated_locations: Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+        """
+        if allow_deletion_of_replicated_locations is not None:
+            pulumi.set(__self__, "allow_deletion_of_replicated_locations", allow_deletion_of_replicated_locations)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDeletionOfReplicatedLocations")
+    def allow_deletion_of_replicated_locations(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+        """
+        return pulumi.get(self, "allow_deletion_of_replicated_locations")
 
 
 @pulumi.output_type
@@ -10820,6 +11353,57 @@ class ScheduledEventsProfileResponse(dict):
         Specifies Terminate Scheduled Event related configurations.
         """
         return pulumi.get(self, "terminate_notification_profile")
+
+
+@pulumi.output_type
+class ScriptSourceResponse(dict):
+    """
+    The source script from which the Script Version is going to be created.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptLink":
+            suggest = "script_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 script_link: _builtins.str,
+                 parameters: Optional[Sequence['outputs.GalleryScriptParameterResponse']] = None):
+        """
+        The source script from which the Script Version is going to be created.
+        :param _builtins.str script_link: Required. The link of the source script, it must be a readable storage blob with SAS URI or publicly accessible URI or managed identity enabled.
+        :param Sequence['GalleryScriptParameterResponse'] parameters: Optional. Any input parameters that needs to passed to the script and are accessed within the script for its execution.
+        """
+        pulumi.set(__self__, "script_link", script_link)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="scriptLink")
+    def script_link(self) -> _builtins.str:
+        """
+        Required. The link of the source script, it must be a readable storage blob with SAS URI or publicly accessible URI or managed identity enabled.
+        """
+        return pulumi.get(self, "script_link")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.GalleryScriptParameterResponse']]:
+        """
+        Optional. Any input parameters that needs to passed to the script and are accessed within the script for its execution.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -16529,7 +17113,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
         :param _builtins.str assigned_host: Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. Minimum api-version: 2020-06-01.
         :param 'VirtualMachineHealthStatusResponse' vm_health: The health status for the VM.
         :param 'BootDiagnosticsInstanceViewResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
-        :param _builtins.str computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
+        :param _builtins.str computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://learn.microsoft.com/previous-versions/azure/virtual-machines/linux/infrastructure-example?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json#1-naming-conventions).
         :param Sequence['DiskInstanceViewResponse'] disks: The disks information.
         :param Sequence['VirtualMachineExtensionInstanceViewResponse'] extensions: The extensions information.
         :param _builtins.str hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
@@ -16602,7 +17186,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
     @pulumi.getter(name="computerName")
     def computer_name(self) -> Optional[_builtins.str]:
         """
-        Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
+        Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://learn.microsoft.com/previous-versions/azure/virtual-machines/linux/infrastructure-example?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json#1-naming-conventions).
         """
         return pulumi.get(self, "computer_name")
 

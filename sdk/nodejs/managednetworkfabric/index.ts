@@ -105,6 +105,11 @@ export const getNetworkInterfaceStatus: typeof import("./getNetworkInterfaceStat
 export const getNetworkInterfaceStatusOutput: typeof import("./getNetworkInterfaceStatus").getNetworkInterfaceStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkInterfaceStatus","getNetworkInterfaceStatusOutput"], () => require("./getNetworkInterfaceStatus"));
 
+export { GetNetworkMonitorArgs, GetNetworkMonitorResult, GetNetworkMonitorOutputArgs } from "./getNetworkMonitor";
+export const getNetworkMonitor: typeof import("./getNetworkMonitor").getNetworkMonitor = null as any;
+export const getNetworkMonitorOutput: typeof import("./getNetworkMonitor").getNetworkMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkMonitor","getNetworkMonitorOutput"], () => require("./getNetworkMonitor"));
+
 export { GetNetworkPacketBrokerArgs, GetNetworkPacketBrokerResult, GetNetworkPacketBrokerOutputArgs } from "./getNetworkPacketBroker";
 export const getNetworkPacketBroker: typeof import("./getNetworkPacketBroker").getNetworkPacketBroker = null as any;
 export const getNetworkPacketBrokerOutput: typeof import("./getNetworkPacketBroker").getNetworkPacketBrokerOutput = null as any;
@@ -200,6 +205,11 @@ export type NetworkInterface = import("./networkInterface").NetworkInterface;
 export const NetworkInterface: typeof import("./networkInterface").NetworkInterface = null as any;
 utilities.lazyLoad(exports, ["NetworkInterface"], () => require("./networkInterface"));
 
+export { NetworkMonitorArgs } from "./networkMonitor";
+export type NetworkMonitor = import("./networkMonitor").NetworkMonitor;
+export const NetworkMonitor: typeof import("./networkMonitor").NetworkMonitor = null as any;
+utilities.lazyLoad(exports, ["NetworkMonitor"], () => require("./networkMonitor"));
+
 export { NetworkPacketBrokerArgs } from "./networkPacketBroker";
 export type NetworkPacketBroker = import("./networkPacketBroker").NetworkPacketBroker;
 export const NetworkPacketBroker: typeof import("./networkPacketBroker").NetworkPacketBroker = null as any;
@@ -268,6 +278,8 @@ const _module = {
                 return new NetworkFabricController(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
+            case "azure-native:managednetworkfabric:NetworkMonitor":
+                return new NetworkMonitor(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric:NetworkPacketBroker":
                 return new NetworkPacketBroker(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric:NetworkRack":

@@ -26,46 +26,22 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        /// </summary>
-        [Output("connectionServerName")]
-        public Output<string> ConnectionServerName { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the resource.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of authentication to use when connecting to a target.
-        /// </summary>
-        [Output("targetAuthenticationType")]
-        public Output<string> TargetAuthenticationType { get; private set; } = null!;
-
-        /// <summary>
-        /// Discriminator property for TargetProperties.
-        /// </summary>
-        [Output("targetType")]
-        public Output<string> TargetType { get; private set; } = null!;
-
-        /// <summary>
-        /// To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        /// </summary>
-        [Output("targetVault")]
-        public Output<Outputs.VaultSecretResponse?> TargetVault { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -126,10 +102,10 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     public sealed class TargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Input("connectionServerName", required: true)]
-        public Input<string> ConnectionServerName { get; set; } = null!;
+        [Input("properties")]
+        public object? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -138,28 +114,10 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The type of authentication to use when connecting to a target.
-        /// </summary>
-        [Input("targetAuthenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DatabaseWatcher.TargetAuthenticationType> TargetAuthenticationType { get; set; } = null!;
-
-        /// <summary>
         /// The target resource name.
         /// </summary>
         [Input("targetName")]
         public Input<string>? TargetName { get; set; }
-
-        /// <summary>
-        /// Discriminator property for TargetProperties.
-        /// </summary>
-        [Input("targetType", required: true)]
-        public Input<string> TargetType { get; set; } = null!;
-
-        /// <summary>
-        /// To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        /// </summary>
-        [Input("targetVault")]
-        public Input<Inputs.VaultSecretArgs>? TargetVault { get; set; }
 
         /// <summary>
         /// The database watcher name.

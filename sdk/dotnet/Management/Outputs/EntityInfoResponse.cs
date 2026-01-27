@@ -40,6 +40,9 @@ namespace Pulumi.AzureNative.Management.Outputs
         /// Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
         /// </summary>
         public readonly int? NumberOfChildren;
+        /// <summary>
+        /// Number of Descendants
+        /// </summary>
         public readonly int? NumberOfDescendants;
         /// <summary>
         /// (Optional) The ID of the parent management group.

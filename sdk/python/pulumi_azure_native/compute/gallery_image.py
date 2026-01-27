@@ -374,7 +374,7 @@ class GalleryImage(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
-        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -410,7 +410,7 @@ class GalleryImage(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
-        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GalleryImageArgs args: The arguments to use to populate this resource's properties.
@@ -491,7 +491,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190301:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190301:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20250303:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azure-native:compute:GalleryImage',

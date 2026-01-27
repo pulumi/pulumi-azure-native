@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
+        /// 
+        /// Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFluidRelayServerResult> InvokeAsync(GetFluidRelayServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
+        /// 
+        /// Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
+        /// 
+        /// Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());

@@ -41,6 +41,80 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
+    /// vm-host placement policy affinity strength (should/must)
+    /// </summary>
+    [EnumType]
+    public readonly struct AffinityStrength : IEquatable<AffinityStrength>
+    {
+        private readonly string _value;
+
+        private AffinityStrength(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// is should
+        /// </summary>
+        public static AffinityStrength Should { get; } = new AffinityStrength("Should");
+        /// <summary>
+        /// is must
+        /// </summary>
+        public static AffinityStrength Must { get; } = new AffinityStrength("Must");
+
+        public static bool operator ==(AffinityStrength left, AffinityStrength right) => left.Equals(right);
+        public static bool operator !=(AffinityStrength left, AffinityStrength right) => !left.Equals(right);
+
+        public static explicit operator string(AffinityStrength value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AffinityStrength other && Equals(other);
+        public bool Equals(AffinityStrength other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// placement policy affinity type
+    /// </summary>
+    [EnumType]
+    public readonly struct AffinityType : IEquatable<AffinityType>
+    {
+        private readonly string _value;
+
+        private AffinityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// is affinity
+        /// </summary>
+        public static AffinityType Affinity { get; } = new AffinityType("Affinity");
+        /// <summary>
+        /// is anti-affinity
+        /// </summary>
+        public static AffinityType AntiAffinity { get; } = new AffinityType("AntiAffinity");
+
+        public static bool operator ==(AffinityType left, AffinityType right) => left.Equals(right);
+        public static bool operator !=(AffinityType left, AffinityType right) => !left.Equals(right);
+
+        public static explicit operator string(AffinityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AffinityType other && Equals(other);
+        public bool Equals(AffinityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The availability strategy for the private cloud
     /// </summary>
     [EnumType]
@@ -70,6 +144,43 @@ namespace Pulumi.AzureNative.AVS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AvailabilityStrategy other && Equals(other);
         public bool Equals(AvailabilityStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// placement policy azure hybrid benefit opt-in type
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureHybridBenefitType : IEquatable<AzureHybridBenefitType>
+    {
+        private readonly string _value;
+
+        private AzureHybridBenefitType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// is SqlHost
+        /// </summary>
+        public static AzureHybridBenefitType SqlHost { get; } = new AzureHybridBenefitType("SqlHost");
+        /// <summary>
+        /// is None
+        /// </summary>
+        public static AzureHybridBenefitType None { get; } = new AzureHybridBenefitType("None");
+
+        public static bool operator ==(AzureHybridBenefitType left, AzureHybridBenefitType right) => left.Equals(right);
+        public static bool operator !=(AzureHybridBenefitType left, AzureHybridBenefitType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureHybridBenefitType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureHybridBenefitType other && Equals(other);
+        public bool Equals(AzureHybridBenefitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -261,6 +372,36 @@ namespace Pulumi.AzureNative.AVS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InternetEnum other && Equals(other);
         public bool Equals(InternetEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// License kind
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseKind : IEquatable<LicenseKind>
+    {
+        private readonly string _value;
+
+        private LicenseKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseKind VmwareFirewall { get; } = new LicenseKind("VmwareFirewall");
+
+        public static bool operator ==(LicenseKind left, LicenseKind right) => left.Equals(right);
+        public static bool operator !=(LicenseKind left, LicenseKind right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseKind other && Equals(other);
+        public bool Equals(LicenseKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

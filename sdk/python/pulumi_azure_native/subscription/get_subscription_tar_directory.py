@@ -105,6 +105,8 @@ def get_subscription_tar_directory(subscription_id: Optional[_builtins.str] = No
 
     Uses Azure REST API version 2024-08-01-preview.
 
+    Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str subscription_id: Subscription Id.
     """
@@ -125,6 +127,8 @@ def get_subscription_tar_directory_output(subscription_id: Optional[pulumi.Input
     The operation to view Initiator Subscription Changed Request
 
     Uses Azure REST API version 2024-08-01-preview.
+
+    Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str subscription_id: Subscription Id.

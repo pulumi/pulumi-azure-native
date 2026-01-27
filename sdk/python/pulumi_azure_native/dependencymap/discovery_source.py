@@ -14,7 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
+from ._inputs import *
 
 __all__ = ['DiscoverySourceArgs', 'DiscoverySource']
 
@@ -23,27 +23,25 @@ class DiscoverySourceArgs:
     def __init__(__self__, *,
                  map_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 source_id: pulumi.Input[_builtins.str],
-                 source_type: pulumi.Input[Union[_builtins.str, 'SourceType']],
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['OffAzureDiscoverySourceResourcePropertiesArgs']] = None,
                  source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoverySource resource.
         :param pulumi.Input[_builtins.str] map_name: Maps resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] source_id: Source ArmId of Discovery Source resource
-        :param pulumi.Input[Union[_builtins.str, 'SourceType']] source_type: Source type of Discovery Source resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input['OffAzureDiscoverySourceResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] source_name: discovery source resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "map_name", map_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_id", source_id)
-        pulumi.set(__self__, "source_type", source_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
         if tags is not None:
@@ -74,30 +72,6 @@ class DiscoverySourceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sourceId")
-    def source_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Source ArmId of Discovery Source resource
-        """
-        return pulumi.get(self, "source_id")
-
-    @source_id.setter
-    def source_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "source_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> pulumi.Input[Union[_builtins.str, 'SourceType']]:
-        """
-        Source type of Discovery Source resource.
-        """
-        return pulumi.get(self, "source_type")
-
-    @source_type.setter
-    def source_type(self, value: pulumi.Input[Union[_builtins.str, 'SourceType']]):
-        pulumi.set(self, "source_type", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -108,6 +82,18 @@ class DiscoverySourceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['OffAzureDiscoverySourceResourcePropertiesArgs']]:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['OffAzureDiscoverySourceResourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
@@ -142,10 +128,9 @@ class DiscoverySource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  map_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['OffAzureDiscoverySourceResourcePropertiesArgs', 'OffAzureDiscoverySourceResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
                  source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -159,10 +144,9 @@ class DiscoverySource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] map_name: Maps resource name
+        :param pulumi.Input[Union['OffAzureDiscoverySourceResourcePropertiesArgs', 'OffAzureDiscoverySourceResourcePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] source_id: Source ArmId of Discovery Source resource
         :param pulumi.Input[_builtins.str] source_name: discovery source resource
-        :param pulumi.Input[Union[_builtins.str, 'SourceType']] source_type: Source type of Discovery Source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -195,10 +179,9 @@ class DiscoverySource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  map_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['OffAzureDiscoverySourceResourcePropertiesArgs', 'OffAzureDiscoverySourceResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
                  source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -213,20 +196,14 @@ class DiscoverySource(pulumi.CustomResource):
             if map_name is None and not opts.urn:
                 raise TypeError("Missing required property 'map_name'")
             __props__.__dict__["map_name"] = map_name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if source_id is None and not opts.urn:
-                raise TypeError("Missing required property 'source_id'")
-            __props__.__dict__["source_id"] = source_id
             __props__.__dict__["source_name"] = source_name
-            if source_type is None and not opts.urn:
-                raise TypeError("Missing required property 'source_type'")
-            __props__.__dict__["source_type"] = source_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dependencymap/v20250131preview:DiscoverySource"), pulumi.Alias(type_="azure-native:dependencymap/v20250501preview:DiscoverySource"), pulumi.Alias(type_="azure-native:dependencymap/v20250701preview:DiscoverySource")])
@@ -256,9 +233,7 @@ class DiscoverySource(pulumi.CustomResource):
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["source_id"] = None
-        __props__.__dict__["source_type"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -289,28 +264,12 @@ class DiscoverySource(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.OffAzureDiscoverySourceResourcePropertiesResponse']:
         """
-        Provisioning state of Discovery Source resource.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="sourceId")
-    def source_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Source ArmId of Discovery Source resource
-        """
-        return pulumi.get(self, "source_id")
-
-    @_builtins.property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Source type of Discovery Source resource.
-        """
-        return pulumi.get(self, "source_type")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

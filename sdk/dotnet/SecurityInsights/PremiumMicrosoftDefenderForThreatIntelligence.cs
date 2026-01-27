@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
-    /// Represents Premium Microsoft Defender for Threat Intelligence data connector.
+    /// Represents Microsoft Defender for Threat Intelligence Premium data connector.
     /// 
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The tenant id to connect to, and get the data from.
         /// </summary>
         [Output("tenantId")]
-        public Output<string?> TenantId { get; private set; } = null!;
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -471,8 +471,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The tenant id to connect to, and get the data from.
         /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        [Input("tenantId", required: true)]
+        public Input<string> TenantId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// This property specifies the status of the validationProfile of the image version.
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
         /// <summary>
         /// This property specifies the type of image version validation.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private ExecutedValidationResponse(
             string? executionTime,
 
-            string? status,
+            string status,
 
             string? type,
 

@@ -45,17 +45,33 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpAddresses;
         /// <summary>
+        /// An array of public ip addresses V6 associated with the nat gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpAddressesV6;
+        /// <summary>
         /// An array of public ip prefixes associated with the nat gateway resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpPrefixes;
+        /// <summary>
+        /// An array of public ip prefixes V6 associated with the nat gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpPrefixesV6;
         /// <summary>
         /// The resource GUID property of the NAT gateway resource.
         /// </summary>
         public readonly string ResourceGuid;
         /// <summary>
+        /// Reference to an existing service gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? ServiceGateway;
+        /// <summary>
         /// The nat gateway SKU.
         /// </summary>
         public readonly Outputs.NatGatewaySkuResponse? Sku;
+        /// <summary>
+        /// A reference to the source virtual network using this nat gateway resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? SourceVirtualNetwork;
         /// <summary>
         /// An array of references to the subnets using this nat gateway resource.
         /// </summary>
@@ -89,11 +105,19 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.SubResourceResponse> publicIpAddresses,
 
+            ImmutableArray<Outputs.SubResourceResponse> publicIpAddressesV6,
+
             ImmutableArray<Outputs.SubResourceResponse> publicIpPrefixes,
+
+            ImmutableArray<Outputs.SubResourceResponse> publicIpPrefixesV6,
 
             string resourceGuid,
 
+            Outputs.SubResourceResponse? serviceGateway,
+
             Outputs.NatGatewaySkuResponse? sku,
+
+            Outputs.SubResourceResponse? sourceVirtualNetwork,
 
             ImmutableArray<Outputs.SubResourceResponse> subnets,
 
@@ -110,9 +134,13 @@ namespace Pulumi.AzureNative.Network.Outputs
             Name = name;
             ProvisioningState = provisioningState;
             PublicIpAddresses = publicIpAddresses;
+            PublicIpAddressesV6 = publicIpAddressesV6;
             PublicIpPrefixes = publicIpPrefixes;
+            PublicIpPrefixesV6 = publicIpPrefixesV6;
             ResourceGuid = resourceGuid;
+            ServiceGateway = serviceGateway;
             Sku = sku;
+            SourceVirtualNetwork = sourceVirtualNetwork;
             Subnets = subnets;
             Tags = tags;
             Type = type;

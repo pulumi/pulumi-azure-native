@@ -14,7 +14,6 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
         /// 
-        /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
@@ -25,7 +24,6 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
         /// 
-        /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
@@ -35,7 +33,6 @@ namespace Pulumi.AzureNative.Management
 
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
-        /// 
         /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
@@ -54,12 +51,6 @@ namespace Pulumi.AzureNative.Management
         [Input("groupId", required: true)]
         public string GroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Subscription ID.
-        /// </summary>
-        [Input("subscriptionId")]
-        public string? SubscriptionId { get; set; }
-
         public GetManagementGroupSubscriptionArgs()
         {
         }
@@ -73,12 +64,6 @@ namespace Pulumi.AzureNative.Management
         /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription ID.
-        /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
 
         public GetManagementGroupSubscriptionInvokeArgs()
         {
@@ -99,11 +84,11 @@ namespace Pulumi.AzureNative.Management
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -115,11 +100,15 @@ namespace Pulumi.AzureNative.Management
         /// </summary>
         public readonly string? State;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         public readonly string? Tenant;
         /// <summary>
-        /// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -137,6 +126,8 @@ namespace Pulumi.AzureNative.Management
 
             string? state,
 
+            Outputs.SystemDataResponse systemData,
+
             string? tenant,
 
             string type)
@@ -147,6 +138,7 @@ namespace Pulumi.AzureNative.Management
             Name = name;
             Parent = parent;
             State = state;
+            SystemData = systemData;
             Tenant = tenant;
             Type = type;
         }

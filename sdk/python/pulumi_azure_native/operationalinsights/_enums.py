@@ -17,7 +17,9 @@ __all__ = [
     'MachineGroupType',
     'ManagedServiceIdentityType',
     'PublicNetworkAccessType',
+    'RuleTypeEnum',
     'TablePlanEnum',
+    'TimeSelectorEnum',
     'WorkspaceSkuNameEnum',
 ]
 
@@ -176,6 +178,17 @@ class PublicNetworkAccessType(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:operationalinsights:RuleTypeEnum")
+class RuleTypeEnum(_builtins.str, Enum):
+    """
+    SummaryRules rule type: User.
+    """
+    USER = "User"
+    """
+    User defined summary rule. This is the definition for rules created and defined by users.
+    """
+
+
 @pulumi.type_token("azure-native:operationalinsights:TablePlanEnum")
 class TablePlanEnum(_builtins.str, Enum):
     """
@@ -188,6 +201,17 @@ class TablePlanEnum(_builtins.str, Enum):
     ANALYTICS = "Analytics"
     """
     Logs  that allow monitoring and analytics.
+    """
+
+
+@pulumi.type_token("azure-native:operationalinsights:TimeSelectorEnum")
+class TimeSelectorEnum(_builtins.str, Enum):
+    """
+    The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+    """
+    TIME_GENERATED = "TimeGenerated"
+    """
+    TimeGenerated.
     """
 
 

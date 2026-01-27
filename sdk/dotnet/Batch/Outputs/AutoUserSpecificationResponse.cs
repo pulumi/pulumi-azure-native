@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Specifies the parameters for the auto user that runs a task on the Batch service.
+    /// </summary>
     [OutputType]
     public sealed class AutoUserSpecificationResponse
     {

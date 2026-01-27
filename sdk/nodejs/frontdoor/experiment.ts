@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Defines the properties of an Experiment
  *
  * Uses Azure REST API version 2019-11-01.
+ *
+ * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Experiment extends pulumi.CustomResource {
     /**
@@ -135,7 +137,7 @@ export class Experiment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20191101:Experiment" }, { type: "azure-native:network/v20191101:Experiment" }, { type: "azure-native:network:Experiment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20191101:Experiment" }, { type: "azure-native:frontdoor/v20251001:Experiment" }, { type: "azure-native:network/v20191101:Experiment" }, { type: "azure-native:network:Experiment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Experiment.__pulumiType, name, resourceInputs, opts);
     }

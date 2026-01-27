@@ -266,12 +266,12 @@ class DataEncryptionResponse(dict):
         suggest = None
         if key == "geoBackupEncryptionKeyStatus":
             suggest = "geo_backup_encryption_key_status"
+        elif key == "primaryEncryptionKeyStatus":
+            suggest = "primary_encryption_key_status"
         elif key == "geoBackupKeyURI":
             suggest = "geo_backup_key_uri"
         elif key == "geoBackupUserAssignedIdentityId":
             suggest = "geo_backup_user_assigned_identity_id"
-        elif key == "primaryEncryptionKeyStatus":
-            suggest = "primary_encryption_key_status"
         elif key == "primaryKeyURI":
             suggest = "primary_key_uri"
         elif key == "primaryUserAssignedIdentityId":
@@ -289,31 +289,29 @@ class DataEncryptionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 geo_backup_encryption_key_status: Optional[_builtins.str] = None,
+                 geo_backup_encryption_key_status: _builtins.str,
+                 primary_encryption_key_status: _builtins.str,
                  geo_backup_key_uri: Optional[_builtins.str] = None,
                  geo_backup_user_assigned_identity_id: Optional[_builtins.str] = None,
-                 primary_encryption_key_status: Optional[_builtins.str] = None,
                  primary_key_uri: Optional[_builtins.str] = None,
                  primary_user_assigned_identity_id: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
         Data encryption properties of a server.
         :param _builtins.str geo_backup_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+        :param _builtins.str primary_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         :param _builtins.str geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         :param _builtins.str geo_backup_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
-        :param _builtins.str primary_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         :param _builtins.str primary_key_uri: URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
         :param _builtins.str primary_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
         :param _builtins.str type: Data encryption type used by a server.
         """
-        if geo_backup_encryption_key_status is not None:
-            pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
+        pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
+        pulumi.set(__self__, "primary_encryption_key_status", primary_encryption_key_status)
         if geo_backup_key_uri is not None:
             pulumi.set(__self__, "geo_backup_key_uri", geo_backup_key_uri)
         if geo_backup_user_assigned_identity_id is not None:
             pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
-        if primary_encryption_key_status is not None:
-            pulumi.set(__self__, "primary_encryption_key_status", primary_encryption_key_status)
         if primary_key_uri is not None:
             pulumi.set(__self__, "primary_key_uri", primary_key_uri)
         if primary_user_assigned_identity_id is not None:
@@ -323,11 +321,19 @@ class DataEncryptionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="geoBackupEncryptionKeyStatus")
-    def geo_backup_encryption_key_status(self) -> Optional[_builtins.str]:
+    def geo_backup_encryption_key_status(self) -> _builtins.str:
         """
         Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_encryption_key_status")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryEncryptionKeyStatus")
+    def primary_encryption_key_status(self) -> _builtins.str:
+        """
+        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+        """
+        return pulumi.get(self, "primary_encryption_key_status")
 
     @_builtins.property
     @pulumi.getter(name="geoBackupKeyURI")
@@ -344,14 +350,6 @@ class DataEncryptionResponse(dict):
         Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
-
-    @_builtins.property
-    @pulumi.getter(name="primaryEncryptionKeyStatus")
-    def primary_encryption_key_status(self) -> Optional[_builtins.str]:
-        """
-        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
-        """
-        return pulumi.get(self, "primary_encryption_key_status")
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyURI")

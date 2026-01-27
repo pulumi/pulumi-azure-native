@@ -8,11 +8,22 @@ from enum import Enum
 
 __all__ = [
     'ApplyDiscountOn',
+    'CommitmentGrain',
+    'ConditionalCreditEntityType',
+    'ConditionalCreditStatus',
+    'CreditExpirationPolicy',
+    'CreditRedemptionPolicy',
+    'CreditStatus',
     'DiscountAppliedScopeType',
     'DiscountCombinationRule',
     'DiscountEntityType',
     'DiscountRuleType',
     'DiscountType',
+    'EnablementMode',
+    'FreeServicesStatus',
+    'MaccEntityType',
+    'MaccMilestoneStatus',
+    'MaccStatus',
     'ManagedServiceIdentityType',
     'PricingPolicy',
     'SkuTier',
@@ -27,6 +38,118 @@ class ApplyDiscountOn(_builtins.str, Enum):
     PURCHASE = "Purchase"
     CONSUME = "Consume"
     RENEW = "Renew"
+
+
+@pulumi.type_token("azure-native:billingbenefits:CommitmentGrain")
+class CommitmentGrain(_builtins.str, Enum):
+    """
+    The grain of the commitment.
+    """
+    UNKNOWN = "Unknown"
+    HOURLY = "Hourly"
+    FULL_TERM = "FullTerm"
+
+
+@pulumi.type_token("azure-native:billingbenefits:ConditionalCreditEntityType")
+class ConditionalCreditEntityType(_builtins.str, Enum):
+    """
+    Type of conditional credit entity
+    """
+    PRIMARY = "Primary"
+    CONTRIBUTOR = "Contributor"
+
+
+@pulumi.type_token("azure-native:billingbenefits:ConditionalCreditStatus")
+class ConditionalCreditStatus(_builtins.str, Enum):
+    """
+    The status of the conditional credit
+    """
+    UNKNOWN = "Unknown"
+    SCHEDULED = "Scheduled"
+    ACTIVE = "Active"
+    PENDING = "Pending"
+    FAILED = "Failed"
+    CANCELED = "Canceled"
+    COMPLETED = "Completed"
+    STOPPED = "Stopped"
+    PENDING_SETTLEMENT = "PendingSettlement"
+
+
+@pulumi.type_token("azure-native:billingbenefits:CreditExpirationPolicy")
+class CreditExpirationPolicy(_builtins.str, Enum):
+    """
+    Expiration policy of the Credit
+    """
+    NONE = "None"
+    """
+    No policy applied to the expiration of this credit
+    """
+    SUSPEND_BILLING_PROFILE = "SuspendBillingProfile"
+    """
+    Billing profile is suspended when the credit expires
+    """
+
+
+@pulumi.type_token("azure-native:billingbenefits:CreditRedemptionPolicy")
+class CreditRedemptionPolicy(_builtins.str, Enum):
+    """
+    Redemption policy of the Credit
+    """
+    NOT_APPLICABLE = "NotApplicable"
+    """
+    Redemption policy is not applicable for this credit
+    """
+    AUTO_REDEEM = "AutoRedeem"
+    """
+    Credit is automatically redeemed
+    """
+    MANUAL_REDEEM = "ManualRedeem"
+    """
+    Credit is manually redeemed
+    """
+
+
+@pulumi.type_token("azure-native:billingbenefits:CreditStatus")
+class CreditStatus(_builtins.str, Enum):
+    """
+    Status of the credit
+    """
+    UNKNOWN = "Unknown"
+    """
+    Credit status is unknown
+    """
+    PENDING = "Pending"
+    """
+    Credit is pending activation
+    """
+    ACTIVE = "Active"
+    """
+    Credit is active and available for use
+    """
+    SUCCEEDED = "Succeeded"
+    """
+    Credit operation succeeded
+    """
+    CANCELED = "Canceled"
+    """
+    Credit has been cancelled
+    """
+    FAILED = "Failed"
+    """
+    Credit operation failed
+    """
+    EXPIRED = "Expired"
+    """
+    Credit has expired
+    """
+    EXHAUSTED = "Exhausted"
+    """
+    Credit has been fully consumed
+    """
+    NOT_STARTED = "NotStarted"
+    """
+    Credit application has not started yet
+    """
 
 
 @pulumi.type_token("azure-native:billingbenefits:DiscountAppliedScopeType")
@@ -77,6 +200,88 @@ class DiscountType(_builtins.str, Enum):
     SKU = "Sku"
     CUSTOM_PRICE = "CustomPrice"
     CUSTOM_PRICE_MULTI_CURRENCY = "CustomPriceMultiCurrency"
+
+
+@pulumi.type_token("azure-native:billingbenefits:EnablementMode")
+class EnablementMode(_builtins.str, Enum):
+    """
+    Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+    """
+    UNKNOWN = "Unknown"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+@pulumi.type_token("azure-native:billingbenefits:FreeServicesStatus")
+class FreeServicesStatus(_builtins.str, Enum):
+    """
+    Current status of the free services
+    """
+    UNKNOWN = "Unknown"
+    """
+    Free services status is unknown
+    """
+    PENDING = "Pending"
+    """
+    Free services are pending activation
+    """
+    ACTIVE = "Active"
+    """
+    Free services are active
+    """
+    CANCELED = "Canceled"
+    """
+    Free services have been canceled
+    """
+    COMPLETED = "Completed"
+    """
+    Free services have been fully consumed or completed
+    """
+
+
+@pulumi.type_token("azure-native:billingbenefits:MaccEntityType")
+class MaccEntityType(_builtins.str, Enum):
+    """
+    Represents type of the object being operated on. Possible values are primary or contributor.
+    """
+    PRIMARY = "Primary"
+    CONTRIBUTOR = "Contributor"
+
+
+@pulumi.type_token("azure-native:billingbenefits:MaccMilestoneStatus")
+class MaccMilestoneStatus(_builtins.str, Enum):
+    """
+    Represents the current status of the Milestone.
+    """
+    UNKNOWN = "Unknown"
+    SCHEDULED = "Scheduled"
+    ACTIVE = "Active"
+    PENDING = "Pending"
+    FAILED = "Failed"
+    COMPLETED = "Completed"
+    CANCELED = "Canceled"
+    REMOVED = "Removed"
+    PENDING_SETTLEMENT = "PendingSettlement"
+    SHORTFALL_CHARGED = "ShortfallCharged"
+    SHORTFALL_WAIVED = "ShortfallWaived"
+
+
+@pulumi.type_token("azure-native:billingbenefits:MaccStatus")
+class MaccStatus(_builtins.str, Enum):
+    """
+    Represents the current status of the MACC.
+    """
+    UNKNOWN = "Unknown"
+    SCHEDULED = "Scheduled"
+    ACTIVE = "Active"
+    PENDING = "Pending"
+    FAILED = "Failed"
+    CANCELED = "Canceled"
+    COMPLETED = "Completed"
+    STOPPED = "Stopped"
+    PENDING_SETTLEMENT = "PendingSettlement"
+    SHORTFALL_CHARGED = "ShortfallCharged"
+    SHORTFALL_WAIVED = "ShortfallWaived"
 
 
 @pulumi.type_token("azure-native:billingbenefits:ManagedServiceIdentityType")

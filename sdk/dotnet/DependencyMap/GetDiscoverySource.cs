@@ -116,17 +116,9 @@ namespace Pulumi.AzureNative.DependencyMap
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of Discovery Source resource.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Source ArmId of Discovery Source resource
-        /// </summary>
-        public readonly string SourceId;
-        /// <summary>
-        /// Source type of Discovery Source resource.
-        /// </summary>
-        public readonly string SourceType;
+        public readonly Outputs.OffAzureDiscoverySourceResourcePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -150,11 +142,7 @@ namespace Pulumi.AzureNative.DependencyMap
 
             string name,
 
-            string provisioningState,
-
-            string sourceId,
-
-            string sourceType,
+            Outputs.OffAzureDiscoverySourceResourcePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -166,9 +154,7 @@ namespace Pulumi.AzureNative.DependencyMap
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            SourceId = sourceId;
-            SourceType = sourceType;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

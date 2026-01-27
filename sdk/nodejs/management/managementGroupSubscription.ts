@@ -50,7 +50,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly displayName: pulumi.Output<string | undefined>;
     /**
-     * The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -62,11 +62,15 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly state: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.management.SystemDataResponse>;
+    /**
      * The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
      */
     declare public /*out*/ readonly tenant: pulumi.Output<string | undefined>;
     /**
-     * The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -85,12 +89,12 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'groupId'");
             }
             resourceInputs["groupId"] = args?.groupId;
-            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parent"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenant"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -99,6 +103,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parent"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenant"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -117,8 +122,4 @@ export interface ManagementGroupSubscriptionArgs {
      * Management Group ID.
      */
     groupId: pulumi.Input<string>;
-    /**
-     * Subscription ID.
-     */
-    subscriptionId?: pulumi.Input<string>;
 }

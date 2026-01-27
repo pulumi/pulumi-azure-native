@@ -36,6 +36,8 @@ from .get_machine_assessments_v2_operation import *
 from .get_migrate_agent import *
 from .get_migrate_project import *
 from .get_migrate_projects_controller_migrate_project import *
+from .get_migration_entity import *
+from .get_migration_entity_group import *
 from .get_modernize_project import *
 from .get_move_collection import *
 from .get_move_resource import *
@@ -50,8 +52,10 @@ from .get_solution_config import *
 from .get_sql_assessment_v2_operation import *
 from .get_sql_assessment_v3_operation import *
 from .get_sql_collector_operation import *
+from .get_task import *
 from .get_v_mware_collector import *
 from .get_vmware_collectors_operation import *
+from .get_wave import *
 from .get_web_app_assessment_v2_operation import *
 from .get_web_app_assessment_v3_operation import *
 from .get_web_app_collector_operation import *
@@ -70,6 +74,8 @@ from .machine_assessments_v2_operation import *
 from .migrate_agent import *
 from .migrate_project import *
 from .migrate_projects_controller_migrate_project import *
+from .migration_entity import *
+from .migration_entity_group import *
 from .modernize_project import *
 from .move_collection import *
 from .move_resource import *
@@ -83,8 +89,10 @@ from .solution import *
 from .sql_assessment_v2_operation import *
 from .sql_assessment_v3_operation import *
 from .sql_collector_operation import *
+from .task import *
 from .v_mware_collector import *
 from .vmware_collectors_operation import *
+from .wave import *
 from .web_app_assessment_v2_operation import *
 from .web_app_assessment_v3_operation import *
 from .web_app_collector_operation import *

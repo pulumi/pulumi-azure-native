@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the client application specified by its identifier.
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClientApplicationResult> InvokeAsync(GetClientApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientApplicationResult>("azure-native:apimanagement:getClientApplication", args ?? new GetClientApplicationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the client application specified by its identifier.
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClientApplicationResult> Invoke(GetClientApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientApplicationResult>("azure-native:apimanagement:getClientApplication", args ?? new GetClientApplicationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the client application specified by its identifier.
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClientApplicationResult> Invoke(GetClientApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientApplicationResult>("azure-native:apimanagement:getClientApplication", args ?? new GetClientApplicationInvokeArgs(), options.WithDefaults());

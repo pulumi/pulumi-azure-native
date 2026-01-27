@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// </summary>
         public readonly int? Ipv6NetmaskLength;
         /// <summary>
-        /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://aws.amazon.com/vpc/pricing/).
         /// </summary>
         public readonly bool? MapPublicIpOnLaunch;
         /// <summary>

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ComputeSchedule
     /// The scheduled action resource
     /// 
     /// Uses Azure REST API version 2025-04-15-preview.
+    /// 
+    /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:computeschedule:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.ComputeSchedule
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:computeschedule/v20250415preview:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native:computeschedule/v20260101preview:ScheduledAction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

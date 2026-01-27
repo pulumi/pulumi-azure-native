@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object> ClusterResourceGroup { get; set; } = null!;
 
         /// <summary>
+        /// HDInsight On-demand cluster resource group authentication type.
+        /// </summary>
+        [Input("clusterResourceGroupAuthType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.HDInsightOndemandClusterResourceGroupAuthenticationType>? ClusterResourceGroupAuthType { get; set; }
+
+        /// <summary>
         /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
         /// </summary>
         [Input("clusterSize", required: true)]

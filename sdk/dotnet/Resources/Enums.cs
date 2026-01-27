@@ -149,6 +149,43 @@ namespace Pulumi.AzureNative.Resources
     }
 
     /// <summary>
+    /// Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentStacksResourcesWithoutDeleteSupportEnum : IEquatable<DeploymentStacksResourcesWithoutDeleteSupportEnum>
+    {
+        private readonly string _value;
+
+        private DeploymentStacksResourcesWithoutDeleteSupportEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Detach the specified resources from the deployment stack and continue
+        /// </summary>
+        public static DeploymentStacksResourcesWithoutDeleteSupportEnum Detach { get; } = new DeploymentStacksResourcesWithoutDeleteSupportEnum("detach");
+        /// <summary>
+        /// Fail the deployment stack if resources cannot be deleted
+        /// </summary>
+        public static DeploymentStacksResourcesWithoutDeleteSupportEnum Fail { get; } = new DeploymentStacksResourcesWithoutDeleteSupportEnum("fail");
+
+        public static bool operator ==(DeploymentStacksResourcesWithoutDeleteSupportEnum left, DeploymentStacksResourcesWithoutDeleteSupportEnum right) => left.Equals(right);
+        public static bool operator !=(DeploymentStacksResourcesWithoutDeleteSupportEnum left, DeploymentStacksResourcesWithoutDeleteSupportEnum right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentStacksResourcesWithoutDeleteSupportEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentStacksResourcesWithoutDeleteSupportEnum other && Equals(other);
+        public bool Equals(DeploymentStacksResourcesWithoutDeleteSupportEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The scope to be used for evaluation of parameters, variables and functions in a nested template.
     /// </summary>
     [EnumType]
@@ -328,6 +365,47 @@ namespace Pulumi.AzureNative.Resources
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScriptType other && Equals(other);
         public bool Equals(ScriptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The validation level of the deployment stack
+    /// </summary>
+    [EnumType]
+    public readonly struct ValidationLevel : IEquatable<ValidationLevel>
+    {
+        private readonly string _value;
+
+        private ValidationLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Static analysis of the template is performed.
+        /// </summary>
+        public static ValidationLevel Template { get; } = new ValidationLevel("Template");
+        /// <summary>
+        /// Static analysis of the template is performed and resource declarations are sent to resource providers for semantic validation. Validates that the caller has RBAC write permissions on each resource.
+        /// </summary>
+        public static ValidationLevel Provider { get; } = new ValidationLevel("Provider");
+        /// <summary>
+        /// Static analysis of the template is performed and resource declarations are sent to resource providers for semantic validation. Skips validating that the caller has RBAC write permissions on each resource.
+        /// </summary>
+        public static ValidationLevel ProviderNoRbac { get; } = new ValidationLevel("ProviderNoRbac");
+
+        public static bool operator ==(ValidationLevel left, ValidationLevel right) => left.Equals(right);
+        public static bool operator !=(ValidationLevel left, ValidationLevel right) => !left.Equals(right);
+
+        public static explicit operator string(ValidationLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ValidationLevel other && Equals(other);
+        public bool Equals(ValidationLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -2809,6 +2809,51 @@ export namespace apimanagement {
         hostname: string;
     }
 
+    export interface GatewayHostnameBindingCertificateResponse {
+        /**
+         * The expiration date of the certificate.
+         */
+        expiry: string;
+        /**
+         * The subject of the certificate.
+         */
+        subject: string;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint: string;
+    }
+
+    export interface GatewayHostnameBindingKeyVaultLastStatusResponse {
+        /**
+         * The last status of the Key Vault certificate fetch process.
+         */
+        code: string;
+        /**
+         * The last time the Key Vault certificate fetch process was successful. Only when the fetch process has succeeded at least once and current state is failed.  The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+         */
+        lastSuccessTimeStampUtc: string;
+        /**
+         * The last time the Key Vault certificate fetch process was attempted. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+         */
+        timeStampUtc: string;
+    }
+
+    export interface GatewayHostnameBindingKeyVaultResponse {
+        /**
+         * The default hostname of the data-plane gateway.
+         */
+        identityClientId?: string;
+        /**
+         * The last status of the Key Vault certificate fetch process.
+         */
+        lastStatus?: outputs.apimanagement.GatewayHostnameBindingKeyVaultLastStatusResponse;
+        /**
+         * The current provisioning state of the API Management gateway hostname binding.
+         */
+        secretId: string;
+    }
+
     /**
      * Group contract Properties.
      */
@@ -11222,6 +11267,10 @@ export namespace attestation {
          */
         provisioningState: string;
         /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.attestation.SystemDataResponse;
+        /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
@@ -13281,6 +13330,82 @@ export namespace automation {
 
 export namespace avs {
     /**
+     * The properties of an Arc addon
+     */
+    export interface AddonArcPropertiesResponse {
+        /**
+         * Addon type
+         * Expected value is 'Arc'.
+         */
+        addonType: "Arc";
+        /**
+         * The state of the addon provisioning
+         */
+        provisioningState: string;
+        /**
+         * The VMware vCenter resource ID
+         */
+        vCenter?: string;
+    }
+
+    /**
+     * The properties of an HCX addon
+     */
+    export interface AddonHcxPropertiesResponse {
+        /**
+         * Addon type
+         * Expected value is 'HCX'.
+         */
+        addonType: "HCX";
+        /**
+         * The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+         */
+        offer: string;
+        /**
+         * The state of the addon provisioning
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The properties of a Site Recovery Manager (SRM) addon
+     */
+    export interface AddonSrmPropertiesResponse {
+        /**
+         * Addon type
+         * Expected value is 'SRM'.
+         */
+        addonType: "SRM";
+        /**
+         * The Site Recovery Manager (SRM) license
+         */
+        licenseKey?: string;
+        /**
+         * The state of the addon provisioning
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The properties of a vSphere Replication (VR) addon
+     */
+    export interface AddonVrPropertiesResponse {
+        /**
+         * Addon type
+         * Expected value is 'VR'.
+         */
+        addonType: "VR";
+        /**
+         * The state of the addon provisioning
+         */
+        provisioningState: string;
+        /**
+         * The vSphere Replication Server (VRS) count
+         */
+        vrsCount: number;
+    }
+
+    /**
      * The properties describing private cloud availability zone distribution
      */
     export interface AvailabilityPropertiesResponse {
@@ -13499,6 +13624,20 @@ export namespace avs {
     }
 
     /**
+     * A key-value pair representing a label.
+     */
+    export interface LabelResponse {
+        /**
+         * The key of the label.
+         */
+        key: string;
+        /**
+         * The value of the label.
+         */
+        value: string;
+    }
+
+    /**
      * The properties of a management cluster
      */
     export interface ManagementClusterResponse {
@@ -13667,6 +13806,185 @@ export namespace avs {
          * The type of identity that last modified the resource.
          */
         lastModifiedByType?: string;
+    }
+
+    /**
+     * VM-Host placement policy properties
+     */
+    export interface VmHostPlacementPolicyPropertiesResponse {
+        /**
+         * vm-host placement policy affinity strength (should/must)
+         */
+        affinityStrength?: string;
+        /**
+         * placement policy affinity type
+         */
+        affinityType: string;
+        /**
+         * placement policy azure hybrid benefit opt-in type
+         */
+        azureHybridBenefitType?: string;
+        /**
+         * Display name of the placement policy
+         */
+        displayName?: string;
+        /**
+         * Host members list
+         */
+        hostMembers: string[];
+        /**
+         * The provisioning state
+         */
+        provisioningState: string;
+        /**
+         * Whether the placement policy is enabled or disabled
+         */
+        state?: string;
+        /**
+         * Placement Policy type
+         * Expected value is 'VmHost'.
+         */
+        type: "VmHost";
+        /**
+         * Virtual machine members list
+         */
+        vmMembers: string[];
+    }
+
+    /**
+     * VM-VM placement policy properties
+     */
+    export interface VmVmPlacementPolicyPropertiesResponse {
+        /**
+         * placement policy affinity type
+         */
+        affinityType: string;
+        /**
+         * Display name of the placement policy
+         */
+        displayName?: string;
+        /**
+         * The provisioning state
+         */
+        provisioningState: string;
+        /**
+         * Whether the placement policy is enabled or disabled
+         */
+        state?: string;
+        /**
+         * Placement Policy type
+         * Expected value is 'VmVm'.
+         */
+        type: "VmVm";
+        /**
+         * Virtual machine members list
+         */
+        vmMembers: string[];
+    }
+
+    /**
+     * The properties of a VMware Firewall license
+     */
+    export interface VmwareFirewallLicensePropertiesResponse {
+        /**
+         * The Broadcom contract number associated with the license.
+         */
+        broadcomContractNumber?: string;
+        /**
+         * The Broadcom site ID associated with the license.
+         */
+        broadcomSiteId?: string;
+        /**
+         * Number of cores included in the license, measured per hour
+         */
+        cores: number;
+        /**
+         * UTC datetime when the license expires
+         */
+        endDate: string;
+        /**
+         * The kind of license.
+         * Expected value is 'VmwareFirewall'.
+         */
+        kind: "VmwareFirewall";
+        /**
+         * Additional labels passed through for license reporting.
+         */
+        labels?: outputs.avs.LabelResponse[];
+        /**
+         * License key
+         */
+        licenseKey?: string;
+        /**
+         * The state of the license provisioning
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * NSX DHCP Relay
+     */
+    export interface WorkloadNetworkDhcpRelayResponse {
+        /**
+         * Type of DHCP: SERVER or RELAY.
+         * Expected value is 'RELAY'.
+         */
+        dhcpType: "RELAY";
+        /**
+         * Display name of the DHCP entity.
+         */
+        displayName?: string;
+        /**
+         * The provisioning state
+         */
+        provisioningState: string;
+        /**
+         * NSX revision number.
+         */
+        revision?: number;
+        /**
+         * NSX Segments consuming DHCP.
+         */
+        segments: string[];
+        /**
+         * DHCP Relay Addresses. Max 3.
+         */
+        serverAddresses?: string[];
+    }
+
+    /**
+     * NSX DHCP Server
+     */
+    export interface WorkloadNetworkDhcpServerResponse {
+        /**
+         * Type of DHCP: SERVER or RELAY.
+         * Expected value is 'SERVER'.
+         */
+        dhcpType: "SERVER";
+        /**
+         * Display name of the DHCP entity.
+         */
+        displayName?: string;
+        /**
+         * DHCP Server Lease Time.
+         */
+        leaseTime?: number;
+        /**
+         * The provisioning state
+         */
+        provisioningState: string;
+        /**
+         * NSX revision number.
+         */
+        revision?: number;
+        /**
+         * NSX Segments consuming DHCP.
+         */
+        segments: string[];
+        /**
+         * DHCP Server Address.
+         */
+        serverAddress?: string;
     }
 
     /**
@@ -14789,7 +15107,7 @@ export namespace awsconnector {
          */
         body?: any;
         /**
-         * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format. ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML. On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+         * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format. ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML. On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
          */
         bodyS3Location?: outputs.awsconnector.S3LocationResponse;
         /**
@@ -16996,7 +17314,7 @@ export namespace awsconnector {
          */
         ipv6NetmaskLength?: number;
         /**
-         * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+         * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://aws.amazon.com/vpc/pricing/).
          */
         mapPublicIpOnLaunch?: boolean;
         /**
@@ -17503,7 +17821,7 @@ export namespace awsconnector {
          */
         inferenceAccelerators?: outputs.awsconnector.InferenceAcceleratorResponse[];
         /**
-         * The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*. If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/). If you are setting namespaced kernel parameters using ``systemControls`` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that use the ``host`` IPC mode, IPC namespace related ``systemControls`` are not supported.  +  For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task.    This parameter is not supported for Windows containers or tasks run on FARGATElong.
+         * The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*. If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see [Docker security](https://docs.docker.com/engine/security/security/). If you are setting namespaced kernel parameters using ``systemControls`` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that use the ``host`` IPC mode, IPC namespace related ``systemControls`` are not supported.  +  For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task.    This parameter is not supported for Windows containers or tasks run on FARGATElong.
          */
         ipcMode?: string;
         /**
@@ -17511,11 +17829,11 @@ export namespace awsconnector {
          */
         memory?: string;
         /**
-         * The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``. For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode. With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings.   When using the ``host`` network mode, you should not run containers using the root user (UID 0). It is considered best practice to use a non-root user.  If the network mode is ``awsvpc``, the task is allocated an elastic network interface, and you must specify a NetworkConfiguration value when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*. If the network mode is ``host``, you cannot run multiple instantiations of the same task on a single container instance when port mappings are used. For more information, see [Network settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference*.
+         * The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``. For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode. With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings.   When using the ``host`` network mode, you should not run containers using the root user (UID 0). It is considered best practice to use a non-root user.  If the network mode is ``awsvpc``, the task is allocated an elastic network interface, and you must specify a NetworkConfiguration value when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*. If the network mode is ``host``, you cannot run multiple instantiations of the same task on a single container instance when port mappings are used. For more information, see [Network settings](https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference*.
          */
         networkMode?: string;
         /**
-         * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task. If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*. If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/).  This parameter is not supported for Windows containers.   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
+         * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task. If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*. If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://docs.docker.com/engine/security/security/).  This parameter is not supported for Windows containers.   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
          */
         pidMode?: string;
         /**
@@ -18391,7 +18709,7 @@ export namespace awsconnector {
          */
         managedPolicyArns?: string[];
         /**
-         * The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+         * The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
          */
         path?: string;
         /**
@@ -18409,11 +18727,11 @@ export namespace awsconnector {
          */
         arn?: string;
         /**
-         * The name of the instance profile to create. This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+         * The name of the instance profile to create. This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
          */
         instanceProfileName?: string;
         /**
-         * The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+         * The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
          */
         path?: string;
         /**
@@ -18533,7 +18851,7 @@ export namespace awsconnector {
          */
         maxSessionDuration?: number;
         /**
-         * The path to the role. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+         * The path to the role. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
          */
         path?: string;
         /**
@@ -18549,7 +18867,7 @@ export namespace awsconnector {
          */
         roleId?: string;
         /**
-         * A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *User Guide*. This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both 'Role1' and 'role1'. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name. If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/Use
+         * A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *User Guide*. This parameter allows (per its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both 'Role1' and 'role1'. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name. If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Finding and Acknowledging Application Capabilities (Console)](https://docs.aws.amazon.com/serverlessrepo/latest/devguide/acknowledging-application-capabilities.html#acknowledging-application-capabilities-console).
          */
         roleName?: string;
         /**
@@ -18674,7 +18992,7 @@ export namespace awsconnector {
          */
         keyPolicy?: any;
         /**
-         * Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*. The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.    [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.   KMS supports the following key specs for KMS keys:  +  Symmetric encryption key (default)  +   ``SYMMETRIC_DEFAULT`` (AES-256-GCM)    +  HMAC keys (symmetric)  +   ``HMAC_224``   +   ``HMAC_256``   +   ``HMAC_384``   +   ``HMAC_512``     +  Asymmetric RSA key pairs  +   ``RSA_2048``   +   ``RSA_3072``   +   ``RSA_4096``     +  Asymmetric NIST-recommended elliptic curve key pairs  +   ``ECC_NIST_P256`` (secp256r1)  +   ``ECC_NIST_P384`` (secp384r1)  +   ``ECC_NIST_P521`` (secp521r1)    +  Other asymmetric elliptic curve key pairs  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.    +  SM2 key pairs (China Regions only)  +   ``SM2``
+         * Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*. The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.    [Services that are integrated with](https://aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.   KMS supports the following key specs for KMS keys:  +  Symmetric encryption key (default)  +   ``SYMMETRIC_DEFAULT`` (AES-256-GCM)    +  HMAC keys (symmetric)  +   ``HMAC_224``   +   ``HMAC_256``   +   ``HMAC_384``   +   ``HMAC_512``     +  Asymmetric RSA key pairs  +   ``RSA_2048``   +   ``RSA_3072``   +   ``RSA_4096``     +  Asymmetric NIST-recommended elliptic curve key pairs  +   ``ECC_NIST_P256`` (secp256r1)  +   ``ECC_NIST_P384`` (secp384r1)  +   ``ECC_NIST_P521`` (secp521r1)    +  Other asymmetric elliptic curve key pairs  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.    +  SM2 key pairs (China Regions only)  +   ``SM2``
          */
         keySpec?: string;
         /**
@@ -21211,7 +21529,7 @@ export namespace awsconnector {
          */
         kmsDataKeyReusePeriodSeconds?: number;
         /**
-         * The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (e.g. ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:  +   [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide*   +   [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *API Reference*   +   [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *Key Management Service API Reference*   +   The Key Management Service (KMS) section of the [Best Practices](https://docs.aws.amazon.com/https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
+         * The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (e.g. ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:  +   [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide*   +   [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *API Reference*   +   [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *Key Management Service API Reference*   +   The Key Management Service (KMS) section of the [Best Practices](https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
          */
         kmsMasterKeyId?: string;
         /**
@@ -22908,11 +23226,11 @@ export namespace awsconnector {
      */
     export interface ContainerDefinitionResponse {
         /**
-         * The command that's passed to the container. This parameter maps to ``Cmd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``COMMAND`` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd). If there are multiple arguments, each argument is a separated string in the array.
+         * The command that's passed to the container. This parameter maps to ``Cmd`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``COMMAND`` parameter to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.docker.com/engine/reference/builder/#cmd). If there are multiple arguments, each argument is a separated string in the array.
          */
         command?: string[];
         /**
-         * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cpu-shares`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.  You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.  Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units. On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:  +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.  +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.   On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
+         * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cpu-shares`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.  You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://aws.amazon.com/ec2/instance-types/) detail page by 1,024.  Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units. On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:  +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.  +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.   On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
          */
         cpu?: number;
         /**
@@ -22920,39 +23238,39 @@ export namespace awsconnector {
          */
         credentialSpecs?: string[];
         /**
-         * The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed. For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*. For tasks using the Fargate launch type, the task or service requires the following platforms:  +  Linux platform version ``1.3.0`` or later.  +  Windows platform version ``1.0.0`` or later.   If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
+         * The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed. For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*. For tasks using the Fargate launch type, the task or service requires the following platforms:  +  Linux platform version ``1.3.0`` or later.  +  Windows platform version ``1.0.0`` or later.   If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
          */
         dependsOn?: outputs.awsconnector.ContainerDependencyResponse[];
         /**
-         * When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).  This parameter is not supported for Windows containers.
+         * When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/).  This parameter is not supported for Windows containers.
          */
         disableNetworking?: boolean;
         /**
-         * A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--dns-search`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
+         * A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--dns-search`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
          */
         dnsSearchDomains?: string[];
         /**
-         * A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--dns`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
+         * A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--dns`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
          */
         dnsServers?: string[];
         /**
-         * A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--label`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+         * A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--label`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
          */
         dockerLabels?: any;
         /**
-         * A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type. For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems. For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*. This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--security-opt`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  Valid values: 'no-new-privileges' | 'apparmor:PROFILE' | 'label:value' | 'credentialspec:CredentialSpecFilePath'
+         * A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type. For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems. For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*. This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--security-opt`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  For more information about valid values, see [Docker Run Security Configuration](https://docs.docker.com/engine/reference/run/#security-configuration).  Valid values: 'no-new-privileges' | 'apparmor:PROFILE' | 'label:value' | 'credentialspec:CredentialSpecFilePath'
          */
         dockerSecurityOptions?: string[];
         /**
-         * Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.  The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--entrypoint`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint).
+         * Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.  The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--entrypoint`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint).
          */
         entryPoint?: string[];
         /**
-         * The environment variables to pass to a container. This parameter maps to ``Env`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--env`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
+         * The environment variables to pass to a container. This parameter maps to ``Env`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--env`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
          */
         environment?: outputs.awsconnector.KeyValuePairResponse[];
         /**
-         * A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/). If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
+         * A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.docker.com/compose/env-file/). If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
          */
         environmentFiles?: outputs.awsconnector.EnvironmentFileResponse[];
         /**
@@ -22960,7 +23278,7 @@ export namespace awsconnector {
          */
         essential?: boolean;
         /**
-         * A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--add-host`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
+         * A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--add-host`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
          */
         extraHosts?: outputs.awsconnector.HostEntryResponse[];
         /**
@@ -22968,23 +23286,23 @@ export namespace awsconnector {
          */
         firelensConfiguration?: outputs.awsconnector.FirelensConfigurationResponse;
         /**
-         * The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).  The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.  If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it. The following are notes about container health check support:  +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).  +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).  +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
+         * The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``HEALTHCHECK`` parameter of [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of [docker run](https://docs.docker.com/engine/reference/run/).  The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.  If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it. The following are notes about container health check support:  +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).  +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).  +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
          */
         healthCheck?: outputs.awsconnector.HealthCheckResponse;
         /**
-         * The hostname to use for your container. This parameter maps to ``Hostname`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--hostname`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
+         * The hostname to use for your container. This parameter maps to ``Hostname`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--hostname`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
          */
         hostname?: string;
         /**
-         * The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``IMAGE`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.  +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).  +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).  +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
+         * The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``IMAGE`` parameter of [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.  +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).  +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).  +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
          */
         image?: string;
         /**
-         * When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--interactive`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--interactive`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         interactive?: boolean;
         /**
-         * The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--link`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.   Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
+         * The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--link`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.   Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
          */
         links?: string[];
         /**
@@ -22992,39 +23310,39 @@ export namespace awsconnector {
          */
         linuxParameters?: outputs.awsconnector.LinuxParametersResponse;
         /**
-         * The log configuration specification for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*. The ``LogConfiguration`` property specifies log configuration options to send to a custom log driver for the container.
+         * The log configuration specification for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*. The ``LogConfiguration`` property specifies log configuration options to send to a custom log driver for the container.
          */
         logConfiguration?: outputs.awsconnector.LogConfigurationResponse;
         /**
-         * The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). If using the Fargate launch type, this parameter is optional. If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers. The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
+         * The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--memory`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). If using the Fargate launch type, this parameter is optional. If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers. The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
          */
         memory?: number;
         /**
-         * The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory-reservation`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
+         * The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--memory-reservation`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
          */
         memoryReservation?: number;
         /**
-         * The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volume`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
+         * The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--volume`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
          */
         mountPoints?: outputs.awsconnector.MountPointResponse[];
         /**
-         * The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--name`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--name`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         name?: string;
         /**
-         * The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``. Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself.  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.  After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
+         * The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``. Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself.  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--publish`` option to [docker run](https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.  After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
          */
         portMappings?: outputs.awsconnector.PortMappingResponse[];
         /**
-         * When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--privileged`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers or tasks run on FARGATElong.
+         * When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--privileged`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers or tasks run on FARGATElong.
          */
         privileged?: boolean;
         /**
-         * When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--tty`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--tty`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         pseudoTerminal?: boolean;
         /**
-         * When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--read-only`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
+         * When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--read-only`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
          */
         readonlyRootFilesystem?: boolean;
         /**
@@ -23048,23 +23366,23 @@ export namespace awsconnector {
          */
         stopTimeout?: number;
         /**
-         * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--sysctl`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+         * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--sysctl`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
          */
         systemControls?: outputs.awsconnector.SystemControlResponse[];
         /**
-         * A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--ulimit`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). Valid naming values are displayed in the [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   This parameter is not supported for Windows containers.
+         * A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--ulimit`` option to [docker run](https://docs.docker.com/engine/reference/run/). Valid naming values are displayed in the [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   This parameter is not supported for Windows containers.
          */
         ulimits?: outputs.awsconnector.UlimitResponse[];
         /**
-         * The user to use inside the container. This parameter maps to ``User`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--user`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.  You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.  +   ``user``   +   ``user:group``   +   ``uid``   +   ``uid:gid``   +   ``user:gid``   +   ``uid:group``     This parameter is not supported for Windows containers.
+         * The user to use inside the container. This parameter maps to ``User`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--user`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.  You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.  +   ``user``   +   ``user:group``   +   ``uid``   +   ``uid:gid``   +   ``user:gid``   +   ``uid:group``     This parameter is not supported for Windows containers.
          */
         user?: string;
         /**
-         * Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volumes-from`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--volumes-from`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         volumesFrom?: outputs.awsconnector.VolumeFromResponse[];
         /**
-         * The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--workdir`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--workdir`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         workingDirectory?: string;
     }
@@ -23945,7 +24263,7 @@ export namespace awsconnector {
          */
         enabled?: boolean;
         /**
-         * (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``. For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI). For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
+         * (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``. For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI). For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
          */
         httpVersion?: string;
         /**
@@ -23965,7 +24283,7 @@ export namespace awsconnector {
          */
         origins?: outputs.awsconnector.OriginResponse[];
         /**
-         * The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
+         * The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/).
          */
         priceClass?: string;
         /**
@@ -23981,7 +24299,7 @@ export namespace awsconnector {
          */
         staging?: boolean;
         /**
-         * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty. If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:  +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.  +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)  +  To accept HTTPS connections from all viewers, including those that don't support SNI, set ``SSLSupportMethod`` to ``vip``. This is not recommended, and results in additional monthly charges from CloudFront. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)    +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.  +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):  +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)  +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)     All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``. For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the *Amazon CloudFront Developer Guide*.
+         * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty. If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:  +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.  +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)  +  To accept HTTPS connections from all viewers, including those that don't support SNI, set ``SSLSupportMethod`` to ``vip``. This is not recommended, and results in additional monthly charges from CloudFront. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)    +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.  +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):  +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)  +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)     All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``. For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the *Amazon CloudFront Developer Guide*.
          */
         viewerCertificate?: outputs.awsconnector.ViewerCertificateResponse;
         /**
@@ -24011,15 +24329,15 @@ export namespace awsconnector {
          */
         autoprovision?: boolean;
         /**
-         * The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. For more information, see [Docker plugin discovery](https://docs.aws.amazon.com/https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery). This parameter maps to ``Driver`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxdriver`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         * The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. For more information, see [Docker plugin discovery](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery). This parameter maps to ``Driver`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxdriver`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
          */
         driver?: string;
         /**
-         * A map of Docker driver-specific options passed through. This parameter maps to ``DriverOpts`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxopt`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         * A map of Docker driver-specific options passed through. This parameter maps to ``DriverOpts`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxopt`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
          */
         driverOpts?: any;
         /**
-         * Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxlabel`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         * Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxlabel`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
          */
         labels?: any;
         /**
@@ -26833,7 +27151,7 @@ export namespace awsconnector {
      */
     export interface HealthCheckResponse {
         /**
-         * A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.  ``[ 'CMD-SHELL', 'curl -f http://localhost/ || exit 1' ]``  You don't include the double quotes and brackets when you use the AWS Management Console.  ``CMD-SHELL, curl -f http://localhost/ || exit 1``  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).
+         * A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.  ``[ 'CMD-SHELL', 'curl -f http://localhost/ || exit 1' ]``  You don't include the double quotes and brackets when you use the AWS Management Console.  ``CMD-SHELL, curl -f http://localhost/ || exit 1``  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/).
          */
         command?: string[];
         /**
@@ -28483,11 +28801,11 @@ export namespace awsconnector {
      */
     export interface KernelCapabilitiesResponse {
         /**
-         * The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-add`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.  Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
+         * The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cap-add`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.  Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
          */
         add?: string[];
         /**
-         * The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-drop`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
+         * The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cap-drop`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
          */
         drop?: string[];
     }
@@ -29104,31 +29422,31 @@ export namespace awsconnector {
      */
     export interface LinuxParametersResponse {
         /**
-         * The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.  For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later. The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+         * The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.  For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later. The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
          */
         capabilities?: outputs.awsconnector.KernelCapabilitiesResponse;
         /**
-         * Any host devices to expose to the container. This parameter maps to ``Devices`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--device`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
+         * Any host devices to expose to the container. This parameter maps to ``Devices`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--device`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
          */
         devices?: outputs.awsconnector.DeviceResponse[];
         /**
-         * Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+         * Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
          */
         initProcessEnabled?: boolean;
         /**
-         * The total amount of swap memory (in MiB) a container can use. This parameter will be translated to the ``--memory-swap`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) where the value would be the sum of the container memory plus the ``maxSwap`` value. If a ``maxSwap`` value of ``0`` is specified, the container will not use swap. Accepted values are ``0`` or any positive integer. If the ``maxSwap`` parameter is omitted, the container will use the swap configuration for the container instance it is running on. A ``maxSwap`` value must be set for the ``swappiness`` parameter to be used.  If you're using tasks that use the Fargate launch type, the ``maxSwap`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
+         * The total amount of swap memory (in MiB) a container can use. This parameter will be translated to the ``--memory-swap`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration) where the value would be the sum of the container memory plus the ``maxSwap`` value. If a ``maxSwap`` value of ``0`` is specified, the container will not use swap. Accepted values are ``0`` or any positive integer. If the ``maxSwap`` parameter is omitted, the container will use the swap configuration for the container instance it is running on. A ``maxSwap`` value must be set for the ``swappiness`` parameter to be used.  If you're using tasks that use the Fargate launch type, the ``maxSwap`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
          */
         maxSwap?: number;
         /**
-         * The value for the size (in MiB) of the ``/dev/shm`` volume. This parameter maps to the ``--shm-size`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you are using tasks that use the Fargate launch type, the ``sharedMemorySize`` parameter is not supported.
+         * The value for the size (in MiB) of the ``/dev/shm`` volume. This parameter maps to the ``--shm-size`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you are using tasks that use the Fargate launch type, the ``sharedMemorySize`` parameter is not supported.
          */
         sharedMemorySize?: number;
         /**
-         * This allows you to tune a container's memory swappiness behavior. A ``swappiness`` value of ``0`` will cause swapping to not happen unless absolutely necessary. A ``swappiness`` value of ``100`` will cause pages to be swapped very aggressively. Accepted values are whole numbers between ``0`` and ``100``. If the ``swappiness`` parameter is not specified, a default value of ``60`` is used. If a value is not specified for ``maxSwap`` then this parameter is ignored. This parameter maps to the ``--memory-swappiness`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``swappiness`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
+         * This allows you to tune a container's memory swappiness behavior. A ``swappiness`` value of ``0`` will cause swapping to not happen unless absolutely necessary. A ``swappiness`` value of ``100`` will cause pages to be swapped very aggressively. Accepted values are whole numbers between ``0`` and ``100``. If the ``swappiness`` parameter is not specified, a default value of ``60`` is used. If a value is not specified for ``maxSwap`` then this parameter is ignored. This parameter maps to the ``--memory-swappiness`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``swappiness`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
          */
         swappiness?: number;
         /**
-         * The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
+         * The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
          */
         tmpfs?: outputs.awsconnector.TmpfsResponse[];
     }
@@ -29224,7 +29542,7 @@ export namespace awsconnector {
      */
     export interface LogConfigurationResponse {
         /**
-         * The log driver to use for the container. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``. For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.  If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
+         * The log driver to use for the container. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``. For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.  If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
          */
         logDriver?: string;
         /**
@@ -31199,7 +31517,7 @@ export namespace awsconnector {
          */
         containerPort?: number;
         /**
-         * The port number range on the container that's bound to the dynamically mapped host port range.  The following rules apply when you specify a ``containerPortRange``:  +  You must use either the ``bridge`` network mode or the ``awsvpc`` network mode.  +  This parameter is available for both the EC2 and FARGATElong launch types.  +  This parameter is available for both the Linux and Windows operating systems.  +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package   +  You can specify a maximum of 100 port ranges per container.  +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:  +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.  +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.    +  The ``containerPortRange`` valid values are between 1 and 65535.  +  A port can only be included in one port mapping per container.  +  You cannot specify overlapping port ranges.  +  The first port in the range must be less than last port in the range.  +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports. For more information, see [Issue #11185](https://docs.aws.amazon.com/https://github.com/moby/moby/issues/11185) on the Github website. For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.   You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
+         * The port number range on the container that's bound to the dynamically mapped host port range.  The following rules apply when you specify a ``containerPortRange``:  +  You must use either the ``bridge`` network mode or the ``awsvpc`` network mode.  +  This parameter is available for both the EC2 and FARGATElong launch types.  +  This parameter is available for both the Linux and Windows operating systems.  +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package   +  You can specify a maximum of 100 port ranges per container.  +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:  +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.  +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.    +  The ``containerPortRange`` valid values are between 1 and 65535.  +  A port can only be included in one port mapping per container.  +  You cannot specify overlapping port ranges.  +  The first port in the range must be less than last port in the range.  +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports. For more information, see [Issue #11185](https://github.com/moby/moby/issues/11185) on the Github website. For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.   You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
          */
         containerPortRange?: string;
         /**
@@ -33921,7 +34239,7 @@ export namespace awsconnector {
          */
         enabled?: boolean;
         /**
-         * The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to. The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
+         * The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to. The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
          */
         logConfiguration?: outputs.awsconnector.LogConfigurationResponse;
         /**
@@ -35536,7 +35854,7 @@ export namespace awsconnector {
          */
         minimumProtocolVersion?: string;
         /**
-         * In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.  +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.  +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.  +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).   If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
+         * In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.  +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.  +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.  +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://aws.amazon.com/support/home).   If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
          */
         sslSupportMethod?: string;
     }
@@ -38205,6 +38523,36 @@ export namespace azuredatatransfer {
             ...val,
             minimum: (val.minimum) ?? 0,
         };
+    }
+
+    /**
+     * The FlowProfile Metadata used to concisely provide all publicly viewable information.
+     */
+    export interface FlowProfileMetadataResponse {
+        /**
+         * A description of the FlowProfile and its rulesets. The description should describe the flowprofile's purpose and rulesets applied.
+         */
+        description: string;
+        /**
+         * A guid represented as a string for the FlowProfile resource, assigned by the system.
+         */
+        flowProfileId: string;
+        /**
+         * The name of the FlowProfile.
+         */
+        name: string;
+        /**
+         * The name of the parent Pipeline Azure resource associated with this FlowProfile.
+         */
+        pipeline: string;
+        /**
+         * The data replication scenario handled by this FlowProfile. Please note, that this value cannot be updated after creation. See the FlowProfilePatchProperties to see updateable properties.
+         */
+        replicationScenario: string;
+        /**
+         * The operational status of the FlowProfile.
+         */
+        status: string;
     }
 
     /**
@@ -41671,6 +42019,38 @@ export namespace azurestackhci {
     }
 
     /**
+     * Backend address pool for the load balancer.
+     */
+    export interface BackendAddressPoolPropertiesResponse {
+        /**
+         * List of backend addresses for the backend pool
+         */
+        loadBalancerBackendAddresses?: outputs.azurestackhci.LoadBalancerBackendAddressResponse[];
+        /**
+         * Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+         */
+        logicalNetwork?: outputs.azurestackhci.LogicalNetworkArmReferenceResponse;
+        /**
+         * Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+         */
+        virtualNetwork?: outputs.azurestackhci.VirtualNetworkArmReferenceResponse;
+    }
+
+    /**
+     * Backend address pool for the load balancer.
+     */
+    export interface BackendAddressPoolResponse {
+        /**
+         * name of the backend pool.
+         */
+        name: string;
+        /**
+         * properties for the backend pool
+         */
+        properties: outputs.azurestackhci.BackendAddressPoolPropertiesResponse;
+    }
+
+    /**
      * Desired properties of the cluster.
      */
     export interface ClusterDesiredPropertiesResponse {
@@ -42044,6 +42424,101 @@ export namespace azurestackhci {
     }
 
     /**
+     * Represents the properties of Download Os job.
+     */
+    export interface DownloadOsJobPropertiesResponse {
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: string;
+        /**
+         * Download OS request.
+         */
+        downloadRequest: outputs.azurestackhci.DownloadRequestResponse;
+        /**
+         * The UTC date and time at which the job completed.
+         */
+        endTimeUtc: string;
+        /**
+         * error details.
+         */
+        error: outputs.azurestackhci.ErrorDetailResponse;
+        /**
+         * Unique, immutable job id.
+         */
+        jobId: string;
+        /**
+         * Job Type supported.
+         * Expected value is 'DownloadOs'.
+         */
+        jobType: "DownloadOs";
+        /**
+         * Job provisioning state
+         */
+        provisioningState: string;
+        /**
+         * Reported Properties for Download Os job
+         */
+        reportedProperties?: outputs.azurestackhci.ProvisionOsReportedPropertiesResponse;
+        /**
+         * The UTC date and time at which the job started.
+         */
+        startTimeUtc: string;
+        /**
+         * Status of Edge device job.
+         */
+        status: string;
+    }
+
+    /**
+     * Operating system profile.
+     */
+    export interface DownloadOsProfileResponse {
+        /**
+         * GPG Public Key used for package verification
+         */
+        gpgPubKey?: string;
+        /**
+         * Hash of the OS package downloaded
+         */
+        imageHash?: string;
+        /**
+         * Location of the operating system image.
+         */
+        osImageLocation?: string;
+        /**
+         * Name of the operating system.
+         */
+        osName?: string;
+        /**
+         * Type of the operating system.
+         */
+        osType?: string;
+        /**
+         * Version of the operating system.
+         */
+        osVersion?: string;
+        /**
+         * Validated Solution Recipe version to be used for the job
+         */
+        vsrVersion?: string;
+    }
+
+    /**
+     * Download Request properties
+     */
+    export interface DownloadRequestResponse {
+        /**
+         * Operating system profile.
+         */
+        osProfile: outputs.azurestackhci.DownloadOsProfileResponse;
+        /**
+         * Target operating system to support polymorphic resource.
+         */
+        target: string;
+    }
+
+    /**
      * The ECE action plan deployment status for AzureStackHCI Cluster.
      */
     export interface EceActionStatusResponse {
@@ -42087,6 +42562,396 @@ export namespace azurestackhci {
          * validation status of AzureStackHCI Cluster Deployment.
          */
         validationStatus: outputs.azurestackhci.EceActionStatusResponse;
+    }
+
+    /**
+     * Properties for pausing a server in the cluster.
+     */
+    export interface EdgeMachineCollectLogJobPropertiesResponse {
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: string;
+        /**
+         * The UTC date and time at which the job completed.
+         */
+        endTimeUtc: string;
+        /**
+         * error details.
+         */
+        error: outputs.azurestackhci.ErrorDetailResponse;
+        /**
+         * From date for log collection.
+         */
+        fromDate: string;
+        /**
+         * Unique, immutable job id.
+         */
+        jobId: string;
+        /**
+         * Job Type supported.
+         * Expected value is 'CollectLog'.
+         */
+        jobType: "CollectLog";
+        /**
+         * To date for log collection.
+         */
+        lastLogGenerated: string;
+        /**
+         * Job provisioning state
+         */
+        provisioningState: string;
+        /**
+         * log collection job reported properties.
+         */
+        reportedProperties: outputs.azurestackhci.EdgeMachineCollectLogJobReportedPropertiesResponse;
+        /**
+         * The UTC date and time at which the job started.
+         */
+        startTimeUtc: string;
+        /**
+         * Status of Edge device job.
+         */
+        status: string;
+        /**
+         * To date for log collection.
+         */
+        toDate: string;
+    }
+
+    /**
+     * Represents the reported properties of a log collection job.
+     */
+    export interface EdgeMachineCollectLogJobReportedPropertiesResponse {
+        /**
+         * Deployment status of job.
+         */
+        deploymentStatus: outputs.azurestackhci.EceActionStatusResponse;
+        /**
+         * Details of the log collection session.
+         */
+        logCollectionSessionDetails: outputs.azurestackhci.LogCollectionJobSessionResponse[];
+        /**
+         * The percentage of the job that is complete.
+         */
+        percentComplete: number;
+        /**
+         * Validation status of job.
+         */
+        validationStatus: outputs.azurestackhci.EceActionStatusResponse;
+    }
+
+    /**
+     * NetworkProfile of edge machine.
+     */
+    export interface EdgeMachineNetworkProfileResponse {
+        /**
+         * List of Network Interface Card (NIC) Details of edge machine.
+         */
+        nicDetails: outputs.azurestackhci.EdgeMachineNicDetailResponse[];
+        /**
+         * List of switch Details of edge machine.
+         */
+        switchDetails: outputs.azurestackhci.SwitchDetailResponse[];
+    }
+
+    /**
+     * Network Interface Card (NIC) Details of edge machine.
+     */
+    export interface EdgeMachineNicDetailResponse {
+        /**
+         * Adapter Name of NIC
+         */
+        adapterName: string;
+        /**
+         * Component Id of NIC
+         */
+        componentId: string;
+        /**
+         * Default Gateway of NIC
+         */
+        defaultGateway: string;
+        /**
+         * Default Isolation of Management NIC
+         */
+        defaultIsolationId: string;
+        /**
+         * DNS Servers for NIC
+         */
+        dnsServers: string[];
+        /**
+         * Driver Version of NIC
+         */
+        driverVersion: string;
+        /**
+         * Interface Description of NIC
+         */
+        interfaceDescription: string;
+        /**
+         * Subnet Mask of NIC
+         */
+        ip4Address: string;
+        /**
+         * MAC address information of NIC.
+         */
+        macAddress: string;
+        /**
+         * The status of NIC, up, disconnected.
+         */
+        nicStatus: string;
+        /**
+         * The type of NIC, physical, virtual, management.
+         */
+        nicType: string;
+        /**
+         * Describes the RDMA capability of the network adapter.
+         */
+        rdmaCapability: string;
+        /**
+         * The slot attached to the NIC.
+         */
+        slot: string;
+        /**
+         * Subnet Mask of NIC
+         */
+        subnetMask: string;
+        /**
+         * The switch attached to the NIC, if any.
+         */
+        switchName: string;
+        /**
+         * The VLAN ID of the physical NIC.
+         */
+        vlanId: string;
+    }
+    /**
+     * edgeMachineNicDetailResponseProvideDefaults sets the appropriate defaults for EdgeMachineNicDetailResponse
+     */
+    export function edgeMachineNicDetailResponseProvideDefaults(val: EdgeMachineNicDetailResponse): EdgeMachineNicDetailResponse {
+        return {
+            ...val,
+            rdmaCapability: (val.rdmaCapability) ?? "Disabled",
+        };
+    }
+
+    /**
+     * Properties for edge machine.
+     */
+    export interface EdgeMachinePropertiesResponse {
+        /**
+         * Link to Arc Gateway ARM resource Id
+         */
+        arcGatewayResourceId?: string;
+        /**
+         * Optional property to create arc machine in custom resource group.
+         */
+        arcMachineResourceGroupId?: string;
+        /**
+         * Arc machine instance resource id.
+         */
+        arcMachineResourceId?: string;
+        /**
+         * Tracks the ID of the consuming resource, setting the machine as in-use.
+         */
+        claimedBy: string;
+        /**
+         * Unique, immutable resource id.
+         */
+        cloudId: string;
+        /**
+         * machine connectivity status
+         */
+        connectivityStatus: string;
+        /**
+         * A machine can only be assigned to single device pool
+         */
+        devicePoolResourceId: string;
+        /**
+         * Edge Machine type.
+         */
+        edgeMachineKind?: string;
+        /**
+         * Last time data updated to service.
+         */
+        lastSyncTimestamp: string;
+        /**
+         * OS configuration status details 
+         */
+        machineState: string;
+        /**
+         * operation status details for edge machine.
+         */
+        operationDetails: outputs.azurestackhci.OperationDetailResponse[];
+        /**
+         * Ownership voucher details for provisioned machine.
+         */
+        ownershipVoucherDetails?: outputs.azurestackhci.OwnershipVoucherDetailsResponse;
+        /**
+         * Details for device provisioning.
+         */
+        provisioningDetails?: outputs.azurestackhci.ProvisioningDetailsResponse;
+        /**
+         * The provisioning state of a resource.
+         */
+        provisioningState: string;
+        /**
+         * Reported properties for edge machine.
+         */
+        reportedProperties: outputs.azurestackhci.EdgeMachineReportedPropertiesResponse;
+        /**
+         * Service fetches common configuration from site.
+         */
+        siteDetails?: outputs.azurestackhci.SiteDetailsResponse;
+    }
+    /**
+     * edgeMachinePropertiesResponseProvideDefaults sets the appropriate defaults for EdgeMachinePropertiesResponse
+     */
+    export function edgeMachinePropertiesResponseProvideDefaults(val: EdgeMachinePropertiesResponse): EdgeMachinePropertiesResponse {
+        return {
+            ...val,
+            provisioningDetails: (val.provisioningDetails ? outputs.azurestackhci.provisioningDetailsResponseProvideDefaults(val.provisioningDetails) : undefined),
+        };
+    }
+
+    /**
+     * Properties for adding a server in the cluster.
+     */
+    export interface EdgeMachineRemoteSupportJobPropertiesResponse {
+        /**
+         * Remote support access level.
+         */
+        accessLevel: string;
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: string;
+        /**
+         * The UTC date and time at which the job completed.
+         */
+        endTimeUtc: string;
+        /**
+         * error details.
+         */
+        error: outputs.azurestackhci.ErrorDetailResponse;
+        /**
+         * Remote support expiration timestamp.
+         */
+        expirationTimestamp: string;
+        /**
+         * Unique, immutable job id.
+         */
+        jobId: string;
+        /**
+         * Job Type supported.
+         * Expected value is 'RemoteSupport'.
+         */
+        jobType: "RemoteSupport";
+        /**
+         * Job provisioning state
+         */
+        provisioningState: string;
+        /**
+         * log collection job reported properties.
+         */
+        reportedProperties: outputs.azurestackhci.EdgeMachineRemoteSupportJobReportedPropertiesResponse;
+        /**
+         * The UTC date and time at which the job started.
+         */
+        startTimeUtc: string;
+        /**
+         * Status of Edge device job.
+         */
+        status: string;
+        /**
+         * Remote support type.
+         */
+        type: string;
+    }
+
+    /**
+     * Represents the reported properties of a remote support job.
+     */
+    export interface EdgeMachineRemoteSupportJobReportedPropertiesResponse {
+        /**
+         * Deployment status of job.
+         */
+        deploymentStatus: outputs.azurestackhci.EceActionStatusResponse;
+        /**
+         * Optional settings for configuring the node for remote support.
+         */
+        nodeSettings: outputs.azurestackhci.EdgeMachineRemoteSupportNodeSettingsResponse;
+        /**
+         * The percentage of the job that is complete.
+         */
+        percentComplete: number;
+        /**
+         * Details of the remote support session.
+         */
+        sessionDetails: outputs.azurestackhci.RemoteSupportSessionResponse[];
+        /**
+         * Validation status of job.
+         */
+        validationStatus: outputs.azurestackhci.EceActionStatusResponse;
+    }
+
+    /**
+     * Represents the settings of a remote support node.
+     */
+    export interface EdgeMachineRemoteSupportNodeSettingsResponse {
+        /**
+         * The error message, if any, from the last connection attempt.
+         */
+        connectionErrorMessage: string;
+        /**
+         * The current connection status of the remote support session.
+         */
+        connectionStatus: string;
+        /**
+         * The timestamp when the node settings were created, in UTC.
+         */
+        createdAt: string;
+        /**
+         * The state of the remote support node.
+         */
+        state: string;
+        /**
+         * The timestamp when the node settings were last updated, in UTC.
+         */
+        updatedAt: string;
+    }
+
+    /**
+     * Reported properties for edge machine.
+     */
+    export interface EdgeMachineReportedPropertiesResponse {
+        /**
+         * Extension details for edge machine.
+         */
+        extensionProfile: outputs.azurestackhci.ExtensionProfileResponseV1;
+        /**
+         * Hardware related information for edge machine.
+         */
+        hardwareProfile: outputs.azurestackhci.HardwareProfileResponse;
+        /**
+         * Last time data reported.
+         */
+        lastUpdated: string;
+        /**
+         * Network details for edge machine.
+         */
+        networkProfile: outputs.azurestackhci.EdgeMachineNetworkProfileResponse;
+        /**
+         * OS Properties for edge machine.
+         */
+        osProfile: outputs.azurestackhci.OsProfileResponse;
+        /**
+         * Solution builder extension (SBE) deployment package information.
+         */
+        sbeDeploymentPackageInfo: outputs.azurestackhci.SbeDeploymentPackageInfoResponse;
+        /**
+         * Storage related information for edge machine.
+         */
+        storageProfile: outputs.azurestackhci.StorageProfileResponse;
     }
 
     /**
@@ -42206,6 +43071,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * Extensions details for edge device.
+     */
+    export interface ExtensionProfileResponseV1 {
+        /**
+         * List of Arc extensions installed on edge device.
+         */
+        extensions: outputs.azurestackhci.HciEdgeDeviceArcExtensionResponse[];
+    }
+
+    /**
      * Arc extension installed on edge device.
      */
     export interface ExtensionResponse {
@@ -42242,6 +43117,42 @@ export namespace azurestackhci {
             ...val,
             managedBy: (val.managedBy) ?? "Azure",
         };
+    }
+
+    /**
+     * FrontendIP Configuration object for a load balancer.
+     */
+    export interface FrontendIPConfigurationPropertiesResponse {
+        /**
+         * Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+         */
+        privateIPAddress?: string;
+        /**
+         * privateIPAllocationMethod - set to Static for requesting a specific IP
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * Public IP 
+         */
+        publicIPAddress?: outputs.azurestackhci.PublicIPAddressArmReferenceResponse;
+        /**
+         * subnet - the subnet from which to allocate the private IP
+         */
+        subnet?: outputs.azurestackhci.VirtualNetworkSubnetArmReferenceResponse;
+    }
+
+    /**
+     * FrontendIP Configuration object for a load balancer.
+     */
+    export interface FrontendIPConfigurationResponse {
+        /**
+         * name for the frontend IP configuration.
+         */
+        name: string;
+        /**
+         * properties for this frontendIPConfiguration
+         */
+        properties: outputs.azurestackhci.FrontendIPConfigurationPropertiesResponse;
     }
 
     /**
@@ -42409,6 +43320,40 @@ export namespace azurestackhci {
     }
 
     /**
+     * Hardware profile for the machine
+     */
+    export interface HardwareProfileResponse {
+        /**
+         * Number of cpu cores in the machine
+         */
+        cpuCores: number;
+        /**
+         * Number of cpu sockets in the machine
+         */
+        cpuSockets: number;
+        /**
+         * manufacturer info of the machine
+         */
+        manufacturer: string;
+        /**
+         * Memory capacity of the machine
+         */
+        memoryCapacityInGb: number;
+        /**
+         * Model info of the machine
+         */
+        model: string;
+        /**
+         * Process type of the machine
+         */
+        processorType: string;
+        /**
+         * Serial number of the machine
+         */
+        serialNumber: string;
+    }
+
+    /**
      * Represents the properties of an HCI Collect Log job.
      */
     export interface HciCollectLogJobPropertiesResponse {
@@ -42457,6 +43402,36 @@ export namespace azurestackhci {
          * To date for log collection.
          */
         toDate: string;
+    }
+
+    /**
+     * Arc extension installed on edge device.
+     */
+    export interface HciEdgeDeviceArcExtensionResponse {
+        /**
+         * Error details while installing Arc extension.
+         */
+        errorDetails: outputs.azurestackhci.HciValidationFailureDetailResponse[];
+        /**
+         * Arc extension name installed on edge device.
+         */
+        extensionName: string;
+        /**
+         * Arc Extension Azure resource id.
+         */
+        extensionResourceId: string;
+        /**
+         * Indicates whether the extension is managed by the user or by Azure.
+         */
+        managedBy: string;
+        /**
+         * Arc extension state from arc machine extension.
+         */
+        state: string;
+        /**
+         * Extension version installed.
+         */
+        typeHandlerVersion: string;
     }
 
     /**
@@ -42653,6 +43628,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * details of validation failure
+     */
+    export interface HciValidationFailureDetailResponse {
+        /**
+         * Exception details while installing extension.
+         */
+        exception: string;
+    }
+
+    /**
      * The HostNetwork of a cluster.
      */
     export interface HostNetworkResponse {
@@ -42694,6 +43679,16 @@ export namespace azurestackhci {
          * Alternative CA cert to use for connecting to proxy servers.
          */
         trustedCa?: string;
+    }
+
+    /**
+     * The Azure Resource ID of an IPConfiguration resource
+     */
+    export interface IPConfigurationArmReferenceResponse {
+        /**
+         * The Azure Resource ID of an IPConfiguration resource
+         */
+        resourceId?: string;
     }
 
     /**
@@ -42791,13 +43786,53 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Gallery Image.
+     * The Azure Resource ID for a Gallery Image.
      */
     export interface ImageArmReferenceResponse {
         /**
-         * The ARM ID for an image resource used by the virtual machine instance.
+         * The Azure Resource ID for an image resource used by the virtual machine instance.
          */
         id?: string;
+    }
+
+    /**
+     * Inbound nat rule properties
+     */
+    export interface InboundNATRulePropertiesResponse {
+        /**
+         * IP configuration for the target backend.
+         */
+        backendIPConfiguration: outputs.azurestackhci.IPConfigurationArmReferenceResponse;
+        /**
+         * backend Port for the inbound rule
+         */
+        backendPort: number;
+        /**
+         * Frontend Port for the inbound rule
+         */
+        frontendPort: number;
+        /**
+         * Protocol for the NAT rule
+         */
+        protocol: string;
+        /**
+         * Public IP Address for this NAT rule
+         */
+        publicIPAddress: outputs.azurestackhci.PublicIPAddressArmReferenceResponse;
+    }
+
+    /**
+     * Inbound nat rule properties
+     */
+    export interface InboundNATRuleResponse {
+        /**
+         * name of the inbound nat rule
+         */
+        name: string;
+        /**
+         * properties of the inbound nat rule
+         */
+        properties: outputs.azurestackhci.InboundNATRulePropertiesResponse;
     }
 
     /**
@@ -42949,6 +43984,20 @@ export namespace azurestackhci {
     }
 
     /**
+     * IP address range configuration.
+     */
+    export interface IpAddressRangeResponse {
+        /**
+         * End IP address.
+         */
+        endIp: string;
+        /**
+         * Start IP address.
+         */
+        startIp: string;
+    }
+
+    /**
      * The dnsServers of a device.
      */
     export interface IpPoolsResponse {
@@ -42978,6 +44027,212 @@ export namespace azurestackhci {
          * Region specific endpoint for relying party service.
          */
         relyingPartyServiceEndpoint: string;
+    }
+
+    /**
+     * Reference to a LoadBalancer backend address pool reference
+     */
+    export interface LoadBalancerBackendAddressPoolReferenceResponse {
+        /**
+         * name of the backend address pool
+         */
+        name: string;
+    }
+
+    /**
+     * LoadBalancer Backend Address properties
+     */
+    export interface LoadBalancerBackendAddressPropertiesResponse {
+        /**
+         * admin state - if set to false, the address is removed from the pool
+         */
+        adminState?: string;
+        /**
+         * IP address of the backend target. Populated automatically from the referenced IP configuration.
+         */
+        ipAddress: string;
+        /**
+         * Reference to the logical network containing this backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with subnet and virtualNetwork.
+         */
+        logicalNetwork: outputs.azurestackhci.LogicalNetworkArmReferenceResponse;
+        /**
+         * Nic Based backend-ip association
+         */
+        networkInterfaceIPConfiguration?: outputs.azurestackhci.IPConfigurationArmReferenceResponse;
+        /**
+         * Reference to the subnet containing the backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with logicalNetwork.
+         */
+        subnet: outputs.azurestackhci.VirtualNetworkSubnetArmReferenceResponse;
+        /**
+         * Reference to the virtual network containing the backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with logicalNetwork.
+         */
+        virtualNetwork: outputs.azurestackhci.VirtualNetworkArmReferenceResponse;
+    }
+
+    /**
+     * LoadBalancer Backend Address
+     */
+    export interface LoadBalancerBackendAddressResponse {
+        /**
+         * name of the backend address
+         */
+        name: string;
+        /**
+         * backend address properties
+         */
+        properties: outputs.azurestackhci.LoadBalancerBackendAddressPropertiesResponse;
+    }
+
+    /**
+     * Reference to a LoadBalancer Frontend IPConfiguration
+     */
+    export interface LoadBalancerFrontendIPConfigurationReferenceResponse {
+        /**
+         * name of the frontnedIPConfiguration
+         */
+        name: string;
+    }
+
+    /**
+     * Reference to a LoadBalancer health probe
+     */
+    export interface LoadBalancerProbeReferenceResponse {
+        /**
+         * name of the health probe
+         */
+        name: string;
+    }
+
+    /**
+     * Load Balancer resource properties
+     */
+    export interface LoadBalancerPropertiesResponse {
+        /**
+         * backendAddressPools for the loadbalancer
+         */
+        backendAddressPools?: outputs.azurestackhci.BackendAddressPoolResponse[];
+        /**
+         * Frontend IPs for the loadbalancer.
+         */
+        frontendIPConfigurations: outputs.azurestackhci.FrontendIPConfigurationResponse[];
+        /**
+         * load balancer rules
+         */
+        loadBalancingRules?: outputs.azurestackhci.LoadBalancerRuleResponse[];
+        /**
+         * load balancer health probes
+         */
+        probes?: outputs.azurestackhci.ProbeResponse[];
+        /**
+         * Provisioning state of the Load Balancer
+         */
+        provisioningState: string;
+        /**
+         * observed state of the load balancer
+         */
+        status: outputs.azurestackhci.LoadBalancerStatusResponse;
+    }
+
+    /**
+     * Properties for LoadBalancerRules
+     */
+    export interface LoadBalancerRulePropertiesResponse {
+        /**
+         * arm reference to backend pool being used by ths pool
+         */
+        backendAddressPool: outputs.azurestackhci.LoadBalancerBackendAddressPoolReferenceResponse;
+        /**
+         * backendPort to forward connections
+         */
+        backendPort: number;
+        /**
+         * arm reference to frontend IP being used by this LB
+         */
+        frontendIPConfiguration: outputs.azurestackhci.LoadBalancerFrontendIPConfigurationReferenceResponse;
+        /**
+         * Frontend port to accept connections
+         */
+        frontendPort: number;
+        /**
+         * Time for which connections are preserved before being torn down.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+         */
+        loadDistribution?: string;
+        /**
+         * Reference for the health probe for this connection
+         */
+        probe?: outputs.azurestackhci.LoadBalancerProbeReferenceResponse;
+        /**
+         * IP Protocol that the rule must load-balance
+         */
+        protocol: string;
+    }
+    /**
+     * loadBalancerRulePropertiesResponseProvideDefaults sets the appropriate defaults for LoadBalancerRulePropertiesResponse
+     */
+    export function loadBalancerRulePropertiesResponseProvideDefaults(val: LoadBalancerRulePropertiesResponse): LoadBalancerRulePropertiesResponse {
+        return {
+            ...val,
+            loadDistribution: (val.loadDistribution) ?? "Default",
+        };
+    }
+
+    /**
+     * LoadBalancer Rules
+     */
+    export interface LoadBalancerRuleResponse {
+        /**
+         * name of the load balancer rule
+         */
+        name: string;
+        /**
+         * load balancer rule properties
+         */
+        properties: outputs.azurestackhci.LoadBalancerRulePropertiesResponse;
+    }
+    /**
+     * loadBalancerRuleResponseProvideDefaults sets the appropriate defaults for LoadBalancerRuleResponse
+     */
+    export function loadBalancerRuleResponseProvideDefaults(val: LoadBalancerRuleResponse): LoadBalancerRuleResponse {
+        return {
+            ...val,
+            properties: outputs.azurestackhci.loadBalancerRulePropertiesResponseProvideDefaults(val.properties),
+        };
+    }
+
+    /**
+     * Status of load balancer operations
+     */
+    export interface LoadBalancerStatusProvisioningStatusResponse {
+        /**
+         * The ID of the operation performed on the load balancer
+         */
+        operationId?: string;
+        /**
+         * The status of the operation performed on the loadbalancer [Succeeded, Failed, InProgress]
+         */
+        status: string;
+    }
+
+    /**
+     * The observed status of the virtual network
+     */
+    export interface LoadBalancerStatusResponse {
+        /**
+         * LoadBalancer provisioning error code
+         */
+        errorCode?: string;
+        /**
+         * Descriptive error message
+         */
+        errorMessage?: string;
+        /**
+         * virtual network provisioning status
+         */
+        provisioningStatus?: outputs.azurestackhci.LoadBalancerStatusProvisioningStatusResponse;
     }
 
     /**
@@ -43108,11 +44363,11 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Logical Network.
+     * The Azure Resource ID for a Logical Network.
      */
     export interface LogicalNetworkArmReferenceResponse {
         /**
-         * The ARM ID for a Logical Network.
+         * The Azure Resource ID for a Logical Network.
          */
         id?: string;
     }
@@ -43280,6 +44535,126 @@ export namespace azurestackhci {
     }
 
     /**
+     * The ARM ID for a Network Security Group.
+     */
+    export interface NatGatewayArmReferenceResponse {
+        /**
+         * The ARM ID for a Network Security Group.
+         */
+        resourceId?: string;
+    }
+
+    /**
+     * Nat Gateway resource properties
+     */
+    export interface NatGatewayPropertiesResponse {
+        /**
+         * List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+         */
+        inboundNATRules?: outputs.azurestackhci.InboundNATRuleResponse[];
+        /**
+         * Provisioning state of the public IP
+         */
+        provisioningState: string;
+        /**
+         * List of public ip addresses that the gateway can use for NAT.
+         */
+        publicIPAddresses?: outputs.azurestackhci.PublicIPAddressArmReferenceResponse[];
+        /**
+         * The observed state of Nat Gateway
+         */
+        status: outputs.azurestackhci.NatGatewayStatusResponse;
+        /**
+         * List of subnets associated with the nat gateway. These can only be vnet subnets and must be from the same vnet
+         */
+        subnets: outputs.azurestackhci.VirtualNetworkSubnetArmReferenceResponse[];
+    }
+
+    /**
+     * Provisioning status of Nat Gateway 
+     */
+    export interface NatGatewayStatusProvisioningStatusResponse {
+        /**
+         * The ID of the operation performed on the nat gateway
+         */
+        operationId?: string;
+        /**
+         * The status of the operation performed on the nat gateway [Succeeded, Failed, InProgress]
+         */
+        status: string;
+    }
+
+    /**
+     * Nat Gateway resource status
+     */
+    export interface NatGatewayStatusResponse {
+        /**
+         * NatGateway provisioning error code
+         */
+        errorCode?: string;
+        /**
+         * Descriptive error message
+         */
+        errorMessage?: string;
+        /**
+         * NatGateway provisioning status
+         */
+        provisioningStatus?: outputs.azurestackhci.NatGatewayStatusProvisioningStatusResponse;
+    }
+
+    /**
+     * Network adapter configuration.
+     */
+    export interface NetworkAdapterResponse {
+        /**
+         * Adapter Name.
+         */
+        adapterName?: string;
+        /**
+         * Array of DNS addresses.
+         */
+        dnsAddressArray?: string[];
+        /**
+         * Gateway id.
+         */
+        gateway?: string;
+        /**
+         * IP address.
+         */
+        ipAddress?: string;
+        /**
+         * IP address range.
+         */
+        ipAddressRange?: outputs.azurestackhci.IpAddressRangeResponse;
+        /**
+         * Type of IP assignment.
+         */
+        ipAssignmentType: string;
+        /**
+         * MAC address.
+         */
+        macAddress?: string;
+        /**
+         * Subnet mask.
+         */
+        subnetMask?: string;
+        /**
+         * VLAN ID for the network setup.
+         */
+        vlanId?: string;
+    }
+
+    /**
+     * Network configuration.
+     */
+    export interface NetworkConfigurationResponse {
+        /**
+         * List of network adapters.
+         */
+        networkAdapters?: outputs.azurestackhci.NetworkAdapterResponse[];
+    }
+
+    /**
      * network controller config for SDN Integration to deploy AzureStackHCI Cluster.
      */
     export interface NetworkControllerResponse {
@@ -43298,11 +44673,11 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Network Interface.
+     * The Azure Resource ID for a Network Interface.
      */
     export interface NetworkInterfaceArmReferenceResponse {
         /**
-         * The ARM ID for a Network Interface.
+         * The Azure Resource ID for a Network Interface.
          */
         id?: string;
     }
@@ -43340,11 +44715,11 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Network Security Group.
+     * The Azure Resource ID for a Network Security Group.
      */
     export interface NetworkSecurityGroupArmReferenceResponse {
         /**
-         * The ARM ID for a Network Security Group.
+         * The Azure Resource ID for a Network Security Group.
          */
         id?: string;
     }
@@ -43453,6 +44828,66 @@ export namespace azurestackhci {
     }
 
     /**
+     * Onboarding configuration.
+     */
+    export interface OnboardingConfigurationResponse {
+        /**
+         * Azure Arc virtual machine ID.
+         */
+        arcVirtualMachineId?: string;
+        /**
+         * Location of the resource.
+         */
+        location?: string;
+        /**
+         * Resource ID.
+         */
+        resourceId?: string;
+        /**
+         * Tenant ID of the resource.
+         */
+        tenantId?: string;
+        /**
+         * Type of the onboarding resource to support polymorphic resource.
+         */
+        type?: string;
+    }
+
+    /**
+     * operation detail.
+     */
+    export interface OperationDetailResponse {
+        /**
+         * operation description.
+         */
+        description: string;
+        /**
+         * error details.
+         */
+        error: outputs.azurestackhci.ErrorDetailResponse;
+        /**
+         * operation id.
+         */
+        id: string;
+        /**
+         * operation name.
+         */
+        name: string;
+        /**
+         * operation resource id.
+         */
+        resourceId: string;
+        /**
+         * operation status.
+         */
+        status: string;
+        /**
+         * operation type.
+         */
+        type: string;
+    }
+
+    /**
      * The OptionalServices of AzureStackHCI Cluster.
      */
     export interface OptionalServicesResponse {
@@ -43460,6 +44895,105 @@ export namespace azurestackhci {
          * The name of custom location.
          */
         customLocation?: string;
+    }
+
+    /**
+     * OS configurations for HCI device.
+     */
+    export interface OsProfileResponse {
+        /**
+         * Version of assembly present on device
+         */
+        assemblyVersion: string;
+        /**
+         * OS Base Image Version
+         */
+        baseImageVersion: string;
+        /**
+         * The boot type of the device. e.g. UEFI, Legacy etc
+         */
+        bootType: string;
+        /**
+         * OS Build Number
+         */
+        buildNumber: string;
+        /**
+         * OS Image Version
+         */
+        imageVersion: string;
+        /**
+         * OS SKU (e.g., “ Microsoft Azure Linux ROE“, “Azure Stack HCI", "Microsoft Azure Linux 3.0")
+         */
+        osSku: string;
+        /**
+         * OS type (“windows", “linux”)
+         */
+        osType: string;
+        /**
+         * OS Version
+         */
+        osVersion: string;
+    }
+
+    /**
+     * Operating system profile.
+     */
+    export interface OsProvisionProfileResponse {
+        /**
+         * GPG Public Key used for package verification
+         */
+        gpgPubKey?: string;
+        /**
+         * Hash of the OS package downloaded
+         */
+        imageHash?: string;
+        /**
+         * Operation sub type of OS Provisioning
+         */
+        operationType?: string;
+        /**
+         * Location of the operating system image.
+         */
+        osImageLocation?: string;
+        /**
+         * Name of the operating system.
+         */
+        osName?: string;
+        /**
+         * Type of the operating system.
+         */
+        osType?: string;
+        /**
+         * Version of the operating system.
+         */
+        osVersion?: string;
+        /**
+         * Validated Solution Recipe version to be used for the job
+         */
+        vsrVersion?: string;
+    }
+    /**
+     * osProvisionProfileResponseProvideDefaults sets the appropriate defaults for OsProvisionProfileResponse
+     */
+    export function osProvisionProfileResponseProvideDefaults(val: OsProvisionProfileResponse): OsProvisionProfileResponse {
+        return {
+            ...val,
+            operationType: (val.operationType) ?? "Provision",
+        };
+    }
+
+    /**
+     * Details for ownership voucher.
+     */
+    export interface OwnershipVoucherDetailsResponse {
+        /**
+         * Owner key type
+         */
+        ownerKeyType: string;
+        /**
+         * Ownership voucher in base64 encoded format
+         */
+        ownershipVoucher: string;
     }
 
     /**
@@ -43548,6 +45082,241 @@ export namespace azurestackhci {
          * NETBIOS name of each physical server on your Azure Stack HCI cluster.
          */
         name?: string;
+    }
+
+    /**
+     * properties for LoadBalancer health probes
+     */
+    export interface ProbePropertiesResponse {
+        /**
+         * Probe interval in seconds (5-300) default 15
+         */
+        intervalInSeconds?: number;
+        /**
+         * number of consecutive probe failures before marking unhealthy (1-20) default 2
+         */
+        numberOfProbes?: number;
+        /**
+         * Port on the backend address to probe
+         */
+        port: number;
+        /**
+         * Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+         */
+        protocol: string;
+        /**
+         * For http probes, specify the request path e.g. /health
+         */
+        requestPath?: string;
+    }
+    /**
+     * probePropertiesResponseProvideDefaults sets the appropriate defaults for ProbePropertiesResponse
+     */
+    export function probePropertiesResponseProvideDefaults(val: ProbePropertiesResponse): ProbePropertiesResponse {
+        return {
+            ...val,
+            intervalInSeconds: (val.intervalInSeconds) ?? 15,
+            numberOfProbes: (val.numberOfProbes) ?? 2,
+        };
+    }
+
+    /**
+     * Load balancer health probes
+     */
+    export interface ProbeResponse {
+        /**
+         * name of the load balancer health probe
+         */
+        name: string;
+        /**
+         * load balancer rule properties
+         */
+        properties: outputs.azurestackhci.ProbePropertiesResponse;
+    }
+    /**
+     * probeResponseProvideDefaults sets the appropriate defaults for ProbeResponse
+     */
+    export function probeResponseProvideDefaults(val: ProbeResponse): ProbeResponse {
+        return {
+            ...val,
+            properties: outputs.azurestackhci.probePropertiesResponseProvideDefaults(val.properties),
+        };
+    }
+
+    /**
+     * Represents the properties of an Azure Linux restricted operating environment Provision Os job.
+     */
+    export interface ProvisionOsJobPropertiesResponse {
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: string;
+        /**
+         * The UTC date and time at which the job completed.
+         */
+        endTimeUtc: string;
+        /**
+         * error details.
+         */
+        error: outputs.azurestackhci.ErrorDetailResponse;
+        /**
+         * Unique, immutable job id.
+         */
+        jobId: string;
+        /**
+         * Job Type supported.
+         * Expected value is 'ProvisionOs'.
+         */
+        jobType: "ProvisionOs";
+        /**
+         * Os Provisioning request.
+         */
+        provisioningRequest: outputs.azurestackhci.ProvisioningRequestResponse;
+        /**
+         * Job provisioning state
+         */
+        provisioningState: string;
+        /**
+         * Reported Properties for Provision Os job
+         */
+        reportedProperties?: outputs.azurestackhci.ProvisionOsReportedPropertiesResponse;
+        /**
+         * The UTC date and time at which the job started.
+         */
+        startTimeUtc: string;
+        /**
+         * Status of Edge device job.
+         */
+        status: string;
+    }
+    /**
+     * provisionOsJobPropertiesResponseProvideDefaults sets the appropriate defaults for ProvisionOsJobPropertiesResponse
+     */
+    export function provisionOsJobPropertiesResponseProvideDefaults(val: ProvisionOsJobPropertiesResponse): ProvisionOsJobPropertiesResponse {
+        return {
+            ...val,
+            provisioningRequest: outputs.azurestackhci.provisioningRequestResponseProvideDefaults(val.provisioningRequest),
+        };
+    }
+
+    /**
+     * Reported Properties for Provision Os job
+     */
+    export interface ProvisionOsReportedPropertiesResponse {
+        /**
+         * Deployment status of job.
+         */
+        deploymentStatus: outputs.azurestackhci.EceActionStatusResponse;
+        /**
+         * The percentage of the job that is complete.
+         */
+        percentComplete: number;
+        /**
+         * Validation status of job.
+         */
+        validationStatus: outputs.azurestackhci.EceActionStatusResponse;
+    }
+
+    /**
+     * Details for device provisioning.
+     */
+    export interface ProvisioningDetailsResponse {
+        /**
+         * Operating system profile.
+         */
+        osProfile: outputs.azurestackhci.OsProvisionProfileResponse;
+        /**
+         * User configuration.
+         */
+        userDetails?: outputs.azurestackhci.UserDetailsResponse[];
+    }
+    /**
+     * provisioningDetailsResponseProvideDefaults sets the appropriate defaults for ProvisioningDetailsResponse
+     */
+    export function provisioningDetailsResponseProvideDefaults(val: ProvisioningDetailsResponse): ProvisioningDetailsResponse {
+        return {
+            ...val,
+            osProfile: outputs.azurestackhci.osProvisionProfileResponseProvideDefaults(val.osProfile),
+        };
+    }
+
+    /**
+     * Represents a provisioning request.
+     */
+    export interface ProvisioningRequestResponse {
+        /**
+         * Base64 encoded custom configuration for CAPI to use
+         */
+        customConfiguration?: string;
+        /**
+         * Device configuration.
+         */
+        deviceConfiguration?: outputs.azurestackhci.TargetDeviceConfigurationResponse;
+        /**
+         * Onboarding configuration.
+         */
+        onboardingConfiguration?: outputs.azurestackhci.OnboardingConfigurationResponse;
+        /**
+         * Operating system profile.
+         */
+        osProfile: outputs.azurestackhci.OsProvisionProfileResponse;
+        /**
+         * Target operating system to support polymorphic resource.
+         */
+        target: string;
+        /**
+         * User configuration.
+         */
+        userDetails?: outputs.azurestackhci.UserDetailsResponse[];
+    }
+    /**
+     * provisioningRequestResponseProvideDefaults sets the appropriate defaults for ProvisioningRequestResponse
+     */
+    export function provisioningRequestResponseProvideDefaults(val: ProvisioningRequestResponse): ProvisioningRequestResponse {
+        return {
+            ...val,
+            osProfile: outputs.azurestackhci.osProvisionProfileResponseProvideDefaults(val.osProfile),
+        };
+    }
+
+    /**
+     * The Azure Resource ID of a Public IP resource
+     */
+    export interface PublicIPAddressArmReferenceResponse {
+        /**
+         * The Azure Resource ID of a Public IP resource
+         */
+        resourceId?: string;
+    }
+
+    /**
+     * Public IP Properties resource.
+     */
+    export interface PublicIPAddressPropertiesResponse {
+        /**
+         * IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+         */
+        ipAddress?: string;
+        /**
+         * ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+         */
+        ipAllocationScope?: string;
+        /**
+         * network interface or LoadBalancer frontendIPconfiguration using this public IP
+         */
+        ipConfiguration: outputs.azurestackhci.IPConfigurationArmReferenceResponse;
+        /**
+         * natGateway using this public IP
+         */
+        natGateway: outputs.azurestackhci.NatGatewayArmReferenceResponse;
+        /**
+         * Provisioning state of the public IP
+         */
+        provisioningState: string;
+        /**
+         * Whether the public IP is v4 or v6. Defaults to IPv4
+         */
+        publicIPAddressVersion?: string;
     }
 
     /**
@@ -43908,6 +45677,20 @@ export namespace azurestackhci {
     }
 
     /**
+     * Site Details consists of common configurations.
+     */
+    export interface SiteDetailsResponse {
+        /**
+         * Edge Device configuration received from site common configuration.
+         */
+        deviceConfiguration?: outputs.azurestackhci.TargetDeviceConfigurationResponse;
+        /**
+         * Site resource Id to be set during Edge Machine resource creation.
+         */
+        siteResourceId: string;
+    }
+
+    /**
      * Software Assurance properties of the cluster.
      */
     export interface SoftwareAssurancePropertiesResponse {
@@ -44010,6 +45793,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * Storage configuration.
+     */
+    export interface StorageConfigurationResponse {
+        /**
+         * Partition size.
+         */
+        partitionSize?: string;
+    }
+
+    /**
      * Storage container provisioning status
      */
     export interface StorageContainerStatusProvisioningStatusResponse {
@@ -44076,6 +45869,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * StorageProfile of edge machine.
+     */
+    export interface StorageProfileResponse {
+        /**
+         * Number of storage disks in the device with $CanPool as true.
+         */
+        poolableDisksCount: number;
+    }
+
+    /**
      * The Storage config of AzureStackHCI Cluster.
      */
     export interface StorageResponse {
@@ -44095,11 +45898,11 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Network Interface.
+     * The Azure Resource ID for a Network Interface.
      */
     export interface SubnetIpConfigurationReferenceResponse {
         /**
-         * The ARM ID for a Network Interface.
+         * The Azure Resource ID for a Network Interface.
          */
         id?: string;
     }
@@ -44213,6 +46016,50 @@ export namespace azurestackhci {
     }
 
     /**
+     * Device configuration.
+     */
+    export interface TargetDeviceConfigurationResponse {
+        /**
+         * Hostname of the device.
+         */
+        hostName?: string;
+        /**
+         * Network configuration.
+         */
+        network?: outputs.azurestackhci.NetworkConfigurationResponse;
+        /**
+         * Storage configuration.
+         */
+        storage?: outputs.azurestackhci.StorageConfigurationResponse;
+        /**
+         * Time configuration.
+         */
+        time?: outputs.azurestackhci.TimeConfigurationResponse;
+        /**
+         * Web proxy configuration.
+         */
+        webProxy?: outputs.azurestackhci.WebProxyConfigurationResponse;
+    }
+
+    /**
+     * Time configuration.
+     */
+    export interface TimeConfigurationResponse {
+        /**
+         * Primary NTP server.
+         */
+        primaryTimeServer?: string;
+        /**
+         * Secondary NTP server.
+         */
+        secondaryTimeServer?: string;
+        /**
+         * Time zone.
+         */
+        timeZone?: string;
+    }
+
+    /**
      * If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
      */
     export interface UpdatePrerequisiteResponse {
@@ -44245,6 +46092,28 @@ export namespace azurestackhci {
     }
 
     /**
+     * User configuration.
+     */
+    export interface UserDetailsResponse {
+        /**
+         * Location of the secret used for authentication.
+         */
+        secretLocation?: string;
+        /**
+         * Type of the secret used for authentication.
+         */
+        secretType: string;
+        /**
+         * SSH Public Key for the user.
+         */
+        sshPubKey?: string[];
+        /**
+         * Name of the user.
+         */
+        userName: string;
+    }
+
+    /**
      * Specifies the security profile settings for the managed disk. NOTE: It can only be set for Confidential VMs
      */
     export interface VMDiskSecurityProfileResponse {
@@ -44255,11 +46124,11 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Virtual Hard Disk.
+     * The Azure Resource ID for a Virtual Hard Disk.
      */
     export interface VirtualHardDiskArmReferenceResponse {
         /**
-         * The ARM ID for a Virtual Hard Disk.
+         * The Azure Resource ID for a Virtual Hard Disk.
          */
         id?: string;
     }
@@ -44605,7 +46474,7 @@ export namespace azurestackhci {
      */
     export interface VirtualMachineInstancePropertiesStorageProfileOsDiskResponse {
         /**
-         * The ARM ID for a Virtual Hard Disk.
+         * The Azure Resource ID for a Virtual Hard Disk.
          */
         id?: string;
         /**
@@ -44959,6 +46828,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * The Azure Resource ID for a Virtual Network
+     */
+    export interface VirtualNetworkArmReferenceResponse {
+        /**
+         * The Azure Resource ID for a Virtual Network.
+         */
+        resourceId?: string;
+    }
+
+    /**
      * DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
      */
     export interface VirtualNetworkPropertiesResponseDhcpOptions {
@@ -45079,6 +46958,92 @@ export namespace azurestackhci {
     }
 
     /**
+     * The Azure Resource ID for a Virtual Network subnet
+     */
+    export interface VirtualNetworkSubnetArmReferenceResponse {
+        /**
+         * The Azure Resource ID for a Virtual Network subnet.
+         */
+        resourceId?: string;
+    }
+
+    /**
+     * The Azure Resource ID for a resource consuming IP on a subnet
+     */
+    export interface VirtualNetworkSubnetIpConfigurationReferenceResponse {
+        /**
+         * The Azure Resource ID for a Network Interface.
+         */
+        id?: string;
+    }
+
+    /**
+     * VirtualNetwork subnet resource
+     */
+    export interface VirtualNetworkSubnetPropertiesResponse {
+        /**
+         * Subnet CIDR
+         */
+        addressPrefix: string;
+        /**
+         * List of ip configurations for the subnet
+         */
+        ipConfigurations: outputs.azurestackhci.VirtualNetworkSubnetIpConfigurationReferenceResponse[];
+        /**
+         * Nat Gateway attached to the subnet for non-vnet traffic.
+         */
+        natGateway?: outputs.azurestackhci.NatGatewayArmReferenceResponse;
+        /**
+         * Network Security Group attached to the subnet.
+         */
+        networkSecurityGroup?: outputs.azurestackhci.NetworkSecurityGroupArmReferenceResponse;
+        /**
+         * The provisioning state of the virtual network subnet resource.
+         */
+        provisioningState: string;
+        /**
+         * RouteTable defining custom routes for the subnet.
+         */
+        routeTable?: outputs.azurestackhci.RouteTableResponse;
+        /**
+         * The observed status of the virtual network subnet resource.
+         */
+        status: outputs.azurestackhci.VirtualNetworkSubnetStatusResponse;
+    }
+
+    /**
+     * Status of virtual network subnet operations
+     */
+    export interface VirtualNetworkSubnetStatusProvisioningStatusResponse {
+        /**
+         * The ID of the operation performed on the virtual network subnet
+         */
+        operationId?: string;
+        /**
+         * The status of the operation performed on the virtual network subnet [Succeeded, Failed, InProgress]
+         */
+        status: string;
+    }
+
+    /**
+     * Status of virtual network subnet operations
+     */
+    export interface VirtualNetworkSubnetStatusResponse {
+        /**
+         * VirtualNetworkSubnet provisioning error code
+         */
+        errorCode?: string;
+        /**
+         * Descriptive error message
+         */
+        errorMessage?: string;
+        /**
+         * Public IP provisioning status
+         */
+        provisioningStatus?: outputs.azurestackhci.VirtualNetworkSubnetStatusProvisioningStatusResponse;
+    }
+
+    /**
      * The VirtualSwitchConfigurationOverrides of a cluster.
      */
     export interface VirtualSwitchConfigurationOverridesResponse {
@@ -45093,17 +47058,21 @@ export namespace azurestackhci {
     }
 
     /**
-     * The credentials used to login to the image repository that has access to the specified image
+     * Web proxy configuration.
      */
-    export interface VmImageRepositoryCredentialsResponse {
+    export interface WebProxyConfigurationResponse {
         /**
-         * Password for accessing image repository
+         * Bypass list for the web proxy.
          */
-        password: string;
+        bypassList?: string[];
         /**
-         * Username for accessing image repository
+         * Connection URI of the web proxy.
          */
-        username: string;
+        connectionUri?: string;
+        /**
+         * Port of the web proxy.
+         */
+        port?: string;
     }
 
 }
@@ -45300,7 +47269,13 @@ export namespace baremetalinfrastructure {
 }
 
 export namespace batch {
+    /**
+     * Link to an application package inside the batch account
+     */
     export interface ApplicationPackageReferenceResponse {
+        /**
+         * The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
+         */
         id: string;
         /**
          * If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.
@@ -45308,11 +47283,17 @@ export namespace batch {
         version?: string;
     }
 
+    /**
+     * An error that occurred when autoscaling a pool.
+     */
     export interface AutoScaleRunErrorResponse {
         /**
          * An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
          */
         code: string;
+        /**
+         * Additional details about the error.
+         */
         details?: outputs.batch.AutoScaleRunErrorResponse[];
         /**
          * A message describing the error, intended to be suitable for display in a user interface.
@@ -45320,8 +47301,17 @@ export namespace batch {
         message: string;
     }
 
+    /**
+     * The results and errors from an execution of a pool autoscale formula.
+     */
     export interface AutoScaleRunResponse {
+        /**
+         * An error that occurred when autoscaling a pool.
+         */
         error?: outputs.batch.AutoScaleRunErrorResponse;
+        /**
+         * The time at which the autoscale formula was last evaluated.
+         */
         evaluationTime: string;
         /**
          * Each variable value is returned in the form $variable=value, and variables are separated by semicolons.
@@ -45329,11 +47319,17 @@ export namespace batch {
         results?: string;
     }
 
+    /**
+     * AutoScale settings for the pool.
+     */
     export interface AutoScaleSettingsResponse {
         /**
          * If omitted, the default value is 15 minutes (PT15M).
          */
         evaluationInterval?: string;
+        /**
+         * A formula for the desired number of compute nodes in the pool.
+         */
         formula: string;
     }
 
@@ -45368,6 +47364,9 @@ export namespace batch {
         };
     }
 
+    /**
+     * Specifies the parameters for the auto user that runs a task on the Batch service.
+     */
     export interface AutoUserSpecificationResponse {
         /**
          * The default value is nonAdmin.
@@ -45401,16 +47400,25 @@ export namespace batch {
         useRollingUpgradePolicy?: boolean;
     }
 
+    /**
+     * Information used to connect to an Azure Storage Container using Blobfuse.
+     */
     export interface AzureBlobFileSystemConfigurationResponse {
         /**
          * This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
          */
         accountKey?: string;
+        /**
+         * The Azure Storage Account name.
+         */
         accountName: string;
         /**
          * These are 'net use' options in Windows and 'mount' options in Linux.
          */
         blobfuseOptions?: string;
+        /**
+         * The Azure Blob Storage Container name.
+         */
         containerName: string;
         /**
          * This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
@@ -45426,8 +47434,17 @@ export namespace batch {
         sasKey?: string;
     }
 
+    /**
+     * Information used to connect to an Azure Fileshare.
+     */
     export interface AzureFileShareConfigurationResponse {
+        /**
+         * The Azure Storage account key.
+         */
         accountKey: string;
+        /**
+         * The Azure Storage account name.
+         */
         accountName: string;
         /**
          * This is of the form 'https://{account}.file.core.windows.net/'.
@@ -45479,17 +47496,29 @@ export namespace batch {
         userAssignedIdentities?: {[key: string]: outputs.batch.UserAssignedIdentitiesResponse};
     }
 
+    /**
+     * Information used to connect to a CIFS file system.
+     */
     export interface CIFSMountConfigurationResponse {
         /**
          * These are 'net use' options in Windows and 'mount' options in Linux.
          */
         mountOptions?: string;
+        /**
+         * The password to use for authentication against the CIFS file system.
+         */
         password: string;
         /**
          * All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
          */
         relativeMountPath: string;
+        /**
+         * The URI of the file system to mount.
+         */
         source: string;
+        /**
+         * The user to use for authentication against the CIFS file system.
+         */
         userName: string;
     }
 
@@ -45497,6 +47526,9 @@ export namespace batch {
      * Warning: This object is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
      */
     export interface CertificateReferenceResponse {
+        /**
+         * The fully qualified ID of the certificate to install on the pool. This must be inside the same batch account as the pool.
+         */
         id: string;
         /**
          * The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
@@ -45506,6 +47538,9 @@ export namespace batch {
          * This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
          */
         storeName?: string;
+        /**
+         * Which user accounts on the compute node should have access to the private data of the certificate.
+         */
         visibility?: string[];
     }
 
@@ -45519,6 +47554,9 @@ export namespace batch {
         resourceId?: string;
     }
 
+    /**
+     * The configuration for container-enabled pools.
+     */
     export interface ContainerConfigurationResponse {
         /**
          * This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
@@ -45528,27 +47566,45 @@ export namespace batch {
          * If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
          */
         containerRegistries?: outputs.batch.ContainerRegistryResponse[];
+        /**
+         * The container technology to be used.
+         */
         type: string;
     }
 
+    /**
+     * The entry of path and mount mode you want to mount into task container.
+     */
     export interface ContainerHostBatchBindMountEntryResponse {
         /**
          * For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
          */
         isReadOnly?: boolean;
+        /**
+         * The paths which will be mounted to container task's container.
+         */
         source?: string;
     }
 
+    /**
+     * A private container registry.
+     */
     export interface ContainerRegistryResponse {
         /**
          * The reference to a user assigned identity associated with the Batch pool which a compute node will use.
          */
         identityReference?: outputs.batch.ComputeNodeIdentityReferenceResponse;
+        /**
+         * The password to log into the registry server.
+         */
         password?: string;
         /**
          * If omitted, the default is "docker.io".
          */
         registryServer?: string;
+        /**
+         * The user name to log into the registry server.
+         */
         userName?: string;
     }
 
@@ -45559,13 +47615,16 @@ export namespace batch {
         /**
          * Values are:
          *
-         *  none - The caching mode for the disk is not enabled.
-         *  readOnly - The caching mode for the disk is read only.
-         *  readWrite - The caching mode for the disk is read and write.
+         * none - The caching mode for the disk is not enabled.
+         * readOnly - The caching mode for the disk is read only.
+         * readWrite - The caching mode for the disk is read and write.
          *
-         *  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+         * The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
          */
         caching?: string;
+        /**
+         * The initial disk size in GB when creating new data disk.
+         */
         diskSizeGB: number;
         /**
          * The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
@@ -45574,16 +47633,25 @@ export namespace batch {
         /**
          * If omitted, the default is "Standard_LRS". Values are:
          *
-         *  Standard_LRS - The data disk should use standard locally redundant storage.
-         *  Premium_LRS - The data disk should use premium locally redundant storage.
+         * Standard_LRS - The data disk should use standard locally redundant storage.
+         * Premium_LRS - The data disk should use premium locally redundant storage.
          */
         storageAccountType?: string;
     }
 
+    /**
+     * Deployment configuration properties.
+     */
     export interface DeploymentConfigurationResponse {
+        /**
+         * The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+         */
         virtualMachineConfiguration?: outputs.batch.VirtualMachineConfigurationResponse;
     }
 
+    /**
+     * Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+     */
     export interface DiffDiskSettingsResponse {
         /**
          * This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
@@ -45629,11 +47697,23 @@ export namespace batch {
         ipRules?: outputs.batch.IPRuleResponse[];
     }
 
+    /**
+     * An environment variable to be set on a task process.
+     */
     export interface EnvironmentSettingResponse {
+        /**
+         * The name of the environment variable.
+         */
         name: string;
+        /**
+         * The value of the environment variable.
+         */
         value?: string;
     }
 
+    /**
+     * Fixed scale settings for the pool.
+     */
     export interface FixedScaleSettingsResponse {
         /**
          * The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
@@ -45672,6 +47752,9 @@ export namespace batch {
         value: string;
     }
 
+    /**
+     * A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+     */
     export interface ImageReferenceResponse {
         /**
          * This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
@@ -45703,6 +47786,9 @@ export namespace batch {
         version?: string;
     }
 
+    /**
+     * A inbound NAT pool that can be used to address specific ports on compute nodes in a Batch pool externally.
+     */
     export interface InboundNatPoolResponse {
         /**
          * This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
@@ -45724,6 +47810,9 @@ export namespace batch {
          * The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
          */
         networkSecurityGroupRules?: outputs.batch.NetworkSecurityGroupRuleResponse[];
+        /**
+         * The protocol of the endpoint.
+         */
         protocol: string;
     }
 
@@ -45734,9 +47823,9 @@ export namespace batch {
         /**
          * Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
          *
-         *  The Batch Account has a System Assigned identity
-         *  The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-         *  The KeyVault has soft-delete and purge protection enabled
+         * The Batch Account has a System Assigned identity
+         * The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+         * The KeyVault has soft-delete and purge protection enabled
          */
         keyIdentifier?: string;
     }
@@ -45755,6 +47844,9 @@ export namespace batch {
         url: string;
     }
 
+    /**
+     * Properties used to create a user account on a Linux node.
+     */
     export interface LinuxUserConfigurationResponse {
         /**
          * The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
@@ -45775,6 +47867,9 @@ export namespace batch {
          * Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
          */
         securityProfile?: outputs.batch.VMDiskSecurityProfileResponse;
+        /**
+         * The storage account type for use in creating data disks or OS disk.
+         */
         storageAccountType?: string;
     }
 
@@ -45782,10 +47877,19 @@ export namespace batch {
      * The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
      */
     export interface MetadataItemResponse {
+        /**
+         * The name of the metadata item.
+         */
         name: string;
+        /**
+         * The value of the metadata item.
+         */
         value: string;
     }
 
+    /**
+     * The file system to mount on each node.
+     */
     export interface MountConfigurationResponse {
         /**
          * This property is mutually exclusive with all other properties.
@@ -45805,6 +47909,9 @@ export namespace batch {
         nfsMountConfiguration?: outputs.batch.NFSMountConfigurationResponse;
     }
 
+    /**
+     * Information used to connect to an NFS file system.
+     */
     export interface NFSMountConfigurationResponse {
         /**
          * These are 'net use' options in Windows and 'mount' options in Linux.
@@ -45814,6 +47921,9 @@ export namespace batch {
          * All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
          */
         relativeMountPath: string;
+        /**
+         * The URI of the file system to mount.
+         */
         source: string;
     }
 
@@ -45821,11 +47931,17 @@ export namespace batch {
      * The network configuration for a pool.
      */
     export interface NetworkConfigurationResponse {
+        /**
+         * The scope of dynamic vnet assignment.
+         */
         dynamicVnetAssignmentScope?: string;
         /**
          * Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
          */
         enableAcceleratedNetworking?: boolean;
+        /**
+         * The endpoint configuration for a pool.
+         */
         endpointConfiguration?: outputs.batch.PoolEndpointConfigurationResponse;
         /**
          * The public IP Address configuration of the networking configuration of a Pool.
@@ -45860,7 +47976,13 @@ export namespace batch {
         nodeManagementAccess?: outputs.batch.EndpointAccessProfileResponse;
     }
 
+    /**
+     * A network security group rule to apply to an inbound endpoint.
+     */
     export interface NetworkSecurityGroupRuleResponse {
+        /**
+         * The action that should be taken for a specified IP address, subnet range or tag.
+         */
         access: string;
         /**
          * Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
@@ -45886,14 +48008,32 @@ export namespace batch {
         policy?: string;
     }
 
+    /**
+     * Settings for the operating system disk of the virtual machine.
+     */
     export interface OSDiskResponse {
+        /**
+         * The type of caching to enable for the disk.
+         */
         caching?: string;
+        /**
+         * The initial disk size in GB when creating new OS disk.
+         */
         diskSizeGB?: number;
+        /**
+         * Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+         */
         ephemeralOSDiskSettings?: outputs.batch.DiffDiskSettingsResponse;
         managedDisk?: outputs.batch.ManagedDiskResponse;
+        /**
+         * Specifies whether writeAccelerator should be enabled or disabled on the disk.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
+    /**
+     * The endpoint configuration for a pool.
+     */
     export interface PoolEndpointConfigurationResponse {
         /**
          * The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
@@ -45914,11 +48054,11 @@ export namespace batch {
          */
         groupIds: string[];
         /**
-         * The ID of the resource.
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
-         * The name of the resource.
+         * The name of the resource
          */
         name: string;
         /**
@@ -45926,16 +48066,23 @@ export namespace batch {
          */
         privateEndpoint: outputs.batch.PrivateEndpointResponse;
         /**
-         * The private link service connection state of the private endpoint connection
+         * The private link service connection state of the private endpoint connection.
          */
         privateLinkServiceConnectionState?: outputs.batch.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection.
+         */
         provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.batch.SystemDataResponse;
         /**
          * The tags of the resource.
          */
         tags?: {[key: string]: string};
         /**
-         * The type of the resource.
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
@@ -45944,6 +48091,9 @@ export namespace batch {
      * The private endpoint of the private endpoint connection.
      */
     export interface PrivateEndpointResponse {
+        /**
+         * The ARM resource identifier of the private endpoint. This is of the form /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/privateEndpoints/{privateEndpoint}.
+         */
         id: string;
     }
 
@@ -45951,8 +48101,17 @@ export namespace batch {
      * The private link service connection state of the private endpoint connection
      */
     export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * Action required on the private connection state
+         */
         actionsRequired: string;
+        /**
+         * Description of the private Connection state
+         */
         description?: string;
+        /**
+         * The status of the Batch private endpoint connection
+         */
         status: string;
     }
 
@@ -45970,11 +48129,17 @@ export namespace batch {
         provision?: string;
     }
 
+    /**
+     * An error that occurred when resizing a pool.
+     */
     export interface ResizeErrorResponse {
         /**
          * An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
          */
         code: string;
+        /**
+         * Additional details about the error.
+         */
         details?: outputs.batch.ResizeErrorResponse[];
         /**
          * A message describing the error, intended to be suitable for display in a user interface.
@@ -45994,11 +48159,23 @@ export namespace batch {
          * The default value is 15 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service returns an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
          */
         resizeTimeout?: string;
+        /**
+         * The time when this resize operation was started.
+         */
         startTime?: string;
+        /**
+         * The desired number of dedicated compute nodes in the pool.
+         */
         targetDedicatedNodes?: number;
+        /**
+         * The desired number of Spot/low-priority compute nodes in the pool.
+         */
         targetLowPriorityNodes?: number;
     }
 
+    /**
+     * A single file or multiple files to be downloaded to a compute node.
+     */
     export interface ResourceFileResponse {
         /**
          * The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
@@ -46095,6 +48272,9 @@ export namespace batch {
          * This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
          */
         encryptionAtHost?: boolean;
+        /**
+         * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+         */
         securityType?: string;
         /**
          * Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
@@ -46124,11 +48304,17 @@ export namespace batch {
          * When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
          */
         containerSettings?: outputs.batch.TaskContainerSettingsResponse;
+        /**
+         * A list of environment variable settings for the start task.
+         */
         environmentSettings?: outputs.batch.EnvironmentSettingResponse[];
         /**
          * The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0
          */
         maxTaskRetryCount?: number;
+        /**
+         * A list of files that the Batch service will download to the compute node before running the command line.
+         */
         resourceFiles?: outputs.batch.ResourceFileResponse[];
         /**
          * If omitted, the task runs as a non-administrative user unique to the task.
@@ -46149,6 +48335,39 @@ export namespace batch {
         };
     }
 
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * The container settings for a task.
+     */
     export interface TaskContainerSettingsResponse {
         /**
          * If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
@@ -46166,10 +48385,19 @@ export namespace batch {
          * This setting can be omitted if was already provided at pool creation.
          */
         registry?: outputs.batch.ContainerRegistryResponse;
+        /**
+         * A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+         */
         workingDirectory?: string;
     }
 
+    /**
+     * Specifies how tasks should be distributed across compute nodes.
+     */
     export interface TaskSchedulingPolicyResponse {
+        /**
+         * How tasks should be distributed across compute nodes.
+         */
         nodeFillType: string;
     }
     /**
@@ -46204,6 +48432,9 @@ export namespace batch {
          * The configuration parameters used for performing automatic OS upgrade.
          */
         automaticOSUpgradePolicy?: outputs.batch.AutomaticOSUpgradePolicyResponse;
+        /**
+         * Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
+         */
         mode: string;
         /**
          * The configuration parameters used while performing a rolling upgrade.
@@ -46211,6 +48442,9 @@ export namespace batch {
         rollingUpgradePolicy?: outputs.batch.RollingUpgradePolicyResponse;
     }
 
+    /**
+     * Properties used to create a user on an Azure Batch node.
+     */
     export interface UserAccountResponse {
         /**
          * nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -46220,7 +48454,13 @@ export namespace batch {
          * This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
          */
         linuxUserConfiguration?: outputs.batch.LinuxUserConfigurationResponse;
+        /**
+         * The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
+         */
         name: string;
+        /**
+         * The password for the user account.
+         */
         password: string;
         /**
          * This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
@@ -46260,9 +48500,15 @@ export namespace batch {
      * Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
      */
     export interface VMDiskSecurityProfileResponse {
+        /**
+         * Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+         */
         securityEncryptionType?: string;
     }
 
+    /**
+     * The configuration for virtual machine extensions.
+     */
     export interface VMExtensionResponse {
         /**
          * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -46272,21 +48518,39 @@ export namespace batch {
          * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
          */
         enableAutomaticUpgrade?: boolean;
+        /**
+         * The name of the virtual machine extension.
+         */
         name: string;
         /**
-         * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
+         * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
          */
         protectedSettings?: any;
         /**
          * Collection of extension names after which this extension needs to be provisioned.
          */
         provisionAfterExtensions?: string[];
+        /**
+         * The name of the extension handler publisher.
+         */
         publisher: string;
+        /**
+         * JSON formatted public settings for the extension.
+         */
         settings?: any;
+        /**
+         * The type of the extensions.
+         */
         type: string;
+        /**
+         * The version of script handler.
+         */
         typeHandlerVersion?: string;
     }
 
+    /**
+     * The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+     */
     export interface VirtualMachineConfigurationResponse {
         /**
          * If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
@@ -46304,12 +48568,15 @@ export namespace batch {
          * If specified, the extensions mentioned in this configuration will be installed on each node.
          */
         extensions?: outputs.batch.VMExtensionResponse[];
+        /**
+         * A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+         */
         imageReference: outputs.batch.ImageReferenceResponse;
         /**
          * This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
          *
-         *  Windows_Server - The on-premises license is for Windows Server.
-         *  Windows_Client - The on-premises license is for Windows Client.
+         * Windows_Server - The on-premises license is for Windows Server.
+         * Windows_Client - The on-premises license is for Windows Client.
          */
         licenseType?: string;
         /**
@@ -46352,6 +48619,9 @@ export namespace batch {
         name: string;
     }
 
+    /**
+     * Windows operating system settings to apply to the virtual machine.
+     */
     export interface WindowsConfigurationResponse {
         /**
          * If omitted, the default value is true.
@@ -46359,6 +48629,9 @@ export namespace batch {
         enableAutomaticUpdates?: boolean;
     }
 
+    /**
+     * Properties used to create a user account on a Windows node.
+     */
     export interface WindowsUserConfigurationResponse {
         /**
          * Specifies login mode for the user. The default value is Interactive.
@@ -47045,11 +49318,40 @@ export namespace billing {
 
 export namespace billingbenefits {
     /**
+     * Optional field to record suppression reason for automatic shortfall.
+     */
+    export interface AutomaticShortfallSuppressReasonResponse {
+        /**
+         * Code for the suppression reason.
+         */
+        code?: string;
+        /**
+         * Message for suppression reason.
+         */
+        message?: string;
+    }
+
+    /**
      * Catalog claim for a discount.
      */
     export interface CatalogClaimsItemResponse {
         catalogClaimsItemType?: string;
         value?: string;
+    }
+
+    /**
+     * Commitment towards the benefit.
+     */
+    export interface CommitmentResponse {
+        amount?: number;
+        /**
+         * The ISO 4217 3-letter currency code for the currency used by this purchase record.
+         */
+        currencyCode?: string;
+        /**
+         * The grain of the commitment.
+         */
+        grain?: string;
     }
 
     /**
@@ -47062,6 +49364,70 @@ export namespace billingbenefits {
          * These items are open-ended strings.
          */
         value?: string[];
+    }
+
+    /**
+     * Credit breakdown item representing a milestone, line-item, or no-charge service
+     */
+    export interface CreditBreakdownItemResponse {
+        /**
+         * Allocation details including currency and amount for this breakdown item
+         */
+        allocation?: outputs.billingbenefits.CommitmentResponse;
+        /**
+         * Key-value pairs for additional parameters and metadata
+         */
+        dimensions?: outputs.billingbenefits.CreditDimensionResponse[];
+        /**
+         * End DateTime in UTC.
+         */
+        endAt?: string;
+        /**
+         * Start DateTime.
+         */
+        startAt?: string;
+    }
+
+    /**
+     * Key-value pair for additional credit parameters and metadata
+     */
+    export interface CreditDimensionResponse {
+        /**
+         * The dimension key (e.g., productFamily, description, creditType)
+         */
+        key: string;
+        /**
+         * The dimension value
+         */
+        value: string;
+    }
+
+    /**
+     * Credit breakdown item representing a milestone, line-item, or no-charge service
+     */
+    export interface CreditPoliciesResponse {
+        /**
+         * Expiration policy of the Credit
+         */
+        expiration?: string;
+        /**
+         * Redemption policy of the Credit
+         */
+        redemption?: string;
+    }
+
+    /**
+     * The reason for the credit. Not required if not applicable.
+     */
+    export interface CreditReasonResponse {
+        /**
+         * The reason code for credit.
+         */
+        code: number;
+        /**
+         * The free string description of the credit.
+         */
+        description: string;
     }
 
     /**
@@ -47436,6 +49802,40 @@ export namespace billingbenefits {
     }
 
     /**
+     * MACC milestone represents interim targets within the period of MACC.
+     */
+    export interface MaccMilestoneResponse {
+        /**
+         * Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+         */
+        automaticShortfall?: string;
+        /**
+         * Optional field to record suppression reason for automatic shortfall.
+         */
+        automaticShortfallSuppressReason?: outputs.billingbenefits.AutomaticShortfallSuppressReasonResponse;
+        /**
+         * Commitment associated with this milestone.
+         */
+        commitment?: outputs.billingbenefits.PriceResponse;
+        /**
+         * End date time for the milestone. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
+         */
+        endAt?: string;
+        /**
+         * Globally unique identifier for the milestone. Format: {guid}
+         */
+        milestoneId?: string;
+        /**
+         * Details of the shortfall associated with this milestone.
+         */
+        shortfall?: outputs.billingbenefits.ShortfallResponse;
+        /**
+         * Represents the current status of the Milestone.
+         */
+        status?: string;
+    }
+
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     export interface ManagedServiceIdentityResponse {
@@ -47481,7 +49881,7 @@ export namespace billingbenefits {
          */
         name: string;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
          */
         product: string;
         /**
@@ -47512,6 +49912,48 @@ export namespace billingbenefits {
         pricingPolicy?: string;
     }
 
+    export interface PriceResponse {
+        amount?: number;
+        /**
+         * The ISO 4217 3-letter currency code for the currency used by this purchase record.
+         */
+        currencyCode?: string;
+    }
+
+    /**
+     * MACC shortfall
+     */
+    export interface ShortfallResponse {
+        /**
+         * Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
+         */
+        balanceVersion?: number;
+        /**
+         * Shortfall amount with grain.
+         */
+        charge?: outputs.billingbenefits.CommitmentResponse;
+        /**
+         * End DateTime in UTC.
+         */
+        endAt?: string;
+        /**
+         * Represents catalog UPN.
+         */
+        productCode?: string;
+        /**
+         * Fully-qualified resource identifier of the credits associated with the shortfall.
+         */
+        resourceId?: string;
+        /**
+         * Start DateTime.
+         */
+        startAt?: string;
+        /**
+         * This is an identifier of the shortfall which will not change for its lifetime.
+         */
+        systemId?: string;
+    }
+
     /**
      * The resource model definition representing SKU
      */
@@ -47529,7 +49971,7 @@ export namespace billingbenefits {
          */
         name: string;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
          */
         size?: string;
         /**
@@ -51077,6 +53519,20 @@ export namespace cdn {
     }
 
     /**
+     * Edge action attachment information
+     */
+    export interface EdgeActionAttachmentResponse {
+        /**
+         * The attached resource Id
+         */
+        attachedResourceId: string;
+        /**
+         * The edge action attachment id
+         */
+        id: string;
+    }
+
+    /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
     export interface EndpointPropertiesUpdateParametersDeliveryPolicyResponse {
@@ -52130,6 +54586,20 @@ export namespace cdn {
          * Name of the pricing tier.
          */
         name?: string;
+    }
+
+    /**
+     * The SKU type for the edge action
+     */
+    export interface SkuTypeResponse {
+        /**
+         * The name of the SKU
+         */
+        name: string;
+        /**
+         * The tier of the SKU
+         */
+        tier: string;
     }
 
     /**
@@ -53504,7 +55974,7 @@ export namespace cloudhealth {
      */
     export interface EvaluationRuleResponse {
         /**
-         * Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+         * Degraded rule with static threshold.
          */
         degradedRule?: outputs.cloudhealth.ThresholdRuleResponse;
         /**
@@ -53512,7 +55982,7 @@ export namespace cloudhealth {
          */
         dynamicDetectionRule?: outputs.cloudhealth.DynamicDetectionRuleResponse;
         /**
-         * Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+         * Unhealthy rule with static threshold.
          */
         unhealthyRule?: outputs.cloudhealth.ThresholdRuleResponse;
     }
@@ -54640,6 +57110,60 @@ export namespace codesigning {
     }
 
     /**
+     * Properties of the certificate.
+     */
+    export interface CertificateResponse {
+        /**
+         * Certificate created date.
+         */
+        createdDate?: string;
+        /**
+         * The timestamp when the revocation is effective.
+         */
+        effectiveAt?: string;
+        /**
+         * Enhanced key usage of the certificate.
+         */
+        enhancedKeyUsage?: string;
+        /**
+         * Certificate expiry date.
+         */
+        expiryDate?: string;
+        /**
+         * Reason for the revocation failure.
+         */
+        failureReason?: string;
+        /**
+         * Reason for revocation.
+         */
+        reason?: string;
+        /**
+         * Remarks for the revocation.
+         */
+        remarks?: string;
+        /**
+         * The timestamp when the revocation is requested.
+         */
+        requestedAt?: string;
+        /**
+         * Serial number of the certificate.
+         */
+        serialNumber?: string;
+        /**
+         * Status of the certificate.
+         */
+        status: string;
+        /**
+         * Subject name of the certificate.
+         */
+        subjectName?: string;
+        /**
+         * Thumbprint of the certificate.
+         */
+        thumbprint?: string;
+    }
+
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
@@ -54905,6 +57429,110 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Type modeling the protocol and version used by an agent/exposed by a deployment.
+     */
+    export interface AgentProtocolVersionResponse {
+        /**
+         * The protocol used by the agent/exposed by a deployment.
+         */
+        protocol?: string;
+        /**
+         * The version of the protocol.
+         */
+        version?: string;
+    }
+
+    /**
+     * Agent Reference resource
+     */
+    export interface AgentReferenceResourceResponse {
+        /**
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * [Required] Additional attributes of the entity.
+         */
+        properties: outputs.cognitiveservices.AgentReferenceResponse;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.cognitiveservices.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * Type modeling a reference to a version of an agent definition.
+     */
+    export interface AgentReferenceResponse {
+        /**
+         * Gets the agent's unique identifier within the organization (subscription).
+         */
+        agentId?: string;
+        /**
+         * Gets the agent's name (unique within the project/app).
+         */
+        agentName?: string;
+    }
+
+    /**
+     * Resource type representing an agentic application as a management construct.
+     */
+    export interface AgenticApplicationResponse {
+        /**
+         * The EntraId Agentic Blueprint of the application.
+         */
+        agentIdentityBlueprint?: outputs.cognitiveservices.AssignedIdentityResponse;
+        /**
+         * The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+         */
+        agents?: outputs.cognitiveservices.AgentReferenceResponse[];
+        /**
+         * Gets or sets the authorization policy associated with this agentic application instance.
+         */
+        authorizationPolicy?: outputs.cognitiveservices.ChannelsBuiltInAuthorizationPolicyResponse | outputs.cognitiveservices.OrganizationSharedBuiltInAuthorizationPolicyResponse | outputs.cognitiveservices.RoleBasedBuiltInAuthorizationPolicyResponse;
+        /**
+         * The application's dedicated invocation endpoint.
+         */
+        baseUrl?: string;
+        /**
+         * The (default) agent instance identity of the application.
+         */
+        defaultInstanceIdentity?: outputs.cognitiveservices.AssignedIdentityResponse;
+        /**
+         * The asset description text.
+         */
+        description?: string;
+        /**
+         * The display name of the application.
+         */
+        displayName?: string;
+        /**
+         * Enabledstate of the application.
+         */
+        isEnabled: boolean;
+        /**
+         * Provisioning state of the application.
+         */
+        provisioningState: string;
+        /**
+         * Tag dictionary. Tags can be added, removed, and updated.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Gets or sets the traffic routing policy for the application's deployments.
+         */
+        trafficRoutingPolicy?: outputs.cognitiveservices.ApplicationTrafficRoutingPolicyResponse;
+    }
+
+    /**
      * This connection type covers the generic ApiKey auth connection categories, for examples:
      * AzureOpenAI:
      *     Category:= AzureOpenAI
@@ -55006,6 +57634,54 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Type representing an application traffic policy as a property of an agentic application.
+     */
+    export interface ApplicationTrafficRoutingPolicyResponse {
+        /**
+         * Methodology used to route traffic to the application's deployments.
+         */
+        protocol?: string;
+        /**
+         * Gets or sets the collection of traffic routing rules.
+         */
+        rules?: outputs.cognitiveservices.TrafficRoutingRuleResponse[];
+    }
+
+    /**
+     * Type representing an identity assignment
+     */
+    export interface AssignedIdentityResponse {
+        /**
+         * The client ID of the identity.
+         */
+        clientId: string;
+        /**
+         * Specifies the kind of Entra identity described by this object.
+         */
+        kind: string;
+        /**
+         * The principal ID of the identity.
+         */
+        principalId: string;
+        /**
+         * Represents the provisioning state of an identity resource.
+         */
+        provisioningState: string;
+        /**
+         * The subject of this identity assignment.
+         */
+        subject?: string;
+        /**
+         * The tenant ID of the identity.
+         */
+        tenantId: string;
+        /**
+         * Enumeration of identity types, from the perspective of management.
+         */
+        type: string;
+    }
+
+    /**
      * The call rate limit Cognitive Services account.
      */
     export interface CallRateLimitResponse {
@@ -55066,6 +57742,17 @@ export namespace cognitiveservices {
             ...val,
             capabilityHostKind: (val.capabilityHostKind) ?? "Agents",
         };
+    }
+
+    /**
+     * Represents a built-in authorization policy specific to Azure Bot Service/Channels authentication.
+     */
+    export interface ChannelsBuiltInAuthorizationPolicyResponse {
+        /**
+         * Authorization scheme type.
+         * Expected value is 'Channels'.
+         */
+        type: "Channels";
     }
 
     /**
@@ -55312,6 +57999,24 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Gets or sets the source to which filter applies.
+     */
+    export interface CustomTopicConfigResponse {
+        /**
+         * If blocking would occur.
+         */
+        blocking?: boolean;
+        /**
+         * Content source to apply the Content Filters.
+         */
+        source?: string;
+        /**
+         * Name of RAI topic.
+         */
+        topicName?: string;
+    }
+
+    /**
      * Internal use only.
      */
     export interface DeploymentCapacitySettingsResponse {
@@ -55483,6 +58188,82 @@ export namespace cognitiveservices {
     }
 
     /**
+     * FQDN Outbound Rule for the managed network of a cognitive services account.
+     */
+    export interface FqdnOutboundRuleResponse {
+        /**
+         * Category of a managed network Outbound Rule of a cognitive services account.
+         */
+        category?: string;
+        destination?: string;
+        /**
+         * Error information about an outbound rule of a cognitive services account if RuleStatus is failed.
+         */
+        errorInformation: string;
+        parentRuleNames: string[];
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         */
+        status?: string;
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         * Expected value is 'FQDN'.
+         */
+        type: "FQDN";
+    }
+
+    /**
+     * Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
+     */
+    export interface HostedAgentDeploymentResponse {
+        /**
+         * Returns a flat list of agent:version deployed in this deployment.
+         */
+        agents?: outputs.cognitiveservices.VersionedAgentReferenceResponse[];
+        /**
+         * Gets or sets the unique identifier of the deployment.
+         */
+        deploymentId?: string;
+        /**
+         * Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+         * Expected value is 'Hosted'.
+         */
+        deploymentType: "Hosted";
+        /**
+         * The asset description text.
+         */
+        description?: string;
+        /**
+         * Gets or sets the display name of the deployment.
+         */
+        displayName?: string;
+        /**
+         * Gets or sets the maximum number of replicas for this hosted deployment.
+         */
+        maxReplicas?: number;
+        /**
+         * Gets or sets the minimum number of replicas for this hosted deployment.
+         */
+        minReplicas?: number;
+        /**
+         * Gets or sets the supported protocol types and versions exposed by this deployment.
+         */
+        protocols?: outputs.cognitiveservices.AgentProtocolVersionResponse[];
+        /**
+         * Gets or sets the provisioning state of the agent deployment.
+         */
+        provisioningState: string;
+        /**
+         * Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+         */
+        state?: string;
+        /**
+         * Tag dictionary. Tags can be added, removed, and updated.
+         */
+        tags?: {[key: string]: string};
+    }
+
+    /**
      * Identity for the resource.
      */
     export interface IdentityResponse {
@@ -55531,6 +58312,49 @@ export namespace cognitiveservices {
          * Version of the Key from KeyVault
          */
         keyVersion?: string;
+    }
+
+    /**
+     * Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
+     */
+    export interface ManagedAgentDeploymentResponse {
+        /**
+         * Returns a flat list of agent:version deployed in this deployment.
+         */
+        agents?: outputs.cognitiveservices.VersionedAgentReferenceResponse[];
+        /**
+         * Gets or sets the unique identifier of the deployment.
+         */
+        deploymentId?: string;
+        /**
+         * Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+         * Expected value is 'Managed'.
+         */
+        deploymentType: "Managed";
+        /**
+         * The asset description text.
+         */
+        description?: string;
+        /**
+         * Gets or sets the display name of the deployment.
+         */
+        displayName?: string;
+        /**
+         * Gets or sets the supported protocol types and versions exposed by this deployment.
+         */
+        protocols?: outputs.cognitiveservices.AgentProtocolVersionResponse[];
+        /**
+         * Gets or sets the provisioning state of the agent deployment.
+         */
+        provisioningState: string;
+        /**
+         * Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+         */
+        state?: string;
+        /**
+         * Tag dictionary. Tags can be added, removed, and updated.
+         */
+        tags?: {[key: string]: string};
     }
 
     export interface ManagedIdentityAuthTypeConnectionPropertiesResponse {
@@ -55659,6 +58483,17 @@ export namespace cognitiveservices {
         useWorkspaceManagedIdentity?: boolean;
     }
 
+    /**
+     * Built-in authorization policy scoped to organization/tenant.
+     */
+    export interface OrganizationSharedBuiltInAuthorizationPolicyResponse {
+        /**
+         * Authorization scheme type.
+         * Expected value is 'OrganizationScope'.
+         */
+        type: "OrganizationScope";
+    }
+
     export interface PATAuthTypeConnectionPropertiesResponse {
         /**
          * Authentication type of the connection target
@@ -55773,6 +58608,29 @@ export namespace cognitiveservices {
         status?: string;
     }
 
+    export interface ProjectCapabilityHostResponse {
+        /**
+         * List of AI services connections.
+         */
+        aiServicesConnections?: string[];
+        /**
+         * Provisioning state for the CapabilityHost.
+         */
+        provisioningState: string;
+        /**
+         * List of connection names from those available in the account or project to be used as a storage resource.
+         */
+        storageConnections?: string[];
+        /**
+         * List of connection names from those available in the account or project to be used for Thread storage.
+         */
+        threadStorageConnections?: string[];
+        /**
+         * List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+         */
+        vectorStoreConnections?: string[];
+    }
+
     /**
      * Properties of Cognitive Services Project'.
      */
@@ -55830,6 +58688,48 @@ export namespace cognitiveservices {
     }
 
     /**
+     * RAI External SafetyProvider schema properties.
+     */
+    export interface RaiExternalSafetyProviderSchemaPropertiesResponse {
+        /**
+         * Creation time of the safety provider.
+         */
+        createdAt: string;
+        /**
+         * The Key Vault URI that contains the api key for safety provider urls.
+         */
+        keyVaultUri?: string;
+        /**
+         * Last modified time of the safety provider.
+         */
+        lastModifiedAt: string;
+        /**
+         * The managed identity to access the Key Vault.
+         */
+        managedIdentity?: string;
+        /**
+         * Safety provider mode sync/async.
+         */
+        mode?: string;
+        /**
+         * The unique identifier of the safety provider.
+         */
+        providerId?: string;
+        /**
+         * Name of the safety provider.
+         */
+        providerName?: string;
+        /**
+         * The name of the secret in Key Vault that contains the api key to access the webhook.
+         */
+        secretName?: string;
+        /**
+         * Webhook URL for the safety provider.
+         */
+        url?: string;
+    }
+
+    /**
      * Cognitive Services Rai Monitor Config.
      */
     export interface RaiMonitorConfigResponse {
@@ -55847,6 +58747,10 @@ export namespace cognitiveservices {
      * Azure OpenAI Content Filter.
      */
     export interface RaiPolicyContentFilterResponse {
+        /**
+         * The action types to apply to the content filters
+         */
+        action?: string;
         /**
          * If blocking would occur.
          */
@@ -55886,13 +58790,60 @@ export namespace cognitiveservices {
          */
         customBlocklists?: outputs.cognitiveservices.CustomBlocklistConfigResponse[];
         /**
-         * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+         * The list of custom rai topics.
+         */
+        customTopics?: outputs.cognitiveservices.CustomTopicConfigResponse[];
+        /**
+         * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
          */
         mode?: string;
+        /**
+         * The list of Safety Providers.
+         */
+        safetyProviders?: outputs.cognitiveservices.SafetyProviderConfigResponse[];
         /**
          * Content Filters policy type.
          */
         type: string;
+    }
+
+    /**
+     * RAI Tool Label properties.
+     */
+    export interface RaiToolLabelPropertiesResponse {
+        /**
+         * Account-level tool label definition.
+         */
+        accountScope?: outputs.cognitiveservices.RaiToolLabelPropertiesResponseAccountScope;
+        /**
+         * List of project-level tool label definitions.
+         */
+        projectScopes?: outputs.cognitiveservices.RaiToolLabelPropertiesResponseProjectScopes[];
+        /**
+         * The unique tool connection name, e.g., 'Web_Search'.
+         */
+        toolConnectionName: string;
+    }
+
+    /**
+     * Account-level tool label definition.
+     */
+    export interface RaiToolLabelPropertiesResponseAccountScope {
+        /**
+         * Dictionary of label key-value pairs for the account scope.
+         */
+        labelValues?: {[key: string]: string};
+    }
+
+    export interface RaiToolLabelPropertiesResponseProjectScopes {
+        /**
+         * Dictionary of label key-value pairs for the project scope.
+         */
+        labelValues: {[key: string]: string};
+        /**
+         * Project name to which this scope applies.
+         */
+        project: string;
     }
 
     /**
@@ -55956,6 +58907,17 @@ export namespace cognitiveservices {
         path?: string;
     }
 
+    /**
+     * Built-in role-based authorization policy.
+     */
+    export interface RoleBasedBuiltInAuthorizationPolicyResponse {
+        /**
+         * Authorization scheme type.
+         * Expected value is 'Default'.
+         */
+        type: "Default";
+    }
+
     export interface SASAuthTypeConnectionPropertiesResponse {
         /**
          * Authentication type of the connection target
@@ -55984,6 +58946,24 @@ export namespace cognitiveservices {
         sharedUserList?: string[];
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
+    }
+
+    /**
+     * Gets or sets the source to which safety providers applies.
+     */
+    export interface SafetyProviderConfigResponse {
+        /**
+         * If blocking would occur.
+         */
+        blocking?: boolean;
+        /**
+         * Name of RAI Safety Provider.
+         */
+        safetyProviderName?: string;
+        /**
+         * Content source to apply the Content Filters.
+         */
+        source?: string;
     }
 
     export interface ServicePrincipalAuthTypeConnectionPropertiesResponse {
@@ -56114,6 +59094,28 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Represents a rule for routing traffic to a specific deployment.
+     */
+    export interface TrafficRoutingRuleResponse {
+        /**
+         * The unique identifier of the deployment to which traffic is routed by this rule.
+         */
+        deploymentId?: string;
+        /**
+         * A user-provided description for this traffic routing rule.
+         */
+        description?: string;
+        /**
+         * The identifier of this traffic routing rule.
+         */
+        ruleId?: string;
+        /**
+         * Gets or sets the percentage of traffic allocated to this instance.
+         */
+        trafficPercentage?: number;
+    }
+
+    /**
      * User-assigned managed identity.
      */
     export interface UserAssignedIdentityResponse {
@@ -56180,6 +59182,24 @@ export namespace cognitiveservices {
         sharedUserList?: string[];
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
+    }
+
+    /**
+     * Type modeling a reference to a version of an agent definition.
+     */
+    export interface VersionedAgentReferenceResponse {
+        /**
+         * Gets the agent's unique identifier within the organization (subscription).
+         */
+        agentId?: string;
+        /**
+         * Gets the agent's name (unique within the project/app).
+         */
+        agentName?: string;
+        /**
+         * Gets the agent's version (unique for each agent lineage).
+         */
+        agentVersion?: string;
     }
 
     /**
@@ -57679,7 +60699,7 @@ export namespace compute {
         /**
          * This property specifies the status of the validationProfile of the image version.
          */
-        status?: string;
+        status: string;
         /**
          * This property specifies the type of image version validation.
          */
@@ -57812,7 +60832,7 @@ export namespace compute {
          */
         source: outputs.compute.UserArtifactSourceResponse;
         /**
-         * Specifies the storage account type to be used to store the image. This property is not updatable.
+         * Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
          */
         storageAccountType?: string;
         /**
@@ -57997,7 +61017,7 @@ export namespace compute {
          */
         replicationMode?: string;
         /**
-         * Specifies the storage account type to be used to store the image. This property is not updatable.
+         * Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
          */
         storageAccountType?: string;
         /**
@@ -58102,6 +61122,156 @@ export namespace compute {
          * The source for the disk image.
          */
         source?: outputs.compute.GalleryDiskImageSourceResponse;
+    }
+
+    /**
+     * The definition of a parameter that can be passed to a script of a Gallery Script Version.
+     */
+    export interface GalleryScriptParameterResponse {
+        /**
+         * The default value of the parameter, only applies to string types.
+         */
+        defaultValue?: string;
+        /**
+         * A description to help users understand what this parameter means
+         */
+        description?: string;
+        /**
+         * A list of permissible values. Only applicable values are from 'enum' values defined in 'GalleryScriptParameter'.
+         */
+        enumValues?: string[];
+        /**
+         * The minimum value of parameter.
+         */
+        maxValue?: string;
+        /**
+         * The minimum value of parameter.
+         */
+        minValue?: string;
+        /**
+         * The name of the parameter.
+         */
+        name: string;
+        /**
+         * Indicates whether this parameter must be passed.
+         */
+        required?: boolean;
+        /**
+         * Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+         */
+        type?: string;
+    }
+
+    /**
+     * Describes the properties of a gallery script definition.
+     */
+    export interface GalleryScriptPropertiesResponse {
+        /**
+         * The description of this gallery script definition resource. This property is updatable.
+         */
+        description?: string;
+        /**
+         * The end of life date of the gallery Script Definition. This property can be used for decommissioning purposes. This property is updatable.
+         */
+        endOfLifeDate?: string;
+        /**
+         * The Eula agreement (End User License Agreement) for the gallery Script Definition.
+         */
+        eula?: string;
+        /**
+         * The privacy statement uri.
+         */
+        privacyStatementUri?: string;
+        /**
+         * The provisioning state, which only appears in the response.
+         */
+        provisioningState: string;
+        /**
+         * The release note uri.
+         */
+        releaseNoteUri?: string;
+        /**
+         * This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
+         */
+        supportedOSType: string;
+    }
+
+    /**
+     * Describes the properties of a gallery script version.
+     */
+    export interface GalleryScriptVersionPropertiesResponse {
+        /**
+         * The provisioning state, which only appears in the response.
+         */
+        provisioningState: string;
+        /**
+         * The publishing profile of a gallery image version.
+         */
+        publishingProfile: outputs.compute.GalleryScriptVersionPublishingProfileResponse;
+        /**
+         * This is the replication status of the gallery image version.
+         */
+        replicationStatus: outputs.compute.ReplicationStatusResponse;
+        /**
+         * The safety profile of the Gallery Script Version.
+         */
+        safetyProfile?: outputs.compute.GalleryScriptVersionSafetyProfileResponse;
+    }
+
+    /**
+     * The publishing profile of a gallery image version.
+     */
+    export interface GalleryScriptVersionPublishingProfileResponse {
+        /**
+         * The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+         */
+        endOfLifeDate?: string;
+        /**
+         * If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+         */
+        excludeFromLatest?: boolean;
+        /**
+         * The timestamp for when the gallery image version is published.
+         */
+        publishedDate: string;
+        /**
+         * The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+         */
+        replicaCount?: number;
+        /**
+         * Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+         */
+        replicationMode?: string;
+        /**
+         * The source script from which the Script Version is going to be created.
+         */
+        source: outputs.compute.ScriptSourceResponse;
+        /**
+         * Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+         */
+        storageAccountStrategy?: string;
+        /**
+         * Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
+         */
+        storageAccountType?: string;
+        /**
+         * The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+         */
+        targetExtendedLocations?: outputs.compute.GalleryTargetExtendedLocationResponse[];
+        /**
+         * The target regions where the Image Version is going to be replicated to. This property is updatable.
+         */
+        targetRegions?: outputs.compute.TargetRegionResponse[];
+    }
+
+    /**
+     * The safety profile of the Gallery Script Version.
+     */
+    export interface GalleryScriptVersionSafetyProfileResponse {
+        /**
+         * Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+         */
+        allowDeletionOfReplicatedLocations?: boolean;
     }
 
     export interface GalleryTargetExtendedLocationResponse {
@@ -59555,6 +62725,20 @@ export namespace compute {
          * Specifies Terminate Scheduled Event related configurations.
          */
         terminateNotificationProfile?: outputs.compute.TerminateNotificationProfileResponse;
+    }
+
+    /**
+     * The source script from which the Script Version is going to be created.
+     */
+    export interface ScriptSourceResponse {
+        /**
+         * Optional. Any input parameters that needs to passed to the script and are accessed within the script for its execution.
+         */
+        parameters?: outputs.compute.GalleryScriptParameterResponse[];
+        /**
+         * Required. The link of the source script, it must be a readable storage blob with SAS URI or publicly accessible URI or managed identity enabled.
+         */
+        scriptLink: string;
     }
 
     /**
@@ -61179,7 +64363,7 @@ export namespace compute {
          */
         bootDiagnostics?: outputs.compute.BootDiagnosticsInstanceViewResponse;
         /**
-         * Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
+         * Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://learn.microsoft.com/previous-versions/azure/virtual-machines/linux/infrastructure-example?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json#1-naming-conventions).
          */
         computerName?: string;
         /**
@@ -61408,6 +64592,53 @@ export namespace compute {
          * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
          */
         rebootSetting?: string;
+    }
+
+}
+
+export namespace computelimit {
+    /**
+     * Properties of the limit name.
+     */
+    export interface LimitNameResponse {
+        /**
+         * The localized limit name.
+         */
+        localizedValue: string;
+        /**
+         * The limit name.
+         */
+        value: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -64752,6 +67983,36 @@ export namespace consumption {
             ...val,
             thresholdType: (val.thresholdType) ?? "Actual",
         };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
 }
@@ -68498,6 +71759,54 @@ export namespace containerservice {
     }
 
     /**
+     * The properties of a fleet managed namespace.
+     */
+    export interface FleetManagedNamespacePropertiesResponse {
+        /**
+         * Action if the managed namespace with the same name already exists. Default is Never.
+         */
+        adoptionPolicy: string;
+        /**
+         * Delete options of a fleet managed namespace. Default is Keep.
+         */
+        deletePolicy: string;
+        /**
+         * The namespace properties for the fleet managed namespace.
+         */
+        managedNamespaceProperties?: outputs.containerservice.ManagedNamespacePropertiesResponse;
+        /**
+         * The Azure Portal FQDN of the Fleet hub.
+         */
+        portalFqdn: string;
+        /**
+         * The profile of the propagation to create the namespace.
+         */
+        propagationPolicy?: outputs.containerservice.PropagationPolicyResponse;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Status information of the last operation for fleet managed namespace.
+         */
+        status: outputs.containerservice.FleetManagedNamespaceStatusResponse;
+    }
+
+    /**
+     * Status information for the fleet managed namespace.
+     */
+    export interface FleetManagedNamespaceStatusResponse {
+        /**
+         * The last operation error of the fleet managed namespace
+         */
+        lastOperationError: outputs.containerservice.ErrorDetailResponse;
+        /**
+         * The last operation ID for the fleet managed namespace
+         */
+        lastOperationId: string;
+    }
+
+    /**
      * GPU settings for the Agent Pool.
      */
     export interface GPUProfileResponse {
@@ -68603,6 +71912,18 @@ export namespace containerservice {
          * Whether to enable the egress gateway.
          */
         enabled: boolean;
+        /**
+         * Name of the gateway configuration custom resource for the Istio add-on egress gateway. Must be specified when enabling the Istio egress gateway. Must be deployed in the same namespace that the Istio egress gateway will be deployed in.
+         */
+        gatewayConfigurationName?: string;
+        /**
+         * Name of the Istio add-on egress gateway.
+         */
+        name: string;
+        /**
+         * Namespace that the Istio add-on egress gateway should be deployed in. If unspecified, the default is aks-istio-egress.
+         */
+        namespace?: string;
     }
 
     /**
@@ -68868,6 +72189,91 @@ export namespace containerservice {
     }
 
     /**
+     * Overrides for localDNS profile.
+     */
+    export interface LocalDNSOverrideResponse {
+        /**
+         * Cache max TTL in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+         */
+        cacheDurationInSeconds?: number;
+        /**
+         * Destination server for DNS queries to be forwarded from localDNS.
+         */
+        forwardDestination?: string;
+        /**
+         * Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+         */
+        forwardPolicy?: string;
+        /**
+         * Maximum number of concurrent queries. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+         */
+        maxConcurrent?: number;
+        /**
+         * Enforce TCP or prefer UDP protocol for connections from localDNS to upstream DNS server.
+         */
+        protocol?: string;
+        /**
+         * Log level for DNS queries in localDNS.
+         */
+        queryLogging?: string;
+        /**
+         * Policy for serving stale data. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+         */
+        serveStale?: string;
+        /**
+         * Serve stale duration in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+         */
+        serveStaleDurationInSeconds?: number;
+    }
+    /**
+     * localDNSOverrideResponseProvideDefaults sets the appropriate defaults for LocalDNSOverrideResponse
+     */
+    export function localDNSOverrideResponseProvideDefaults(val: LocalDNSOverrideResponse): LocalDNSOverrideResponse {
+        return {
+            ...val,
+            cacheDurationInSeconds: (val.cacheDurationInSeconds) ?? 3600,
+            forwardDestination: (val.forwardDestination) ?? "ClusterCoreDNS",
+            forwardPolicy: (val.forwardPolicy) ?? "Sequential",
+            maxConcurrent: (val.maxConcurrent) ?? 1000,
+            protocol: (val.protocol) ?? "PreferUDP",
+            queryLogging: (val.queryLogging) ?? "Error",
+            serveStale: (val.serveStale) ?? "Immediate",
+            serveStaleDurationInSeconds: (val.serveStaleDurationInSeconds) ?? 3600,
+        };
+    }
+
+    /**
+     * Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+     */
+    export interface LocalDNSProfileResponse {
+        /**
+         * KubeDNS overrides apply to DNS traffic from pods with dnsPolicy:ClusterFirst (referred to as KubeDNS traffic).
+         */
+        kubeDNSOverrides?: {[key: string]: outputs.containerservice.LocalDNSOverrideResponse};
+        /**
+         * Mode of enablement for localDNS.
+         */
+        mode?: string;
+        /**
+         * System-generated state of localDNS.
+         */
+        state: string;
+        /**
+         * VnetDNS overrides apply to DNS traffic from pods with dnsPolicy:default or kubelet (referred to as VnetDNS traffic).
+         */
+        vnetDNSOverrides?: {[key: string]: outputs.containerservice.LocalDNSOverrideResponse};
+    }
+    /**
+     * localDNSProfileResponseProvideDefaults sets the appropriate defaults for LocalDNSProfileResponse
+     */
+    export function localDNSProfileResponseProvideDefaults(val: LocalDNSProfileResponse): LocalDNSProfileResponse {
+        return {
+            ...val,
+            mode: (val.mode) ?? "Preferred",
+        };
+    }
+
+    /**
      * Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
      */
     export interface MaintenanceWindowResponse {
@@ -69045,7 +72451,7 @@ export namespace containerservice {
          */
         currentOrchestratorVersion: string;
         /**
-         * Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+         * Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal eTag convention.
          */
         eTag: string;
         /**
@@ -69096,6 +72502,10 @@ export namespace containerservice {
          * The OS configuration of Linux agent nodes.
          */
         linuxOSConfig?: outputs.containerservice.LinuxOSConfigResponse;
+        /**
+         * Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+         */
+        localDNSProfile?: outputs.containerservice.LocalDNSProfileResponse;
         /**
          * The maximum number of nodes for auto-scaling
          */
@@ -69248,6 +72658,7 @@ export namespace containerservice {
         return {
             ...val,
             gatewayProfile: (val.gatewayProfile ? outputs.containerservice.agentPoolGatewayProfileResponseProvideDefaults(val.gatewayProfile) : undefined),
+            localDNSProfile: (val.localDNSProfile ? outputs.containerservice.localDNSProfileResponseProvideDefaults(val.localDNSProfile) : undefined),
         };
     }
 
@@ -70143,6 +73554,28 @@ export namespace containerservice {
     }
 
     /**
+     * The namespace properties for the fleet managed namespace.
+     */
+    export interface ManagedNamespacePropertiesResponse {
+        /**
+         * The annotations for the fleet managed namespace.
+         */
+        annotations?: {[key: string]: string};
+        /**
+         * The default network policy for the fleet managed namespace.
+         */
+        defaultNetworkPolicy?: outputs.containerservice.NetworkPolicyResponse;
+        /**
+         * The default resource quota for the fleet managed namespace.
+         */
+        defaultResourceQuota?: outputs.containerservice.ResourceQuotaResponse;
+        /**
+         * The labels for the fleet managed namespace.
+         */
+        labels?: {[key: string]: string};
+    }
+
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     export interface ManagedServiceIdentityResponse {
@@ -70205,6 +73638,52 @@ export namespace containerservice {
     }
 
     /**
+     * Mesh membership properties of a managed cluster.
+     */
+    export interface MeshMembershipPropertiesResponse {
+        /**
+         * The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+         */
+        managedMeshID: string;
+        /**
+         * The current provisioning state of the Mesh Membership.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+     */
+    export interface MetaV1LabelSelectorRequirementResponse {
+        /**
+         * key is the label key that the selector applies to.
+         */
+        key: string;
+        /**
+         * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+         */
+        operator: string;
+        /**
+         * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+         */
+        values?: string[];
+    }
+
+    /**
+     * A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+     */
+    export interface MetaV1LabelSelectorResponse {
+        /**
+         * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+         */
+        matchExpressions?: outputs.containerservice.MetaV1LabelSelectorRequirementResponse[];
+        /**
+         * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+         */
+        matchLabels?: {[key: string]: string};
+    }
+
+    /**
      * Properties of a namespace managed by ARM
      */
     export interface NamespacePropertiesResponse {
@@ -70232,6 +73711,10 @@ export namespace containerservice {
          * The labels of managed namespace.
          */
         labels?: {[key: string]: string};
+        /**
+         * The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
+         */
+        portalFqdn?: string;
         /**
          * The current provisioning state of the namespace.
          */
@@ -70269,6 +73752,20 @@ export namespace containerservice {
             egress: (val.egress) ?? "AllowAll",
             ingress: (val.ingress) ?? "AllowSameNamespace",
         };
+    }
+
+    /**
+     * The network policy for the managed namespace.
+     */
+    export interface NetworkPolicyResponse {
+        /**
+         * The egress policy for the managed namespace.
+         */
+        egress?: string;
+        /**
+         * The ingress policy for the managed namespace.
+         */
+        ingress?: string;
     }
 
     /**
@@ -70389,6 +73886,142 @@ export namespace containerservice {
     }
 
     /**
+     * The configuration profile for default ClusterResourcePlacement for placement.
+     */
+    export interface PlacementProfileResponse {
+        /**
+         * The default ClusterResourcePlacement policy configuration.
+         */
+        defaultClusterResourcePlacement?: outputs.containerservice.PlacementV1ClusterResourcePlacementSpecResponse;
+    }
+
+    /**
+     * Affinity is a group of cluster affinity scheduling rules. More to be added.
+     */
+    export interface PlacementV1AffinityResponse {
+        /**
+         * ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+         */
+        clusterAffinity?: outputs.containerservice.PlacementV1ClusterAffinityResponse;
+    }
+
+    /**
+     * ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+     */
+    export interface PlacementV1ClusterAffinityResponse {
+        /**
+         * If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
+         */
+        requiredDuringSchedulingIgnoredDuringExecution?: outputs.containerservice.PlacementV1ClusterSelectorResponse;
+    }
+
+    /**
+     * ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
+     */
+    export interface PlacementV1ClusterResourcePlacementSpecResponse {
+        /**
+         * Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
+         */
+        policy?: outputs.containerservice.PlacementV1PlacementPolicyResponse;
+    }
+
+    /**
+     * ClusterSelector
+     */
+    export interface PlacementV1ClusterSelectorResponse {
+        /**
+         * ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
+         */
+        clusterSelectorTerms: outputs.containerservice.PlacementV1ClusterSelectorTermResponse[];
+    }
+
+    /**
+     * ClusterSelectorTerm
+     */
+    export interface PlacementV1ClusterSelectorTermResponse {
+        /**
+         * LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+         */
+        labelSelector?: outputs.containerservice.MetaV1LabelSelectorResponse;
+        /**
+         * PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+         */
+        propertySelector?: outputs.containerservice.PlacementV1PropertySelectorResponse;
+    }
+
+    /**
+     * PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
+     */
+    export interface PlacementV1PlacementPolicyResponse {
+        /**
+         * Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
+         */
+        affinity?: outputs.containerservice.PlacementV1AffinityResponse;
+        /**
+         * ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
+         */
+        clusterNames?: string[];
+        /**
+         * Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+         */
+        placementType?: string;
+        /**
+         * If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
+         */
+        tolerations?: outputs.containerservice.PlacementV1TolerationResponse[];
+    }
+
+    /**
+     * PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
+     */
+    export interface PlacementV1PropertySelectorRequirementResponse {
+        /**
+         * Name is the name of the property; it should be a Kubernetes label name.
+         */
+        name: string;
+        /**
+         * Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+         */
+        operator: string;
+        /**
+         * Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
+         */
+        values: string[];
+    }
+
+    /**
+     * PropertySelector helps user specify property requirements when picking clusters for resource placement.
+     */
+    export interface PlacementV1PropertySelectorResponse {
+        /**
+         * MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+         */
+        matchExpressions: outputs.containerservice.PlacementV1PropertySelectorRequirementResponse[];
+    }
+
+    /**
+     * Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+     */
+    export interface PlacementV1TolerationResponse {
+        /**
+         * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+         */
+        effect?: string;
+        /**
+         * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+         */
+        key?: string;
+        /**
+         * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+         */
+        operator?: string;
+        /**
+         * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+         */
+        value?: string;
+    }
+
+    /**
      * The port range.
      */
     export interface PortRangeResponse {
@@ -70468,6 +74101,20 @@ export namespace containerservice {
          * The private link service connection status.
          */
         status?: string;
+    }
+
+    /**
+     * The propagation to be used for provisioning the namespace among the fleet.
+     */
+    export interface PropagationPolicyResponse {
+        /**
+         * The profile to be used for propagation via placement.
+         */
+        placementProfile?: outputs.containerservice.PlacementProfileResponse;
+        /**
+         * The type of the policy to be used. Default is Placement.
+         */
+        type: string;
     }
 
     /**
@@ -71647,6 +75294,17 @@ export namespace cosmosdb {
         orderBy?: string;
     }
 
+    export interface ClusterResourceResponseEndPoints {
+        /**
+         * Ipv4 address of the endpoint
+         */
+        ipAddress?: string;
+        /**
+         * Port number
+         */
+        port?: number;
+    }
+
     /**
      * Properties of a managed Cassandra cluster.
      */
@@ -71723,6 +75381,56 @@ export namespace cosmosdb {
          * List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
          */
         seedNodes: outputs.cosmosdb.SeedNodeResponse[];
+    }
+
+    /**
+     * Properties of a Garnet cache cluster.
+     */
+    export interface ClusterResourceResponsePropertiesV1 {
+        /**
+         * Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+         */
+        allocationState?: string;
+        /**
+         * If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+         */
+        availabilityZone?: boolean;
+        /**
+         * Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+         */
+        clusterType?: string;
+        /**
+         * endpoints for clients to connect to the cluster.
+         */
+        endPoints: outputs.cosmosdb.ClusterResourceResponseEndPoints[];
+        /**
+         * Extensions to be added or updated on cluster.
+         */
+        extensions?: string[];
+        /**
+         * Number of nodes
+         */
+        nodeCount?: number;
+        /**
+         * Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+         */
+        nodeSku?: string;
+        /**
+         * Error related to resource provisioning.
+         */
+        provisionError?: outputs.cosmosdb.ErrorDetailResponse;
+        /**
+         * The status of the resource at the time the operation was called.
+         */
+        provisioningState: string;
+        /**
+         * Number of copies of data maintained by the cluster
+         */
+        replicationFactor?: number;
+        /**
+         * Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+         */
+        subnetId?: string;
     }
 
     /**
@@ -72086,6 +75794,46 @@ export namespace cosmosdb {
         databaseName?: string;
     }
 
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: any;
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The error detail.
+     */
+    export interface ErrorDetailResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.cosmosdb.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.cosmosdb.ErrorDetailResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
     export interface ExcludedPathResponse {
         /**
          * The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
@@ -72130,10 +75878,6 @@ export namespace cosmosdb {
      */
     export interface FleetspacePropertiesResponseThroughputPoolConfiguration {
         /**
-         * List of data regions assigned to the fleetspace. Eg [westus2]
-         */
-        dataRegions?: string[];
-        /**
          * Maximum throughput for the pool.
          */
         maxThroughput?: number;
@@ -72141,10 +75885,16 @@ export namespace cosmosdb {
          * Minimum throughput for the pool.
          */
         minThroughput?: number;
+    }
+
+    /**
+     * Represents the full text index path.
+     */
+    export interface FullTextIndexPathResponse {
         /**
-         * Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+         * The path to the full text field in the document.
          */
-        serviceTier?: string;
+        path: string;
     }
 
     /**
@@ -72433,6 +76183,10 @@ export namespace cosmosdb {
          * List of paths to exclude from indexing
          */
         excludedPaths?: outputs.cosmosdb.ExcludedPathResponse[];
+        /**
+         * List of paths to include in the full text indexing
+         */
+        fullTextIndexes?: outputs.cosmosdb.FullTextIndexPathResponse[];
         /**
          * List of paths to include in the indexing
          */
@@ -72944,6 +76698,10 @@ export namespace cosmosdb {
          */
         restoreWithTtlDisabled?: boolean;
         /**
+         * The source backup location for restore.
+         */
+        sourceBackupLocation?: string;
+        /**
          * List of specific tables available for restore.
          */
         tablesToRestore?: string[];
@@ -73376,13 +77134,34 @@ export namespace cosmosdb {
 
     export interface VectorIndexResponse {
         /**
+         * This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+         */
+        indexingSearchListSize?: number;
+        /**
          * The path to the vector field in the document.
          */
         path: string;
         /**
+         * The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+         */
+        quantizationByteSize?: number;
+        /**
          * The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
          */
         type: string;
+        /**
+         * Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
+         */
+        vectorIndexShardKey?: string[];
+    }
+    /**
+     * vectorIndexResponseProvideDefaults sets the appropriate defaults for VectorIndexResponse
+     */
+    export function vectorIndexResponseProvideDefaults(val: VectorIndexResponse): VectorIndexResponse {
+        return {
+            ...val,
+            indexingSearchListSize: (val.indexingSearchListSize) ?? 100,
+        };
     }
 
     /**
@@ -75225,6 +79004,20 @@ export namespace dashboard {
     }
 
     /**
+     * Properties specific to the dashboard definition.
+     */
+    export interface DashboardDefinitionPropertiesResponse {
+        /**
+         * The provisioning state of the dashboard definition resource.
+         */
+        provisioningState: string;
+        /**
+         * The dashboard definition data in JSON format.
+         */
+        serializedData?: string;
+    }
+
+    /**
      * Enterprise settings of a Grafana instance
      */
     export interface EnterpriseConfigurationsResponse {
@@ -75961,6 +79754,195 @@ export namespace databasewatcher {
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
         userAssignedIdentities?: {[key: string]: outputs.databasewatcher.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * The properties specific to an elastic pool in Azure SQL Database.
+     */
+    export interface SqlDbElasticPoolTargetPropertiesResponse {
+        /**
+         * The Azure resource ID of the anchor database used to connect to an elastic pool.
+         */
+        anchorDatabaseResourceId: string;
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Set to true to monitor a high availability replica of specified target, if any.
+         */
+        readIntent?: boolean;
+        /**
+         * The Azure resource ID of an Azure SQL DB elastic pool target.
+         */
+        sqlEpResourceId: string;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: string;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlEp'.
+         */
+        targetType: "SqlEp";
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: outputs.databasewatcher.VaultSecretResponse;
+    }
+    /**
+     * sqlDbElasticPoolTargetPropertiesResponseProvideDefaults sets the appropriate defaults for SqlDbElasticPoolTargetPropertiesResponse
+     */
+    export function sqlDbElasticPoolTargetPropertiesResponseProvideDefaults(val: SqlDbElasticPoolTargetPropertiesResponse): SqlDbElasticPoolTargetPropertiesResponse {
+        return {
+            ...val,
+            readIntent: (val.readIntent) ?? false,
+        };
+    }
+
+    /**
+     * The properties specific to a database in Azure SQL Database.
+     */
+    export interface SqlDbSingleDatabaseTargetPropertiesResponse {
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Set to true to monitor a high availability replica of specified target, if any.
+         */
+        readIntent?: boolean;
+        /**
+         * The Azure resource ID of an Azure SQL DB database target.
+         */
+        sqlDbResourceId: string;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: string;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlDb'.
+         */
+        targetType: "SqlDb";
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: outputs.databasewatcher.VaultSecretResponse;
+    }
+    /**
+     * sqlDbSingleDatabaseTargetPropertiesResponseProvideDefaults sets the appropriate defaults for SqlDbSingleDatabaseTargetPropertiesResponse
+     */
+    export function sqlDbSingleDatabaseTargetPropertiesResponseProvideDefaults(val: SqlDbSingleDatabaseTargetPropertiesResponse): SqlDbSingleDatabaseTargetPropertiesResponse {
+        return {
+            ...val,
+            readIntent: (val.readIntent) ?? false,
+        };
+    }
+
+    /**
+     * The properties specific to Azure SQL Managed Instance targets.
+     */
+    export interface SqlMiTargetPropertiesResponse {
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: string;
+        /**
+         * The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
+         */
+        connectionTcpPort?: number;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Set to true to monitor a high availability replica of specified target, if any.
+         */
+        readIntent?: boolean;
+        /**
+         * The Azure resource ID of an Azure SQL Managed Instance target.
+         */
+        sqlMiResourceId: string;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: string;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlMi'.
+         */
+        targetType: "SqlMi";
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: outputs.databasewatcher.VaultSecretResponse;
+    }
+    /**
+     * sqlMiTargetPropertiesResponseProvideDefaults sets the appropriate defaults for SqlMiTargetPropertiesResponse
+     */
+    export function sqlMiTargetPropertiesResponseProvideDefaults(val: SqlMiTargetPropertiesResponse): SqlMiTargetPropertiesResponse {
+        return {
+            ...val,
+            connectionTcpPort: (val.connectionTcpPort) ?? 1433,
+            readIntent: (val.readIntent) ?? false,
+        };
+    }
+
+    /**
+     * The properties specific to Azure SQL VM targets.
+     */
+    export interface SqlVmTargetPropertiesResponse {
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: string;
+        /**
+         * The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
+         */
+        connectionTcpPort?: number;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
+         */
+        sqlNamedInstanceName?: string;
+        /**
+         * The Azure resource ID of an Azure SQL VM target.
+         */
+        sqlVmResourceId: string;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: string;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlVm'.
+         */
+        targetType: "SqlVm";
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: outputs.databasewatcher.VaultSecretResponse;
+    }
+    /**
+     * sqlVmTargetPropertiesResponseProvideDefaults sets the appropriate defaults for SqlVmTargetPropertiesResponse
+     */
+    export function sqlVmTargetPropertiesResponseProvideDefaults(val: SqlVmTargetPropertiesResponse): SqlVmTargetPropertiesResponse {
+        return {
+            ...val,
+            connectionTcpPort: (val.connectionTcpPort) ?? 1433,
+        };
     }
 
     /**
@@ -91797,6 +95779,10 @@ export namespace datafactory {
          */
         clusterResourceGroup: any;
         /**
+         * HDInsight On-demand cluster resource group authentication type.
+         */
+        clusterResourceGroupAuthType?: string;
+        /**
          * Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
          */
         clusterSize: any;
@@ -93602,6 +97588,20 @@ export namespace datafactory {
     }
 
     /**
+     * Interactive authoring capability type properties.
+     */
+    export interface InteractiveQueryPropertiesResponse {
+        /**
+         * The allowed idle time for interactive authoring.
+         */
+        autoTerminationMinutes: number;
+        /**
+         * The interactive authoring capability status. Must be one of InteractiveCapabilityStatus. The default value is 'Enabling'.
+         */
+        status: string;
+    }
+
+    /**
      * Jira Service linked service.
      */
     export interface JiraLinkedServiceResponse {
@@ -93697,7 +97697,11 @@ export namespace datafactory {
          */
         structure?: any;
         /**
-         * The table name. Type: string (or Expression with resultType string).
+         * The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+         */
+        table?: any;
+        /**
+         * This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
          */
         tableName?: any;
         /**
@@ -94686,6 +98690,10 @@ export namespace datafactory {
          * Integration runtime description.
          */
         description?: string;
+        /**
+         * Interactive authoring capability reference.
+         */
+        interactiveQuery?: outputs.datafactory.InteractiveQueryPropertiesResponse;
         /**
          * Managed Virtual Network reference.
          */
@@ -96251,6 +100259,10 @@ export namespace datafactory {
          */
         connectionString?: any;
         /**
+         * Database name for connection. Type: string.
+         */
+        database?: any;
+        /**
          * Linked service description.
          */
         description?: string;
@@ -96263,14 +100275,30 @@ export namespace datafactory {
          */
         parameters?: {[key: string]: outputs.datafactory.ParameterSpecificationResponse};
         /**
+         * The port for the connection. Type: integer.
+         */
+        port?: any;
+        /**
          * The Azure key vault secret reference of password in connection string.
          */
         pwd?: outputs.datafactory.AzureKeyVaultSecretReferenceResponse;
+        /**
+         * Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+         */
+        securityLevel?: string;
+        /**
+         * Server name for connection. Type: string.
+         */
+        server?: any;
         /**
          * Type of linked service.
          * Expected value is 'Netezza'.
          */
         type: "Netezza";
+        /**
+         * Username for authentication. Type: string.
+         */
+        uid?: any;
         /**
          * Version of the linked service.
          */
@@ -115533,11 +119561,44 @@ export namespace dataprotection {
      */
     export interface BackupScheduleResponse {
         /**
-         * Repeating time interval which only support the following ISO 8601 format [R/startDateTime/Duration]. Example: R/2007-03-01T13:00:00Z/P1Y2M10DT2H30M
+         * Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
+         *
+         * Supported ISO 8601 Time Formats
+         *
+         * The following time formats were verified to be successfully parsed and supported:
+         * - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
+         * - T14:30:45 → Thh:mm:ss (standard time format)
+         * - T14:30 → Thh:mm (hour and minute only)
+         *
+         * All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
+         *
+         * Examples of supported timestamps:
+         * - 2023-10-15T14:30:45Z
+         * - 2023-10-15T14:30:45.123+05:30
+         * - 2023-10-15T14:30Z
+         *
+         * Unsupported or partially supported formats:
+         * - T143045.123 or T143045 (no colons)
+         * - T14.500 (decimal hours)
+         * - T14 (hour only)
+         * - T14:30.500 (minute fractions)
+         * - T24:00:00 (invalid)
+         * - T23:59:60 (leap second)
          */
         repeatingTimeIntervals: string[];
         /**
-         * Time zone for a schedule. Example: Pacific Standard Time
+         * Time Zone for a schedule.
+         *
+         * Supported timezone indicators include:
+         * - 'Z' for UTC
+         * - '+00:00'
+         * - '+05:30'
+         * - '-08:00'
+         *
+         * Examples:
+         * - 2023-10-15T14:30:45Z
+         * - 2023-10-15T14:30:45.123+05:30
+         * - 2023-10-15T14:30-08:00
          */
         timeZone?: string;
     }
@@ -119261,7 +123322,7 @@ export namespace dbforpostgresql {
         /**
          * Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
          */
-        geoBackupEncryptionKeyStatus?: string;
+        geoBackupEncryptionKeyStatus: string;
         /**
          * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
          */
@@ -119273,7 +123334,7 @@ export namespace dbforpostgresql {
         /**
          * Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
          */
-        primaryEncryptionKeyStatus?: string;
+        primaryEncryptionKeyStatus: string;
         /**
          * URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
          */
@@ -120098,6 +124159,25 @@ export namespace dependencymap {
          * The SAS URI of the blob containing the layout file for the multi-server view.
          */
         layoutFileSasUrl: string;
+    }
+
+    /**
+     * OffAzure discovery source resource properties
+     */
+    export interface OffAzureDiscoverySourceResourcePropertiesResponse {
+        /**
+         * Provisioning state of Discovery Source resource.
+         */
+        provisioningState: string;
+        /**
+         * Source ArmId of Discovery Source resource
+         */
+        sourceId: string;
+        /**
+         * Source type of the discoverySource
+         * Expected value is 'OffAzure'.
+         */
+        sourceType: "OffAzure";
     }
 
     /**
@@ -121840,6 +125920,42 @@ export namespace deviceregistry {
     }
 
     /**
+     * The configuration to set up an ICA.
+     */
+    export interface CertificateAuthorityConfigurationResponse {
+        /**
+         * Crypto type: ECC.
+         */
+        keyType: string;
+        /**
+         * Certificate subject.
+         */
+        subject: string;
+        /**
+         * Certificate is valid not after this date. Format ISO8601. Generated based on validity period.
+         */
+        validityNotAfter: string;
+        /**
+         * Certificate is valid not before this date. Format ISO8601. Generated based on on validity period.
+         */
+        validityNotBefore: string;
+    }
+
+    /**
+     * The certificate configuration.
+     */
+    export interface CertificateConfigurationResponse {
+        /**
+         * The configuration to set up an ICA.
+         */
+        certificateAuthorityConfiguration: outputs.deviceregistry.CertificateAuthorityConfigurationResponse;
+        /**
+         * The leaf certificate configuration.
+         */
+        leafCertificateConfiguration: outputs.deviceregistry.LeafCertificateConfigurationResponse;
+    }
+
+    /**
      * Defines the data point properties.
      */
     export interface DataPointResponse {
@@ -122334,6 +126450,16 @@ export namespace deviceregistry {
             ...val,
             authentication: (val.authentication ? outputs.deviceregistry.hostAuthenticationResponseProvideDefaults(val.authentication) : undefined),
         };
+    }
+
+    /**
+     * The leaf certificate configuration.
+     */
+    export interface LeafCertificateConfigurationResponse {
+        /**
+         * The validity period in days.
+         */
+        validityPeriodInDays: number;
     }
 
     /**
@@ -126157,6 +130283,10 @@ export namespace edge {
          * Provisioning state of resource
          */
         provisioningState: string;
+        /**
+         * A unique identifier for the config template, generated by the system
+         */
+        uniqueIdentifier: string;
     }
 
     /**
@@ -126668,6 +130798,10 @@ export namespace edge {
          * State of resource
          */
         state?: string;
+        /**
+         * A unique identifier for the solution template, generated by the system
+         */
+        uniqueIdentifier: string;
     }
 
     /**
@@ -132029,6 +136163,34 @@ export namespace fluidrelay {
     }
 
     /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
@@ -133563,24 +137725,6 @@ export namespace hardwaresecuritymodules {
 
 export namespace hdinsight {
     /**
-     * Identity properties of the AKS cluster agentpool MSI
-     */
-    export interface AksClusterProfileResponseAksClusterAgentPoolIdentityProfile {
-        /**
-         * ClientId of the MSI.
-         */
-        msiClientId: string;
-        /**
-         * ObjectId of the MSI.
-         */
-        msiObjectId: string;
-        /**
-         * ResourceId of the MSI.
-         */
-        msiResourceId: string;
-    }
-
-    /**
      * Gets the application SSH endpoint
      */
     export interface ApplicationGetEndpointResponse {
@@ -133687,20 +137831,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Authorization profile with details of AAD user Ids and group Ids authorized for data plane access.
-     */
-    export interface AuthorizationProfileResponse {
-        /**
-         * AAD group Ids authorized for data plane access.
-         */
-        groupIds?: string[];
-        /**
-         * AAD user Ids authorized for data plane access.
-         */
-        userIds?: string[];
-    }
-
-    /**
      * The load-based autoscale request parameters
      */
     export interface AutoscaleCapacityResponse {
@@ -133712,32 +137842,6 @@ export namespace hdinsight {
          * The minimum instance count of the cluster
          */
         minInstanceCount?: number;
-    }
-
-    /**
-     * This is the Autoscale profile for the cluster. This will allow customer to create cluster enabled with Autoscale.
-     */
-    export interface AutoscaleProfileResponse {
-        /**
-         * User to specify which type of Autoscale to be implemented - Scheduled Based or Load Based.
-         */
-        autoscaleType?: string;
-        /**
-         * This indicates whether auto scale is enabled on HDInsight on AKS cluster.
-         */
-        enabled: boolean;
-        /**
-         * This property is for graceful decommission timeout; It has a default setting of 3600 seconds before forced shutdown takes place. This is the maximal time to wait for running containers and applications to complete before transition a DECOMMISSIONING node into DECOMMISSIONED. The default value is 3600 seconds. Negative value (like -1) is handled as infinite timeout.
-         */
-        gracefulDecommissionTimeout?: number;
-        /**
-         * Profiles of load based Autoscale.
-         */
-        loadBasedConfig?: outputs.hdinsight.LoadBasedConfigResponse;
-        /**
-         * Profiles of schedule based Autoscale.
-         */
-        scheduleBasedConfig?: outputs.hdinsight.ScheduleBasedConfigResponse;
     }
 
     /**
@@ -133829,16 +137933,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Trino cluster catalog options.
-     */
-    export interface CatalogOptionsResponse {
-        /**
-         * hive catalog options.
-         */
-        hive?: outputs.hdinsight.HiveCatalogOptionResponse[];
-    }
-
-    /**
      * The information of AAD security group.
      */
     export interface ClientGroupInfoResponse {
@@ -133850,47 +137944,6 @@ export namespace hdinsight {
          * The AAD security group name.
          */
         groupName?: string;
-    }
-
-    /**
-     * Cluster access profile.
-     */
-    export interface ClusterAccessProfileResponse {
-        /**
-         * Whether to create cluster using private IP instead of public IP. This property must be set at create time.
-         */
-        enableInternalIngress: boolean;
-        /**
-         * Private link service resource ID. Only when enableInternalIngress is true, this property will be returned.
-         */
-        privateLinkServiceId: string;
-    }
-
-    /**
-     * Cluster configuration files.
-     */
-    export interface ClusterConfigFileResponse {
-        /**
-         * Free form content of the entire configuration file.
-         */
-        content?: string;
-        /**
-         * This property indicates if the content is encoded and is case-insensitive. Please set the value to base64 if the content is base64 encoded. Set it to none or skip it if the content is plain text.
-         */
-        encoding?: string;
-        /**
-         * Configuration file name.
-         */
-        fileName: string;
-        /**
-         * Path of the config file if content is specified.
-         */
-        path?: string;
-        /**
-         * List of key value pairs
-         * where key represents a valid service configuration name and value represents the value of the config.
-         */
-        values?: {[key: string]: string};
     }
 
     /**
@@ -134051,363 +138104,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Collection of logs to be enabled or disabled for log analytics.
-     */
-    export interface ClusterLogAnalyticsApplicationLogsResponse {
-        /**
-         * True if stderror is enabled, otherwise false.
-         */
-        stdErrorEnabled?: boolean;
-        /**
-         * True if stdout is enabled, otherwise false.
-         */
-        stdOutEnabled?: boolean;
-    }
-
-    /**
-     * Cluster log analytics profile to enable or disable OMS agent for cluster.
-     */
-    export interface ClusterLogAnalyticsProfileResponse {
-        /**
-         * Collection of logs to be enabled or disabled for log analytics.
-         */
-        applicationLogs?: outputs.hdinsight.ClusterLogAnalyticsApplicationLogsResponse;
-        /**
-         * True if log analytics is enabled for the cluster, otherwise false.
-         */
-        enabled: boolean;
-        /**
-         * True if metrics are enabled, otherwise false.
-         */
-        metricsEnabled?: boolean;
-    }
-
-    /**
-     * The compute profile.
-     */
-    export interface ClusterPoolComputeProfileResponse {
-        /**
-         * The list of Availability zones to use for AKS VMSS nodes.
-         */
-        availabilityZones?: string[];
-        /**
-         * The nodes definitions.
-         */
-        nodes: outputs.hdinsight.NodeProfileResponse[];
-    }
-
-    /**
-     * Properties of underlying AKS cluster.
-     */
-    export interface ClusterPoolResourcePropertiesResponseAksClusterProfile {
-        /**
-         * Identity properties of the AKS cluster agentpool MSI
-         */
-        aksClusterAgentPoolIdentityProfile?: outputs.hdinsight.AksClusterProfileResponseAksClusterAgentPoolIdentityProfile;
-        /**
-         * ARM Resource ID of the AKS cluster
-         */
-        aksClusterResourceId?: string;
-        /**
-         * AKS control plane and default node pool version of this ClusterPool
-         */
-        aksVersion: string;
-    }
-
-    /**
-     * CLuster pool profile.
-     */
-    export interface ClusterPoolResourcePropertiesResponseClusterPoolProfile {
-        /**
-         * Cluster pool version is a 2-part version.
-         */
-        clusterPoolVersion: string;
-        /**
-         * Gets or sets the IP tag for the public IPs created along with the HDInsightOnAks ClusterPools and Clusters. 
-         */
-        publicIpTag?: outputs.hdinsight.IpTagResponse;
-    }
-
-    /**
-     * CLuster pool compute profile.
-     */
-    export interface ClusterPoolResourcePropertiesResponseComputeProfile {
-        /**
-         * The list of Availability zones to use for AKS VMSS nodes.
-         */
-        availabilityZones?: string[];
-        /**
-         * The number of virtual machines.
-         */
-        count: number;
-        /**
-         * The virtual machine SKU.
-         */
-        vmSize: string;
-    }
-
-    /**
-     * Cluster pool log analytics profile to enable OMS agent for AKS cluster.
-     */
-    export interface ClusterPoolResourcePropertiesResponseLogAnalyticsProfile {
-        /**
-         * True if log analytics is enabled for cluster pool, otherwise false.
-         */
-        enabled: boolean;
-        /**
-         * Log analytics workspace to associate with the OMS agent.
-         */
-        workspaceId?: string;
-    }
-
-    /**
-     * Cluster pool network profile.
-     */
-    export interface ClusterPoolResourcePropertiesResponseNetworkProfile {
-        /**
-         * IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time. Currently, this property is not supported and please don't use it.
-         */
-        apiServerAuthorizedIpRanges?: string[];
-        /**
-         * ClusterPool is based on AKS cluster. AKS cluster exposes the API server to public internet by default. If you set this property to true, a private AKS cluster will be created, and it will use private apiserver, which is not exposed to public internet.
-         */
-        enablePrivateApiServer?: boolean;
-        /**
-         * This can only be set at cluster pool creation time and cannot be changed later. 
-         */
-        outboundType?: string;
-        /**
-         * Cluster pool subnet resource id.
-         */
-        subnetId: string;
-    }
-    /**
-     * clusterPoolResourcePropertiesResponseNetworkProfileProvideDefaults sets the appropriate defaults for ClusterPoolResourcePropertiesResponseNetworkProfile
-     */
-    export function clusterPoolResourcePropertiesResponseNetworkProfileProvideDefaults(val: ClusterPoolResourcePropertiesResponseNetworkProfile): ClusterPoolResourcePropertiesResponseNetworkProfile {
-        return {
-            ...val,
-            outboundType: (val.outboundType) ?? "loadBalancer",
-        };
-    }
-
-    /**
-     * Ssh profile for the cluster.
-     */
-    export interface ClusterPoolSshProfileResponse {
-        /**
-         * Number of ssh pods per cluster.
-         */
-        count: number;
-        /**
-         * Prefix of the pod names. Pod number will be appended to the prefix. The ingress URLs for the pods will be available at <clusterFqdn>/<sshBasePath>/<prefix>-<number>
-         */
-        podPrefix: string;
-        /**
-         * The virtual machine SKU.
-         */
-        vmSize?: string;
-    }
-
-    /**
-     * Cluster profile.
-     */
-    export interface ClusterProfileResponse {
-        /**
-         * Authorization profile with details of AAD user Ids and group Ids authorized for data plane access.
-         */
-        authorizationProfile: outputs.hdinsight.AuthorizationProfileResponse;
-        /**
-         * This is the Autoscale profile for the cluster. This will allow customer to create cluster enabled with Autoscale.
-         */
-        autoscaleProfile?: outputs.hdinsight.AutoscaleProfileResponse;
-        /**
-         * Cluster access profile.
-         */
-        clusterAccessProfile?: outputs.hdinsight.ClusterAccessProfileResponse;
-        /**
-         * Version with 3/4 part.
-         */
-        clusterVersion: string;
-        /**
-         * Component list of this cluster type and version.
-         */
-        components: outputs.hdinsight.ClusterProfileResponseComponents[];
-        /**
-         * Cluster connectivity profile.
-         */
-        connectivityProfile: outputs.hdinsight.ConnectivityProfileResponse;
-        /**
-         * The Flink cluster profile.
-         */
-        flinkProfile?: outputs.hdinsight.FlinkProfileResponse;
-        /**
-         * This is deprecated. Please use managed identity profile instead.
-         */
-        identityProfile?: outputs.hdinsight.IdentityProfileResponse;
-        /**
-         * The Kafka cluster profile.
-         */
-        kafkaProfile?: outputs.hdinsight.KafkaProfileResponse;
-        /**
-         * LLAP cluster profile.
-         */
-        llapProfile?: any;
-        /**
-         * Cluster log analytics profile to enable or disable OMS agent for cluster.
-         */
-        logAnalyticsProfile?: outputs.hdinsight.ClusterLogAnalyticsProfileResponse;
-        /**
-         * This property is required by Trino, Spark and Flink cluster but is optional for Kafka cluster.
-         */
-        managedIdentityProfile?: outputs.hdinsight.ManagedIdentityProfileResponse;
-        /**
-         * Version with three part.
-         */
-        ossVersion: string;
-        /**
-         * Cluster Prometheus profile.
-         */
-        prometheusProfile?: outputs.hdinsight.ClusterPrometheusProfileResponse;
-        /**
-         * Cluster Ranger plugin profile.
-         */
-        rangerPluginProfile?: outputs.hdinsight.ClusterRangerPluginProfileResponse;
-        /**
-         * The ranger cluster profile.
-         */
-        rangerProfile?: outputs.hdinsight.RangerProfileResponse;
-        /**
-         * The script action profile list.
-         */
-        scriptActionProfiles?: outputs.hdinsight.ScriptActionProfileResponse[];
-        /**
-         * The cluster secret profile.
-         */
-        secretsProfile?: outputs.hdinsight.SecretsProfileResponse;
-        /**
-         * The service configs profiles.
-         */
-        serviceConfigsProfiles?: outputs.hdinsight.ClusterServiceConfigsProfileResponse[];
-        /**
-         * The spark cluster profile.
-         */
-        sparkProfile?: outputs.hdinsight.SparkProfileResponse;
-        /**
-         * Ssh profile for the cluster.
-         */
-        sshProfile?: outputs.hdinsight.ClusterPoolSshProfileResponse;
-        /**
-         * Stub cluster profile.
-         */
-        stubProfile?: any;
-        /**
-         * Trino Cluster profile.
-         */
-        trinoProfile?: outputs.hdinsight.TrinoProfileResponse;
-    }
-    /**
-     * clusterProfileResponseProvideDefaults sets the appropriate defaults for ClusterProfileResponse
-     */
-    export function clusterProfileResponseProvideDefaults(val: ClusterProfileResponse): ClusterProfileResponse {
-        return {
-            ...val,
-            flinkProfile: (val.flinkProfile ? outputs.hdinsight.flinkProfileResponseProvideDefaults(val.flinkProfile) : undefined),
-            kafkaProfile: (val.kafkaProfile ? outputs.hdinsight.kafkaProfileResponseProvideDefaults(val.kafkaProfile) : undefined),
-            prometheusProfile: (val.prometheusProfile ? outputs.hdinsight.clusterPrometheusProfileResponseProvideDefaults(val.prometheusProfile) : undefined),
-            rangerPluginProfile: (val.rangerPluginProfile ? outputs.hdinsight.clusterRangerPluginProfileResponseProvideDefaults(val.rangerPluginProfile) : undefined),
-            rangerProfile: (val.rangerProfile ? outputs.hdinsight.rangerProfileResponseProvideDefaults(val.rangerProfile) : undefined),
-            sparkProfile: (val.sparkProfile ? outputs.hdinsight.sparkProfileResponseProvideDefaults(val.sparkProfile) : undefined),
-            trinoProfile: (val.trinoProfile ? outputs.hdinsight.trinoProfileResponseProvideDefaults(val.trinoProfile) : undefined),
-        };
-    }
-
-    export interface ClusterProfileResponseComponents {
-        name?: string;
-        version?: string;
-    }
-
-    /**
-     * Cluster Prometheus profile.
-     */
-    export interface ClusterPrometheusProfileResponse {
-        /**
-         * Enable Prometheus for cluster or not.
-         */
-        enabled: boolean;
-    }
-    /**
-     * clusterPrometheusProfileResponseProvideDefaults sets the appropriate defaults for ClusterPrometheusProfileResponse
-     */
-    export function clusterPrometheusProfileResponseProvideDefaults(val: ClusterPrometheusProfileResponse): ClusterPrometheusProfileResponse {
-        return {
-            ...val,
-            enabled: (val.enabled) ?? false,
-        };
-    }
-
-    /**
-     * Cluster Ranger plugin profile.
-     */
-    export interface ClusterRangerPluginProfileResponse {
-        /**
-         * Enable Ranger for cluster or not.
-         */
-        enabled: boolean;
-    }
-    /**
-     * clusterRangerPluginProfileResponseProvideDefaults sets the appropriate defaults for ClusterRangerPluginProfileResponse
-     */
-    export function clusterRangerPluginProfileResponseProvideDefaults(val: ClusterRangerPluginProfileResponse): ClusterRangerPluginProfileResponse {
-        return {
-            ...val,
-            enabled: (val.enabled) ?? false,
-        };
-    }
-
-    /**
-     * Cluster configs per component.
-     */
-    export interface ClusterServiceConfigResponse {
-        /**
-         * Name of the component the config files should apply to.
-         */
-        component: string;
-        /**
-         * List of Config Files.
-         */
-        files: outputs.hdinsight.ClusterConfigFileResponse[];
-    }
-
-    /**
-     * Cluster service configs.
-     */
-    export interface ClusterServiceConfigsProfileResponse {
-        /**
-         * List of service configs.
-         */
-        configs: outputs.hdinsight.ClusterServiceConfigResponse[];
-        /**
-         * Name of the service the configurations should apply to.
-         */
-        serviceName: string;
-    }
-
-    /**
-     * The comparison rule.
-     */
-    export interface ComparisonRuleResponse {
-        /**
-         * The comparison operator.
-         */
-        operator: string;
-        /**
-         * Threshold setting.
-         */
-        threshold: number;
-    }
-
-    /**
      * The compute isolation properties.
      */
     export interface ComputeIsolationPropertiesResponse {
@@ -134441,20 +138137,6 @@ export namespace hdinsight {
     }
 
     /**
-     * The cpu and memory requirement definition.
-     */
-    export interface ComputeResourceDefinitionResponse {
-        /**
-         * The required CPU.
-         */
-        cpu: number;
-        /**
-         * The required memory in MB, Container memory will be 110 percentile
-         */
-        memory: number;
-    }
-
-    /**
      * The connectivity properties
      */
     export interface ConnectivityEndpointResponse {
@@ -134478,34 +138160,6 @@ export namespace hdinsight {
          * The protocol of the endpoint.
          */
         protocol?: string;
-    }
-
-    /**
-     * Cluster connectivity profile.
-     */
-    export interface ConnectivityProfileResponse {
-        /**
-         * List of SSH connectivity endpoints.
-         */
-        ssh?: outputs.hdinsight.SshConnectivityEndpointResponse[];
-        /**
-         * Web connectivity endpoint details.
-         */
-        web: outputs.hdinsight.ConnectivityProfileResponseWeb;
-    }
-
-    /**
-     * Web connectivity endpoint details.
-     */
-    export interface ConnectivityProfileResponseWeb {
-        /**
-         * Web connectivity endpoint.
-         */
-        fqdn: string;
-        /**
-         * Private web connectivity endpoint. This property will only be returned when enableInternalIngress is true.
-         */
-        privateFqdn?: string;
     }
 
     /**
@@ -134566,20 +138220,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Kafka disk storage profile.
-     */
-    export interface DiskStorageProfileResponse {
-        /**
-         * Managed Disk size in GB. The maximum supported disk size for Standard and Premium HDD/SSD is 32TB, except for Premium SSD v2, which supports up to 64TB.
-         */
-        dataDiskSize: number;
-        /**
-         * Managed Disk Type.
-         */
-        dataDiskType: string;
-    }
-
-    /**
      * The encryption-in-transit properties.
      */
     export interface EncryptionInTransitPropertiesResponse {
@@ -134627,147 +138267,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Flink cluster catalog options.
-     */
-    export interface FlinkCatalogOptionsResponse {
-        /**
-         * Hive Catalog Option for Flink cluster.
-         */
-        hive?: outputs.hdinsight.FlinkHiveCatalogOptionResponse;
-    }
-    /**
-     * flinkCatalogOptionsResponseProvideDefaults sets the appropriate defaults for FlinkCatalogOptionsResponse
-     */
-    export function flinkCatalogOptionsResponseProvideDefaults(val: FlinkCatalogOptionsResponse): FlinkCatalogOptionsResponse {
-        return {
-            ...val,
-            hive: (val.hive ? outputs.hdinsight.flinkHiveCatalogOptionResponseProvideDefaults(val.hive) : undefined),
-        };
-    }
-
-    /**
-     * Hive Catalog Option for Flink cluster.
-     */
-    export interface FlinkHiveCatalogOptionResponse {
-        /**
-         * The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
-         */
-        metastoreDbConnectionAuthenticationMode?: string;
-        /**
-         * Secret reference name from secretsProfile.secrets containing password for database connection.
-         */
-        metastoreDbConnectionPasswordSecret?: string;
-        /**
-         * Connection string for hive metastore database.
-         */
-        metastoreDbConnectionURL: string;
-        /**
-         * User name for database connection.
-         */
-        metastoreDbConnectionUserName?: string;
-    }
-    /**
-     * flinkHiveCatalogOptionResponseProvideDefaults sets the appropriate defaults for FlinkHiveCatalogOptionResponse
-     */
-    export function flinkHiveCatalogOptionResponseProvideDefaults(val: FlinkHiveCatalogOptionResponse): FlinkHiveCatalogOptionResponse {
-        return {
-            ...val,
-            metastoreDbConnectionAuthenticationMode: (val.metastoreDbConnectionAuthenticationMode) ?? "IdentityAuth",
-        };
-    }
-
-    /**
-     * Job specifications for flink clusters in application deployment mode. The specification is immutable even if job properties are changed by calling the RunJob API, please use the ListJob API to get the latest job information.
-     */
-    export interface FlinkJobProfileResponse {
-        /**
-         * A string property representing additional JVM arguments for the Flink job. It should be space separated value.
-         */
-        args?: string;
-        /**
-         * A string property that specifies the entry class for the Flink job. If not specified, the entry point is auto-detected from the flink job jar package.
-         */
-        entryClass?: string;
-        /**
-         * A string property that represents the name of the job JAR.
-         */
-        jarName: string;
-        /**
-         * A string property that specifies the directory where the job JAR is located.
-         */
-        jobJarDirectory: string;
-        /**
-         * A string property that represents the name of the savepoint for the Flink job
-         */
-        savePointName?: string;
-        /**
-         * A string property that indicates the upgrade mode to be performed on the Flink job. It can have one of the following enum values => STATELESS_UPDATE, UPDATE, LAST_STATE_UPDATE.
-         */
-        upgradeMode: string;
-    }
-
-    /**
-     * The Flink cluster profile.
-     */
-    export interface FlinkProfileResponse {
-        /**
-         * Flink cluster catalog options.
-         */
-        catalogOptions?: outputs.hdinsight.FlinkCatalogOptionsResponse;
-        /**
-         * A string property that indicates the deployment mode of Flink cluster. It can have one of the following enum values => Application, Session. Default value is Session
-         */
-        deploymentMode?: string;
-        /**
-         * History Server container/ process CPU and memory requirements
-         */
-        historyServer?: outputs.hdinsight.ComputeResourceDefinitionResponse;
-        /**
-         * Job Manager container/ process CPU and memory requirements
-         */
-        jobManager: outputs.hdinsight.ComputeResourceDefinitionResponse;
-        /**
-         * Job specifications for flink clusters in application deployment mode. The specification is immutable even if job properties are changed by calling the RunJob API, please use the ListJob API to get the latest job information.
-         */
-        jobSpec?: outputs.hdinsight.FlinkJobProfileResponse;
-        /**
-         * The number of task managers.
-         */
-        numReplicas?: number;
-        /**
-         * The storage profile
-         */
-        storage: outputs.hdinsight.FlinkStorageProfileResponse;
-        /**
-         * Task Manager container/ process CPU and memory requirements
-         */
-        taskManager: outputs.hdinsight.ComputeResourceDefinitionResponse;
-    }
-    /**
-     * flinkProfileResponseProvideDefaults sets the appropriate defaults for FlinkProfileResponse
-     */
-    export function flinkProfileResponseProvideDefaults(val: FlinkProfileResponse): FlinkProfileResponse {
-        return {
-            ...val,
-            catalogOptions: (val.catalogOptions ? outputs.hdinsight.flinkCatalogOptionsResponseProvideDefaults(val.catalogOptions) : undefined),
-        };
-    }
-
-    /**
-     * The storage profile
-     */
-    export interface FlinkStorageProfileResponse {
-        /**
-         * Storage account uri which is used for savepoint and checkpoint state.
-         */
-        storageUri: string;
-        /**
-         * Storage key is only required for wasb(s) storage.
-         */
-        storagekey?: string;
-    }
-
-    /**
      * The hardware profile.
      */
     export interface HardwareProfileResponse {
@@ -134775,45 +138274,6 @@ export namespace hdinsight {
          * The size of the VM
          */
         vmSize?: string;
-    }
-
-    /**
-     * Hive Catalog Option
-     */
-    export interface HiveCatalogOptionResponse {
-        /**
-         * Name of trino catalog which should use specified hive metastore.
-         */
-        catalogName: string;
-        /**
-         * The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
-         */
-        metastoreDbConnectionAuthenticationMode?: string;
-        /**
-         * Secret reference name from secretsProfile.secrets containing password for database connection.
-         */
-        metastoreDbConnectionPasswordSecret?: string;
-        /**
-         * Connection string for hive metastore database.
-         */
-        metastoreDbConnectionURL: string;
-        /**
-         * User name for database connection.
-         */
-        metastoreDbConnectionUserName?: string;
-        /**
-         * Metastore root directory URI, format: abfs[s]://<container>@<account_name>.dfs.core.windows.net/<path>. More details: https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri
-         */
-        metastoreWarehouseDir: string;
-    }
-    /**
-     * hiveCatalogOptionResponseProvideDefaults sets the appropriate defaults for HiveCatalogOptionResponse
-     */
-    export function hiveCatalogOptionResponseProvideDefaults(val: HiveCatalogOptionResponse): HiveCatalogOptionResponse {
-        return {
-            ...val,
-            metastoreDbConnectionAuthenticationMode: (val.metastoreDbConnectionAuthenticationMode) ?? "IdentityAuth",
-        };
     }
 
     /**
@@ -134855,24 +138315,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Identity Profile with details of an MSI.
-     */
-    export interface IdentityProfileResponse {
-        /**
-         * ClientId of the MSI.
-         */
-        msiClientId: string;
-        /**
-         * ObjectId of the MSI.
-         */
-        msiObjectId: string;
-        /**
-         * ResourceId of the MSI.
-         */
-        msiResourceId: string;
-    }
-
-    /**
      * Contains the IpTag associated with the public IP address
      */
     export interface IpTagResponse {
@@ -134884,56 +138326,6 @@ export namespace hdinsight {
          * Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc
          */
         tag: string;
-    }
-
-    /**
-     * Kafka bootstrap server and broker related connectivity endpoints.
-     */
-    export interface KafkaConnectivityEndpointsResponse {
-        /**
-         * bootstrap server connectivity endpoint.
-         */
-        bootstrapServerEndpoint?: string;
-        /**
-         * Kafka broker endpoint list.
-         */
-        brokerEndpoints?: string[];
-    }
-
-    /**
-     * The Kafka cluster profile.
-     */
-    export interface KafkaProfileResponse {
-        /**
-         * Kafka bootstrap server and brokers related connectivity endpoints.
-         */
-        connectivityEndpoints: outputs.hdinsight.KafkaConnectivityEndpointsResponse;
-        /**
-         * Kafka disk storage profile.
-         */
-        diskStorage: outputs.hdinsight.DiskStorageProfileResponse;
-        /**
-         * Expose Kafka cluster in KRaft mode.
-         */
-        enableKRaft?: boolean;
-        /**
-         * Expose worker nodes as public endpoints.
-         */
-        enablePublicEndpoints?: boolean;
-        /**
-         * Fully qualified path of Azure Storage container used for Tiered Storage.
-         */
-        remoteStorageUri?: string;
-    }
-    /**
-     * kafkaProfileResponseProvideDefaults sets the appropriate defaults for KafkaProfileResponse
-     */
-    export function kafkaProfileResponseProvideDefaults(val: KafkaProfileResponse): KafkaProfileResponse {
-        return {
-            ...val,
-            enableKRaft: (val.enableKRaft) ?? true,
-            enablePublicEndpoints: (val.enablePublicEndpoints) ?? false,
-        };
     }
 
     /**
@@ -134969,64 +138361,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Profile of load based Autoscale.
-     */
-    export interface LoadBasedConfigResponse {
-        /**
-         * This is a cool down period, this is a time period in seconds, which determines the amount of time that must elapse between a scaling activity started by a rule and the start of the next scaling activity, regardless of the rule that triggers it. The default value is 300 seconds.
-         */
-        cooldownPeriod?: number;
-        /**
-         * User needs to set the maximum number of nodes for load based scaling, the load based scaling will use this to scale up and scale down between minimum and maximum number of nodes.
-         */
-        maxNodes: number;
-        /**
-         * User needs to set the minimum number of nodes for load based scaling, the load based scaling will use this to scale up and scale down between minimum and maximum number of nodes.
-         */
-        minNodes: number;
-        /**
-         * User can specify the poll interval, this is the time period (in seconds) after which scaling metrics are polled for triggering a scaling operation.
-         */
-        pollInterval?: number;
-        /**
-         * The scaling rules.
-         */
-        scalingRules: outputs.hdinsight.ScalingRuleResponse[];
-    }
-
-    /**
-     * The details of managed identity.
-     */
-    export interface ManagedIdentityProfileResponse {
-        /**
-         * The list of managed identity.
-         */
-        identityList: outputs.hdinsight.ManagedIdentitySpecResponse[];
-    }
-
-    /**
-     * The details of a managed identity.
-     */
-    export interface ManagedIdentitySpecResponse {
-        /**
-         * ClientId of the managed identity.
-         */
-        clientId: string;
-        /**
-         * ObjectId of the managed identity.
-         */
-        objectId: string;
-        /**
-         * ResourceId of the managed identity.
-         */
-        resourceId: string;
-        /**
-         * The type of managed identity.
-         */
-        type: string;
-    }
-
-    /**
      * The network properties.
      */
     export interface NetworkPropertiesResponse {
@@ -135046,24 +138380,6 @@ export namespace hdinsight {
          * The direction for the resource provider connection.
          */
         resourceProviderConnection?: string;
-    }
-
-    /**
-     * The node profile.
-     */
-    export interface NodeProfileResponse {
-        /**
-         * The number of virtual machines.
-         */
-        count: number;
-        /**
-         * The node type.
-         */
-        type: string;
-        /**
-         * The virtual machine SKU.
-         */
-        vmSize: string;
     }
 
     /**
@@ -135183,109 +138499,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Specification for the Ranger Admin service.
-     */
-    export interface RangerAdminSpecResponse {
-        /**
-         * List of usernames that should be marked as ranger admins. These usernames should match the user principal name (UPN) of the respective AAD users.
-         */
-        admins: string[];
-        database: outputs.hdinsight.RangerAdminSpecResponseDatabase;
-    }
-
-    export interface RangerAdminSpecResponseDatabase {
-        /**
-         * The database URL
-         */
-        host: string;
-        /**
-         * The database name
-         */
-        name: string;
-        /**
-         * Reference for the database password
-         */
-        passwordSecretRef?: string;
-        /**
-         * The name of the database user
-         */
-        username?: string;
-    }
-
-    /**
-     * Properties required to describe audit log storage.
-     */
-    export interface RangerAuditSpecResponse {
-        /**
-         * Azure storage location of the blobs. MSI should have read/write access to this Storage account.
-         */
-        storageAccount?: string;
-    }
-
-    /**
-     * The ranger cluster profile.
-     */
-    export interface RangerProfileResponse {
-        /**
-         * Specification for the Ranger Admin service.
-         */
-        rangerAdmin: outputs.hdinsight.RangerAdminSpecResponse;
-        /**
-         * Properties required to describe audit log storage.
-         */
-        rangerAudit?: outputs.hdinsight.RangerAuditSpecResponse;
-        /**
-         * Specification for the Ranger Usersync service
-         */
-        rangerUsersync: outputs.hdinsight.RangerUsersyncSpecResponse;
-    }
-    /**
-     * rangerProfileResponseProvideDefaults sets the appropriate defaults for RangerProfileResponse
-     */
-    export function rangerProfileResponseProvideDefaults(val: RangerProfileResponse): RangerProfileResponse {
-        return {
-            ...val,
-            rangerUsersync: outputs.hdinsight.rangerUsersyncSpecResponseProvideDefaults(val.rangerUsersync),
-        };
-    }
-
-    /**
-     * Specification for the Ranger Usersync service
-     */
-    export interface RangerUsersyncSpecResponse {
-        /**
-         * Denotes whether usersync service should be enabled
-         */
-        enabled?: boolean;
-        /**
-         * List of groups that should be synced. These group names should match the object id of the respective AAD groups.
-         */
-        groups?: string[];
-        /**
-         * User & groups can be synced automatically or via a static list that's refreshed.
-         */
-        mode?: string;
-        /**
-         * Azure storage location of a mapping file that lists user & group associations.
-         */
-        userMappingLocation?: string;
-        /**
-         * List of user names that should be synced. These usernames should match the User principal name of the respective AAD users.
-         */
-        users?: string[];
-    }
-    /**
-     * rangerUsersyncSpecResponseProvideDefaults sets the appropriate defaults for RangerUsersyncSpecResponse
-     */
-    export function rangerUsersyncSpecResponseProvideDefaults(val: RangerUsersyncSpecResponse): RangerUsersyncSpecResponse {
-        return {
-            ...val,
-            enabled: (val.enabled) ?? true,
-            mode: (val.mode) ?? "automatic",
-        };
-    }
-
-    /**
      * The azure resource id.
      */
     export interface ResourceIdResponse {
@@ -135381,111 +138594,6 @@ export namespace hdinsight {
     }
 
     /**
-     * The scaling rule.
-     */
-    export interface ScalingRuleResponse {
-        /**
-         * The action type.
-         */
-        actionType: string;
-        /**
-         * The comparison rule.
-         */
-        comparisonRule: outputs.hdinsight.ComparisonRuleResponse;
-        /**
-         * This is an evaluation count for a scaling condition, the number of times a trigger condition should be successful, before scaling activity is triggered.
-         */
-        evaluationCount: number;
-        /**
-         * Metrics name for individual workloads. For example: cpu
-         */
-        scalingMetric: string;
-    }
-
-    /**
-     * Profile of schedule based Autoscale.
-     */
-    export interface ScheduleBasedConfigResponse {
-        /**
-         * Setting default node count of current schedule configuration. Default node count specifies the number of nodes which are default when an specified scaling operation is executed (scale up/scale down)
-         */
-        defaultCount: number;
-        /**
-         * This specifies the schedules where scheduled based Autoscale to be enabled, the user has a choice to set multiple rules within the schedule across days and times (start/end).
-         */
-        schedules: outputs.hdinsight.ScheduleResponse[];
-        /**
-         * User has to specify the timezone on which the schedule has to be set for schedule based autoscale configuration.
-         */
-        timeZone: string;
-    }
-
-    /**
-     * Schedule definition.
-     */
-    export interface ScheduleResponse {
-        /**
-         * User has to set the node count anticipated at end of the scaling operation of the set current schedule configuration, format is integer.
-         */
-        count: number;
-        /**
-         * User has to set the days where schedule has to be set for autoscale operation.
-         */
-        days: string[];
-        /**
-         * User has to set the end time of current schedule configuration, format like 10:30 (HH:MM).
-         */
-        endTime: string;
-        /**
-         * User has to set the start time of current schedule configuration, format like 10:30 (HH:MM).
-         */
-        startTime: string;
-    }
-
-    /**
-     * The script action profile.
-     */
-    export interface ScriptActionProfileResponse {
-        /**
-         * Script name.
-         */
-        name: string;
-        /**
-         * Additional parameters for the script action. It should be space-separated list of arguments required for script execution.
-         */
-        parameters?: string;
-        /**
-         * List of services to apply the script action.
-         */
-        services: string[];
-        /**
-         * Specify if the script should persist on the cluster.
-         */
-        shouldPersist?: boolean;
-        /**
-         * Timeout duration for the script action in minutes.
-         */
-        timeoutInMinutes?: number;
-        /**
-         * Type of the script action. Supported type is bash scripts.
-         */
-        type: string;
-        /**
-         * Url of the script file.
-         */
-        url: string;
-    }
-    /**
-     * scriptActionProfileResponseProvideDefaults sets the appropriate defaults for ScriptActionProfileResponse
-     */
-    export function scriptActionProfileResponseProvideDefaults(val: ScriptActionProfileResponse): ScriptActionProfileResponse {
-        return {
-            ...val,
-            shouldPersist: (val.shouldPersist) ?? true,
-        };
-    }
-
-    /**
      * Describes a script action on role on the cluster.
      */
     export interface ScriptActionResponse {
@@ -135501,42 +138609,6 @@ export namespace hdinsight {
          * The URI to the script.
          */
         uri: string;
-    }
-
-    /**
-     * Secret reference and corresponding properties of a key vault secret.
-     */
-    export interface SecretReferenceResponse {
-        /**
-         * Object identifier name of the secret in key vault.
-         */
-        keyVaultObjectName: string;
-        /**
-         * Reference name of the secret to be used in service configs.
-         */
-        referenceName: string;
-        /**
-         * Type of key vault object: secret, key or certificate.
-         */
-        type: string;
-        /**
-         * Version of the secret in key vault.
-         */
-        version?: string;
-    }
-
-    /**
-     * The cluster secret profile.
-     */
-    export interface SecretsProfileResponse {
-        /**
-         * Name of the user Key Vault where all the cluster specific user secrets are stored.
-         */
-        keyVaultResourceId: string;
-        /**
-         * Properties of Key Vault secret.
-         */
-        secrets?: outputs.hdinsight.SecretReferenceResponse[];
     }
 
     /**
@@ -135579,110 +138651,6 @@ export namespace hdinsight {
          * The organizational unit within the Active Directory to place the cluster and service accounts.
          */
         organizationalUnitDN?: string;
-    }
-
-    /**
-     * The metastore specification for Spark cluster.
-     */
-    export interface SparkMetastoreSpecResponse {
-        /**
-         * The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
-         */
-        dbConnectionAuthenticationMode?: string;
-        /**
-         * The database name.
-         */
-        dbName: string;
-        /**
-         * The secret name which contains the database user password.
-         */
-        dbPasswordSecretName?: string;
-        /**
-         * The database server host.
-         */
-        dbServerHost: string;
-        /**
-         * The database user name.
-         */
-        dbUserName?: string;
-        /**
-         * The key vault resource id.
-         */
-        keyVaultId?: string;
-        /**
-         * The thrift url.
-         */
-        thriftUrl?: string;
-    }
-    /**
-     * sparkMetastoreSpecResponseProvideDefaults sets the appropriate defaults for SparkMetastoreSpecResponse
-     */
-    export function sparkMetastoreSpecResponseProvideDefaults(val: SparkMetastoreSpecResponse): SparkMetastoreSpecResponse {
-        return {
-            ...val,
-            dbConnectionAuthenticationMode: (val.dbConnectionAuthenticationMode) ?? "IdentityAuth",
-        };
-    }
-
-    /**
-     * The spark cluster profile.
-     */
-    export interface SparkProfileResponse {
-        /**
-         * The default storage URL.
-         */
-        defaultStorageUrl?: string;
-        /**
-         * The metastore specification for Spark cluster.
-         */
-        metastoreSpec?: outputs.hdinsight.SparkMetastoreSpecResponse;
-        /**
-         * Spark user plugins spec
-         */
-        userPluginsSpec?: outputs.hdinsight.SparkUserPluginsResponse;
-    }
-    /**
-     * sparkProfileResponseProvideDefaults sets the appropriate defaults for SparkProfileResponse
-     */
-    export function sparkProfileResponseProvideDefaults(val: SparkProfileResponse): SparkProfileResponse {
-        return {
-            ...val,
-            metastoreSpec: (val.metastoreSpec ? outputs.hdinsight.sparkMetastoreSpecResponseProvideDefaults(val.metastoreSpec) : undefined),
-        };
-    }
-
-    /**
-     * Spark user plugin.
-     */
-    export interface SparkUserPluginResponse {
-        /**
-         * Fully qualified path to the folder containing the plugins.
-         */
-        path: string;
-    }
-
-    /**
-     * Spark user plugins spec
-     */
-    export interface SparkUserPluginsResponse {
-        /**
-         * Spark user plugins.
-         */
-        plugins?: outputs.hdinsight.SparkUserPluginResponse[];
-    }
-
-    /**
-     * SSH connectivity endpoint details.
-     */
-    export interface SshConnectivityEndpointResponse {
-        /**
-         * SSH connectivity endpoint.
-         */
-        endpoint: string;
-        /**
-         * Private SSH connectivity endpoint. This property will only be returned when enableInternalIngress is true.
-         */
-        privateSshEndpoint?: string;
     }
 
     /**
@@ -135789,185 +138757,6 @@ export namespace hdinsight {
          * The type of identity that last modified the resource.
          */
         lastModifiedByType?: string;
-    }
-
-    /**
-     * Trino Coordinator.
-     */
-    export interface TrinoCoordinatorResponse {
-        /**
-         * The flag that if enable debug or not.
-         */
-        enable?: boolean;
-        /**
-         * The flag that if enable coordinator HA, uses multiple coordinator replicas with auto failover, one per each head node. Default: true.
-         */
-        highAvailabilityEnabled?: boolean;
-        /**
-         * The debug port.
-         */
-        port?: number;
-        /**
-         * The flag that if suspend debug or not.
-         */
-        suspend?: boolean;
-    }
-    /**
-     * trinoCoordinatorResponseProvideDefaults sets the appropriate defaults for TrinoCoordinatorResponse
-     */
-    export function trinoCoordinatorResponseProvideDefaults(val: TrinoCoordinatorResponse): TrinoCoordinatorResponse {
-        return {
-            ...val,
-            enable: (val.enable) ?? false,
-            highAvailabilityEnabled: (val.highAvailabilityEnabled) ?? true,
-            port: (val.port) ?? 8008,
-            suspend: (val.suspend) ?? false,
-        };
-    }
-
-    /**
-     * Trino Cluster profile.
-     */
-    export interface TrinoProfileResponse {
-        /**
-         * Trino cluster catalog options.
-         */
-        catalogOptions?: outputs.hdinsight.CatalogOptionsResponse;
-        /**
-         * Trino Coordinator.
-         */
-        coordinator?: outputs.hdinsight.TrinoCoordinatorResponse;
-        /**
-         * Trino user plugins spec
-         */
-        userPluginsSpec?: outputs.hdinsight.TrinoUserPluginsResponse;
-        /**
-         * User telemetry
-         */
-        userTelemetrySpec?: outputs.hdinsight.TrinoUserTelemetryResponse;
-        /**
-         * Trino worker.
-         */
-        worker?: outputs.hdinsight.TrinoWorkerResponse;
-    }
-    /**
-     * trinoProfileResponseProvideDefaults sets the appropriate defaults for TrinoProfileResponse
-     */
-    export function trinoProfileResponseProvideDefaults(val: TrinoProfileResponse): TrinoProfileResponse {
-        return {
-            ...val,
-            coordinator: (val.coordinator ? outputs.hdinsight.trinoCoordinatorResponseProvideDefaults(val.coordinator) : undefined),
-            userTelemetrySpec: (val.userTelemetrySpec ? outputs.hdinsight.trinoUserTelemetryResponseProvideDefaults(val.userTelemetrySpec) : undefined),
-            worker: (val.worker ? outputs.hdinsight.trinoWorkerResponseProvideDefaults(val.worker) : undefined),
-        };
-    }
-
-    /**
-     * Trino user telemetry definition.
-     */
-    export interface TrinoTelemetryConfigResponse {
-        /**
-         * Hive Catalog name used to mount external tables on the logs written by trino, if not specified there tables are not created.
-         */
-        hivecatalogName?: string;
-        /**
-         * Schema of the above catalog to use, to mount query logs as external tables, if not specified tables will be mounted under schema trinologs.
-         */
-        hivecatalogSchema?: string;
-        /**
-         * Retention period for query log table partitions, this doesn't have any affect on actual data.
-         */
-        partitionRetentionInDays?: number;
-        /**
-         * Azure storage location of the blobs.
-         */
-        path?: string;
-    }
-    /**
-     * trinoTelemetryConfigResponseProvideDefaults sets the appropriate defaults for TrinoTelemetryConfigResponse
-     */
-    export function trinoTelemetryConfigResponseProvideDefaults(val: TrinoTelemetryConfigResponse): TrinoTelemetryConfigResponse {
-        return {
-            ...val,
-            hivecatalogSchema: (val.hivecatalogSchema) ?? "trinologs",
-            partitionRetentionInDays: (val.partitionRetentionInDays) ?? 365,
-        };
-    }
-
-    /**
-     * Trino user plugin.
-     */
-    export interface TrinoUserPluginResponse {
-        /**
-         * Denotes whether the plugin is active or not.
-         */
-        enabled?: boolean;
-        /**
-         * This field maps to the sub-directory in trino plugins location, that will contain all the plugins under path.
-         */
-        name?: string;
-        /**
-         * Fully qualified path to the folder containing the plugins.
-         */
-        path?: string;
-    }
-
-    /**
-     * Trino user plugins spec
-     */
-    export interface TrinoUserPluginsResponse {
-        /**
-         * Trino user plugins.
-         */
-        plugins?: outputs.hdinsight.TrinoUserPluginResponse[];
-    }
-
-    /**
-     * User telemetry
-     */
-    export interface TrinoUserTelemetryResponse {
-        /**
-         * Trino user telemetry definition.
-         */
-        storage?: outputs.hdinsight.TrinoTelemetryConfigResponse;
-    }
-    /**
-     * trinoUserTelemetryResponseProvideDefaults sets the appropriate defaults for TrinoUserTelemetryResponse
-     */
-    export function trinoUserTelemetryResponseProvideDefaults(val: TrinoUserTelemetryResponse): TrinoUserTelemetryResponse {
-        return {
-            ...val,
-            storage: (val.storage ? outputs.hdinsight.trinoTelemetryConfigResponseProvideDefaults(val.storage) : undefined),
-        };
-    }
-
-    /**
-     * Trino worker.
-     */
-    export interface TrinoWorkerResponse {
-        /**
-         * The flag that if enable debug or not.
-         */
-        enable?: boolean;
-        /**
-         * The debug port.
-         */
-        port?: number;
-        /**
-         * The flag that if suspend debug or not.
-         */
-        suspend?: boolean;
-    }
-    /**
-     * trinoWorkerResponseProvideDefaults sets the appropriate defaults for TrinoWorkerResponse
-     */
-    export function trinoWorkerResponseProvideDefaults(val: TrinoWorkerResponse): TrinoWorkerResponse {
-        return {
-            ...val,
-            enable: (val.enable) ?? false,
-            port: (val.port) ?? 8008,
-            suspend: (val.suspend) ?? false,
-        };
     }
 
     /**
@@ -165446,6 +168235,67 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * BGP Monitoring Protocol (BMP) Configuration properties.
+     */
+    export interface BmpConfigurationPropertiesResponse {
+        /**
+         * Export Policy for the BMP Configuration.
+         */
+        exportPolicy?: string;
+        /**
+         * Monitored Address Families for the BMP Configuration.
+         */
+        monitoredAddressFamilies?: string[];
+        /**
+         * The List of Network ID's that need to be monitored.
+         */
+        monitoredNetworks?: string[];
+        /**
+         * Scope resource ARM Identifier.
+         */
+        scopeResourceId?: string;
+        /**
+         * Enabling a station. Either True/False.
+         */
+        stationConfigurationState?: string;
+        /**
+         * Station Connection Mode.
+         */
+        stationConnectionMode?: string;
+        /**
+         * Station Connection Properties.
+         */
+        stationConnectionProperties?: outputs.managednetworkfabric.StationConnectionPropertiesResponse;
+        /**
+         * IP Address of the station.
+         */
+        stationIp?: string;
+        /**
+         * Name of the station.
+         */
+        stationName?: string;
+        /**
+         * Network of the station
+         */
+        stationNetwork?: string;
+        /**
+         * Port of the station. Default value is 5000.
+         */
+        stationPort?: number;
+    }
+    /**
+     * bmpConfigurationPropertiesResponseProvideDefaults sets the appropriate defaults for BmpConfigurationPropertiesResponse
+     */
+    export function bmpConfigurationPropertiesResponseProvideDefaults(val: BmpConfigurationPropertiesResponse): BmpConfigurationPropertiesResponse {
+        return {
+            ...val,
+            exportPolicy: (val.exportPolicy) ?? "All",
+            stationConnectionProperties: (val.stationConnectionProperties ? outputs.managednetworkfabric.stationConnectionPropertiesResponseProvideDefaults(val.stationConnectionProperties) : undefined),
+            stationPort: (val.stationPort) ?? 5000,
+        };
+    }
+
+    /**
      * Dynamic match configuration object.
      */
     export interface CommonDynamicMatchConfigurationResponse {
@@ -165958,6 +168808,16 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * Details of the last operations performed on the resource
+     */
+    export interface LastOperationPropertiesResponse {
+        /**
+         * Details status of the last operation performed on the resource.
+         */
+        details: string;
+    }
+
+    /**
      * Common properties for Layer2 Configuration.
      */
     export interface Layer2ConfigurationResponse {
@@ -166044,6 +168904,45 @@ export namespace managednetworkfabric {
          * Array of IPv6 Addresses.
          */
         ipv6Addresses?: string[];
+    }
+
+    /**
+     * Network Monitor Properties defines the properties of the resource.
+     */
+    export interface NetworkMonitorPropertiesResponse {
+        /**
+         * Administrative state of the resource.
+         */
+        administrativeState: string;
+        /**
+         * Switch configuration description.
+         */
+        annotation?: string;
+        /**
+         * BMP Configurations for the Network Fabric.
+         */
+        bmpConfiguration?: outputs.managednetworkfabric.BmpConfigurationPropertiesResponse;
+        /**
+         * Configuration state of the resource.
+         */
+        configurationState: string;
+        /**
+         * Details of the last operation performed on the resource
+         */
+        lastOperation: outputs.managednetworkfabric.LastOperationPropertiesResponse;
+        /**
+         * Provides you the latest status of the NetworkMonitor resource
+         */
+        provisioningState: string;
+    }
+    /**
+     * networkMonitorPropertiesResponseProvideDefaults sets the appropriate defaults for NetworkMonitorPropertiesResponse
+     */
+    export function networkMonitorPropertiesResponseProvideDefaults(val: NetworkMonitorPropertiesResponse): NetworkMonitorPropertiesResponse {
+        return {
+            ...val,
+            bmpConfiguration: (val.bmpConfiguration ? outputs.managednetworkfabric.bmpConfigurationPropertiesResponseProvideDefaults(val.bmpConfiguration) : undefined),
+        };
     }
 
     /**
@@ -166391,6 +169290,35 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * Station Connection Properties.
+     */
+    export interface StationConnectionPropertiesResponse {
+        /**
+         * Connection keepalive idle time in seconds
+         */
+        keepaliveIdleTime?: number;
+        /**
+         * Probe count, default value is 10
+         */
+        probeCount?: number;
+        /**
+         * Probe interval in seconds, default value is 60
+         */
+        probeInterval?: number;
+    }
+    /**
+     * stationConnectionPropertiesResponseProvideDefaults sets the appropriate defaults for StationConnectionPropertiesResponse
+     */
+    export function stationConnectionPropertiesResponseProvideDefaults(val: StationConnectionPropertiesResponse): StationConnectionPropertiesResponse {
+        return {
+            ...val,
+            keepaliveIdleTime: (val.keepaliveIdleTime) ?? 180,
+            probeCount: (val.probeCount) ?? 10,
+            probeInterval: (val.probeInterval) ?? 60,
+        };
+    }
+
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
@@ -166571,6 +169499,233 @@ export namespace managednetworkfabric {
             bfdConfiguration: (val.bfdConfiguration ? outputs.managednetworkfabric.bfdConfigurationResponseProvideDefaults(val.bfdConfiguration) : undefined),
             mtu: (val.mtu) ?? 1500,
         };
+    }
+
+}
+
+export namespace managedops {
+    /**
+     * Configuration for the Azure Monitor Insights service.
+     */
+    export interface AzureMonitorConfigurationResponse {
+        /**
+         * Azure monitor workspace resource ID used by the service.
+         */
+        azureMonitorWorkspaceId: string;
+    }
+
+    /**
+     * Azure Monitor Insights service information.
+     */
+    export interface AzureMonitorInformationResponse {
+        /**
+         * ID of Data Collection Rule (DCR) associated with this service.
+         */
+        dcrId: string;
+        /**
+         * Indicates whether the service is enabled.
+         */
+        enablementStatus: string;
+    }
+
+    /**
+     * Configuration for the Change Tracking and Inventory service.
+     */
+    export interface ChangeTrackingConfigurationResponse {
+        /**
+         * Log analytics workspace resource ID used by the service.
+         */
+        logAnalyticsWorkspaceId: string;
+    }
+
+    /**
+     * Change Tracking and Inventory service information.
+     */
+    export interface ChangeTrackingInformationResponse {
+        /**
+         * ID of Data Collection Rule (DCR) associated with this service.
+         */
+        dcrId: string;
+        /**
+         * Indicates whether the service is enabled.
+         */
+        enablementStatus: string;
+    }
+
+    /**
+     * Defender Cloud Security Posture Management (CSPM) service information.
+     */
+    export interface DefenderCspmInformationResponse {
+        /**
+         * Indicates whether the service is enabled.
+         */
+        enablementStatus: string;
+    }
+
+    /**
+     * Defender for Servers service information.
+     */
+    export interface DefenderForServersInformationResponse {
+        /**
+         * Indicates whether the service is enabled.
+         */
+        enablementStatus: string;
+    }
+
+    /**
+     * Desired configuration input by the user.
+     */
+    export interface DesiredConfigurationResponse {
+        /**
+         * Configuration for the Azure Monitor Insights service.
+         */
+        azureMonitorInsights: outputs.managedops.AzureMonitorConfigurationResponse;
+        /**
+         * Configuration for the Change Tracking and Inventory service.
+         */
+        changeTrackingAndInventory: outputs.managedops.ChangeTrackingConfigurationResponse;
+        /**
+         * Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
+         */
+        defenderCspm?: string;
+        /**
+         * Desired enablement state of the Defender For Servers service.
+         */
+        defenderForServers?: string;
+        /**
+         * User assigned Managed Identity used to perform operations on machines managed by Ops360.
+         */
+        userAssignedManagedIdentityId: string;
+    }
+
+    /**
+     * Azure Policy and Machine Configuration service information.
+     */
+    export interface GuestConfigurationInformationResponse {
+        /**
+         * Indicates whether the service is enabled.
+         */
+        enablementStatus: string;
+    }
+
+    /**
+     * Properties of the ManagedOps resource.
+     */
+    export interface ManagedOpsPropertiesResponse {
+        /**
+         * Desired configuration input by the user.
+         */
+        desiredConfiguration: outputs.managedops.DesiredConfigurationResponse;
+        /**
+         * Policy assignments created for managing services.
+         */
+        policyAssignmentProperties: outputs.managedops.PolicyAssignmentPropertiesResponse;
+        /**
+         * Provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Services provisioned by this resource.
+         */
+        services: outputs.managedops.ServiceInformationResponse;
+        /**
+         * Product plan details of this resource.
+         */
+        sku: outputs.managedops.SkuResponse;
+    }
+
+    /**
+     * Policy assignments created for managing services.
+     */
+    export interface PolicyAssignmentPropertiesResponse {
+        /**
+         * Policy initiative assignment ID.
+         */
+        policyInitiativeAssignmentId: string;
+    }
+
+    /**
+     * Services provisioned by this resource.
+     */
+    export interface ServiceInformationResponse {
+        /**
+         * Azure Monitor Insights service information.
+         */
+        azureMonitorInsights: outputs.managedops.AzureMonitorInformationResponse;
+        /**
+         * Azure Policy and Machine Configuration service information.
+         */
+        azurePolicyAndMachineConfiguration: outputs.managedops.GuestConfigurationInformationResponse;
+        /**
+         * Azure Update Manager service information.
+         */
+        azureUpdateManager: outputs.managedops.UpdateManagerInformationResponse;
+        /**
+         * Change Tracking and Inventory service information.
+         */
+        changeTrackingAndInventory: outputs.managedops.ChangeTrackingInformationResponse;
+        /**
+         * Defender for Cloud's Cloud security posture management (CSPM) service information.
+         */
+        defenderCspm: outputs.managedops.DefenderCspmInformationResponse;
+        /**
+         * Defender for Servers service information.
+         */
+        defenderForServers: outputs.managedops.DefenderForServersInformationResponse;
+    }
+
+    /**
+     * Specifies the service plan for this resource.
+     */
+    export interface SkuResponse {
+        /**
+         * Name of the SKU.
+         */
+        name: string;
+        /**
+         * Pricing tier of the SKU.
+         */
+        tier: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * Azure Update Manager service information.
+     */
+    export interface UpdateManagerInformationResponse {
+        /**
+         * Indicates whether the service is enabled.
+         */
+        enablementStatus: string;
     }
 
 }
@@ -166896,6 +170051,9 @@ export namespace management {
          * Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
          */
         numberOfChildren?: number;
+        /**
+         * Number of Descendants
+         */
         numberOfDescendants?: number;
         /**
          * (Optional) The ID of the parent management group.
@@ -168375,6 +171533,16 @@ export namespace migrate {
          * Gets or sets the isolation required.
          */
         isolationRequired: boolean;
+    }
+
+    /**
+     * ARG query and other details to create workloads within a wave.
+     */
+    export interface ArgResponse {
+        /**
+         * The query to create workloads within the wave.
+         */
+        query: string;
     }
 
     /**
@@ -170513,6 +173681,122 @@ export namespace migrate {
     }
 
     /**
+     * Migration Entity Group Properties class.
+     */
+    export interface MigrationEntityGroupPropertiesResponse {
+        /**
+         * Display Name of the Workload.
+         */
+        applicationDisplayName: string;
+        /**
+         * Application id 
+         */
+        applicationId: string;
+        /**
+         * Associated Assessment Id
+         */
+        associatedAssessmentId?: string;
+        /**
+         * associated Wave Id
+         */
+        associatedWaveIds?: string[];
+        /**
+         * Execution Start Date
+         */
+        executionStartDate: string;
+        /**
+         * Migration Entity Group Status
+         */
+        executionStatus: string;
+        /**
+         * Migration path
+         */
+        migrationPath?: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Migration Entity Properties class.
+     */
+    export interface MigrationEntityPropertiesResponse {
+        /**
+         * Assessed Entity ARM Id
+         */
+        assessedEntityArmId?: string;
+        /**
+         * Associated Assessment Id
+         */
+        associatedAssessmentId?: string;
+        /**
+         * inventory resource id 
+         */
+        associatedInventoryResourceId: string;
+        /**
+         * associated Migration Entity Group Id
+         */
+        associatedMigrationEntityGroupIds?: string[];
+        /**
+         * associated Wave Id
+         */
+        associatedWaveId?: string;
+        /**
+         * Execution Readiness of Migration Entity.
+         */
+        executionReadiness: string;
+        /**
+         * Execution Stage of Migration Entity.
+         */
+        executionStage: string;
+        /**
+         * Execution start date for Migration Entity.
+         */
+        executionStartDate: string;
+        /**
+         * Execution Status of Migration Entity.
+         */
+        executionStatus: string;
+        /**
+         * Display Name of the Workload.
+         */
+        inventoryDisplayName: string;
+        /**
+         * Migration path
+         */
+        migrationPath?: string;
+        /**
+         * Migration specific properties for the entity.
+         */
+        migrationSpecificProperties?: outputs.migrate.ServerMigrationSpecificPropertiesResponse;
+        /**
+         * Strategy of Migration Entity.
+         */
+        migrationStrategy: string;
+        /**
+         * Migration Tool of the Migration Entity.
+         */
+        migrationTool?: string;
+        /**
+         * ARM Resource Identifier for the partner resource.
+         */
+        partnerResourceArmId?: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Target of the Migration Entity.
+         */
+        target?: string;
+        /**
+         * target Azure Resource ARM Id.
+         */
+        targetAzureResourceArmId?: string;
+    }
+
+    /**
      * ModernizeProject properties.
      */
     export interface ModernizeProjectModelPropertiesResponse {
@@ -171413,6 +174697,25 @@ export namespace migrate {
     }
 
     /**
+     * Represents a Server Migration Specific properties base model.
+     */
+    export interface ServerMigrationSpecificPropertiesResponse {
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
+        currentJobId?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
+        drApplianceInventoryId?: string;
+        /**
+         * Migration Specific Properties Instance Types.
+         * Expected value is 'ServerMigration'.
+         */
+        instanceType: "ServerMigration";
+    }
+
+    /**
      * Class representing the servers project summary.
      */
     export interface ServersProjectSummaryResponse {
@@ -171997,6 +175300,52 @@ export namespace migrate {
     }
 
     /**
+     * Task Properties class.
+     */
+    export interface TaskPropertiesResponse {
+        /**
+         * Task completion Date
+         */
+        completionDate: string;
+        /**
+         * Task Description
+         */
+        description?: string;
+        /**
+         * Task Dislay Name 
+         */
+        displayName: string;
+        /**
+         * Indicates whether the task is editable.
+         */
+        isEditable: boolean;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Task Scope
+         */
+        scope: string;
+        /**
+         * associated Wave Id
+         */
+        scopeId: string;
+        /**
+         * Task Stage
+         */
+        stage?: string;
+        /**
+         * Task Status
+         */
+        status: string;
+        /**
+         * Task Type
+         */
+        taskType: string;
+    }
+
+    /**
      * Third Party Management settings.
      */
     export interface ThirdPartyManagementSettingsResponse {
@@ -172136,6 +175485,48 @@ export namespace migrate {
          * Number of hours per day for VM uptime.
          */
         hoursPerDay?: number;
+    }
+
+    /**
+     * Migration Wave Properties class.
+     */
+    export interface WavePropertiesResponse {
+        /**
+         * Actual start date of the wave.
+         */
+        actualStartDate: string;
+        /**
+         * ARG query and other details to create workloads within a wave
+         */
+        arg: outputs.migrate.ArgResponse;
+        /**
+         * Description of the wave.
+         */
+        description?: string;
+        /**
+         * Display Name of the wave.
+         */
+        displayName: string;
+        /**
+         * Planned completion date of the wave.
+         */
+        plannedCompletionDate?: string;
+        /**
+         * Planned start date of the wave.
+         */
+        plannedStartDate: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * The current stage of the wave.
+         */
+        stage: string;
+        /**
+         * The status of the wave.
+         */
+        status: string;
     }
 
     /**
@@ -173072,1012 +176463,6 @@ export namespace mission {
          * The principal ID of the assigned identity.
          */
         principalId: string;
-    }
-
-}
-
-export namespace mixedreality {
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityResponse {
-        /**
-         * The principal ID of resource identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-    }
-
-    export interface ObjectAnchorsAccountResponseIdentity {
-        /**
-         * The principal ID of resource identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuResponse {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: number;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: string;
-        /**
-         * The name of the SKU. Ex - P3. It is typically a letter+number code
-         */
-        name: string;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: string;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-}
-
-export namespace mobilenetwork {
-    /**
-     * Aggregate maximum bit rate.
-     */
-    export interface AmbrResponse {
-        /**
-         * Downlink bit rate.
-         */
-        downlink: string;
-        /**
-         * Uplink bit rate.
-         */
-        uplink: string;
-    }
-
-    /**
-     * Reference to an Azure Async Operation ID.
-     */
-    export interface AsyncOperationIdResponse {
-        /**
-         * Azure Async Operation ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Reference to an attached data network resource.
-     */
-    export interface AttachedDataNetworkResourceIdResponse {
-        /**
-         * Attached data network resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Reference to an Azure Stack Edge device resource.
-     */
-    export interface AzureStackEdgeDeviceResourceIdResponse {
-        /**
-         * Azure Stack Edge device resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Reference to an Azure Stack HCI cluster resource.
-     */
-    export interface AzureStackHCIClusterResourceIdResponse {
-        /**
-         * Azure Stack HCI cluster resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Certificate provisioning state
-     */
-    export interface CertificateProvisioningResponse {
-        /**
-         * Reason for certificate provisioning failure.
-         */
-        reason: string;
-        /**
-         * The certificate's provisioning state
-         */
-        state: string;
-    }
-
-    /**
-     * Reference to an Azure Arc custom location resource.
-     */
-    export interface ConnectedClusterResourceIdResponse {
-        /**
-         * Azure Arc connected cluster resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Reference to an Azure Arc custom location resource.
-     */
-    export interface CustomLocationResourceIdResponse {
-        /**
-         * Azure Arc custom location resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Settings controlling data network use
-     */
-    export interface DataNetworkConfigurationResponse {
-        /**
-         * Allowed session types in addition to the default session type. Must not duplicate the default session type.
-         */
-        additionalAllowedSessionTypes?: string[];
-        /**
-         * Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: number;
-        /**
-         * List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item. The services must be in the same location as the SIM policy.
-         */
-        allowedServices: outputs.mobilenetwork.ServiceResourceIdResponse[];
-        /**
-         * A reference to the data network that these settings apply to. The data network must be in the same location as the SIM policy.
-         */
-        dataNetwork: outputs.mobilenetwork.DataNetworkResourceIdResponse;
-        /**
-         * The default PDU session type, which is used if the UE does not request a specific session type.
-         */
-        defaultSessionType?: string;
-        /**
-         * Default 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
-         */
-        fiveQi?: number;
-        /**
-         * The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
-         */
-        maximumNumberOfBufferedPackets?: number;
-        /**
-         * Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionCapability?: string;
-        /**
-         * Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionVulnerability?: string;
-        /**
-         * Aggregate maximum bit rate across all non-GBR QoS flows of a given PDU session. See 3GPP TS23.501 section 5.7.2.6 for a full description of the Session-AMBR.
-         */
-        sessionAmbr: outputs.mobilenetwork.AmbrResponse;
-    }
-    /**
-     * dataNetworkConfigurationResponseProvideDefaults sets the appropriate defaults for DataNetworkConfigurationResponse
-     */
-    export function dataNetworkConfigurationResponseProvideDefaults(val: DataNetworkConfigurationResponse): DataNetworkConfigurationResponse {
-        return {
-            ...val,
-            allocationAndRetentionPriorityLevel: (val.allocationAndRetentionPriorityLevel) ?? 9,
-            defaultSessionType: (val.defaultSessionType) ?? "IPv4",
-            fiveQi: (val.fiveQi) ?? 9,
-            maximumNumberOfBufferedPackets: (val.maximumNumberOfBufferedPackets) ?? 10,
-            preemptionCapability: (val.preemptionCapability) ?? "NotPreempt",
-            preemptionVulnerability: (val.preemptionVulnerability) ?? "Preemptable",
-        };
-    }
-
-    /**
-     * Reference to a data network resource.
-     */
-    export interface DataNetworkResourceIdResponse {
-        /**
-         * Data network resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Configuration for uploading packet core diagnostics.
-     */
-    export interface DiagnosticsUploadConfigurationResponse {
-        /**
-         * The Storage Account Container URL to upload diagnostics to.
-         */
-        storageAccountContainerUrl: string;
-    }
-
-    /**
-     * Configuration for sending packet core events to Azure Event Hub.
-     */
-    export interface EventHubConfigurationResponse {
-        /**
-         * Resource ID  of Azure Event Hub to send packet core events to.
-         */
-        id: string;
-        /**
-         * The duration (in seconds) between UE usage reports.
-         */
-        reportingInterval?: number;
-    }
-    /**
-     * eventHubConfigurationResponseProvideDefaults sets the appropriate defaults for EventHubConfigurationResponse
-     */
-    export function eventHubConfigurationResponseProvideDefaults(val: EventHubConfigurationResponse): EventHubConfigurationResponse {
-        return {
-            ...val,
-            reportingInterval: (val.reportingInterval) ?? 1800,
-        };
-    }
-
-    export interface HomeNetworkPrivateKeysProvisioningResponse {
-        /**
-         * The provisioning state of the private keys for SUPI concealment.
-         */
-        state: string;
-    }
-
-    /**
-     * A key used for SUPI concealment.
-     */
-    export interface HomeNetworkPublicKeyResponse {
-        /**
-         * The Home Network Public Key Identifier determines which public key was used to generate the SUCI sent to the AMF. See TS 23.003 Section 2.2B Section 5.
-         */
-        id: number;
-        /**
-         * The URL of Azure Key Vault secret containing the private key, versioned or unversioned. For example: https://contosovault.vault.azure.net/secrets/mySuciPrivateKey/562a4bb76b524a1493a6afe8e536ee78.
-         */
-        url?: string;
-    }
-
-    /**
-     * HTTPS server certificate configuration.
-     */
-    export interface HttpsServerCertificateResponse {
-        /**
-         * The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
-         */
-        certificateUrl: string;
-        /**
-         * The provisioning state of the certificate.
-         */
-        provisioning: outputs.mobilenetwork.CertificateProvisioningResponse;
-    }
-
-    /**
-     * The installation state of the packet core.
-     */
-    export interface InstallationResponse {
-        /**
-         * The desired installation state
-         */
-        desiredState?: string;
-        /**
-         * A reference to an in-progress installation operation
-         */
-        operation: outputs.mobilenetwork.AsyncOperationIdResponse;
-        /**
-         * Reason(s) for the current installation state of the packet core.
-         */
-        reasons: string[];
-        /**
-         * Whether a reinstall of the packet core is required to pick up the latest configuration changes.
-         */
-        reinstallRequired: string;
-        /**
-         * Installation state
-         */
-        state: string;
-    }
-    /**
-     * installationResponseProvideDefaults sets the appropriate defaults for InstallationResponse
-     */
-    export function installationResponseProvideDefaults(val: InstallationResponse): InstallationResponse {
-        return {
-            ...val,
-            desiredState: (val.desiredState) ?? "Installed",
-        };
-    }
-
-    /**
-     * Interface properties
-     */
-    export interface InterfacePropertiesResponse {
-        /**
-         * The IPv4 addresses of the endpoints to send BFD probes to.
-         */
-        bfdIpv4Endpoints?: string[];
-        /**
-         * The IPv4 address.
-         */
-        ipv4Address?: string;
-        /**
-         * The list of IPv4 addresses, for a multi-node system.
-         */
-        ipv4AddressList?: string[];
-        /**
-         * The default IPv4 gateway (router).
-         */
-        ipv4Gateway?: string;
-        /**
-         * The IPv4 subnet.
-         */
-        ipv4Subnet?: string;
-        /**
-         * The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-         */
-        name?: string;
-        /**
-         * VLAN identifier of the network interface. Example: 501.
-         */
-        vlanId?: number;
-    }
-
-    /**
-     * An Azure key vault key.
-     */
-    export interface KeyVaultKeyResponse {
-        /**
-         * The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.
-         */
-        keyUrl?: string;
-    }
-
-    /**
-     * The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-     */
-    export interface LocalDiagnosticsAccessConfigurationResponse {
-        /**
-         * How to authenticate users who access local diagnostics APIs.
-         */
-        authenticationType: string;
-        /**
-         * The HTTPS server TLS certificate used to secure local access to diagnostics.
-         */
-        httpsServerCertificate?: outputs.mobilenetwork.HttpsServerCertificateResponse;
-    }
-
-    /**
-     * Managed service identity (User assigned identity)
-     */
-    export interface ManagedServiceIdentityResponse {
-        /**
-         * Type of managed service identity (currently only UserAssigned allowed).
-         */
-        type: string;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.mobilenetwork.UserAssignedIdentityResponse};
-    }
-
-    /**
-     * Reference to a mobile network resource.
-     */
-    export interface MobileNetworkResourceIdResponse {
-        /**
-         * Mobile network resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Configuration enabling NAS reroute.
-     */
-    export interface NASRerouteConfigurationResponse {
-        /**
-         * The macro network's MME group ID. This is where unknown UEs are sent to via NAS reroute.
-         */
-        macroMmeGroupId: number;
-    }
-
-    /**
-     * The network address and port translation settings to use for the attached data network.
-     */
-    export interface NaptConfigurationResponse {
-        /**
-         * Whether NAPT is enabled for connections to this attached data network.
-         */
-        enabled?: string;
-        /**
-         * Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
-         */
-        pinholeLimits?: number;
-        /**
-         * Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
-         */
-        pinholeTimeouts?: outputs.mobilenetwork.PinholeTimeoutsResponse;
-        /**
-         * Range of port numbers to use as translated ports on each translated address.
-         * If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
-         * (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
-         */
-        portRange?: outputs.mobilenetwork.PortRangeResponse;
-        /**
-         * The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.
-         */
-        portReuseHoldTime?: outputs.mobilenetwork.PortReuseHoldTimesResponse;
-    }
-    /**
-     * naptConfigurationResponseProvideDefaults sets the appropriate defaults for NaptConfigurationResponse
-     */
-    export function naptConfigurationResponseProvideDefaults(val: NaptConfigurationResponse): NaptConfigurationResponse {
-        return {
-            ...val,
-            pinholeLimits: (val.pinholeLimits) ?? 65536,
-            pinholeTimeouts: (val.pinholeTimeouts ? outputs.mobilenetwork.pinholeTimeoutsResponseProvideDefaults(val.pinholeTimeouts) : undefined),
-            portRange: (val.portRange ? outputs.mobilenetwork.portRangeResponseProvideDefaults(val.portRange) : undefined),
-            portReuseHoldTime: (val.portReuseHoldTime ? outputs.mobilenetwork.portReuseHoldTimesResponseProvideDefaults(val.portReuseHoldTime) : undefined),
-        };
-    }
-
-    /**
-     * Data flow policy rule configuration
-     */
-    export interface PccRuleConfigurationResponse {
-        /**
-         * The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
-         */
-        ruleName: string;
-        /**
-         * A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
-         */
-        rulePrecedence: number;
-        /**
-         * The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
-         */
-        ruleQosPolicy?: outputs.mobilenetwork.PccRuleQosPolicyResponse;
-        /**
-         * The set of data flow templates to use for this data flow policy rule.
-         */
-        serviceDataFlowTemplates: outputs.mobilenetwork.ServiceDataFlowTemplateResponse[];
-        /**
-         * Determines whether flows that match this data flow policy rule are permitted.
-         */
-        trafficControl?: string;
-    }
-    /**
-     * pccRuleConfigurationResponseProvideDefaults sets the appropriate defaults for PccRuleConfigurationResponse
-     */
-    export function pccRuleConfigurationResponseProvideDefaults(val: PccRuleConfigurationResponse): PccRuleConfigurationResponse {
-        return {
-            ...val,
-            ruleQosPolicy: (val.ruleQosPolicy ? outputs.mobilenetwork.pccRuleQosPolicyResponseProvideDefaults(val.ruleQosPolicy) : undefined),
-            trafficControl: (val.trafficControl) ?? "Enabled",
-        };
-    }
-
-    /**
-     * Data flow policy rule QoS policy
-     */
-    export interface PccRuleQosPolicyResponse {
-        /**
-         * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: number;
-        /**
-         * 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
-         */
-        fiveQi?: number;
-        /**
-         * The guaranteed bit rate (GBR) for all service data flows that use this data flow policy rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the data flow policy rule that uses this QoS definition.
-         */
-        guaranteedBitRate?: outputs.mobilenetwork.AmbrResponse;
-        /**
-         * The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
-         */
-        maximumBitRate: outputs.mobilenetwork.AmbrResponse;
-        /**
-         * QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionCapability?: string;
-        /**
-         * QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionVulnerability?: string;
-    }
-    /**
-     * pccRuleQosPolicyResponseProvideDefaults sets the appropriate defaults for PccRuleQosPolicyResponse
-     */
-    export function pccRuleQosPolicyResponseProvideDefaults(val: PccRuleQosPolicyResponse): PccRuleQosPolicyResponse {
-        return {
-            ...val,
-            allocationAndRetentionPriorityLevel: (val.allocationAndRetentionPriorityLevel) ?? 9,
-            fiveQi: (val.fiveQi) ?? 9,
-            preemptionCapability: (val.preemptionCapability) ?? "NotPreempt",
-            preemptionVulnerability: (val.preemptionVulnerability) ?? "Preemptable",
-        };
-    }
-
-    /**
-     * Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
-     */
-    export interface PinholeTimeoutsResponse {
-        /**
-         * Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 30 seconds.
-         */
-        icmp?: number;
-        /**
-         * Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.
-         */
-        tcp?: number;
-        /**
-         * Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.
-         */
-        udp?: number;
-    }
-    /**
-     * pinholeTimeoutsResponseProvideDefaults sets the appropriate defaults for PinholeTimeoutsResponse
-     */
-    export function pinholeTimeoutsResponseProvideDefaults(val: PinholeTimeoutsResponse): PinholeTimeoutsResponse {
-        return {
-            ...val,
-            icmp: (val.icmp) ?? 30,
-            tcp: (val.tcp) ?? 180,
-            udp: (val.udp) ?? 30,
-        };
-    }
-
-    /**
-     * The platform where the packet core is deployed.
-     */
-    export interface PlatformConfigurationResponse {
-        /**
-         * The Azure Stack Edge device where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
-         */
-        azureStackEdgeDevice?: outputs.mobilenetwork.AzureStackEdgeDeviceResourceIdResponse;
-        /**
-         * The Azure Stack Edge devices where the packet core is deployed. If the packet core is deployed across multiple devices, all devices will appear in this list.
-         */
-        azureStackEdgeDevices: outputs.mobilenetwork.AzureStackEdgeDeviceResourceIdResponse[];
-        /**
-         * The Azure Stack HCI cluster where the packet core is deployed.
-         */
-        azureStackHciCluster?: outputs.mobilenetwork.AzureStackHCIClusterResourceIdResponse;
-        /**
-         * Azure Arc connected cluster where the packet core is deployed.
-         */
-        connectedCluster?: outputs.mobilenetwork.ConnectedClusterResourceIdResponse;
-        /**
-         * Azure Arc custom location where the packet core is deployed.
-         */
-        customLocation?: outputs.mobilenetwork.CustomLocationResourceIdResponse;
-        /**
-         * The platform type where packet core is deployed.
-         */
-        type: string;
-    }
-
-    /**
-     * Public land mobile network (PLMN) ID. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-     */
-    export interface PlmnIdResponse {
-        /**
-         * Mobile country code (MCC).
-         */
-        mcc: string;
-        /**
-         * Mobile network code (MNC).
-         */
-        mnc: string;
-    }
-
-    /**
-     * Range of port numbers to use as translated ports on each translated address.
-     * If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
-     * (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
-     */
-    export interface PortRangeResponse {
-        /**
-         * The maximum port number
-         */
-        maxPort?: number;
-        /**
-         * The minimum port number
-         */
-        minPort?: number;
-    }
-    /**
-     * portRangeResponseProvideDefaults sets the appropriate defaults for PortRangeResponse
-     */
-    export function portRangeResponseProvideDefaults(val: PortRangeResponse): PortRangeResponse {
-        return {
-            ...val,
-            maxPort: (val.maxPort) ?? 49999,
-            minPort: (val.minPort) ?? 1024,
-        };
-    }
-
-    /**
-     * The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
-     */
-    export interface PortReuseHoldTimesResponse {
-        /**
-         * Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.
-         */
-        tcp?: number;
-        /**
-         * Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Default for UDP is 1 minute.
-         */
-        udp?: number;
-    }
-    /**
-     * portReuseHoldTimesResponseProvideDefaults sets the appropriate defaults for PortReuseHoldTimesResponse
-     */
-    export function portReuseHoldTimesResponseProvideDefaults(val: PortReuseHoldTimesResponse): PortReuseHoldTimesResponse {
-        return {
-            ...val,
-            tcp: (val.tcp) ?? 120,
-            udp: (val.udp) ?? 60,
-        };
-    }
-
-    /**
-     * Configuration relating to a particular PLMN
-     */
-    export interface PublicLandMobileNetworkResponse {
-        /**
-         * Configuration relating to SUPI concealment.
-         */
-        homeNetworkPublicKeys?: outputs.mobilenetwork.PublicLandMobileNetworkResponseHomeNetworkPublicKeys;
-        /**
-         * Mobile country code (MCC).
-         */
-        mcc: string;
-        /**
-         * Mobile network code (MNC).
-         */
-        mnc: string;
-    }
-
-    /**
-     * Configuration relating to SUPI concealment.
-     */
-    export interface PublicLandMobileNetworkResponseHomeNetworkPublicKeys {
-        /**
-         * This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.
-         */
-        profileA?: outputs.mobilenetwork.HomeNetworkPublicKeyResponse[];
-        /**
-         * This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.
-         */
-        profileB?: outputs.mobilenetwork.HomeNetworkPublicKeyResponse[];
-    }
-
-    /**
-     * QoS policy
-     */
-    export interface QosPolicyResponse {
-        /**
-         * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: number;
-        /**
-         * 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
-         */
-        fiveQi?: number;
-        /**
-         * The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
-         */
-        maximumBitRate: outputs.mobilenetwork.AmbrResponse;
-        /**
-         * QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionCapability?: string;
-        /**
-         * QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionVulnerability?: string;
-    }
-    /**
-     * qosPolicyResponseProvideDefaults sets the appropriate defaults for QosPolicyResponse
-     */
-    export function qosPolicyResponseProvideDefaults(val: QosPolicyResponse): QosPolicyResponse {
-        return {
-            ...val,
-            allocationAndRetentionPriorityLevel: (val.allocationAndRetentionPriorityLevel) ?? 9,
-            fiveQi: (val.fiveQi) ?? 9,
-            preemptionCapability: (val.preemptionCapability) ?? "NotPreempt",
-            preemptionVulnerability: (val.preemptionVulnerability) ?? "Preemptable",
-        };
-    }
-
-    /**
-     * Data flow template
-     */
-    export interface ServiceDataFlowTemplateResponse {
-        /**
-         * The direction of this flow.
-         */
-        direction: string;
-        /**
-         * The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. This is an optional setting. If you do not specify it then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
-         */
-        ports?: string[];
-        /**
-         * A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
-         */
-        protocol: string[];
-        /**
-         * The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
-         */
-        remoteIpList: string[];
-        /**
-         * The name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
-         */
-        templateName: string;
-    }
-
-    /**
-     * Reference to a service resource.
-     */
-    export interface ServiceResourceIdResponse {
-        /**
-         * Service resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Signaling configuration for the packet core.
-     */
-    export interface SignalingConfigurationResponse {
-        /**
-         * An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.
-         */
-        nasEncryption?: string[];
-        /**
-         * Configuration enabling 4G NAS reroute.
-         */
-        nasReroute?: outputs.mobilenetwork.NASRerouteConfigurationResponse;
-    }
-
-    /**
-     * SIM group resource.
-     */
-    export interface SimGroupResponse {
-        /**
-         * A key to encrypt the SIM data that belongs to this SIM group.
-         */
-        encryptionKey?: outputs.mobilenetwork.KeyVaultKeyResponse;
-        /**
-         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-         */
-        id: string;
-        /**
-         * The identity used to retrieve the encryption key from Azure key vault.
-         */
-        identity?: outputs.mobilenetwork.ManagedServiceIdentityResponse;
-        /**
-         * The geo-location where the resource lives
-         */
-        location: string;
-        /**
-         * Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
-         */
-        mobileNetwork?: outputs.mobilenetwork.MobileNetworkResourceIdResponse;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The provisioning state of the SIM group resource.
-         */
-        provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.mobilenetwork.SystemDataResponse;
-        /**
-         * Resource tags.
-         */
-        tags?: {[key: string]: string};
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * Reference to a SIM policy resource.
-     */
-    export interface SimPolicyResourceIdResponse {
-        /**
-         * SIM policy resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Static IP configuration for a SIM, scoped to a particular attached data network and slice.
-     */
-    export interface SimStaticIpPropertiesResponse {
-        /**
-         * The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
-         */
-        attachedDataNetwork?: outputs.mobilenetwork.AttachedDataNetworkResourceIdResponse;
-        /**
-         * The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
-         */
-        slice?: outputs.mobilenetwork.SliceResourceIdResponse;
-        /**
-         * The static IP configuration for the SIM to use at the defined network scope.
-         */
-        staticIp?: outputs.mobilenetwork.SimStaticIpPropertiesResponseStaticIp;
-    }
-
-    /**
-     * The static IP configuration for the SIM to use at the defined network scope.
-     */
-    export interface SimStaticIpPropertiesResponseStaticIp {
-        /**
-         * The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-         */
-        ipv4Address?: string;
-    }
-
-    /**
-     * Reference to a site resource.
-     */
-    export interface SiteResourceIdResponse {
-        /**
-         * Site resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Per-slice settings
-     */
-    export interface SliceConfigurationResponse {
-        /**
-         * The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-         */
-        dataNetworkConfigurations: outputs.mobilenetwork.DataNetworkConfigurationResponse[];
-        /**
-         * The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
-         */
-        defaultDataNetwork: outputs.mobilenetwork.DataNetworkResourceIdResponse;
-        /**
-         * A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
-         */
-        slice: outputs.mobilenetwork.SliceResourceIdResponse;
-    }
-
-    /**
-     * Reference to a slice resource.
-     */
-    export interface SliceResourceIdResponse {
-        /**
-         * Slice resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Single-network slice selection assistance information (S-NSSAI).
-     */
-    export interface SnssaiResponse {
-        /**
-         * Slice differentiator (SD).
-         */
-        sd?: string;
-        /**
-         * Slice/service type (SST).
-         */
-        sst: number;
-    }
-
-    /**
-     * Reference to another sub resource.
-     */
-    export interface SubResourceResponse {
-        /**
-         * Resource ID.
-         */
-        id: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-    /**
-     * User assigned identity properties
-     */
-    export interface UserAssignedIdentityResponse {
-        /**
-         * The client ID of the assigned identity.
-         */
-        clientId: string;
-        /**
-         * The principal ID of the assigned identity.
-         */
-        principalId: string;
-    }
-
-    export interface UserConsentConfigurationResponse {
-        /**
-         * Allow Microsoft to access non-PII telemetry information from the packet core.
-         */
-        allowSupportTelemetryAccess?: boolean;
     }
 
 }
@@ -178226,6 +180611,60 @@ export namespace netapp {
     }
 
     /**
+     * Active Directory Configuration properties
+     */
+    export interface ActiveDirectoryConfigPropertiesResponse {
+        /**
+         * Status of the Active Directory
+         */
+        activeDirectoryStatus: string;
+        /**
+         * Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+         */
+        administrators?: string[];
+        /**
+         * Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+         */
+        backupOperators?: string[];
+        /**
+         * An array of DNS server IP addresses(IPv4 only) for the Active Directory
+         */
+        dns?: string[];
+        /**
+         * Name of the Active Directory domain
+         */
+        domain: string;
+        /**
+         * The Organizational Unit (OU) within the Windows Active Directory
+         */
+        organizationalUnit?: string;
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+        /**
+         * Access password from Azure KeyVault Secrets to connect Active Directory
+         */
+        secretPassword: outputs.netapp.SecretPasswordResponse;
+        /**
+         * Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+         */
+        securityOperators?: string[];
+        /**
+         * The Active Directory site the service will limit Domain Controller discovery to
+         */
+        site?: string;
+        /**
+         * NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+         */
+        smbServerName?: string;
+        /**
+         * A domain user account with permission to create machine accounts
+         */
+        userName?: string;
+    }
+
+    /**
      * Active Directory
      */
     export interface ActiveDirectoryResponse {
@@ -178355,6 +180794,136 @@ export namespace netapp {
     }
 
     /**
+     * Contains all the information needed to mount a cache
+     */
+    export interface CacheMountTargetPropertiesResponse {
+        /**
+         * The mount target's IPv4 address, used to mount the cache.
+         */
+        ipAddress: string;
+        /**
+         * UUID v4 used to identify the MountTarget
+         */
+        mountTargetId: string;
+        /**
+         * The SMB server's Fully Qualified Domain Name, FQDN
+         */
+        smbServerFqdn: string;
+    }
+
+    /**
+     * Set of export policy rules
+     */
+    export interface CachePropertiesExportPolicyResponse {
+        /**
+         * Export policy rule
+         */
+        rules?: outputs.netapp.ExportPolicyRuleResponse[];
+    }
+
+    /**
+     * Cache resource properties
+     */
+    export interface CachePropertiesResponse {
+        /**
+         * Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+         */
+        actualThroughputMibps: number;
+        /**
+         * Azure NetApp Files Cache lifecycle management
+         */
+        cacheState: string;
+        /**
+         * The Azure Resource URI for a delegated cache subnet that will be used to allocate data IPs.
+         */
+        cacheSubnetResourceId: string;
+        /**
+         * Flag indicating whether a CIFS change notification is enabled for the cache.
+         */
+        cifsChangeNotifications?: string;
+        /**
+         * Specifies if the cache is encryption or not.
+         */
+        encryption: string;
+        /**
+         * Source of key used to encrypt data in the cache. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+         */
+        encryptionKeySource: string;
+        /**
+         * Set of export policy rules
+         */
+        exportPolicy?: outputs.netapp.CachePropertiesExportPolicyResponse;
+        /**
+         * The file path of the Cache.
+         */
+        filepath: string;
+        /**
+         * Flag indicating whether the global file lock is enabled for the cache.
+         */
+        globalFileLocking?: string;
+        /**
+         * Describe if a cache is Kerberos enabled.
+         */
+        kerberos?: string;
+        /**
+         * The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+         */
+        keyVaultPrivateEndpointResourceId?: string;
+        /**
+         * Language supported for volume.
+         */
+        language: string;
+        /**
+         * Specifies whether LDAP is enabled or not for flexcache volume.
+         */
+        ldap?: string;
+        /**
+         * Specifies the type of LDAP server for flexcache volume.
+         */
+        ldapServerType?: string;
+        /**
+         * Maximum number of files allowed.
+         */
+        maximumNumberOfFiles: number;
+        /**
+         * List of mount targets that can be used to mount this cache
+         */
+        mountTargets: outputs.netapp.CacheMountTargetPropertiesResponse[];
+        /**
+         * Origin cluster information
+         */
+        originClusterInformation: outputs.netapp.OriginClusterInformationResponse;
+        /**
+         * The Azure Resource URI for a delegated subnet that will be used for ANF Intercluster Interface IP addresses.
+         */
+        peeringSubnetResourceId: string;
+        /**
+         * Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+         */
+        protocolTypes?: string[];
+        /**
+         * Azure lifecycle management
+         */
+        provisioningState: string;
+        /**
+         * Maximum storage quota allowed for a file system in bytes. Valid values are in the range 50GiB to 1PiB. Values expressed in bytes as multiples of 1GiB.
+         */
+        size: number;
+        /**
+         * SMB information for the cache
+         */
+        smbSettings?: outputs.netapp.SmbSettingsResponse;
+        /**
+         * Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
+         */
+        throughputMibps?: number;
+        /**
+         * Flag indicating whether writeback is enabled for the cache.
+         */
+        writeBack?: string;
+    }
+
+    /**
      * The effective CIFS username when accessing the volume data.
      */
     export interface CifsUserResponse {
@@ -178384,6 +180953,547 @@ export namespace netapp {
          * Resource size in bytes, current storage usage for the volume in bytes
          */
         usedBytes?: number;
+    }
+
+    /**
+     * NetApp elastic account properties
+     */
+    export interface ElasticAccountPropertiesResponse {
+        /**
+         * Encryption settings
+         */
+        encryption?: outputs.netapp.ElasticEncryptionResponse;
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Elastic Backup Policy properties
+     */
+    export interface ElasticBackupPolicyPropertiesResponse {
+        /**
+         * The number of volumes currently using this Backup Policy.
+         */
+        assignedVolumesCount: number;
+        /**
+         * Daily backups count to keep
+         */
+        dailyBackupsToKeep?: number;
+        /**
+         * Monthly backups count to keep
+         */
+        monthlyBackupsToKeep?: number;
+        /**
+         * The property to identify whether Backup Policy is enabled or not
+         */
+        policyState?: string;
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+        /**
+         * Weekly backups count to keep
+         */
+        weeklyBackupsToKeep?: number;
+    }
+
+    /**
+     * Elastic Backup properties
+     */
+    export interface ElasticBackupPropertiesResponse {
+        /**
+         * Type of backup Manual or Scheduled
+         */
+        backupType: string;
+        /**
+         * The completion date of the backup
+         */
+        completionDate: string;
+        /**
+         * The creation date of the backup
+         */
+        creationDate: string;
+        /**
+         * ResourceId used to identify the elastic backup policy
+         */
+        elasticBackupPolicyResourceId: string;
+        /**
+         * ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
+         */
+        elasticSnapshotResourceId?: string;
+        /**
+         * ResourceId used to identify the Elastic Volume
+         */
+        elasticVolumeResourceId: string;
+        /**
+         * Failure reason
+         */
+        failureReason: string;
+        /**
+         * Label for backup
+         */
+        label?: string;
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+        /**
+         * Size of backup in bytes
+         */
+        size: number;
+        /**
+         * The snapshot creation date of the backup
+         */
+        snapshotCreationDate: string;
+        /**
+         * Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+         */
+        snapshotUsage?: string;
+        /**
+         * Specifies if the backup is for a large volume.
+         */
+        volumeSize: string;
+    }
+    /**
+     * elasticBackupPropertiesResponseProvideDefaults sets the appropriate defaults for ElasticBackupPropertiesResponse
+     */
+    export function elasticBackupPropertiesResponseProvideDefaults(val: ElasticBackupPropertiesResponse): ElasticBackupPropertiesResponse {
+        return {
+            ...val,
+            snapshotUsage: (val.snapshotUsage) ?? "CreateNewSnapshot",
+        };
+    }
+
+    /**
+     * Elastic Backup Vault properties
+     */
+    export interface ElasticBackupVaultPropertiesResponse {
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Elastic capacity pool properties
+     */
+    export interface ElasticCapacityPoolPropertiesResponse {
+        /**
+         * The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
+         */
+        activeDirectoryConfigResourceId?: string;
+        /**
+         * Current availability status of the resource.
+         */
+        availabilityStatus: string;
+        /**
+         * Indicates the current zone of the pool. This can be changed for zoneRedundant service level pool with the changeZone action
+         */
+        currentZone: string;
+        /**
+         * Encryption settings
+         */
+        encryption?: outputs.netapp.ElasticEncryptionConfigurationResponse;
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+        /**
+         * The service level of the elastic capacity pool
+         */
+        serviceLevel: string;
+        /**
+         * Provisioned size of the pool (in bytes). For zoneRedundant service level pool, value must be in the range 1TiB to 16TiB or 1TiB to 128TiB for supported region. Values expressed in bytes as multiples of 1TiB till 16TiB and in multiples of 8TiB from 24TiB to 128TiB. Pool size can't be shrunk once it is created.
+         */
+        size: number;
+        /**
+         * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/elasticVolumes, this is used by all the volumes within the pool
+         */
+        subnetResourceId: string;
+        /**
+         * Total throughput of the pool in MiB/s
+         */
+        totalThroughputMibps: number;
+    }
+
+    /**
+     * CMK Encryption Configuration
+     */
+    export interface ElasticEncryptionConfigurationResponse {
+        /**
+         * Pool Encryption Key Source.
+         */
+        elasticPoolEncryptionKeySource: string;
+        /**
+         * The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+         */
+        keyVaultPrivateEndpointResourceId: string;
+    }
+
+    /**
+     * Identity used to authenticate with key vault.
+     */
+    export interface ElasticEncryptionIdentityResponse {
+        /**
+         * The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+         */
+        principalId: string;
+        /**
+         * The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+         */
+        userAssignedIdentity?: string;
+    }
+
+    /**
+     * Encryption settings
+     */
+    export interface ElasticEncryptionResponse {
+        /**
+         * Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+         */
+        identity?: outputs.netapp.ElasticEncryptionIdentityResponse;
+        /**
+         * The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+         */
+        keySource?: string;
+        /**
+         * Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+         */
+        keyVaultProperties?: outputs.netapp.ElasticKeyVaultPropertiesResponse;
+    }
+
+    /**
+     * Set of export policy rules
+     */
+    export interface ElasticExportPolicyResponse {
+        /**
+         * Export policy rule
+         */
+        rules?: outputs.netapp.ElasticExportPolicyRuleResponse[];
+    }
+
+    /**
+     * Elastic Volume Export Policy Rule
+     */
+    export interface ElasticExportPolicyRuleResponse {
+        /**
+         * Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
+         */
+        allowedClients?: string[];
+        /**
+         * Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+         */
+        nfsv3?: string;
+        /**
+         * Allows clients to access the volume with at least NFSv4.1 protocol.
+         */
+        nfsv4?: string;
+        /**
+         * Indicates whether root access to the volume is granted to clients affected by this rule
+         */
+        rootAccess?: string;
+        /**
+         * Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
+         */
+        ruleIndex?: number;
+        /**
+         * Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+         */
+        unixAccessRule?: string;
+    }
+    /**
+     * elasticExportPolicyRuleResponseProvideDefaults sets the appropriate defaults for ElasticExportPolicyRuleResponse
+     */
+    export function elasticExportPolicyRuleResponseProvideDefaults(val: ElasticExportPolicyRuleResponse): ElasticExportPolicyRuleResponse {
+        return {
+            ...val,
+            nfsv3: (val.nfsv3) ?? "Disabled",
+            nfsv4: (val.nfsv4) ?? "Disabled",
+            rootAccess: (val.rootAccess) ?? "Disabled",
+            unixAccessRule: (val.unixAccessRule) ?? "NoAccess",
+        };
+    }
+
+    /**
+     * Properties of key vault.
+     */
+    export interface ElasticKeyVaultPropertiesResponse {
+        /**
+         * The name of KeyVault key.
+         */
+        keyName?: string;
+        /**
+         * The resource ID of KeyVault.
+         */
+        keyVaultResourceId?: string;
+        /**
+         * The Uri of KeyVault.
+         */
+        keyVaultUri?: string;
+        /**
+         * Status of the KeyVault connection.
+         */
+        status: string;
+    }
+
+    /**
+     * Contains all the information needed to mount an elastic volume
+     */
+    export interface ElasticMountTargetPropertiesResponse {
+        /**
+         * The mount target's IPv4 address, used to mount the volume
+         */
+        ipAddress: string;
+        /**
+         * The SMB server's Fully Qualified Domain Name, FQDN
+         */
+        smbServerFqdn: string;
+    }
+
+    /**
+     * SMB Properties
+     */
+    export interface ElasticSmbPropertiesResponse {
+        /**
+         * Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+         */
+        smbEncryption?: string;
+    }
+    /**
+     * elasticSmbPropertiesResponseProvideDefaults sets the appropriate defaults for ElasticSmbPropertiesResponse
+     */
+    export function elasticSmbPropertiesResponseProvideDefaults(val: ElasticSmbPropertiesResponse): ElasticSmbPropertiesResponse {
+        return {
+            ...val,
+            smbEncryption: (val.smbEncryption) ?? "Disabled",
+        };
+    }
+
+    /**
+     * Daily Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyDailyScheduleResponse {
+        /**
+         * Indicates which hour in UTC timezone a snapshot should be taken
+         */
+        hour?: number;
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: number;
+        /**
+         * Daily snapshot count to keep
+         */
+        snapshotsToKeep?: number;
+    }
+
+    /**
+     * Hourly Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyHourlyScheduleResponse {
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: number;
+        /**
+         * Hourly snapshot count to keep
+         */
+        snapshotsToKeep?: number;
+    }
+
+    /**
+     * Monthly Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyMonthlyScheduleResponse {
+        /**
+         * Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
+         */
+        daysOfMonth?: number[];
+        /**
+         * Indicates which hour in UTC timezone a snapshot should be taken
+         */
+        hour?: number;
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: number;
+        /**
+         * Monthly snapshot count to keep
+         */
+        snapshotsToKeep?: number;
+    }
+
+    /**
+     * Elastic Snapshot policy properties
+     */
+    export interface ElasticSnapshotPolicyPropertiesResponse {
+        /**
+         * Schedule for daily snapshots
+         */
+        dailySchedule?: outputs.netapp.ElasticSnapshotPolicyDailyScheduleResponse;
+        /**
+         * Schedule for hourly snapshots
+         */
+        hourlySchedule?: outputs.netapp.ElasticSnapshotPolicyHourlyScheduleResponse;
+        /**
+         * Schedule for monthly snapshots
+         */
+        monthlySchedule?: outputs.netapp.ElasticSnapshotPolicyMonthlyScheduleResponse;
+        /**
+         * Configures if the snapshot policy is enabled on the volumes connected to the policy.
+         */
+        policyStatus?: string;
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+        /**
+         * Schedule for weekly snapshots
+         */
+        weeklySchedule?: outputs.netapp.ElasticSnapshotPolicyWeeklyScheduleResponse;
+    }
+
+    /**
+     * Weekly Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyWeeklyScheduleResponse {
+        /**
+         * Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
+         */
+        days?: string[];
+        /**
+         * Indicates which hour in UTC timezone a snapshot should be taken
+         */
+        hour?: number;
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: number;
+        /**
+         * Weekly snapshot count to keep
+         */
+        snapshotsToKeep?: number;
+    }
+
+    /**
+     * Elastic Snapshot properties
+     */
+    export interface ElasticSnapshotPropertiesResponse {
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Elastic Volume Backup Properties
+     */
+    export interface ElasticVolumeBackupPropertiesResponse {
+        /**
+         * ResourceId used to identify Elastic Backup Policy
+         */
+        elasticBackupPolicyResourceId?: string;
+        /**
+         * ResourceId used to identify Elastic Backup Vault
+         */
+        elasticBackupVaultResourceId?: string;
+        /**
+         * The property to decide policy is enforced or not on the volume
+         */
+        policyEnforcement?: string;
+    }
+
+    /**
+     * Data protection configuration option for the volume, including snapshot policies and backup.
+     */
+    export interface ElasticVolumeDataProtectionPropertiesResponse {
+        /**
+         * Used to configure backups on an elastic volume.
+         */
+        backup?: outputs.netapp.ElasticVolumeBackupPropertiesResponse;
+        /**
+         * Used to apply a snapshot policy to a volume.
+         */
+        snapshot?: outputs.netapp.ElasticVolumeSnapshotPropertiesResponse;
+    }
+
+    /**
+     * Elastic Volume properties
+     */
+    export interface ElasticVolumePropertiesResponse {
+        /**
+         * Current availability status of the resource.
+         */
+        availabilityStatus: string;
+        /**
+         * Resource identifier used to identify the Elastic Backup.
+         */
+        backupResourceId?: string;
+        /**
+         * Data protection configuration option for the volume, including snapshot policies and backup.
+         */
+        dataProtection?: outputs.netapp.ElasticVolumeDataProtectionPropertiesResponse;
+        /**
+         * Set of export policy rules
+         */
+        exportPolicy?: outputs.netapp.ElasticExportPolicyResponse;
+        /**
+         * A unique file path for the volume. Used when creating mount targets. This needs to be unique within the elastic capacity pool.
+         */
+        filePath: string;
+        /**
+         * List of mount targets that can be used to mount this volume
+         */
+        mountTargets: outputs.netapp.ElasticMountTargetPropertiesResponse[];
+        /**
+         * Set of support protocol types for the elastic volume
+         */
+        protocolTypes: string[];
+        /**
+         * Azure lifecycle management.
+         */
+        provisioningState: string;
+        /**
+         * The current state of the restoration process.
+         */
+        restorationState: string;
+        /**
+         * Maximum size allowed for a volume in bytes. Valid values are in the range 1GiB to 16TiB. Values expressed in bytes as multiples of 1 GiB.
+         */
+        size: number;
+        /**
+         * SMB Properties
+         */
+        smbProperties?: outputs.netapp.ElasticSmbPropertiesResponse;
+        /**
+         * Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+         */
+        snapshotDirectoryVisibility?: string;
+        /**
+         * Resource identifier used to identify the Elastic Snapshot.
+         */
+        snapshotResourceId?: string;
+    }
+    /**
+     * elasticVolumePropertiesResponseProvideDefaults sets the appropriate defaults for ElasticVolumePropertiesResponse
+     */
+    export function elasticVolumePropertiesResponseProvideDefaults(val: ElasticVolumePropertiesResponse): ElasticVolumePropertiesResponse {
+        return {
+            ...val,
+            smbProperties: (val.smbProperties ? outputs.netapp.elasticSmbPropertiesResponseProvideDefaults(val.smbProperties) : undefined),
+        };
+    }
+
+    /**
+     * Elastic Volume Snapshot Properties
+     */
+    export interface ElasticVolumeSnapshotPropertiesResponse {
+        /**
+         * Snapshot Policy ResourceId
+         */
+        snapshotPolicyResourceId?: string;
     }
 
     /**
@@ -178420,6 +181530,22 @@ export namespace netapp {
          * Has root access to volume
          */
         hasRootAccess?: boolean;
+        /**
+         * Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5IReadOnly?: boolean;
+        /**
+         * Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5IReadWrite?: boolean;
+        /**
+         * Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5PReadOnly?: boolean;
+        /**
+         * Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5PReadWrite?: boolean;
         /**
          * Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
          */
@@ -178473,6 +181599,10 @@ export namespace netapp {
             ...val,
             chownMode: (val.chownMode) ?? "Restricted",
             hasRootAccess: (val.hasRootAccess) ?? true,
+            kerberos5IReadOnly: (val.kerberos5IReadOnly) ?? false,
+            kerberos5IReadWrite: (val.kerberos5IReadWrite) ?? false,
+            kerberos5PReadOnly: (val.kerberos5PReadOnly) ?? false,
+            kerberos5PReadWrite: (val.kerberos5PReadWrite) ?? false,
             kerberos5ReadOnly: (val.kerberos5ReadOnly) ?? false,
             kerberos5ReadWrite: (val.kerberos5ReadWrite) ?? false,
             kerberos5iReadOnly: (val.kerberos5iReadOnly) ?? false,
@@ -178657,6 +181787,28 @@ export namespace netapp {
     }
 
     /**
+     * Stores the origin cluster information associated to a cache.
+     */
+    export interface OriginClusterInformationResponse {
+        /**
+         * ONTAP Intercluster LIF IP addresses. One IP address per cluster node is required
+         */
+        peerAddresses: string[];
+        /**
+         * ONTAP cluster name of external cluster hosting the origin volume
+         */
+        peerClusterName: string;
+        /**
+         * External origin volume name associated to this cache
+         */
+        peerVolumeName: string;
+        /**
+         * External Vserver (SVM) name  name of the SVM hosting the origin volume
+         */
+        peerVserverName: string;
+    }
+
+    /**
      * Application specific parameters for the placement of volumes in the volume group
      */
     export interface PlacementKeyValuePairsResponse {
@@ -178772,6 +181924,66 @@ export namespace netapp {
          * Schedule
          */
         replicationSchedule?: string;
+    }
+
+    /**
+     * Identity used to authenticate with key vault.
+     */
+    export interface SecretPasswordIdentityResponse {
+        /**
+         * The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+         */
+        principalId: string;
+        /**
+         * The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+         */
+        userAssignedIdentity?: string;
+    }
+
+    /**
+     * Properties of key vault to get the secrets for password.
+     */
+    export interface SecretPasswordKeyVaultPropertiesResponse {
+        /**
+         * The Uri of KeyVault.
+         */
+        keyVaultUri: string;
+        /**
+         * The name of KeyVault password secret.
+         */
+        secretName: string;
+    }
+
+    /**
+     * Access password from Azure KeyVault Secrets to connect Active Directory
+     */
+    export interface SecretPasswordResponse {
+        /**
+         * Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+         */
+        identity?: outputs.netapp.SecretPasswordIdentityResponse;
+        /**
+         * Properties provided by KeyVault.
+         */
+        keyVaultProperties?: outputs.netapp.SecretPasswordKeyVaultPropertiesResponse;
+    }
+
+    /**
+     * SMB settings for the cache
+     */
+    export interface SmbSettingsResponse {
+        /**
+         * Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+         */
+        smbAccessBasedEnumeration?: string;
+        /**
+         * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+         */
+        smbEncryption?: string;
+        /**
+         * Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+         */
+        smbNonBrowsable?: string;
     }
 
     /**
@@ -184085,6 +187297,10 @@ export namespace network {
          */
         provisioningState: string;
         /**
+         * Optional field to filter network traffic logs based on flow states. Value of this field could be any comma separated combination string of letters B,C,E or D. B represents Begin, when a flow is created. C represents Continue for an ongoing flow generated at every five-minute interval. E represents End, when a flow is terminated. D represents Deny, when a flow is denied. If not specified, all network traffic will be logged.
+         */
+        recordTypes?: string;
+        /**
          * Parameters that define the retention policy for flow log.
          */
         retentionPolicy?: outputs.network.RetentionPolicyParametersResponse;
@@ -185313,17 +188529,33 @@ export namespace network {
          */
         publicIpAddresses?: outputs.network.SubResourceResponse[];
         /**
+         * An array of public ip addresses V6 associated with the nat gateway resource.
+         */
+        publicIpAddressesV6?: outputs.network.SubResourceResponse[];
+        /**
          * An array of public ip prefixes associated with the nat gateway resource.
          */
         publicIpPrefixes?: outputs.network.SubResourceResponse[];
+        /**
+         * An array of public ip prefixes V6 associated with the nat gateway resource.
+         */
+        publicIpPrefixesV6?: outputs.network.SubResourceResponse[];
         /**
          * The resource GUID property of the NAT gateway resource.
          */
         resourceGuid: string;
         /**
+         * Reference to an existing service gateway.
+         */
+        serviceGateway?: outputs.network.SubResourceResponse;
+        /**
          * The nat gateway SKU.
          */
         sku?: outputs.network.NatGatewaySkuResponse;
+        /**
+         * A reference to the source virtual network using this nat gateway resource.
+         */
+        sourceVirtualNetwork?: outputs.network.SubResourceResponse;
         /**
          * An array of references to the subnets using this nat gateway resource.
          */
@@ -186872,6 +190104,10 @@ export namespace network {
          */
         ipConfigurations?: outputs.network.PrivateEndpointIPConfigurationResponse[];
         /**
+         * Specifies the IP version type for the private IPs of the private endpoint. If not defined, this defaults to IPv4.
+         */
+        ipVersionType?: string;
+        /**
          * Resource location.
          */
         location?: string;
@@ -186914,6 +190150,7 @@ export namespace network {
     export function privateEndpointResponseProvideDefaults(val: PrivateEndpointResponse): PrivateEndpointResponse {
         return {
             ...val,
+            ipVersionType: (val.ipVersionType) ?? "IPv4",
             subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
         };
     }
@@ -187057,6 +190294,10 @@ export namespace network {
      * Private link service resource.
      */
     export interface PrivateLinkServiceResponse {
+        /**
+         * The access mode of the private link service.
+         */
+        accessMode?: string;
         /**
          * The alias of the private link service.
          */
@@ -187806,6 +191047,33 @@ export namespace network {
     }
 
     /**
+     * Properties of route target address
+     */
+    export interface RouteTargetAddressPropertiesFormatResponse {
+        /**
+         * The private IPv4 or IPv6 address of the service gateway route target address.
+         */
+        privateIPAddress?: string;
+        /**
+         * The Private IP allocation method.
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * The reference to the subnet resource.
+         */
+        subnet?: outputs.network.SubnetResponse;
+    }
+    /**
+     * routeTargetAddressPropertiesFormatResponseProvideDefaults sets the appropriate defaults for RouteTargetAddressPropertiesFormatResponse
+     */
+    export function routeTargetAddressPropertiesFormatResponseProvideDefaults(val: RouteTargetAddressPropertiesFormatResponse): RouteTargetAddressPropertiesFormatResponse {
+        return {
+            ...val,
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
      * Routing Configuration indicating the associated and propagated route tables for this connection.
      */
     export interface RoutingConfigurationResponse {
@@ -188134,6 +191402,20 @@ export namespace network {
     }
 
     /**
+     * SKU of a service gateway.
+     */
+    export interface ServiceGatewaySkuResponse {
+        /**
+         * Name of a service gateway SKU.
+         */
+        name?: string;
+        /**
+         * Tier of a service gateway SKU.
+         */
+        tier?: string;
+    }
+
+    /**
      * Parameters for SharedKey.
      */
     export interface SharedKeyPropertiesResponse {
@@ -188386,6 +191668,10 @@ export namespace network {
          * An array of service endpoints.
          */
         serviceEndpoints?: outputs.network.ServiceEndpointPropertiesFormatResponse[];
+        /**
+         * Reference to an existing service gateway.
+         */
+        serviceGateway?: outputs.network.SubResourceResponse;
         /**
          * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
          */
@@ -188743,6 +192029,48 @@ export namespace network {
          * NextHops ip address.
          */
         nextHops?: string[];
+    }
+
+    /**
+     * The virtual network appliance ip configuration.
+     */
+    export interface VirtualNetworkApplianceIpConfigurationResponse {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of virtual network appliance ip configuration.
+         */
+        name?: string;
+        /**
+         * Whether the ip configuration is primary or not.
+         */
+        primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIPAddress?: string;
+        /**
+         * Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+         */
+        privateIPAddressVersion?: string;
+        /**
+         * The private IP address allocation method.
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * The provisioning state of the private link service IP configuration resource.
+         */
+        provisioningState: string;
+        /**
+         * The resource type.
+         */
+        type: string;
     }
 
     /**
@@ -189190,6 +192518,114 @@ export namespace network {
          * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
          */
         useRemoteGateways?: boolean;
+    }
+
+    /**
+     * Virtual Network resource.
+     */
+    export interface VirtualNetworkResponse {
+        /**
+         * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+         */
+        addressSpace?: outputs.network.AddressSpaceResponse;
+        /**
+         * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+         */
+        bgpCommunities?: outputs.network.VirtualNetworkBgpCommunitiesResponse;
+        /**
+         * The DDoS protection plan associated with the virtual network.
+         */
+        ddosProtectionPlan?: outputs.network.SubResourceResponse;
+        /**
+         * A reference to the default public nat gateway being used by this virtual network resource.
+         */
+        defaultPublicNatGateway: outputs.network.SubResourceResponse;
+        /**
+         * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+         */
+        dhcpOptions?: outputs.network.DhcpOptionsResponse;
+        /**
+         * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+         */
+        enableDdosProtection?: boolean;
+        /**
+         * Indicates if VM protection is enabled for all the subnets in the virtual network.
+         */
+        enableVmProtection?: boolean;
+        /**
+         * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+         */
+        encryption?: outputs.network.VirtualNetworkEncryptionResponse;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the virtual network.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * A collection of references to flow log resources.
+         */
+        flowLogs: outputs.network.FlowLogResponse[];
+        /**
+         * The FlowTimeout value (in minutes) for the Virtual Network
+         */
+        flowTimeoutInMinutes?: number;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Array of IpAllocation which reference this VNET.
+         */
+        ipAllocations?: outputs.network.SubResourceResponse[];
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * Private Endpoint VNet Policies.
+         */
+        privateEndpointVNetPolicies?: string;
+        /**
+         * The provisioning state of the virtual network resource.
+         */
+        provisioningState: string;
+        /**
+         * The resourceGuid property of the Virtual Network resource.
+         */
+        resourceGuid: string;
+        /**
+         * A list of subnets in a Virtual Network.
+         */
+        subnets?: outputs.network.SubnetResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * A list of peerings in a Virtual Network.
+         */
+        virtualNetworkPeerings?: outputs.network.VirtualNetworkPeeringResponse[];
+    }
+    /**
+     * virtualNetworkResponseProvideDefaults sets the appropriate defaults for VirtualNetworkResponse
+     */
+    export function virtualNetworkResponseProvideDefaults(val: VirtualNetworkResponse): VirtualNetworkResponse {
+        return {
+            ...val,
+            enableDdosProtection: (val.enableDdosProtection) ?? false,
+            enableVmProtection: (val.enableVmProtection) ?? false,
+        };
     }
 
     /**
@@ -193072,6 +196508,36 @@ export namespace operationalinsights {
     }
 
     /**
+     * Rule definition parameters.
+     */
+    export interface RuleDefinitionResponse {
+        /**
+         * The minimum delay in seconds before bin processing.
+         */
+        binDelay?: number;
+        /**
+         * Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+         */
+        binSize?: number;
+        /**
+         * The start time (UTC) when Summary rule execution starts.
+         */
+        binStartTime?: string;
+        /**
+         * The destination table used for the Summary rule results.
+         */
+        destinationTable?: string;
+        /**
+         * Summary rule query.
+         */
+        query?: string;
+        /**
+         * The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+         */
+        timeSelector?: string;
+    }
+
+    /**
      * Table's schema.
      */
     export interface SchemaResponse {
@@ -195316,11 +198782,11 @@ export namespace providerhub {
         /**
          * The specification.
          */
-        specification: outputs.providerhub.CustomRolloutPropertiesResponseSpecification;
+        specification: outputs.providerhub.CustomRolloutPropertiesSpecificationResponse;
         /**
          * The status.
          */
-        status?: outputs.providerhub.CustomRolloutPropertiesResponseStatus;
+        status?: outputs.providerhub.CustomRolloutPropertiesStatusResponse;
     }
     /**
      * customRolloutPropertiesResponseProvideDefaults sets the appropriate defaults for CustomRolloutPropertiesResponse
@@ -195328,26 +198794,26 @@ export namespace providerhub {
     export function customRolloutPropertiesResponseProvideDefaults(val: CustomRolloutPropertiesResponse): CustomRolloutPropertiesResponse {
         return {
             ...val,
-            specification: outputs.providerhub.customRolloutPropertiesResponseSpecificationProvideDefaults(val.specification),
+            specification: outputs.providerhub.customRolloutPropertiesSpecificationResponseProvideDefaults(val.specification),
         };
     }
 
     /**
      * The specification.
      */
-    export interface CustomRolloutPropertiesResponseSpecification {
+    export interface CustomRolloutPropertiesSpecificationResponse {
         /**
          * The auto provisioning configuration.
          */
-        autoProvisionConfig?: outputs.providerhub.CustomRolloutSpecificationResponseAutoProvisionConfig;
+        autoProvisionConfig?: outputs.providerhub.CustomRolloutSpecificationAutoProvisionConfigResponse;
         /**
          * The canary region configuration.
          */
-        canary?: outputs.providerhub.CustomRolloutSpecificationResponseCanary;
+        canary?: outputs.providerhub.CustomRolloutSpecificationCanaryResponse;
         /**
          * The provider registration.
          */
-        providerRegistration?: outputs.providerhub.CustomRolloutSpecificationResponseProviderRegistration;
+        providerRegistration?: outputs.providerhub.CustomRolloutSpecificationProviderRegistrationResponse;
         /**
          * Whether refreshing subscription registration is enabled or disabled.
          */
@@ -195366,19 +198832,19 @@ export namespace providerhub {
         skipReleaseScopeValidation?: boolean;
     }
     /**
-     * customRolloutPropertiesResponseSpecificationProvideDefaults sets the appropriate defaults for CustomRolloutPropertiesResponseSpecification
+     * customRolloutPropertiesSpecificationResponseProvideDefaults sets the appropriate defaults for CustomRolloutPropertiesSpecificationResponse
      */
-    export function customRolloutPropertiesResponseSpecificationProvideDefaults(val: CustomRolloutPropertiesResponseSpecification): CustomRolloutPropertiesResponseSpecification {
+    export function customRolloutPropertiesSpecificationResponseProvideDefaults(val: CustomRolloutPropertiesSpecificationResponse): CustomRolloutPropertiesSpecificationResponse {
         return {
             ...val,
-            providerRegistration: (val.providerRegistration ? outputs.providerhub.customRolloutSpecificationResponseProviderRegistrationProvideDefaults(val.providerRegistration) : undefined),
+            providerRegistration: (val.providerRegistration ? outputs.providerhub.customRolloutSpecificationProviderRegistrationResponseProvideDefaults(val.providerRegistration) : undefined),
         };
     }
 
     /**
      * The status.
      */
-    export interface CustomRolloutPropertiesResponseStatus {
+    export interface CustomRolloutPropertiesStatusResponse {
         /**
          * The completed regions.
          */
@@ -195390,13 +198856,13 @@ export namespace providerhub {
         /**
          * The manifest checkin status.
          */
-        manifestCheckinStatus?: outputs.providerhub.CustomRolloutStatusResponseManifestCheckinStatus;
+        manifestCheckinStatus?: outputs.providerhub.CustomRolloutStatusManifestCheckinStatusResponse;
     }
 
     /**
      * The auto provisioning configuration.
      */
-    export interface CustomRolloutSpecificationResponseAutoProvisionConfig {
+    export interface CustomRolloutSpecificationAutoProvisionConfigResponse {
         resourceGraph?: boolean;
         storage?: boolean;
     }
@@ -195404,14 +198870,14 @@ export namespace providerhub {
     /**
      * The canary region configuration.
      */
-    export interface CustomRolloutSpecificationResponseCanary {
+    export interface CustomRolloutSpecificationCanaryResponse {
         regions?: string[];
     }
 
     /**
      * The provider registration.
      */
-    export interface CustomRolloutSpecificationResponseProviderRegistration {
+    export interface CustomRolloutSpecificationProviderRegistrationResponse {
         /**
          * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
@@ -195435,9 +198901,9 @@ export namespace providerhub {
         type: string;
     }
     /**
-     * customRolloutSpecificationResponseProviderRegistrationProvideDefaults sets the appropriate defaults for CustomRolloutSpecificationResponseProviderRegistration
+     * customRolloutSpecificationProviderRegistrationResponseProvideDefaults sets the appropriate defaults for CustomRolloutSpecificationProviderRegistrationResponse
      */
-    export function customRolloutSpecificationResponseProviderRegistrationProvideDefaults(val: CustomRolloutSpecificationResponseProviderRegistration): CustomRolloutSpecificationResponseProviderRegistration {
+    export function customRolloutSpecificationProviderRegistrationResponseProvideDefaults(val: CustomRolloutSpecificationProviderRegistrationResponse): CustomRolloutSpecificationProviderRegistrationResponse {
         return {
             ...val,
             kind: (val.kind) ?? "Managed",
@@ -195447,7 +198913,7 @@ export namespace providerhub {
     /**
      * The manifest checkin status.
      */
-    export interface CustomRolloutStatusResponseManifestCheckinStatus {
+    export interface CustomRolloutStatusManifestCheckinStatusResponse {
         /**
          * The commit id.
          */
@@ -195474,11 +198940,11 @@ export namespace providerhub {
         /**
          * The default rollout specification.
          */
-        specification?: outputs.providerhub.DefaultRolloutPropertiesResponseSpecification;
+        specification?: outputs.providerhub.DefaultRolloutPropertiesSpecificationResponse;
         /**
          * The default rollout status.
          */
-        status?: outputs.providerhub.DefaultRolloutPropertiesResponseStatus;
+        status?: outputs.providerhub.DefaultRolloutPropertiesStatusResponse;
     }
     /**
      * defaultRolloutPropertiesResponseProvideDefaults sets the appropriate defaults for DefaultRolloutPropertiesResponse
@@ -195486,42 +198952,42 @@ export namespace providerhub {
     export function defaultRolloutPropertiesResponseProvideDefaults(val: DefaultRolloutPropertiesResponse): DefaultRolloutPropertiesResponse {
         return {
             ...val,
-            specification: (val.specification ? outputs.providerhub.defaultRolloutPropertiesResponseSpecificationProvideDefaults(val.specification) : undefined),
+            specification: (val.specification ? outputs.providerhub.defaultRolloutPropertiesSpecificationResponseProvideDefaults(val.specification) : undefined),
         };
     }
 
     /**
      * The default rollout specification.
      */
-    export interface DefaultRolloutPropertiesResponseSpecification {
+    export interface DefaultRolloutPropertiesSpecificationResponse {
         /**
          * The auto provisioning config.
          */
-        autoProvisionConfig?: outputs.providerhub.DefaultRolloutSpecificationResponseAutoProvisionConfig;
+        autoProvisionConfig?: outputs.providerhub.DefaultRolloutSpecificationAutoProvisionConfigResponse;
         /**
          * The canary traffic region configuration.
          */
-        canary?: outputs.providerhub.DefaultRolloutSpecificationResponseCanary;
+        canary?: outputs.providerhub.DefaultRolloutSpecificationCanaryResponse;
         /**
          * The expedited rollout definition.
          */
-        expeditedRollout?: outputs.providerhub.DefaultRolloutSpecificationResponseExpeditedRollout;
+        expeditedRollout?: outputs.providerhub.DefaultRolloutSpecificationExpeditedRolloutResponse;
         /**
          * The high traffic region configuration.
          */
-        highTraffic?: outputs.providerhub.DefaultRolloutSpecificationResponseHighTraffic;
+        highTraffic?: outputs.providerhub.DefaultRolloutSpecificationHighTrafficResponse;
         /**
          * The low traffic region configuration.
          */
-        lowTraffic?: outputs.providerhub.DefaultRolloutSpecificationResponseLowTraffic;
+        lowTraffic?: outputs.providerhub.DefaultRolloutSpecificationLowTrafficResponse;
         /**
          * The medium traffic region configuration.
          */
-        mediumTraffic?: outputs.providerhub.DefaultRolloutSpecificationResponseMediumTraffic;
+        mediumTraffic?: outputs.providerhub.DefaultRolloutSpecificationMediumTrafficResponse;
         /**
          * The provider registration.
          */
-        providerRegistration?: outputs.providerhub.DefaultRolloutSpecificationResponseProviderRegistration;
+        providerRegistration?: outputs.providerhub.DefaultRolloutSpecificationProviderRegistrationResponse;
         /**
          * The resource type registrations.
          */
@@ -195529,26 +198995,26 @@ export namespace providerhub {
         /**
          * The rest of the world group one region configuration.
          */
-        restOfTheWorldGroupOne?: outputs.providerhub.DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne;
+        restOfTheWorldGroupOne?: outputs.providerhub.DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse;
         /**
          * The rest of the world group two region configuration.
          */
-        restOfTheWorldGroupTwo?: outputs.providerhub.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo;
+        restOfTheWorldGroupTwo?: outputs.providerhub.DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse;
     }
     /**
-     * defaultRolloutPropertiesResponseSpecificationProvideDefaults sets the appropriate defaults for DefaultRolloutPropertiesResponseSpecification
+     * defaultRolloutPropertiesSpecificationResponseProvideDefaults sets the appropriate defaults for DefaultRolloutPropertiesSpecificationResponse
      */
-    export function defaultRolloutPropertiesResponseSpecificationProvideDefaults(val: DefaultRolloutPropertiesResponseSpecification): DefaultRolloutPropertiesResponseSpecification {
+    export function defaultRolloutPropertiesSpecificationResponseProvideDefaults(val: DefaultRolloutPropertiesSpecificationResponse): DefaultRolloutPropertiesSpecificationResponse {
         return {
             ...val,
-            providerRegistration: (val.providerRegistration ? outputs.providerhub.defaultRolloutSpecificationResponseProviderRegistrationProvideDefaults(val.providerRegistration) : undefined),
+            providerRegistration: (val.providerRegistration ? outputs.providerhub.defaultRolloutSpecificationProviderRegistrationResponseProvideDefaults(val.providerRegistration) : undefined),
         };
     }
 
     /**
      * The default rollout status.
      */
-    export interface DefaultRolloutPropertiesResponseStatus {
+    export interface DefaultRolloutPropertiesStatusResponse {
         /**
          * The completed regions.
          */
@@ -195560,7 +199026,7 @@ export namespace providerhub {
         /**
          * The manifest checkin status.
          */
-        manifestCheckinStatus?: outputs.providerhub.DefaultRolloutStatusResponseManifestCheckinStatus;
+        manifestCheckinStatus?: outputs.providerhub.DefaultRolloutStatusManifestCheckinStatusResponse;
         /**
          * The next traffic region.
          */
@@ -195578,7 +199044,7 @@ export namespace providerhub {
     /**
      * The auto provisioning config.
      */
-    export interface DefaultRolloutSpecificationResponseAutoProvisionConfig {
+    export interface DefaultRolloutSpecificationAutoProvisionConfigResponse {
         /**
          * Whether auto provisioning for resource graph is enabled.
          */
@@ -195592,7 +199058,7 @@ export namespace providerhub {
     /**
      * The canary traffic region configuration.
      */
-    export interface DefaultRolloutSpecificationResponseCanary {
+    export interface DefaultRolloutSpecificationCanaryResponse {
         /**
          * The regions.
          */
@@ -195606,7 +199072,7 @@ export namespace providerhub {
     /**
      * The expedited rollout definition.
      */
-    export interface DefaultRolloutSpecificationResponseExpeditedRollout {
+    export interface DefaultRolloutSpecificationExpeditedRolloutResponse {
         /**
          * Indicates whether expedited rollout is enabled/disabled
          */
@@ -195616,7 +199082,7 @@ export namespace providerhub {
     /**
      * The high traffic region configuration.
      */
-    export interface DefaultRolloutSpecificationResponseHighTraffic {
+    export interface DefaultRolloutSpecificationHighTrafficResponse {
         regions?: string[];
         /**
          * The wait duration.
@@ -195627,7 +199093,7 @@ export namespace providerhub {
     /**
      * The low traffic region configuration.
      */
-    export interface DefaultRolloutSpecificationResponseLowTraffic {
+    export interface DefaultRolloutSpecificationLowTrafficResponse {
         regions?: string[];
         /**
          * The wait duration.
@@ -195638,7 +199104,7 @@ export namespace providerhub {
     /**
      * The medium traffic region configuration.
      */
-    export interface DefaultRolloutSpecificationResponseMediumTraffic {
+    export interface DefaultRolloutSpecificationMediumTrafficResponse {
         regions?: string[];
         /**
          * The wait duration.
@@ -195649,7 +199115,7 @@ export namespace providerhub {
     /**
      * The provider registration.
      */
-    export interface DefaultRolloutSpecificationResponseProviderRegistration {
+    export interface DefaultRolloutSpecificationProviderRegistrationResponse {
         /**
          * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
@@ -195673,9 +199139,9 @@ export namespace providerhub {
         type: string;
     }
     /**
-     * defaultRolloutSpecificationResponseProviderRegistrationProvideDefaults sets the appropriate defaults for DefaultRolloutSpecificationResponseProviderRegistration
+     * defaultRolloutSpecificationProviderRegistrationResponseProvideDefaults sets the appropriate defaults for DefaultRolloutSpecificationProviderRegistrationResponse
      */
-    export function defaultRolloutSpecificationResponseProviderRegistrationProvideDefaults(val: DefaultRolloutSpecificationResponseProviderRegistration): DefaultRolloutSpecificationResponseProviderRegistration {
+    export function defaultRolloutSpecificationProviderRegistrationResponseProvideDefaults(val: DefaultRolloutSpecificationProviderRegistrationResponse): DefaultRolloutSpecificationProviderRegistrationResponse {
         return {
             ...val,
             kind: (val.kind) ?? "Managed",
@@ -195685,7 +199151,7 @@ export namespace providerhub {
     /**
      * The rest of the world group one region configuration.
      */
-    export interface DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne {
+    export interface DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse {
         regions?: string[];
         /**
          * The wait duration.
@@ -195696,7 +199162,7 @@ export namespace providerhub {
     /**
      * The rest of the world group two region configuration.
      */
-    export interface DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo {
+    export interface DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse {
         regions?: string[];
         /**
          * The wait duration.
@@ -195707,7 +199173,7 @@ export namespace providerhub {
     /**
      * The manifest checkin status.
      */
-    export interface DefaultRolloutStatusResponseManifestCheckinStatus {
+    export interface DefaultRolloutStatusManifestCheckinStatusResponse {
         /**
          * The commit id.
          */
@@ -195790,29 +199256,10 @@ export namespace providerhub {
         type?: string;
     }
 
-    export interface FanoutLinkedNotificationRuleResponse {
-        /**
-         * The actions.
-         */
-        actions?: string[];
-        /**
-         * The dsts configuration.
-         */
-        dstsConfiguration?: outputs.providerhub.FanoutLinkedNotificationRuleResponseDstsConfiguration;
-        /**
-         * The endpoints.
-         */
-        endpoints?: outputs.providerhub.ResourceProviderEndpointResponse[];
-        /**
-         * The token auth configuration.
-         */
-        tokenAuthConfiguration?: outputs.providerhub.TokenAuthConfigurationResponse;
-    }
-
     /**
      * The dsts configuration.
      */
-    export interface FanoutLinkedNotificationRuleResponseDstsConfiguration {
+    export interface FanoutLinkedNotificationRuleDstsConfigurationResponse {
         /**
          * This is a URI property.
          */
@@ -195821,6 +199268,25 @@ export namespace providerhub {
          * The service name.
          */
         serviceName: string;
+    }
+
+    export interface FanoutLinkedNotificationRuleResponse {
+        /**
+         * The actions.
+         */
+        actions?: string[];
+        /**
+         * The dsts configuration.
+         */
+        dstsConfiguration?: outputs.providerhub.FanoutLinkedNotificationRuleDstsConfigurationResponse;
+        /**
+         * The endpoints.
+         */
+        endpoints?: outputs.providerhub.ResourceProviderEndpointResponse[];
+        /**
+         * The token auth configuration.
+         */
+        tokenAuthConfiguration?: outputs.providerhub.TokenAuthConfigurationResponse;
     }
 
     export interface FilterRuleResponse {
@@ -195932,6 +199398,20 @@ export namespace providerhub {
         quotaId?: string;
     }
 
+    /**
+     * The hidden property paths.
+     */
+    export interface LoggingRuleHiddenPropertyPathsResponse {
+        /**
+         * The hidden paths on request.
+         */
+        hiddenPathsOnRequest?: string[];
+        /**
+         * The hidden paths on response.
+         */
+        hiddenPathsOnResponse?: string[];
+    }
+
     export interface LoggingRuleResponse {
         /**
          * The action.
@@ -195948,21 +199428,7 @@ export namespace providerhub {
         /**
          * The hidden property paths.
          */
-        hiddenPropertyPaths?: outputs.providerhub.LoggingRuleResponseHiddenPropertyPaths;
-    }
-
-    /**
-     * The hidden property paths.
-     */
-    export interface LoggingRuleResponseHiddenPropertyPaths {
-        /**
-         * The hidden paths on request.
-         */
-        hiddenPathsOnRequest?: string[];
-        /**
-         * The hidden paths on response.
-         */
-        hiddenPathsOnResponse?: string[];
+        hiddenPropertyPaths?: outputs.providerhub.LoggingRuleHiddenPropertyPathsResponse;
     }
 
     export interface NotificationEndpointResponse {
@@ -196027,7 +199493,7 @@ export namespace providerhub {
     /**
      * The provider authentication.
      */
-    export interface ProviderHubMetadataResponseProviderAuthentication {
+    export interface ProviderHubMetadataProviderAuthenticationResponse {
         /**
          * The allowed audiences.
          */
@@ -196037,7 +199503,7 @@ export namespace providerhub {
     /**
      * The third party provider authorization.
      */
-    export interface ProviderHubMetadataResponseThirdPartyProviderAuthorization {
+    export interface ProviderHubMetadataThirdPartyProviderAuthorizationResponse {
         /**
          * The authorizations.
          */
@@ -196053,6 +199519,46 @@ export namespace providerhub {
          * The provisioning state.
          */
         provisioningState: string;
+    }
+
+    /**
+     * The private resource provider configuration.
+     */
+    export interface ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse {
+        /**
+         * The allowed subscriptions.
+         */
+        allowedSubscriptions?: string[];
+    }
+
+    /**
+     * The provider hub metadata.
+     */
+    export interface ProviderRegistrationPropertiesProviderHubMetadataResponse {
+        /**
+         * The direct RP role definition id.
+         */
+        directRpRoleDefinitionId?: string;
+        /**
+         * The global async operation resource type name.
+         */
+        globalAsyncOperationResourceTypeName?: string;
+        /**
+         * The provider authentication.
+         */
+        providerAuthentication?: outputs.providerhub.ProviderHubMetadataProviderAuthenticationResponse;
+        /**
+         * The provider authorizations.
+         */
+        providerAuthorizations?: outputs.providerhub.ResourceProviderAuthorizationResponse[];
+        /**
+         * The regional async operation resource type name.
+         */
+        regionalAsyncOperationResourceTypeName?: string;
+        /**
+         * The third party provider authorization.
+         */
+        thirdPartyProviderAuthorization?: outputs.providerhub.ProviderHubMetadataThirdPartyProviderAuthorizationResponse;
     }
 
     export interface ProviderRegistrationPropertiesResponse {
@@ -196071,7 +199577,7 @@ export namespace providerhub {
         /**
          * The dsts configuration.
          */
-        dstsConfiguration?: outputs.providerhub.ResourceProviderManifestPropertiesResponseDstsConfiguration;
+        dstsConfiguration?: outputs.providerhub.ResourceProviderManifestPropertiesDstsConfigurationResponse;
         /**
          * The enable tenant linked notification.
          */
@@ -196079,7 +199585,7 @@ export namespace providerhub {
         /**
          * The features rule.
          */
-        featuresRule?: outputs.providerhub.ResourceProviderManifestPropertiesResponseFeaturesRule;
+        featuresRule?: outputs.providerhub.ResourceProviderManifestPropertiesFeaturesRuleResponse;
         /**
          * The global notification endpoints.
          */
@@ -196099,7 +199605,7 @@ export namespace providerhub {
         /**
          * The resource provider management.
          */
-        management?: outputs.providerhub.ResourceProviderManifestPropertiesResponseManagement;
+        management?: outputs.providerhub.ResourceProviderManifestPropertiesManagementResponse;
         /**
          * Management groups global notification endpoints.
          */
@@ -196119,7 +199625,7 @@ export namespace providerhub {
         /**
          * Notification settings.
          */
-        notificationSettings?: outputs.providerhub.ResourceProviderManifestPropertiesResponseNotificationSettings;
+        notificationSettings?: outputs.providerhub.ResourceProviderManifestPropertiesNotificationSettingsResponse;
         /**
          * The notifications.
          */
@@ -196131,11 +199637,11 @@ export namespace providerhub {
         /**
          * The private resource provider configuration.
          */
-        privateResourceProviderConfiguration?: outputs.providerhub.ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration;
+        privateResourceProviderConfiguration?: outputs.providerhub.ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse;
         /**
          * The provider authentication.
          */
-        providerAuthentication?: outputs.providerhub.ResourceProviderManifestPropertiesResponseProviderAuthentication;
+        providerAuthentication?: outputs.providerhub.ResourceProviderManifestPropertiesProviderAuthenticationResponse;
         /**
          * The provider authorizations.
          */
@@ -196143,7 +199649,7 @@ export namespace providerhub {
         /**
          * The provider hub metadata.
          */
-        providerHubMetadata?: outputs.providerhub.ProviderRegistrationPropertiesResponseProviderHubMetadata;
+        providerHubMetadata?: outputs.providerhub.ProviderRegistrationPropertiesProviderHubMetadataResponse;
         /**
          * The provider type.
          */
@@ -196159,7 +199665,7 @@ export namespace providerhub {
         /**
          * The request header options.
          */
-        requestHeaderOptions?: outputs.providerhub.ResourceProviderManifestPropertiesResponseRequestHeaderOptions;
+        requestHeaderOptions?: outputs.providerhub.ResourceProviderManifestPropertiesRequestHeaderOptionsResponse;
         /**
          * The required features.
          */
@@ -196167,7 +199673,7 @@ export namespace providerhub {
         /**
          * Resource group lock option during move.
          */
-        resourceGroupLockOptionDuringMove?: outputs.providerhub.ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove;
+        resourceGroupLockOptionDuringMove?: outputs.providerhub.ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse;
         /**
          * resource hydration accounts
          */
@@ -196179,7 +199685,7 @@ export namespace providerhub {
         /**
          * Response options.
          */
-        responseOptions?: outputs.providerhub.ResourceProviderManifestPropertiesResponseResponseOptions;
+        responseOptions?: outputs.providerhub.ResourceProviderManifestPropertiesResponseOptionsResponse;
         /**
          * The service name.
          */
@@ -196191,11 +199697,11 @@ export namespace providerhub {
         /**
          * The subscription lifecycle notification specifications.
          */
-        subscriptionLifecycleNotificationSpecifications?: outputs.providerhub.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications;
+        subscriptionLifecycleNotificationSpecifications?: outputs.providerhub.ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse;
         /**
          * The template deployment options.
          */
-        templateDeploymentOptions?: outputs.providerhub.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions;
+        templateDeploymentOptions?: outputs.providerhub.ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse;
         /**
          * The token auth configuration.
          */
@@ -196203,49 +199709,9 @@ export namespace providerhub {
     }
 
     /**
-     * The private resource provider configuration.
-     */
-    export interface ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration {
-        /**
-         * The allowed subscriptions.
-         */
-        allowedSubscriptions?: string[];
-    }
-
-    /**
-     * The provider hub metadata.
-     */
-    export interface ProviderRegistrationPropertiesResponseProviderHubMetadata {
-        /**
-         * The direct RP role definition id.
-         */
-        directRpRoleDefinitionId?: string;
-        /**
-         * The global async operation resource type name.
-         */
-        globalAsyncOperationResourceTypeName?: string;
-        /**
-         * The provider authentication.
-         */
-        providerAuthentication?: outputs.providerhub.ProviderHubMetadataResponseProviderAuthentication;
-        /**
-         * The provider authorizations.
-         */
-        providerAuthorizations?: outputs.providerhub.ResourceProviderAuthorizationResponse[];
-        /**
-         * The regional async operation resource type name.
-         */
-        regionalAsyncOperationResourceTypeName?: string;
-        /**
-         * The third party provider authorization.
-         */
-        thirdPartyProviderAuthorization?: outputs.providerhub.ProviderHubMetadataResponseThirdPartyProviderAuthorization;
-    }
-
-    /**
      * The subscription lifecycle notification specifications.
      */
-    export interface ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
+    export interface ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse {
         /**
          * The soft delete TTL.
          */
@@ -196308,6 +199774,21 @@ export namespace providerhub {
         subscriptionId?: string;
     }
 
+    /**
+     * Managed by authorization.
+     */
+    export interface ResourceProviderAuthorizationManagedByAuthorizationResponse {
+        additionalAuthorizations?: outputs.providerhub.AdditionalAuthorizationResponse[];
+        /**
+         * Indicates whether the managed by resource role definition ID should be inherited.
+         */
+        allowManagedByInheritance?: boolean;
+        /**
+         * The managed by resource role definition ID for the application.
+         */
+        managedByResourceRoleDefinitionId?: string;
+    }
+
     export interface ResourceProviderAuthorizationResponse {
         /**
          * The allowed third party extensions.
@@ -196324,7 +199805,7 @@ export namespace providerhub {
         /**
          * Managed by authorization.
          */
-        managedByAuthorization?: outputs.providerhub.ResourceProviderAuthorizationResponseManagedByAuthorization;
+        managedByAuthorization?: outputs.providerhub.ResourceProviderAuthorizationManagedByAuthorizationResponse;
         /**
          * The managed by role definition id.
          */
@@ -196333,21 +199814,6 @@ export namespace providerhub {
          * The role definition id.
          */
         roleDefinitionId?: string;
-    }
-
-    /**
-     * Managed by authorization.
-     */
-    export interface ResourceProviderAuthorizationResponseManagedByAuthorization {
-        additionalAuthorizations?: outputs.providerhub.AdditionalAuthorizationResponse[];
-        /**
-         * Indicates whether the managed by resource role definition ID should be inherited.
-         */
-        allowManagedByInheritance?: boolean;
-        /**
-         * The managed by resource role definition ID for the application.
-         */
-        managedByResourceRoleDefinitionId?: string;
     }
 
     export interface ResourceProviderAuthorizationRulesResponse {
@@ -196372,6 +199838,16 @@ export namespace providerhub {
         requiredFeatures?: string[];
     }
 
+    /**
+     * The feature rules.
+     */
+    export interface ResourceProviderEndpointFeaturesRuleResponse {
+        /**
+         * The required feature policy.
+         */
+        requiredFeaturesPolicy: string;
+    }
+
     export interface ResourceProviderEndpointResponse {
         /**
          * The api versions.
@@ -196392,7 +199868,7 @@ export namespace providerhub {
         /**
          * The feature rules.
          */
-        featuresRule?: outputs.providerhub.ResourceProviderEndpointResponseFeaturesRule;
+        featuresRule?: outputs.providerhub.ResourceProviderEndpointFeaturesRuleResponse;
         /**
          * The locations.
          */
@@ -196412,19 +199888,9 @@ export namespace providerhub {
     }
 
     /**
-     * The feature rules.
-     */
-    export interface ResourceProviderEndpointResponseFeaturesRule {
-        /**
-         * The required feature policy.
-         */
-        requiredFeaturesPolicy: string;
-    }
-
-    /**
      * Options for error response messages.
      */
-    export interface ResourceProviderManagementResponseErrorResponseMessageOptions {
+    export interface ResourceProviderManagementErrorResponseMessageOptionsResponse {
         /**
          * Type of server failure response message.
          */
@@ -196434,7 +199900,7 @@ export namespace providerhub {
     /**
      * Metadata for expedited rollout.
      */
-    export interface ResourceProviderManagementResponseExpeditedRolloutMetadata {
+    export interface ResourceProviderManagementExpeditedRolloutMetadataResponse {
         /**
          * Expedited rollout enabled?
          */
@@ -196448,7 +199914,7 @@ export namespace providerhub {
     /**
      * The dsts configuration.
      */
-    export interface ResourceProviderManifestPropertiesResponseDstsConfiguration {
+    export interface ResourceProviderManifestPropertiesDstsConfigurationResponse {
         /**
          * This is a URI property.
          */
@@ -196462,7 +199928,7 @@ export namespace providerhub {
     /**
      * The features rule.
      */
-    export interface ResourceProviderManifestPropertiesResponseFeaturesRule {
+    export interface ResourceProviderManifestPropertiesFeaturesRuleResponse {
         /**
          * The required feature policy.
          */
@@ -196472,7 +199938,7 @@ export namespace providerhub {
     /**
      * The resource provider management.
      */
-    export interface ResourceProviderManifestPropertiesResponseManagement {
+    export interface ResourceProviderManifestPropertiesManagementResponse {
         /**
          * The authorization owners.
          */
@@ -196484,11 +199950,11 @@ export namespace providerhub {
         /**
          * Options for error response messages.
          */
-        errorResponseMessageOptions?: outputs.providerhub.ResourceProviderManagementResponseErrorResponseMessageOptions;
+        errorResponseMessageOptions?: outputs.providerhub.ResourceProviderManagementErrorResponseMessageOptionsResponse;
         /**
          * Metadata for expedited rollout.
          */
-        expeditedRolloutMetadata?: outputs.providerhub.ResourceProviderManagementResponseExpeditedRolloutMetadata;
+        expeditedRolloutMetadata?: outputs.providerhub.ResourceProviderManagementExpeditedRolloutMetadataResponse;
         /**
          * List of expedited rollout submitters.
          */
@@ -196538,14 +200004,14 @@ export namespace providerhub {
     /**
      * Notification settings.
      */
-    export interface ResourceProviderManifestPropertiesResponseNotificationSettings {
+    export interface ResourceProviderManifestPropertiesNotificationSettingsResponse {
         subscriberSettings?: outputs.providerhub.SubscriberSettingResponse[];
     }
 
     /**
      * The provider authentication.
      */
-    export interface ResourceProviderManifestPropertiesResponseProviderAuthentication {
+    export interface ResourceProviderManifestPropertiesProviderAuthenticationResponse {
         /**
          * The allowed audiences.
          */
@@ -196555,7 +200021,7 @@ export namespace providerhub {
     /**
      * The request header options.
      */
-    export interface ResourceProviderManifestPropertiesResponseRequestHeaderOptions {
+    export interface ResourceProviderManifestPropertiesRequestHeaderOptionsResponse {
         /**
          * The opt in headers.
          */
@@ -196569,7 +200035,7 @@ export namespace providerhub {
     /**
      * Resource group lock option during move.
      */
-    export interface ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove {
+    export interface ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse {
         /**
          * The action verb that will be blocked when the resource group is locked during move.
          */
@@ -196579,14 +200045,14 @@ export namespace providerhub {
     /**
      * Response options.
      */
-    export interface ResourceProviderManifestPropertiesResponseResponseOptions {
+    export interface ResourceProviderManifestPropertiesResponseOptionsResponse {
         serviceClientOptionsType?: string;
     }
 
     /**
      * The template deployment options.
      */
-    export interface ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions {
+    export interface ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse {
         /**
          * The preflight options.
          */
@@ -196611,6 +200077,30 @@ export namespace providerhub {
         status?: string;
     }
 
+    /**
+     * The dsts configuration.
+     */
+    export interface ResourceTypeEndpointDstsConfigurationResponse {
+        /**
+         * This is a URI property.
+         */
+        serviceDnsName?: string;
+        /**
+         * The service name.
+         */
+        serviceName: string;
+    }
+
+    /**
+     * The features rule.
+     */
+    export interface ResourceTypeEndpointFeaturesRuleResponse {
+        /**
+         * The required feature policy.
+         */
+        requiredFeaturesPolicy: string;
+    }
+
     export interface ResourceTypeEndpointResponse {
         /**
          * Api version.
@@ -196627,7 +200117,7 @@ export namespace providerhub {
         /**
          * The dsts configuration.
          */
-        dstsConfiguration?: outputs.providerhub.ResourceTypeEndpointResponseDstsConfiguration;
+        dstsConfiguration?: outputs.providerhub.ResourceTypeEndpointDstsConfigurationResponse;
         /**
          * Whether the endpoint is enabled.
          */
@@ -196647,7 +200137,7 @@ export namespace providerhub {
         /**
          * The features rule.
          */
-        featuresRule?: outputs.providerhub.ResourceTypeEndpointResponseFeaturesRule;
+        featuresRule?: outputs.providerhub.ResourceTypeEndpointFeaturesRuleResponse;
         /**
          * Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
          */
@@ -196688,33 +200178,9 @@ export namespace providerhub {
     }
 
     /**
-     * The dsts configuration.
-     */
-    export interface ResourceTypeEndpointResponseDstsConfiguration {
-        /**
-         * This is a URI property.
-         */
-        serviceDnsName?: string;
-        /**
-         * The service name.
-         */
-        serviceName: string;
-    }
-
-    /**
-     * The features rule.
-     */
-    export interface ResourceTypeEndpointResponseFeaturesRule {
-        /**
-         * The required feature policy.
-         */
-        requiredFeaturesPolicy: string;
-    }
-
-    /**
      * Resource creation begin.
      */
-    export interface ResourceTypeExtensionOptionsResponseResourceCreationBegin {
+    export interface ResourceTypeExtensionOptionsResourceCreationBeginResponse {
         /**
          * The request.
          */
@@ -196749,6 +200215,299 @@ export namespace providerhub {
          * This is a TimeSpan property.
          */
         lifeTime?: string;
+    }
+
+    /**
+     * The availability zone rule.
+     */
+    export interface ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse {
+        availabilityZonePolicy?: string;
+    }
+
+    /**
+     * Capacity rule.
+     */
+    export interface ResourceTypeRegistrationPropertiesCapacityRuleResponse {
+        /**
+         * Capacity policy.
+         */
+        capacityPolicy?: string;
+        /**
+         * Sku alias
+         */
+        skuAlias?: string;
+    }
+
+    /**
+     * The check name availability specifications.
+     */
+    export interface ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse {
+        /**
+         * Whether default validation is enabled.
+         */
+        enableDefaultValidation?: boolean;
+        /**
+         * The resource types with custom validation.
+         */
+        resourceTypesWithCustomValidation?: string[];
+    }
+
+    /**
+     * The dsts configuration.
+     */
+    export interface ResourceTypeRegistrationPropertiesDstsConfigurationResponse {
+        /**
+         * This is a URI property.
+         */
+        serviceDnsName?: string;
+        /**
+         * The service name.
+         */
+        serviceName: string;
+    }
+
+    /**
+     * The extension options.
+     */
+    export interface ResourceTypeRegistrationPropertiesExtensionOptionsResponse {
+        /**
+         * Resource creation begin.
+         */
+        resourceCreationBegin?: outputs.providerhub.ResourceTypeExtensionOptionsResourceCreationBeginResponse;
+    }
+
+    /**
+     * The features rule.
+     */
+    export interface ResourceTypeRegistrationPropertiesFeaturesRuleResponse {
+        /**
+         * The required feature policy.
+         */
+        requiredFeaturesPolicy: string;
+    }
+
+    /**
+     * The identity management.
+     */
+    export interface ResourceTypeRegistrationPropertiesIdentityManagementResponse {
+        /**
+         * The application id.
+         */
+        applicationId?: string;
+        /**
+         * The application ids.
+         */
+        applicationIds?: string[];
+        /**
+         * The delegation app ids.
+         */
+        delegationAppIds?: string[];
+        /**
+         * The type.
+         */
+        type?: string;
+    }
+
+    /**
+     * The legacy policy.
+     */
+    export interface ResourceTypeRegistrationPropertiesLegacyPolicyResponse {
+        disallowedConditions?: outputs.providerhub.LegacyDisallowedConditionResponse[];
+        disallowedLegacyOperations?: string[];
+    }
+
+    /**
+     * The resource provider management.
+     */
+    export interface ResourceTypeRegistrationPropertiesManagementResponse {
+        /**
+         * The authorization owners.
+         */
+        authorizationOwners?: string[];
+        /**
+         * List of manifest owners for canary.
+         */
+        canaryManifestOwners?: string[];
+        /**
+         * Options for error response messages.
+         */
+        errorResponseMessageOptions?: outputs.providerhub.ResourceProviderManagementErrorResponseMessageOptionsResponse;
+        /**
+         * Metadata for expedited rollout.
+         */
+        expeditedRolloutMetadata?: outputs.providerhub.ResourceProviderManagementExpeditedRolloutMetadataResponse;
+        /**
+         * List of expedited rollout submitters.
+         */
+        expeditedRolloutSubmitters?: string[];
+        /**
+         * The incident contact email.
+         */
+        incidentContactEmail?: string;
+        /**
+         * The incident routing service.
+         */
+        incidentRoutingService?: string;
+        /**
+         * The incident routing team.
+         */
+        incidentRoutingTeam?: string;
+        /**
+         * The manifest owners.
+         */
+        manifestOwners?: string[];
+        /**
+         * The profit center code for the subscription.
+         */
+        pcCode?: string;
+        /**
+         * The profit center program id for the subscription.
+         */
+        profitCenterProgramId?: string;
+        /**
+         * The resource access policy.
+         */
+        resourceAccessPolicy?: string;
+        /**
+         * The resource access roles.
+         */
+        resourceAccessRoles?: outputs.providerhub.ResourceAccessRoleResponse[];
+        /**
+         * The schema owners.
+         */
+        schemaOwners?: string[];
+        /**
+         * The service tree infos.
+         */
+        serviceTreeInfos?: outputs.providerhub.ServiceTreeInfoResponse[];
+    }
+
+    /**
+     * Marketplace options.
+     */
+    export interface ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse {
+        /**
+         * Add-on plan conversion allowed.
+         */
+        addOnPlanConversionAllowed?: boolean;
+    }
+
+    /**
+     * The request header options.
+     */
+    export interface ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse {
+        /**
+         * The opt in headers.
+         */
+        optInHeaders?: string;
+        /**
+         * The opt out headers.
+         */
+        optOutHeaders?: string;
+    }
+
+    /**
+     * Resource cache options.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceCacheResponse {
+        /**
+         * Enable resource cache.
+         */
+        enableResourceCache?: boolean;
+        /**
+         * Resource cache expiration timespan. This is a TimeSpan property.
+         */
+        resourceCacheExpirationTimespan?: string;
+    }
+
+    /**
+     * The resource graph configuration.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse {
+        /**
+         * The api version.
+         */
+        apiVersion?: string;
+        /**
+         * Whether it's enabled.
+         */
+        enabled?: boolean;
+    }
+
+    /**
+     * Batch provisioning support.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse {
+        /**
+         * Supported operations.
+         */
+        supportedOperations?: string;
+    }
+
+    /**
+     * Nested provisioning support.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse {
+        /**
+         * Minimum API version.
+         */
+        minimumApiVersion?: string;
+    }
+
+    /**
+     * Resource management options.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse {
+        /**
+         * Batch provisioning support.
+         */
+        batchProvisioningSupport?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse;
+        /**
+         * Delete dependencies.
+         */
+        deleteDependencies?: outputs.providerhub.DeleteDependencyResponse[];
+        /**
+         * Nested provisioning support.
+         */
+        nestedProvisioningSupport?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse;
+    }
+
+    /**
+     * The resource move policy.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceMovePolicyResponse {
+        /**
+         * Whether cross resource group move is enabled.
+         */
+        crossResourceGroupMoveEnabled?: boolean;
+        /**
+         * Whether cross subscription move is enabled.
+         */
+        crossSubscriptionMoveEnabled?: boolean;
+        /**
+         * Whether validation is required.
+         */
+        validationRequired?: boolean;
+    }
+
+    /**
+     * Resource query management options.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceQueryManagementResponse {
+        /**
+         * Filter option.
+         */
+        filterOption?: string;
+    }
+
+    /**
+     * Resource type common attribute management.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse {
+        /**
+         * Common api versions merge mode.
+         */
+        commonApiVersionsMergeMode?: string;
     }
 
     export interface ResourceTypeRegistrationPropertiesResponse {
@@ -196799,11 +200558,11 @@ export namespace providerhub {
         /**
          * The availability zone rule.
          */
-        availabilityZoneRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule;
+        availabilityZoneRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse;
         /**
          * Capacity rule.
          */
-        capacityRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseCapacityRule;
+        capacityRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesCapacityRuleResponse;
         /**
          * The category.
          */
@@ -196811,7 +200570,7 @@ export namespace providerhub {
         /**
          * The check name availability specifications.
          */
-        checkNameAvailabilitySpecifications?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications;
+        checkNameAvailabilitySpecifications?: outputs.providerhub.ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse;
         /**
          * Common API versions for the resource type.
          */
@@ -196835,7 +200594,7 @@ export namespace providerhub {
         /**
          * The dsts configuration.
          */
-        dstsConfiguration?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseDstsConfiguration;
+        dstsConfiguration?: outputs.providerhub.ResourceTypeRegistrationPropertiesDstsConfigurationResponse;
         /**
          * Whether async operation is enabled.
          */
@@ -196855,11 +200614,11 @@ export namespace providerhub {
         /**
          * The extension options.
          */
-        extensionOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseExtensionOptions;
+        extensionOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesExtensionOptionsResponse;
         /**
          * The features rule.
          */
-        featuresRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseFeaturesRule;
+        featuresRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesFeaturesRuleResponse;
         /**
          * The frontdoor request mode.
          */
@@ -196871,7 +200630,7 @@ export namespace providerhub {
         /**
          * The identity management.
          */
-        identityManagement?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseIdentityManagement;
+        identityManagement?: outputs.providerhub.ResourceTypeRegistrationPropertiesIdentityManagementResponse;
         /**
          * Whether it is pure proxy.
          */
@@ -196887,7 +200646,7 @@ export namespace providerhub {
         /**
          * The legacy policy.
          */
-        legacyPolicy?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseLegacyPolicy;
+        legacyPolicy?: outputs.providerhub.ResourceTypeRegistrationPropertiesLegacyPolicyResponse;
         /**
          * The linked access checks.
          */
@@ -196907,7 +200666,7 @@ export namespace providerhub {
         /**
          * The resource provider management.
          */
-        management?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseManagement;
+        management?: outputs.providerhub.ResourceTypeRegistrationPropertiesManagementResponse;
         /**
          * Manifest link.
          */
@@ -196915,7 +200674,7 @@ export namespace providerhub {
         /**
          * Marketplace options.
          */
-        marketplaceOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseMarketplaceOptions;
+        marketplaceOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse;
         /**
          * The marketplace type.
          */
@@ -196923,7 +200682,7 @@ export namespace providerhub {
         /**
          * The metadata.
          */
-        metadata?: {[key: string]: any};
+        metadata?: any;
         /**
          * The notifications.
          */
@@ -196955,7 +200714,7 @@ export namespace providerhub {
         /**
          * The request header options.
          */
-        requestHeaderOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions;
+        requestHeaderOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse;
         /**
          * The required features.
          */
@@ -196963,7 +200722,7 @@ export namespace providerhub {
         /**
          * Resource cache options.
          */
-        resourceCache?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseResourceCache;
+        resourceCache?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceCacheResponse;
         /**
          * The resource concurrency control options.
          */
@@ -196975,15 +200734,15 @@ export namespace providerhub {
         /**
          * The resource graph configuration.
          */
-        resourceGraphConfiguration?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration;
+        resourceGraphConfiguration?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse;
         /**
          * Resource management options.
          */
-        resourceManagementOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseResourceManagementOptions;
+        resourceManagementOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse;
         /**
          * The resource move policy.
          */
-        resourceMovePolicy?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy;
+        resourceMovePolicy?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceMovePolicyResponse;
         /**
          * The resource provider authorization rules.
          */
@@ -196991,7 +200750,7 @@ export namespace providerhub {
         /**
          * Resource query management options.
          */
-        resourceQueryManagement?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseResourceQueryManagement;
+        resourceQueryManagement?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceQueryManagementResponse;
         /**
          * The resource sub type.
          */
@@ -196999,7 +200758,7 @@ export namespace providerhub {
         /**
          * Resource type common attribute management.
          */
-        resourceTypeCommonAttributeManagement?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement;
+        resourceTypeCommonAttributeManagement?: outputs.providerhub.ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse;
         /**
          * The resource validation.
          */
@@ -197007,7 +200766,7 @@ export namespace providerhub {
         /**
          * Routing rule.
          */
-        routingRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseRoutingRule;
+        routingRule?: outputs.providerhub.ResourceTypeRegistrationPropertiesRoutingRuleResponse;
         /**
          * The resource routing type.
          */
@@ -197023,7 +200782,7 @@ export namespace providerhub {
         /**
          * The subscription lifecycle notification specifications.
          */
-        subscriptionLifecycleNotificationSpecifications?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications;
+        subscriptionLifecycleNotificationSpecifications?: outputs.providerhub.ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse;
         /**
          * The subscription state rules.
          */
@@ -197039,11 +200798,11 @@ export namespace providerhub {
         /**
          * The template deployment options.
          */
-        templateDeploymentOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions;
+        templateDeploymentOptions?: outputs.providerhub.ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse;
         /**
          * The template deployment policy.
          */
-        templateDeploymentPolicy?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy;
+        templateDeploymentPolicy?: outputs.providerhub.ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse;
         /**
          * The throttling rules.
          */
@@ -197055,302 +200814,9 @@ export namespace providerhub {
     }
 
     /**
-     * The availability zone rule.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule {
-        availabilityZonePolicy?: string;
-    }
-
-    /**
-     * Batch provisioning support.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport {
-        /**
-         * Supported operations.
-         */
-        supportedOperations?: string;
-    }
-
-    /**
-     * Capacity rule.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseCapacityRule {
-        /**
-         * Capacity policy.
-         */
-        capacityPolicy?: string;
-        /**
-         * Sku alias
-         */
-        skuAlias?: string;
-    }
-
-    /**
-     * The check name availability specifications.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications {
-        /**
-         * Whether default validation is enabled.
-         */
-        enableDefaultValidation?: boolean;
-        /**
-         * The resource types with custom validation.
-         */
-        resourceTypesWithCustomValidation?: string[];
-    }
-
-    /**
-     * The dsts configuration.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseDstsConfiguration {
-        /**
-         * This is a URI property.
-         */
-        serviceDnsName?: string;
-        /**
-         * The service name.
-         */
-        serviceName: string;
-    }
-
-    /**
-     * The extension options.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseExtensionOptions {
-        /**
-         * Resource creation begin.
-         */
-        resourceCreationBegin?: outputs.providerhub.ResourceTypeExtensionOptionsResponseResourceCreationBegin;
-    }
-
-    /**
-     * The features rule.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseFeaturesRule {
-        /**
-         * The required feature policy.
-         */
-        requiredFeaturesPolicy: string;
-    }
-
-    /**
-     * The identity management.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseIdentityManagement {
-        /**
-         * The application id.
-         */
-        applicationId?: string;
-        /**
-         * The application ids.
-         */
-        applicationIds?: string[];
-        /**
-         * The delegation app ids.
-         */
-        delegationAppIds?: string[];
-        /**
-         * The type.
-         */
-        type?: string;
-    }
-
-    /**
-     * The legacy policy.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseLegacyPolicy {
-        disallowedConditions?: outputs.providerhub.LegacyDisallowedConditionResponse[];
-        disallowedLegacyOperations?: string[];
-    }
-
-    /**
-     * The resource provider management.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseManagement {
-        /**
-         * The authorization owners.
-         */
-        authorizationOwners?: string[];
-        /**
-         * List of manifest owners for canary.
-         */
-        canaryManifestOwners?: string[];
-        /**
-         * Options for error response messages.
-         */
-        errorResponseMessageOptions?: outputs.providerhub.ResourceProviderManagementResponseErrorResponseMessageOptions;
-        /**
-         * Metadata for expedited rollout.
-         */
-        expeditedRolloutMetadata?: outputs.providerhub.ResourceProviderManagementResponseExpeditedRolloutMetadata;
-        /**
-         * List of expedited rollout submitters.
-         */
-        expeditedRolloutSubmitters?: string[];
-        /**
-         * The incident contact email.
-         */
-        incidentContactEmail?: string;
-        /**
-         * The incident routing service.
-         */
-        incidentRoutingService?: string;
-        /**
-         * The incident routing team.
-         */
-        incidentRoutingTeam?: string;
-        /**
-         * The manifest owners.
-         */
-        manifestOwners?: string[];
-        /**
-         * The profit center code for the subscription.
-         */
-        pcCode?: string;
-        /**
-         * The profit center program id for the subscription.
-         */
-        profitCenterProgramId?: string;
-        /**
-         * The resource access policy.
-         */
-        resourceAccessPolicy?: string;
-        /**
-         * The resource access roles.
-         */
-        resourceAccessRoles?: outputs.providerhub.ResourceAccessRoleResponse[];
-        /**
-         * The schema owners.
-         */
-        schemaOwners?: string[];
-        /**
-         * The service tree infos.
-         */
-        serviceTreeInfos?: outputs.providerhub.ServiceTreeInfoResponse[];
-    }
-
-    /**
-     * Marketplace options.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseMarketplaceOptions {
-        /**
-         * Add-on plan conversion allowed.
-         */
-        addOnPlanConversionAllowed?: boolean;
-    }
-
-    /**
-     * Nested provisioning support.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport {
-        /**
-         * Minimum API version.
-         */
-        minimumApiVersion?: string;
-    }
-
-    /**
-     * The request header options.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions {
-        /**
-         * The opt in headers.
-         */
-        optInHeaders?: string;
-        /**
-         * The opt out headers.
-         */
-        optOutHeaders?: string;
-    }
-
-    /**
-     * Resource cache options.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseResourceCache {
-        /**
-         * Enable resource cache.
-         */
-        enableResourceCache?: boolean;
-        /**
-         * Resource cache expiration timespan. This is a TimeSpan property.
-         */
-        resourceCacheExpirationTimespan?: string;
-    }
-
-    /**
-     * The resource graph configuration.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration {
-        /**
-         * The api version.
-         */
-        apiVersion?: string;
-        /**
-         * Whether it's enabled.
-         */
-        enabled?: boolean;
-    }
-
-    /**
-     * Resource management options.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseResourceManagementOptions {
-        /**
-         * Batch provisioning support.
-         */
-        batchProvisioningSupport?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport;
-        /**
-         * Delete dependencies.
-         */
-        deleteDependencies?: outputs.providerhub.DeleteDependencyResponse[];
-        /**
-         * Nested provisioning support.
-         */
-        nestedProvisioningSupport?: outputs.providerhub.ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport;
-    }
-
-    /**
-     * The resource move policy.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseResourceMovePolicy {
-        /**
-         * Whether cross resource group move is enabled.
-         */
-        crossResourceGroupMoveEnabled?: boolean;
-        /**
-         * Whether cross subscription move is enabled.
-         */
-        crossSubscriptionMoveEnabled?: boolean;
-        /**
-         * Whether validation is required.
-         */
-        validationRequired?: boolean;
-    }
-
-    /**
-     * Resource query management options.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseResourceQueryManagement {
-        /**
-         * Filter option.
-         */
-        filterOption?: string;
-    }
-
-    /**
-     * Resource type common attribute management.
-     */
-    export interface ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement {
-        /**
-         * Common api versions merge mode.
-         */
-        commonApiVersionsMergeMode?: string;
-    }
-
-    /**
      * Routing rule.
      */
-    export interface ResourceTypeRegistrationPropertiesResponseRoutingRule {
+    export interface ResourceTypeRegistrationPropertiesRoutingRuleResponse {
         /**
          * Hosted resource type.
          */
@@ -197360,7 +200826,7 @@ export namespace providerhub {
     /**
      * The subscription lifecycle notification specifications.
      */
-    export interface ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
+    export interface ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse {
         /**
          * The soft delete TTL.
          */
@@ -197374,7 +200840,7 @@ export namespace providerhub {
     /**
      * The template deployment options.
      */
-    export interface ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions {
+    export interface ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse {
         /**
          * The preflight options.
          */
@@ -197388,7 +200854,7 @@ export namespace providerhub {
     /**
      * The template deployment policy.
      */
-    export interface ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy {
+    export interface ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse {
         /**
          * The capabilities.
          */
@@ -197403,6 +200869,9 @@ export namespace providerhub {
         preflightOptions: string;
     }
 
+    /**
+     * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+     */
     export interface ResourceTypeRegistrationResponse {
         /**
          * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
@@ -197500,7 +200969,7 @@ export namespace providerhub {
         zones?: string[];
     }
 
-    export interface SkuResourceResponseProperties {
+    export interface SkuResourcePropertiesResponse {
         /**
          * The provisioning state.
          */
@@ -197511,6 +200980,28 @@ export namespace providerhub {
         skuSettings: outputs.providerhub.SkuSettingResponse[];
     }
 
+    /**
+     * The capacity.
+     */
+    export interface SkuSettingCapacityResponse {
+        /**
+         * The default.
+         */
+        default?: number;
+        /**
+         * The maximum.
+         */
+        maximum?: number;
+        /**
+         * The minimum.
+         */
+        minimum: number;
+        /**
+         * The scale type.
+         */
+        scaleType?: string;
+    }
+
     export interface SkuSettingResponse {
         /**
          * The capabilities.
@@ -197519,7 +201010,7 @@ export namespace providerhub {
         /**
          * The capacity.
          */
-        capacity?: outputs.providerhub.SkuSettingResponseCapacity;
+        capacity?: outputs.providerhub.SkuSettingCapacityResponse;
         /**
          * The costs.
          */
@@ -197560,28 +201051,6 @@ export namespace providerhub {
          * The tier.
          */
         tier?: string;
-    }
-
-    /**
-     * The capacity.
-     */
-    export interface SkuSettingResponseCapacity {
-        /**
-         * The default.
-         */
-        default?: number;
-        /**
-         * The maximum.
-         */
-        maximum?: number;
-        /**
-         * The minimum.
-         */
-        minimum: number;
-        /**
-         * The scale type.
-         */
-        scaleType?: string;
     }
 
     export interface SkuZoneDetailResponse {
@@ -210034,7 +213503,7 @@ export namespace resourceconnector {
     /**
      * Contains infrastructure information about the Appliance
      */
-    export interface AppliancePropertiesResponseInfrastructureConfig {
+    export interface AppliancePropertiesInfrastructureConfigResponse {
         /**
          * Information about the connected appliance.
          */
@@ -210284,6 +213753,10 @@ export namespace resources {
          * Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
          */
         resources: string;
+        /**
+         * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+         */
+        resourcesWithoutDeleteSupport?: string;
     }
 
     export interface AliasPathMetadataResponse {
@@ -210479,6 +213952,46 @@ export namespace resources {
     }
 
     /**
+     * The value or how to get a value for an extension config property.
+     */
+    export interface DeploymentExtensionConfigItemResponse {
+        /**
+         * The key vault reference of the config item.
+         */
+        keyVaultReference?: outputs.resources.KeyVaultParameterReferenceResponse;
+        /**
+         * The type of the value.
+         */
+        type: string;
+        /**
+         * The value of the config item. The type is determined by the extension config schema.
+         */
+        value?: any;
+    }
+
+    /**
+     * Details about the usage of a deployment extension.
+     */
+    export interface DeploymentExtensionResponse {
+        /**
+         * The configuration used for deployment. The keys of this object should align with the extension config schema.
+         */
+        config?: {[key: string]: outputs.resources.DeploymentExtensionConfigItemResponse};
+        /**
+         * The configuration ID of the extension usage. It uniquely identifies a target the extension deploys to.
+         */
+        configId?: string;
+        /**
+         * The extension name.
+         */
+        name: string;
+        /**
+         * The extension version.
+         */
+        version: string;
+    }
+
+    /**
      * Deployment parameter for the template.
      */
     export interface DeploymentParameterResponse {
@@ -210581,6 +214094,32 @@ export namespace resources {
     }
 
     /**
+     * The error additional info
+     */
+    export interface DeploymentStacksDiagnosticResponse {
+        /**
+         * Additional error information.
+         */
+        additionalInfo?: outputs.resources.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * Denotes the additional response level.
+         */
+        level: string;
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target?: string;
+    }
+
+    /**
      * Entity representing the reference to the deployment parameters.
      */
     export interface DeploymentStacksParametersLinkResponse {
@@ -210592,6 +214131,256 @@ export namespace resources {
          * The URI of the parameters file.
          */
         uri: string;
+    }
+
+    /**
+     * Changes predicted to the deployment stack as a result of the what-if operation.
+     */
+    export interface DeploymentStacksWhatIfChangeResponse {
+        /**
+         * Predicted changes to the deployment stack deny settings.
+         */
+        denySettingsChange: outputs.resources.DeploymentStacksWhatIfChangeResponseDenySettingsChange;
+        /**
+         * Predicted changes to the deployment scope for the deployment stack.
+         */
+        deploymentScopeChange?: outputs.resources.DeploymentStacksWhatIfChangeResponseDeploymentScopeChange;
+        /**
+         * List of resource changes predicted by What-If operation.
+         */
+        resourceChanges: outputs.resources.DeploymentStacksWhatIfResourceChangeResponse[];
+    }
+
+    /**
+     * Predicted changes to the deployment stack deny settings.
+     */
+    export interface DeploymentStacksWhatIfChangeResponseDenySettingsChange {
+        /**
+         * The predicted value after the deployment is executed.
+         */
+        after?: outputs.resources.DenySettingsResponse;
+        /**
+         * The predicted value before the deployment is executed.
+         */
+        before?: outputs.resources.DenySettingsResponse;
+        /**
+         * The predicted changes to the properties."
+         */
+        delta?: outputs.resources.DeploymentStacksWhatIfPropertyChangeResponse[];
+    }
+
+    /**
+     * Predicted changes to the deployment scope for the deployment stack.
+     */
+    export interface DeploymentStacksWhatIfChangeResponseDeploymentScopeChange {
+        /**
+         * The predicted value after the deployment is executed.
+         */
+        after?: string;
+        /**
+         * The predicted value before the deployment is executed.
+         */
+        before?: string;
+    }
+
+    /**
+     * The predicted change to the resource property.
+     */
+    export interface DeploymentStacksWhatIfPropertyChangeResponse {
+        /**
+         * The predicted value after the deployment is executed.
+         */
+        after?: any;
+        /**
+         * The predicted value before the deployment is executed.
+         */
+        before?: any;
+        /**
+         * Type of change that will be made to the resource when the deployment is executed.
+         */
+        changeType: string;
+        /**
+         * Nested property changes.
+         */
+        children?: outputs.resources.DeploymentStacksWhatIfPropertyChangeResponse[];
+        /**
+         * Type of change that will be made to the resource when the deployment is executed.
+         */
+        path: string;
+    }
+
+    /**
+     * Information about a single resource change predicted by What-If operation.
+     */
+    export interface DeploymentStacksWhatIfResourceChangeResponse {
+        /**
+         * The API version the resource was deployed with
+         */
+        apiVersion: string;
+        /**
+         * The confidence level of the predicted change.
+         */
+        changeCertainty: string;
+        /**
+         * Type of change that will be made to the resource when the deployment is executed.
+         */
+        changeType: string;
+        /**
+         * The predicted changes to the deployment stack deny status of the resource.
+         */
+        denyStatusChange?: outputs.resources.DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange;
+        /**
+         * The resource id of the Deployment responsible for this change.
+         */
+        deploymentId?: string;
+        /**
+         * The extension the resource was deployed with.
+         */
+        extension: outputs.resources.DeploymentExtensionResponse;
+        /**
+         * The ARM Resource ID of a resource managed by the deployment stack.
+         */
+        id: string;
+        /**
+         * The extensible resource identifiers.
+         */
+        identifiers: any;
+        /**
+         * The predicted changes to the deployment stack management status of the resource.
+         */
+        managementStatusChange?: outputs.resources.DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange;
+        /**
+         * The predicted changes to the resource configuration.
+         */
+        resourceConfigurationChanges?: outputs.resources.DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges;
+        /**
+         * The symbolic name of the resource being changed.
+         */
+        symbolicName?: string;
+        /**
+         * The resource type.
+         */
+        type: string;
+        /**
+         * The explanation about why the resource is unsupported by What-If.
+         */
+        unsupportedReason?: string;
+    }
+
+    /**
+     * The predicted changes to the deployment stack deny status of the resource.
+     */
+    export interface DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange {
+        /**
+         * The predicted value after the deployment is executed.
+         */
+        after?: string;
+        /**
+         * The predicted value before the deployment is executed.
+         */
+        before?: string;
+    }
+
+    /**
+     * The predicted changes to the deployment stack management status of the resource.
+     */
+    export interface DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange {
+        /**
+         * The predicted value after the deployment is executed.
+         */
+        after?: string;
+        /**
+         * The predicted value before the deployment is executed.
+         */
+        before?: string;
+    }
+
+    /**
+     * The predicted changes to the resource configuration.
+     */
+    export interface DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges {
+        /**
+         * The predicted value after the deployment is executed.
+         */
+        after?: any;
+        /**
+         * The predicted value before the deployment is executed.
+         */
+        before?: any;
+        /**
+         * The predicted changes to the properties."
+         */
+        delta?: outputs.resources.DeploymentStacksWhatIfPropertyChangeResponse[];
+    }
+
+    /**
+     * DeploymentStack WhatIfResult Properties
+     */
+    export interface DeploymentStacksWhatIfResultPropertiesResponse {
+        /**
+         * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+         */
+        actionOnUnmanage: outputs.resources.ActionOnUnmanageResponse;
+        /**
+         * All of the changes predicted by the deployment stack what-if operation.
+         */
+        changes: outputs.resources.DeploymentStacksWhatIfChangeResponse;
+        /**
+         * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+         */
+        correlationId: string;
+        /**
+         * The debug setting of the deployment.
+         */
+        debugSetting?: outputs.resources.DeploymentStacksDebugSettingResponse;
+        /**
+         * Defines how resources deployed by the stack are locked.
+         */
+        denySettings: outputs.resources.DenySettingsResponse;
+        /**
+         * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+         */
+        deploymentScope?: string;
+        /**
+         * The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+         */
+        deploymentStackLastModified: string;
+        /**
+         * The deployment stack id to use as the basis for comparison.
+         */
+        deploymentStackResourceId: string;
+        /**
+         * Deployment stack description. Max length of 4096 characters.
+         */
+        description?: string;
+        /**
+         * List of resource diagnostics detected by What-If operation.
+         */
+        diagnostics: outputs.resources.DeploymentStacksDiagnosticResponse[];
+        /**
+         * The error detail.
+         */
+        error?: outputs.resources.ErrorDetailResponse;
+        /**
+         * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parameters?: {[key: string]: outputs.resources.DeploymentParameterResponse};
+        /**
+         * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parametersLink?: outputs.resources.DeploymentStacksParametersLinkResponse;
+        /**
+         * State of the deployment stack.
+         */
+        provisioningState: string;
+        /**
+         * The interval to persist the deployment stack what-if result in ISO 8601 format.
+         */
+        retentionInterval: string;
+        /**
+         * The validation level of the deployment stack
+         */
+        validationLevel?: string;
     }
 
     /**
@@ -216554,14 +220343,6 @@ export namespace securityinsights {
     }
 
     /**
-     * Describes the configuration of a system inside the agent.
-     */
-    export interface AgentSystemResponse {
-        systemDisplayName?: string;
-        systemResourceName?: string;
-    }
-
-    /**
      * Settings for how to dynamically override alert static details
      */
     export interface AlertDetailsOverrideResponse {
@@ -216608,7 +220389,7 @@ export namespace securityinsights {
         /**
          * Alerts data type connection.
          */
-        alerts?: outputs.securityinsights.DataConnectorDataTypeCommonResponse;
+        alerts: outputs.securityinsights.DataConnectorDataTypeCommonResponse;
     }
 
     /**
@@ -216819,7 +220600,7 @@ export namespace securityinsights {
         /**
          * Logs data type.
          */
-        logs?: outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponseLogs;
+        logs: outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponseLogs;
     }
 
     /**
@@ -216829,7 +220610,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -217222,7 +221003,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -217820,11 +221601,11 @@ export namespace securityinsights {
 
     export interface InsightsTableResultResponseColumns {
         /**
-         * the name of the colum
+         * the name of the column
          */
         name?: string;
         /**
-         * the type of the colum
+         * the type of the column
          */
         type?: string;
     }
@@ -217920,62 +221701,13 @@ export namespace securityinsights {
     }
 
     /**
-     * Represents lock user action.
-     */
-    export interface LockUserActionResponse {
-        /**
-         * The reason of the failure of the action. Empty if the action is successful.
-         */
-        failureReason?: string;
-        /**
-         * The kind of the action
-         * Expected value is 'LockUser'.
-         */
-        kind: "LockUser";
-        /**
-         * The user to lock
-         */
-        user?: string;
-    }
-
-    /**
-     * Describes a log.
-     */
-    export interface LogResponse {
-        /**
-         * The bulk size for the log.
-         */
-        bulkSize?: number;
-        /**
-         * The filters for the log.
-         */
-        filters?: string[];
-        /**
-         * Types of ingestion.
-         */
-        ingestionType?: string;
-        /**
-         * The schedule interval in seconds.
-         */
-        scheduleInterval?: number;
-        /**
-         * Types of log status.
-         */
-        status?: string;
-        /**
-         * Types of logs and tables.
-         */
-        type: string;
-    }
-
-    /**
      * The available data types for MCAS (Microsoft Cloud App Security) data connector.
      */
     export interface MCASDataConnectorDataTypesResponse {
         /**
          * Alerts data type connection.
          */
-        alerts?: outputs.securityinsights.DataConnectorDataTypeCommonResponse;
+        alerts: outputs.securityinsights.DataConnectorDataTypeCommonResponse;
         /**
          * Discovery log data type connection.
          */
@@ -218003,7 +221735,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -218206,15 +221938,15 @@ export namespace securityinsights {
         /**
          * Exchange data type connection.
          */
-        exchange?: outputs.securityinsights.OfficeDataConnectorDataTypesResponseExchange;
+        exchange: outputs.securityinsights.OfficeDataConnectorDataTypesResponseExchange;
         /**
          * SharePoint data type connection.
          */
-        sharePoint?: outputs.securityinsights.OfficeDataConnectorDataTypesResponseSharePoint;
+        sharePoint: outputs.securityinsights.OfficeDataConnectorDataTypesResponseSharePoint;
         /**
          * Teams data type connection.
          */
-        teams?: outputs.securityinsights.OfficeDataConnectorDataTypesResponseTeams;
+        teams: outputs.securityinsights.OfficeDataConnectorDataTypesResponseTeams;
     }
 
     /**
@@ -218224,7 +221956,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -218234,7 +221966,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -218244,7 +221976,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -218286,23 +222018,23 @@ export namespace securityinsights {
     }
 
     /**
-     * The available data types for Premium Microsoft Defender for Threat Intelligence data connector.
+     * The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
      */
     export interface PremiumMdtiDataConnectorDataTypesResponse {
         /**
-         * Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+         * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
          */
         connector: outputs.securityinsights.PremiumMdtiDataConnectorDataTypesResponseConnector;
     }
 
     /**
-     * Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+     * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
      */
     export interface PremiumMdtiDataConnectorDataTypesResponseConnector {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -218534,170 +222266,6 @@ export namespace securityinsights {
     }
 
     /**
-     * Describes the Rfc connector.
-     */
-    export interface RfcConnectorResponse {
-        /**
-         * FQDN, hostname, or IP address of the ABAP server.
-         */
-        abapServerHost?: string;
-        /**
-         * The authentication type to SAP.
-         */
-        authenticationType?: string;
-        /**
-         * Client number of the ABAP server.
-         * Example - 001
-         */
-        client: string;
-        /**
-         * The SAP code page used for character encoding.
-         * Example - 1100
-         */
-        codePage?: string;
-        /**
-         * Logon group of the message server.
-         */
-        group?: string;
-        /**
-         * FQDN, hostname, or IP address of the Message server.
-         */
-        messageServerHost?: string;
-        /**
-         * Port number, or service name (from /etc/services) of the message server.
-         */
-        messageServerService?: string;
-        /**
-         * SNC QOP.
-         * Options are 1, 2, 3, 8, 9.
-         */
-        sncQop?: string;
-        /**
-         * System ID of the ABAP server.
-         * Example - A4H
-         */
-        systemId: string;
-        /**
-         * System number of the ABAP server.
-         */
-        systemNumber: string;
-        /**
-         * Represents the types of SAP systems.
-         * Expected value is 'Rfc'.
-         */
-        type: "Rfc";
-    }
-
-    /**
-     * Describes the configuration of a SAP Docker agent.
-     */
-    export interface SapAgentConfigurationResponse {
-        /**
-         * The name of the docker agent.
-         * only letters with numbers, underscores and hyphens are allowed
-         * example: "my-agent"
-         */
-        agentContainerName?: string;
-        /**
-         * The key mode of the agent.
-         * ManagedIdentity|ApplicationIdentity are the options
-         */
-        keyVaultAuthenticationMode?: string;
-        /**
-         * The key vault resource id to access the key vault.
-         * example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
-         */
-        keyVaultResourceId?: string;
-        /**
-         * The SDK path (a file not a folder) on the agent machine.
-         * example: "/path/to/nwrfc750P_8-70002755.zip"
-         */
-        sdkPath?: string;
-        /**
-         * The secret source of the agent.
-         * AzureKeyVault is the option
-         */
-        secretSource?: string;
-        /**
-         * The SNC path (a folder not a file) on the agent machine.
-         * example: "/path/to/snc"
-         */
-        sncPath?: string;
-        /**
-         * Type of the agent
-         * Expected value is 'SAP'.
-         */
-        type: "SAP";
-    }
-
-    /**
-     * Describes the SapControl connector configuration.
-     */
-    export interface SapControlConnectorResponse {
-        /**
-         * Represents the types of HTTPS configuration to connect to the SapControl service.
-         */
-        httpsConfiguration?: string;
-        /**
-         * The instance number. Only 2 digits are allowed.
-         */
-        instance: string;
-        /**
-         * The port of the SOAP connection to SAP Control.
-         */
-        port?: string;
-        /**
-         * The server name.
-         * FQDN or IP address.
-         */
-        server: string;
-        /**
-         * The timezone.
-         * example: "GMT+0" or "GMT-8"
-         * default: "GMT+0"
-         */
-        timezone?: string;
-        /**
-         * Represents the types of SAP systems.
-         * Expected value is 'SapControl'.
-         */
-        type: "SapControl";
-    }
-    /**
-     * sapControlConnectorResponseProvideDefaults sets the appropriate defaults for SapControlConnectorResponse
-     */
-    export function sapControlConnectorResponseProvideDefaults(val: SapControlConnectorResponse): SapControlConnectorResponse {
-        return {
-            ...val,
-            timezone: (val.timezone) ?? "GMT+0",
-        };
-    }
-
-    /**
-     * Describes the SAP configuration.
-     */
-    export interface SapSystemsConfigurationResponse {
-        /**
-         * azure resource id
-         * example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
-         */
-        azureResourceId?: string;
-        /**
-         * Base Model for SAP System Connector.
-         */
-        connector: outputs.securityinsights.RfcConnectorResponse | outputs.securityinsights.SapControlConnectorResponse;
-        /**
-         * The logs configuration.
-         */
-        logs?: outputs.securityinsights.LogResponse[];
-        /**
-         * Represents the types of configuration for a system.
-         * Expected value is 'SAP'.
-         */
-        type: "SAP";
-    }
-
-    /**
      * Represents security alert timeline item.
      */
     export interface SecurityAlertTimelineItemResponse {
@@ -218846,7 +222414,7 @@ export namespace securityinsights {
         /**
          * Data type for indicators connection.
          */
-        indicators?: outputs.securityinsights.TIDataConnectorDataTypesResponseIndicators;
+        indicators: outputs.securityinsights.TIDataConnectorDataTypesResponseIndicators;
     }
 
     /**
@@ -218856,7 +222424,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: string;
+        state: string;
     }
 
     /**
@@ -219021,25 +222589,6 @@ export namespace securityinsights {
          * the total items found for the timeline request
          */
         totalCount: number;
-    }
-
-    /**
-     * Represents an unlock user action.
-     */
-    export interface UnlockUserActionResponse {
-        /**
-         * The reason of the failure of the action. Empty if the action is successful.
-         */
-        failureReason?: string;
-        /**
-         * The kind of the action
-         * Expected value is 'UnlockUser'.
-         */
-        kind: "UnlockUser";
-        /**
-         * The user to unlock
-         */
-        user?: string;
     }
 
     /**
@@ -233368,7 +236917,7 @@ export namespace trafficmanager {
     /**
      * Custom header name and value.
      */
-    export interface EndpointPropertiesResponseCustomHeaders {
+    export interface EndpointPropertiesCustomHeadersItemResponse {
         /**
          * Header name.
          */
@@ -233382,7 +236931,7 @@ export namespace trafficmanager {
     /**
      * Subnet first address, scope, and/or last address.
      */
-    export interface EndpointPropertiesResponseSubnets {
+    export interface EndpointPropertiesSubnetsItemResponse {
         /**
          * First address in the subnet.
          */
@@ -233408,7 +236957,7 @@ export namespace trafficmanager {
         /**
          * List of custom headers.
          */
-        customHeaders?: outputs.trafficmanager.EndpointPropertiesResponseCustomHeaders[];
+        customHeaders?: outputs.trafficmanager.EndpointPropertiesCustomHeadersItemResponse[];
         /**
          * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
          */
@@ -233452,7 +237001,7 @@ export namespace trafficmanager {
         /**
          * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
          */
-        subnets?: outputs.trafficmanager.EndpointPropertiesResponseSubnets[];
+        subnets?: outputs.trafficmanager.EndpointPropertiesSubnetsItemResponse[];
         /**
          * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
          */
@@ -233472,17 +237021,45 @@ export namespace trafficmanager {
     }
 
     /**
+     * Custom header name and value.
+     */
+    export interface MonitorConfigCustomHeadersItemResponse {
+        /**
+         * Header name.
+         */
+        name?: string;
+        /**
+         * Header value.
+         */
+        value?: string;
+    }
+
+    /**
+     * Min and max value of a status code range.
+     */
+    export interface MonitorConfigExpectedStatusCodeRangesItemResponse {
+        /**
+         * Max status code.
+         */
+        max?: number;
+        /**
+         * Min status code.
+         */
+        min?: number;
+    }
+
+    /**
      * Class containing endpoint monitoring settings in a Traffic Manager profile.
      */
     export interface MonitorConfigResponse {
         /**
          * List of custom headers.
          */
-        customHeaders?: outputs.trafficmanager.MonitorConfigResponseCustomHeaders[];
+        customHeaders?: outputs.trafficmanager.MonitorConfigCustomHeadersItemResponse[];
         /**
          * List of expected status code ranges.
          */
-        expectedStatusCodeRanges?: outputs.trafficmanager.MonitorConfigResponseExpectedStatusCodeRanges[];
+        expectedStatusCodeRanges?: outputs.trafficmanager.MonitorConfigExpectedStatusCodeRangesItemResponse[];
         /**
          * The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
          */
@@ -233511,34 +237088,6 @@ export namespace trafficmanager {
          * The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
          */
         toleratedNumberOfFailures?: number;
-    }
-
-    /**
-     * Custom header name and value.
-     */
-    export interface MonitorConfigResponseCustomHeaders {
-        /**
-         * Header name.
-         */
-        name?: string;
-        /**
-         * Header value.
-         */
-        value?: string;
-    }
-
-    /**
-     * Min and max value of a status code range.
-     */
-    export interface MonitorConfigResponseExpectedStatusCodeRanges {
-        /**
-         * Max status code.
-         */
-        max?: number;
-        /**
-         * Min status code.
-         */
-        min?: number;
     }
 
 }
@@ -233572,868 +237121,6 @@ export namespace verifiedid {
          * The type of identity that last modified the resource.
          */
         lastModifiedByType?: string;
-    }
-
-}
-
-export namespace videoanalyzer {
-    /**
-     * Defines how the Video Analyzer account is (optionally) encrypted.
-     */
-    export interface AccountEncryptionResponse {
-        /**
-         * The Key Vault identity.
-         */
-        identity?: outputs.videoanalyzer.ResourceIdentityResponse;
-        /**
-         * The properties of the key used to encrypt the account.
-         */
-        keyVaultProperties?: outputs.videoanalyzer.KeyVaultPropertiesResponse;
-        /**
-         * The current status of the Key Vault mapping.
-         */
-        status: string;
-        /**
-         * The type of key used to encrypt the Account Key.
-         */
-        type: string;
-    }
-
-    /**
-     * A custom preset for encoding audio with the AAC codec.
-     */
-    export interface AudioEncoderAacResponse {
-        /**
-         * Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
-         */
-        bitrateKbps?: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.AudioEncoderAac'.
-         */
-        type: "#Microsoft.VideoAnalyzer.AudioEncoderAac";
-    }
-
-    /**
-     * Required validation properties for tokens generated with Elliptical Curve algorithm.
-     */
-    export interface EccTokenKeyResponse {
-        /**
-         * Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-         */
-        alg: string;
-        /**
-         * JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-         */
-        kid: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
-         */
-        type: "#Microsoft.VideoAnalyzer.EccTokenKey";
-        /**
-         * X coordinate.
-         */
-        x: string;
-        /**
-         * Y coordinate.
-         */
-        y: string;
-    }
-
-    /**
-     * Describes a custom preset for encoding the input content using the encoder processor.
-     */
-    export interface EncoderCustomPresetResponse {
-        /**
-         * Describes a custom preset for encoding audio.
-         */
-        audioEncoder?: outputs.videoanalyzer.AudioEncoderAacResponse;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EncoderCustomPreset'.
-         */
-        type: "#Microsoft.VideoAnalyzer.EncoderCustomPreset";
-        /**
-         * Describes a custom preset for encoding video.
-         */
-        videoEncoder?: outputs.videoanalyzer.VideoEncoderH264Response;
-    }
-
-    /**
-     * Encoder processor allows for encoding of the input content. For example, it can used to change the resolution from 4K to 1280x720.
-     */
-    export interface EncoderProcessorResponse {
-        /**
-         * An array of upstream node references within the topology to be used as inputs for this node.
-         */
-        inputs: outputs.videoanalyzer.NodeInputResponse[];
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: string;
-        /**
-         * The encoder preset, which defines the recipe or instructions on how the input content should be processed.
-         */
-        preset: outputs.videoanalyzer.EncoderCustomPresetResponse | outputs.videoanalyzer.EncoderSystemPresetResponse;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EncoderProcessor'.
-         */
-        type: "#Microsoft.VideoAnalyzer.EncoderProcessor";
-    }
-
-    /**
-     * Describes a built-in preset for encoding the input content using the encoder processor.
-     */
-    export interface EncoderSystemPresetResponse {
-        /**
-         * Name of the built-in encoding preset.
-         */
-        name: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EncoderSystemPreset'.
-         */
-        type: "#Microsoft.VideoAnalyzer.EncoderSystemPreset";
-    }
-
-    /**
-     * The endpoint details.
-     */
-    export interface EndpointResponse {
-        /**
-         * The URL of the endpoint.
-         */
-        endpointUrl?: string;
-        /**
-         * The type of the endpoint.
-         */
-        type: string;
-    }
-
-    /**
-     * Group level network access control.
-     */
-    export interface GroupLevelAccessControlResponse {
-        /**
-         * Whether or not public network access is allowed for specified resources under the Video Analyzer account.
-         */
-        publicNetworkAccess?: string;
-    }
-
-    /**
-     * The IoT Hub details.
-     */
-    export interface IotHubResponse {
-        /**
-         * The IoT Hub resource identifier.
-         */
-        id: string;
-        /**
-         * The IoT Hub identity.
-         */
-        identity: outputs.videoanalyzer.ResourceIdentityResponse;
-        /**
-         * The current status of the Iot Hub mapping.
-         */
-        status: string;
-    }
-
-    /**
-     * Properties for access validation based on JSON Web Tokens (JWT).
-     */
-    export interface JwtAuthenticationResponse {
-        /**
-         * List of expected token audiences. Token audience is valid if it matches at least one of the given values.
-         */
-        audiences?: string[];
-        /**
-         * List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-         */
-        claims?: outputs.videoanalyzer.TokenClaimResponse[];
-        /**
-         * List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-         */
-        issuers?: string[];
-        /**
-         * List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-         */
-        keys?: (outputs.videoanalyzer.EccTokenKeyResponse | outputs.videoanalyzer.RsaTokenKeyResponse)[];
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-         */
-        type: "#Microsoft.VideoAnalyzer.JwtAuthentication";
-    }
-
-    /**
-     * The details for accessing the encryption keys in Key Vault.
-     */
-    export interface KeyVaultPropertiesResponse {
-        /**
-         * The current key used to encrypt Video Analyzer account, including the key version.
-         */
-        currentKeyIdentifier: string;
-        /**
-         * The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-         */
-        keyIdentifier: string;
-    }
-
-    /**
-     * Network access control for video analyzer account.
-     */
-    export interface NetworkAccessControlResponse {
-        /**
-         * Public network access for consumption group.
-         */
-        consumption?: outputs.videoanalyzer.GroupLevelAccessControlResponse;
-        /**
-         * Public network access for ingestion group.
-         */
-        ingestion?: outputs.videoanalyzer.GroupLevelAccessControlResponse;
-        /**
-         * Public network access for integration group.
-         */
-        integration?: outputs.videoanalyzer.GroupLevelAccessControlResponse;
-    }
-
-    /**
-     * Describes an input signal to be used on a pipeline node.
-     */
-    export interface NodeInputResponse {
-        /**
-         * The name of the upstream node in the pipeline which output is used as input of the current node.
-         */
-        nodeName: string;
-    }
-
-    /**
-     * Single topology parameter declaration. Declared parameters can and must be referenced throughout the topology and can optionally have default values to be used when they are not defined in the pipelines.
-     */
-    export interface ParameterDeclarationResponse {
-        /**
-         * The default value for the parameter to be used if the pipeline does not specify a value.
-         */
-        default?: string;
-        /**
-         * Description of the parameter.
-         */
-        description?: string;
-        /**
-         * Name of the parameter.
-         */
-        name: string;
-        /**
-         * Type of the parameter.
-         */
-        type: string;
-    }
-
-    /**
-     * Defines the parameter value of an specific pipeline topology parameter. See pipeline topology parameters for more information.
-     */
-    export interface ParameterDefinitionResponse {
-        /**
-         * Name of the parameter declared in the pipeline topology.
-         */
-        name: string;
-        /**
-         * Parameter value to be applied on this specific pipeline.
-         */
-        value?: string;
-    }
-
-    /**
-     * A list of PEM formatted certificates.
-     */
-    export interface PemCertificateListResponse {
-        /**
-         * PEM formatted public certificates. One certificate per entry.
-         */
-        certificates: string[];
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.PemCertificateList'.
-         */
-        type: "#Microsoft.VideoAnalyzer.PemCertificateList";
-    }
-
-    /**
-     * Details about the error for a failed pipeline job.
-     */
-    export interface PipelineJobErrorResponse {
-        /**
-         * The error code.
-         */
-        code?: string;
-        /**
-         * The error message.
-         */
-        message?: string;
-    }
-
-    /**
-     * The Private Endpoint Connection resource.
-     */
-    export interface PrivateEndpointConnectionResponse {
-        /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The resource of private end point.
-         */
-        privateEndpoint?: outputs.videoanalyzer.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.videoanalyzer.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.videoanalyzer.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
-     * The Private Endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for Private Endpoint
-         */
-        id: string;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateResponse {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: string;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: string;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: string;
-    }
-
-    /**
-     * The user assigned managed identity to use when accessing a resource.
-     */
-    export interface ResourceIdentityResponse {
-        /**
-         * The user assigned managed identity's resource identifier to use when accessing a resource.
-         */
-        userAssignedIdentity: string;
-    }
-
-    /**
-     * Required validation properties for tokens generated with RSA algorithm.
-     */
-    export interface RsaTokenKeyResponse {
-        /**
-         * RSA algorithm to be used: RS256, RS384 or RS512.
-         */
-        alg: string;
-        /**
-         * RSA public key exponent.
-         */
-        e: string;
-        /**
-         * JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-         */
-        kid: string;
-        /**
-         * RSA public key modulus.
-         */
-        n: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
-         */
-        type: "#Microsoft.VideoAnalyzer.RsaTokenKey";
-    }
-
-    /**
-     * RTSP source allows for media from an RTSP camera or generic RTSP server to be ingested into a pipeline.
-     */
-    export interface RtspSourceResponse {
-        /**
-         * RTSP endpoint information for Video Analyzer to connect to. This contains the required information for Video Analyzer to connect to RTSP cameras and/or generic RTSP servers.
-         */
-        endpoint: outputs.videoanalyzer.TlsEndpointResponse | outputs.videoanalyzer.UnsecuredEndpointResponse;
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: string;
-        /**
-         * Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
-         */
-        transport?: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.RtspSource'.
-         */
-        type: "#Microsoft.VideoAnalyzer.RtspSource";
-    }
-
-    /**
-     * A remote tunnel securely established using IoT Hub device information.
-     */
-    export interface SecureIotDeviceRemoteTunnelResponse {
-        /**
-         * The IoT device id to use when establishing the remote tunnel. This string is case-sensitive.
-         */
-        deviceId: string;
-        /**
-         * Name of the IoT Hub.
-         */
-        iotHubName: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel'.
-         */
-        type: "#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel";
-    }
-
-    /**
-     * The SKU details.
-     */
-    export interface SkuResponse {
-        /**
-         * The SKU name.
-         */
-        name: string;
-        /**
-         * The SKU tier.
-         */
-        tier: string;
-    }
-
-    /**
-     * The details about the associated storage account.
-     */
-    export interface StorageAccountResponse {
-        /**
-         * The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-         */
-        id: string;
-        /**
-         * A managed identity that Video Analyzer will use to access the storage account.
-         */
-        identity?: outputs.videoanalyzer.ResourceIdentityResponse;
-        /**
-         * The current status of the storage account mapping.
-         */
-        status: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface SystemDataResponse {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt?: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy?: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType?: string;
-        /**
-         * The timestamp of resource last modification (UTC)
-         */
-        lastModifiedAt?: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy?: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType?: string;
-    }
-
-    /**
-     * TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
-     */
-    export interface TlsEndpointResponse {
-        /**
-         * Credentials to be presented to the endpoint.
-         */
-        credentials: outputs.videoanalyzer.UsernamePasswordCredentialsResponse;
-        /**
-         * List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
-         */
-        trustedCertificates?: outputs.videoanalyzer.PemCertificateListResponse;
-        /**
-         * Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
-         */
-        tunnel?: outputs.videoanalyzer.SecureIotDeviceRemoteTunnelResponse;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
-         */
-        type: "#Microsoft.VideoAnalyzer.TlsEndpoint";
-        /**
-         * The endpoint URL for Video Analyzer to connect to.
-         */
-        url: string;
-        /**
-         * Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-         */
-        validationOptions?: outputs.videoanalyzer.TlsValidationOptionsResponse;
-    }
-
-    /**
-     * Options for controlling the validation of TLS endpoints.
-     */
-    export interface TlsValidationOptionsResponse {
-        /**
-         * When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
-         */
-        ignoreHostname?: string;
-        /**
-         * When set to 'true' causes the certificate chain trust validation to be skipped. Default is 'false'.
-         */
-        ignoreSignature?: string;
-    }
-
-    /**
-     * Properties for expected token claims.
-     */
-    export interface TokenClaimResponse {
-        /**
-         * Name of the claim which must be present on the token.
-         */
-        name: string;
-        /**
-         * Expected value of the claim to be present on the token.
-         */
-        value: string;
-    }
-
-    /**
-     * Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
-     */
-    export interface UnsecuredEndpointResponse {
-        /**
-         * Credentials to be presented to the endpoint.
-         */
-        credentials: outputs.videoanalyzer.UsernamePasswordCredentialsResponse;
-        /**
-         * Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
-         */
-        tunnel?: outputs.videoanalyzer.SecureIotDeviceRemoteTunnelResponse;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.UnsecuredEndpoint'.
-         */
-        type: "#Microsoft.VideoAnalyzer.UnsecuredEndpoint";
-        /**
-         * The endpoint URL for Video Analyzer to connect to.
-         */
-        url: string;
-    }
-
-    /**
-     * The details of the user assigned managed identity used by the Video Analyzer resource.
-     */
-    export interface UserAssignedManagedIdentityResponse {
-        /**
-         * The client ID.
-         */
-        clientId: string;
-        /**
-         * The principal ID.
-         */
-        principalId: string;
-    }
-
-    /**
-     * Username and password credentials.
-     */
-    export interface UsernamePasswordCredentialsResponse {
-        /**
-         * Password to be presented as part of the credentials. It is recommended that this value is parameterized as a secret string in order to prevent this value to be returned as part of the resource on API requests.
-         */
-        password: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials'.
-         */
-        type: "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials";
-        /**
-         * Username to be presented as part of the credentials.
-         */
-        username: string;
-    }
-
-    /**
-     * The managed identity for the Video Analyzer resource.
-     */
-    export interface VideoAnalyzerIdentityResponse {
-        /**
-         * The identity type.
-         */
-        type: string;
-        /**
-         * The User Assigned Managed Identities.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.videoanalyzer.UserAssignedManagedIdentityResponse};
-    }
-
-    /**
-     * Video archival properties.
-     */
-    export interface VideoArchivalResponse {
-        /**
-         * Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
-         */
-        retentionPeriod?: string;
-    }
-
-    /**
-     * Set of URLs to the video content.
-     */
-    export interface VideoContentUrlsResponse {
-        /**
-         * Video archive streaming base URL. The archived content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token on any compatible DASH or HLS players by appending the following to the base URL:
-         * 
-         *     - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-         *     - HLS CMAF:  /manifest(format=m3u8-cmaf)
-         *     - DASH CMAF: /manifest(format=mpd-time-cmaf)
-         * 
-         *     Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length. It is available when the video type is 'archive' and video archiving is enabled.
-         */
-        archiveBaseUrl?: string;
-        /**
-         * Video file download URL. This URL can be used in conjunction with the video content authorization token to download the video MP4 file. The resulting MP4 file can be played on any standard media player. It is available when the video type is 'file' and video file is available for consumption.
-         */
-        downloadUrl?: string;
-        /**
-         * Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
-         */
-        previewImageUrls?: outputs.videoanalyzer.VideoPreviewImageUrlsResponse;
-        /**
-         * Video low-latency streaming URL. The live content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token to expose a WebSocket tunneled RTSP stream. It is available when the video type is 'archive' and a live, low-latency feed is available from the source.
-         */
-        rtspTunnelUrl?: string;
-    }
-
-    /**
-     * Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
-     */
-    export interface VideoCreationPropertiesResponse {
-        /**
-         * Optional description provided by the user. Value can be up to 2048 characters long.
-         */
-        description?: string;
-        /**
-         * Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
-         */
-        retentionPeriod?: string;
-        /**
-         * Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
-         */
-        segmentLength?: string;
-        /**
-         * Optional title provided by the user. Value can be up to 256 characters long.
-         */
-        title?: string;
-    }
-
-    /**
-     * A custom preset for encoding video with the H.264 (AVC) codec.
-     */
-    export interface VideoEncoderH264Response {
-        /**
-         * The maximum bitrate, in kilobits per second or Kbps, at which video should be encoded. If omitted, encoder sets it automatically to try and match the quality of the input video.
-         */
-        bitrateKbps?: string;
-        /**
-         * The frame rate (in frames per second) of the encoded video. The value must be greater than zero, and less than or equal to 300. If omitted, the encoder uses the average frame rate of the input video.
-         */
-        frameRate?: string;
-        /**
-         * Describes the resolution of the encoded video. If omitted, the encoder uses the resolution of the input video.
-         */
-        scale?: outputs.videoanalyzer.VideoScaleResponse;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoEncoderH264'.
-         */
-        type: "#Microsoft.VideoAnalyzer.VideoEncoderH264";
-    }
-
-    /**
-     * Video flags contain information about the available video actions and its dynamic properties based on the current video state.
-     */
-    export interface VideoFlagsResponse {
-        /**
-         * Value indicating whether or not the video can be streamed. Only "archive" type videos can be streamed.
-         */
-        canStream: boolean;
-        /**
-         * Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
-         */
-        hasData: boolean;
-        /**
-         * Value indicating whether or not the video is currently being referenced be an active pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
-         */
-        isInUse: boolean;
-    }
-
-    /**
-     * Contains information about the video and audio content.
-     */
-    export interface VideoMediaInfoResponse {
-        /**
-         * Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
-         */
-        segmentLength?: string;
-    }
-
-    /**
-     * Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
-     */
-    export interface VideoPreviewImageUrlsResponse {
-        /**
-         * High resolution preview image URL.
-         */
-        large?: string;
-        /**
-         * Medium resolution preview image URL.
-         */
-        medium?: string;
-        /**
-         * Low resolution preview image URL.
-         */
-        small?: string;
-    }
-
-    /**
-     * Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
-     */
-    export interface VideoPublishingOptionsResponse {
-        /**
-         * When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
-         */
-        disableArchive?: string;
-        /**
-         * When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
-         */
-        disableRtspPublishing?: string;
-    }
-
-    /**
-     * The video scaling information.
-     */
-    export interface VideoScaleResponse {
-        /**
-         * The desired output video height.
-         */
-        height?: string;
-        /**
-         * Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
-         */
-        mode?: string;
-        /**
-         * The desired output video width.
-         */
-        width?: string;
-    }
-
-    /**
-     * A sequence of absolute datetime ranges as a string. The datetime values should follow IS08601, and the sum of the ranges should add up to 24 hours or less. Currently, there can be only one range specified in the sequence.
-     */
-    export interface VideoSequenceAbsoluteTimeMarkersResponse {
-        /**
-         * The sequence of datetime ranges. Example: '[["2021-10-05T03:30:00Z", "2021-10-05T03:40:00Z"]]'.
-         */
-        ranges: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers'.
-         */
-        type: "#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers";
-    }
-
-    /**
-     * Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'
-     */
-    export interface VideoSinkResponse {
-        /**
-         * An array of upstream node references within the topology to be used as inputs for this node.
-         */
-        inputs: outputs.videoanalyzer.NodeInputResponse[];
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: string;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoSink'.
-         */
-        type: "#Microsoft.VideoAnalyzer.VideoSink";
-        /**
-         * Optional video properties to be used in case a new video resource needs to be created on the service.
-         */
-        videoCreationProperties?: outputs.videoanalyzer.VideoCreationPropertiesResponse;
-        /**
-         * Name of a new or existing video resource used to capture and publish content. Note: if downstream of RTSP source, and if disableArchive is set to true, then no content is archived.
-         */
-        videoName: string;
-        /**
-         * Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
-         */
-        videoPublishingOptions?: outputs.videoanalyzer.VideoPublishingOptionsResponse;
-    }
-
-    /**
-     * Video source allows for content from a Video Analyzer video resource to be ingested into a pipeline. Currently supported only with batch pipelines.
-     */
-    export interface VideoSourceResponse {
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: string;
-        /**
-         * Describes a sequence of datetime ranges. The video source only picks up recorded media within these ranges.
-         */
-        timeSequences: outputs.videoanalyzer.VideoSequenceAbsoluteTimeMarkersResponse;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoSource'.
-         */
-        type: "#Microsoft.VideoAnalyzer.VideoSource";
-        /**
-         * Name of the Video Analyzer video resource to be used as the source.
-         */
-        videoName: string;
     }
 
 }
@@ -238341,6 +241028,24 @@ export namespace web {
          * Logical Availability Zones the service is hosted in
          */
         zones?: string[];
+    }
+
+    /**
+     * Represents details of a single instance in a server farm.
+     */
+    export interface ServerFarmInstanceResponse {
+        /**
+         * The instance name.
+         */
+        instanceName?: string;
+        /**
+         * The instance IP address.
+         */
+        ipAddress?: string;
+        /**
+         * The instance status.
+         */
+        status?: string;
     }
 
     /**

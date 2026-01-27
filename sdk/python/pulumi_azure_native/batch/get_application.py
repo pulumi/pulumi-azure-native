@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetApplicationResult',
@@ -26,7 +27,7 @@ class GetApplicationResult:
     """
     Contains information about an application in a Batch account.
     """
-    def __init__(__self__, allow_updates=None, azure_api_version=None, default_version=None, display_name=None, etag=None, id=None, name=None, tags=None, type=None):
+    def __init__(__self__, allow_updates=None, azure_api_version=None, default_version=None, display_name=None, etag=None, id=None, name=None, system_data=None, tags=None, type=None):
         if allow_updates and not isinstance(allow_updates, bool):
             raise TypeError("Expected argument 'allow_updates' to be a bool")
         pulumi.set(__self__, "allow_updates", allow_updates)
@@ -48,6 +49,9 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -99,7 +103,7 @@ class GetApplicationResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ID of the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -107,9 +111,17 @@ class GetApplicationResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -123,7 +135,7 @@ class GetApplicationResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -141,6 +153,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             etag=self.etag,
             id=self.id,
             name=self.name,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -157,9 +170,9 @@ def get_application(account_name: Optional[_builtins.str] = None,
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str application_name: The name of the application. This must be unique within the account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -176,6 +189,7 @@ def get_application(account_name: Optional[_builtins.str] = None,
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -190,9 +204,9 @@ def get_application_output(account_name: Optional[pulumi.Input[_builtins.str]] =
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str application_name: The name of the application. This must be unique within the account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -208,5 +222,6 @@ def get_application_output(account_name: Optional[pulumi.Input[_builtins.str]] =
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

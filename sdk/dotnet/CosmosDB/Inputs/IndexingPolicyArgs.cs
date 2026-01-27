@@ -45,6 +45,18 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
             set => _excludedPaths = value;
         }
 
+        [Input("fullTextIndexes")]
+        private InputList<Inputs.FullTextIndexPathArgs>? _fullTextIndexes;
+
+        /// <summary>
+        /// List of paths to include in the full text indexing
+        /// </summary>
+        public InputList<Inputs.FullTextIndexPathArgs> FullTextIndexes
+        {
+            get => _fullTextIndexes ?? (_fullTextIndexes = new InputList<Inputs.FullTextIndexPathArgs>());
+            set => _fullTextIndexes = value;
+        }
+
         [Input("includedPaths")]
         private InputList<Inputs.IncludedPathArgs>? _includedPaths;
 

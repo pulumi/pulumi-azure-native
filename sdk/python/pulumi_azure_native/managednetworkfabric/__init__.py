@@ -27,6 +27,7 @@ from .get_network_fabric_controller import *
 from .get_network_fabric_topology import *
 from .get_network_interface import *
 from .get_network_interface_status import *
+from .get_network_monitor import *
 from .get_network_packet_broker import *
 from .get_network_rack import *
 from .get_network_tap import *
@@ -46,6 +47,7 @@ from .network_device import *
 from .network_fabric import *
 from .network_fabric_controller import *
 from .network_interface import *
+from .network_monitor import *
 from .network_packet_broker import *
 from .network_rack import *
 from .network_tap import *

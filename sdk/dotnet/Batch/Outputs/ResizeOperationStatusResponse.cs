@@ -24,8 +24,17 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// The default value is 15 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service returns an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         /// </summary>
         public readonly string? ResizeTimeout;
+        /// <summary>
+        /// The time when this resize operation was started.
+        /// </summary>
         public readonly string? StartTime;
+        /// <summary>
+        /// The desired number of dedicated compute nodes in the pool.
+        /// </summary>
         public readonly int? TargetDedicatedNodes;
+        /// <summary>
+        /// The desired number of Spot/low-priority compute nodes in the pool.
+        /// </summary>
         public readonly int? TargetLowPriorityNodes;
 
         [OutputConstructor]

@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.ProviderHub
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.SkuResourceResponseProperties Properties;
+        public readonly Outputs.SkuResourcePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.ProviderHub
 
             string name,
 
-            Outputs.SkuResourceResponseProperties properties,
+            Outputs.SkuResourcePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

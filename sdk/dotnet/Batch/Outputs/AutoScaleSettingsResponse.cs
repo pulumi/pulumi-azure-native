@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// AutoScale settings for the pool.
+    /// </summary>
     [OutputType]
     public sealed class AutoScaleSettingsResponse
     {
@@ -17,6 +20,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// If omitted, the default value is 15 minutes (PT15M).
         /// </summary>
         public readonly string? EvaluationInterval;
+        /// <summary>
+        /// A formula for the desired number of compute nodes in the pool.
+        /// </summary>
         public readonly string Formula;
 
         [OutputConstructor]

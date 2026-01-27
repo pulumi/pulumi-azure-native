@@ -162,6 +162,7 @@ class ManagementGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["children"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20180101preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20200501:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20201001:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20210401:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20230401:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20240201preview:ManagementGroup")])
@@ -193,6 +194,7 @@ class ManagementGroup(pulumi.CustomResource):
         __props__.__dict__["details"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return ManagementGroup(resource_name, opts=opts, __props__=__props__)
@@ -233,9 +235,17 @@ class ManagementGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -249,7 +259,7 @@ class ManagementGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.  For example, Microsoft.Management/managementGroups
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

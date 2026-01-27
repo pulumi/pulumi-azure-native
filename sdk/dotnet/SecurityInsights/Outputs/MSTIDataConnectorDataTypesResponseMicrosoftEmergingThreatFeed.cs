@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
         /// </summary>
-        public readonly string? State;
+        public readonly string State;
 
         [OutputConstructor]
         private MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed(
             string lookbackPeriod,
 
-            string? state)
+            string state)
         {
             LookbackPeriod = lookbackPeriod;
             State = state;

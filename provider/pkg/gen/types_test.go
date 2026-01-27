@@ -1,6 +1,7 @@
 package gen
 
 import (
+	"strconv"
 	"testing"
 
 	"github.com/go-openapi/spec"
@@ -87,4 +88,49 @@ func TestEnumNameFallbackToPropertyNames(t *testing.T) {
 	require.Contains(t, generator.pkg.Types, "azure-native:MyModule:MyProp")
 	require.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 1)
 	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[0].Value, "foo")
+}
+
+func TestMergeTypesBasic(t *testing.T) {
+	typeA := schema.ComplexTypeSpec{
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Required:    []string{"type"},
+			Description: "Reference to a build result",
+			Properties: map[string]schema.PropertySpec{
+				"buildResultId": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "Resource id of an existing succeeded build result under the same Spring instance.",
+				},
+			},
+		},
+	}
+
+	typeB := schema.ComplexTypeSpec{
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Required:    []string{"type"},
+			Description: "Reference to a build result",
+			Properties: map[string]schema.PropertySpec{
+				"buildResultId": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "Resource id of an existing succeeded build result under the same Spring instance.",
+				},
+				"type": {
+					TypeSpec: schema.TypeSpec{Type: "string"},
+					Const:    "BuildResult",
+				},
+			},
+		},
+	}
+
+	for _, output := range []bool{false, true} {
+		t.Run("output="+strconv.FormatBool(output), func(t *testing.T) {
+			merged, err := mergeTypes(typeA, typeB, output)
+			require.NoError(t, err)
+			require.NotNil(t, merged)
+			assert.Equal(t, 2, len(merged.Properties))
+			assert.Contains(t, merged.Properties, "buildResultId")
+			assert.Contains(t, merged.Properties, "type")
+		})
+	}
 }

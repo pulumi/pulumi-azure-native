@@ -22,31 +22,41 @@ __all__ = ['OfficeDataConnectorArgs', 'OfficeDataConnector']
 @pulumi.input_type
 class OfficeDataConnectorArgs:
     def __init__(__self__, *,
+                 data_types: pulumi.Input['OfficeDataConnectorDataTypesArgs'],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input['OfficeDataConnectorDataTypesArgs']] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OfficeDataConnector resource.
+        :param pulumi.Input['OfficeDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
                Expected value is 'Office365'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
-        :param pulumi.Input['OfficeDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
-        :param pulumi.Input[_builtins.str] tenant_id: The tenant id to connect to, and get the data from.
         """
+        pulumi.set(__self__, "data_types", data_types)
         pulumi.set(__self__, "kind", 'Office365')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
-        if data_types is not None:
-            pulumi.set(__self__, "data_types", data_types)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> pulumi.Input['OfficeDataConnectorDataTypesArgs']:
+        """
+        The available data types for the connector.
+        """
+        return pulumi.get(self, "data_types")
+
+    @data_types.setter
+    def data_types(self, value: pulumi.Input['OfficeDataConnectorDataTypesArgs']):
+        pulumi.set(self, "data_types", value)
 
     @_builtins.property
     @pulumi.getter
@@ -74,6 +84,18 @@ class OfficeDataConnectorArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tenant id to connect to, and get the data from.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -96,30 +118,6 @@ class OfficeDataConnectorArgs:
     @data_connector_id.setter
     def data_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "data_connector_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional[pulumi.Input['OfficeDataConnectorDataTypesArgs']]:
-        """
-        The available data types for the connector.
-        """
-        return pulumi.get(self, "data_types")
-
-    @data_types.setter
-    def data_types(self, value: Optional[pulumi.Input['OfficeDataConnectorDataTypesArgs']]):
-        pulumi.set(self, "data_types", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The tenant id to connect to, and get the data from.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:OfficeDataConnector")
@@ -192,6 +190,8 @@ class OfficeDataConnector(pulumi.CustomResource):
             __props__ = OfficeDataConnectorArgs.__new__(OfficeDataConnectorArgs)
 
             __props__.__dict__["data_connector_id"] = data_connector_id
+            if data_types is None and not opts.urn:
+                raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -199,6 +199,8 @@ class OfficeDataConnector(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if tenant_id is None and not opts.urn:
+                raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -252,7 +254,7 @@ class OfficeDataConnector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
-    def data_types(self) -> pulumi.Output[Optional['outputs.OfficeDataConnectorDataTypesResponse']]:
+    def data_types(self) -> pulumi.Output['outputs.OfficeDataConnectorDataTypesResponse']:
         """
         The available data types for the connector.
         """
@@ -293,7 +295,7 @@ class OfficeDataConnector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Output[_builtins.str]:
         """
         The tenant id to connect to, and get the data from.
         """

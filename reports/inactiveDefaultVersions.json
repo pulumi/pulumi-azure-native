@@ -1,6 +1,12 @@
 {
+  "AgFoodPlatform": [
+    "2023-06-01-preview"
+  ],
   "AzureData": [
     "2019-07-24-preview"
+  ],
+  "ChangeAnalysis": [
+    "2020-04-01-preview"
   ],
   "Cloudngfw": [
     "2025-05-23"
@@ -62,9 +68,6 @@
   "ManufacturingPlatform": [
     "2025-03-01"
   ],
-  "PortalServices": [
-    "2024-04-01"
-  ],
   "ProgrammableConnectivity": [
     "2024-01-15-preview"
   ],
@@ -88,9 +91,6 @@
   ],
   "VMwareCloudSimple": [
     "2019-04-01"
-  ],
-  "VideoAnalyzer": [
-    "2021-11-01-preview"
   ],
   "Widget": [
     "2021-11-01"

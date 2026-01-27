@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,11 +41,11 @@ export interface GetHierarchySettingResult {
      */
     readonly defaultManagementGroup?: string;
     /**
-     * The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The name of the object. In this case, default.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -50,11 +53,15 @@ export interface GetHierarchySettingResult {
      */
     readonly requireAuthorizationForGroupCreation?: boolean;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.management.SystemDataResponse;
+    /**
      * The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
      */
     readonly tenantId?: string;
     /**
-     * The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

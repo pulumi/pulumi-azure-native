@@ -29,8 +29,15 @@ __all__ = [
     'KeyVaultNetworkAccessTypes',
     'KubeletDiskType',
     'KubernetesSupportPlan',
+    'LabelSelectorOperator',
     'LicenseType',
     'LoadBalancerSku',
+    'LocalDNSForwardDestination',
+    'LocalDNSForwardPolicy',
+    'LocalDNSMode',
+    'LocalDNSProtocol',
+    'LocalDNSQueryLogging',
+    'LocalDNSServeStale',
     'ManagedClusterSKUName',
     'ManagedClusterSKUTier',
     'ManagedClusterUpgradeType',
@@ -50,8 +57,11 @@ __all__ = [
     'OSType',
     'Operator',
     'OutboundType',
+    'PlacementType',
     'PodIPAllocationMode',
     'PolicyRule',
+    'PropagationType',
+    'PropertySelectorOperator',
     'Protocol',
     'PublicNetworkAccess',
     'ResourceIdentityType',
@@ -62,6 +72,8 @@ __all__ = [
     'ScriptType',
     'ServiceMeshMode',
     'SnapshotType',
+    'TaintEffect',
+    'TolerationOperator',
     'Type',
     'UndrainableNodeBehavior',
     'UpgradeChannel',
@@ -399,6 +411,29 @@ class KubernetesSupportPlan(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:LabelSelectorOperator")
+class LabelSelectorOperator(_builtins.str, Enum):
+    """
+    operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+    """
+    IN_ = "In"
+    """
+    Label Selector Operator In
+    """
+    NOT_IN = "NotIn"
+    """
+    Label Selector Operator NotIn
+    """
+    EXISTS = "Exists"
+    """
+    Label Selector Operator Exists
+    """
+    DOES_NOT_EXIST = "DoesNotExist"
+    """
+    Label Selector Operator DoesNotExist
+    """
+
+
 @pulumi.type_token("azure-native:containerservice:LicenseType")
 class LicenseType(_builtins.str, Enum):
     """
@@ -426,6 +461,108 @@ class LoadBalancerSku(_builtins.str, Enum):
     BASIC = "basic"
     """
     Use a basic Load Balancer with limited functionality.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:LocalDNSForwardDestination")
+class LocalDNSForwardDestination(_builtins.str, Enum):
+    """
+    Destination server for DNS queries to be forwarded from localDNS.
+    """
+    CLUSTER_CORE_DNS = "ClusterCoreDNS"
+    """
+    Forward DNS queries from localDNS to cluster CoreDNS.
+    """
+    VNET_DNS = "VnetDNS"
+    """
+    Forward DNS queries from localDNS to DNS server configured in the VNET. A VNET can have multiple DNS servers configured.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:LocalDNSForwardPolicy")
+class LocalDNSForwardPolicy(_builtins.str, Enum):
+    """
+    Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+    """
+    SEQUENTIAL = "Sequential"
+    """
+    Implements sequential upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+    """
+    ROUND_ROBIN = "RoundRobin"
+    """
+    Implements round robin upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+    """
+    RANDOM = "Random"
+    """
+    Implements random upstream DNS server selection. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:LocalDNSMode")
+class LocalDNSMode(_builtins.str, Enum):
+    """
+    Mode of enablement for localDNS.
+    """
+    PREFERRED = "Preferred"
+    """
+    If the current orchestrator version supports this feature, prefer enabling localDNS.
+    """
+    REQUIRED = "Required"
+    """
+    Enable localDNS.
+    """
+    DISABLED = "Disabled"
+    """
+    Disable localDNS.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:LocalDNSProtocol")
+class LocalDNSProtocol(_builtins.str, Enum):
+    """
+    Enforce TCP or prefer UDP protocol for connections from localDNS to upstream DNS server.
+    """
+    PREFER_UDP = "PreferUDP"
+    """
+    Prefer UDP protocol for connections from localDNS to upstream DNS server.
+    """
+    FORCE_TCP = "ForceTCP"
+    """
+    Enforce TCP protocol for connections from localDNS to upstream DNS server.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:LocalDNSQueryLogging")
+class LocalDNSQueryLogging(_builtins.str, Enum):
+    """
+    Log level for DNS queries in localDNS.
+    """
+    ERROR = "Error"
+    """
+    Enables error logging in localDNS. See [errors plugin](https://coredns.io/plugins/errors) for more information.
+    """
+    LOG = "Log"
+    """
+    Enables query logging in localDNS. See [log plugin](https://coredns.io/plugins/log) for more information.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:LocalDNSServeStale")
+class LocalDNSServeStale(_builtins.str, Enum):
+    """
+    Policy for serving stale data. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+    """
+    VERIFY = "Verify"
+    """
+    Serve stale data with verification. First verify that an entry is still unavailable from the source before sending the expired entry to the client. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+    """
+    IMMEDIATE = "Immediate"
+    """
+    Serve stale data immediately. Send the expired entry to the client before checking to see if the entry is available from the source. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+    """
+    DISABLE = "Disable"
+    """
+    Disable serving stale data.
     """
 
 
@@ -786,6 +923,21 @@ class OutboundType(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:PlacementType")
+class PlacementType(_builtins.str, Enum):
+    """
+    Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+    """
+    PICK_ALL = "PickAll"
+    """
+    PickAll picks all clusters that satisfy the rules.
+    """
+    PICK_FIXED = "PickFixed"
+    """
+    PickFixed picks a fixed set of clusters.
+    """
+
+
 @pulumi.type_token("azure-native:containerservice:PodIPAllocationMode")
 class PodIPAllocationMode(_builtins.str, Enum):
     """
@@ -817,6 +969,48 @@ class PolicyRule(_builtins.str, Enum):
     ALLOW_SAME_NAMESPACE = "AllowSameNamespace"
     """
     Allow traffic within the same namespace.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:PropagationType")
+class PropagationType(_builtins.str, Enum):
+    """
+    The type of the policy to be used. Default is Placement.
+    """
+    PLACEMENT = "Placement"
+    """
+    Using ClusterResourcePlacement.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:PropertySelectorOperator")
+class PropertySelectorOperator(_builtins.str, Enum):
+    """
+    Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+    """
+    GT = "Gt"
+    """
+    Gt dictates Fleet to select cluster if its observed value of a given property is greater than the value specified in the requirement.
+    """
+    GE = "Ge"
+    """
+    Ge dictates Fleet to select cluster if its observed value of a given property is greater than or equal to the value specified in the requirement.
+    """
+    EQ = "Eq"
+    """
+    Eq dictates Fleet to select cluster if its observed value of a given property is equal to the values specified in the requirement.
+    """
+    NE = "Ne"
+    """
+    Ne dictates Fleet to select cluster if its observed value of a given property is not equal to the values specified in the requirement.
+    """
+    LT = "Lt"
+    """
+    Lt dictates Fleet to select cluster if its observed value of a given property is less than the value specified in the requirement.
+    """
+    LE = "Le"
+    """
+    Le dictates Fleet to select cluster if its observed value of a given property is less than or equal to the value specified in the requirement.
     """
 
 
@@ -964,6 +1158,32 @@ class SnapshotType(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:TaintEffect")
+class TaintEffect(_builtins.str, Enum):
+    """
+    Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+    """
+    NO_SCHEDULE = "NoSchedule"
+    """
+    Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:TolerationOperator")
+class TolerationOperator(_builtins.str, Enum):
+    """
+    Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+    """
+    EXISTS = "Exists"
+    """
+    Toleration Operator Exists
+    """
+    EQUAL = "Equal"
+    """
+    Toleration Operator Equal
+    """
+
+
 @pulumi.type_token("azure-native:containerservice:Type")
 class Type(_builtins.str, Enum):
     """
@@ -1059,4 +1279,8 @@ class WorkloadRuntime(_builtins.str, Enum):
     WASM_WASI = "WasmWasi"
     """
     Nodes will use Krustlet to run WASM workloads using the WASI provider (Preview).
+    """
+    KATA_VM_ISOLATION = "KataVmIsolation"
+    """
+    Nodes can use (Kata + Cloud Hypervisor + Hyper-V) to enable Nested VM-based pods. Due to the use Hyper-V, AKS node OS itself is a nested VM (the root OS) of Hyper-V. Thus it can only be used with VM series that support Nested Virtualization such as Dv3 series.
     """

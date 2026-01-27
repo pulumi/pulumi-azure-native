@@ -35,6 +35,21 @@ export type CustomDomain = import("./customDomain").CustomDomain;
 export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
 utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
 
+export { EdgeActionArgs } from "./edgeAction";
+export type EdgeAction = import("./edgeAction").EdgeAction;
+export const EdgeAction: typeof import("./edgeAction").EdgeAction = null as any;
+utilities.lazyLoad(exports, ["EdgeAction"], () => require("./edgeAction"));
+
+export { EdgeActionExecutionFilterArgs } from "./edgeActionExecutionFilter";
+export type EdgeActionExecutionFilter = import("./edgeActionExecutionFilter").EdgeActionExecutionFilter;
+export const EdgeActionExecutionFilter: typeof import("./edgeActionExecutionFilter").EdgeActionExecutionFilter = null as any;
+utilities.lazyLoad(exports, ["EdgeActionExecutionFilter"], () => require("./edgeActionExecutionFilter"));
+
+export { EdgeActionVersionArgs } from "./edgeActionVersion";
+export type EdgeActionVersion = import("./edgeActionVersion").EdgeActionVersion;
+export const EdgeActionVersion: typeof import("./edgeActionVersion").EdgeActionVersion = null as any;
+utilities.lazyLoad(exports, ["EdgeActionVersion"], () => require("./edgeActionVersion"));
+
 export { EndpointArgs } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
@@ -69,6 +84,26 @@ export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs }
 export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
 export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+
+export { GetEdgeActionArgs, GetEdgeActionResult, GetEdgeActionOutputArgs } from "./getEdgeAction";
+export const getEdgeAction: typeof import("./getEdgeAction").getEdgeAction = null as any;
+export const getEdgeActionOutput: typeof import("./getEdgeAction").getEdgeActionOutput = null as any;
+utilities.lazyLoad(exports, ["getEdgeAction","getEdgeActionOutput"], () => require("./getEdgeAction"));
+
+export { GetEdgeActionExecutionFilterArgs, GetEdgeActionExecutionFilterResult, GetEdgeActionExecutionFilterOutputArgs } from "./getEdgeActionExecutionFilter";
+export const getEdgeActionExecutionFilter: typeof import("./getEdgeActionExecutionFilter").getEdgeActionExecutionFilter = null as any;
+export const getEdgeActionExecutionFilterOutput: typeof import("./getEdgeActionExecutionFilter").getEdgeActionExecutionFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getEdgeActionExecutionFilter","getEdgeActionExecutionFilterOutput"], () => require("./getEdgeActionExecutionFilter"));
+
+export { GetEdgeActionVersionArgs, GetEdgeActionVersionResult, GetEdgeActionVersionOutputArgs } from "./getEdgeActionVersion";
+export const getEdgeActionVersion: typeof import("./getEdgeActionVersion").getEdgeActionVersion = null as any;
+export const getEdgeActionVersionOutput: typeof import("./getEdgeActionVersion").getEdgeActionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getEdgeActionVersion","getEdgeActionVersionOutput"], () => require("./getEdgeActionVersion"));
+
+export { GetEdgeActionVersionCodeArgs, GetEdgeActionVersionCodeResult, GetEdgeActionVersionCodeOutputArgs } from "./getEdgeActionVersionCode";
+export const getEdgeActionVersionCode: typeof import("./getEdgeActionVersionCode").getEdgeActionVersionCode = null as any;
+export const getEdgeActionVersionCodeOutput: typeof import("./getEdgeActionVersionCode").getEdgeActionVersionCodeOutput = null as any;
+utilities.lazyLoad(exports, ["getEdgeActionVersionCode","getEdgeActionVersionCodeOutput"], () => require("./getEdgeActionVersionCode"));
 
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
@@ -240,6 +275,12 @@ const _module = {
                 return new AFDTargetGroup(name, <any>undefined, { urn })
             case "azure-native:cdn:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
+            case "azure-native:cdn:EdgeAction":
+                return new EdgeAction(name, <any>undefined, { urn })
+            case "azure-native:cdn:EdgeActionExecutionFilter":
+                return new EdgeActionExecutionFilter(name, <any>undefined, { urn })
+            case "azure-native:cdn:EdgeActionVersion":
+                return new EdgeActionVersion(name, <any>undefined, { urn })
             case "azure-native:cdn:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure-native:cdn:KeyGroup":

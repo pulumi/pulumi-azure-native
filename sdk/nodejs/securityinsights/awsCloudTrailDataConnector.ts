@@ -50,7 +50,7 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
     /**
      * The available data types for the connector.
      */
-    declare public readonly dataTypes: pulumi.Output<outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponse | undefined>;
+    declare public readonly dataTypes: pulumi.Output<outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponse>;
     /**
      * Etag of the azure resource
      */
@@ -84,6 +84,9 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dataTypes === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataTypes'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -136,7 +139,7 @@ export interface AwsCloudTrailDataConnectorArgs {
     /**
      * The available data types for the connector.
      */
-    dataTypes?: pulumi.Input<inputs.securityinsights.AwsCloudTrailDataConnectorDataTypesArgs>;
+    dataTypes: pulumi.Input<inputs.securityinsights.AwsCloudTrailDataConnectorDataTypesArgs>;
     /**
      * The kind of the data connector
      * Expected value is 'AmazonWebServicesCloudTrail'.

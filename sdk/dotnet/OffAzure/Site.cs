@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240701preview:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20241201preview:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure:SitesController" },
                 },
             };

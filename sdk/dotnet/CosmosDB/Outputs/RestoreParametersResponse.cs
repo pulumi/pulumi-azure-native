@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// </summary>
         public readonly bool? RestoreWithTtlDisabled;
         /// <summary>
+        /// The source backup location for restore.
+        /// </summary>
+        public readonly string? SourceBackupLocation;
+        /// <summary>
         /// List of specific tables available for restore.
         /// </summary>
         public readonly ImmutableArray<string> TablesToRestore;
@@ -59,6 +63,8 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
 
             bool? restoreWithTtlDisabled,
 
+            string? sourceBackupLocation,
+
             ImmutableArray<string> tablesToRestore)
         {
             DatabasesToRestore = databasesToRestore;
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
             RestoreSource = restoreSource;
             RestoreTimestampInUtc = restoreTimestampInUtc;
             RestoreWithTtlDisabled = restoreWithTtlDisabled;
+            SourceBackupLocation = sourceBackupLocation;
             TablesToRestore = tablesToRestore;
         }
     }

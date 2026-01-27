@@ -72,7 +72,7 @@ export interface GetMSTIDataConnectorResult {
     /**
      * The tenant id to connect to, and get the data from.
      */
-    readonly tenantId?: string;
+    readonly tenantId: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

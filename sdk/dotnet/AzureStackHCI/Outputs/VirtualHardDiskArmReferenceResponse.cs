@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The ARM ID for a Virtual Hard Disk.
+    /// The Azure Resource ID for a Virtual Hard Disk.
     /// </summary>
     [OutputType]
     public sealed class VirtualHardDiskArmReferenceResponse
     {
         /// <summary>
-        /// The ARM ID for a Virtual Hard Disk.
+        /// The Azure Resource ID for a Virtual Hard Disk.
         /// </summary>
         public readonly string? Id;
 

@@ -190,6 +190,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
+        /// Reference to an existing service gateway.
+        /// </summary>
+        [Input("serviceGateway")]
+        public Input<Inputs.SubResourceArgs>? ServiceGateway { get; set; }
+
+        /// <summary>
         /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
         /// </summary>
         [Input("sharingScope")]

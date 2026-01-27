@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Batch
     public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Batch
         public string PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Batch
     public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Batch
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -99,7 +99,13 @@ namespace Pulumi.AzureNative.Batch
     [OutputType]
     public sealed class GetPoolResult
     {
+        /// <summary>
+        /// Whether the pool is resizing.
+        /// </summary>
         public readonly string AllocationState;
+        /// <summary>
+        /// The time at which the pool entered its current allocation state.
+        /// </summary>
         public readonly string AllocationStateTransitionTime;
         /// <summary>
         /// The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
@@ -123,10 +129,25 @@ namespace Pulumi.AzureNative.Batch
         /// Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         /// </summary>
         public readonly ImmutableArray<Outputs.CertificateReferenceResponse> Certificates;
+        /// <summary>
+        /// The creation time of the pool.
+        /// </summary>
         public readonly string CreationTime;
+        /// <summary>
+        /// The number of dedicated compute nodes currently in the pool.
+        /// </summary>
         public readonly int CurrentDedicatedNodes;
+        /// <summary>
+        /// The number of Spot/low-priority compute nodes currently in the pool.
+        /// </summary>
         public readonly int CurrentLowPriorityNodes;
+        /// <summary>
+        /// Determines how a pool communicates with the Batch service.
+        /// </summary>
         public readonly string CurrentNodeCommunicationMode;
+        /// <summary>
+        /// Deployment configuration properties.
+        /// </summary>
         public readonly Outputs.DeploymentConfigurationResponse? DeploymentConfiguration;
         /// <summary>
         /// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
@@ -137,7 +158,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The ID of the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -161,14 +182,20 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly ImmutableArray<Outputs.MountConfigurationResponse> MountConfiguration;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The network configuration for a pool.
         /// </summary>
         public readonly Outputs.NetworkConfigurationResponse? NetworkConfiguration;
+        /// <summary>
+        /// The current state of the pool.
+        /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The time at which the pool entered its current state.
+        /// </summary>
         public readonly string ProvisioningStateTransitionTime;
         /// <summary>
         /// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
@@ -187,6 +214,10 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly Outputs.StartTaskResponse? StartTask;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -203,13 +234,16 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly int? TaskSlotsPerNode;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
         /// Describes an upgrade policy - automatic, manual, or rolling.
         /// </summary>
         public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
+        /// <summary>
+        /// The list of user accounts to be created on each node in the pool.
+        /// </summary>
         public readonly ImmutableArray<Outputs.UserAccountResponse> UserAccounts;
         /// <summary>
         /// For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
@@ -274,6 +308,8 @@ namespace Pulumi.AzureNative.Batch
 
             Outputs.StartTaskResponse? startTask,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? targetNodeCommunicationMode,
@@ -318,6 +354,7 @@ namespace Pulumi.AzureNative.Batch
             ResourceTags = resourceTags;
             ScaleSettings = scaleSettings;
             StartTask = startTask;
+            SystemData = systemData;
             Tags = tags;
             TargetNodeCommunicationMode = targetNodeCommunicationMode;
             TaskSchedulingPolicy = taskSchedulingPolicy;

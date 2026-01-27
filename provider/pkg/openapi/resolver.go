@@ -145,21 +145,25 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 
 	// All the other properties aren't currently overridden. We add an assertion, so that
 	// if a new specification does override a value, we can catch this and decide what to do further.
-	if s.Maximum != nil {
-		return nil, errors.New("'Maximum' defined as a sibling to a $ref")
+	if !resolvedSchema.Type.Contains("string") {
+		if s.Maximum != nil {
+			return nil, errors.New("'Maximum' defined as a sibling to a $ref")
+		}
+		if s.Minimum != nil {
+			return nil, errors.New("'Minimum' defined as a sibling to a $ref")
+		}
+		if s.MaxLength != nil {
+			return nil, errors.New("'MaxLength' defined as a sibling to a $ref")
+		}
+		if s.MinLength != nil {
+			return nil, errors.New("'MinLength' defined as a sibling to a $ref")
+		}
+		if len(s.Pattern) > 0 {
+			// unless the schema is an enum/string, defining a pattern with a $ref is invalid
+			return nil, errors.Errorf("'Pattern' defined as a sibling to a $ref of type %q", resolvedSchema.Type)
+		}
 	}
-	if s.Minimum != nil {
-		return nil, errors.New("'Minimum' defined as a sibling to a $ref")
-	}
-	if s.MaxLength != nil {
-		return nil, errors.New("'MaxLength' defined as a sibling to a $ref")
-	}
-	if s.MinLength != nil {
-		return nil, errors.New("'MinLength' defined as a sibling to a $ref")
-	}
-	if len(s.Pattern) > 0 {
-		return nil, errors.New("'Pattern' defined as a sibling to a $ref")
-	}
+
 	if len(s.Discriminator) > 0 {
 		return nil, errors.New("'Discriminator' defined as a sibling to a $ref")
 	}
@@ -305,7 +309,7 @@ func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, e
 
 	value, _, err := ptr.Get(ctx.swagger)
 	if err != nil {
-		return nil, false, errors.Wrapf(err, "get pointer")
+		return nil, false, errors.Wrapf(err, "get pointer from %s", ref.String())
 	}
 
 	newCtx := &ReferenceContext{swagger: ctx.swagger, ReferenceName: referenceName, url: ctx.url}

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Retrieves details of this Network Packet Broker.
  *
  * Uses Azure REST API version 2023-06-15.
+ *
+ * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkPacketBroker(args: GetNetworkPacketBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketBrokerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,6 +94,8 @@ export interface GetNetworkPacketBrokerResult {
  * Retrieves details of this Network Packet Broker.
  *
  * Uses Azure REST API version 2023-06-15.
+ *
+ * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkPacketBrokerOutput(args: GetNetworkPacketBrokerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkPacketBrokerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Specifies how tasks should be distributed across compute nodes.
+    /// </summary>
     public sealed class TaskSchedulingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// How tasks should be distributed across compute nodes.
+        /// </summary>
         [Input("nodeFillType", required: true)]
         public Input<Pulumi.AzureNative.Batch.ComputeNodeFillType> NodeFillType { get; set; } = null!;
 

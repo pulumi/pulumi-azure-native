@@ -60,6 +60,7 @@ import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as community from "./community";
 import * as compute from "./compute";
+import * as computelimit from "./computelimit";
 import * as computeschedule from "./computeschedule";
 import * as confidentialledger from "./confidentialledger";
 import * as config from "./config";
@@ -166,6 +167,7 @@ import * as maintenance from "./maintenance";
 import * as managedidentity from "./managedidentity";
 import * as managednetwork from "./managednetwork";
 import * as managednetworkfabric from "./managednetworkfabric";
+import * as managedops from "./managedops";
 import * as managedservices from "./managedservices";
 import * as management from "./management";
 import * as managementpartner from "./managementpartner";
@@ -174,8 +176,6 @@ import * as maps from "./maps";
 import * as marketplace from "./marketplace";
 import * as migrate from "./migrate";
 import * as mission from "./mission";
-import * as mixedreality from "./mixedreality";
-import * as mobilenetwork from "./mobilenetwork";
 import * as mongocluster from "./mongocluster";
 import * as monitor from "./monitor";
 import * as mysqldiscovery from "./mysqldiscovery";
@@ -254,7 +254,6 @@ import * as timeseriesinsights from "./timeseriesinsights";
 import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
 import * as verifiedid from "./verifiedid";
-import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -316,6 +315,7 @@ export {
     communication,
     community,
     compute,
+    computelimit,
     computeschedule,
     confidentialledger,
     config,
@@ -422,6 +422,7 @@ export {
     managedidentity,
     managednetwork,
     managednetworkfabric,
+    managedops,
     managedservices,
     management,
     managementpartner,
@@ -430,8 +431,6 @@ export {
     marketplace,
     migrate,
     mission,
-    mixedreality,
-    mobilenetwork,
     mongocluster,
     monitor,
     mysqldiscovery,
@@ -510,7 +509,6 @@ export {
     trafficmanager,
     types,
     verifiedid,
-    videoanalyzer,
     videoindexer,
     virtualmachineimages,
     vmwarecloudsimple,

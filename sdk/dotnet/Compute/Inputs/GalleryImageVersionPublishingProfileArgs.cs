@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public InputUnion<string, Pulumi.AzureNative.Compute.ReplicationMode>? ReplicationMode { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type to be used to store the image. This property is not updatable.
+        /// Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
         /// </summary>
         [Input("storageAccountType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.StorageAccountType>? StorageAccountType { get; set; }

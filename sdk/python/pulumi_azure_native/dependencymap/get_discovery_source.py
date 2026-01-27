@@ -27,7 +27,7 @@ class GetDiscoverySourceResult:
     """
     A Discovery Source resource
     """
-    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, source_id=None, source_type=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -40,15 +40,9 @@ class GetDiscoverySourceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if source_id and not isinstance(source_id, str):
-            raise TypeError("Expected argument 'source_id' to be a str")
-        pulumi.set(__self__, "source_id", source_id)
-        if source_type and not isinstance(source_type, str):
-            raise TypeError("Expected argument 'source_type' to be a str")
-        pulumi.set(__self__, "source_type", source_type)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -92,28 +86,12 @@ class GetDiscoverySourceResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.OffAzureDiscoverySourceResourcePropertiesResponse':
         """
-        Provisioning state of Discovery Source resource.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="sourceId")
-    def source_id(self) -> _builtins.str:
-        """
-        Source ArmId of Discovery Source resource
-        """
-        return pulumi.get(self, "source_id")
-
-    @_builtins.property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> _builtins.str:
-        """
-        Source type of Discovery Source resource.
-        """
-        return pulumi.get(self, "source_type")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -150,9 +128,7 @@ class AwaitableGetDiscoverySourceResult(GetDiscoverySourceResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            source_id=self.source_id,
-            source_type=self.source_type,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -186,9 +162,7 @@ def get_discovery_source(map_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        source_id=pulumi.get(__ret__, 'source_id'),
-        source_type=pulumi.get(__ret__, 'source_type'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -219,9 +193,7 @@ def get_discovery_source_output(map_name: Optional[pulumi.Input[_builtins.str]] 
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_id=pulumi.get(__response__, 'source_id'),
-        source_type=pulumi.get(__response__, 'source_type'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

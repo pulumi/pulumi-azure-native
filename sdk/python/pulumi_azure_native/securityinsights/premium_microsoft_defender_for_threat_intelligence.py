@@ -26,10 +26,10 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
                  kind: pulumi.Input[_builtins.str],
                  lookback_period: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_skus_present: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 required_skus_present: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PremiumMicrosoftDefenderForThreatIntelligence resource.
         :param pulumi.Input['PremiumMdtiDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
@@ -37,22 +37,21 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
                Expected value is 'PremiumMicrosoftDefenderForThreatIntelligence'.
         :param pulumi.Input[_builtins.str] lookback_period: The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
         :param pulumi.Input[_builtins.bool] required_skus_present: The flag to indicate whether the tenant has the premium SKU required to access this connector.
-        :param pulumi.Input[_builtins.str] tenant_id: The tenant id to connect to, and get the data from.
         """
         pulumi.set(__self__, "data_types", data_types)
         pulumi.set(__self__, "kind", 'PremiumMicrosoftDefenderForThreatIntelligence')
         pulumi.set(__self__, "lookback_period", lookback_period)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
         if required_skus_present is not None:
             pulumi.set(__self__, "required_skus_present", required_skus_present)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
@@ -104,6 +103,18 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tenant id to connect to, and get the data from.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -139,18 +150,6 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
     def required_skus_present(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "required_skus_present", value)
 
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The tenant id to connect to, and get the data from.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "tenant_id", value)
-
 
 @pulumi.type_token("azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence")
 class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
@@ -168,7 +167,7 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Represents Premium Microsoft Defender for Threat Intelligence data connector.
+        Represents Microsoft Defender for Threat Intelligence Premium data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
@@ -191,7 +190,7 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
                  args: PremiumMicrosoftDefenderForThreatIntelligenceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents Premium Microsoft Defender for Threat Intelligence data connector.
+        Represents Microsoft Defender for Threat Intelligence Premium data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
@@ -241,6 +240,8 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if tenant_id is None and not opts.urn:
+                raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -353,7 +354,7 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Output[_builtins.str]:
         """
         The tenant id to connect to, and get the data from.
         """

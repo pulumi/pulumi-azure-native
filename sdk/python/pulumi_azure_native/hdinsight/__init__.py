@@ -9,8 +9,6 @@ import typing
 from ._enums import *
 from .application import *
 from .cluster import *
-from .cluster_pool import *
-from .cluster_pool_cluster import *
 from .extension import *
 from .extension_azure_monitor_agent_status import *
 from .extension_azure_monitor_status import *
@@ -18,8 +16,6 @@ from .extension_monitoring_status import *
 from .get_application import *
 from .get_cluster import *
 from .get_cluster_gateway_settings import *
-from .get_cluster_pool import *
-from .get_cluster_pool_cluster import *
 from .get_extension import *
 from .get_extension_azure_monitor_agent_status import *
 from .get_extension_azure_monitor_status import *

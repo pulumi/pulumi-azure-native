@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a Entity
  *
  * Uses Azure REST API version 2025-05-01-preview.
+ *
+ * Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,6 +71,8 @@ export interface GetEntityResult {
  * Get a Entity
  *
  * Uses Azure REST API version 2025-05-01-preview.
+ *
+ * Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

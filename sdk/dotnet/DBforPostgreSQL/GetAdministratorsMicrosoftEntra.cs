@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// 
         /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAdministratorsMicrosoftEntraResult> InvokeAsync(GetAdministratorsMicrosoftEntraArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdministratorsMicrosoftEntraResult>("azure-native:dbforpostgresql:getAdministratorsMicrosoftEntra", args ?? new GetAdministratorsMicrosoftEntraArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// 
         /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAdministratorsMicrosoftEntraResult> Invoke(GetAdministratorsMicrosoftEntraInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorsMicrosoftEntraResult>("azure-native:dbforpostgresql:getAdministratorsMicrosoftEntra", args ?? new GetAdministratorsMicrosoftEntraInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// 
         /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAdministratorsMicrosoftEntraResult> Invoke(GetAdministratorsMicrosoftEntraInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorsMicrosoftEntraResult>("azure-native:dbforpostgresql:getAdministratorsMicrosoftEntra", args ?? new GetAdministratorsMicrosoftEntraInvokeArgs(), options.WithDefaults());

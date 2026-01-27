@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+ *
  * Uses Azure REST API version 2024-09-01.
  */
 export class CustomRollout extends pulumi.CustomResource {

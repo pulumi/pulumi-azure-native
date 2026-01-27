@@ -18,12 +18,12 @@ from ._enums import *
 
 __all__ = [
     'DnsConfigResponse',
-    'EndpointPropertiesResponseCustomHeaders',
-    'EndpointPropertiesResponseSubnets',
+    'EndpointPropertiesCustomHeadersItemResponse',
+    'EndpointPropertiesSubnetsItemResponse',
     'EndpointResponse',
+    'MonitorConfigCustomHeadersItemResponse',
+    'MonitorConfigExpectedStatusCodeRangesItemResponse',
     'MonitorConfigResponse',
-    'MonitorConfigResponseCustomHeaders',
-    'MonitorConfigResponseExpectedStatusCodeRanges',
 ]
 
 @pulumi.output_type
@@ -90,7 +90,7 @@ class DnsConfigResponse(dict):
 
 
 @pulumi.output_type
-class EndpointPropertiesResponseCustomHeaders(dict):
+class EndpointPropertiesCustomHeadersItemResponse(dict):
     """
     Custom header name and value.
     """
@@ -125,7 +125,7 @@ class EndpointPropertiesResponseCustomHeaders(dict):
 
 
 @pulumi.output_type
-class EndpointPropertiesResponseSubnets(dict):
+class EndpointPropertiesSubnetsItemResponse(dict):
     """
     Subnet first address, scope, and/or last address.
     """
@@ -213,7 +213,7 @@ class EndpointResponse(dict):
 
     def __init__(__self__, *,
                  always_serve: Optional[_builtins.str] = None,
-                 custom_headers: Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']] = None,
+                 custom_headers: Optional[Sequence['outputs.EndpointPropertiesCustomHeadersItemResponse']] = None,
                  endpoint_location: Optional[_builtins.str] = None,
                  endpoint_monitor_status: Optional[_builtins.str] = None,
                  endpoint_status: Optional[_builtins.str] = None,
@@ -224,7 +224,7 @@ class EndpointResponse(dict):
                  min_child_endpoints_i_pv6: Optional[_builtins.float] = None,
                  name: Optional[_builtins.str] = None,
                  priority: Optional[_builtins.float] = None,
-                 subnets: Optional[Sequence['outputs.EndpointPropertiesResponseSubnets']] = None,
+                 subnets: Optional[Sequence['outputs.EndpointPropertiesSubnetsItemResponse']] = None,
                  target: Optional[_builtins.str] = None,
                  target_resource_id: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None,
@@ -232,7 +232,7 @@ class EndpointResponse(dict):
         """
         Class representing a Traffic Manager endpoint.
         :param _builtins.str always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
-        :param Sequence['EndpointPropertiesResponseCustomHeaders'] custom_headers: List of custom headers.
+        :param Sequence['EndpointPropertiesCustomHeadersItemResponse'] custom_headers: List of custom headers.
         :param _builtins.str endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param _builtins.str endpoint_monitor_status: The monitoring status of the endpoint.
         :param _builtins.str endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
@@ -243,7 +243,7 @@ class EndpointResponse(dict):
         :param _builtins.float min_child_endpoints_i_pv6: The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param _builtins.str name: The name of the resource
         :param _builtins.float priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-        :param Sequence['EndpointPropertiesResponseSubnets'] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+        :param Sequence['EndpointPropertiesSubnetsItemResponse'] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         :param _builtins.str target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param _builtins.str target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         :param _builtins.str type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
@@ -294,7 +294,7 @@ class EndpointResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']]:
+    def custom_headers(self) -> Optional[Sequence['outputs.EndpointPropertiesCustomHeadersItemResponse']]:
         """
         List of custom headers.
         """
@@ -382,7 +382,7 @@ class EndpointResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[Sequence['outputs.EndpointPropertiesResponseSubnets']]:
+    def subnets(self) -> Optional[Sequence['outputs.EndpointPropertiesSubnetsItemResponse']]:
         """
         The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         """
@@ -422,6 +422,76 @@ class EndpointResponse(dict):
 
 
 @pulumi.output_type
+class MonitorConfigCustomHeadersItemResponse(dict):
+    """
+    Custom header name and value.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        Custom header name and value.
+        :param _builtins.str name: Header name.
+        :param _builtins.str value: Header value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Header name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MonitorConfigExpectedStatusCodeRangesItemResponse(dict):
+    """
+    Min and max value of a status code range.
+    """
+    def __init__(__self__, *,
+                 max: Optional[_builtins.int] = None,
+                 min: Optional[_builtins.int] = None):
+        """
+        Min and max value of a status code range.
+        :param _builtins.int max: Max status code.
+        :param _builtins.int min: Min status code.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> Optional[_builtins.int]:
+        """
+        Max status code.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> Optional[_builtins.int]:
+        """
+        Min status code.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
 class MonitorConfigResponse(dict):
     """
     Class containing endpoint monitoring settings in a Traffic Manager profile.
@@ -454,8 +524,8 @@ class MonitorConfigResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_headers: Optional[Sequence['outputs.MonitorConfigResponseCustomHeaders']] = None,
-                 expected_status_code_ranges: Optional[Sequence['outputs.MonitorConfigResponseExpectedStatusCodeRanges']] = None,
+                 custom_headers: Optional[Sequence['outputs.MonitorConfigCustomHeadersItemResponse']] = None,
+                 expected_status_code_ranges: Optional[Sequence['outputs.MonitorConfigExpectedStatusCodeRangesItemResponse']] = None,
                  interval_in_seconds: Optional[_builtins.float] = None,
                  path: Optional[_builtins.str] = None,
                  port: Optional[_builtins.float] = None,
@@ -465,8 +535,8 @@ class MonitorConfigResponse(dict):
                  tolerated_number_of_failures: Optional[_builtins.float] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
-        :param Sequence['MonitorConfigResponseCustomHeaders'] custom_headers: List of custom headers.
-        :param Sequence['MonitorConfigResponseExpectedStatusCodeRanges'] expected_status_code_ranges: List of expected status code ranges.
+        :param Sequence['MonitorConfigCustomHeadersItemResponse'] custom_headers: List of custom headers.
+        :param Sequence['MonitorConfigExpectedStatusCodeRangesItemResponse'] expected_status_code_ranges: List of expected status code ranges.
         :param _builtins.float interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         :param _builtins.str path: The path relative to the endpoint domain name used to probe for endpoint health.
         :param _builtins.float port: The TCP port used to probe for endpoint health.
@@ -496,7 +566,7 @@ class MonitorConfigResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[Sequence['outputs.MonitorConfigResponseCustomHeaders']]:
+    def custom_headers(self) -> Optional[Sequence['outputs.MonitorConfigCustomHeadersItemResponse']]:
         """
         List of custom headers.
         """
@@ -504,7 +574,7 @@ class MonitorConfigResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="expectedStatusCodeRanges")
-    def expected_status_code_ranges(self) -> Optional[Sequence['outputs.MonitorConfigResponseExpectedStatusCodeRanges']]:
+    def expected_status_code_ranges(self) -> Optional[Sequence['outputs.MonitorConfigExpectedStatusCodeRangesItemResponse']]:
         """
         List of expected status code ranges.
         """
@@ -565,75 +635,5 @@ class MonitorConfigResponse(dict):
         The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
         return pulumi.get(self, "tolerated_number_of_failures")
-
-
-@pulumi.output_type
-class MonitorConfigResponseCustomHeaders(dict):
-    """
-    Custom header name and value.
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 value: Optional[_builtins.str] = None):
-        """
-        Custom header name and value.
-        :param _builtins.str name: Header name.
-        :param _builtins.str value: Header value.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Header name.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[_builtins.str]:
-        """
-        Header value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class MonitorConfigResponseExpectedStatusCodeRanges(dict):
-    """
-    Min and max value of a status code range.
-    """
-    def __init__(__self__, *,
-                 max: Optional[_builtins.int] = None,
-                 min: Optional[_builtins.int] = None):
-        """
-        Min and max value of a status code range.
-        :param _builtins.int max: Max status code.
-        :param _builtins.int min: Min status code.
-        """
-        if max is not None:
-            pulumi.set(__self__, "max", max)
-        if min is not None:
-            pulumi.set(__self__, "min", min)
-
-    @_builtins.property
-    @pulumi.getter
-    def max(self) -> Optional[_builtins.int]:
-        """
-        Max status code.
-        """
-        return pulumi.get(self, "max")
-
-    @_builtins.property
-    @pulumi.getter
-    def min(self) -> Optional[_builtins.int]:
-        """
-        Min status code.
-        """
-        return pulumi.get(self, "min")
 
 

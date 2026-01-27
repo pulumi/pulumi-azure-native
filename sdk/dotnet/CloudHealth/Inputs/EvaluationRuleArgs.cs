@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.CloudHealth.Inputs
     public sealed class EvaluationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+        /// Degraded rule with static threshold.
         /// </summary>
         [Input("degradedRule")]
         public Input<Inputs.ThresholdRuleArgs>? DegradedRule { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.CloudHealth.Inputs
         public Input<Inputs.DynamicDetectionRuleArgs>? DynamicDetectionRule { get; set; }
 
         /// <summary>
-        /// Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+        /// Unhealthy rule with static threshold.
         /// </summary>
         [Input("unhealthyRule")]
         public Input<Inputs.ThresholdRuleArgs>? UnhealthyRule { get; set; }

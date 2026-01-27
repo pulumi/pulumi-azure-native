@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         [Input("restoreWithTtlDisabled")]
         public Input<bool>? RestoreWithTtlDisabled { get; set; }
 
+        /// <summary>
+        /// The source backup location for restore.
+        /// </summary>
+        [Input("sourceBackupLocation")]
+        public Input<string>? SourceBackupLocation { get; set; }
+
         [Input("tablesToRestore")]
         private InputList<string>? _tablesToRestore;
 

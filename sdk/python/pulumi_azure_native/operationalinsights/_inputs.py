@@ -32,6 +32,8 @@ __all__ = [
     'ManagedServiceIdentityArgsDict',
     'RestoredLogsArgs',
     'RestoredLogsArgsDict',
+    'RuleDefinitionArgs',
+    'RuleDefinitionArgsDict',
     'SchemaArgs',
     'SchemaArgsDict',
     'SearchResultsArgs',
@@ -635,6 +637,142 @@ class RestoredLogsArgs:
     @start_restore_time.setter
     def start_restore_time(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "start_restore_time", value)
+
+
+if not MYPY:
+    class RuleDefinitionArgsDict(TypedDict):
+        """
+        Rule definition parameters.
+        """
+        bin_delay: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The minimum delay in seconds before bin processing.
+        """
+        bin_size: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+        """
+        bin_start_time: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The start time (UTC) when Summary rule execution starts.
+        """
+        destination_table: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The destination table used for the Summary rule results.
+        """
+        query: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Summary rule query.
+        """
+        time_selector: NotRequired[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]
+        """
+        The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+        """
+elif False:
+    RuleDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleDefinitionArgs:
+    def __init__(__self__, *,
+                 bin_delay: Optional[pulumi.Input[_builtins.int]] = None,
+                 bin_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 bin_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_table: Optional[pulumi.Input[_builtins.str]] = None,
+                 query: Optional[pulumi.Input[_builtins.str]] = None,
+                 time_selector: Optional[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]] = None):
+        """
+        Rule definition parameters.
+        :param pulumi.Input[_builtins.int] bin_delay: The minimum delay in seconds before bin processing.
+        :param pulumi.Input[_builtins.int] bin_size: Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+        :param pulumi.Input[_builtins.str] bin_start_time: The start time (UTC) when Summary rule execution starts.
+        :param pulumi.Input[_builtins.str] destination_table: The destination table used for the Summary rule results.
+        :param pulumi.Input[_builtins.str] query: Summary rule query.
+        :param pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']] time_selector: The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+        """
+        if bin_delay is not None:
+            pulumi.set(__self__, "bin_delay", bin_delay)
+        if bin_size is not None:
+            pulumi.set(__self__, "bin_size", bin_size)
+        if bin_start_time is not None:
+            pulumi.set(__self__, "bin_start_time", bin_start_time)
+        if destination_table is not None:
+            pulumi.set(__self__, "destination_table", destination_table)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if time_selector is not None:
+            pulumi.set(__self__, "time_selector", time_selector)
+
+    @_builtins.property
+    @pulumi.getter(name="binDelay")
+    def bin_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The minimum delay in seconds before bin processing.
+        """
+        return pulumi.get(self, "bin_delay")
+
+    @bin_delay.setter
+    def bin_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "bin_delay", value)
+
+    @_builtins.property
+    @pulumi.getter(name="binSize")
+    def bin_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+        """
+        return pulumi.get(self, "bin_size")
+
+    @bin_size.setter
+    def bin_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "bin_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="binStartTime")
+    def bin_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The start time (UTC) when Summary rule execution starts.
+        """
+        return pulumi.get(self, "bin_start_time")
+
+    @bin_start_time.setter
+    def bin_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bin_start_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTable")
+    def destination_table(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The destination table used for the Summary rule results.
+        """
+        return pulumi.get(self, "destination_table")
+
+    @destination_table.setter
+    def destination_table(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_table", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Summary rule query.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeSelector")
+    def time_selector(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]:
+        """
+        The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+        """
+        return pulumi.get(self, "time_selector")
+
+    @time_selector.setter
+    def time_selector(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]):
+        pulumi.set(self, "time_selector", value)
 
 
 if not MYPY:

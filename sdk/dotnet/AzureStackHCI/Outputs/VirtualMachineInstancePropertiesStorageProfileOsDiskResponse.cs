@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
     public sealed class VirtualMachineInstancePropertiesStorageProfileOsDiskResponse
     {
         /// <summary>
-        /// The ARM ID for a Virtual Hard Disk.
+        /// The Azure Resource ID for a Virtual Hard Disk.
         /// </summary>
         public readonly string? Id;
         /// <summary>

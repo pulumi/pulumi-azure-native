@@ -38,6 +38,8 @@ __all__ = [
     'AppSvcContainerSettingsArgsDict',
     'AppSvcNativeSettingsArgs',
     'AppSvcNativeSettingsArgsDict',
+    'ArgArgs',
+    'ArgArgsDict',
     'AssessmentPropertiesArgs',
     'AssessmentPropertiesArgsDict',
     'AssessmentScopeParametersArgs',
@@ -160,6 +162,10 @@ __all__ = [
     'MigrateProjectTagsArgsDict',
     'MigrationConfigurationArgs',
     'MigrationConfigurationArgsDict',
+    'MigrationEntityGroupPropertiesArgs',
+    'MigrationEntityGroupPropertiesArgsDict',
+    'MigrationEntityPropertiesArgs',
+    'MigrationEntityPropertiesArgsDict',
     'ModernizeProjectModelPropertiesArgs',
     'ModernizeProjectModelPropertiesArgsDict',
     'MoveCollectionPropertiesArgs',
@@ -218,6 +224,8 @@ __all__ = [
     'SecretStorePropertiesArgsDict',
     'SecuritySettingsArgs',
     'SecuritySettingsArgsDict',
+    'ServerMigrationSpecificPropertiesArgs',
+    'ServerMigrationSpecificPropertiesArgsDict',
     'SettingsArgs',
     'SettingsArgsDict',
     'SolutionDetailsArgs',
@@ -256,6 +264,8 @@ __all__ = [
     'TargetAssessmentArmIdsArgsDict',
     'TargetStorageProfileArgs',
     'TargetStorageProfileArgsDict',
+    'TaskPropertiesArgs',
+    'TaskPropertiesArgsDict',
     'ThirdPartyManagementSettingsArgs',
     'ThirdPartyManagementSettingsArgsDict',
     'UserAssignedIdentityArgs',
@@ -270,6 +280,8 @@ __all__ = [
     'VirtualizationSoftwareSettingsArgsDict',
     'VmUptimeArgs',
     'VmUptimeArgsDict',
+    'WavePropertiesArgs',
+    'WavePropertiesArgsDict',
     'WebAppAssessmentSettingsArgs',
     'WebAppAssessmentSettingsArgsDict',
     'WebAppAssessmentV3PropertiesArgs',
@@ -1730,6 +1742,41 @@ class AppSvcNativeSettingsArgs:
     @isolation_required.setter
     def isolation_required(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "isolation_required", value)
+
+
+if not MYPY:
+    class ArgArgsDict(TypedDict):
+        """
+        ARG query and other details to create workloads within a wave.
+        """
+        query: pulumi.Input[_builtins.str]
+        """
+        The query to create workloads within the wave.
+        """
+elif False:
+    ArgArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ArgArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[_builtins.str]):
+        """
+        ARG query and other details to create workloads within a wave.
+        :param pulumi.Input[_builtins.str] query: The query to create workloads within the wave.
+        """
+        pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[_builtins.str]:
+        """
+        The query to create workloads within the wave.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query", value)
 
 
 if not MYPY:
@@ -8347,6 +8394,374 @@ class MigrationConfigurationArgs:
 
 
 if not MYPY:
+    class MigrationEntityGroupPropertiesArgsDict(TypedDict):
+        """
+        Migration Entity Group Properties class.
+        """
+        application_display_name: pulumi.Input[_builtins.str]
+        """
+        Display Name of the Workload.
+        """
+        application_id: pulumi.Input[_builtins.str]
+        """
+        Application id 
+        """
+        associated_assessment_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Associated Assessment Id
+        """
+        associated_wave_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        associated Wave Id
+        """
+        migration_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Migration path
+        """
+elif False:
+    MigrationEntityGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MigrationEntityGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 application_display_name: pulumi.Input[_builtins.str],
+                 application_id: pulumi.Input[_builtins.str],
+                 associated_assessment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_wave_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 migration_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Migration Entity Group Properties class.
+        :param pulumi.Input[_builtins.str] application_display_name: Display Name of the Workload.
+        :param pulumi.Input[_builtins.str] application_id: Application id 
+        :param pulumi.Input[_builtins.str] associated_assessment_id: Associated Assessment Id
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_wave_ids: associated Wave Id
+        :param pulumi.Input[_builtins.str] migration_path: Migration path
+        """
+        pulumi.set(__self__, "application_display_name", application_display_name)
+        pulumi.set(__self__, "application_id", application_id)
+        if associated_assessment_id is not None:
+            pulumi.set(__self__, "associated_assessment_id", associated_assessment_id)
+        if associated_wave_ids is not None:
+            pulumi.set(__self__, "associated_wave_ids", associated_wave_ids)
+        if migration_path is not None:
+            pulumi.set(__self__, "migration_path", migration_path)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationDisplayName")
+    def application_display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Display Name of the Workload.
+        """
+        return pulumi.get(self, "application_display_name")
+
+    @application_display_name.setter
+    def application_display_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Application id 
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedAssessmentId")
+    def associated_assessment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Associated Assessment Id
+        """
+        return pulumi.get(self, "associated_assessment_id")
+
+    @associated_assessment_id.setter
+    def associated_assessment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "associated_assessment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedWaveIds")
+    def associated_wave_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        associated Wave Id
+        """
+        return pulumi.get(self, "associated_wave_ids")
+
+    @associated_wave_ids.setter
+    def associated_wave_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "associated_wave_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationPath")
+    def migration_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Migration path
+        """
+        return pulumi.get(self, "migration_path")
+
+    @migration_path.setter
+    def migration_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "migration_path", value)
+
+
+if not MYPY:
+    class MigrationEntityPropertiesArgsDict(TypedDict):
+        """
+        Migration Entity Properties class.
+        """
+        associated_inventory_resource_id: pulumi.Input[_builtins.str]
+        """
+        inventory resource id 
+        """
+        inventory_display_name: pulumi.Input[_builtins.str]
+        """
+        Display Name of the Workload.
+        """
+        assessed_entity_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Assessed Entity ARM Id
+        """
+        associated_assessment_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Associated Assessment Id
+        """
+        associated_migration_entity_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        associated Migration Entity Group Id
+        """
+        associated_wave_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        associated Wave Id
+        """
+        migration_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Migration path
+        """
+        migration_specific_properties: NotRequired[pulumi.Input['ServerMigrationSpecificPropertiesArgsDict']]
+        """
+        Migration specific properties for the entity.
+        """
+        migration_tool: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Migration Tool of the Migration Entity.
+        """
+        partner_resource_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARM Resource Identifier for the partner resource.
+        """
+        target: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Target of the Migration Entity.
+        """
+        target_azure_resource_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        target Azure Resource ARM Id.
+        """
+elif False:
+    MigrationEntityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MigrationEntityPropertiesArgs:
+    def __init__(__self__, *,
+                 associated_inventory_resource_id: pulumi.Input[_builtins.str],
+                 inventory_display_name: pulumi.Input[_builtins.str],
+                 assessed_entity_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_assessment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_migration_entity_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_wave_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 migration_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 migration_specific_properties: Optional[pulumi.Input['ServerMigrationSpecificPropertiesArgs']] = None,
+                 migration_tool: Optional[pulumi.Input[_builtins.str]] = None,
+                 partner_resource_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_azure_resource_arm_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Migration Entity Properties class.
+        :param pulumi.Input[_builtins.str] associated_inventory_resource_id: inventory resource id 
+        :param pulumi.Input[_builtins.str] inventory_display_name: Display Name of the Workload.
+        :param pulumi.Input[_builtins.str] assessed_entity_arm_id: Assessed Entity ARM Id
+        :param pulumi.Input[_builtins.str] associated_assessment_id: Associated Assessment Id
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_migration_entity_group_ids: associated Migration Entity Group Id
+        :param pulumi.Input[_builtins.str] associated_wave_id: associated Wave Id
+        :param pulumi.Input[_builtins.str] migration_path: Migration path
+        :param pulumi.Input['ServerMigrationSpecificPropertiesArgs'] migration_specific_properties: Migration specific properties for the entity.
+        :param pulumi.Input[_builtins.str] migration_tool: Migration Tool of the Migration Entity.
+        :param pulumi.Input[_builtins.str] partner_resource_arm_id: ARM Resource Identifier for the partner resource.
+        :param pulumi.Input[_builtins.str] target: Target of the Migration Entity.
+        :param pulumi.Input[_builtins.str] target_azure_resource_arm_id: target Azure Resource ARM Id.
+        """
+        pulumi.set(__self__, "associated_inventory_resource_id", associated_inventory_resource_id)
+        pulumi.set(__self__, "inventory_display_name", inventory_display_name)
+        if assessed_entity_arm_id is not None:
+            pulumi.set(__self__, "assessed_entity_arm_id", assessed_entity_arm_id)
+        if associated_assessment_id is not None:
+            pulumi.set(__self__, "associated_assessment_id", associated_assessment_id)
+        if associated_migration_entity_group_ids is not None:
+            pulumi.set(__self__, "associated_migration_entity_group_ids", associated_migration_entity_group_ids)
+        if associated_wave_id is not None:
+            pulumi.set(__self__, "associated_wave_id", associated_wave_id)
+        if migration_path is not None:
+            pulumi.set(__self__, "migration_path", migration_path)
+        if migration_specific_properties is not None:
+            pulumi.set(__self__, "migration_specific_properties", migration_specific_properties)
+        if migration_tool is not None:
+            pulumi.set(__self__, "migration_tool", migration_tool)
+        if partner_resource_arm_id is not None:
+            pulumi.set(__self__, "partner_resource_arm_id", partner_resource_arm_id)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if target_azure_resource_arm_id is not None:
+            pulumi.set(__self__, "target_azure_resource_arm_id", target_azure_resource_arm_id)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedInventoryResourceId")
+    def associated_inventory_resource_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        inventory resource id 
+        """
+        return pulumi.get(self, "associated_inventory_resource_id")
+
+    @associated_inventory_resource_id.setter
+    def associated_inventory_resource_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "associated_inventory_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inventoryDisplayName")
+    def inventory_display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Display Name of the Workload.
+        """
+        return pulumi.get(self, "inventory_display_name")
+
+    @inventory_display_name.setter
+    def inventory_display_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inventory_display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assessedEntityArmId")
+    def assessed_entity_arm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Assessed Entity ARM Id
+        """
+        return pulumi.get(self, "assessed_entity_arm_id")
+
+    @assessed_entity_arm_id.setter
+    def assessed_entity_arm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "assessed_entity_arm_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedAssessmentId")
+    def associated_assessment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Associated Assessment Id
+        """
+        return pulumi.get(self, "associated_assessment_id")
+
+    @associated_assessment_id.setter
+    def associated_assessment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "associated_assessment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedMigrationEntityGroupIds")
+    def associated_migration_entity_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        associated Migration Entity Group Id
+        """
+        return pulumi.get(self, "associated_migration_entity_group_ids")
+
+    @associated_migration_entity_group_ids.setter
+    def associated_migration_entity_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "associated_migration_entity_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedWaveId")
+    def associated_wave_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        associated Wave Id
+        """
+        return pulumi.get(self, "associated_wave_id")
+
+    @associated_wave_id.setter
+    def associated_wave_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "associated_wave_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationPath")
+    def migration_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Migration path
+        """
+        return pulumi.get(self, "migration_path")
+
+    @migration_path.setter
+    def migration_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "migration_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationSpecificProperties")
+    def migration_specific_properties(self) -> Optional[pulumi.Input['ServerMigrationSpecificPropertiesArgs']]:
+        """
+        Migration specific properties for the entity.
+        """
+        return pulumi.get(self, "migration_specific_properties")
+
+    @migration_specific_properties.setter
+    def migration_specific_properties(self, value: Optional[pulumi.Input['ServerMigrationSpecificPropertiesArgs']]):
+        pulumi.set(self, "migration_specific_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationTool")
+    def migration_tool(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Migration Tool of the Migration Entity.
+        """
+        return pulumi.get(self, "migration_tool")
+
+    @migration_tool.setter
+    def migration_tool(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "migration_tool", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partnerResourceArmId")
+    def partner_resource_arm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARM Resource Identifier for the partner resource.
+        """
+        return pulumi.get(self, "partner_resource_arm_id")
+
+    @partner_resource_arm_id.setter
+    def partner_resource_arm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "partner_resource_arm_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Target of the Migration Entity.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetAzureResourceArmId")
+    def target_azure_resource_arm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        target Azure Resource ARM Id.
+        """
+        return pulumi.get(self, "target_azure_resource_arm_id")
+
+    @target_azure_resource_arm_id.setter
+    def target_azure_resource_arm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_azure_resource_arm_id", value)
+
+
+if not MYPY:
     class ModernizeProjectModelPropertiesArgsDict(TypedDict):
         """
         ModernizeProject properties.
@@ -10882,6 +11297,84 @@ class SecuritySettingsArgs:
 
 
 if not MYPY:
+    class ServerMigrationSpecificPropertiesArgsDict(TypedDict):
+        """
+        Represents a Server Migration Specific properties base model.
+        """
+        instance_type: pulumi.Input[_builtins.str]
+        """
+        Migration Specific Properties Instance Types.
+        Expected value is 'ServerMigration'.
+        """
+        current_job_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
+        dr_appliance_inventory_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
+elif False:
+    ServerMigrationSpecificPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerMigrationSpecificPropertiesArgs:
+    def __init__(__self__, *,
+                 instance_type: pulumi.Input[_builtins.str],
+                 current_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 dr_appliance_inventory_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Represents a Server Migration Specific properties base model.
+        :param pulumi.Input[_builtins.str] instance_type: Migration Specific Properties Instance Types.
+               Expected value is 'ServerMigration'.
+        :param pulumi.Input[_builtins.str] current_job_id: A type definition that refers the id to an Azure Resource Manager resource.
+        :param pulumi.Input[_builtins.str] dr_appliance_inventory_id: A type definition that refers the id to an Azure Resource Manager resource.
+        """
+        pulumi.set(__self__, "instance_type", 'ServerMigration')
+        if current_job_id is not None:
+            pulumi.set(__self__, "current_job_id", current_job_id)
+        if dr_appliance_inventory_id is not None:
+            pulumi.set(__self__, "dr_appliance_inventory_id", dr_appliance_inventory_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Migration Specific Properties Instance Types.
+        Expected value is 'ServerMigration'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currentJobId")
+    def current_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
+        return pulumi.get(self, "current_job_id")
+
+    @current_job_id.setter
+    def current_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "current_job_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="drApplianceInventoryId")
+    def dr_appliance_inventory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
+        return pulumi.get(self, "dr_appliance_inventory_id")
+
+    @dr_appliance_inventory_id.setter
+    def dr_appliance_inventory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "dr_appliance_inventory_id", value)
+
+
+if not MYPY:
     class SettingsArgsDict(TypedDict):
         """
         Business case settings.
@@ -12875,6 +13368,138 @@ class TargetStorageProfileArgs:
 
 
 if not MYPY:
+    class TaskPropertiesArgsDict(TypedDict):
+        """
+        Task Properties class.
+        """
+        display_name: pulumi.Input[_builtins.str]
+        """
+        Task Dislay Name 
+        """
+        scope: pulumi.Input[Union[_builtins.str, 'TaskScope']]
+        """
+        Task Scope
+        """
+        scope_id: pulumi.Input[_builtins.str]
+        """
+        associated Wave Id
+        """
+        status: pulumi.Input[_builtins.str]
+        """
+        Task Status
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Task Description
+        """
+        stage: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Task Stage
+        """
+elif False:
+    TaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskPropertiesArgs:
+    def __init__(__self__, *,
+                 display_name: pulumi.Input[_builtins.str],
+                 scope: pulumi.Input[Union[_builtins.str, 'TaskScope']],
+                 scope_id: pulumi.Input[_builtins.str],
+                 status: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 stage: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Task Properties class.
+        :param pulumi.Input[_builtins.str] display_name: Task Dislay Name 
+        :param pulumi.Input[Union[_builtins.str, 'TaskScope']] scope: Task Scope
+        :param pulumi.Input[_builtins.str] scope_id: associated Wave Id
+        :param pulumi.Input[_builtins.str] status: Task Status
+        :param pulumi.Input[_builtins.str] description: Task Description
+        :param pulumi.Input[_builtins.str] stage: Task Stage
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "scope_id", scope_id)
+        pulumi.set(__self__, "status", status)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Task Dislay Name 
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[Union[_builtins.str, 'TaskScope']]:
+        """
+        Task Scope
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[Union[_builtins.str, 'TaskScope']]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeId")
+    def scope_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        associated Wave Id
+        """
+        return pulumi.get(self, "scope_id")
+
+    @scope_id.setter
+    def scope_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scope_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Task Status
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Task Description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Task Stage
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "stage", value)
+
+
+if not MYPY:
     class ThirdPartyManagementSettingsArgsDict(TypedDict):
         """
         Third Party Management settings.
@@ -13493,6 +14118,119 @@ class VmUptimeArgs:
     @hours_per_day.setter
     def hours_per_day(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "hours_per_day", value)
+
+
+if not MYPY:
+    class WavePropertiesArgsDict(TypedDict):
+        """
+        Migration Wave Properties class.
+        """
+        arg: pulumi.Input['ArgArgsDict']
+        """
+        ARG query and other details to create workloads within a wave
+        """
+        display_name: pulumi.Input[_builtins.str]
+        """
+        Display Name of the wave.
+        """
+        planned_start_date: pulumi.Input[_builtins.str]
+        """
+        Planned start date of the wave.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the wave.
+        """
+        planned_completion_date: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Planned completion date of the wave.
+        """
+elif False:
+    WavePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WavePropertiesArgs:
+    def __init__(__self__, *,
+                 arg: pulumi.Input['ArgArgs'],
+                 display_name: pulumi.Input[_builtins.str],
+                 planned_start_date: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 planned_completion_date: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Migration Wave Properties class.
+        :param pulumi.Input['ArgArgs'] arg: ARG query and other details to create workloads within a wave
+        :param pulumi.Input[_builtins.str] display_name: Display Name of the wave.
+        :param pulumi.Input[_builtins.str] planned_start_date: Planned start date of the wave.
+        :param pulumi.Input[_builtins.str] description: Description of the wave.
+        :param pulumi.Input[_builtins.str] planned_completion_date: Planned completion date of the wave.
+        """
+        pulumi.set(__self__, "arg", arg)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "planned_start_date", planned_start_date)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if planned_completion_date is not None:
+            pulumi.set(__self__, "planned_completion_date", planned_completion_date)
+
+    @_builtins.property
+    @pulumi.getter
+    def arg(self) -> pulumi.Input['ArgArgs']:
+        """
+        ARG query and other details to create workloads within a wave
+        """
+        return pulumi.get(self, "arg")
+
+    @arg.setter
+    def arg(self, value: pulumi.Input['ArgArgs']):
+        pulumi.set(self, "arg", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Display Name of the wave.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="plannedStartDate")
+    def planned_start_date(self) -> pulumi.Input[_builtins.str]:
+        """
+        Planned start date of the wave.
+        """
+        return pulumi.get(self, "planned_start_date")
+
+    @planned_start_date.setter
+    def planned_start_date(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "planned_start_date", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the wave.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="plannedCompletionDate")
+    def planned_completion_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Planned completion date of the wave.
+        """
+        return pulumi.get(self, "planned_completion_date")
+
+    @planned_completion_date.setter
+    def planned_completion_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "planned_completion_date", value)
 
 
 if not MYPY:

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// <summary>
         /// Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         /// </summary>
-        public readonly string? GeoBackupEncryptionKeyStatus;
+        public readonly string GeoBackupEncryptionKeyStatus;
         /// <summary>
         /// Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// <summary>
         /// Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         /// </summary>
-        public readonly string? PrimaryEncryptionKeyStatus;
+        public readonly string PrimaryEncryptionKeyStatus;
         /// <summary>
         /// URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
         /// </summary>
@@ -47,13 +47,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 
         [OutputConstructor]
         private DataEncryptionResponse(
-            string? geoBackupEncryptionKeyStatus,
+            string geoBackupEncryptionKeyStatus,
 
             string? geoBackupKeyURI,
 
             string? geoBackupUserAssignedIdentityId,
 
-            string? primaryEncryptionKeyStatus,
+            string primaryEncryptionKeyStatus,
 
             string? primaryKeyURI,
 

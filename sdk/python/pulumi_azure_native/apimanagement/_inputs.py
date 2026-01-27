@@ -82,6 +82,8 @@ __all__ = [
     'EmailTemplateParametersContractPropertiesArgsDict',
     'FailureStatusCodeRangeArgs',
     'FailureStatusCodeRangeArgsDict',
+    'GatewayHostnameBindingKeyVaultArgs',
+    'GatewayHostnameBindingKeyVaultArgsDict',
     'HostnameConfigurationArgs',
     'HostnameConfigurationArgsDict',
     'HttpMessageDiagnosticArgs',
@@ -2432,6 +2434,57 @@ class FailureStatusCodeRangeArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class GatewayHostnameBindingKeyVaultArgsDict(TypedDict):
+        secret_id: pulumi.Input[_builtins.str]
+        """
+        The current provisioning state of the API Management gateway hostname binding.
+        """
+        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The default hostname of the data-plane gateway.
+        """
+elif False:
+    GatewayHostnameBindingKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayHostnameBindingKeyVaultArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: The current provisioning state of the API Management gateway hostname binding.
+        :param pulumi.Input[_builtins.str] identity_client_id: The default hostname of the data-plane gateway.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The current provisioning state of the API Management gateway hostname binding.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default hostname of the data-plane gateway.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_client_id", value)
 
 
 if not MYPY:

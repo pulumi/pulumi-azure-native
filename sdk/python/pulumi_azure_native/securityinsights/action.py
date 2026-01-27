@@ -255,7 +255,7 @@ class Action(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Etag of the action.
+        ETag of the action.
         """
         return pulumi.get(self, "etag")
 

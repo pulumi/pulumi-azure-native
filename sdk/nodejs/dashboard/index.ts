@@ -10,10 +10,20 @@ export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
 utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
+export { DashboardDefinitionArgs } from "./dashboardDefinition";
+export type DashboardDefinition = import("./dashboardDefinition").DashboardDefinition;
+export const DashboardDefinition: typeof import("./dashboardDefinition").DashboardDefinition = null as any;
+utilities.lazyLoad(exports, ["DashboardDefinition"], () => require("./dashboardDefinition"));
+
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+
+export { GetDashboardDefinitionArgs, GetDashboardDefinitionResult, GetDashboardDefinitionOutputArgs } from "./getDashboardDefinition";
+export const getDashboardDefinition: typeof import("./getDashboardDefinition").getDashboardDefinition = null as any;
+export const getDashboardDefinitionOutput: typeof import("./getDashboardDefinition").getDashboardDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboardDefinition","getDashboardDefinitionOutput"], () => require("./getDashboardDefinition"));
 
 export { GetGrafanaArgs, GetGrafanaResult, GetGrafanaOutputArgs } from "./getGrafana";
 export const getGrafana: typeof import("./getGrafana").getGrafana = null as any;
@@ -65,6 +75,8 @@ const _module = {
         switch (type) {
             case "azure-native:dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "azure-native:dashboard:DashboardDefinition":
+                return new DashboardDefinition(name, <any>undefined, { urn })
             case "azure-native:dashboard:Grafana":
                 return new Grafana(name, <any>undefined, { urn })
             case "azure-native:dashboard:IntegrationFabric":

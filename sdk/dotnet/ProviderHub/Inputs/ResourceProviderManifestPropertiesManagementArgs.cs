@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         /// The resource access policy.
         /// </summary>
         [Input("resourceAccessPolicy")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceAccessPolicy>? ResourceAccessPolicy { get; set; }
+        public Input<Pulumi.AzureNative.ProviderHub.ResourceAccessPolicy>? ResourceAccessPolicy { get; set; }
 
         [Input("resourceAccessRoles")]
         private InputList<Inputs.ResourceAccessRoleArgs>? _resourceAccessRoles;

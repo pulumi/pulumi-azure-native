@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineConfigurationResponse
     {
@@ -29,12 +32,15 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// If specified, the extensions mentioned in this configuration will be installed on each node.
         /// </summary>
         public readonly ImmutableArray<Outputs.VMExtensionResponse> Extensions;
+        /// <summary>
+        /// A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+        /// </summary>
         public readonly Outputs.ImageReferenceResponse ImageReference;
         /// <summary>
         /// This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
         /// 
-        ///  Windows_Server - The on-premises license is for Windows Server.
-        ///  Windows_Client - The on-premises license is for Windows Client.
+        /// Windows_Server - The on-premises license is for Windows Server.
+        /// Windows_Client - The on-premises license is for Windows Client.
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>

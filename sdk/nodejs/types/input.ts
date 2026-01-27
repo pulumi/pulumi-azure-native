@@ -1855,6 +1855,17 @@ export namespace apimanagement {
         min?: pulumi.Input<number>;
     }
 
+    export interface GatewayHostnameBindingKeyVaultArgs {
+        /**
+         * The default hostname of the data-plane gateway.
+         */
+        identityClientId?: pulumi.Input<string>;
+        /**
+         * The current provisioning state of the API Management gateway hostname binding.
+         */
+        secretId: pulumi.Input<string>;
+    }
+
     /**
      * Custom hostname configuration.
      */
@@ -8667,7 +8678,7 @@ export namespace attestation {
         /**
          * JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
          */
-        policySigningCertificates?: pulumi.Input<inputs.attestation.JSONWebKeySetArgs>;
+        policySigningCertificates?: pulumi.Input<inputs.attestation.JsonWebKeySetArgs>;
         /**
          * Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
          */
@@ -8677,8 +8688,18 @@ export namespace attestation {
          */
         tpmAttestationAuthentication?: pulumi.Input<string | enums.attestation.TpmAttestationAuthenticationType>;
     }
+    /**
+     * attestationServiceCreationSpecificParamsArgsProvideDefaults sets the appropriate defaults for AttestationServiceCreationSpecificParamsArgs
+     */
+    export function attestationServiceCreationSpecificParamsArgsProvideDefaults(val: AttestationServiceCreationSpecificParamsArgs): AttestationServiceCreationSpecificParamsArgs {
+        return {
+            ...val,
+            publicNetworkAccess: (val.publicNetworkAccess) ?? "Enabled",
+            tpmAttestationAuthentication: (val.tpmAttestationAuthentication) ?? "Enabled",
+        };
+    }
 
-    export interface JSONWebKeyArgs {
+    export interface JsonWebKeyArgs {
         /**
          * The "alg" (algorithm) parameter identifies the algorithm intended for
          * use with the key.  The values used should either be registered in the
@@ -8767,14 +8788,14 @@ export namespace attestation {
          * The PKIX certificate containing the key value MUST be the first
          * certificate.
          */
-        x5c?: pulumi.Input<pulumi.Input<string>[]>;
+        x5C?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Y coordinate for the Elliptic Curve point
          */
         y?: pulumi.Input<string>;
     }
 
-    export interface JSONWebKeySetArgs {
+    export interface JsonWebKeySetArgs {
         /**
          * The value of the "keys" parameter is an array of JWK values.  By
          * default, the order of the JWK values within the array does not imply
@@ -8782,7 +8803,7 @@ export namespace attestation {
          * can choose to assign a meaning to the order for their purposes, if
          * desired.
          */
-        keys?: pulumi.Input<pulumi.Input<inputs.attestation.JSONWebKeyArgs>[]>;
+        keys?: pulumi.Input<pulumi.Input<inputs.attestation.JsonWebKeyArgs>[]>;
     }
 
     /**
@@ -10161,6 +10182,66 @@ export namespace automation {
 
 export namespace avs {
     /**
+     * The properties of an Arc addon
+     */
+    export interface AddonArcPropertiesArgs {
+        /**
+         * Addon type
+         * Expected value is 'Arc'.
+         */
+        addonType: pulumi.Input<"Arc">;
+        /**
+         * The VMware vCenter resource ID
+         */
+        vCenter?: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of an HCX addon
+     */
+    export interface AddonHcxPropertiesArgs {
+        /**
+         * Addon type
+         * Expected value is 'HCX'.
+         */
+        addonType: pulumi.Input<"HCX">;
+        /**
+         * The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+         */
+        offer: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of a Site Recovery Manager (SRM) addon
+     */
+    export interface AddonSrmPropertiesArgs {
+        /**
+         * Addon type
+         * Expected value is 'SRM'.
+         */
+        addonType: pulumi.Input<"SRM">;
+        /**
+         * The Site Recovery Manager (SRM) license
+         */
+        licenseKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of a vSphere Replication (VR) addon
+     */
+    export interface AddonVrPropertiesArgs {
+        /**
+         * Addon type
+         * Expected value is 'VR'.
+         */
+        addonType: pulumi.Input<"VR">;
+        /**
+         * The vSphere Replication Server (VRS) count
+         */
+        vrsCount: pulumi.Input<number>;
+    }
+
+    /**
      * The properties describing private cloud availability zone distribution
      */
     export interface AvailabilityPropertiesArgs {
@@ -10297,6 +10378,20 @@ export namespace avs {
     }
 
     /**
+     * A key-value pair representing a label.
+     */
+    export interface LabelArgs {
+        /**
+         * The key of the label.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value of the label.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * The properties of a management cluster
      */
     export interface ManagementClusterArgs {
@@ -10419,6 +10514,157 @@ export namespace avs {
          * Type of managed service identity (either system assigned, or none).
          */
         type: pulumi.Input<string | enums.avs.SystemAssignedServiceIdentityType>;
+    }
+
+    /**
+     * VM-Host placement policy properties
+     */
+    export interface VmHostPlacementPolicyPropertiesArgs {
+        /**
+         * vm-host placement policy affinity strength (should/must)
+         */
+        affinityStrength?: pulumi.Input<string | enums.avs.AffinityStrength>;
+        /**
+         * placement policy affinity type
+         */
+        affinityType: pulumi.Input<string | enums.avs.AffinityType>;
+        /**
+         * placement policy azure hybrid benefit opt-in type
+         */
+        azureHybridBenefitType?: pulumi.Input<string | enums.avs.AzureHybridBenefitType>;
+        /**
+         * Display name of the placement policy
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Host members list
+         */
+        hostMembers: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the placement policy is enabled or disabled
+         */
+        state?: pulumi.Input<string | enums.avs.PlacementPolicyState>;
+        /**
+         * Placement Policy type
+         * Expected value is 'VmHost'.
+         */
+        type: pulumi.Input<"VmHost">;
+        /**
+         * Virtual machine members list
+         */
+        vmMembers: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * VM-VM placement policy properties
+     */
+    export interface VmVmPlacementPolicyPropertiesArgs {
+        /**
+         * placement policy affinity type
+         */
+        affinityType: pulumi.Input<string | enums.avs.AffinityType>;
+        /**
+         * Display name of the placement policy
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Whether the placement policy is enabled or disabled
+         */
+        state?: pulumi.Input<string | enums.avs.PlacementPolicyState>;
+        /**
+         * Placement Policy type
+         * Expected value is 'VmVm'.
+         */
+        type: pulumi.Input<"VmVm">;
+        /**
+         * Virtual machine members list
+         */
+        vmMembers: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The properties of a VMware Firewall license
+     */
+    export interface VmwareFirewallLicensePropertiesArgs {
+        /**
+         * The Broadcom contract number associated with the license.
+         */
+        broadcomContractNumber?: pulumi.Input<string>;
+        /**
+         * The Broadcom site ID associated with the license.
+         */
+        broadcomSiteId?: pulumi.Input<string>;
+        /**
+         * Number of cores included in the license, measured per hour
+         */
+        cores: pulumi.Input<number>;
+        /**
+         * UTC datetime when the license expires
+         */
+        endDate: pulumi.Input<string>;
+        /**
+         * The kind of license.
+         * Expected value is 'VmwareFirewall'.
+         */
+        kind: pulumi.Input<"VmwareFirewall">;
+        /**
+         * Additional labels passed through for license reporting.
+         */
+        labels?: pulumi.Input<pulumi.Input<inputs.avs.LabelArgs>[]>;
+        /**
+         * License key
+         */
+        licenseKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * NSX DHCP Relay
+     */
+    export interface WorkloadNetworkDhcpRelayArgs {
+        /**
+         * Type of DHCP: SERVER or RELAY.
+         * Expected value is 'RELAY'.
+         */
+        dhcpType: pulumi.Input<"RELAY">;
+        /**
+         * Display name of the DHCP entity.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * NSX revision number.
+         */
+        revision?: pulumi.Input<number>;
+        /**
+         * DHCP Relay Addresses. Max 3.
+         */
+        serverAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * NSX DHCP Server
+     */
+    export interface WorkloadNetworkDhcpServerArgs {
+        /**
+         * Type of DHCP: SERVER or RELAY.
+         * Expected value is 'SERVER'.
+         */
+        dhcpType: pulumi.Input<"SERVER">;
+        /**
+         * Display name of the DHCP entity.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * DHCP Server Lease Time.
+         */
+        leaseTime?: pulumi.Input<number>;
+        /**
+         * NSX revision number.
+         */
+        revision?: pulumi.Input<number>;
+        /**
+         * DHCP Server Address.
+         */
+        serverAddress?: pulumi.Input<string>;
     }
 
     /**
@@ -11377,7 +11623,7 @@ export namespace awsconnector {
          */
         body?: any;
         /**
-         * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format. ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML. On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+         * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format. ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML. On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
          */
         bodyS3Location?: pulumi.Input<inputs.awsconnector.S3LocationArgs>;
         /**
@@ -13584,7 +13830,7 @@ export namespace awsconnector {
          */
         ipv6NetmaskLength?: pulumi.Input<number>;
         /**
-         * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+         * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://aws.amazon.com/vpc/pricing/).
          */
         mapPublicIpOnLaunch?: pulumi.Input<boolean>;
         /**
@@ -14091,7 +14337,7 @@ export namespace awsconnector {
          */
         inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.awsconnector.InferenceAcceleratorArgs>[]>;
         /**
-         * The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*. If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/). If you are setting namespaced kernel parameters using ``systemControls`` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that use the ``host`` IPC mode, IPC namespace related ``systemControls`` are not supported.  +  For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task.    This parameter is not supported for Windows containers or tasks run on FARGATElong.
+         * The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*. If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see [Docker security](https://docs.docker.com/engine/security/security/). If you are setting namespaced kernel parameters using ``systemControls`` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that use the ``host`` IPC mode, IPC namespace related ``systemControls`` are not supported.  +  For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task.    This parameter is not supported for Windows containers or tasks run on FARGATElong.
          */
         ipcMode?: pulumi.Input<string>;
         /**
@@ -14099,11 +14345,11 @@ export namespace awsconnector {
          */
         memory?: pulumi.Input<string>;
         /**
-         * The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``. For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode. With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings.   When using the ``host`` network mode, you should not run containers using the root user (UID 0). It is considered best practice to use a non-root user.  If the network mode is ``awsvpc``, the task is allocated an elastic network interface, and you must specify a NetworkConfiguration value when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*. If the network mode is ``host``, you cannot run multiple instantiations of the same task on a single container instance when port mappings are used. For more information, see [Network settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference*.
+         * The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``. For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode. With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings.   When using the ``host`` network mode, you should not run containers using the root user (UID 0). It is considered best practice to use a non-root user.  If the network mode is ``awsvpc``, the task is allocated an elastic network interface, and you must specify a NetworkConfiguration value when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*. If the network mode is ``host``, you cannot run multiple instantiations of the same task on a single container instance when port mappings are used. For more information, see [Network settings](https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference*.
          */
         networkMode?: pulumi.Input<string>;
         /**
-         * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task. If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*. If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/).  This parameter is not supported for Windows containers.   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
+         * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task. If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*. If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://docs.docker.com/engine/security/security/).  This parameter is not supported for Windows containers.   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
          */
         pidMode?: pulumi.Input<string>;
         /**
@@ -14979,7 +15225,7 @@ export namespace awsconnector {
          */
         managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+         * The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
          */
         path?: pulumi.Input<string>;
         /**
@@ -14997,11 +15243,11 @@ export namespace awsconnector {
          */
         arn?: pulumi.Input<string>;
         /**
-         * The name of the instance profile to create. This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+         * The name of the instance profile to create. This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
          */
         instanceProfileName?: pulumi.Input<string>;
         /**
-         * The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+         * The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
          */
         path?: pulumi.Input<string>;
         /**
@@ -15121,7 +15367,7 @@ export namespace awsconnector {
          */
         maxSessionDuration?: pulumi.Input<number>;
         /**
-         * The path to the role. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+         * The path to the role. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
          */
         path?: pulumi.Input<string>;
         /**
@@ -15137,7 +15383,7 @@ export namespace awsconnector {
          */
         roleId?: pulumi.Input<string>;
         /**
-         * A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *User Guide*. This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both 'Role1' and 'role1'. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name. If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/Use
+         * A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *User Guide*. This parameter allows (per its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both 'Role1' and 'role1'. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name. If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Finding and Acknowledging Application Capabilities (Console)](https://docs.aws.amazon.com/serverlessrepo/latest/devguide/acknowledging-application-capabilities.html#acknowledging-application-capabilities-console).
          */
         roleName?: pulumi.Input<string>;
         /**
@@ -15262,7 +15508,7 @@ export namespace awsconnector {
          */
         keyPolicy?: any;
         /**
-         * Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*. The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.    [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.   KMS supports the following key specs for KMS keys:  +  Symmetric encryption key (default)  +   ``SYMMETRIC_DEFAULT`` (AES-256-GCM)    +  HMAC keys (symmetric)  +   ``HMAC_224``   +   ``HMAC_256``   +   ``HMAC_384``   +   ``HMAC_512``     +  Asymmetric RSA key pairs  +   ``RSA_2048``   +   ``RSA_3072``   +   ``RSA_4096``     +  Asymmetric NIST-recommended elliptic curve key pairs  +   ``ECC_NIST_P256`` (secp256r1)  +   ``ECC_NIST_P384`` (secp384r1)  +   ``ECC_NIST_P521`` (secp521r1)    +  Other asymmetric elliptic curve key pairs  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.    +  SM2 key pairs (China Regions only)  +   ``SM2``
+         * Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*. The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.    [Services that are integrated with](https://aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.   KMS supports the following key specs for KMS keys:  +  Symmetric encryption key (default)  +   ``SYMMETRIC_DEFAULT`` (AES-256-GCM)    +  HMAC keys (symmetric)  +   ``HMAC_224``   +   ``HMAC_256``   +   ``HMAC_384``   +   ``HMAC_512``     +  Asymmetric RSA key pairs  +   ``RSA_2048``   +   ``RSA_3072``   +   ``RSA_4096``     +  Asymmetric NIST-recommended elliptic curve key pairs  +   ``ECC_NIST_P256`` (secp256r1)  +   ``ECC_NIST_P384`` (secp384r1)  +   ``ECC_NIST_P521`` (secp521r1)    +  Other asymmetric elliptic curve key pairs  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.    +  SM2 key pairs (China Regions only)  +   ``SM2``
          */
         keySpec?: pulumi.Input<string | enums.awsconnector.KeySpec>;
         /**
@@ -17799,7 +18045,7 @@ export namespace awsconnector {
          */
         kmsDataKeyReusePeriodSeconds?: pulumi.Input<number>;
         /**
-         * The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (e.g. ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:  +   [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide*   +   [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *API Reference*   +   [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *Key Management Service API Reference*   +   The Key Management Service (KMS) section of the [Best Practices](https://docs.aws.amazon.com/https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
+         * The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (e.g. ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:  +   [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide*   +   [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *API Reference*   +   [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *Key Management Service API Reference*   +   The Key Management Service (KMS) section of the [Best Practices](https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
          */
         kmsMasterKeyId?: pulumi.Input<string>;
         /**
@@ -19445,11 +19691,11 @@ export namespace awsconnector {
      */
     export interface ContainerDefinitionArgs {
         /**
-         * The command that's passed to the container. This parameter maps to ``Cmd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``COMMAND`` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd). If there are multiple arguments, each argument is a separated string in the array.
+         * The command that's passed to the container. This parameter maps to ``Cmd`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``COMMAND`` parameter to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.docker.com/engine/reference/builder/#cmd). If there are multiple arguments, each argument is a separated string in the array.
          */
         command?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cpu-shares`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.  You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.  Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units. On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:  +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.  +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.   On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
+         * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cpu-shares`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.  You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://aws.amazon.com/ec2/instance-types/) detail page by 1,024.  Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units. On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:  +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.  +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.   On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
          */
         cpu?: pulumi.Input<number>;
         /**
@@ -19457,39 +19703,39 @@ export namespace awsconnector {
          */
         credentialSpecs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed. For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*. For tasks using the Fargate launch type, the task or service requires the following platforms:  +  Linux platform version ``1.3.0`` or later.  +  Windows platform version ``1.0.0`` or later.   If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
+         * The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed. For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*. For tasks using the Fargate launch type, the task or service requires the following platforms:  +  Linux platform version ``1.3.0`` or later.  +  Windows platform version ``1.0.0`` or later.   If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
          */
         dependsOn?: pulumi.Input<pulumi.Input<inputs.awsconnector.ContainerDependencyArgs>[]>;
         /**
-         * When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).  This parameter is not supported for Windows containers.
+         * When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/).  This parameter is not supported for Windows containers.
          */
         disableNetworking?: pulumi.Input<boolean>;
         /**
-         * A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--dns-search`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
+         * A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--dns-search`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
          */
         dnsSearchDomains?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--dns`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
+         * A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--dns`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
          */
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--label`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+         * A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--label`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
          */
         dockerLabels?: any;
         /**
-         * A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type. For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems. For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*. This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--security-opt`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  Valid values: 'no-new-privileges' | 'apparmor:PROFILE' | 'label:value' | 'credentialspec:CredentialSpecFilePath'
+         * A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type. For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems. For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*. This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--security-opt`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  For more information about valid values, see [Docker Run Security Configuration](https://docs.docker.com/engine/reference/run/#security-configuration).  Valid values: 'no-new-privileges' | 'apparmor:PROFILE' | 'label:value' | 'credentialspec:CredentialSpecFilePath'
          */
         dockerSecurityOptions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.  The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--entrypoint`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint).
+         * Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.  The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--entrypoint`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint).
          */
         entryPoint?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The environment variables to pass to a container. This parameter maps to ``Env`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--env`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
+         * The environment variables to pass to a container. This parameter maps to ``Env`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--env`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
          */
         environment?: pulumi.Input<pulumi.Input<inputs.awsconnector.KeyValuePairArgs>[]>;
         /**
-         * A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/). If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
+         * A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.docker.com/compose/env-file/). If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
          */
         environmentFiles?: pulumi.Input<pulumi.Input<inputs.awsconnector.EnvironmentFileArgs>[]>;
         /**
@@ -19497,7 +19743,7 @@ export namespace awsconnector {
          */
         essential?: pulumi.Input<boolean>;
         /**
-         * A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--add-host`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
+         * A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--add-host`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
          */
         extraHosts?: pulumi.Input<pulumi.Input<inputs.awsconnector.HostEntryArgs>[]>;
         /**
@@ -19505,23 +19751,23 @@ export namespace awsconnector {
          */
         firelensConfiguration?: pulumi.Input<inputs.awsconnector.FirelensConfigurationArgs>;
         /**
-         * The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).  The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.  If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it. The following are notes about container health check support:  +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).  +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).  +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
+         * The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``HEALTHCHECK`` parameter of [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of [docker run](https://docs.docker.com/engine/reference/run/).  The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.  If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it. The following are notes about container health check support:  +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).  +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).  +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
          */
         healthCheck?: pulumi.Input<inputs.awsconnector.HealthCheckArgs>;
         /**
-         * The hostname to use for your container. This parameter maps to ``Hostname`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--hostname`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
+         * The hostname to use for your container. This parameter maps to ``Hostname`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--hostname`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
          */
         hostname?: pulumi.Input<string>;
         /**
-         * The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``IMAGE`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.  +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).  +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).  +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
+         * The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``IMAGE`` parameter of [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.  +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).  +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).  +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
          */
         image?: pulumi.Input<string>;
         /**
-         * When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--interactive`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--interactive`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         interactive?: pulumi.Input<boolean>;
         /**
-         * The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--link`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.   Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
+         * The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--link`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.   Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
          */
         links?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -19529,39 +19775,39 @@ export namespace awsconnector {
          */
         linuxParameters?: pulumi.Input<inputs.awsconnector.LinuxParametersArgs>;
         /**
-         * The log configuration specification for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*. The ``LogConfiguration`` property specifies log configuration options to send to a custom log driver for the container.
+         * The log configuration specification for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*. The ``LogConfiguration`` property specifies log configuration options to send to a custom log driver for the container.
          */
         logConfiguration?: pulumi.Input<inputs.awsconnector.LogConfigurationArgs>;
         /**
-         * The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). If using the Fargate launch type, this parameter is optional. If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers. The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
+         * The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--memory`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). If using the Fargate launch type, this parameter is optional. If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers. The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
          */
         memory?: pulumi.Input<number>;
         /**
-         * The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory-reservation`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
+         * The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--memory-reservation`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used. For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed. The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
          */
         memoryReservation?: pulumi.Input<number>;
         /**
-         * The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volume`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
+         * The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--volume`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
          */
         mountPoints?: pulumi.Input<pulumi.Input<inputs.awsconnector.MountPointArgs>[]>;
         /**
-         * The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--name`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--name`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         name?: pulumi.Input<string>;
         /**
-         * The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``. Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself.  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.  After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
+         * The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``. Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself.  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--publish`` option to [docker run](https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.  After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
          */
         portMappings?: pulumi.Input<pulumi.Input<inputs.awsconnector.PortMappingArgs>[]>;
         /**
-         * When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--privileged`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers or tasks run on FARGATElong.
+         * When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--privileged`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers or tasks run on FARGATElong.
          */
         privileged?: pulumi.Input<boolean>;
         /**
-         * When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--tty`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--tty`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         pseudoTerminal?: pulumi.Input<boolean>;
         /**
-         * When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--read-only`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
+         * When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--read-only`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  This parameter is not supported for Windows containers.
          */
         readonlyRootFilesystem?: pulumi.Input<boolean>;
         /**
@@ -19585,23 +19831,23 @@ export namespace awsconnector {
          */
         stopTimeout?: pulumi.Input<number>;
         /**
-         * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--sysctl`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+         * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--sysctl`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
          */
         systemControls?: pulumi.Input<pulumi.Input<inputs.awsconnector.SystemControlArgs>[]>;
         /**
-         * A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--ulimit`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). Valid naming values are displayed in the [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   This parameter is not supported for Windows containers.
+         * A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--ulimit`` option to [docker run](https://docs.docker.com/engine/reference/run/). Valid naming values are displayed in the [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``   This parameter is not supported for Windows containers.
          */
         ulimits?: pulumi.Input<pulumi.Input<inputs.awsconnector.UlimitArgs>[]>;
         /**
-         * The user to use inside the container. This parameter maps to ``User`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--user`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.  You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.  +   ``user``   +   ``user:group``   +   ``uid``   +   ``uid:gid``   +   ``user:gid``   +   ``uid:group``     This parameter is not supported for Windows containers.
+         * The user to use inside the container. This parameter maps to ``User`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--user`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.  You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.  +   ``user``   +   ``user:group``   +   ``uid``   +   ``uid:gid``   +   ``user:gid``   +   ``uid:group``     This parameter is not supported for Windows containers.
          */
         user?: pulumi.Input<string>;
         /**
-         * Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volumes-from`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--volumes-from`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         volumesFrom?: pulumi.Input<pulumi.Input<inputs.awsconnector.VolumeFromArgs>[]>;
         /**
-         * The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--workdir`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         * The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--workdir`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         workingDirectory?: pulumi.Input<string>;
     }
@@ -20432,7 +20678,7 @@ export namespace awsconnector {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``. For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI). For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
+         * (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``. For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI). For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
          */
         httpVersion?: pulumi.Input<string>;
         /**
@@ -20452,7 +20698,7 @@ export namespace awsconnector {
          */
         origins?: pulumi.Input<pulumi.Input<enums.awsconnector.Origin>[]>;
         /**
-         * The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
+         * The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations. If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance. For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/).
          */
         priceClass?: pulumi.Input<string>;
         /**
@@ -20468,7 +20714,7 @@ export namespace awsconnector {
          */
         staging?: pulumi.Input<boolean>;
         /**
-         * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty. If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:  +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.  +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)  +  To accept HTTPS connections from all viewers, including those that don't support SNI, set ``SSLSupportMethod`` to ``vip``. This is not recommended, and results in additional monthly charges from CloudFront. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)    +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.  +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):  +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)  +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)     All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``. For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the *Amazon CloudFront Developer Guide*.
+         * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers. If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty. If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:  +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.  +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)  +  To accept HTTPS connections from all viewers, including those that don't support SNI, set ``SSLSupportMethod`` to ``vip``. This is not recommended, and results in additional monthly charges from CloudFront. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)    +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.  +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):  +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)  +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)     All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``. For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the *Amazon CloudFront Developer Guide*.
          */
         viewerCertificate?: pulumi.Input<inputs.awsconnector.ViewerCertificateArgs>;
         /**
@@ -20498,15 +20744,15 @@ export namespace awsconnector {
          */
         autoprovision?: pulumi.Input<boolean>;
         /**
-         * The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. For more information, see [Docker plugin discovery](https://docs.aws.amazon.com/https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery). This parameter maps to ``Driver`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxdriver`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         * The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. For more information, see [Docker plugin discovery](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery). This parameter maps to ``Driver`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxdriver`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
          */
         driver?: pulumi.Input<string>;
         /**
-         * A map of Docker driver-specific options passed through. This parameter maps to ``DriverOpts`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxopt`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         * A map of Docker driver-specific options passed through. This parameter maps to ``DriverOpts`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxopt`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
          */
         driverOpts?: any;
         /**
-         * Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxlabel`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         * Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxlabel`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
          */
         labels?: any;
         /**
@@ -23136,7 +23382,7 @@ export namespace awsconnector {
      */
     export interface HealthCheckArgs {
         /**
-         * A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.  ``[ 'CMD-SHELL', 'curl -f http://localhost/ || exit 1' ]``  You don't include the double quotes and brackets when you use the AWS Management Console.  ``CMD-SHELL, curl -f http://localhost/ || exit 1``  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).
+         * A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.  ``[ 'CMD-SHELL', 'curl -f http://localhost/ || exit 1' ]``  You don't include the double quotes and brackets when you use the AWS Management Console.  ``CMD-SHELL, curl -f http://localhost/ || exit 1``  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/).
          */
         command?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -24737,11 +24983,11 @@ export namespace awsconnector {
      */
     export interface KernelCapabilitiesArgs {
         /**
-         * The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-add`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.  Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
+         * The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cap-add`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.  Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
          */
         add?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-drop`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
+         * The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cap-drop`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
          */
         drop?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -25334,31 +25580,31 @@ export namespace awsconnector {
      */
     export interface LinuxParametersArgs {
         /**
-         * The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.  For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later. The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+         * The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.  For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later. The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
          */
         capabilities?: pulumi.Input<inputs.awsconnector.KernelCapabilitiesArgs>;
         /**
-         * Any host devices to expose to the container. This parameter maps to ``Devices`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--device`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
+         * Any host devices to expose to the container. This parameter maps to ``Devices`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--device`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
          */
         devices?: pulumi.Input<pulumi.Input<inputs.awsconnector.DeviceArgs>[]>;
         /**
-         * Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+         * Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
          */
         initProcessEnabled?: pulumi.Input<boolean>;
         /**
-         * The total amount of swap memory (in MiB) a container can use. This parameter will be translated to the ``--memory-swap`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) where the value would be the sum of the container memory plus the ``maxSwap`` value. If a ``maxSwap`` value of ``0`` is specified, the container will not use swap. Accepted values are ``0`` or any positive integer. If the ``maxSwap`` parameter is omitted, the container will use the swap configuration for the container instance it is running on. A ``maxSwap`` value must be set for the ``swappiness`` parameter to be used.  If you're using tasks that use the Fargate launch type, the ``maxSwap`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
+         * The total amount of swap memory (in MiB) a container can use. This parameter will be translated to the ``--memory-swap`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration) where the value would be the sum of the container memory plus the ``maxSwap`` value. If a ``maxSwap`` value of ``0`` is specified, the container will not use swap. Accepted values are ``0`` or any positive integer. If the ``maxSwap`` parameter is omitted, the container will use the swap configuration for the container instance it is running on. A ``maxSwap`` value must be set for the ``swappiness`` parameter to be used.  If you're using tasks that use the Fargate launch type, the ``maxSwap`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
          */
         maxSwap?: pulumi.Input<number>;
         /**
-         * The value for the size (in MiB) of the ``/dev/shm`` volume. This parameter maps to the ``--shm-size`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you are using tasks that use the Fargate launch type, the ``sharedMemorySize`` parameter is not supported.
+         * The value for the size (in MiB) of the ``/dev/shm`` volume. This parameter maps to the ``--shm-size`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you are using tasks that use the Fargate launch type, the ``sharedMemorySize`` parameter is not supported.
          */
         sharedMemorySize?: pulumi.Input<number>;
         /**
-         * This allows you to tune a container's memory swappiness behavior. A ``swappiness`` value of ``0`` will cause swapping to not happen unless absolutely necessary. A ``swappiness`` value of ``100`` will cause pages to be swapped very aggressively. Accepted values are whole numbers between ``0`` and ``100``. If the ``swappiness`` parameter is not specified, a default value of ``60`` is used. If a value is not specified for ``maxSwap`` then this parameter is ignored. This parameter maps to the ``--memory-swappiness`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``swappiness`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
+         * This allows you to tune a container's memory swappiness behavior. A ``swappiness`` value of ``0`` will cause swapping to not happen unless absolutely necessary. A ``swappiness`` value of ``100`` will cause pages to be swapped very aggressively. Accepted values are whole numbers between ``0`` and ``100``. If the ``swappiness`` parameter is not specified, a default value of ``60`` is used. If a value is not specified for ``maxSwap`` then this parameter is ignored. This parameter maps to the ``--memory-swappiness`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``swappiness`` parameter isn't supported. If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
          */
         swappiness?: pulumi.Input<number>;
         /**
-         * The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
+         * The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
          */
         tmpfs?: pulumi.Input<pulumi.Input<inputs.awsconnector.TmpfsArgs>[]>;
     }
@@ -25454,7 +25700,7 @@ export namespace awsconnector {
      */
     export interface LogConfigurationArgs {
         /**
-         * The log driver to use for the container. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``. For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.  If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
+         * The log driver to use for the container. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``. For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.  If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
          */
         logDriver?: pulumi.Input<string>;
         /**
@@ -27344,7 +27590,7 @@ export namespace awsconnector {
          */
         containerPort?: pulumi.Input<number>;
         /**
-         * The port number range on the container that's bound to the dynamically mapped host port range.  The following rules apply when you specify a ``containerPortRange``:  +  You must use either the ``bridge`` network mode or the ``awsvpc`` network mode.  +  This parameter is available for both the EC2 and FARGATElong launch types.  +  This parameter is available for both the Linux and Windows operating systems.  +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package   +  You can specify a maximum of 100 port ranges per container.  +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:  +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.  +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.    +  The ``containerPortRange`` valid values are between 1 and 65535.  +  A port can only be included in one port mapping per container.  +  You cannot specify overlapping port ranges.  +  The first port in the range must be less than last port in the range.  +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports. For more information, see [Issue #11185](https://docs.aws.amazon.com/https://github.com/moby/moby/issues/11185) on the Github website. For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.   You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
+         * The port number range on the container that's bound to the dynamically mapped host port range.  The following rules apply when you specify a ``containerPortRange``:  +  You must use either the ``bridge`` network mode or the ``awsvpc`` network mode.  +  This parameter is available for both the EC2 and FARGATElong launch types.  +  This parameter is available for both the Linux and Windows operating systems.  +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package   +  You can specify a maximum of 100 port ranges per container.  +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:  +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.  +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.    +  The ``containerPortRange`` valid values are between 1 and 65535.  +  A port can only be included in one port mapping per container.  +  You cannot specify overlapping port ranges.  +  The first port in the range must be less than last port in the range.  +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports. For more information, see [Issue #11185](https://github.com/moby/moby/issues/11185) on the Github website. For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.   You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
          */
         containerPortRange?: pulumi.Input<string>;
         /**
@@ -29900,7 +30146,7 @@ export namespace awsconnector {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to. The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
+         * The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to. The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
          */
         logConfiguration?: pulumi.Input<inputs.awsconnector.LogConfigurationArgs>;
         /**
@@ -31411,7 +31657,7 @@ export namespace awsconnector {
          */
         minimumProtocolVersion?: pulumi.Input<string>;
         /**
-         * In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.  +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.  +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.  +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).   If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
+         * In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.  +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.  +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.  +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://aws.amazon.com/support/home).   If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
          */
         sslSupportMethod?: pulumi.Input<string>;
     }
@@ -35552,6 +35798,38 @@ export namespace azurestackhci {
     }
 
     /**
+     * Backend address pool for the load balancer.
+     */
+    export interface BackendAddressPoolArgs {
+        /**
+         * name of the backend pool.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * properties for the backend pool
+         */
+        properties: pulumi.Input<inputs.azurestackhci.BackendAddressPoolPropertiesArgs>;
+    }
+
+    /**
+     * Backend address pool for the load balancer.
+     */
+    export interface BackendAddressPoolPropertiesArgs {
+        /**
+         * List of backend addresses for the backend pool
+         */
+        loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.azurestackhci.LoadBalancerBackendAddressArgs>[]>;
+        /**
+         * Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+         */
+        logicalNetwork?: pulumi.Input<inputs.azurestackhci.LogicalNetworkArmReferenceArgs>;
+        /**
+         * Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+         */
+        virtualNetwork?: pulumi.Input<inputs.azurestackhci.VirtualNetworkArmReferenceArgs>;
+    }
+
+    /**
      * Desired properties of the cluster.
      */
     export interface ClusterDesiredPropertiesArgs {
@@ -35758,6 +36036,73 @@ export namespace azurestackhci {
     }
 
     /**
+     * Represents the properties of Download Os job.
+     */
+    export interface DownloadOsJobPropertiesArgs {
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: pulumi.Input<string | enums.azurestackhci.DeploymentMode>;
+        /**
+         * Download OS request.
+         */
+        downloadRequest: pulumi.Input<inputs.azurestackhci.DownloadRequestArgs>;
+        /**
+         * Job Type supported.
+         * Expected value is 'DownloadOs'.
+         */
+        jobType: pulumi.Input<"DownloadOs">;
+    }
+
+    /**
+     * Operating system profile.
+     */
+    export interface DownloadOsProfileArgs {
+        /**
+         * GPG Public Key used for package verification
+         */
+        gpgPubKey?: pulumi.Input<string>;
+        /**
+         * Hash of the OS package downloaded
+         */
+        imageHash?: pulumi.Input<string>;
+        /**
+         * Location of the operating system image.
+         */
+        osImageLocation?: pulumi.Input<string>;
+        /**
+         * Name of the operating system.
+         */
+        osName?: pulumi.Input<string>;
+        /**
+         * Type of the operating system.
+         */
+        osType?: pulumi.Input<string>;
+        /**
+         * Version of the operating system.
+         */
+        osVersion?: pulumi.Input<string>;
+        /**
+         * Validated Solution Recipe version to be used for the job
+         */
+        vsrVersion?: pulumi.Input<string>;
+    }
+
+    /**
+     * Download Request properties
+     */
+    export interface DownloadRequestArgs {
+        /**
+         * Operating system profile.
+         */
+        osProfile: pulumi.Input<inputs.azurestackhci.DownloadOsProfileArgs>;
+        /**
+         * Target operating system to support polymorphic resource.
+         */
+        target: pulumi.Input<string | enums.azurestackhci.ProvisioningOsType>;
+    }
+
+    /**
      * Protected parameters list stored in keyvault.
      */
     export interface EceDeploymentSecretsArgs {
@@ -35776,6 +36121,99 @@ export namespace azurestackhci {
     }
 
     /**
+     * Properties for pausing a server in the cluster.
+     */
+    export interface EdgeMachineCollectLogJobPropertiesArgs {
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: pulumi.Input<string | enums.azurestackhci.DeploymentMode>;
+        /**
+         * From date for log collection.
+         */
+        fromDate: pulumi.Input<string>;
+        /**
+         * Job Type supported.
+         * Expected value is 'CollectLog'.
+         */
+        jobType: pulumi.Input<"CollectLog">;
+        /**
+         * To date for log collection.
+         */
+        toDate: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties for edge machine.
+     */
+    export interface EdgeMachinePropertiesArgs {
+        /**
+         * Link to Arc Gateway ARM resource Id
+         */
+        arcGatewayResourceId?: pulumi.Input<string>;
+        /**
+         * Optional property to create arc machine in custom resource group.
+         */
+        arcMachineResourceGroupId?: pulumi.Input<string>;
+        /**
+         * Arc machine instance resource id.
+         */
+        arcMachineResourceId?: pulumi.Input<string>;
+        /**
+         * Edge Machine type.
+         */
+        edgeMachineKind?: pulumi.Input<string | enums.azurestackhci.EdgeMachineKind>;
+        /**
+         * Ownership voucher details for provisioned machine.
+         */
+        ownershipVoucherDetails?: pulumi.Input<inputs.azurestackhci.OwnershipVoucherDetailsArgs>;
+        /**
+         * Details for device provisioning.
+         */
+        provisioningDetails?: pulumi.Input<inputs.azurestackhci.ProvisioningDetailsArgs>;
+        /**
+         * Service fetches common configuration from site.
+         */
+        siteDetails?: pulumi.Input<inputs.azurestackhci.SiteDetailsArgs>;
+    }
+    /**
+     * edgeMachinePropertiesArgsProvideDefaults sets the appropriate defaults for EdgeMachinePropertiesArgs
+     */
+    export function edgeMachinePropertiesArgsProvideDefaults(val: EdgeMachinePropertiesArgs): EdgeMachinePropertiesArgs {
+        return {
+            ...val,
+            provisioningDetails: (val.provisioningDetails ? pulumi.output(val.provisioningDetails).apply(inputs.azurestackhci.provisioningDetailsArgsProvideDefaults) : undefined),
+        };
+    }
+
+    /**
+     * Properties for adding a server in the cluster.
+     */
+    export interface EdgeMachineRemoteSupportJobPropertiesArgs {
+        /**
+         * Remote support access level.
+         */
+        accessLevel: pulumi.Input<string | enums.azurestackhci.RemoteSupportAccessLevel>;
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: pulumi.Input<string | enums.azurestackhci.DeploymentMode>;
+        /**
+         * Remote support expiration timestamp.
+         */
+        expirationTimestamp: pulumi.Input<string>;
+        /**
+         * Job Type supported.
+         * Expected value is 'RemoteSupport'.
+         */
+        jobType: pulumi.Input<"RemoteSupport">;
+        /**
+         * Remote support type.
+         */
+        type: pulumi.Input<string | enums.azurestackhci.RemoteSupportType>;
+    }
+
+    /**
      * The complex type of the extended location.
      */
     export interface ExtendedLocationArgs {
@@ -35787,6 +36225,42 @@ export namespace azurestackhci {
          * The type of the extended location.
          */
         type?: pulumi.Input<string | enums.azurestackhci.ExtendedLocationTypes>;
+    }
+
+    /**
+     * FrontendIP Configuration object for a load balancer.
+     */
+    export interface FrontendIPConfigurationArgs {
+        /**
+         * name for the frontend IP configuration.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * properties for this frontendIPConfiguration
+         */
+        properties: pulumi.Input<inputs.azurestackhci.FrontendIPConfigurationPropertiesArgs>;
+    }
+
+    /**
+     * FrontendIP Configuration object for a load balancer.
+     */
+    export interface FrontendIPConfigurationPropertiesArgs {
+        /**
+         * Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+         */
+        privateIPAddress?: pulumi.Input<string>;
+        /**
+         * privateIPAllocationMethod - set to Static for requesting a specific IP
+         */
+        privateIPAllocationMethod?: pulumi.Input<string | enums.azurestackhci.IpAllocationMethodEnum>;
+        /**
+         * Public IP 
+         */
+        publicIPAddress?: pulumi.Input<inputs.azurestackhci.PublicIPAddressArmReferenceArgs>;
+        /**
+         * subnet - the subnet from which to allocate the private IP
+         */
+        subnet?: pulumi.Input<inputs.azurestackhci.VirtualNetworkSubnetArmReferenceArgs>;
     }
 
     /**
@@ -35960,6 +36434,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * The Azure Resource ID of an IPConfiguration resource
+     */
+    export interface IPConfigurationArmReferenceArgs {
+        /**
+         * The Azure Resource ID of an IPConfiguration resource
+         */
+        resourceId?: pulumi.Input<string>;
+    }
+
+    /**
      * InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
      */
     export interface IPConfigurationPropertiesArgs {
@@ -36006,13 +36490,53 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Gallery Image.
+     * The Azure Resource ID for a Gallery Image.
      */
     export interface ImageArmReferenceArgs {
         /**
-         * The ARM ID for an image resource used by the virtual machine instance.
+         * The Azure Resource ID for an image resource used by the virtual machine instance.
          */
         id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Inbound nat rule properties
+     */
+    export interface InboundNATRuleArgs {
+        /**
+         * name of the inbound nat rule
+         */
+        name: pulumi.Input<string>;
+        /**
+         * properties of the inbound nat rule
+         */
+        properties: pulumi.Input<inputs.azurestackhci.InboundNATRulePropertiesArgs>;
+    }
+
+    /**
+     * Inbound nat rule properties
+     */
+    export interface InboundNATRulePropertiesArgs {
+        /**
+         * IP configuration for the target backend.
+         */
+        backendIPConfiguration: pulumi.Input<inputs.azurestackhci.IPConfigurationArmReferenceArgs>;
+        /**
+         * backend Port for the inbound rule
+         */
+        backendPort: pulumi.Input<number>;
+        /**
+         * Frontend Port for the inbound rule
+         */
+        frontendPort: pulumi.Input<number>;
+        /**
+         * Protocol for the NAT rule
+         */
+        protocol: pulumi.Input<string | enums.azurestackhci.InboundNATRuleProtocol>;
+        /**
+         * Public IP Address for this NAT rule
+         */
+        publicIPAddress: pulumi.Input<inputs.azurestackhci.PublicIPAddressArmReferenceArgs>;
     }
 
     /**
@@ -36105,6 +36629,20 @@ export namespace azurestackhci {
     }
 
     /**
+     * IP address range configuration.
+     */
+    export interface IpAddressRangeArgs {
+        /**
+         * End IP address.
+         */
+        endIp: pulumi.Input<string>;
+        /**
+         * Start IP address.
+         */
+        startIp: pulumi.Input<string>;
+    }
+
+    /**
      * The dnsServers of a device.
      */
     export interface IpPoolsArgs {
@@ -36119,11 +36657,161 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Logical Network.
+     * LoadBalancer Backend Address
+     */
+    export interface LoadBalancerBackendAddressArgs {
+        /**
+         * name of the backend address
+         */
+        name: pulumi.Input<string>;
+        /**
+         * backend address properties
+         */
+        properties: pulumi.Input<inputs.azurestackhci.LoadBalancerBackendAddressPropertiesArgs>;
+    }
+
+    /**
+     * Reference to a LoadBalancer backend address pool reference
+     */
+    export interface LoadBalancerBackendAddressPoolReferenceArgs {
+        /**
+         * name of the backend address pool
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * LoadBalancer Backend Address properties
+     */
+    export interface LoadBalancerBackendAddressPropertiesArgs {
+        /**
+         * admin state - if set to false, the address is removed from the pool
+         */
+        adminState?: pulumi.Input<string | enums.azurestackhci.LoadBalancerBackendAddressAdminState>;
+        /**
+         * Nic Based backend-ip association
+         */
+        networkInterfaceIPConfiguration?: pulumi.Input<inputs.azurestackhci.IPConfigurationArmReferenceArgs>;
+    }
+
+    /**
+     * Reference to a LoadBalancer Frontend IPConfiguration
+     */
+    export interface LoadBalancerFrontendIPConfigurationReferenceArgs {
+        /**
+         * name of the frontnedIPConfiguration
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * Reference to a LoadBalancer health probe
+     */
+    export interface LoadBalancerProbeReferenceArgs {
+        /**
+         * name of the health probe
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * Load Balancer resource properties
+     */
+    export interface LoadBalancerPropertiesArgs {
+        /**
+         * backendAddressPools for the loadbalancer
+         */
+        backendAddressPools?: pulumi.Input<pulumi.Input<inputs.azurestackhci.BackendAddressPoolArgs>[]>;
+        /**
+         * Frontend IPs for the loadbalancer.
+         */
+        frontendIPConfigurations: pulumi.Input<pulumi.Input<inputs.azurestackhci.FrontendIPConfigurationArgs>[]>;
+        /**
+         * load balancer rules
+         */
+        loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.azurestackhci.LoadBalancerRuleArgs>[]>;
+        /**
+         * load balancer health probes
+         */
+        probes?: pulumi.Input<pulumi.Input<inputs.azurestackhci.ProbeArgs>[]>;
+    }
+
+    /**
+     * LoadBalancer Rules
+     */
+    export interface LoadBalancerRuleArgs {
+        /**
+         * name of the load balancer rule
+         */
+        name: pulumi.Input<string>;
+        /**
+         * load balancer rule properties
+         */
+        properties: pulumi.Input<inputs.azurestackhci.LoadBalancerRulePropertiesArgs>;
+    }
+    /**
+     * loadBalancerRuleArgsProvideDefaults sets the appropriate defaults for LoadBalancerRuleArgs
+     */
+    export function loadBalancerRuleArgsProvideDefaults(val: LoadBalancerRuleArgs): LoadBalancerRuleArgs {
+        return {
+            ...val,
+            properties: pulumi.output(val.properties).apply(inputs.azurestackhci.loadBalancerRulePropertiesArgsProvideDefaults),
+        };
+    }
+
+    /**
+     * Properties for LoadBalancerRules
+     */
+    export interface LoadBalancerRulePropertiesArgs {
+        /**
+         * arm reference to backend pool being used by ths pool
+         */
+        backendAddressPool: pulumi.Input<inputs.azurestackhci.LoadBalancerBackendAddressPoolReferenceArgs>;
+        /**
+         * backendPort to forward connections
+         */
+        backendPort: pulumi.Input<number>;
+        /**
+         * arm reference to frontend IP being used by this LB
+         */
+        frontendIPConfiguration: pulumi.Input<inputs.azurestackhci.LoadBalancerFrontendIPConfigurationReferenceArgs>;
+        /**
+         * Frontend port to accept connections
+         */
+        frontendPort: pulumi.Input<number>;
+        /**
+         * Time for which connections are preserved before being torn down.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+         */
+        loadDistribution?: pulumi.Input<string | enums.azurestackhci.LoadBalancerRuleSessionPersistenceType>;
+        /**
+         * Reference for the health probe for this connection
+         */
+        probe?: pulumi.Input<inputs.azurestackhci.LoadBalancerProbeReferenceArgs>;
+        /**
+         * IP Protocol that the rule must load-balance
+         */
+        protocol: pulumi.Input<string | enums.azurestackhci.LoadBalancerRuleTransportProtocol>;
+    }
+    /**
+     * loadBalancerRulePropertiesArgsProvideDefaults sets the appropriate defaults for LoadBalancerRulePropertiesArgs
+     */
+    export function loadBalancerRulePropertiesArgsProvideDefaults(val: LoadBalancerRulePropertiesArgs): LoadBalancerRulePropertiesArgs {
+        return {
+            ...val,
+            loadDistribution: (val.loadDistribution) ?? "Default",
+        };
+    }
+
+    /**
+     * The Azure Resource ID for a Logical Network.
      */
     export interface LogicalNetworkArmReferenceArgs {
         /**
-         * The ARM ID for a Logical Network.
+         * The Azure Resource ID for a Logical Network.
          */
         id?: pulumi.Input<string>;
     }
@@ -36153,6 +36841,82 @@ export namespace azurestackhci {
     }
 
     /**
+     * The ARM ID for a Network Security Group.
+     */
+    export interface NatGatewayArmReferenceArgs {
+        /**
+         * The ARM ID for a Network Security Group.
+         */
+        resourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Nat Gateway resource properties
+     */
+    export interface NatGatewayPropertiesArgs {
+        /**
+         * List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+         */
+        inboundNATRules?: pulumi.Input<pulumi.Input<inputs.azurestackhci.InboundNATRuleArgs>[]>;
+        /**
+         * List of public ip addresses that the gateway can use for NAT.
+         */
+        publicIPAddresses?: pulumi.Input<pulumi.Input<inputs.azurestackhci.PublicIPAddressArmReferenceArgs>[]>;
+    }
+
+    /**
+     * Network adapter configuration.
+     */
+    export interface NetworkAdapterArgs {
+        /**
+         * Adapter Name.
+         */
+        adapterName?: pulumi.Input<string>;
+        /**
+         * Array of DNS addresses.
+         */
+        dnsAddressArray?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Gateway id.
+         */
+        gateway?: pulumi.Input<string>;
+        /**
+         * IP address.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * IP address range.
+         */
+        ipAddressRange?: pulumi.Input<inputs.azurestackhci.IpAddressRangeArgs>;
+        /**
+         * Type of IP assignment.
+         */
+        ipAssignmentType: pulumi.Input<string | enums.azurestackhci.IpAssignmentType>;
+        /**
+         * MAC address.
+         */
+        macAddress?: pulumi.Input<string>;
+        /**
+         * Subnet mask.
+         */
+        subnetMask?: pulumi.Input<string>;
+        /**
+         * VLAN ID for the network setup.
+         */
+        vlanId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Network configuration.
+     */
+    export interface NetworkConfigurationArgs {
+        /**
+         * List of network adapters.
+         */
+        networkAdapters?: pulumi.Input<pulumi.Input<inputs.azurestackhci.NetworkAdapterArgs>[]>;
+    }
+
+    /**
      * network controller config for SDN Integration to deploy AzureStackHCI Cluster.
      */
     export interface NetworkControllerArgs {
@@ -36171,21 +36935,21 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Network Interface.
+     * The Azure Resource ID for a Network Interface.
      */
     export interface NetworkInterfaceArmReferenceArgs {
         /**
-         * The ARM ID for a Network Interface.
+         * The Azure Resource ID for a Network Interface.
          */
         id?: pulumi.Input<string>;
     }
 
     /**
-     * The ARM ID for a Network Security Group.
+     * The Azure Resource ID for a Network Security Group.
      */
     export interface NetworkSecurityGroupArmReferenceArgs {
         /**
-         * The ARM ID for a Network Security Group.
+         * The Azure Resource ID for a Network Security Group.
          */
         id?: pulumi.Input<string>;
     }
@@ -36262,6 +37026,32 @@ export namespace azurestackhci {
     }
 
     /**
+     * Onboarding configuration.
+     */
+    export interface OnboardingConfigurationArgs {
+        /**
+         * Azure Arc virtual machine ID.
+         */
+        arcVirtualMachineId?: pulumi.Input<string>;
+        /**
+         * Location of the resource.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * Resource ID.
+         */
+        resourceId?: pulumi.Input<string>;
+        /**
+         * Tenant ID of the resource.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Type of the onboarding resource to support polymorphic resource.
+         */
+        type?: pulumi.Input<string | enums.azurestackhci.OnboardingResourceType>;
+    }
+
+    /**
      * The OptionalServices of AzureStackHCI Cluster.
      */
     export interface OptionalServicesArgs {
@@ -36269,6 +37059,67 @@ export namespace azurestackhci {
          * The name of custom location.
          */
         customLocation?: pulumi.Input<string>;
+    }
+
+    /**
+     * Operating system profile.
+     */
+    export interface OsProvisionProfileArgs {
+        /**
+         * GPG Public Key used for package verification
+         */
+        gpgPubKey?: pulumi.Input<string>;
+        /**
+         * Hash of the OS package downloaded
+         */
+        imageHash?: pulumi.Input<string>;
+        /**
+         * Operation sub type of OS Provisioning
+         */
+        operationType?: pulumi.Input<string | enums.azurestackhci.OSOperationType>;
+        /**
+         * Location of the operating system image.
+         */
+        osImageLocation?: pulumi.Input<string>;
+        /**
+         * Name of the operating system.
+         */
+        osName?: pulumi.Input<string>;
+        /**
+         * Type of the operating system.
+         */
+        osType?: pulumi.Input<string>;
+        /**
+         * Version of the operating system.
+         */
+        osVersion?: pulumi.Input<string>;
+        /**
+         * Validated Solution Recipe version to be used for the job
+         */
+        vsrVersion?: pulumi.Input<string>;
+    }
+    /**
+     * osProvisionProfileArgsProvideDefaults sets the appropriate defaults for OsProvisionProfileArgs
+     */
+    export function osProvisionProfileArgsProvideDefaults(val: OsProvisionProfileArgs): OsProvisionProfileArgs {
+        return {
+            ...val,
+            operationType: (val.operationType) ?? "Provision",
+        };
+    }
+
+    /**
+     * Details for ownership voucher.
+     */
+    export interface OwnershipVoucherDetailsArgs {
+        /**
+         * Owner key type
+         */
+        ownerKeyType: pulumi.Input<string | enums.azurestackhci.OwnerKeyType>;
+        /**
+         * Ownership voucher in base64 encoded format
+         */
+        ownershipVoucher: pulumi.Input<string>;
     }
 
     /**
@@ -36283,6 +37134,183 @@ export namespace azurestackhci {
          * NETBIOS name of each physical server on your Azure Stack HCI cluster.
          */
         name?: pulumi.Input<string>;
+    }
+
+    /**
+     * Load balancer health probes
+     */
+    export interface ProbeArgs {
+        /**
+         * name of the load balancer health probe
+         */
+        name: pulumi.Input<string>;
+        /**
+         * load balancer rule properties
+         */
+        properties: pulumi.Input<inputs.azurestackhci.ProbePropertiesArgs>;
+    }
+    /**
+     * probeArgsProvideDefaults sets the appropriate defaults for ProbeArgs
+     */
+    export function probeArgsProvideDefaults(val: ProbeArgs): ProbeArgs {
+        return {
+            ...val,
+            properties: pulumi.output(val.properties).apply(inputs.azurestackhci.probePropertiesArgsProvideDefaults),
+        };
+    }
+
+    /**
+     * properties for LoadBalancer health probes
+     */
+    export interface ProbePropertiesArgs {
+        /**
+         * Probe interval in seconds (5-300) default 15
+         */
+        intervalInSeconds?: pulumi.Input<number>;
+        /**
+         * number of consecutive probe failures before marking unhealthy (1-20) default 2
+         */
+        numberOfProbes?: pulumi.Input<number>;
+        /**
+         * Port on the backend address to probe
+         */
+        port: pulumi.Input<number>;
+        /**
+         * Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+         */
+        protocol: pulumi.Input<string | enums.azurestackhci.LoadBalancerProbeProtocol>;
+        /**
+         * For http probes, specify the request path e.g. /health
+         */
+        requestPath?: pulumi.Input<string>;
+    }
+    /**
+     * probePropertiesArgsProvideDefaults sets the appropriate defaults for ProbePropertiesArgs
+     */
+    export function probePropertiesArgsProvideDefaults(val: ProbePropertiesArgs): ProbePropertiesArgs {
+        return {
+            ...val,
+            intervalInSeconds: (val.intervalInSeconds) ?? 15,
+            numberOfProbes: (val.numberOfProbes) ?? 2,
+        };
+    }
+
+    /**
+     * Represents the properties of an Azure Linux restricted operating environment Provision Os job.
+     */
+    export interface ProvisionOsJobPropertiesArgs {
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: pulumi.Input<string | enums.azurestackhci.DeploymentMode>;
+        /**
+         * Job Type supported.
+         * Expected value is 'ProvisionOs'.
+         */
+        jobType: pulumi.Input<"ProvisionOs">;
+        /**
+         * Os Provisioning request.
+         */
+        provisioningRequest: pulumi.Input<inputs.azurestackhci.ProvisioningRequestArgs>;
+    }
+    /**
+     * provisionOsJobPropertiesArgsProvideDefaults sets the appropriate defaults for ProvisionOsJobPropertiesArgs
+     */
+    export function provisionOsJobPropertiesArgsProvideDefaults(val: ProvisionOsJobPropertiesArgs): ProvisionOsJobPropertiesArgs {
+        return {
+            ...val,
+            provisioningRequest: pulumi.output(val.provisioningRequest).apply(inputs.azurestackhci.provisioningRequestArgsProvideDefaults),
+        };
+    }
+
+    /**
+     * Details for device provisioning.
+     */
+    export interface ProvisioningDetailsArgs {
+        /**
+         * Operating system profile.
+         */
+        osProfile: pulumi.Input<inputs.azurestackhci.OsProvisionProfileArgs>;
+        /**
+         * User configuration.
+         */
+        userDetails?: pulumi.Input<pulumi.Input<inputs.azurestackhci.UserDetailsArgs>[]>;
+    }
+    /**
+     * provisioningDetailsArgsProvideDefaults sets the appropriate defaults for ProvisioningDetailsArgs
+     */
+    export function provisioningDetailsArgsProvideDefaults(val: ProvisioningDetailsArgs): ProvisioningDetailsArgs {
+        return {
+            ...val,
+            osProfile: pulumi.output(val.osProfile).apply(inputs.azurestackhci.osProvisionProfileArgsProvideDefaults),
+        };
+    }
+
+    /**
+     * Represents a provisioning request.
+     */
+    export interface ProvisioningRequestArgs {
+        /**
+         * Base64 encoded custom configuration for CAPI to use
+         */
+        customConfiguration?: pulumi.Input<string>;
+        /**
+         * Device configuration.
+         */
+        deviceConfiguration?: pulumi.Input<inputs.azurestackhci.TargetDeviceConfigurationArgs>;
+        /**
+         * Onboarding configuration.
+         */
+        onboardingConfiguration?: pulumi.Input<inputs.azurestackhci.OnboardingConfigurationArgs>;
+        /**
+         * Operating system profile.
+         */
+        osProfile: pulumi.Input<inputs.azurestackhci.OsProvisionProfileArgs>;
+        /**
+         * Target operating system to support polymorphic resource.
+         */
+        target: pulumi.Input<string | enums.azurestackhci.ProvisioningOsType>;
+        /**
+         * User configuration.
+         */
+        userDetails?: pulumi.Input<pulumi.Input<inputs.azurestackhci.UserDetailsArgs>[]>;
+    }
+    /**
+     * provisioningRequestArgsProvideDefaults sets the appropriate defaults for ProvisioningRequestArgs
+     */
+    export function provisioningRequestArgsProvideDefaults(val: ProvisioningRequestArgs): ProvisioningRequestArgs {
+        return {
+            ...val,
+            osProfile: pulumi.output(val.osProfile).apply(inputs.azurestackhci.osProvisionProfileArgsProvideDefaults),
+        };
+    }
+
+    /**
+     * The Azure Resource ID of a Public IP resource
+     */
+    export interface PublicIPAddressArmReferenceArgs {
+        /**
+         * The Azure Resource ID of a Public IP resource
+         */
+        resourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Public IP Properties resource.
+     */
+    export interface PublicIPAddressPropertiesArgs {
+        /**
+         * IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+         */
+        ipAllocationScope?: pulumi.Input<string>;
+        /**
+         * Whether the public IP is v4 or v6. Defaults to IPv4
+         */
+        publicIPAddressVersion?: pulumi.Input<string | enums.azurestackhci.PublicIPAddressType>;
     }
 
     /**
@@ -36455,6 +37483,20 @@ export namespace azurestackhci {
     }
 
     /**
+     * Site Details consists of common configurations.
+     */
+    export interface SiteDetailsArgs {
+        /**
+         * Edge Device configuration received from site common configuration.
+         */
+        deviceConfiguration?: pulumi.Input<inputs.azurestackhci.TargetDeviceConfigurationArgs>;
+        /**
+         * Site resource Id to be set during Edge Machine resource creation.
+         */
+        siteResourceId: pulumi.Input<string>;
+    }
+
+    /**
      * Software Assurance properties of the cluster.
      */
     export interface SoftwareAssurancePropertiesArgs {
@@ -36568,6 +37610,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * Storage configuration.
+     */
+    export interface StorageConfigurationArgs {
+        /**
+         * Partition size.
+         */
+        partitionSize?: pulumi.Input<string>;
+    }
+
+    /**
      * The StorageNetworks of a cluster.
      */
     export interface StorageNetworksArgs {
@@ -36632,13 +37684,57 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Network Interface.
+     * The Azure Resource ID for a Network Interface.
      */
     export interface SubnetIpConfigurationReferenceArgs {
         /**
-         * The ARM ID for a Network Interface.
+         * The Azure Resource ID for a Network Interface.
          */
         id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Device configuration.
+     */
+    export interface TargetDeviceConfigurationArgs {
+        /**
+         * Hostname of the device.
+         */
+        hostName?: pulumi.Input<string>;
+        /**
+         * Network configuration.
+         */
+        network?: pulumi.Input<inputs.azurestackhci.NetworkConfigurationArgs>;
+        /**
+         * Storage configuration.
+         */
+        storage?: pulumi.Input<inputs.azurestackhci.StorageConfigurationArgs>;
+        /**
+         * Time configuration.
+         */
+        time?: pulumi.Input<inputs.azurestackhci.TimeConfigurationArgs>;
+        /**
+         * Web proxy configuration.
+         */
+        webProxy?: pulumi.Input<inputs.azurestackhci.WebProxyConfigurationArgs>;
+    }
+
+    /**
+     * Time configuration.
+     */
+    export interface TimeConfigurationArgs {
+        /**
+         * Primary NTP server.
+         */
+        primaryTimeServer?: pulumi.Input<string>;
+        /**
+         * Secondary NTP server.
+         */
+        secondaryTimeServer?: pulumi.Input<string>;
+        /**
+         * Time zone.
+         */
+        timeZone?: pulumi.Input<string>;
     }
 
     /**
@@ -36660,6 +37756,28 @@ export namespace azurestackhci {
     }
 
     /**
+     * User configuration.
+     */
+    export interface UserDetailsArgs {
+        /**
+         * Location of the secret used for authentication.
+         */
+        secretLocation?: pulumi.Input<string>;
+        /**
+         * Type of the secret used for authentication.
+         */
+        secretType: pulumi.Input<string | enums.azurestackhci.SecretType>;
+        /**
+         * SSH Public Key for the user.
+         */
+        sshPubKey?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Name of the user.
+         */
+        userName: pulumi.Input<string>;
+    }
+
+    /**
      * Specifies the security profile settings for the managed disk. NOTE: It can only be set for Confidential VMs
      */
     export interface VMDiskSecurityProfileArgs {
@@ -36670,11 +37788,11 @@ export namespace azurestackhci {
     }
 
     /**
-     * The ARM ID for a Virtual Hard Disk.
+     * The Azure Resource ID for a Virtual Hard Disk.
      */
     export interface VirtualHardDiskArmReferenceArgs {
         /**
-         * The ARM ID for a Virtual Hard Disk.
+         * The Azure Resource ID for a Virtual Hard Disk.
          */
         id?: pulumi.Input<string>;
     }
@@ -36948,7 +38066,7 @@ export namespace azurestackhci {
      */
     export interface VirtualMachineInstancePropertiesStorageProfileOsDiskArgs {
         /**
-         * The ARM ID for a Virtual Hard Disk.
+         * The Azure Resource ID for a Virtual Hard Disk.
          */
         id?: pulumi.Input<string>;
         /**
@@ -37208,6 +38326,16 @@ export namespace azurestackhci {
     }
 
     /**
+     * The Azure Resource ID for a Virtual Network
+     */
+    export interface VirtualNetworkArmReferenceArgs {
+        /**
+         * The Azure Resource ID for a Virtual Network.
+         */
+        resourceId?: pulumi.Input<string>;
+    }
+
+    /**
      * DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
      */
     export interface VirtualNetworkPropertiesDhcpOptionsArgs {
@@ -37302,6 +38430,38 @@ export namespace azurestackhci {
     }
 
     /**
+     * The Azure Resource ID for a Virtual Network subnet
+     */
+    export interface VirtualNetworkSubnetArmReferenceArgs {
+        /**
+         * The Azure Resource ID for a Virtual Network subnet.
+         */
+        resourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * VirtualNetwork subnet resource
+     */
+    export interface VirtualNetworkSubnetPropertiesArgs {
+        /**
+         * Subnet CIDR
+         */
+        addressPrefix: pulumi.Input<string>;
+        /**
+         * Nat Gateway attached to the subnet for non-vnet traffic.
+         */
+        natGateway?: pulumi.Input<inputs.azurestackhci.NatGatewayArmReferenceArgs>;
+        /**
+         * Network Security Group attached to the subnet.
+         */
+        networkSecurityGroup?: pulumi.Input<inputs.azurestackhci.NetworkSecurityGroupArmReferenceArgs>;
+        /**
+         * RouteTable defining custom routes for the subnet.
+         */
+        routeTable?: pulumi.Input<inputs.azurestackhci.RouteTableArgs>;
+    }
+
+    /**
      * The VirtualSwitchConfigurationOverrides of a cluster.
      */
     export interface VirtualSwitchConfigurationOverridesArgs {
@@ -37316,17 +38476,21 @@ export namespace azurestackhci {
     }
 
     /**
-     * The credentials used to login to the image repository that has access to the specified image
+     * Web proxy configuration.
      */
-    export interface VmImageRepositoryCredentialsArgs {
+    export interface WebProxyConfigurationArgs {
         /**
-         * Password for accessing image repository
+         * Bypass list for the web proxy.
          */
-        password: pulumi.Input<string>;
+        bypassList?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Username for accessing image repository
+         * Connection URI of the web proxy.
          */
-        username: pulumi.Input<string>;
+        connectionUri?: pulumi.Input<string>;
+        /**
+         * Port of the web proxy.
+         */
+        port?: pulumi.Input<string>;
     }
 
 }
@@ -37481,7 +38645,13 @@ export namespace baremetalinfrastructure {
 }
 
 export namespace batch {
+    /**
+     * Link to an application package inside the batch account
+     */
     export interface ApplicationPackageReferenceArgs {
+        /**
+         * The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
+         */
         id: pulumi.Input<string>;
         /**
          * If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.
@@ -37489,11 +38659,17 @@ export namespace batch {
         version?: pulumi.Input<string>;
     }
 
+    /**
+     * AutoScale settings for the pool.
+     */
     export interface AutoScaleSettingsArgs {
         /**
          * If omitted, the default value is 15 minutes (PT15M).
          */
         evaluationInterval?: pulumi.Input<string>;
+        /**
+         * A formula for the desired number of compute nodes in the pool.
+         */
         formula: pulumi.Input<string>;
     }
 
@@ -37524,6 +38700,9 @@ export namespace batch {
         };
     }
 
+    /**
+     * Specifies the parameters for the auto user that runs a task on the Batch service.
+     */
     export interface AutoUserSpecificationArgs {
         /**
          * The default value is nonAdmin.
@@ -37557,16 +38736,25 @@ export namespace batch {
         useRollingUpgradePolicy?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Information used to connect to an Azure Storage Container using Blobfuse.
+     */
     export interface AzureBlobFileSystemConfigurationArgs {
         /**
          * This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
          */
         accountKey?: pulumi.Input<string>;
+        /**
+         * The Azure Storage Account name.
+         */
         accountName: pulumi.Input<string>;
         /**
          * These are 'net use' options in Windows and 'mount' options in Linux.
          */
         blobfuseOptions?: pulumi.Input<string>;
+        /**
+         * The Azure Blob Storage Container name.
+         */
         containerName: pulumi.Input<string>;
         /**
          * This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
@@ -37582,8 +38770,17 @@ export namespace batch {
         sasKey?: pulumi.Input<string>;
     }
 
+    /**
+     * Information used to connect to an Azure Fileshare.
+     */
     export interface AzureFileShareConfigurationArgs {
+        /**
+         * The Azure Storage account key.
+         */
         accountKey: pulumi.Input<string>;
+        /**
+         * The Azure Storage account name.
+         */
         accountName: pulumi.Input<string>;
         /**
          * This is of the form 'https://{account}.file.core.windows.net/'.
@@ -37627,17 +38824,29 @@ export namespace batch {
         userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Information used to connect to a CIFS file system.
+     */
     export interface CIFSMountConfigurationArgs {
         /**
          * These are 'net use' options in Windows and 'mount' options in Linux.
          */
         mountOptions?: pulumi.Input<string>;
+        /**
+         * The password to use for authentication against the CIFS file system.
+         */
         password: pulumi.Input<string>;
         /**
          * All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
          */
         relativeMountPath: pulumi.Input<string>;
+        /**
+         * The URI of the file system to mount.
+         */
         source: pulumi.Input<string>;
+        /**
+         * The user to use for authentication against the CIFS file system.
+         */
         userName: pulumi.Input<string>;
     }
 
@@ -37645,6 +38854,9 @@ export namespace batch {
      * Warning: This object is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
      */
     export interface CertificateReferenceArgs {
+        /**
+         * The fully qualified ID of the certificate to install on the pool. This must be inside the same batch account as the pool.
+         */
         id: pulumi.Input<string>;
         /**
          * The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
@@ -37654,6 +38866,9 @@ export namespace batch {
          * This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
          */
         storeName?: pulumi.Input<string>;
+        /**
+         * Which user accounts on the compute node should have access to the private data of the certificate.
+         */
         visibility?: pulumi.Input<pulumi.Input<enums.batch.CertificateVisibility>[]>;
     }
 
@@ -37667,6 +38882,9 @@ export namespace batch {
         resourceId?: pulumi.Input<string>;
     }
 
+    /**
+     * The configuration for container-enabled pools.
+     */
     export interface ContainerConfigurationArgs {
         /**
          * This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
@@ -37676,27 +38894,45 @@ export namespace batch {
          * If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
          */
         containerRegistries?: pulumi.Input<pulumi.Input<inputs.batch.ContainerRegistryArgs>[]>;
+        /**
+         * The container technology to be used.
+         */
         type: pulumi.Input<string | enums.batch.ContainerType>;
     }
 
+    /**
+     * The entry of path and mount mode you want to mount into task container.
+     */
     export interface ContainerHostBatchBindMountEntryArgs {
         /**
          * For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
          */
         isReadOnly?: pulumi.Input<boolean>;
+        /**
+         * The paths which will be mounted to container task's container.
+         */
         source?: pulumi.Input<string | enums.batch.ContainerHostDataPath>;
     }
 
+    /**
+     * A private container registry.
+     */
     export interface ContainerRegistryArgs {
         /**
          * The reference to a user assigned identity associated with the Batch pool which a compute node will use.
          */
         identityReference?: pulumi.Input<inputs.batch.ComputeNodeIdentityReferenceArgs>;
+        /**
+         * The password to log into the registry server.
+         */
         password?: pulumi.Input<string>;
         /**
          * If omitted, the default is "docker.io".
          */
         registryServer?: pulumi.Input<string>;
+        /**
+         * The user name to log into the registry server.
+         */
         userName?: pulumi.Input<string>;
     }
 
@@ -37707,13 +38943,16 @@ export namespace batch {
         /**
          * Values are:
          *
-         *  none - The caching mode for the disk is not enabled.
-         *  readOnly - The caching mode for the disk is read only.
-         *  readWrite - The caching mode for the disk is read and write.
+         * none - The caching mode for the disk is not enabled.
+         * readOnly - The caching mode for the disk is read only.
+         * readWrite - The caching mode for the disk is read and write.
          *
-         *  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+         * The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
          */
         caching?: pulumi.Input<enums.batch.CachingType>;
+        /**
+         * The initial disk size in GB when creating new data disk.
+         */
         diskSizeGB: pulumi.Input<number>;
         /**
          * The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
@@ -37722,16 +38961,25 @@ export namespace batch {
         /**
          * If omitted, the default is "Standard_LRS". Values are:
          *
-         *  Standard_LRS - The data disk should use standard locally redundant storage.
-         *  Premium_LRS - The data disk should use premium locally redundant storage.
+         * Standard_LRS - The data disk should use standard locally redundant storage.
+         * Premium_LRS - The data disk should use premium locally redundant storage.
          */
         storageAccountType?: pulumi.Input<enums.batch.StorageAccountType>;
     }
 
+    /**
+     * Deployment configuration properties.
+     */
     export interface DeploymentConfigurationArgs {
+        /**
+         * The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+         */
         virtualMachineConfiguration?: pulumi.Input<inputs.batch.VirtualMachineConfigurationArgs>;
     }
 
+    /**
+     * Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+     */
     export interface DiffDiskSettingsArgs {
         /**
          * This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
@@ -37777,11 +39025,23 @@ export namespace batch {
         ipRules?: pulumi.Input<pulumi.Input<inputs.batch.IPRuleArgs>[]>;
     }
 
+    /**
+     * An environment variable to be set on a task process.
+     */
     export interface EnvironmentSettingArgs {
+        /**
+         * The name of the environment variable.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The value of the environment variable.
+         */
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * Fixed scale settings for the pool.
+     */
     export interface FixedScaleSettingsArgs {
         /**
          * If omitted, the default value is Requeue.
@@ -37824,6 +39084,9 @@ export namespace batch {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+     */
     export interface ImageReferenceArgs {
         /**
          * This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
@@ -37855,6 +39118,9 @@ export namespace batch {
         version?: pulumi.Input<string>;
     }
 
+    /**
+     * A inbound NAT pool that can be used to address specific ports on compute nodes in a Batch pool externally.
+     */
     export interface InboundNatPoolArgs {
         /**
          * This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
@@ -37876,6 +39142,9 @@ export namespace batch {
          * The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
          */
         networkSecurityGroupRules?: pulumi.Input<pulumi.Input<inputs.batch.NetworkSecurityGroupRuleArgs>[]>;
+        /**
+         * The protocol of the endpoint.
+         */
         protocol: pulumi.Input<enums.batch.InboundEndpointProtocol>;
     }
 
@@ -37886,9 +39155,9 @@ export namespace batch {
         /**
          * Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
          *
-         *  The Batch Account has a System Assigned identity
-         *  The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-         *  The KeyVault has soft-delete and purge protection enabled
+         * The Batch Account has a System Assigned identity
+         * The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+         * The KeyVault has soft-delete and purge protection enabled
          */
         keyIdentifier?: pulumi.Input<string>;
     }
@@ -37907,6 +39176,9 @@ export namespace batch {
         url: pulumi.Input<string>;
     }
 
+    /**
+     * Properties used to create a user account on a Linux node.
+     */
     export interface LinuxUserConfigurationArgs {
         /**
          * The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
@@ -37927,6 +39199,9 @@ export namespace batch {
          * Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
          */
         securityProfile?: pulumi.Input<inputs.batch.VMDiskSecurityProfileArgs>;
+        /**
+         * The storage account type for use in creating data disks or OS disk.
+         */
         storageAccountType?: pulumi.Input<enums.batch.StorageAccountType>;
     }
 
@@ -37934,10 +39209,19 @@ export namespace batch {
      * The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
      */
     export interface MetadataItemArgs {
+        /**
+         * The name of the metadata item.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The value of the metadata item.
+         */
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The file system to mount on each node.
+     */
     export interface MountConfigurationArgs {
         /**
          * This property is mutually exclusive with all other properties.
@@ -37957,6 +39241,9 @@ export namespace batch {
         nfsMountConfiguration?: pulumi.Input<inputs.batch.NFSMountConfigurationArgs>;
     }
 
+    /**
+     * Information used to connect to an NFS file system.
+     */
     export interface NFSMountConfigurationArgs {
         /**
          * These are 'net use' options in Windows and 'mount' options in Linux.
@@ -37966,6 +39253,9 @@ export namespace batch {
          * All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
          */
         relativeMountPath: pulumi.Input<string>;
+        /**
+         * The URI of the file system to mount.
+         */
         source: pulumi.Input<string>;
     }
 
@@ -37973,11 +39263,17 @@ export namespace batch {
      * The network configuration for a pool.
      */
     export interface NetworkConfigurationArgs {
+        /**
+         * The scope of dynamic vnet assignment.
+         */
         dynamicVnetAssignmentScope?: pulumi.Input<enums.batch.DynamicVNetAssignmentScope>;
         /**
          * Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
          */
         enableAcceleratedNetworking?: pulumi.Input<boolean>;
+        /**
+         * The endpoint configuration for a pool.
+         */
         endpointConfiguration?: pulumi.Input<inputs.batch.PoolEndpointConfigurationArgs>;
         /**
          * The public IP Address configuration of the networking configuration of a Pool.
@@ -38012,7 +39308,13 @@ export namespace batch {
         nodeManagementAccess?: pulumi.Input<inputs.batch.EndpointAccessProfileArgs>;
     }
 
+    /**
+     * A network security group rule to apply to an inbound endpoint.
+     */
     export interface NetworkSecurityGroupRuleArgs {
+        /**
+         * The action that should be taken for a specified IP address, subnet range or tag.
+         */
         access: pulumi.Input<enums.batch.NetworkSecurityGroupRuleAccess>;
         /**
          * Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
@@ -38038,14 +39340,32 @@ export namespace batch {
         policy?: pulumi.Input<enums.batch.NodePlacementPolicyType>;
     }
 
+    /**
+     * Settings for the operating system disk of the virtual machine.
+     */
     export interface OSDiskArgs {
+        /**
+         * The type of caching to enable for the disk.
+         */
         caching?: pulumi.Input<enums.batch.CachingType>;
+        /**
+         * The initial disk size in GB when creating new OS disk.
+         */
         diskSizeGB?: pulumi.Input<number>;
+        /**
+         * Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+         */
         ephemeralOSDiskSettings?: pulumi.Input<inputs.batch.DiffDiskSettingsArgs>;
         managedDisk?: pulumi.Input<inputs.batch.ManagedDiskArgs>;
+        /**
+         * Specifies whether writeAccelerator should be enabled or disabled on the disk.
+         */
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
 
+    /**
+     * The endpoint configuration for a pool.
+     */
     export interface PoolEndpointConfigurationArgs {
         /**
          * The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
@@ -38067,6 +39387,9 @@ export namespace batch {
         provision?: pulumi.Input<enums.batch.IPAddressProvisioningType>;
     }
 
+    /**
+     * A single file or multiple files to be downloaded to a compute node.
+     */
     export interface ResourceFileArgs {
         /**
          * The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
@@ -38163,6 +39486,9 @@ export namespace batch {
          * This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
          */
         encryptionAtHost?: pulumi.Input<boolean>;
+        /**
+         * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+         */
         securityType?: pulumi.Input<enums.batch.SecurityTypes>;
         /**
          * Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
@@ -38192,11 +39518,17 @@ export namespace batch {
          * When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
          */
         containerSettings?: pulumi.Input<inputs.batch.TaskContainerSettingsArgs>;
+        /**
+         * A list of environment variable settings for the start task.
+         */
         environmentSettings?: pulumi.Input<pulumi.Input<inputs.batch.EnvironmentSettingArgs>[]>;
         /**
          * The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0
          */
         maxTaskRetryCount?: pulumi.Input<number>;
+        /**
+         * A list of files that the Batch service will download to the compute node before running the command line.
+         */
         resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.ResourceFileArgs>[]>;
         /**
          * If omitted, the task runs as a non-administrative user unique to the task.
@@ -38217,6 +39549,9 @@ export namespace batch {
         };
     }
 
+    /**
+     * The container settings for a task.
+     */
     export interface TaskContainerSettingsArgs {
         /**
          * If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
@@ -38234,10 +39569,19 @@ export namespace batch {
          * This setting can be omitted if was already provided at pool creation.
          */
         registry?: pulumi.Input<inputs.batch.ContainerRegistryArgs>;
+        /**
+         * A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+         */
         workingDirectory?: pulumi.Input<enums.batch.ContainerWorkingDirectory>;
     }
 
+    /**
+     * Specifies how tasks should be distributed across compute nodes.
+     */
     export interface TaskSchedulingPolicyArgs {
+        /**
+         * How tasks should be distributed across compute nodes.
+         */
         nodeFillType: pulumi.Input<enums.batch.ComputeNodeFillType>;
     }
     /**
@@ -38272,6 +39616,9 @@ export namespace batch {
          * The configuration parameters used for performing automatic OS upgrade.
          */
         automaticOSUpgradePolicy?: pulumi.Input<inputs.batch.AutomaticOSUpgradePolicyArgs>;
+        /**
+         * Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
+         */
         mode: pulumi.Input<enums.batch.UpgradeMode>;
         /**
          * The configuration parameters used while performing a rolling upgrade.
@@ -38279,6 +39626,9 @@ export namespace batch {
         rollingUpgradePolicy?: pulumi.Input<inputs.batch.RollingUpgradePolicyArgs>;
     }
 
+    /**
+     * Properties used to create a user on an Azure Batch node.
+     */
     export interface UserAccountArgs {
         /**
          * nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -38288,7 +39638,13 @@ export namespace batch {
          * This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
          */
         linuxUserConfiguration?: pulumi.Input<inputs.batch.LinuxUserConfigurationArgs>;
+        /**
+         * The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The password for the user account.
+         */
         password: pulumi.Input<string>;
         /**
          * This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
@@ -38314,9 +39670,15 @@ export namespace batch {
      * Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
      */
     export interface VMDiskSecurityProfileArgs {
+        /**
+         * Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+         */
         securityEncryptionType?: pulumi.Input<string | enums.batch.SecurityEncryptionTypes>;
     }
 
+    /**
+     * The configuration for virtual machine extensions.
+     */
     export interface VMExtensionArgs {
         /**
          * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -38326,21 +39688,39 @@ export namespace batch {
          * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
          */
         enableAutomaticUpgrade?: pulumi.Input<boolean>;
+        /**
+         * The name of the virtual machine extension.
+         */
         name: pulumi.Input<string>;
         /**
-         * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
+         * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
          */
         protectedSettings?: any;
         /**
          * Collection of extension names after which this extension needs to be provisioned.
          */
         provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the extension handler publisher.
+         */
         publisher: pulumi.Input<string>;
+        /**
+         * JSON formatted public settings for the extension.
+         */
         settings?: any;
+        /**
+         * The type of the extensions.
+         */
         type: pulumi.Input<string>;
+        /**
+         * The version of script handler.
+         */
         typeHandlerVersion?: pulumi.Input<string>;
     }
 
+    /**
+     * The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+     */
     export interface VirtualMachineConfigurationArgs {
         /**
          * If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
@@ -38358,12 +39738,15 @@ export namespace batch {
          * If specified, the extensions mentioned in this configuration will be installed on each node.
          */
         extensions?: pulumi.Input<pulumi.Input<inputs.batch.VMExtensionArgs>[]>;
+        /**
+         * A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+         */
         imageReference: pulumi.Input<inputs.batch.ImageReferenceArgs>;
         /**
          * This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
          *
-         *  Windows_Server - The on-premises license is for Windows Server.
-         *  Windows_Client - The on-premises license is for Windows Client.
+         * Windows_Server - The on-premises license is for Windows Server.
+         * Windows_Client - The on-premises license is for Windows Client.
          */
         licenseType?: pulumi.Input<string>;
         /**
@@ -38392,6 +39775,9 @@ export namespace batch {
         windowsConfiguration?: pulumi.Input<inputs.batch.WindowsConfigurationArgs>;
     }
 
+    /**
+     * Windows operating system settings to apply to the virtual machine.
+     */
     export interface WindowsConfigurationArgs {
         /**
          * If omitted, the default value is true.
@@ -38399,6 +39785,9 @@ export namespace batch {
         enableAutomaticUpdates?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Properties used to create a user account on a Windows node.
+     */
     export interface WindowsUserConfigurationArgs {
         /**
          * Specifies login mode for the user. The default value is Interactive.
@@ -38797,11 +40186,40 @@ export namespace billing {
 
 export namespace billingbenefits {
     /**
+     * Optional field to record suppression reason for automatic shortfall.
+     */
+    export interface AutomaticShortfallSuppressReasonArgs {
+        /**
+         * Code for the suppression reason.
+         */
+        code?: pulumi.Input<string>;
+        /**
+         * Message for suppression reason.
+         */
+        message?: pulumi.Input<string>;
+    }
+
+    /**
      * Catalog claim for a discount.
      */
     export interface CatalogClaimsItemArgs {
         catalogClaimsItemType?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Commitment towards the benefit.
+     */
+    export interface CommitmentArgs {
+        amount?: pulumi.Input<number>;
+        /**
+         * The ISO 4217 3-letter currency code for the currency used by this purchase record.
+         */
+        currencyCode?: pulumi.Input<string>;
+        /**
+         * The grain of the commitment.
+         */
+        grain?: pulumi.Input<string | enums.billingbenefits.CommitmentGrain>;
     }
 
     /**
@@ -38814,6 +40232,56 @@ export namespace billingbenefits {
          * These items are open-ended strings.
          */
         value?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Credit breakdown item representing a milestone, line-item, or no-charge service
+     */
+    export interface CreditBreakdownItemArgs {
+        /**
+         * Allocation details including currency and amount for this breakdown item
+         */
+        allocation?: pulumi.Input<inputs.billingbenefits.CommitmentArgs>;
+        /**
+         * Key-value pairs for additional parameters and metadata
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.billingbenefits.CreditDimensionArgs>[]>;
+        /**
+         * End DateTime in UTC.
+         */
+        endAt?: pulumi.Input<string>;
+        /**
+         * Start DateTime.
+         */
+        startAt?: pulumi.Input<string>;
+    }
+
+    /**
+     * Key-value pair for additional credit parameters and metadata
+     */
+    export interface CreditDimensionArgs {
+        /**
+         * The dimension key (e.g., productFamily, description, creditType)
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The dimension value
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Credit breakdown item representing a milestone, line-item, or no-charge service
+     */
+    export interface CreditPoliciesArgs {
+        /**
+         * Expiration policy of the Credit
+         */
+        expiration?: pulumi.Input<string | enums.billingbenefits.CreditExpirationPolicy>;
+        /**
+         * Redemption policy of the Credit
+         */
+        redemption?: pulumi.Input<string | enums.billingbenefits.CreditRedemptionPolicy>;
     }
 
     /**
@@ -39132,6 +40600,40 @@ export namespace billingbenefits {
     }
 
     /**
+     * MACC milestone represents interim targets within the period of MACC.
+     */
+    export interface MaccMilestoneArgs {
+        /**
+         * Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+         */
+        automaticShortfall?: pulumi.Input<string | enums.billingbenefits.EnablementMode>;
+        /**
+         * Optional field to record suppression reason for automatic shortfall.
+         */
+        automaticShortfallSuppressReason?: pulumi.Input<inputs.billingbenefits.AutomaticShortfallSuppressReasonArgs>;
+        /**
+         * Commitment associated with this milestone.
+         */
+        commitment?: pulumi.Input<inputs.billingbenefits.PriceArgs>;
+        /**
+         * End date time for the milestone. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
+         */
+        endAt?: pulumi.Input<string>;
+        /**
+         * Globally unique identifier for the milestone. Format: {guid}
+         */
+        milestoneId?: pulumi.Input<string>;
+        /**
+         * Details of the shortfall associated with this milestone.
+         */
+        shortfall?: pulumi.Input<inputs.billingbenefits.ShortfallArgs>;
+        /**
+         * Represents the current status of the Milestone.
+         */
+        status?: pulumi.Input<string | enums.billingbenefits.MaccMilestoneStatus>;
+    }
+
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     export interface ManagedServiceIdentityArgs {
@@ -39169,7 +40671,7 @@ export namespace billingbenefits {
          */
         name: pulumi.Input<string>;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
          */
         product: pulumi.Input<string>;
         /**
@@ -39186,6 +40688,14 @@ export namespace billingbenefits {
         version?: pulumi.Input<string>;
     }
 
+    export interface PriceArgs {
+        amount?: pulumi.Input<number>;
+        /**
+         * The ISO 4217 3-letter currency code for the currency used by this purchase record.
+         */
+        currencyCode?: pulumi.Input<string>;
+    }
+
     /**
      * Set only in price guarantee scenario.
      */
@@ -39198,6 +40708,40 @@ export namespace billingbenefits {
          * Supported values: Protected, Locked
          */
         pricingPolicy?: pulumi.Input<string | enums.billingbenefits.PricingPolicy>;
+    }
+
+    /**
+     * MACC shortfall
+     */
+    export interface ShortfallArgs {
+        /**
+         * Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
+         */
+        balanceVersion?: pulumi.Input<number>;
+        /**
+         * Shortfall amount with grain.
+         */
+        charge?: pulumi.Input<inputs.billingbenefits.CommitmentArgs>;
+        /**
+         * End DateTime in UTC.
+         */
+        endAt?: pulumi.Input<string>;
+        /**
+         * Represents catalog UPN.
+         */
+        productCode?: pulumi.Input<string>;
+        /**
+         * Fully-qualified resource identifier of the credits associated with the shortfall.
+         */
+        resourceId?: pulumi.Input<string>;
+        /**
+         * Start DateTime.
+         */
+        startAt?: pulumi.Input<string>;
+        /**
+         * This is an identifier of the shortfall which will not change for its lifetime.
+         */
+        systemId?: pulumi.Input<string>;
     }
 
     /**
@@ -39217,7 +40761,7 @@ export namespace billingbenefits {
          */
         name: pulumi.Input<string>;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
          */
         size?: pulumi.Input<string>;
         /**
@@ -42805,6 +44349,20 @@ export namespace cdn {
     }
 
     /**
+     * The SKU type for the edge action
+     */
+    export interface SkuTypeArgs {
+        /**
+         * The name of the SKU
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The tier of the SKU
+         */
+        tier: pulumi.Input<string>;
+    }
+
+    /**
      * Defines the parameters for SocketAddress match conditions
      */
     export interface SocketAddrMatchConditionParametersArgs {
@@ -43710,7 +45268,7 @@ export namespace cloudhealth {
      */
     export interface EvaluationRuleArgs {
         /**
-         * Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+         * Degraded rule with static threshold.
          */
         degradedRule?: pulumi.Input<inputs.cloudhealth.ThresholdRuleArgs>;
         /**
@@ -43718,7 +45276,7 @@ export namespace cloudhealth {
          */
         dynamicDetectionRule?: pulumi.Input<inputs.cloudhealth.DynamicDetectionRuleArgs>;
         /**
-         * Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+         * Unhealthy rule with static threshold.
          */
         unhealthyRule?: pulumi.Input<inputs.cloudhealth.ThresholdRuleArgs>;
     }
@@ -44607,6 +46165,76 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Type modeling the protocol and version used by an agent/exposed by a deployment.
+     */
+    export interface AgentProtocolVersionArgs {
+        /**
+         * The protocol used by the agent/exposed by a deployment.
+         */
+        protocol?: pulumi.Input<string | enums.cognitiveservices.AgentProtocol>;
+        /**
+         * The version of the protocol.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    /**
+     * Type modeling a reference to a version of an agent definition.
+     */
+    export interface AgentReferenceArgs {
+        /**
+         * Gets the agent's unique identifier within the organization (subscription).
+         */
+        agentId?: pulumi.Input<string>;
+        /**
+         * Gets the agent's name (unique within the project/app).
+         */
+        agentName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Resource type representing an agentic application as a management construct.
+     */
+    export interface AgenticApplicationArgs {
+        /**
+         * The EntraId Agentic Blueprint of the application.
+         */
+        agentIdentityBlueprint?: pulumi.Input<inputs.cognitiveservices.AssignedIdentityArgs>;
+        /**
+         * The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+         */
+        agents?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.AgentReferenceArgs>[]>;
+        /**
+         * Gets or sets the authorization policy associated with this agentic application instance.
+         */
+        authorizationPolicy?: pulumi.Input<inputs.cognitiveservices.ChannelsBuiltInAuthorizationPolicyArgs | inputs.cognitiveservices.OrganizationSharedBuiltInAuthorizationPolicyArgs | inputs.cognitiveservices.RoleBasedBuiltInAuthorizationPolicyArgs>;
+        /**
+         * The application's dedicated invocation endpoint.
+         */
+        baseUrl?: pulumi.Input<string>;
+        /**
+         * The (default) agent instance identity of the application.
+         */
+        defaultInstanceIdentity?: pulumi.Input<inputs.cognitiveservices.AssignedIdentityArgs>;
+        /**
+         * The asset description text.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of the application.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Tag dictionary. Tags can be added, removed, and updated.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Gets or sets the traffic routing policy for the application's deployments.
+         */
+        trafficRoutingPolicy?: pulumi.Input<inputs.cognitiveservices.ApplicationTrafficRoutingPolicyArgs>;
+    }
+
+    /**
      * This connection type covers the generic ApiKey auth connection categories, for examples:
      * AzureOpenAI:
      *     Category:= AzureOpenAI
@@ -44702,6 +46330,50 @@ export namespace cognitiveservices {
         websiteName?: pulumi.Input<string>;
     }
 
+    /**
+     * Type representing an application traffic policy as a property of an agentic application.
+     */
+    export interface ApplicationTrafficRoutingPolicyArgs {
+        /**
+         * Methodology used to route traffic to the application's deployments.
+         */
+        protocol?: pulumi.Input<string | enums.cognitiveservices.TrafficRoutingProtocol>;
+        /**
+         * Gets or sets the collection of traffic routing rules.
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.TrafficRoutingRuleArgs>[]>;
+    }
+
+    /**
+     * Type representing an identity assignment
+     */
+    export interface AssignedIdentityArgs {
+        /**
+         * The client ID of the identity.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * Specifies the kind of Entra identity described by this object.
+         */
+        kind: pulumi.Input<string | enums.cognitiveservices.IdentityKind>;
+        /**
+         * The principal ID of the identity.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The subject of this identity assignment.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * The tenant ID of the identity.
+         */
+        tenantId: pulumi.Input<string>;
+        /**
+         * Enumeration of identity types, from the perspective of management.
+         */
+        type: pulumi.Input<string | enums.cognitiveservices.IdentityManagementType>;
+    }
+
     export interface CapabilityHostArgs {
         /**
          * List of AI services connections.
@@ -44744,6 +46416,17 @@ export namespace cognitiveservices {
             ...val,
             capabilityHostKind: (val.capabilityHostKind) ?? "Agents",
         };
+    }
+
+    /**
+     * Represents a built-in authorization policy specific to Azure Bot Service/Channels authentication.
+     */
+    export interface ChannelsBuiltInAuthorizationPolicyArgs {
+        /**
+         * Authorization scheme type.
+         * Expected value is 'Channels'.
+         */
+        type: pulumi.Input<"Channels">;
     }
 
     /**
@@ -44933,6 +46616,24 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Gets or sets the source to which filter applies.
+     */
+    export interface CustomTopicConfigArgs {
+        /**
+         * If blocking would occur.
+         */
+        blocking?: pulumi.Input<boolean>;
+        /**
+         * Content source to apply the Content Filters.
+         */
+        source?: pulumi.Input<string | enums.cognitiveservices.RaiPolicyContentSource>;
+        /**
+         * Name of RAI topic.
+         */
+        topicName?: pulumi.Input<string>;
+    }
+
+    /**
      * Internal use only.
      */
     export interface DeploymentCapacitySettingsArgs {
@@ -45075,6 +46776,73 @@ export namespace cognitiveservices {
     }
 
     /**
+     * FQDN Outbound Rule for the managed network of a cognitive services account.
+     */
+    export interface FqdnOutboundRuleArgs {
+        /**
+         * Category of a managed network Outbound Rule of a cognitive services account.
+         */
+        category?: pulumi.Input<string | enums.cognitiveservices.RuleCategory>;
+        destination?: pulumi.Input<string>;
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         */
+        status?: pulumi.Input<string | enums.cognitiveservices.RuleStatus>;
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         * Expected value is 'FQDN'.
+         */
+        type: pulumi.Input<"FQDN">;
+    }
+
+    /**
+     * Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
+     */
+    export interface HostedAgentDeploymentArgs {
+        /**
+         * Returns a flat list of agent:version deployed in this deployment.
+         */
+        agents?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.VersionedAgentReferenceArgs>[]>;
+        /**
+         * Gets or sets the unique identifier of the deployment.
+         */
+        deploymentId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+         * Expected value is 'Hosted'.
+         */
+        deploymentType: pulumi.Input<"Hosted">;
+        /**
+         * The asset description text.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Gets or sets the display name of the deployment.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Gets or sets the maximum number of replicas for this hosted deployment.
+         */
+        maxReplicas?: pulumi.Input<number>;
+        /**
+         * Gets or sets the minimum number of replicas for this hosted deployment.
+         */
+        minReplicas?: pulumi.Input<number>;
+        /**
+         * Gets or sets the supported protocol types and versions exposed by this deployment.
+         */
+        protocols?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.AgentProtocolVersionArgs>[]>;
+        /**
+         * Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+         */
+        state?: pulumi.Input<string | enums.cognitiveservices.AgentDeploymentState>;
+        /**
+         * Tag dictionary. Tags can be added, removed, and updated.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
      * Identity for the resource.
      */
     export interface IdentityArgs {
@@ -45115,6 +46883,45 @@ export namespace cognitiveservices {
          * Version of the Key from KeyVault
          */
         keyVersion?: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
+     */
+    export interface ManagedAgentDeploymentArgs {
+        /**
+         * Returns a flat list of agent:version deployed in this deployment.
+         */
+        agents?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.VersionedAgentReferenceArgs>[]>;
+        /**
+         * Gets or sets the unique identifier of the deployment.
+         */
+        deploymentId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+         * Expected value is 'Managed'.
+         */
+        deploymentType: pulumi.Input<"Managed">;
+        /**
+         * The asset description text.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Gets or sets the display name of the deployment.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Gets or sets the supported protocol types and versions exposed by this deployment.
+         */
+        protocols?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.AgentProtocolVersionArgs>[]>;
+        /**
+         * Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+         */
+        state?: pulumi.Input<string | enums.cognitiveservices.AgentDeploymentState>;
+        /**
+         * Tag dictionary. Tags can be added, removed, and updated.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ManagedIdentityAuthTypeConnectionPropertiesArgs {
@@ -45228,6 +47035,17 @@ export namespace cognitiveservices {
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Built-in authorization policy scoped to organization/tenant.
+     */
+    export interface OrganizationSharedBuiltInAuthorizationPolicyArgs {
+        /**
+         * Authorization scheme type.
+         * Expected value is 'OrganizationScope'.
+         */
+        type: pulumi.Input<"OrganizationScope">;
+    }
+
     export interface PATAuthTypeConnectionPropertiesArgs {
         /**
          * Authentication type of the connection target
@@ -45285,6 +47103,25 @@ export namespace cognitiveservices {
         status?: pulumi.Input<string | enums.cognitiveservices.PrivateEndpointServiceConnectionStatus>;
     }
 
+    export interface ProjectCapabilityHostArgs {
+        /**
+         * List of AI services connections.
+         */
+        aiServicesConnections?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of connection names from those available in the account or project to be used as a storage resource.
+         */
+        storageConnections?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of connection names from those available in the account or project to be used for Thread storage.
+         */
+        threadStorageConnections?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+         */
+        vectorStoreConnections?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     /**
      * Properties of Cognitive Services Project'.
      */
@@ -45324,6 +47161,40 @@ export namespace cognitiveservices {
     }
 
     /**
+     * RAI External SafetyProvider schema properties.
+     */
+    export interface RaiExternalSafetyProviderSchemaPropertiesArgs {
+        /**
+         * The Key Vault URI that contains the api key for safety provider urls.
+         */
+        keyVaultUri?: pulumi.Input<string>;
+        /**
+         * The managed identity to access the Key Vault.
+         */
+        managedIdentity?: pulumi.Input<string>;
+        /**
+         * Safety provider mode sync/async.
+         */
+        mode?: pulumi.Input<string>;
+        /**
+         * The unique identifier of the safety provider.
+         */
+        providerId?: pulumi.Input<string>;
+        /**
+         * Name of the safety provider.
+         */
+        providerName?: pulumi.Input<string>;
+        /**
+         * The name of the secret in Key Vault that contains the api key to access the webhook.
+         */
+        secretName?: pulumi.Input<string>;
+        /**
+         * Webhook URL for the safety provider.
+         */
+        url?: pulumi.Input<string>;
+    }
+
+    /**
      * Cognitive Services Rai Monitor Config.
      */
     export interface RaiMonitorConfigArgs {
@@ -45341,6 +47212,10 @@ export namespace cognitiveservices {
      * Azure OpenAI Content Filter.
      */
     export interface RaiPolicyContentFilterArgs {
+        /**
+         * The action types to apply to the content filters
+         */
+        action?: pulumi.Input<string | enums.cognitiveservices.RaiActionType>;
         /**
          * If blocking would occur.
          */
@@ -45380,9 +47255,56 @@ export namespace cognitiveservices {
          */
         customBlocklists?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.CustomBlocklistConfigArgs>[]>;
         /**
-         * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+         * The list of custom rai topics.
+         */
+        customTopics?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.CustomTopicConfigArgs>[]>;
+        /**
+         * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
          */
         mode?: pulumi.Input<string | enums.cognitiveservices.RaiPolicyMode>;
+        /**
+         * The list of Safety Providers.
+         */
+        safetyProviders?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.SafetyProviderConfigArgs>[]>;
+    }
+
+    /**
+     * RAI Tool Label properties.
+     */
+    export interface RaiToolLabelPropertiesArgs {
+        /**
+         * Account-level tool label definition.
+         */
+        accountScope?: pulumi.Input<inputs.cognitiveservices.RaiToolLabelPropertiesAccountScopeArgs>;
+        /**
+         * List of project-level tool label definitions.
+         */
+        projectScopes?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.RaiToolLabelPropertiesProjectScopesArgs>[]>;
+        /**
+         * The unique tool connection name, e.g., 'Web_Search'.
+         */
+        toolConnectionName: pulumi.Input<string>;
+    }
+
+    /**
+     * Account-level tool label definition.
+     */
+    export interface RaiToolLabelPropertiesAccountScopeArgs {
+        /**
+         * Dictionary of label key-value pairs for the account scope.
+         */
+        labelValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface RaiToolLabelPropertiesProjectScopesArgs {
+        /**
+         * Dictionary of label key-value pairs for the project scope.
+         */
+        labelValues: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Project name to which this scope applies.
+         */
+        project: pulumi.Input<string>;
     }
 
     /**
@@ -45441,6 +47363,17 @@ export namespace cognitiveservices {
         value?: pulumi.Input<number>;
     }
 
+    /**
+     * Built-in role-based authorization policy.
+     */
+    export interface RoleBasedBuiltInAuthorizationPolicyArgs {
+        /**
+         * Authorization scheme type.
+         * Expected value is 'Default'.
+         */
+        type: pulumi.Input<"Default">;
+    }
+
     export interface SASAuthTypeConnectionPropertiesArgs {
         /**
          * Authentication type of the connection target
@@ -45464,6 +47397,24 @@ export namespace cognitiveservices {
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Gets or sets the source to which safety providers applies.
+     */
+    export interface SafetyProviderConfigArgs {
+        /**
+         * If blocking would occur.
+         */
+        blocking?: pulumi.Input<boolean>;
+        /**
+         * Name of RAI Safety Provider.
+         */
+        safetyProviderName?: pulumi.Input<string>;
+        /**
+         * Content source to apply the Content Filters.
+         */
+        source?: pulumi.Input<string | enums.cognitiveservices.RaiPolicyContentSource>;
     }
 
     export interface ServicePrincipalAuthTypeConnectionPropertiesArgs {
@@ -45518,6 +47469,28 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Represents a rule for routing traffic to a specific deployment.
+     */
+    export interface TrafficRoutingRuleArgs {
+        /**
+         * The unique identifier of the deployment to which traffic is routed by this rule.
+         */
+        deploymentId?: pulumi.Input<string>;
+        /**
+         * A user-provided description for this traffic routing rule.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The identifier of this traffic routing rule.
+         */
+        ruleId?: pulumi.Input<string>;
+        /**
+         * Gets or sets the percentage of traffic allocated to this instance.
+         */
+        trafficPercentage?: pulumi.Input<number>;
+    }
+
+    /**
      * The user owned AML workspace for Cognitive Services account.
      */
     export interface UserOwnedAmlWorkspaceArgs {
@@ -45565,6 +47538,24 @@ export namespace cognitiveservices {
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Type modeling a reference to a version of an agent definition.
+     */
+    export interface VersionedAgentReferenceArgs {
+        /**
+         * Gets the agent's unique identifier within the organization (subscription).
+         */
+        agentId?: pulumi.Input<string>;
+        /**
+         * Gets the agent's name (unique within the project/app).
+         */
+        agentName?: pulumi.Input<string>;
+        /**
+         * Gets the agent's version (unique for each agent lineage).
+         */
+        agentVersion?: pulumi.Input<string>;
     }
 
     /**
@@ -46665,7 +48656,7 @@ export namespace compute {
          */
         source: pulumi.Input<inputs.compute.UserArtifactSourceArgs>;
         /**
-         * Specifies the storage account type to be used to store the image. This property is not updatable.
+         * Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
          */
         storageAccountType?: pulumi.Input<string | enums.compute.StorageAccountType>;
         /**
@@ -46824,7 +48815,7 @@ export namespace compute {
          */
         replicationMode?: pulumi.Input<string | enums.compute.ReplicationMode>;
         /**
-         * Specifies the storage account type to be used to store the image. This property is not updatable.
+         * Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
          */
         storageAccountType?: pulumi.Input<string | enums.compute.StorageAccountType>;
         /**
@@ -46913,6 +48904,140 @@ export namespace compute {
          * The source for the disk image.
          */
         source?: pulumi.Input<inputs.compute.GalleryDiskImageSourceArgs>;
+    }
+
+    /**
+     * The definition of a parameter that can be passed to a script of a Gallery Script Version.
+     */
+    export interface GalleryScriptParameterArgs {
+        /**
+         * The default value of the parameter, only applies to string types.
+         */
+        defaultValue?: pulumi.Input<string>;
+        /**
+         * A description to help users understand what this parameter means
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A list of permissible values. Only applicable values are from 'enum' values defined in 'GalleryScriptParameter'.
+         */
+        enumValues?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The minimum value of parameter.
+         */
+        maxValue?: pulumi.Input<string>;
+        /**
+         * The minimum value of parameter.
+         */
+        minValue?: pulumi.Input<string>;
+        /**
+         * The name of the parameter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether this parameter must be passed.
+         */
+        required?: pulumi.Input<boolean>;
+        /**
+         * Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+         */
+        type?: pulumi.Input<string | enums.compute.GalleryScriptParameterType>;
+    }
+
+    /**
+     * Describes the properties of a gallery script definition.
+     */
+    export interface GalleryScriptPropertiesArgs {
+        /**
+         * The description of this gallery script definition resource. This property is updatable.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The end of life date of the gallery Script Definition. This property can be used for decommissioning purposes. This property is updatable.
+         */
+        endOfLifeDate?: pulumi.Input<string>;
+        /**
+         * The Eula agreement (End User License Agreement) for the gallery Script Definition.
+         */
+        eula?: pulumi.Input<string>;
+        /**
+         * The privacy statement uri.
+         */
+        privacyStatementUri?: pulumi.Input<string>;
+        /**
+         * The release note uri.
+         */
+        releaseNoteUri?: pulumi.Input<string>;
+        /**
+         * This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
+         */
+        supportedOSType: pulumi.Input<enums.compute.OperatingSystemTypes>;
+    }
+
+    /**
+     * Describes the properties of a gallery script version.
+     */
+    export interface GalleryScriptVersionPropertiesArgs {
+        /**
+         * The publishing profile of a gallery image version.
+         */
+        publishingProfile: pulumi.Input<inputs.compute.GalleryScriptVersionPublishingProfileArgs>;
+        /**
+         * The safety profile of the Gallery Script Version.
+         */
+        safetyProfile?: pulumi.Input<inputs.compute.GalleryScriptVersionSafetyProfileArgs>;
+    }
+
+    /**
+     * The publishing profile of a gallery image version.
+     */
+    export interface GalleryScriptVersionPublishingProfileArgs {
+        /**
+         * The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+         */
+        endOfLifeDate?: pulumi.Input<string>;
+        /**
+         * If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+         */
+        excludeFromLatest?: pulumi.Input<boolean>;
+        /**
+         * The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+         */
+        replicaCount?: pulumi.Input<number>;
+        /**
+         * Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+         */
+        replicationMode?: pulumi.Input<string | enums.compute.ReplicationMode>;
+        /**
+         * The source script from which the Script Version is going to be created.
+         */
+        source: pulumi.Input<inputs.compute.ScriptSourceArgs>;
+        /**
+         * Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+         */
+        storageAccountStrategy?: pulumi.Input<string | enums.compute.StorageAccountStrategy>;
+        /**
+         * Specifies the storage account type to be used to store the image. Cannot be specified along with storageAccountStrategy. This property is not updatable.
+         */
+        storageAccountType?: pulumi.Input<string | enums.compute.StorageAccountType>;
+        /**
+         * The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+         */
+        targetExtendedLocations?: pulumi.Input<pulumi.Input<inputs.compute.GalleryTargetExtendedLocationArgs>[]>;
+        /**
+         * The target regions where the Image Version is going to be replicated to. This property is updatable.
+         */
+        targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.TargetRegionArgs>[]>;
+    }
+
+    /**
+     * The safety profile of the Gallery Script Version.
+     */
+    export interface GalleryScriptVersionSafetyProfileArgs {
+        /**
+         * Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+         */
+        allowDeletionOfReplicatedLocations?: pulumi.Input<boolean>;
     }
 
     export interface GalleryTargetExtendedLocationArgs {
@@ -47966,6 +50091,20 @@ export namespace compute {
          * Specifies Terminate Scheduled Event related configurations.
          */
         terminateNotificationProfile?: pulumi.Input<inputs.compute.TerminateNotificationProfileArgs>;
+    }
+
+    /**
+     * The source script from which the Script Version is going to be created.
+     */
+    export interface ScriptSourceArgs {
+        /**
+         * Optional. Any input parameters that needs to passed to the script and are accessed within the script for its execution.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.compute.GalleryScriptParameterArgs>[]>;
+        /**
+         * Required. The link of the source script, it must be a readable storage blob with SAS URI or publicly accessible URI or managed identity enabled.
+         */
+        scriptLink: pulumi.Input<string>;
     }
 
     /**
@@ -49337,6 +51476,9 @@ export namespace compute {
         rebootSetting?: pulumi.Input<string | enums.compute.WindowsVMGuestPatchAutomaticByPlatformRebootSetting>;
     }
 
+}
+
+export namespace computelimit {
 }
 
 export namespace computeschedule {
@@ -53923,6 +56065,28 @@ export namespace containerservice {
     }
 
     /**
+     * The properties of a fleet managed namespace.
+     */
+    export interface FleetManagedNamespacePropertiesArgs {
+        /**
+         * Action if the managed namespace with the same name already exists. Default is Never.
+         */
+        adoptionPolicy: pulumi.Input<string | enums.containerservice.AdoptionPolicy>;
+        /**
+         * Delete options of a fleet managed namespace. Default is Keep.
+         */
+        deletePolicy: pulumi.Input<string | enums.containerservice.DeletePolicy>;
+        /**
+         * The namespace properties for the fleet managed namespace.
+         */
+        managedNamespaceProperties?: pulumi.Input<inputs.containerservice.ManagedNamespacePropertiesArgs>;
+        /**
+         * The profile of the propagation to create the namespace.
+         */
+        propagationPolicy?: pulumi.Input<inputs.containerservice.PropagationPolicyArgs>;
+    }
+
+    /**
      * GPU settings for the Agent Pool.
      */
     export interface GPUProfileArgs {
@@ -53998,6 +56162,18 @@ export namespace containerservice {
          * Whether to enable the egress gateway.
          */
         enabled: pulumi.Input<boolean>;
+        /**
+         * Name of the gateway configuration custom resource for the Istio add-on egress gateway. Must be specified when enabling the Istio egress gateway. Must be deployed in the same namespace that the Istio egress gateway will be deployed in.
+         */
+        gatewayConfigurationName?: pulumi.Input<string>;
+        /**
+         * Name of the Istio add-on egress gateway.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Namespace that the Istio add-on egress gateway should be deployed in. If unspecified, the default is aks-istio-egress.
+         */
+        namespace?: pulumi.Input<string>;
     }
 
     /**
@@ -54259,6 +56435,87 @@ export namespace containerservice {
     }
 
     /**
+     * Overrides for localDNS profile.
+     */
+    export interface LocalDNSOverrideArgs {
+        /**
+         * Cache max TTL in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+         */
+        cacheDurationInSeconds?: pulumi.Input<number>;
+        /**
+         * Destination server for DNS queries to be forwarded from localDNS.
+         */
+        forwardDestination?: pulumi.Input<string | enums.containerservice.LocalDNSForwardDestination>;
+        /**
+         * Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+         */
+        forwardPolicy?: pulumi.Input<string | enums.containerservice.LocalDNSForwardPolicy>;
+        /**
+         * Maximum number of concurrent queries. See [forward plugin](https://coredns.io/plugins/forward) for more information.
+         */
+        maxConcurrent?: pulumi.Input<number>;
+        /**
+         * Enforce TCP or prefer UDP protocol for connections from localDNS to upstream DNS server.
+         */
+        protocol?: pulumi.Input<string | enums.containerservice.LocalDNSProtocol>;
+        /**
+         * Log level for DNS queries in localDNS.
+         */
+        queryLogging?: pulumi.Input<string | enums.containerservice.LocalDNSQueryLogging>;
+        /**
+         * Policy for serving stale data. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+         */
+        serveStale?: pulumi.Input<string | enums.containerservice.LocalDNSServeStale>;
+        /**
+         * Serve stale duration in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
+         */
+        serveStaleDurationInSeconds?: pulumi.Input<number>;
+    }
+    /**
+     * localDNSOverrideArgsProvideDefaults sets the appropriate defaults for LocalDNSOverrideArgs
+     */
+    export function localDNSOverrideArgsProvideDefaults(val: LocalDNSOverrideArgs): LocalDNSOverrideArgs {
+        return {
+            ...val,
+            cacheDurationInSeconds: (val.cacheDurationInSeconds) ?? 3600,
+            forwardDestination: (val.forwardDestination) ?? "ClusterCoreDNS",
+            forwardPolicy: (val.forwardPolicy) ?? "Sequential",
+            maxConcurrent: (val.maxConcurrent) ?? 1000,
+            protocol: (val.protocol) ?? "PreferUDP",
+            queryLogging: (val.queryLogging) ?? "Error",
+            serveStale: (val.serveStale) ?? "Immediate",
+            serveStaleDurationInSeconds: (val.serveStaleDurationInSeconds) ?? 3600,
+        };
+    }
+
+    /**
+     * Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+     */
+    export interface LocalDNSProfileArgs {
+        /**
+         * KubeDNS overrides apply to DNS traffic from pods with dnsPolicy:ClusterFirst (referred to as KubeDNS traffic).
+         */
+        kubeDNSOverrides?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.LocalDNSOverrideArgs>}>;
+        /**
+         * Mode of enablement for localDNS.
+         */
+        mode?: pulumi.Input<string | enums.containerservice.LocalDNSMode>;
+        /**
+         * VnetDNS overrides apply to DNS traffic from pods with dnsPolicy:default or kubelet (referred to as VnetDNS traffic).
+         */
+        vnetDNSOverrides?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.LocalDNSOverrideArgs>}>;
+    }
+    /**
+     * localDNSProfileArgsProvideDefaults sets the appropriate defaults for LocalDNSProfileArgs
+     */
+    export function localDNSProfileArgsProvideDefaults(val: LocalDNSProfileArgs): LocalDNSProfileArgs {
+        return {
+            ...val,
+            mode: (val.mode) ?? "Preferred",
+        };
+    }
+
+    /**
      * Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
      */
     export interface MaintenanceWindowArgs {
@@ -54458,6 +56715,10 @@ export namespace containerservice {
          */
         linuxOSConfig?: pulumi.Input<inputs.containerservice.LinuxOSConfigArgs>;
         /**
+         * Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+         */
+        localDNSProfile?: pulumi.Input<inputs.containerservice.LocalDNSProfileArgs>;
+        /**
          * The maximum number of nodes for auto-scaling
          */
         maxCount?: pulumi.Input<number>;
@@ -54597,6 +56858,7 @@ export namespace containerservice {
         return {
             ...val,
             gatewayProfile: (val.gatewayProfile ? pulumi.output(val.gatewayProfile).apply(inputs.containerservice.agentPoolGatewayProfileArgsProvideDefaults) : undefined),
+            localDNSProfile: (val.localDNSProfile ? pulumi.output(val.localDNSProfile).apply(inputs.containerservice.localDNSProfileArgsProvideDefaults) : undefined),
         };
     }
 
@@ -55381,6 +57643,28 @@ export namespace containerservice {
     }
 
     /**
+     * The namespace properties for the fleet managed namespace.
+     */
+    export interface ManagedNamespacePropertiesArgs {
+        /**
+         * The annotations for the fleet managed namespace.
+         */
+        annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The default network policy for the fleet managed namespace.
+         */
+        defaultNetworkPolicy?: pulumi.Input<enums.containerservice.NetworkPolicy>;
+        /**
+         * The default resource quota for the fleet managed namespace.
+         */
+        defaultResourceQuota?: pulumi.Input<inputs.containerservice.ResourceQuotaArgs>;
+        /**
+         * The labels for the fleet managed namespace.
+         */
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     export interface ManagedServiceIdentityArgs {
@@ -55406,6 +57690,48 @@ export namespace containerservice {
          * VM size that AKS will use when creating and scaling e.g. 'Standard_E4s_v3', 'Standard_E16s_v3' or 'Standard_D16s_v5'.
          */
         size?: pulumi.Input<string>;
+    }
+
+    /**
+     * Mesh membership properties of a managed cluster.
+     */
+    export interface MeshMembershipPropertiesArgs {
+        /**
+         * The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+         */
+        managedMeshID: pulumi.Input<string>;
+    }
+
+    /**
+     * A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+     */
+    export interface MetaV1LabelSelectorArgs {
+        /**
+         * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+         */
+        matchExpressions?: pulumi.Input<pulumi.Input<inputs.containerservice.MetaV1LabelSelectorRequirementArgs>[]>;
+        /**
+         * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+         */
+        matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+     */
+    export interface MetaV1LabelSelectorRequirementArgs {
+        /**
+         * key is the label key that the selector applies to.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+         */
+        operator: pulumi.Input<string | enums.containerservice.LabelSelectorOperator>;
+        /**
+         * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -55525,6 +57851,142 @@ export namespace containerservice {
     }
 
     /**
+     * The configuration profile for default ClusterResourcePlacement for placement.
+     */
+    export interface PlacementProfileArgs {
+        /**
+         * The default ClusterResourcePlacement policy configuration.
+         */
+        defaultClusterResourcePlacement?: pulumi.Input<inputs.containerservice.PlacementV1ClusterResourcePlacementSpecArgs>;
+    }
+
+    /**
+     * Affinity is a group of cluster affinity scheduling rules. More to be added.
+     */
+    export interface PlacementV1AffinityArgs {
+        /**
+         * ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+         */
+        clusterAffinity?: pulumi.Input<inputs.containerservice.PlacementV1ClusterAffinityArgs>;
+    }
+
+    /**
+     * ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+     */
+    export interface PlacementV1ClusterAffinityArgs {
+        /**
+         * If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
+         */
+        requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<inputs.containerservice.PlacementV1ClusterSelectorArgs>;
+    }
+
+    /**
+     * ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
+     */
+    export interface PlacementV1ClusterResourcePlacementSpecArgs {
+        /**
+         * Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
+         */
+        policy?: pulumi.Input<inputs.containerservice.PlacementV1PlacementPolicyArgs>;
+    }
+
+    /**
+     * ClusterSelector
+     */
+    export interface PlacementV1ClusterSelectorArgs {
+        /**
+         * ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
+         */
+        clusterSelectorTerms: pulumi.Input<pulumi.Input<inputs.containerservice.PlacementV1ClusterSelectorTermArgs>[]>;
+    }
+
+    /**
+     * ClusterSelectorTerm
+     */
+    export interface PlacementV1ClusterSelectorTermArgs {
+        /**
+         * LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+         */
+        labelSelector?: pulumi.Input<inputs.containerservice.MetaV1LabelSelectorArgs>;
+        /**
+         * PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+         */
+        propertySelector?: pulumi.Input<inputs.containerservice.PlacementV1PropertySelectorArgs>;
+    }
+
+    /**
+     * PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
+     */
+    export interface PlacementV1PlacementPolicyArgs {
+        /**
+         * Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
+         */
+        affinity?: pulumi.Input<inputs.containerservice.PlacementV1AffinityArgs>;
+        /**
+         * ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
+         */
+        clusterNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+         */
+        placementType?: pulumi.Input<string | enums.containerservice.PlacementType>;
+        /**
+         * If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
+         */
+        tolerations?: pulumi.Input<pulumi.Input<inputs.containerservice.PlacementV1TolerationArgs>[]>;
+    }
+
+    /**
+     * PropertySelector helps user specify property requirements when picking clusters for resource placement.
+     */
+    export interface PlacementV1PropertySelectorArgs {
+        /**
+         * MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+         */
+        matchExpressions: pulumi.Input<pulumi.Input<inputs.containerservice.PlacementV1PropertySelectorRequirementArgs>[]>;
+    }
+
+    /**
+     * PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
+     */
+    export interface PlacementV1PropertySelectorRequirementArgs {
+        /**
+         * Name is the name of the property; it should be a Kubernetes label name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+         */
+        operator: pulumi.Input<string | enums.containerservice.PropertySelectorOperator>;
+        /**
+         * Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+     */
+    export interface PlacementV1TolerationArgs {
+        /**
+         * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+         */
+        effect?: pulumi.Input<string | enums.containerservice.TaintEffect>;
+        /**
+         * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+         */
+        operator?: pulumi.Input<string | enums.containerservice.TolerationOperator>;
+        /**
+         * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
      * The port range.
      */
     export interface PortRangeArgs {
@@ -55600,6 +58062,20 @@ export namespace containerservice {
          * The private link service connection status.
          */
         status?: pulumi.Input<string | enums.containerservice.ConnectionStatus>;
+    }
+
+    /**
+     * The propagation to be used for provisioning the namespace among the fleet.
+     */
+    export interface PropagationPolicyArgs {
+        /**
+         * The profile to be used for propagation via placement.
+         */
+        placementProfile?: pulumi.Input<inputs.containerservice.PlacementProfileArgs>;
+        /**
+         * The type of the policy to be used. Default is Placement.
+         */
+        type: pulumi.Input<string | enums.containerservice.PropagationType>;
     }
 
     /**
@@ -56428,13 +58904,21 @@ export namespace cosmosdb {
     }
 
     /**
-     * Properties of a managed Cassandra cluster.
+     * Properties of a Garnet cache cluster.
      */
     export interface ClusterResourcePropertiesArgs {
+        /**
+         * Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+         */
+        allocationState?: pulumi.Input<string | enums.cosmosdb.AllocationState>;
         /**
          * Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
          */
         authenticationMethod?: pulumi.Input<string | enums.cosmosdb.AuthenticationMethod>;
+        /**
+         * If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+         */
+        availabilityZone?: pulumi.Input<boolean>;
         /**
          * How to connect to the azure services needed for running the cluster
          */
@@ -56456,6 +58940,10 @@ export namespace cosmosdb {
          */
         clusterNameOverride?: pulumi.Input<string>;
         /**
+         * Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+         */
+        clusterType?: pulumi.Input<string | enums.cosmosdb.ClusterType>;
+        /**
          * Whether the cluster and associated data centers has been deallocated.
          */
         deallocated?: pulumi.Input<boolean>;
@@ -56463,6 +58951,10 @@ export namespace cosmosdb {
          * Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
          */
         delegatedManagementSubnetId?: pulumi.Input<string>;
+        /**
+         * Extensions to be added or updated on cluster.
+         */
+        extensions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
          */
@@ -56480,6 +58972,14 @@ export namespace cosmosdb {
          */
         initialCassandraAdminPassword?: pulumi.Input<string>;
         /**
+         * Number of nodes
+         */
+        nodeCount?: pulumi.Input<number>;
+        /**
+         * Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+         */
+        nodeSku?: pulumi.Input<string>;
+        /**
          * Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
          */
         prometheusEndpoint?: pulumi.Input<inputs.cosmosdb.SeedNodeArgs>;
@@ -56496,9 +58996,17 @@ export namespace cosmosdb {
          */
         repairEnabled?: pulumi.Input<boolean>;
         /**
+         * Number of copies of data maintained by the cluster
+         */
+        replicationFactor?: pulumi.Input<number>;
+        /**
          * To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
          */
         restoreFromBackupId?: pulumi.Input<string>;
+        /**
+         * Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+         */
+        subnetId?: pulumi.Input<string>;
     }
 
     /**
@@ -56806,10 +59314,6 @@ export namespace cosmosdb {
      */
     export interface FleetspacePropertiesThroughputPoolConfigurationArgs {
         /**
-         * List of data regions assigned to the fleetspace. Eg [westus2]
-         */
-        dataRegions?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
          * Maximum throughput for the pool.
          */
         maxThroughput?: pulumi.Input<number>;
@@ -56817,10 +59321,16 @@ export namespace cosmosdb {
          * Minimum throughput for the pool.
          */
         minThroughput?: pulumi.Input<number>;
+    }
+
+    /**
+     * Represents the full text index path.
+     */
+    export interface FullTextIndexPathArgs {
         /**
-         * Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+         * The path to the full text field in the document.
          */
-        serviceTier?: pulumi.Input<string | enums.cosmosdb.ServiceTier>;
+        path: pulumi.Input<string>;
     }
 
     /**
@@ -57023,6 +59533,10 @@ export namespace cosmosdb {
          * List of paths to exclude from indexing
          */
         excludedPaths?: pulumi.Input<pulumi.Input<inputs.cosmosdb.ExcludedPathArgs>[]>;
+        /**
+         * List of paths to include in the full text indexing
+         */
+        fullTextIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.FullTextIndexPathArgs>[]>;
         /**
          * List of paths to include in the indexing
          */
@@ -57401,6 +59915,10 @@ export namespace cosmosdb {
          */
         restoreWithTtlDisabled?: pulumi.Input<boolean>;
         /**
+         * The source backup location for restore.
+         */
+        sourceBackupLocation?: pulumi.Input<string>;
+        /**
          * List of specific tables available for restore.
          */
         tablesToRestore?: pulumi.Input<pulumi.Input<string>[]>;
@@ -57670,13 +60188,34 @@ export namespace cosmosdb {
 
     export interface VectorIndexArgs {
         /**
+         * This is the size of the candidate list of approximate neighbors stored while building the DiskANN index as part of the optimization processes. Large values may improve recall at the expense of latency. This is only applicable for the diskANN vector index type.
+         */
+        indexingSearchListSize?: pulumi.Input<number>;
+        /**
          * The path to the vector field in the document.
          */
         path: pulumi.Input<string>;
         /**
+         * The number of bytes used in product quantization of the vectors. A larger value may result in better recall for vector searches at the expense of latency. This is only applicable for the quantizedFlat and diskANN vector index types.
+         */
+        quantizationByteSize?: pulumi.Input<number>;
+        /**
          * The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
          */
         type: pulumi.Input<string | enums.cosmosdb.VectorIndexType>;
+        /**
+         * Array of shard keys for the vector index. This is only applicable for the quantizedFlat and diskANN vector index types.
+         */
+        vectorIndexShardKey?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+    /**
+     * vectorIndexArgsProvideDefaults sets the appropriate defaults for VectorIndexArgs
+     */
+    export function vectorIndexArgsProvideDefaults(val: VectorIndexArgs): VectorIndexArgs {
+        return {
+            ...val,
+            indexingSearchListSize: (val.indexingSearchListSize) ?? 100,
+        };
     }
 
     /**
@@ -59117,6 +61656,16 @@ export namespace dashboard {
     }
 
     /**
+     * Properties specific to the dashboard definition.
+     */
+    export interface DashboardDefinitionPropertiesArgs {
+        /**
+         * The dashboard definition data in JSON format.
+         */
+        serializedData?: pulumi.Input<string>;
+    }
+
+    /**
      * Enterprise settings of a Grafana instance
      */
     export interface EnterpriseConfigurationsArgs {
@@ -59615,6 +62164,179 @@ export namespace databasewatcher {
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
         userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The properties specific to an elastic pool in Azure SQL Database.
+     */
+    export interface SqlDbElasticPoolTargetPropertiesArgs {
+        /**
+         * The Azure resource ID of the anchor database used to connect to an elastic pool.
+         */
+        anchorDatabaseResourceId: pulumi.Input<string>;
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: pulumi.Input<string>;
+        /**
+         * Set to true to monitor a high availability replica of specified target, if any.
+         */
+        readIntent?: pulumi.Input<boolean>;
+        /**
+         * The Azure resource ID of an Azure SQL DB elastic pool target.
+         */
+        sqlEpResourceId: pulumi.Input<string>;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: pulumi.Input<string | enums.databasewatcher.TargetAuthenticationType>;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlEp'.
+         */
+        targetType: pulumi.Input<"SqlEp">;
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: pulumi.Input<inputs.databasewatcher.VaultSecretArgs>;
+    }
+    /**
+     * sqlDbElasticPoolTargetPropertiesArgsProvideDefaults sets the appropriate defaults for SqlDbElasticPoolTargetPropertiesArgs
+     */
+    export function sqlDbElasticPoolTargetPropertiesArgsProvideDefaults(val: SqlDbElasticPoolTargetPropertiesArgs): SqlDbElasticPoolTargetPropertiesArgs {
+        return {
+            ...val,
+            readIntent: (val.readIntent) ?? false,
+        };
+    }
+
+    /**
+     * The properties specific to a database in Azure SQL Database.
+     */
+    export interface SqlDbSingleDatabaseTargetPropertiesArgs {
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: pulumi.Input<string>;
+        /**
+         * Set to true to monitor a high availability replica of specified target, if any.
+         */
+        readIntent?: pulumi.Input<boolean>;
+        /**
+         * The Azure resource ID of an Azure SQL DB database target.
+         */
+        sqlDbResourceId: pulumi.Input<string>;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: pulumi.Input<string | enums.databasewatcher.TargetAuthenticationType>;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlDb'.
+         */
+        targetType: pulumi.Input<"SqlDb">;
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: pulumi.Input<inputs.databasewatcher.VaultSecretArgs>;
+    }
+    /**
+     * sqlDbSingleDatabaseTargetPropertiesArgsProvideDefaults sets the appropriate defaults for SqlDbSingleDatabaseTargetPropertiesArgs
+     */
+    export function sqlDbSingleDatabaseTargetPropertiesArgsProvideDefaults(val: SqlDbSingleDatabaseTargetPropertiesArgs): SqlDbSingleDatabaseTargetPropertiesArgs {
+        return {
+            ...val,
+            readIntent: (val.readIntent) ?? false,
+        };
+    }
+
+    /**
+     * The properties specific to Azure SQL Managed Instance targets.
+     */
+    export interface SqlMiTargetPropertiesArgs {
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: pulumi.Input<string>;
+        /**
+         * The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
+         */
+        connectionTcpPort?: pulumi.Input<number>;
+        /**
+         * Set to true to monitor a high availability replica of specified target, if any.
+         */
+        readIntent?: pulumi.Input<boolean>;
+        /**
+         * The Azure resource ID of an Azure SQL Managed Instance target.
+         */
+        sqlMiResourceId: pulumi.Input<string>;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: pulumi.Input<string | enums.databasewatcher.TargetAuthenticationType>;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlMi'.
+         */
+        targetType: pulumi.Input<"SqlMi">;
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: pulumi.Input<inputs.databasewatcher.VaultSecretArgs>;
+    }
+    /**
+     * sqlMiTargetPropertiesArgsProvideDefaults sets the appropriate defaults for SqlMiTargetPropertiesArgs
+     */
+    export function sqlMiTargetPropertiesArgsProvideDefaults(val: SqlMiTargetPropertiesArgs): SqlMiTargetPropertiesArgs {
+        return {
+            ...val,
+            connectionTcpPort: (val.connectionTcpPort) ?? 1433,
+            readIntent: (val.readIntent) ?? false,
+        };
+    }
+
+    /**
+     * The properties specific to Azure SQL VM targets.
+     */
+    export interface SqlVmTargetPropertiesArgs {
+        /**
+         * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+         */
+        connectionServerName: pulumi.Input<string>;
+        /**
+         * The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
+         */
+        connectionTcpPort?: pulumi.Input<number>;
+        /**
+         * The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
+         */
+        sqlNamedInstanceName?: pulumi.Input<string>;
+        /**
+         * The Azure resource ID of an Azure SQL VM target.
+         */
+        sqlVmResourceId: pulumi.Input<string>;
+        /**
+         * The type of authentication to use when connecting to a target.
+         */
+        targetAuthenticationType: pulumi.Input<string | enums.databasewatcher.TargetAuthenticationType>;
+        /**
+         * Discriminator property for TargetProperties.
+         * Expected value is 'SqlVm'.
+         */
+        targetType: pulumi.Input<"SqlVm">;
+        /**
+         * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+         */
+        targetVault?: pulumi.Input<inputs.databasewatcher.VaultSecretArgs>;
+    }
+    /**
+     * sqlVmTargetPropertiesArgsProvideDefaults sets the appropriate defaults for SqlVmTargetPropertiesArgs
+     */
+    export function sqlVmTargetPropertiesArgsProvideDefaults(val: SqlVmTargetPropertiesArgs): SqlVmTargetPropertiesArgs {
+        return {
+            ...val,
+            connectionTcpPort: (val.connectionTcpPort) ?? 1433,
+        };
     }
 
     /**
@@ -73512,6 +76234,10 @@ export namespace datafactory {
          */
         clusterResourceGroup: any;
         /**
+         * HDInsight On-demand cluster resource group authentication type.
+         */
+        clusterResourceGroupAuthType?: pulumi.Input<string | enums.datafactory.HDInsightOndemandClusterResourceGroupAuthenticationType>;
+        /**
          * Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
          */
         clusterSize: any;
@@ -75412,7 +78138,11 @@ export namespace datafactory {
          */
         structure?: any;
         /**
-         * The table name. Type: string (or Expression with resultType string).
+         * The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+         */
+        table?: any;
+        /**
+         * This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
          */
         tableName?: any;
         /**
@@ -77815,6 +80545,10 @@ export namespace datafactory {
          */
         connectionString?: any;
         /**
+         * Database name for connection. Type: string.
+         */
+        database?: any;
+        /**
          * Linked service description.
          */
         description?: pulumi.Input<string>;
@@ -77827,14 +80561,30 @@ export namespace datafactory {
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.ParameterSpecificationArgs>}>;
         /**
+         * The port for the connection. Type: integer.
+         */
+        port?: any;
+        /**
          * The Azure key vault secret reference of password in connection string.
          */
         pwd?: pulumi.Input<inputs.datafactory.AzureKeyVaultSecretReferenceArgs>;
+        /**
+         * Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+         */
+        securityLevel?: pulumi.Input<string | enums.datafactory.NetezzaSecurityLevelType>;
+        /**
+         * Server name for connection. Type: string.
+         */
+        server?: any;
         /**
          * Type of linked service.
          * Expected value is 'Netezza'.
          */
         type: pulumi.Input<"Netezza">;
+        /**
+         * Username for authentication. Type: string.
+         */
+        uid?: any;
         /**
          * Version of the linked service.
          */
@@ -92146,11 +94896,44 @@ export namespace dataprotection {
      */
     export interface BackupScheduleArgs {
         /**
-         * Repeating time interval which only support the following ISO 8601 format [R/startDateTime/Duration]. Example: R/2007-03-01T13:00:00Z/P1Y2M10DT2H30M
+         * Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
+         *
+         * Supported ISO 8601 Time Formats
+         *
+         * The following time formats were verified to be successfully parsed and supported:
+         * - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
+         * - T14:30:45 → Thh:mm:ss (standard time format)
+         * - T14:30 → Thh:mm (hour and minute only)
+         *
+         * All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
+         *
+         * Examples of supported timestamps:
+         * - 2023-10-15T14:30:45Z
+         * - 2023-10-15T14:30:45.123+05:30
+         * - 2023-10-15T14:30Z
+         *
+         * Unsupported or partially supported formats:
+         * - T143045.123 or T143045 (no colons)
+         * - T14.500 (decimal hours)
+         * - T14 (hour only)
+         * - T14:30.500 (minute fractions)
+         * - T24:00:00 (invalid)
+         * - T23:59:60 (leap second)
          */
         repeatingTimeIntervals: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Time zone for a schedule. Example: Pacific Standard Time
+         * Time Zone for a schedule.
+         *
+         * Supported timezone indicators include:
+         * - 'Z' for UTC
+         * - '+00:00'
+         * - '+05:30'
+         * - '-08:00'
+         *
+         * Examples:
+         * - 2023-10-15T14:30:45Z
+         * - 2023-10-15T14:30:45.123+05:30
+         * - 2023-10-15T14:30-08:00
          */
         timeZone?: pulumi.Input<string>;
     }
@@ -94442,10 +97225,6 @@ export namespace dbforpostgresql {
      */
     export interface DataEncryptionArgs {
         /**
-         * Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
-         */
-        geoBackupEncryptionKeyStatus?: pulumi.Input<string | enums.dbforpostgresql.EncryptionKeyStatus>;
-        /**
          * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
          */
         geoBackupKeyURI?: pulumi.Input<string>;
@@ -94453,10 +97232,6 @@ export namespace dbforpostgresql {
          * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
          */
         geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
-        /**
-         * Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
-         */
-        primaryEncryptionKeyStatus?: pulumi.Input<string | enums.dbforpostgresql.EncryptionKeyStatus>;
         /**
          * URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
          */
@@ -94478,7 +97253,7 @@ export namespace dbforpostgresql {
         /**
          * High availability mode for a server.
          */
-        mode?: pulumi.Input<string | enums.dbforpostgresql.HighAvailabilityMode>;
+        mode?: pulumi.Input<string | enums.dbforpostgresql.PostgreSqlFlexibleServerHighAvailabilityMode>;
         /**
          * Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
          */
@@ -95006,6 +97781,21 @@ export namespace dependencymap {
          * Process name filter
          */
         processNameFilter?: pulumi.Input<inputs.dependencymap.ProcessNameFilterArgs>;
+    }
+
+    /**
+     * OffAzure discovery source resource properties
+     */
+    export interface OffAzureDiscoverySourceResourcePropertiesArgs {
+        /**
+         * Source ArmId of Discovery Source resource
+         */
+        sourceId: pulumi.Input<string>;
+        /**
+         * Source type of the discoverySource
+         * Expected value is 'OffAzure'.
+         */
+        sourceType: pulumi.Input<"OffAzure">;
     }
 
     /**
@@ -95997,6 +98787,30 @@ export namespace deviceregistry {
     }
 
     /**
+     * The configuration to set up an ICA.
+     */
+    export interface CertificateAuthorityConfigurationArgs {
+        /**
+         * Crypto type: ECC.
+         */
+        keyType: pulumi.Input<string | enums.deviceregistry.SupportedKeyType>;
+    }
+
+    /**
+     * The certificate configuration.
+     */
+    export interface CertificateConfigurationArgs {
+        /**
+         * The configuration to set up an ICA.
+         */
+        certificateAuthorityConfiguration: pulumi.Input<inputs.deviceregistry.CertificateAuthorityConfigurationArgs>;
+        /**
+         * The leaf certificate configuration.
+         */
+        leafCertificateConfiguration: pulumi.Input<inputs.deviceregistry.LeafCertificateConfigurationArgs>;
+    }
+
+    /**
      * Defines the data point properties.
      */
     export interface DataPointArgs {
@@ -96435,6 +99249,16 @@ export namespace deviceregistry {
             ...val,
             authentication: (val.authentication ? pulumi.output(val.authentication).apply(inputs.deviceregistry.hostAuthenticationArgsProvideDefaults) : undefined),
         };
+    }
+
+    /**
+     * The leaf certificate configuration.
+     */
+    export interface LeafCertificateConfigurationArgs {
+        /**
+         * The validity period in days.
+         */
+        validityPeriodInDays: pulumi.Input<number>;
     }
 
     /**
@@ -102828,6 +105652,24 @@ export namespace fluidrelay {
         userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateArgs {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string | enums.fluidrelay.PrivateEndpointServiceConnectionStatus>;
+    }
+
 }
 
 export namespace frontdoor {
@@ -103827,20 +106669,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Authorization profile with details of AAD user Ids and group Ids authorized for data plane access.
-     */
-    export interface AuthorizationProfileArgs {
-        /**
-         * AAD group Ids authorized for data plane access.
-         */
-        groupIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * AAD user Ids authorized for data plane access.
-         */
-        userIds?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
      * The autoscale request parameters
      */
     export interface AutoscaleArgs {
@@ -103866,32 +106694,6 @@ export namespace hdinsight {
          * The minimum instance count of the cluster
          */
         minInstanceCount?: pulumi.Input<number>;
-    }
-
-    /**
-     * This is the Autoscale profile for the cluster. This will allow customer to create cluster enabled with Autoscale.
-     */
-    export interface AutoscaleProfileArgs {
-        /**
-         * User to specify which type of Autoscale to be implemented - Scheduled Based or Load Based.
-         */
-        autoscaleType?: pulumi.Input<string | enums.hdinsight.AutoscaleType>;
-        /**
-         * This indicates whether auto scale is enabled on HDInsight on AKS cluster.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * This property is for graceful decommission timeout; It has a default setting of 3600 seconds before forced shutdown takes place. This is the maximal time to wait for running containers and applications to complete before transition a DECOMMISSIONING node into DECOMMISSIONED. The default value is 3600 seconds. Negative value (like -1) is handled as infinite timeout.
-         */
-        gracefulDecommissionTimeout?: pulumi.Input<number>;
-        /**
-         * Profiles of load based Autoscale.
-         */
-        loadBasedConfig?: pulumi.Input<inputs.hdinsight.LoadBasedConfigArgs>;
-        /**
-         * Profiles of schedule based Autoscale.
-         */
-        scheduleBasedConfig?: pulumi.Input<inputs.hdinsight.ScheduleBasedConfigArgs>;
     }
 
     /**
@@ -103969,16 +106771,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Trino cluster catalog options.
-     */
-    export interface CatalogOptionsArgs {
-        /**
-         * hive catalog options.
-         */
-        hive?: pulumi.Input<pulumi.Input<inputs.hdinsight.HiveCatalogOptionArgs>[]>;
-    }
-
-    /**
      * The information of AAD security group.
      */
     export interface ClientGroupInfoArgs {
@@ -103990,43 +106782,6 @@ export namespace hdinsight {
          * The AAD security group name.
          */
         groupName?: pulumi.Input<string>;
-    }
-
-    /**
-     * Cluster access profile.
-     */
-    export interface ClusterAccessProfileArgs {
-        /**
-         * Whether to create cluster using private IP instead of public IP. This property must be set at create time.
-         */
-        enableInternalIngress: pulumi.Input<boolean>;
-    }
-
-    /**
-     * Cluster configuration files.
-     */
-    export interface ClusterConfigFileArgs {
-        /**
-         * Free form content of the entire configuration file.
-         */
-        content?: pulumi.Input<string>;
-        /**
-         * This property indicates if the content is encoded and is case-insensitive. Please set the value to base64 if the content is base64 encoded. Set it to none or skip it if the content is plain text.
-         */
-        encoding?: pulumi.Input<string | enums.hdinsight.ContentEncoding>;
-        /**
-         * Configuration file name.
-         */
-        fileName: pulumi.Input<string>;
-        /**
-         * Path of the config file if content is specified.
-         */
-        path?: pulumi.Input<string>;
-        /**
-         * List of key value pairs
-         * where key represents a valid service configuration name and value represents the value of the config.
-         */
-        values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -104140,324 +106895,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Collection of logs to be enabled or disabled for log analytics.
-     */
-    export interface ClusterLogAnalyticsApplicationLogsArgs {
-        /**
-         * True if stderror is enabled, otherwise false.
-         */
-        stdErrorEnabled?: pulumi.Input<boolean>;
-        /**
-         * True if stdout is enabled, otherwise false.
-         */
-        stdOutEnabled?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * Cluster log analytics profile to enable or disable OMS agent for cluster.
-     */
-    export interface ClusterLogAnalyticsProfileArgs {
-        /**
-         * Collection of logs to be enabled or disabled for log analytics.
-         */
-        applicationLogs?: pulumi.Input<inputs.hdinsight.ClusterLogAnalyticsApplicationLogsArgs>;
-        /**
-         * True if log analytics is enabled for the cluster, otherwise false.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * True if metrics are enabled, otherwise false.
-         */
-        metricsEnabled?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * The compute profile.
-     */
-    export interface ClusterPoolComputeProfileArgs {
-        /**
-         * The list of Availability zones to use for AKS VMSS nodes.
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The nodes definitions.
-         */
-        nodes: pulumi.Input<pulumi.Input<inputs.hdinsight.NodeProfileArgs>[]>;
-    }
-
-    /**
-     * CLuster pool profile.
-     */
-    export interface ClusterPoolResourcePropertiesClusterPoolProfileArgs {
-        /**
-         * Cluster pool version is a 2-part version.
-         */
-        clusterPoolVersion: pulumi.Input<string>;
-        /**
-         * Gets or sets the IP tag for the public IPs created along with the HDInsightOnAks ClusterPools and Clusters. 
-         */
-        publicIpTag?: pulumi.Input<inputs.hdinsight.IpTagArgs>;
-    }
-
-    /**
-     * CLuster pool compute profile.
-     */
-    export interface ClusterPoolResourcePropertiesComputeProfileArgs {
-        /**
-         * The list of Availability zones to use for AKS VMSS nodes.
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The virtual machine SKU.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    /**
-     * Cluster pool log analytics profile to enable OMS agent for AKS cluster.
-     */
-    export interface ClusterPoolResourcePropertiesLogAnalyticsProfileArgs {
-        /**
-         * True if log analytics is enabled for cluster pool, otherwise false.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * Log analytics workspace to associate with the OMS agent.
-         */
-        workspaceId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Cluster pool network profile.
-     */
-    export interface ClusterPoolResourcePropertiesNetworkProfileArgs {
-        /**
-         * IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time. Currently, this property is not supported and please don't use it.
-         */
-        apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * ClusterPool is based on AKS cluster. AKS cluster exposes the API server to public internet by default. If you set this property to true, a private AKS cluster will be created, and it will use private apiserver, which is not exposed to public internet.
-         */
-        enablePrivateApiServer?: pulumi.Input<boolean>;
-        /**
-         * This can only be set at cluster pool creation time and cannot be changed later. 
-         */
-        outboundType?: pulumi.Input<string | enums.hdinsight.OutboundType>;
-        /**
-         * Cluster pool subnet resource id.
-         */
-        subnetId: pulumi.Input<string>;
-    }
-    /**
-     * clusterPoolResourcePropertiesNetworkProfileArgsProvideDefaults sets the appropriate defaults for ClusterPoolResourcePropertiesNetworkProfileArgs
-     */
-    export function clusterPoolResourcePropertiesNetworkProfileArgsProvideDefaults(val: ClusterPoolResourcePropertiesNetworkProfileArgs): ClusterPoolResourcePropertiesNetworkProfileArgs {
-        return {
-            ...val,
-            outboundType: (val.outboundType) ?? "loadBalancer",
-        };
-    }
-
-    /**
-     * Ssh profile for the cluster.
-     */
-    export interface ClusterPoolSshProfileArgs {
-        /**
-         * Number of ssh pods per cluster.
-         */
-        count: pulumi.Input<number>;
-        /**
-         * The virtual machine SKU.
-         */
-        vmSize?: pulumi.Input<string>;
-    }
-
-    /**
-     * Cluster profile.
-     */
-    export interface ClusterProfileArgs {
-        /**
-         * Authorization profile with details of AAD user Ids and group Ids authorized for data plane access.
-         */
-        authorizationProfile: pulumi.Input<inputs.hdinsight.AuthorizationProfileArgs>;
-        /**
-         * This is the Autoscale profile for the cluster. This will allow customer to create cluster enabled with Autoscale.
-         */
-        autoscaleProfile?: pulumi.Input<inputs.hdinsight.AutoscaleProfileArgs>;
-        /**
-         * Cluster access profile.
-         */
-        clusterAccessProfile?: pulumi.Input<inputs.hdinsight.ClusterAccessProfileArgs>;
-        /**
-         * Version with 3/4 part.
-         */
-        clusterVersion: pulumi.Input<string>;
-        /**
-         * The Flink cluster profile.
-         */
-        flinkProfile?: pulumi.Input<inputs.hdinsight.FlinkProfileArgs>;
-        /**
-         * This is deprecated. Please use managed identity profile instead.
-         */
-        identityProfile?: pulumi.Input<inputs.hdinsight.IdentityProfileArgs>;
-        /**
-         * The Kafka cluster profile.
-         */
-        kafkaProfile?: pulumi.Input<inputs.hdinsight.KafkaProfileArgs>;
-        /**
-         * LLAP cluster profile.
-         */
-        llapProfile?: any;
-        /**
-         * Cluster log analytics profile to enable or disable OMS agent for cluster.
-         */
-        logAnalyticsProfile?: pulumi.Input<inputs.hdinsight.ClusterLogAnalyticsProfileArgs>;
-        /**
-         * This property is required by Trino, Spark and Flink cluster but is optional for Kafka cluster.
-         */
-        managedIdentityProfile?: pulumi.Input<inputs.hdinsight.ManagedIdentityProfileArgs>;
-        /**
-         * Version with three part.
-         */
-        ossVersion: pulumi.Input<string>;
-        /**
-         * Cluster Prometheus profile.
-         */
-        prometheusProfile?: pulumi.Input<inputs.hdinsight.ClusterPrometheusProfileArgs>;
-        /**
-         * Cluster Ranger plugin profile.
-         */
-        rangerPluginProfile?: pulumi.Input<inputs.hdinsight.ClusterRangerPluginProfileArgs>;
-        /**
-         * The ranger cluster profile.
-         */
-        rangerProfile?: pulumi.Input<inputs.hdinsight.RangerProfileArgs>;
-        /**
-         * The script action profile list.
-         */
-        scriptActionProfiles?: pulumi.Input<pulumi.Input<inputs.hdinsight.ScriptActionProfileArgs>[]>;
-        /**
-         * The cluster secret profile.
-         */
-        secretsProfile?: pulumi.Input<inputs.hdinsight.SecretsProfileArgs>;
-        /**
-         * The service configs profiles.
-         */
-        serviceConfigsProfiles?: pulumi.Input<pulumi.Input<inputs.hdinsight.ClusterServiceConfigsProfileArgs>[]>;
-        /**
-         * The spark cluster profile.
-         */
-        sparkProfile?: pulumi.Input<inputs.hdinsight.SparkProfileArgs>;
-        /**
-         * Ssh profile for the cluster.
-         */
-        sshProfile?: pulumi.Input<inputs.hdinsight.ClusterPoolSshProfileArgs>;
-        /**
-         * Stub cluster profile.
-         */
-        stubProfile?: any;
-        /**
-         * Trino Cluster profile.
-         */
-        trinoProfile?: pulumi.Input<inputs.hdinsight.TrinoProfileArgs>;
-    }
-    /**
-     * clusterProfileArgsProvideDefaults sets the appropriate defaults for ClusterProfileArgs
-     */
-    export function clusterProfileArgsProvideDefaults(val: ClusterProfileArgs): ClusterProfileArgs {
-        return {
-            ...val,
-            flinkProfile: (val.flinkProfile ? pulumi.output(val.flinkProfile).apply(inputs.hdinsight.flinkProfileArgsProvideDefaults) : undefined),
-            kafkaProfile: (val.kafkaProfile ? pulumi.output(val.kafkaProfile).apply(inputs.hdinsight.kafkaProfileArgsProvideDefaults) : undefined),
-            prometheusProfile: (val.prometheusProfile ? pulumi.output(val.prometheusProfile).apply(inputs.hdinsight.clusterPrometheusProfileArgsProvideDefaults) : undefined),
-            rangerPluginProfile: (val.rangerPluginProfile ? pulumi.output(val.rangerPluginProfile).apply(inputs.hdinsight.clusterRangerPluginProfileArgsProvideDefaults) : undefined),
-            rangerProfile: (val.rangerProfile ? pulumi.output(val.rangerProfile).apply(inputs.hdinsight.rangerProfileArgsProvideDefaults) : undefined),
-            sparkProfile: (val.sparkProfile ? pulumi.output(val.sparkProfile).apply(inputs.hdinsight.sparkProfileArgsProvideDefaults) : undefined),
-            trinoProfile: (val.trinoProfile ? pulumi.output(val.trinoProfile).apply(inputs.hdinsight.trinoProfileArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * Cluster Prometheus profile.
-     */
-    export interface ClusterPrometheusProfileArgs {
-        /**
-         * Enable Prometheus for cluster or not.
-         */
-        enabled: pulumi.Input<boolean>;
-    }
-    /**
-     * clusterPrometheusProfileArgsProvideDefaults sets the appropriate defaults for ClusterPrometheusProfileArgs
-     */
-    export function clusterPrometheusProfileArgsProvideDefaults(val: ClusterPrometheusProfileArgs): ClusterPrometheusProfileArgs {
-        return {
-            ...val,
-            enabled: (val.enabled) ?? false,
-        };
-    }
-
-    /**
-     * Cluster Ranger plugin profile.
-     */
-    export interface ClusterRangerPluginProfileArgs {
-        /**
-         * Enable Ranger for cluster or not.
-         */
-        enabled: pulumi.Input<boolean>;
-    }
-    /**
-     * clusterRangerPluginProfileArgsProvideDefaults sets the appropriate defaults for ClusterRangerPluginProfileArgs
-     */
-    export function clusterRangerPluginProfileArgsProvideDefaults(val: ClusterRangerPluginProfileArgs): ClusterRangerPluginProfileArgs {
-        return {
-            ...val,
-            enabled: (val.enabled) ?? false,
-        };
-    }
-
-    /**
-     * Cluster configs per component.
-     */
-    export interface ClusterServiceConfigArgs {
-        /**
-         * Name of the component the config files should apply to.
-         */
-        component: pulumi.Input<string>;
-        /**
-         * List of Config Files.
-         */
-        files: pulumi.Input<pulumi.Input<inputs.hdinsight.ClusterConfigFileArgs>[]>;
-    }
-
-    /**
-     * Cluster service configs.
-     */
-    export interface ClusterServiceConfigsProfileArgs {
-        /**
-         * List of service configs.
-         */
-        configs: pulumi.Input<pulumi.Input<inputs.hdinsight.ClusterServiceConfigArgs>[]>;
-        /**
-         * Name of the service the configurations should apply to.
-         */
-        serviceName: pulumi.Input<string>;
-    }
-
-    /**
-     * The comparison rule.
-     */
-    export interface ComparisonRuleArgs {
-        /**
-         * The comparison operator.
-         */
-        operator: pulumi.Input<string | enums.hdinsight.ComparisonOperator>;
-        /**
-         * Threshold setting.
-         */
-        threshold: pulumi.Input<number>;
-    }
-
-    /**
      * The compute isolation properties.
      */
     export interface ComputeIsolationPropertiesArgs {
@@ -104488,20 +106925,6 @@ export namespace hdinsight {
          * The list of roles in the cluster.
          */
         roles?: pulumi.Input<pulumi.Input<inputs.hdinsight.RoleArgs>[]>;
-    }
-
-    /**
-     * The cpu and memory requirement definition.
-     */
-    export interface ComputeResourceDefinitionArgs {
-        /**
-         * The required CPU.
-         */
-        cpu: pulumi.Input<number>;
-        /**
-         * The required memory in MB, Container memory will be 110 percentile
-         */
-        memory: pulumi.Input<number>;
     }
 
     /**
@@ -104554,20 +106977,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Kafka disk storage profile.
-     */
-    export interface DiskStorageProfileArgs {
-        /**
-         * Managed Disk size in GB. The maximum supported disk size for Standard and Premium HDD/SSD is 32TB, except for Premium SSD v2, which supports up to 64TB.
-         */
-        dataDiskSize: pulumi.Input<number>;
-        /**
-         * Managed Disk Type.
-         */
-        dataDiskType: pulumi.Input<string | enums.hdinsight.DataDiskType>;
-    }
-
-    /**
      * The encryption-in-transit properties.
      */
     export interface EncryptionInTransitPropertiesArgs {
@@ -104601,147 +107010,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Flink cluster catalog options.
-     */
-    export interface FlinkCatalogOptionsArgs {
-        /**
-         * Hive Catalog Option for Flink cluster.
-         */
-        hive?: pulumi.Input<inputs.hdinsight.FlinkHiveCatalogOptionArgs>;
-    }
-    /**
-     * flinkCatalogOptionsArgsProvideDefaults sets the appropriate defaults for FlinkCatalogOptionsArgs
-     */
-    export function flinkCatalogOptionsArgsProvideDefaults(val: FlinkCatalogOptionsArgs): FlinkCatalogOptionsArgs {
-        return {
-            ...val,
-            hive: (val.hive ? pulumi.output(val.hive).apply(inputs.hdinsight.flinkHiveCatalogOptionArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * Hive Catalog Option for Flink cluster.
-     */
-    export interface FlinkHiveCatalogOptionArgs {
-        /**
-         * The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
-         */
-        metastoreDbConnectionAuthenticationMode?: pulumi.Input<string | enums.hdinsight.MetastoreDbConnectionAuthenticationMode>;
-        /**
-         * Secret reference name from secretsProfile.secrets containing password for database connection.
-         */
-        metastoreDbConnectionPasswordSecret?: pulumi.Input<string>;
-        /**
-         * Connection string for hive metastore database.
-         */
-        metastoreDbConnectionURL: pulumi.Input<string>;
-        /**
-         * User name for database connection.
-         */
-        metastoreDbConnectionUserName?: pulumi.Input<string>;
-    }
-    /**
-     * flinkHiveCatalogOptionArgsProvideDefaults sets the appropriate defaults for FlinkHiveCatalogOptionArgs
-     */
-    export function flinkHiveCatalogOptionArgsProvideDefaults(val: FlinkHiveCatalogOptionArgs): FlinkHiveCatalogOptionArgs {
-        return {
-            ...val,
-            metastoreDbConnectionAuthenticationMode: (val.metastoreDbConnectionAuthenticationMode) ?? "IdentityAuth",
-        };
-    }
-
-    /**
-     * Job specifications for flink clusters in application deployment mode. The specification is immutable even if job properties are changed by calling the RunJob API, please use the ListJob API to get the latest job information.
-     */
-    export interface FlinkJobProfileArgs {
-        /**
-         * A string property representing additional JVM arguments for the Flink job. It should be space separated value.
-         */
-        args?: pulumi.Input<string>;
-        /**
-         * A string property that specifies the entry class for the Flink job. If not specified, the entry point is auto-detected from the flink job jar package.
-         */
-        entryClass?: pulumi.Input<string>;
-        /**
-         * A string property that represents the name of the job JAR.
-         */
-        jarName: pulumi.Input<string>;
-        /**
-         * A string property that specifies the directory where the job JAR is located.
-         */
-        jobJarDirectory: pulumi.Input<string>;
-        /**
-         * A string property that represents the name of the savepoint for the Flink job
-         */
-        savePointName?: pulumi.Input<string>;
-        /**
-         * A string property that indicates the upgrade mode to be performed on the Flink job. It can have one of the following enum values => STATELESS_UPDATE, UPDATE, LAST_STATE_UPDATE.
-         */
-        upgradeMode: pulumi.Input<string | enums.hdinsight.UpgradeMode>;
-    }
-
-    /**
-     * The Flink cluster profile.
-     */
-    export interface FlinkProfileArgs {
-        /**
-         * Flink cluster catalog options.
-         */
-        catalogOptions?: pulumi.Input<inputs.hdinsight.FlinkCatalogOptionsArgs>;
-        /**
-         * A string property that indicates the deployment mode of Flink cluster. It can have one of the following enum values => Application, Session. Default value is Session
-         */
-        deploymentMode?: pulumi.Input<string | enums.hdinsight.DeploymentMode>;
-        /**
-         * History Server container/ process CPU and memory requirements
-         */
-        historyServer?: pulumi.Input<inputs.hdinsight.ComputeResourceDefinitionArgs>;
-        /**
-         * Job Manager container/ process CPU and memory requirements
-         */
-        jobManager: pulumi.Input<inputs.hdinsight.ComputeResourceDefinitionArgs>;
-        /**
-         * Job specifications for flink clusters in application deployment mode. The specification is immutable even if job properties are changed by calling the RunJob API, please use the ListJob API to get the latest job information.
-         */
-        jobSpec?: pulumi.Input<inputs.hdinsight.FlinkJobProfileArgs>;
-        /**
-         * The number of task managers.
-         */
-        numReplicas?: pulumi.Input<number>;
-        /**
-         * The storage profile
-         */
-        storage: pulumi.Input<inputs.hdinsight.FlinkStorageProfileArgs>;
-        /**
-         * Task Manager container/ process CPU and memory requirements
-         */
-        taskManager: pulumi.Input<inputs.hdinsight.ComputeResourceDefinitionArgs>;
-    }
-    /**
-     * flinkProfileArgsProvideDefaults sets the appropriate defaults for FlinkProfileArgs
-     */
-    export function flinkProfileArgsProvideDefaults(val: FlinkProfileArgs): FlinkProfileArgs {
-        return {
-            ...val,
-            catalogOptions: (val.catalogOptions ? pulumi.output(val.catalogOptions).apply(inputs.hdinsight.flinkCatalogOptionsArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * The storage profile
-     */
-    export interface FlinkStorageProfileArgs {
-        /**
-         * Storage account uri which is used for savepoint and checkpoint state.
-         */
-        storageUri: pulumi.Input<string>;
-        /**
-         * Storage key is only required for wasb(s) storage.
-         */
-        storagekey?: pulumi.Input<string>;
-    }
-
-    /**
      * The hardware profile.
      */
     export interface HardwareProfileArgs {
@@ -104749,45 +107017,6 @@ export namespace hdinsight {
          * The size of the VM
          */
         vmSize?: pulumi.Input<string>;
-    }
-
-    /**
-     * Hive Catalog Option
-     */
-    export interface HiveCatalogOptionArgs {
-        /**
-         * Name of trino catalog which should use specified hive metastore.
-         */
-        catalogName: pulumi.Input<string>;
-        /**
-         * The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
-         */
-        metastoreDbConnectionAuthenticationMode?: pulumi.Input<string | enums.hdinsight.MetastoreDbConnectionAuthenticationMode>;
-        /**
-         * Secret reference name from secretsProfile.secrets containing password for database connection.
-         */
-        metastoreDbConnectionPasswordSecret?: pulumi.Input<string>;
-        /**
-         * Connection string for hive metastore database.
-         */
-        metastoreDbConnectionURL: pulumi.Input<string>;
-        /**
-         * User name for database connection.
-         */
-        metastoreDbConnectionUserName?: pulumi.Input<string>;
-        /**
-         * Metastore root directory URI, format: abfs[s]://<container>@<account_name>.dfs.core.windows.net/<path>. More details: https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri
-         */
-        metastoreWarehouseDir: pulumi.Input<string>;
-    }
-    /**
-     * hiveCatalogOptionArgsProvideDefaults sets the appropriate defaults for HiveCatalogOptionArgs
-     */
-    export function hiveCatalogOptionArgsProvideDefaults(val: HiveCatalogOptionArgs): HiveCatalogOptionArgs {
-        return {
-            ...val,
-            metastoreDbConnectionAuthenticationMode: (val.metastoreDbConnectionAuthenticationMode) ?? "IdentityAuth",
-        };
     }
 
     /**
@@ -104817,24 +107046,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Identity Profile with details of an MSI.
-     */
-    export interface IdentityProfileArgs {
-        /**
-         * ClientId of the MSI.
-         */
-        msiClientId: pulumi.Input<string>;
-        /**
-         * ObjectId of the MSI.
-         */
-        msiObjectId: pulumi.Input<string>;
-        /**
-         * ResourceId of the MSI.
-         */
-        msiResourceId: pulumi.Input<string>;
-    }
-
-    /**
      * Contains the IpTag associated with the public IP address
      */
     export interface IpTagArgs {
@@ -104846,38 +107057,6 @@ export namespace hdinsight {
          * Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc
          */
         tag: pulumi.Input<string>;
-    }
-
-    /**
-     * The Kafka cluster profile.
-     */
-    export interface KafkaProfileArgs {
-        /**
-         * Kafka disk storage profile.
-         */
-        diskStorage: pulumi.Input<inputs.hdinsight.DiskStorageProfileArgs>;
-        /**
-         * Expose Kafka cluster in KRaft mode.
-         */
-        enableKRaft?: pulumi.Input<boolean>;
-        /**
-         * Expose worker nodes as public endpoints.
-         */
-        enablePublicEndpoints?: pulumi.Input<boolean>;
-        /**
-         * Fully qualified path of Azure Storage container used for Tiered Storage.
-         */
-        remoteStorageUri?: pulumi.Input<string>;
-    }
-    /**
-     * kafkaProfileArgsProvideDefaults sets the appropriate defaults for KafkaProfileArgs
-     */
-    export function kafkaProfileArgsProvideDefaults(val: KafkaProfileArgs): KafkaProfileArgs {
-        return {
-            ...val,
-            enableKRaft: (val.enableKRaft) ?? true,
-            enablePublicEndpoints: (val.enablePublicEndpoints) ?? false,
-        };
     }
 
     /**
@@ -104913,64 +107092,6 @@ export namespace hdinsight {
     }
 
     /**
-     * Profile of load based Autoscale.
-     */
-    export interface LoadBasedConfigArgs {
-        /**
-         * This is a cool down period, this is a time period in seconds, which determines the amount of time that must elapse between a scaling activity started by a rule and the start of the next scaling activity, regardless of the rule that triggers it. The default value is 300 seconds.
-         */
-        cooldownPeriod?: pulumi.Input<number>;
-        /**
-         * User needs to set the maximum number of nodes for load based scaling, the load based scaling will use this to scale up and scale down between minimum and maximum number of nodes.
-         */
-        maxNodes: pulumi.Input<number>;
-        /**
-         * User needs to set the minimum number of nodes for load based scaling, the load based scaling will use this to scale up and scale down between minimum and maximum number of nodes.
-         */
-        minNodes: pulumi.Input<number>;
-        /**
-         * User can specify the poll interval, this is the time period (in seconds) after which scaling metrics are polled for triggering a scaling operation.
-         */
-        pollInterval?: pulumi.Input<number>;
-        /**
-         * The scaling rules.
-         */
-        scalingRules: pulumi.Input<pulumi.Input<inputs.hdinsight.ScalingRuleArgs>[]>;
-    }
-
-    /**
-     * The details of managed identity.
-     */
-    export interface ManagedIdentityProfileArgs {
-        /**
-         * The list of managed identity.
-         */
-        identityList: pulumi.Input<pulumi.Input<inputs.hdinsight.ManagedIdentitySpecArgs>[]>;
-    }
-
-    /**
-     * The details of a managed identity.
-     */
-    export interface ManagedIdentitySpecArgs {
-        /**
-         * ClientId of the managed identity.
-         */
-        clientId: pulumi.Input<string>;
-        /**
-         * ObjectId of the managed identity.
-         */
-        objectId: pulumi.Input<string>;
-        /**
-         * ResourceId of the managed identity.
-         */
-        resourceId: pulumi.Input<string>;
-        /**
-         * The type of managed identity.
-         */
-        type: pulumi.Input<string | enums.hdinsight.ManagedIdentityType>;
-    }
-
-    /**
      * The network properties.
      */
     export interface NetworkPropertiesArgs {
@@ -104990,24 +107111,6 @@ export namespace hdinsight {
          * The direction for the resource provider connection.
          */
         resourceProviderConnection?: pulumi.Input<string | enums.hdinsight.ResourceProviderConnection>;
-    }
-
-    /**
-     * The node profile.
-     */
-    export interface NodeProfileArgs {
-        /**
-         * The number of virtual machines.
-         */
-        count: pulumi.Input<number>;
-        /**
-         * The node type.
-         */
-        type: pulumi.Input<string>;
-        /**
-         * The virtual machine SKU.
-         */
-        vmSize: pulumi.Input<string>;
     }
 
     /**
@@ -105054,109 +107157,6 @@ export namespace hdinsight {
          * The concrete private link service connection.
          */
         status: pulumi.Input<string | enums.hdinsight.PrivateLinkServiceConnectionStatus>;
-    }
-
-    /**
-     * Specification for the Ranger Admin service.
-     */
-    export interface RangerAdminSpecArgs {
-        /**
-         * List of usernames that should be marked as ranger admins. These usernames should match the user principal name (UPN) of the respective AAD users.
-         */
-        admins: pulumi.Input<pulumi.Input<string>[]>;
-        database: pulumi.Input<inputs.hdinsight.RangerAdminSpecDatabaseArgs>;
-    }
-
-    export interface RangerAdminSpecDatabaseArgs {
-        /**
-         * The database URL
-         */
-        host: pulumi.Input<string>;
-        /**
-         * The database name
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Reference for the database password
-         */
-        passwordSecretRef?: pulumi.Input<string>;
-        /**
-         * The name of the database user
-         */
-        username?: pulumi.Input<string>;
-    }
-
-    /**
-     * Properties required to describe audit log storage.
-     */
-    export interface RangerAuditSpecArgs {
-        /**
-         * Azure storage location of the blobs. MSI should have read/write access to this Storage account.
-         */
-        storageAccount?: pulumi.Input<string>;
-    }
-
-    /**
-     * The ranger cluster profile.
-     */
-    export interface RangerProfileArgs {
-        /**
-         * Specification for the Ranger Admin service.
-         */
-        rangerAdmin: pulumi.Input<inputs.hdinsight.RangerAdminSpecArgs>;
-        /**
-         * Properties required to describe audit log storage.
-         */
-        rangerAudit?: pulumi.Input<inputs.hdinsight.RangerAuditSpecArgs>;
-        /**
-         * Specification for the Ranger Usersync service
-         */
-        rangerUsersync: pulumi.Input<inputs.hdinsight.RangerUsersyncSpecArgs>;
-    }
-    /**
-     * rangerProfileArgsProvideDefaults sets the appropriate defaults for RangerProfileArgs
-     */
-    export function rangerProfileArgsProvideDefaults(val: RangerProfileArgs): RangerProfileArgs {
-        return {
-            ...val,
-            rangerUsersync: pulumi.output(val.rangerUsersync).apply(inputs.hdinsight.rangerUsersyncSpecArgsProvideDefaults),
-        };
-    }
-
-    /**
-     * Specification for the Ranger Usersync service
-     */
-    export interface RangerUsersyncSpecArgs {
-        /**
-         * Denotes whether usersync service should be enabled
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * List of groups that should be synced. These group names should match the object id of the respective AAD groups.
-         */
-        groups?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * User & groups can be synced automatically or via a static list that's refreshed.
-         */
-        mode?: pulumi.Input<string | enums.hdinsight.RangerUsersyncMode>;
-        /**
-         * Azure storage location of a mapping file that lists user & group associations.
-         */
-        userMappingLocation?: pulumi.Input<string>;
-        /**
-         * List of user names that should be synced. These usernames should match the User principal name of the respective AAD users.
-         */
-        users?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-    /**
-     * rangerUsersyncSpecArgsProvideDefaults sets the appropriate defaults for RangerUsersyncSpecArgs
-     */
-    export function rangerUsersyncSpecArgsProvideDefaults(val: RangerUsersyncSpecArgs): RangerUsersyncSpecArgs {
-        return {
-            ...val,
-            enabled: (val.enabled) ?? true,
-            mode: (val.mode) ?? "automatic",
-        };
     }
 
     /**
@@ -105251,68 +107251,6 @@ export namespace hdinsight {
     }
 
     /**
-     * The scaling rule.
-     */
-    export interface ScalingRuleArgs {
-        /**
-         * The action type.
-         */
-        actionType: pulumi.Input<string | enums.hdinsight.ScaleActionType>;
-        /**
-         * The comparison rule.
-         */
-        comparisonRule: pulumi.Input<inputs.hdinsight.ComparisonRuleArgs>;
-        /**
-         * This is an evaluation count for a scaling condition, the number of times a trigger condition should be successful, before scaling activity is triggered.
-         */
-        evaluationCount: pulumi.Input<number>;
-        /**
-         * Metrics name for individual workloads. For example: cpu
-         */
-        scalingMetric: pulumi.Input<string>;
-    }
-
-    /**
-     * Schedule definition.
-     */
-    export interface ScheduleArgs {
-        /**
-         * User has to set the node count anticipated at end of the scaling operation of the set current schedule configuration, format is integer.
-         */
-        count: pulumi.Input<number>;
-        /**
-         * User has to set the days where schedule has to be set for autoscale operation.
-         */
-        days: pulumi.Input<pulumi.Input<string | enums.hdinsight.ScheduleDay>[]>;
-        /**
-         * User has to set the end time of current schedule configuration, format like 10:30 (HH:MM).
-         */
-        endTime: pulumi.Input<string>;
-        /**
-         * User has to set the start time of current schedule configuration, format like 10:30 (HH:MM).
-         */
-        startTime: pulumi.Input<string>;
-    }
-
-    /**
-     * Profile of schedule based Autoscale.
-     */
-    export interface ScheduleBasedConfigArgs {
-        /**
-         * Setting default node count of current schedule configuration. Default node count specifies the number of nodes which are default when an specified scaling operation is executed (scale up/scale down)
-         */
-        defaultCount: pulumi.Input<number>;
-        /**
-         * This specifies the schedules where scheduled based Autoscale to be enabled, the user has a choice to set multiple rules within the schedule across days and times (start/end).
-         */
-        schedules: pulumi.Input<pulumi.Input<inputs.hdinsight.ScheduleArgs>[]>;
-        /**
-         * User has to specify the timezone on which the schedule has to be set for schedule based autoscale configuration.
-         */
-        timeZone: pulumi.Input<string>;
-    }
-
-    /**
      * Describes a script action on role on the cluster.
      */
     export interface ScriptActionArgs {
@@ -105328,85 +107266,6 @@ export namespace hdinsight {
          * The URI to the script.
          */
         uri: pulumi.Input<string>;
-    }
-
-    /**
-     * The script action profile.
-     */
-    export interface ScriptActionProfileArgs {
-        /**
-         * Script name.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Additional parameters for the script action. It should be space-separated list of arguments required for script execution.
-         */
-        parameters?: pulumi.Input<string>;
-        /**
-         * List of services to apply the script action.
-         */
-        services: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specify if the script should persist on the cluster.
-         */
-        shouldPersist?: pulumi.Input<boolean>;
-        /**
-         * Timeout duration for the script action in minutes.
-         */
-        timeoutInMinutes?: pulumi.Input<number>;
-        /**
-         * Type of the script action. Supported type is bash scripts.
-         */
-        type: pulumi.Input<string>;
-        /**
-         * Url of the script file.
-         */
-        url: pulumi.Input<string>;
-    }
-    /**
-     * scriptActionProfileArgsProvideDefaults sets the appropriate defaults for ScriptActionProfileArgs
-     */
-    export function scriptActionProfileArgsProvideDefaults(val: ScriptActionProfileArgs): ScriptActionProfileArgs {
-        return {
-            ...val,
-            shouldPersist: (val.shouldPersist) ?? true,
-        };
-    }
-
-    /**
-     * Secret reference and corresponding properties of a key vault secret.
-     */
-    export interface SecretReferenceArgs {
-        /**
-         * Object identifier name of the secret in key vault.
-         */
-        keyVaultObjectName: pulumi.Input<string>;
-        /**
-         * Reference name of the secret to be used in service configs.
-         */
-        referenceName: pulumi.Input<string>;
-        /**
-         * Type of key vault object: secret, key or certificate.
-         */
-        type: pulumi.Input<string | enums.hdinsight.KeyVaultObjectType>;
-        /**
-         * Version of the secret in key vault.
-         */
-        version?: pulumi.Input<string>;
-    }
-
-    /**
-     * The cluster secret profile.
-     */
-    export interface SecretsProfileArgs {
-        /**
-         * Name of the user Key Vault where all the cluster specific user secrets are stored.
-         */
-        keyVaultResourceId: pulumi.Input<string>;
-        /**
-         * Properties of Key Vault secret.
-         */
-        secrets?: pulumi.Input<pulumi.Input<inputs.hdinsight.SecretReferenceArgs>[]>;
     }
 
     /**
@@ -105449,96 +107308,6 @@ export namespace hdinsight {
          * The organizational unit within the Active Directory to place the cluster and service accounts.
          */
         organizationalUnitDN?: pulumi.Input<string>;
-    }
-
-    /**
-     * The metastore specification for Spark cluster.
-     */
-    export interface SparkMetastoreSpecArgs {
-        /**
-         * The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
-         */
-        dbConnectionAuthenticationMode?: pulumi.Input<string | enums.hdinsight.DbConnectionAuthenticationMode>;
-        /**
-         * The database name.
-         */
-        dbName: pulumi.Input<string>;
-        /**
-         * The secret name which contains the database user password.
-         */
-        dbPasswordSecretName?: pulumi.Input<string>;
-        /**
-         * The database server host.
-         */
-        dbServerHost: pulumi.Input<string>;
-        /**
-         * The database user name.
-         */
-        dbUserName?: pulumi.Input<string>;
-        /**
-         * The key vault resource id.
-         */
-        keyVaultId?: pulumi.Input<string>;
-        /**
-         * The thrift url.
-         */
-        thriftUrl?: pulumi.Input<string>;
-    }
-    /**
-     * sparkMetastoreSpecArgsProvideDefaults sets the appropriate defaults for SparkMetastoreSpecArgs
-     */
-    export function sparkMetastoreSpecArgsProvideDefaults(val: SparkMetastoreSpecArgs): SparkMetastoreSpecArgs {
-        return {
-            ...val,
-            dbConnectionAuthenticationMode: (val.dbConnectionAuthenticationMode) ?? "IdentityAuth",
-        };
-    }
-
-    /**
-     * The spark cluster profile.
-     */
-    export interface SparkProfileArgs {
-        /**
-         * The default storage URL.
-         */
-        defaultStorageUrl?: pulumi.Input<string>;
-        /**
-         * The metastore specification for Spark cluster.
-         */
-        metastoreSpec?: pulumi.Input<inputs.hdinsight.SparkMetastoreSpecArgs>;
-        /**
-         * Spark user plugins spec
-         */
-        userPluginsSpec?: pulumi.Input<inputs.hdinsight.SparkUserPluginsArgs>;
-    }
-    /**
-     * sparkProfileArgsProvideDefaults sets the appropriate defaults for SparkProfileArgs
-     */
-    export function sparkProfileArgsProvideDefaults(val: SparkProfileArgs): SparkProfileArgs {
-        return {
-            ...val,
-            metastoreSpec: (val.metastoreSpec ? pulumi.output(val.metastoreSpec).apply(inputs.hdinsight.sparkMetastoreSpecArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * Spark user plugin.
-     */
-    export interface SparkUserPluginArgs {
-        /**
-         * Fully qualified path to the folder containing the plugins.
-         */
-        path: pulumi.Input<string>;
-    }
-
-    /**
-     * Spark user plugins spec
-     */
-    export interface SparkUserPluginsArgs {
-        /**
-         * Spark user plugins.
-         */
-        plugins?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkUserPluginArgs>[]>;
     }
 
     /**
@@ -105615,185 +107384,6 @@ export namespace hdinsight {
          * The list of storage accounts in the cluster.
          */
         storageaccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.StorageAccountArgs>[]>;
-    }
-
-    /**
-     * Trino Coordinator.
-     */
-    export interface TrinoCoordinatorArgs {
-        /**
-         * The flag that if enable debug or not.
-         */
-        enable?: pulumi.Input<boolean>;
-        /**
-         * The flag that if enable coordinator HA, uses multiple coordinator replicas with auto failover, one per each head node. Default: true.
-         */
-        highAvailabilityEnabled?: pulumi.Input<boolean>;
-        /**
-         * The debug port.
-         */
-        port?: pulumi.Input<number>;
-        /**
-         * The flag that if suspend debug or not.
-         */
-        suspend?: pulumi.Input<boolean>;
-    }
-    /**
-     * trinoCoordinatorArgsProvideDefaults sets the appropriate defaults for TrinoCoordinatorArgs
-     */
-    export function trinoCoordinatorArgsProvideDefaults(val: TrinoCoordinatorArgs): TrinoCoordinatorArgs {
-        return {
-            ...val,
-            enable: (val.enable) ?? false,
-            highAvailabilityEnabled: (val.highAvailabilityEnabled) ?? true,
-            port: (val.port) ?? 8008,
-            suspend: (val.suspend) ?? false,
-        };
-    }
-
-    /**
-     * Trino Cluster profile.
-     */
-    export interface TrinoProfileArgs {
-        /**
-         * Trino cluster catalog options.
-         */
-        catalogOptions?: pulumi.Input<inputs.hdinsight.CatalogOptionsArgs>;
-        /**
-         * Trino Coordinator.
-         */
-        coordinator?: pulumi.Input<inputs.hdinsight.TrinoCoordinatorArgs>;
-        /**
-         * Trino user plugins spec
-         */
-        userPluginsSpec?: pulumi.Input<inputs.hdinsight.TrinoUserPluginsArgs>;
-        /**
-         * User telemetry
-         */
-        userTelemetrySpec?: pulumi.Input<inputs.hdinsight.TrinoUserTelemetryArgs>;
-        /**
-         * Trino worker.
-         */
-        worker?: pulumi.Input<inputs.hdinsight.TrinoWorkerArgs>;
-    }
-    /**
-     * trinoProfileArgsProvideDefaults sets the appropriate defaults for TrinoProfileArgs
-     */
-    export function trinoProfileArgsProvideDefaults(val: TrinoProfileArgs): TrinoProfileArgs {
-        return {
-            ...val,
-            coordinator: (val.coordinator ? pulumi.output(val.coordinator).apply(inputs.hdinsight.trinoCoordinatorArgsProvideDefaults) : undefined),
-            userTelemetrySpec: (val.userTelemetrySpec ? pulumi.output(val.userTelemetrySpec).apply(inputs.hdinsight.trinoUserTelemetryArgsProvideDefaults) : undefined),
-            worker: (val.worker ? pulumi.output(val.worker).apply(inputs.hdinsight.trinoWorkerArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * Trino user telemetry definition.
-     */
-    export interface TrinoTelemetryConfigArgs {
-        /**
-         * Hive Catalog name used to mount external tables on the logs written by trino, if not specified there tables are not created.
-         */
-        hivecatalogName?: pulumi.Input<string>;
-        /**
-         * Schema of the above catalog to use, to mount query logs as external tables, if not specified tables will be mounted under schema trinologs.
-         */
-        hivecatalogSchema?: pulumi.Input<string>;
-        /**
-         * Retention period for query log table partitions, this doesn't have any affect on actual data.
-         */
-        partitionRetentionInDays?: pulumi.Input<number>;
-        /**
-         * Azure storage location of the blobs.
-         */
-        path?: pulumi.Input<string>;
-    }
-    /**
-     * trinoTelemetryConfigArgsProvideDefaults sets the appropriate defaults for TrinoTelemetryConfigArgs
-     */
-    export function trinoTelemetryConfigArgsProvideDefaults(val: TrinoTelemetryConfigArgs): TrinoTelemetryConfigArgs {
-        return {
-            ...val,
-            hivecatalogSchema: (val.hivecatalogSchema) ?? "trinologs",
-            partitionRetentionInDays: (val.partitionRetentionInDays) ?? 365,
-        };
-    }
-
-    /**
-     * Trino user plugin.
-     */
-    export interface TrinoUserPluginArgs {
-        /**
-         * Denotes whether the plugin is active or not.
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * This field maps to the sub-directory in trino plugins location, that will contain all the plugins under path.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Fully qualified path to the folder containing the plugins.
-         */
-        path?: pulumi.Input<string>;
-    }
-
-    /**
-     * Trino user plugins spec
-     */
-    export interface TrinoUserPluginsArgs {
-        /**
-         * Trino user plugins.
-         */
-        plugins?: pulumi.Input<pulumi.Input<inputs.hdinsight.TrinoUserPluginArgs>[]>;
-    }
-
-    /**
-     * User telemetry
-     */
-    export interface TrinoUserTelemetryArgs {
-        /**
-         * Trino user telemetry definition.
-         */
-        storage?: pulumi.Input<inputs.hdinsight.TrinoTelemetryConfigArgs>;
-    }
-    /**
-     * trinoUserTelemetryArgsProvideDefaults sets the appropriate defaults for TrinoUserTelemetryArgs
-     */
-    export function trinoUserTelemetryArgsProvideDefaults(val: TrinoUserTelemetryArgs): TrinoUserTelemetryArgs {
-        return {
-            ...val,
-            storage: (val.storage ? pulumi.output(val.storage).apply(inputs.hdinsight.trinoTelemetryConfigArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * Trino worker.
-     */
-    export interface TrinoWorkerArgs {
-        /**
-         * The flag that if enable debug or not.
-         */
-        enable?: pulumi.Input<boolean>;
-        /**
-         * The debug port.
-         */
-        port?: pulumi.Input<number>;
-        /**
-         * The flag that if suspend debug or not.
-         */
-        suspend?: pulumi.Input<boolean>;
-    }
-    /**
-     * trinoWorkerArgsProvideDefaults sets the appropriate defaults for TrinoWorkerArgs
-     */
-    export function trinoWorkerArgsProvideDefaults(val: TrinoWorkerArgs): TrinoWorkerArgs {
-        return {
-            ...val,
-            enable: (val.enable) ?? false,
-            port: (val.port) ?? 8008,
-            suspend: (val.suspend) ?? false,
-        };
     }
 
     /**
@@ -129401,6 +130991,67 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * BGP Monitoring Protocol (BMP) Configuration properties.
+     */
+    export interface BmpConfigurationPropertiesArgs {
+        /**
+         * Export Policy for the BMP Configuration.
+         */
+        exportPolicy?: pulumi.Input<string | enums.managednetworkfabric.BmpExportPolicy>;
+        /**
+         * Monitored Address Families for the BMP Configuration.
+         */
+        monitoredAddressFamilies?: pulumi.Input<pulumi.Input<string | enums.managednetworkfabric.BmpMonitoredAddressFamily>[]>;
+        /**
+         * The List of Network ID's that need to be monitored.
+         */
+        monitoredNetworks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Scope resource ARM Identifier.
+         */
+        scopeResourceId?: pulumi.Input<string>;
+        /**
+         * Enabling a station. Either True/False.
+         */
+        stationConfigurationState?: pulumi.Input<string | enums.managednetworkfabric.StationConfigurationState>;
+        /**
+         * Station Connection Mode.
+         */
+        stationConnectionMode?: pulumi.Input<string | enums.managednetworkfabric.StationConnectionMode>;
+        /**
+         * Station Connection Properties.
+         */
+        stationConnectionProperties?: pulumi.Input<inputs.managednetworkfabric.StationConnectionPropertiesArgs>;
+        /**
+         * IP Address of the station.
+         */
+        stationIp?: pulumi.Input<string>;
+        /**
+         * Name of the station.
+         */
+        stationName?: pulumi.Input<string>;
+        /**
+         * Network of the station
+         */
+        stationNetwork?: pulumi.Input<string>;
+        /**
+         * Port of the station. Default value is 5000.
+         */
+        stationPort?: pulumi.Input<number>;
+    }
+    /**
+     * bmpConfigurationPropertiesArgsProvideDefaults sets the appropriate defaults for BmpConfigurationPropertiesArgs
+     */
+    export function bmpConfigurationPropertiesArgsProvideDefaults(val: BmpConfigurationPropertiesArgs): BmpConfigurationPropertiesArgs {
+        return {
+            ...val,
+            exportPolicy: (val.exportPolicy) ?? "All",
+            stationConnectionProperties: (val.stationConnectionProperties ? pulumi.output(val.stationConnectionProperties).apply(inputs.managednetworkfabric.stationConnectionPropertiesArgsProvideDefaults) : undefined),
+            stationPort: (val.stationPort) ?? 5000,
+        };
+    }
+
+    /**
      * Dynamic match configuration object.
      */
     export interface CommonDynamicMatchConfigurationArgs {
@@ -129936,6 +131587,29 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * Network Monitor Properties defines the properties of the resource.
+     */
+    export interface NetworkMonitorPropertiesArgs {
+        /**
+         * Switch configuration description.
+         */
+        annotation?: pulumi.Input<string>;
+        /**
+         * BMP Configurations for the Network Fabric.
+         */
+        bmpConfiguration?: pulumi.Input<inputs.managednetworkfabric.BmpConfigurationPropertiesArgs>;
+    }
+    /**
+     * networkMonitorPropertiesArgsProvideDefaults sets the appropriate defaults for NetworkMonitorPropertiesArgs
+     */
+    export function networkMonitorPropertiesArgsProvideDefaults(val: NetworkMonitorPropertiesArgs): NetworkMonitorPropertiesArgs {
+        return {
+            ...val,
+            bmpConfiguration: (val.bmpConfiguration ? pulumi.output(val.bmpConfiguration).apply(inputs.managednetworkfabric.bmpConfigurationPropertiesArgsProvideDefaults) : undefined),
+        };
+    }
+
+    /**
      * Destination.
      */
     export interface NetworkTapPropertiesDestinationsArgs {
@@ -130276,6 +131950,35 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * Station Connection Properties.
+     */
+    export interface StationConnectionPropertiesArgs {
+        /**
+         * Connection keepalive idle time in seconds
+         */
+        keepaliveIdleTime?: pulumi.Input<number>;
+        /**
+         * Probe count, default value is 10
+         */
+        probeCount?: pulumi.Input<number>;
+        /**
+         * Probe interval in seconds, default value is 60
+         */
+        probeInterval?: pulumi.Input<number>;
+    }
+    /**
+     * stationConnectionPropertiesArgsProvideDefaults sets the appropriate defaults for StationConnectionPropertiesArgs
+     */
+    export function stationConnectionPropertiesArgsProvideDefaults(val: StationConnectionPropertiesArgs): StationConnectionPropertiesArgs {
+        return {
+            ...val,
+            keepaliveIdleTime: (val.keepaliveIdleTime) ?? 180,
+            probeCount: (val.probeCount) ?? 10,
+            probeInterval: (val.probeInterval) ?? 60,
+        };
+    }
+
+    /**
      * Network and credentials configuration currently applied to terminal server.
      */
     export interface TerminalServerConfigurationArgs {
@@ -130418,6 +132121,65 @@ export namespace managednetworkfabric {
             bfdConfiguration: (val.bfdConfiguration ? pulumi.output(val.bfdConfiguration).apply(inputs.managednetworkfabric.bfdConfigurationArgsProvideDefaults) : undefined),
             mtu: (val.mtu) ?? 1500,
         };
+    }
+
+}
+
+export namespace managedops {
+    /**
+     * Configuration for the Azure Monitor Insights service.
+     */
+    export interface AzureMonitorConfigurationArgs {
+        /**
+         * Azure monitor workspace resource ID used by the service.
+         */
+        azureMonitorWorkspaceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for the Change Tracking and Inventory service.
+     */
+    export interface ChangeTrackingConfigurationArgs {
+        /**
+         * Log analytics workspace resource ID used by the service.
+         */
+        logAnalyticsWorkspaceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Desired configuration input by the user.
+     */
+    export interface DesiredConfigurationArgs {
+        /**
+         * Configuration for the Azure Monitor Insights service.
+         */
+        azureMonitorInsights: pulumi.Input<inputs.managedops.AzureMonitorConfigurationArgs>;
+        /**
+         * Configuration for the Change Tracking and Inventory service.
+         */
+        changeTrackingAndInventory: pulumi.Input<inputs.managedops.ChangeTrackingConfigurationArgs>;
+        /**
+         * Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
+         */
+        defenderCspm?: pulumi.Input<string | enums.managedops.DefenderCspm>;
+        /**
+         * Desired enablement state of the Defender For Servers service.
+         */
+        defenderForServers?: pulumi.Input<string | enums.managedops.DefenderForServers>;
+        /**
+         * User assigned Managed Identity used to perform operations on machines managed by Ops360.
+         */
+        userAssignedManagedIdentityId: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the ManagedOps resource.
+     */
+    export interface ManagedOpsPropertiesArgs {
+        /**
+         * Desired configuration input by the user.
+         */
+        desiredConfiguration: pulumi.Input<inputs.managedops.DesiredConfigurationArgs>;
     }
 
 }
@@ -131351,6 +133113,16 @@ export namespace migrate {
          * Gets or sets the isolation required.
          */
         isolationRequired: pulumi.Input<boolean>;
+    }
+
+    /**
+     * ARG query and other details to create workloads within a wave.
+     */
+    export interface ArgArgs {
+        /**
+         * The query to create workloads within the wave.
+         */
+        query: pulumi.Input<string>;
     }
 
     /**
@@ -132839,6 +134611,86 @@ export namespace migrate {
     }
 
     /**
+     * Migration Entity Group Properties class.
+     */
+    export interface MigrationEntityGroupPropertiesArgs {
+        /**
+         * Display Name of the Workload.
+         */
+        applicationDisplayName: pulumi.Input<string>;
+        /**
+         * Application id 
+         */
+        applicationId: pulumi.Input<string>;
+        /**
+         * Associated Assessment Id
+         */
+        associatedAssessmentId?: pulumi.Input<string>;
+        /**
+         * associated Wave Id
+         */
+        associatedWaveIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Migration path
+         */
+        migrationPath?: pulumi.Input<string>;
+    }
+
+    /**
+     * Migration Entity Properties class.
+     */
+    export interface MigrationEntityPropertiesArgs {
+        /**
+         * Assessed Entity ARM Id
+         */
+        assessedEntityArmId?: pulumi.Input<string>;
+        /**
+         * Associated Assessment Id
+         */
+        associatedAssessmentId?: pulumi.Input<string>;
+        /**
+         * inventory resource id 
+         */
+        associatedInventoryResourceId: pulumi.Input<string>;
+        /**
+         * associated Migration Entity Group Id
+         */
+        associatedMigrationEntityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * associated Wave Id
+         */
+        associatedWaveId?: pulumi.Input<string>;
+        /**
+         * Display Name of the Workload.
+         */
+        inventoryDisplayName: pulumi.Input<string>;
+        /**
+         * Migration path
+         */
+        migrationPath?: pulumi.Input<string>;
+        /**
+         * Migration specific properties for the entity.
+         */
+        migrationSpecificProperties?: pulumi.Input<inputs.migrate.ServerMigrationSpecificPropertiesArgs>;
+        /**
+         * Migration Tool of the Migration Entity.
+         */
+        migrationTool?: pulumi.Input<string>;
+        /**
+         * ARM Resource Identifier for the partner resource.
+         */
+        partnerResourceArmId?: pulumi.Input<string>;
+        /**
+         * Target of the Migration Entity.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * target Azure Resource ARM Id.
+         */
+        targetAzureResourceArmId?: pulumi.Input<string>;
+    }
+
+    /**
      * ModernizeProject properties.
      */
     export interface ModernizeProjectModelPropertiesArgs {
@@ -133414,6 +135266,25 @@ export namespace migrate {
     }
 
     /**
+     * Represents a Server Migration Specific properties base model.
+     */
+    export interface ServerMigrationSpecificPropertiesArgs {
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
+        currentJobId?: pulumi.Input<string>;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
+        drApplianceInventoryId?: pulumi.Input<string>;
+        /**
+         * Migration Specific Properties Instance Types.
+         * Expected value is 'ServerMigration'.
+         */
+        instanceType: pulumi.Input<"ServerMigration">;
+    }
+
+    /**
      * Business case settings.
      */
     export interface SettingsArgs {
@@ -133882,6 +135753,36 @@ export namespace migrate {
     }
 
     /**
+     * Task Properties class.
+     */
+    export interface TaskPropertiesArgs {
+        /**
+         * Task Description
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Task Dislay Name 
+         */
+        displayName: pulumi.Input<string>;
+        /**
+         * Task Scope
+         */
+        scope: pulumi.Input<string | enums.migrate.TaskScope>;
+        /**
+         * associated Wave Id
+         */
+        scopeId: pulumi.Input<string>;
+        /**
+         * Task Stage
+         */
+        stage?: pulumi.Input<string>;
+        /**
+         * Task Status
+         */
+        status: pulumi.Input<string>;
+    }
+
+    /**
      * Third Party Management settings.
      */
     export interface ThirdPartyManagementSettingsArgs {
@@ -134021,6 +135922,32 @@ export namespace migrate {
          * Number of hours per day for VM uptime.
          */
         hoursPerDay?: pulumi.Input<number>;
+    }
+
+    /**
+     * Migration Wave Properties class.
+     */
+    export interface WavePropertiesArgs {
+        /**
+         * ARG query and other details to create workloads within a wave
+         */
+        arg: pulumi.Input<inputs.migrate.ArgArgs>;
+        /**
+         * Description of the wave.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Display Name of the wave.
+         */
+        displayName: pulumi.Input<string>;
+        /**
+         * Planned completion date of the wave.
+         */
+        plannedCompletionDate?: pulumi.Input<string>;
+        /**
+         * Planned start date of the wave.
+         */
+        plannedStartDate: pulumi.Input<string>;
     }
 
     /**
@@ -134621,811 +136548,6 @@ export namespace mission {
          * Transit Option Params scaleUnits.
          */
         scaleUnits?: pulumi.Input<number>;
-    }
-
-}
-
-export namespace mixedreality {
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityArgs {
-        /**
-         * The identity type.
-         */
-        type?: pulumi.Input<enums.mixedreality.ResourceIdentityType>;
-    }
-
-    export interface ObjectAnchorsAccountIdentityArgs {
-        /**
-         * The identity type.
-         */
-        type?: pulumi.Input<enums.mixedreality.ResourceIdentityType>;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuArgs {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: pulumi.Input<string>;
-        /**
-         * The name of the SKU. Ex - P3. It is typically a letter+number code
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: pulumi.Input<string>;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: pulumi.Input<enums.mixedreality.SkuTier>;
-    }
-
-}
-
-export namespace mobilenetwork {
-    /**
-     * Aggregate maximum bit rate.
-     */
-    export interface AmbrArgs {
-        /**
-         * Downlink bit rate.
-         */
-        downlink: pulumi.Input<string>;
-        /**
-         * Uplink bit rate.
-         */
-        uplink: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to an attached data network resource.
-     */
-    export interface AttachedDataNetworkResourceIdArgs {
-        /**
-         * Attached data network resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to an Azure Stack Edge device resource.
-     */
-    export interface AzureStackEdgeDeviceResourceIdArgs {
-        /**
-         * Azure Stack Edge device resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to an Azure Stack HCI cluster resource.
-     */
-    export interface AzureStackHCIClusterResourceIdArgs {
-        /**
-         * Azure Stack HCI cluster resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to an Azure Arc custom location resource.
-     */
-    export interface ConnectedClusterResourceIdArgs {
-        /**
-         * Azure Arc connected cluster resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to an Azure Arc custom location resource.
-     */
-    export interface CustomLocationResourceIdArgs {
-        /**
-         * Azure Arc custom location resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Settings controlling data network use
-     */
-    export interface DataNetworkConfigurationArgs {
-        /**
-         * Allowed session types in addition to the default session type. Must not duplicate the default session type.
-         */
-        additionalAllowedSessionTypes?: pulumi.Input<pulumi.Input<string | enums.mobilenetwork.PduSessionType>[]>;
-        /**
-         * Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: pulumi.Input<number>;
-        /**
-         * List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item. The services must be in the same location as the SIM policy.
-         */
-        allowedServices: pulumi.Input<pulumi.Input<inputs.mobilenetwork.ServiceResourceIdArgs>[]>;
-        /**
-         * A reference to the data network that these settings apply to. The data network must be in the same location as the SIM policy.
-         */
-        dataNetwork: pulumi.Input<inputs.mobilenetwork.DataNetworkResourceIdArgs>;
-        /**
-         * The default PDU session type, which is used if the UE does not request a specific session type.
-         */
-        defaultSessionType?: pulumi.Input<string | enums.mobilenetwork.PduSessionType>;
-        /**
-         * Default 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
-         */
-        fiveQi?: pulumi.Input<number>;
-        /**
-         * The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
-         */
-        maximumNumberOfBufferedPackets?: pulumi.Input<number>;
-        /**
-         * Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionCapability?: pulumi.Input<string | enums.mobilenetwork.PreemptionCapability>;
-        /**
-         * Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionVulnerability?: pulumi.Input<string | enums.mobilenetwork.PreemptionVulnerability>;
-        /**
-         * Aggregate maximum bit rate across all non-GBR QoS flows of a given PDU session. See 3GPP TS23.501 section 5.7.2.6 for a full description of the Session-AMBR.
-         */
-        sessionAmbr: pulumi.Input<inputs.mobilenetwork.AmbrArgs>;
-    }
-    /**
-     * dataNetworkConfigurationArgsProvideDefaults sets the appropriate defaults for DataNetworkConfigurationArgs
-     */
-    export function dataNetworkConfigurationArgsProvideDefaults(val: DataNetworkConfigurationArgs): DataNetworkConfigurationArgs {
-        return {
-            ...val,
-            allocationAndRetentionPriorityLevel: (val.allocationAndRetentionPriorityLevel) ?? 9,
-            defaultSessionType: (val.defaultSessionType) ?? "IPv4",
-            fiveQi: (val.fiveQi) ?? 9,
-            maximumNumberOfBufferedPackets: (val.maximumNumberOfBufferedPackets) ?? 10,
-            preemptionCapability: (val.preemptionCapability) ?? "NotPreempt",
-            preemptionVulnerability: (val.preemptionVulnerability) ?? "Preemptable",
-        };
-    }
-
-    /**
-     * Reference to a data network resource.
-     */
-    export interface DataNetworkResourceIdArgs {
-        /**
-         * Data network resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Configuration for uploading packet core diagnostics.
-     */
-    export interface DiagnosticsUploadConfigurationArgs {
-        /**
-         * The Storage Account Container URL to upload diagnostics to.
-         */
-        storageAccountContainerUrl: pulumi.Input<string>;
-    }
-
-    /**
-     * Configuration for sending packet core events to Azure Event Hub.
-     */
-    export interface EventHubConfigurationArgs {
-        /**
-         * Resource ID  of Azure Event Hub to send packet core events to.
-         */
-        id: pulumi.Input<string>;
-        /**
-         * The duration (in seconds) between UE usage reports.
-         */
-        reportingInterval?: pulumi.Input<number>;
-    }
-    /**
-     * eventHubConfigurationArgsProvideDefaults sets the appropriate defaults for EventHubConfigurationArgs
-     */
-    export function eventHubConfigurationArgsProvideDefaults(val: EventHubConfigurationArgs): EventHubConfigurationArgs {
-        return {
-            ...val,
-            reportingInterval: (val.reportingInterval) ?? 1800,
-        };
-    }
-
-    /**
-     * A key used for SUPI concealment.
-     */
-    export interface HomeNetworkPublicKeyArgs {
-        /**
-         * The Home Network Public Key Identifier determines which public key was used to generate the SUCI sent to the AMF. See TS 23.003 Section 2.2B Section 5.
-         */
-        id: pulumi.Input<number>;
-        /**
-         * The URL of Azure Key Vault secret containing the private key, versioned or unversioned. For example: https://contosovault.vault.azure.net/secrets/mySuciPrivateKey/562a4bb76b524a1493a6afe8e536ee78.
-         */
-        url?: pulumi.Input<string>;
-    }
-
-    /**
-     * HTTPS server certificate configuration.
-     */
-    export interface HttpsServerCertificateArgs {
-        /**
-         * The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
-         */
-        certificateUrl: pulumi.Input<string>;
-    }
-
-    /**
-     * The installation state of the packet core.
-     */
-    export interface InstallationArgs {
-        /**
-         * The desired installation state
-         */
-        desiredState?: pulumi.Input<string | enums.mobilenetwork.DesiredInstallationState>;
-    }
-    /**
-     * installationArgsProvideDefaults sets the appropriate defaults for InstallationArgs
-     */
-    export function installationArgsProvideDefaults(val: InstallationArgs): InstallationArgs {
-        return {
-            ...val,
-            desiredState: (val.desiredState) ?? "Installed",
-        };
-    }
-
-    /**
-     * Interface properties
-     */
-    export interface InterfacePropertiesArgs {
-        /**
-         * The IPv4 addresses of the endpoints to send BFD probes to.
-         */
-        bfdIpv4Endpoints?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The IPv4 address.
-         */
-        ipv4Address?: pulumi.Input<string>;
-        /**
-         * The list of IPv4 addresses, for a multi-node system.
-         */
-        ipv4AddressList?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The default IPv4 gateway (router).
-         */
-        ipv4Gateway?: pulumi.Input<string>;
-        /**
-         * The IPv4 subnet.
-         */
-        ipv4Subnet?: pulumi.Input<string>;
-        /**
-         * The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * VLAN identifier of the network interface. Example: 501.
-         */
-        vlanId?: pulumi.Input<number>;
-    }
-
-    /**
-     * An Azure key vault key.
-     */
-    export interface KeyVaultKeyArgs {
-        /**
-         * The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.
-         */
-        keyUrl?: pulumi.Input<string>;
-    }
-
-    /**
-     * The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-     */
-    export interface LocalDiagnosticsAccessConfigurationArgs {
-        /**
-         * How to authenticate users who access local diagnostics APIs.
-         */
-        authenticationType: pulumi.Input<string | enums.mobilenetwork.AuthenticationType>;
-        /**
-         * The HTTPS server TLS certificate used to secure local access to diagnostics.
-         */
-        httpsServerCertificate?: pulumi.Input<inputs.mobilenetwork.HttpsServerCertificateArgs>;
-    }
-
-    /**
-     * Managed service identity (User assigned identity)
-     */
-    export interface ManagedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (currently only UserAssigned allowed).
-         */
-        type: pulumi.Input<string | enums.mobilenetwork.ManagedServiceIdentityType>;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Reference to a mobile network resource.
-     */
-    export interface MobileNetworkResourceIdArgs {
-        /**
-         * Mobile network resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Configuration enabling NAS reroute.
-     */
-    export interface NASRerouteConfigurationArgs {
-        /**
-         * The macro network's MME group ID. This is where unknown UEs are sent to via NAS reroute.
-         */
-        macroMmeGroupId: pulumi.Input<number>;
-    }
-
-    /**
-     * The network address and port translation settings to use for the attached data network.
-     */
-    export interface NaptConfigurationArgs {
-        /**
-         * Whether NAPT is enabled for connections to this attached data network.
-         */
-        enabled?: pulumi.Input<string | enums.mobilenetwork.NaptEnabled>;
-        /**
-         * Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
-         */
-        pinholeLimits?: pulumi.Input<number>;
-        /**
-         * Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
-         */
-        pinholeTimeouts?: pulumi.Input<inputs.mobilenetwork.PinholeTimeoutsArgs>;
-        /**
-         * Range of port numbers to use as translated ports on each translated address.
-         * If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
-         * (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
-         */
-        portRange?: pulumi.Input<inputs.mobilenetwork.PortRangeArgs>;
-        /**
-         * The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.
-         */
-        portReuseHoldTime?: pulumi.Input<inputs.mobilenetwork.PortReuseHoldTimesArgs>;
-    }
-    /**
-     * naptConfigurationArgsProvideDefaults sets the appropriate defaults for NaptConfigurationArgs
-     */
-    export function naptConfigurationArgsProvideDefaults(val: NaptConfigurationArgs): NaptConfigurationArgs {
-        return {
-            ...val,
-            pinholeLimits: (val.pinholeLimits) ?? 65536,
-            pinholeTimeouts: (val.pinholeTimeouts ? pulumi.output(val.pinholeTimeouts).apply(inputs.mobilenetwork.pinholeTimeoutsArgsProvideDefaults) : undefined),
-            portRange: (val.portRange ? pulumi.output(val.portRange).apply(inputs.mobilenetwork.portRangeArgsProvideDefaults) : undefined),
-            portReuseHoldTime: (val.portReuseHoldTime ? pulumi.output(val.portReuseHoldTime).apply(inputs.mobilenetwork.portReuseHoldTimesArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * Data flow policy rule configuration
-     */
-    export interface PccRuleConfigurationArgs {
-        /**
-         * The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
-         */
-        ruleName: pulumi.Input<string>;
-        /**
-         * A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
-         */
-        rulePrecedence: pulumi.Input<number>;
-        /**
-         * The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
-         */
-        ruleQosPolicy?: pulumi.Input<inputs.mobilenetwork.PccRuleQosPolicyArgs>;
-        /**
-         * The set of data flow templates to use for this data flow policy rule.
-         */
-        serviceDataFlowTemplates: pulumi.Input<pulumi.Input<inputs.mobilenetwork.ServiceDataFlowTemplateArgs>[]>;
-        /**
-         * Determines whether flows that match this data flow policy rule are permitted.
-         */
-        trafficControl?: pulumi.Input<string | enums.mobilenetwork.TrafficControlPermission>;
-    }
-    /**
-     * pccRuleConfigurationArgsProvideDefaults sets the appropriate defaults for PccRuleConfigurationArgs
-     */
-    export function pccRuleConfigurationArgsProvideDefaults(val: PccRuleConfigurationArgs): PccRuleConfigurationArgs {
-        return {
-            ...val,
-            ruleQosPolicy: (val.ruleQosPolicy ? pulumi.output(val.ruleQosPolicy).apply(inputs.mobilenetwork.pccRuleQosPolicyArgsProvideDefaults) : undefined),
-            trafficControl: (val.trafficControl) ?? "Enabled",
-        };
-    }
-
-    /**
-     * Data flow policy rule QoS policy
-     */
-    export interface PccRuleQosPolicyArgs {
-        /**
-         * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: pulumi.Input<number>;
-        /**
-         * 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
-         */
-        fiveQi?: pulumi.Input<number>;
-        /**
-         * The guaranteed bit rate (GBR) for all service data flows that use this data flow policy rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the data flow policy rule that uses this QoS definition.
-         */
-        guaranteedBitRate?: pulumi.Input<inputs.mobilenetwork.AmbrArgs>;
-        /**
-         * The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
-         */
-        maximumBitRate: pulumi.Input<inputs.mobilenetwork.AmbrArgs>;
-        /**
-         * QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionCapability?: pulumi.Input<string | enums.mobilenetwork.PreemptionCapability>;
-        /**
-         * QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionVulnerability?: pulumi.Input<string | enums.mobilenetwork.PreemptionVulnerability>;
-    }
-    /**
-     * pccRuleQosPolicyArgsProvideDefaults sets the appropriate defaults for PccRuleQosPolicyArgs
-     */
-    export function pccRuleQosPolicyArgsProvideDefaults(val: PccRuleQosPolicyArgs): PccRuleQosPolicyArgs {
-        return {
-            ...val,
-            allocationAndRetentionPriorityLevel: (val.allocationAndRetentionPriorityLevel) ?? 9,
-            fiveQi: (val.fiveQi) ?? 9,
-            preemptionCapability: (val.preemptionCapability) ?? "NotPreempt",
-            preemptionVulnerability: (val.preemptionVulnerability) ?? "Preemptable",
-        };
-    }
-
-    /**
-     * Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
-     */
-    export interface PinholeTimeoutsArgs {
-        /**
-         * Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 30 seconds.
-         */
-        icmp?: pulumi.Input<number>;
-        /**
-         * Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.
-         */
-        tcp?: pulumi.Input<number>;
-        /**
-         * Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.
-         */
-        udp?: pulumi.Input<number>;
-    }
-    /**
-     * pinholeTimeoutsArgsProvideDefaults sets the appropriate defaults for PinholeTimeoutsArgs
-     */
-    export function pinholeTimeoutsArgsProvideDefaults(val: PinholeTimeoutsArgs): PinholeTimeoutsArgs {
-        return {
-            ...val,
-            icmp: (val.icmp) ?? 30,
-            tcp: (val.tcp) ?? 180,
-            udp: (val.udp) ?? 30,
-        };
-    }
-
-    /**
-     * The platform where the packet core is deployed.
-     */
-    export interface PlatformConfigurationArgs {
-        /**
-         * The Azure Stack Edge device where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
-         */
-        azureStackEdgeDevice?: pulumi.Input<inputs.mobilenetwork.AzureStackEdgeDeviceResourceIdArgs>;
-        /**
-         * The Azure Stack HCI cluster where the packet core is deployed.
-         */
-        azureStackHciCluster?: pulumi.Input<inputs.mobilenetwork.AzureStackHCIClusterResourceIdArgs>;
-        /**
-         * Azure Arc connected cluster where the packet core is deployed.
-         */
-        connectedCluster?: pulumi.Input<inputs.mobilenetwork.ConnectedClusterResourceIdArgs>;
-        /**
-         * Azure Arc custom location where the packet core is deployed.
-         */
-        customLocation?: pulumi.Input<inputs.mobilenetwork.CustomLocationResourceIdArgs>;
-        /**
-         * The platform type where packet core is deployed.
-         */
-        type: pulumi.Input<string | enums.mobilenetwork.PlatformType>;
-    }
-
-    /**
-     * Public land mobile network (PLMN) ID. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-     */
-    export interface PlmnIdArgs {
-        /**
-         * Mobile country code (MCC).
-         */
-        mcc: pulumi.Input<string>;
-        /**
-         * Mobile network code (MNC).
-         */
-        mnc: pulumi.Input<string>;
-    }
-
-    /**
-     * Range of port numbers to use as translated ports on each translated address.
-     * If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
-     * (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
-     */
-    export interface PortRangeArgs {
-        /**
-         * The maximum port number
-         */
-        maxPort?: pulumi.Input<number>;
-        /**
-         * The minimum port number
-         */
-        minPort?: pulumi.Input<number>;
-    }
-    /**
-     * portRangeArgsProvideDefaults sets the appropriate defaults for PortRangeArgs
-     */
-    export function portRangeArgsProvideDefaults(val: PortRangeArgs): PortRangeArgs {
-        return {
-            ...val,
-            maxPort: (val.maxPort) ?? 49999,
-            minPort: (val.minPort) ?? 1024,
-        };
-    }
-
-    /**
-     * The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
-     */
-    export interface PortReuseHoldTimesArgs {
-        /**
-         * Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.
-         */
-        tcp?: pulumi.Input<number>;
-        /**
-         * Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Default for UDP is 1 minute.
-         */
-        udp?: pulumi.Input<number>;
-    }
-    /**
-     * portReuseHoldTimesArgsProvideDefaults sets the appropriate defaults for PortReuseHoldTimesArgs
-     */
-    export function portReuseHoldTimesArgsProvideDefaults(val: PortReuseHoldTimesArgs): PortReuseHoldTimesArgs {
-        return {
-            ...val,
-            tcp: (val.tcp) ?? 120,
-            udp: (val.udp) ?? 60,
-        };
-    }
-
-    /**
-     * Configuration relating to a particular PLMN
-     */
-    export interface PublicLandMobileNetworkArgs {
-        /**
-         * Configuration relating to SUPI concealment.
-         */
-        homeNetworkPublicKeys?: pulumi.Input<inputs.mobilenetwork.PublicLandMobileNetworkHomeNetworkPublicKeysArgs>;
-        /**
-         * Mobile country code (MCC).
-         */
-        mcc: pulumi.Input<string>;
-        /**
-         * Mobile network code (MNC).
-         */
-        mnc: pulumi.Input<string>;
-    }
-
-    /**
-     * Configuration relating to SUPI concealment.
-     */
-    export interface PublicLandMobileNetworkHomeNetworkPublicKeysArgs {
-        /**
-         * This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.
-         */
-        profileA?: pulumi.Input<pulumi.Input<inputs.mobilenetwork.HomeNetworkPublicKeyArgs>[]>;
-        /**
-         * This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.
-         */
-        profileB?: pulumi.Input<pulumi.Input<inputs.mobilenetwork.HomeNetworkPublicKeyArgs>[]>;
-    }
-
-    /**
-     * QoS policy
-     */
-    export interface QosPolicyArgs {
-        /**
-         * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        allocationAndRetentionPriorityLevel?: pulumi.Input<number>;
-        /**
-         * 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
-         */
-        fiveQi?: pulumi.Input<number>;
-        /**
-         * The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
-         */
-        maximumBitRate: pulumi.Input<inputs.mobilenetwork.AmbrArgs>;
-        /**
-         * QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionCapability?: pulumi.Input<string | enums.mobilenetwork.PreemptionCapability>;
-        /**
-         * QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-         */
-        preemptionVulnerability?: pulumi.Input<string | enums.mobilenetwork.PreemptionVulnerability>;
-    }
-    /**
-     * qosPolicyArgsProvideDefaults sets the appropriate defaults for QosPolicyArgs
-     */
-    export function qosPolicyArgsProvideDefaults(val: QosPolicyArgs): QosPolicyArgs {
-        return {
-            ...val,
-            allocationAndRetentionPriorityLevel: (val.allocationAndRetentionPriorityLevel) ?? 9,
-            fiveQi: (val.fiveQi) ?? 9,
-            preemptionCapability: (val.preemptionCapability) ?? "NotPreempt",
-            preemptionVulnerability: (val.preemptionVulnerability) ?? "Preemptable",
-        };
-    }
-
-    /**
-     * Data flow template
-     */
-    export interface ServiceDataFlowTemplateArgs {
-        /**
-         * The direction of this flow.
-         */
-        direction: pulumi.Input<string | enums.mobilenetwork.SdfDirection>;
-        /**
-         * The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. This is an optional setting. If you do not specify it then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
-         */
-        ports?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
-         */
-        protocol: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
-         */
-        remoteIpList: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
-         */
-        templateName: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to a service resource.
-     */
-    export interface ServiceResourceIdArgs {
-        /**
-         * Service resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Signaling configuration for the packet core.
-     */
-    export interface SignalingConfigurationArgs {
-        /**
-         * An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.
-         */
-        nasEncryption?: pulumi.Input<pulumi.Input<string | enums.mobilenetwork.NasEncryptionType>[]>;
-        /**
-         * Configuration enabling 4G NAS reroute.
-         */
-        nasReroute?: pulumi.Input<inputs.mobilenetwork.NASRerouteConfigurationArgs>;
-    }
-
-    /**
-     * Reference to a SIM policy resource.
-     */
-    export interface SimPolicyResourceIdArgs {
-        /**
-         * SIM policy resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Static IP configuration for a SIM, scoped to a particular attached data network and slice.
-     */
-    export interface SimStaticIpPropertiesArgs {
-        /**
-         * The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
-         */
-        attachedDataNetwork?: pulumi.Input<inputs.mobilenetwork.AttachedDataNetworkResourceIdArgs>;
-        /**
-         * The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
-         */
-        slice?: pulumi.Input<inputs.mobilenetwork.SliceResourceIdArgs>;
-        /**
-         * The static IP configuration for the SIM to use at the defined network scope.
-         */
-        staticIp?: pulumi.Input<inputs.mobilenetwork.SimStaticIpPropertiesStaticIpArgs>;
-    }
-
-    /**
-     * The static IP configuration for the SIM to use at the defined network scope.
-     */
-    export interface SimStaticIpPropertiesStaticIpArgs {
-        /**
-         * The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-         */
-        ipv4Address?: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to a site resource.
-     */
-    export interface SiteResourceIdArgs {
-        /**
-         * Site resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Per-slice settings
-     */
-    export interface SliceConfigurationArgs {
-        /**
-         * The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-         */
-        dataNetworkConfigurations: pulumi.Input<pulumi.Input<inputs.mobilenetwork.DataNetworkConfigurationArgs>[]>;
-        /**
-         * The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
-         */
-        defaultDataNetwork: pulumi.Input<inputs.mobilenetwork.DataNetworkResourceIdArgs>;
-        /**
-         * A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
-         */
-        slice: pulumi.Input<inputs.mobilenetwork.SliceResourceIdArgs>;
-    }
-
-    /**
-     * Reference to a slice resource.
-     */
-    export interface SliceResourceIdArgs {
-        /**
-         * Slice resource ID.
-         */
-        id: pulumi.Input<string>;
-    }
-
-    /**
-     * Single-network slice selection assistance information (S-NSSAI).
-     */
-    export interface SnssaiArgs {
-        /**
-         * Slice differentiator (SD).
-         */
-        sd?: pulumi.Input<string>;
-        /**
-         * Slice/service type (SST).
-         */
-        sst: pulumi.Input<number>;
-    }
-
-    export interface UserConsentConfigurationArgs {
-        /**
-         * Allow Microsoft to access non-PII telemetry information from the packet core.
-         */
-        allowSupportTelemetryAccess?: pulumi.Input<boolean>;
     }
 
 }
@@ -138798,6 +139920,52 @@ export namespace netapp {
     }
 
     /**
+     * Active Directory Configuration properties
+     */
+    export interface ActiveDirectoryConfigPropertiesArgs {
+        /**
+         * Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+         */
+        administrators?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+         */
+        backupOperators?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of DNS server IP addresses(IPv4 only) for the Active Directory
+         */
+        dns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Name of the Active Directory domain
+         */
+        domain: pulumi.Input<string>;
+        /**
+         * The Organizational Unit (OU) within the Windows Active Directory
+         */
+        organizationalUnit?: pulumi.Input<string>;
+        /**
+         * Access password from Azure KeyVault Secrets to connect Active Directory
+         */
+        secretPassword: pulumi.Input<inputs.netapp.SecretPasswordArgs>;
+        /**
+         * Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+         */
+        securityOperators?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Active Directory site the service will limit Domain Controller discovery to
+         */
+        site?: pulumi.Input<string>;
+        /**
+         * NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+         */
+        smbServerName?: pulumi.Input<string>;
+        /**
+         * A domain user account with permission to create machine accounts
+         */
+        userName?: pulumi.Input<string>;
+    }
+
+    /**
      * Properties of the server managing the lifecycle of volume buckets
      */
     export interface BucketServerPropertiesArgs {
@@ -138809,6 +139977,90 @@ export namespace netapp {
          * The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
          */
         fqdn?: pulumi.Input<string>;
+    }
+
+    /**
+     * Cache resource properties
+     */
+    export interface CachePropertiesArgs {
+        /**
+         * The Azure Resource URI for a delegated cache subnet that will be used to allocate data IPs.
+         */
+        cacheSubnetResourceId: pulumi.Input<string>;
+        /**
+         * Flag indicating whether a CIFS change notification is enabled for the cache.
+         */
+        cifsChangeNotifications?: pulumi.Input<string | enums.netapp.CifsChangeNotifyState>;
+        /**
+         * Source of key used to encrypt data in the cache. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+         */
+        encryptionKeySource: pulumi.Input<string | enums.netapp.EncryptionKeySource>;
+        /**
+         * Set of export policy rules
+         */
+        exportPolicy?: pulumi.Input<inputs.netapp.CachePropertiesExportPolicyArgs>;
+        /**
+         * The file path of the Cache.
+         */
+        filepath: pulumi.Input<string>;
+        /**
+         * Flag indicating whether the global file lock is enabled for the cache.
+         */
+        globalFileLocking?: pulumi.Input<string | enums.netapp.GlobalFileLockingState>;
+        /**
+         * Describe if a cache is Kerberos enabled.
+         */
+        kerberos?: pulumi.Input<string | enums.netapp.KerberosState>;
+        /**
+         * The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+         */
+        keyVaultPrivateEndpointResourceId?: pulumi.Input<string>;
+        /**
+         * Specifies whether LDAP is enabled or not for flexcache volume.
+         */
+        ldap?: pulumi.Input<string | enums.netapp.LdapState>;
+        /**
+         * Specifies the type of LDAP server for flexcache volume.
+         */
+        ldapServerType?: pulumi.Input<string | enums.netapp.LdapServerType>;
+        /**
+         * Origin cluster information
+         */
+        originClusterInformation: pulumi.Input<inputs.netapp.OriginClusterInformationArgs>;
+        /**
+         * The Azure Resource URI for a delegated subnet that will be used for ANF Intercluster Interface IP addresses.
+         */
+        peeringSubnetResourceId: pulumi.Input<string>;
+        /**
+         * Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+         */
+        protocolTypes?: pulumi.Input<pulumi.Input<string | enums.netapp.ProtocolTypes>[]>;
+        /**
+         * Maximum storage quota allowed for a file system in bytes. Valid values are in the range 50GiB to 1PiB. Values expressed in bytes as multiples of 1GiB.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * SMB information for the cache
+         */
+        smbSettings?: pulumi.Input<inputs.netapp.SmbSettingsArgs>;
+        /**
+         * Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
+         */
+        throughputMibps?: pulumi.Input<number>;
+        /**
+         * Flag indicating whether writeback is enabled for the cache.
+         */
+        writeBack?: pulumi.Input<string | enums.netapp.EnableWriteBackState>;
+    }
+
+    /**
+     * Set of export policy rules
+     */
+    export interface CachePropertiesExportPolicyArgs {
+        /**
+         * Export policy rule
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.netapp.ExportPolicyRuleArgs>[]>;
     }
 
     /**
@@ -138844,6 +140096,421 @@ export namespace netapp {
     }
 
     /**
+     * NetApp elastic account properties
+     */
+    export interface ElasticAccountPropertiesArgs {
+        /**
+         * Encryption settings
+         */
+        encryption?: pulumi.Input<inputs.netapp.ElasticEncryptionArgs>;
+    }
+
+    /**
+     * Elastic Backup Policy properties
+     */
+    export interface ElasticBackupPolicyPropertiesArgs {
+        /**
+         * Daily backups count to keep
+         */
+        dailyBackupsToKeep?: pulumi.Input<number>;
+        /**
+         * Monthly backups count to keep
+         */
+        monthlyBackupsToKeep?: pulumi.Input<number>;
+        /**
+         * The property to identify whether Backup Policy is enabled or not
+         */
+        policyState?: pulumi.Input<string | enums.netapp.ElasticBackupPolicyState>;
+        /**
+         * Weekly backups count to keep
+         */
+        weeklyBackupsToKeep?: pulumi.Input<number>;
+    }
+
+    /**
+     * Elastic Backup properties
+     */
+    export interface ElasticBackupPropertiesArgs {
+        /**
+         * ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
+         */
+        elasticSnapshotResourceId?: pulumi.Input<string>;
+        /**
+         * ResourceId used to identify the Elastic Volume
+         */
+        elasticVolumeResourceId: pulumi.Input<string>;
+        /**
+         * Label for backup
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+         */
+        snapshotUsage?: pulumi.Input<string | enums.netapp.SnapshotUsage>;
+    }
+    /**
+     * elasticBackupPropertiesArgsProvideDefaults sets the appropriate defaults for ElasticBackupPropertiesArgs
+     */
+    export function elasticBackupPropertiesArgsProvideDefaults(val: ElasticBackupPropertiesArgs): ElasticBackupPropertiesArgs {
+        return {
+            ...val,
+            snapshotUsage: (val.snapshotUsage) ?? "CreateNewSnapshot",
+        };
+    }
+
+    /**
+     * Elastic capacity pool properties
+     */
+    export interface ElasticCapacityPoolPropertiesArgs {
+        /**
+         * The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
+         */
+        activeDirectoryConfigResourceId?: pulumi.Input<string>;
+        /**
+         * Encryption settings
+         */
+        encryption?: pulumi.Input<inputs.netapp.ElasticEncryptionConfigurationArgs>;
+        /**
+         * The service level of the elastic capacity pool
+         */
+        serviceLevel: pulumi.Input<string | enums.netapp.ElasticServiceLevel>;
+        /**
+         * Provisioned size of the pool (in bytes). For zoneRedundant service level pool, value must be in the range 1TiB to 16TiB or 1TiB to 128TiB for supported region. Values expressed in bytes as multiples of 1TiB till 16TiB and in multiples of 8TiB from 24TiB to 128TiB. Pool size can't be shrunk once it is created.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/elasticVolumes, this is used by all the volumes within the pool
+         */
+        subnetResourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Encryption settings
+     */
+    export interface ElasticEncryptionArgs {
+        /**
+         * Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+         */
+        identity?: pulumi.Input<inputs.netapp.ElasticEncryptionIdentityArgs>;
+        /**
+         * The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+         */
+        keySource?: pulumi.Input<string | enums.netapp.KeySource>;
+        /**
+         * Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+         */
+        keyVaultProperties?: pulumi.Input<inputs.netapp.ElasticKeyVaultPropertiesArgs>;
+    }
+
+    /**
+     * CMK Encryption Configuration
+     */
+    export interface ElasticEncryptionConfigurationArgs {
+        /**
+         * Pool Encryption Key Source.
+         */
+        elasticPoolEncryptionKeySource: pulumi.Input<string | enums.netapp.ElasticPoolEncryptionKeySource>;
+        /**
+         * The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+         */
+        keyVaultPrivateEndpointResourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Identity used to authenticate with key vault.
+     */
+    export interface ElasticEncryptionIdentityArgs {
+        /**
+         * The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+         */
+        userAssignedIdentity?: pulumi.Input<string>;
+    }
+
+    /**
+     * Set of export policy rules
+     */
+    export interface ElasticExportPolicyArgs {
+        /**
+         * Export policy rule
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.netapp.ElasticExportPolicyRuleArgs>[]>;
+    }
+
+    /**
+     * Elastic Volume Export Policy Rule
+     */
+    export interface ElasticExportPolicyRuleArgs {
+        /**
+         * Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
+         */
+        allowedClients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+         */
+        nfsv3?: pulumi.Input<string | enums.netapp.ElasticNfsv3Access>;
+        /**
+         * Allows clients to access the volume with at least NFSv4.1 protocol.
+         */
+        nfsv4?: pulumi.Input<string | enums.netapp.ElasticNfsv4Access>;
+        /**
+         * Indicates whether root access to the volume is granted to clients affected by this rule
+         */
+        rootAccess?: pulumi.Input<string | enums.netapp.ElasticRootAccess>;
+        /**
+         * Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
+         */
+        ruleIndex?: pulumi.Input<number>;
+        /**
+         * Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+         */
+        unixAccessRule?: pulumi.Input<string | enums.netapp.ElasticUnixAccessRule>;
+    }
+    /**
+     * elasticExportPolicyRuleArgsProvideDefaults sets the appropriate defaults for ElasticExportPolicyRuleArgs
+     */
+    export function elasticExportPolicyRuleArgsProvideDefaults(val: ElasticExportPolicyRuleArgs): ElasticExportPolicyRuleArgs {
+        return {
+            ...val,
+            nfsv3: (val.nfsv3) ?? "Disabled",
+            nfsv4: (val.nfsv4) ?? "Disabled",
+            rootAccess: (val.rootAccess) ?? "Disabled",
+            unixAccessRule: (val.unixAccessRule) ?? "NoAccess",
+        };
+    }
+
+    /**
+     * Properties of key vault.
+     */
+    export interface ElasticKeyVaultPropertiesArgs {
+        /**
+         * The name of KeyVault key.
+         */
+        keyName?: pulumi.Input<string>;
+        /**
+         * The resource ID of KeyVault.
+         */
+        keyVaultResourceId?: pulumi.Input<string>;
+        /**
+         * The Uri of KeyVault.
+         */
+        keyVaultUri?: pulumi.Input<string>;
+    }
+
+    /**
+     * SMB Properties
+     */
+    export interface ElasticSmbPropertiesArgs {
+        /**
+         * Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+         */
+        smbEncryption?: pulumi.Input<string | enums.netapp.ElasticSmbEncryption>;
+    }
+    /**
+     * elasticSmbPropertiesArgsProvideDefaults sets the appropriate defaults for ElasticSmbPropertiesArgs
+     */
+    export function elasticSmbPropertiesArgsProvideDefaults(val: ElasticSmbPropertiesArgs): ElasticSmbPropertiesArgs {
+        return {
+            ...val,
+            smbEncryption: (val.smbEncryption) ?? "Disabled",
+        };
+    }
+
+    /**
+     * Daily Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyDailyScheduleArgs {
+        /**
+         * Indicates which hour in UTC timezone a snapshot should be taken
+         */
+        hour?: pulumi.Input<number>;
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: pulumi.Input<number>;
+        /**
+         * Daily snapshot count to keep
+         */
+        snapshotsToKeep?: pulumi.Input<number>;
+    }
+
+    /**
+     * Hourly Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyHourlyScheduleArgs {
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: pulumi.Input<number>;
+        /**
+         * Hourly snapshot count to keep
+         */
+        snapshotsToKeep?: pulumi.Input<number>;
+    }
+
+    /**
+     * Monthly Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyMonthlyScheduleArgs {
+        /**
+         * Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
+         */
+        daysOfMonth?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Indicates which hour in UTC timezone a snapshot should be taken
+         */
+        hour?: pulumi.Input<number>;
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: pulumi.Input<number>;
+        /**
+         * Monthly snapshot count to keep
+         */
+        snapshotsToKeep?: pulumi.Input<number>;
+    }
+
+    /**
+     * Elastic Snapshot policy properties
+     */
+    export interface ElasticSnapshotPolicyPropertiesArgs {
+        /**
+         * Schedule for daily snapshots
+         */
+        dailySchedule?: pulumi.Input<inputs.netapp.ElasticSnapshotPolicyDailyScheduleArgs>;
+        /**
+         * Schedule for hourly snapshots
+         */
+        hourlySchedule?: pulumi.Input<inputs.netapp.ElasticSnapshotPolicyHourlyScheduleArgs>;
+        /**
+         * Schedule for monthly snapshots
+         */
+        monthlySchedule?: pulumi.Input<inputs.netapp.ElasticSnapshotPolicyMonthlyScheduleArgs>;
+        /**
+         * Configures if the snapshot policy is enabled on the volumes connected to the policy.
+         */
+        policyStatus?: pulumi.Input<string | enums.netapp.PolicyStatus>;
+        /**
+         * Schedule for weekly snapshots
+         */
+        weeklySchedule?: pulumi.Input<inputs.netapp.ElasticSnapshotPolicyWeeklyScheduleArgs>;
+    }
+
+    /**
+     * Weekly Schedule properties used to create NetApp snapshot policy
+     */
+    export interface ElasticSnapshotPolicyWeeklyScheduleArgs {
+        /**
+         * Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
+         */
+        days?: pulumi.Input<pulumi.Input<string | enums.netapp.DayOfWeek>[]>;
+        /**
+         * Indicates which hour in UTC timezone a snapshot should be taken
+         */
+        hour?: pulumi.Input<number>;
+        /**
+         * Indicates which minute snapshot should be taken
+         */
+        minute?: pulumi.Input<number>;
+        /**
+         * Weekly snapshot count to keep
+         */
+        snapshotsToKeep?: pulumi.Input<number>;
+    }
+
+    /**
+     * Elastic Volume Backup Properties
+     */
+    export interface ElasticVolumeBackupPropertiesArgs {
+        /**
+         * ResourceId used to identify Elastic Backup Policy
+         */
+        elasticBackupPolicyResourceId?: pulumi.Input<string>;
+        /**
+         * ResourceId used to identify Elastic Backup Vault
+         */
+        elasticBackupVaultResourceId?: pulumi.Input<string>;
+        /**
+         * The property to decide policy is enforced or not on the volume
+         */
+        policyEnforcement?: pulumi.Input<string | enums.netapp.ElasticVolumePolicyEnforcement>;
+    }
+
+    /**
+     * Data protection configuration option for the volume, including snapshot policies and backup.
+     */
+    export interface ElasticVolumeDataProtectionPropertiesArgs {
+        /**
+         * Used to configure backups on an elastic volume.
+         */
+        backup?: pulumi.Input<inputs.netapp.ElasticVolumeBackupPropertiesArgs>;
+        /**
+         * Used to apply a snapshot policy to a volume.
+         */
+        snapshot?: pulumi.Input<inputs.netapp.ElasticVolumeSnapshotPropertiesArgs>;
+    }
+
+    /**
+     * Elastic Volume properties
+     */
+    export interface ElasticVolumePropertiesArgs {
+        /**
+         * Resource identifier used to identify the Elastic Backup.
+         */
+        backupResourceId?: pulumi.Input<string>;
+        /**
+         * Data protection configuration option for the volume, including snapshot policies and backup.
+         */
+        dataProtection?: pulumi.Input<inputs.netapp.ElasticVolumeDataProtectionPropertiesArgs>;
+        /**
+         * Set of export policy rules
+         */
+        exportPolicy?: pulumi.Input<inputs.netapp.ElasticExportPolicyArgs>;
+        /**
+         * A unique file path for the volume. Used when creating mount targets. This needs to be unique within the elastic capacity pool.
+         */
+        filePath: pulumi.Input<string>;
+        /**
+         * Set of support protocol types for the elastic volume
+         */
+        protocolTypes: pulumi.Input<pulumi.Input<string | enums.netapp.ElasticProtocolType>[]>;
+        /**
+         * Maximum size allowed for a volume in bytes. Valid values are in the range 1GiB to 16TiB. Values expressed in bytes as multiples of 1 GiB.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * SMB Properties
+         */
+        smbProperties?: pulumi.Input<inputs.netapp.ElasticSmbPropertiesArgs>;
+        /**
+         * Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+         */
+        snapshotDirectoryVisibility?: pulumi.Input<string | enums.netapp.SnapshotDirectoryVisibility>;
+        /**
+         * Resource identifier used to identify the Elastic Snapshot.
+         */
+        snapshotResourceId?: pulumi.Input<string>;
+    }
+    /**
+     * elasticVolumePropertiesArgsProvideDefaults sets the appropriate defaults for ElasticVolumePropertiesArgs
+     */
+    export function elasticVolumePropertiesArgsProvideDefaults(val: ElasticVolumePropertiesArgs): ElasticVolumePropertiesArgs {
+        return {
+            ...val,
+            smbProperties: (val.smbProperties ? pulumi.output(val.smbProperties).apply(inputs.netapp.elasticSmbPropertiesArgsProvideDefaults) : undefined),
+        };
+    }
+
+    /**
+     * Elastic Volume Snapshot Properties
+     */
+    export interface ElasticVolumeSnapshotPropertiesArgs {
+        /**
+         * Snapshot Policy ResourceId
+         */
+        snapshotPolicyResourceId?: pulumi.Input<string>;
+    }
+
+    /**
      * Identity used to authenticate with key vault.
      */
     export interface EncryptionIdentityArgs {
@@ -138873,6 +140540,22 @@ export namespace netapp {
          * Has root access to volume
          */
         hasRootAccess?: pulumi.Input<boolean>;
+        /**
+         * Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5IReadOnly?: pulumi.Input<boolean>;
+        /**
+         * Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5IReadWrite?: pulumi.Input<boolean>;
+        /**
+         * Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5PReadOnly?: pulumi.Input<boolean>;
+        /**
+         * Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5PReadWrite?: pulumi.Input<boolean>;
         /**
          * Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
          */
@@ -138926,6 +140609,10 @@ export namespace netapp {
             ...val,
             chownMode: (val.chownMode) ?? "Restricted",
             hasRootAccess: (val.hasRootAccess) ?? true,
+            kerberos5IReadOnly: (val.kerberos5IReadOnly) ?? false,
+            kerberos5IReadWrite: (val.kerberos5IReadWrite) ?? false,
+            kerberos5PReadOnly: (val.kerberos5PReadOnly) ?? false,
+            kerberos5PReadWrite: (val.kerberos5PReadWrite) ?? false,
             kerberos5ReadOnly: (val.kerberos5ReadOnly) ?? false,
             kerberos5ReadWrite: (val.kerberos5ReadWrite) ?? false,
             kerberos5iReadOnly: (val.kerberos5iReadOnly) ?? false,
@@ -139058,6 +140745,28 @@ export namespace netapp {
     }
 
     /**
+     * Stores the origin cluster information associated to a cache.
+     */
+    export interface OriginClusterInformationArgs {
+        /**
+         * ONTAP Intercluster LIF IP addresses. One IP address per cluster node is required
+         */
+        peerAddresses: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ONTAP cluster name of external cluster hosting the origin volume
+         */
+        peerClusterName: pulumi.Input<string>;
+        /**
+         * External origin volume name associated to this cache
+         */
+        peerVolumeName: pulumi.Input<string>;
+        /**
+         * External Vserver (SVM) name  name of the SVM hosting the origin volume
+         */
+        peerVserverName: pulumi.Input<string>;
+    }
+
+    /**
      * Application specific parameters for the placement of volumes in the volume group
      */
     export interface PlacementKeyValuePairsArgs {
@@ -139113,6 +140822,62 @@ export namespace netapp {
          * Schedule
          */
         replicationSchedule?: pulumi.Input<string | enums.netapp.ReplicationSchedule>;
+    }
+
+    /**
+     * Access password from Azure KeyVault Secrets to connect Active Directory
+     */
+    export interface SecretPasswordArgs {
+        /**
+         * Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+         */
+        identity?: pulumi.Input<inputs.netapp.SecretPasswordIdentityArgs>;
+        /**
+         * Properties provided by KeyVault.
+         */
+        keyVaultProperties?: pulumi.Input<inputs.netapp.SecretPasswordKeyVaultPropertiesArgs>;
+    }
+
+    /**
+     * Identity used to authenticate with key vault.
+     */
+    export interface SecretPasswordIdentityArgs {
+        /**
+         * The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+         */
+        userAssignedIdentity?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of key vault to get the secrets for password.
+     */
+    export interface SecretPasswordKeyVaultPropertiesArgs {
+        /**
+         * The Uri of KeyVault.
+         */
+        keyVaultUri: pulumi.Input<string>;
+        /**
+         * The name of KeyVault password secret.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
+    /**
+     * SMB settings for the cache
+     */
+    export interface SmbSettingsArgs {
+        /**
+         * Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+         */
+        smbAccessBasedEnumeration?: pulumi.Input<string | enums.netapp.SmbAccessBasedEnumeration>;
+        /**
+         * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+         */
+        smbEncryption?: pulumi.Input<string | enums.netapp.SmbEncryptionState>;
+        /**
+         * Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+         */
+        smbNonBrowsable?: pulumi.Input<string | enums.netapp.SmbNonBrowsable>;
     }
 
     /**
@@ -144916,6 +146681,33 @@ export namespace network {
     }
 
     /**
+     * Properties of route target address
+     */
+    export interface RouteTargetAddressPropertiesFormatArgs {
+        /**
+         * The private IPv4 or IPv6 address of the service gateway route target address.
+         */
+        privateIPAddress?: pulumi.Input<string>;
+        /**
+         * The Private IP allocation method.
+         */
+        privateIPAllocationMethod?: pulumi.Input<string | enums.network.IPAllocationMethod>;
+        /**
+         * The reference to the subnet resource.
+         */
+        subnet?: pulumi.Input<inputs.network.SubnetArgs>;
+    }
+    /**
+     * routeTargetAddressPropertiesFormatArgsProvideDefaults sets the appropriate defaults for RouteTargetAddressPropertiesFormatArgs
+     */
+    export function routeTargetAddressPropertiesFormatArgsProvideDefaults(val: RouteTargetAddressPropertiesFormatArgs): RouteTargetAddressPropertiesFormatArgs {
+        return {
+            ...val,
+            subnet: (val.subnet ? pulumi.output(val.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined),
+        };
+    }
+
+    /**
      * Routing Configuration indicating the associated and propagated route tables for this connection.
      */
     export interface RoutingConfigurationArgs {
@@ -145196,6 +146988,20 @@ export namespace network {
     }
 
     /**
+     * SKU of a service gateway.
+     */
+    export interface ServiceGatewaySkuArgs {
+        /**
+         * Name of a service gateway SKU.
+         */
+        name?: pulumi.Input<string | enums.network.ServiceGatewaySkuName>;
+        /**
+         * Tier of a service gateway SKU.
+         */
+        tier?: pulumi.Input<string | enums.network.ServiceGatewaySkuTier>;
+    }
+
+    /**
      * The sku of this Bastion Host.
      */
     export interface SkuArgs {
@@ -145367,6 +147173,10 @@ export namespace network {
          * An array of service endpoints.
          */
         serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPropertiesFormatArgs>[]>;
+        /**
+         * Reference to an existing service gateway.
+         */
+        serviceGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
          */
@@ -145640,6 +147450,86 @@ export namespace network {
          * NextHops ip address.
          */
         nextHops?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Virtual Network resource.
+     */
+    export interface VirtualNetworkArgs {
+        /**
+         * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+         */
+        addressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+        /**
+         * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+         */
+        bgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs>;
+        /**
+         * The DDoS protection plan associated with the virtual network.
+         */
+        ddosProtectionPlan?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+         */
+        dhcpOptions?: pulumi.Input<inputs.network.DhcpOptionsArgs>;
+        /**
+         * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+         */
+        enableDdosProtection?: pulumi.Input<boolean>;
+        /**
+         * Indicates if VM protection is enabled for all the subnets in the virtual network.
+         */
+        enableVmProtection?: pulumi.Input<boolean>;
+        /**
+         * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+         */
+        encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryptionArgs>;
+        /**
+         * The extended location of the virtual network.
+         */
+        extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
+        /**
+         * The FlowTimeout value (in minutes) for the Virtual Network
+         */
+        flowTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Array of IpAllocation which reference this VNET.
+         */
+        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+        /**
+         * Resource location.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * Private Endpoint VNet Policies.
+         */
+        privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies>;
+        /**
+         * A list of subnets in a Virtual Network.
+         */
+        subnets?: pulumi.Input<pulumi.Input<inputs.network.SubnetArgs>[]>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A list of peerings in a Virtual Network.
+         */
+        virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkPeeringArgs>[]>;
+    }
+    /**
+     * virtualNetworkArgsProvideDefaults sets the appropriate defaults for VirtualNetworkArgs
+     */
+    export function virtualNetworkArgsProvideDefaults(val: VirtualNetworkArgs): VirtualNetworkArgs {
+        return {
+            ...val,
+            enableDdosProtection: (val.enableDdosProtection) ?? false,
+            enableVmProtection: (val.enableVmProtection) ?? false,
+        };
     }
 
     /**
@@ -148594,6 +150484,36 @@ export namespace operationalinsights {
     }
 
     /**
+     * Rule definition parameters.
+     */
+    export interface RuleDefinitionArgs {
+        /**
+         * The minimum delay in seconds before bin processing.
+         */
+        binDelay?: pulumi.Input<number>;
+        /**
+         * Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+         */
+        binSize?: pulumi.Input<number>;
+        /**
+         * The start time (UTC) when Summary rule execution starts.
+         */
+        binStartTime?: pulumi.Input<string>;
+        /**
+         * The destination table used for the Summary rule results.
+         */
+        destinationTable?: pulumi.Input<string>;
+        /**
+         * Summary rule query.
+         */
+        query?: pulumi.Input<string>;
+        /**
+         * The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+         */
+        timeSelector?: pulumi.Input<string | enums.operationalinsights.TimeSelectorEnum>;
+    }
+
+    /**
      * Table's schema.
      */
     export interface SchemaArgs {
@@ -151174,7 +153094,7 @@ export namespace providerhub {
         /**
          * The resource access policy.
          */
-        resourceAccessPolicy?: pulumi.Input<string | enums.providerhub.ResourceAccessPolicy>;
+        resourceAccessPolicy?: pulumi.Input<enums.providerhub.ResourceAccessPolicy>;
         /**
          * The resource access roles.
          */
@@ -151405,6 +153325,9 @@ export namespace providerhub {
         lifeTime?: pulumi.Input<string>;
     }
 
+    /**
+     * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+     */
     export interface ResourceTypeRegistrationArgs {
         /**
          * Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -151590,11 +153513,11 @@ export namespace providerhub {
         /**
          * The marketplace type.
          */
-        marketplaceType?: pulumi.Input<string | enums.providerhub.MarketplaceType>;
+        marketplaceType?: pulumi.Input<enums.providerhub.MarketplaceType>;
         /**
          * The metadata.
          */
-        metadata?: pulumi.Input<{[key: string]: any}>;
+        metadata?: any;
         /**
          * The notifications.
          */
@@ -151726,16 +153649,6 @@ export namespace providerhub {
      */
     export interface ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs {
         availabilityZonePolicy?: pulumi.Input<string | enums.providerhub.AvailabilityZonePolicy>;
-    }
-
-    /**
-     * Batch provisioning support.
-     */
-    export interface ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs {
-        /**
-         * Supported operations.
-         */
-        supportedOperations?: pulumi.Input<string | enums.providerhub.SupportedOperations>;
     }
 
     /**
@@ -151881,7 +153794,7 @@ export namespace providerhub {
         /**
          * The resource access policy.
          */
-        resourceAccessPolicy?: pulumi.Input<string | enums.providerhub.ResourceAccessPolicy>;
+        resourceAccessPolicy?: pulumi.Input<enums.providerhub.ResourceAccessPolicy>;
         /**
          * The resource access roles.
          */
@@ -151904,16 +153817,6 @@ export namespace providerhub {
          * Add-on plan conversion allowed.
          */
         addOnPlanConversionAllowed?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * Nested provisioning support.
-     */
-    export interface ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs {
-        /**
-         * Minimum API version.
-         */
-        minimumApiVersion?: pulumi.Input<string>;
     }
 
     /**
@@ -151965,7 +153868,7 @@ export namespace providerhub {
         /**
          * Batch provisioning support.
          */
-        batchProvisioningSupport?: pulumi.Input<inputs.providerhub.ResourceTypeRegistrationPropertiesBatchProvisioningSupportArgs>;
+        batchProvisioningSupport?: pulumi.Input<inputs.providerhub.ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs>;
         /**
          * Delete dependencies.
          */
@@ -151973,7 +153876,27 @@ export namespace providerhub {
         /**
          * Nested provisioning support.
          */
-        nestedProvisioningSupport?: pulumi.Input<inputs.providerhub.ResourceTypeRegistrationPropertiesNestedProvisioningSupportArgs>;
+        nestedProvisioningSupport?: pulumi.Input<inputs.providerhub.ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs>;
+    }
+
+    /**
+     * Batch provisioning support.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs {
+        /**
+         * Supported operations.
+         */
+        supportedOperations?: pulumi.Input<string | enums.providerhub.SupportedOperations>;
+    }
+
+    /**
+     * Nested provisioning support.
+     */
+    export interface ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs {
+        /**
+         * Minimum API version.
+         */
+        minimumApiVersion?: pulumi.Input<string>;
     }
 
     /**
@@ -159055,6 +160978,10 @@ export namespace resources {
          * Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
          */
         resources: pulumi.Input<string | enums.resources.DeploymentStacksDeleteDetachEnum>;
+        /**
+         * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+         */
+        resourcesWithoutDeleteSupport?: pulumi.Input<string | enums.resources.DeploymentStacksResourcesWithoutDeleteSupportEnum>;
     }
 
     /**
@@ -159118,9 +161045,51 @@ export namespace resources {
     }
 
     /**
+     * The value or how to get a value for an extension config property.
+     */
+    export interface DeploymentExtensionConfigItemArgs {
+        /**
+         * The key vault reference of the config item.
+         */
+        keyVaultReference?: pulumi.Input<inputs.resources.KeyVaultParameterReferenceArgs>;
+        /**
+         * The value of the config item. The type is determined by the extension config schema.
+         */
+        value?: any;
+    }
+
+    /**
+     * Deployment external input for parameterization.
+     */
+    export interface DeploymentExternalInputArgs {
+        /**
+         * External input value.
+         */
+        value: any;
+    }
+
+    /**
+     * Deployment external input definition for parameterization.
+     */
+    export interface DeploymentExternalInputDefinitionArgs {
+        /**
+         * Configuration for the external input.
+         */
+        config?: any;
+        /**
+         * The kind of external input.
+         */
+        kind: pulumi.Input<string>;
+    }
+
+    /**
      * Deployment parameter for the template.
      */
     export interface DeploymentParameterArgs {
+        /**
+         * Input expression to the parameter.
+         */
+        expression?: pulumi.Input<string>;
         /**
          * Azure Key Vault parameter reference.
          */
@@ -159221,6 +161190,72 @@ export namespace resources {
          * The URI of the template to deploy. Use either the uri or id property, but not both.
          */
         uri?: pulumi.Input<string>;
+    }
+
+    /**
+     * DeploymentStack WhatIfResult Properties
+     */
+    export interface DeploymentStacksWhatIfResultPropertiesArgs {
+        /**
+         * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+         */
+        actionOnUnmanage: pulumi.Input<inputs.resources.ActionOnUnmanageArgs>;
+        /**
+         * The debug setting of the deployment.
+         */
+        debugSetting?: pulumi.Input<inputs.resources.DeploymentStacksDebugSettingArgs>;
+        /**
+         * Defines how resources deployed by the stack are locked.
+         */
+        denySettings: pulumi.Input<inputs.resources.DenySettingsArgs>;
+        /**
+         * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+         */
+        deploymentScope?: pulumi.Input<string>;
+        /**
+         * The deployment stack id to use as the basis for comparison.
+         */
+        deploymentStackResourceId: pulumi.Input<string>;
+        /**
+         * Deployment stack description. Max length of 4096 characters.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
+         */
+        extensionConfigs?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<inputs.resources.DeploymentExtensionConfigItemArgs>}>}>;
+        /**
+         * External input definitions, used by external tooling to define expected external input values.
+         */
+        externalInputDefinitions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.resources.DeploymentExternalInputDefinitionArgs>}>;
+        /**
+         * External input values, used by external tooling for parameter evaluation.
+         */
+        externalInputs?: pulumi.Input<{[key: string]: pulumi.Input<inputs.resources.DeploymentExternalInputArgs>}>;
+        /**
+         * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.resources.DeploymentParameterArgs>}>;
+        /**
+         * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parametersLink?: pulumi.Input<inputs.resources.DeploymentStacksParametersLinkArgs>;
+        /**
+         * The interval to persist the deployment stack what-if result in ISO 8601 format.
+         */
+        retentionInterval: pulumi.Input<string>;
+        /**
+         * The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+         */
+        template?: any;
+        /**
+         * The URI of the template. Use either the templateLink property or the template property, but not both.
+         */
+        templateLink?: pulumi.Input<inputs.resources.DeploymentStacksTemplateLinkArgs>;
+        /**
+         * The validation level of the deployment stack
+         */
+        validationLevel?: pulumi.Input<string | enums.resources.ValidationLevel>;
     }
 
     /**
@@ -163292,7 +165327,7 @@ export namespace securityinsights {
         /**
          * Alerts data type connection.
          */
-        alerts?: pulumi.Input<inputs.securityinsights.DataConnectorDataTypeCommonArgs>;
+        alerts: pulumi.Input<inputs.securityinsights.DataConnectorDataTypeCommonArgs>;
     }
 
     /**
@@ -163448,7 +165483,7 @@ export namespace securityinsights {
         /**
          * Logs data type.
          */
-        logs?: pulumi.Input<inputs.securityinsights.AwsCloudTrailDataConnectorDataTypesLogsArgs>;
+        logs: pulumi.Input<inputs.securityinsights.AwsCloudTrailDataConnectorDataTypesLogsArgs>;
     }
 
     /**
@@ -163458,7 +165493,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -163808,7 +165843,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -164251,43 +166286,13 @@ export namespace securityinsights {
     }
 
     /**
-     * Describes a log.
-     */
-    export interface LogArgs {
-        /**
-         * The bulk size for the log.
-         */
-        bulkSize?: pulumi.Input<number>;
-        /**
-         * The filters for the log.
-         */
-        filters?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Types of ingestion.
-         */
-        ingestionType?: pulumi.Input<string | enums.securityinsights.IngestionType>;
-        /**
-         * The schedule interval in seconds.
-         */
-        scheduleInterval?: pulumi.Input<number>;
-        /**
-         * Types of log status.
-         */
-        status?: pulumi.Input<string | enums.securityinsights.LogStatusType>;
-        /**
-         * Types of logs and tables.
-         */
-        type: pulumi.Input<string | enums.securityinsights.LogType>;
-    }
-
-    /**
      * The available data types for MCAS (Microsoft Cloud App Security) data connector.
      */
     export interface MCASDataConnectorDataTypesArgs {
         /**
          * Alerts data type connection.
          */
-        alerts?: pulumi.Input<inputs.securityinsights.DataConnectorDataTypeCommonArgs>;
+        alerts: pulumi.Input<inputs.securityinsights.DataConnectorDataTypeCommonArgs>;
         /**
          * Discovery log data type connection.
          */
@@ -164315,7 +166320,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -164518,15 +166523,15 @@ export namespace securityinsights {
         /**
          * Exchange data type connection.
          */
-        exchange?: pulumi.Input<inputs.securityinsights.OfficeDataConnectorDataTypesExchangeArgs>;
+        exchange: pulumi.Input<inputs.securityinsights.OfficeDataConnectorDataTypesExchangeArgs>;
         /**
          * SharePoint data type connection.
          */
-        sharePoint?: pulumi.Input<inputs.securityinsights.OfficeDataConnectorDataTypesSharePointArgs>;
+        sharePoint: pulumi.Input<inputs.securityinsights.OfficeDataConnectorDataTypesSharePointArgs>;
         /**
          * Teams data type connection.
          */
-        teams?: pulumi.Input<inputs.securityinsights.OfficeDataConnectorDataTypesTeamsArgs>;
+        teams: pulumi.Input<inputs.securityinsights.OfficeDataConnectorDataTypesTeamsArgs>;
     }
 
     /**
@@ -164536,7 +166541,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -164546,7 +166551,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -164556,7 +166561,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -164598,23 +166603,23 @@ export namespace securityinsights {
     }
 
     /**
-     * The available data types for Premium Microsoft Defender for Threat Intelligence data connector.
+     * The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
      */
     export interface PremiumMdtiDataConnectorDataTypesArgs {
         /**
-         * Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+         * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
          */
         connector: pulumi.Input<inputs.securityinsights.PremiumMdtiDataConnectorDataTypesConnectorArgs>;
     }
 
     /**
-     * Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+     * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
      */
     export interface PremiumMdtiDataConnectorDataTypesConnectorArgs {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -164824,170 +166829,6 @@ export namespace securityinsights {
     }
 
     /**
-     * Describes the Rfc connector.
-     */
-    export interface RfcConnectorArgs {
-        /**
-         * FQDN, hostname, or IP address of the ABAP server.
-         */
-        abapServerHost?: pulumi.Input<string>;
-        /**
-         * The authentication type to SAP.
-         */
-        authenticationType?: pulumi.Input<string | enums.securityinsights.SapAuthenticationType>;
-        /**
-         * Client number of the ABAP server.
-         * Example - 001
-         */
-        client: pulumi.Input<string>;
-        /**
-         * The SAP code page used for character encoding.
-         * Example - 1100
-         */
-        codePage?: pulumi.Input<string>;
-        /**
-         * Logon group of the message server.
-         */
-        group?: pulumi.Input<string>;
-        /**
-         * FQDN, hostname, or IP address of the Message server.
-         */
-        messageServerHost?: pulumi.Input<string>;
-        /**
-         * Port number, or service name (from /etc/services) of the message server.
-         */
-        messageServerService?: pulumi.Input<string>;
-        /**
-         * SNC QOP.
-         * Options are 1, 2, 3, 8, 9.
-         */
-        sncQop?: pulumi.Input<string>;
-        /**
-         * System ID of the ABAP server.
-         * Example - A4H
-         */
-        systemId: pulumi.Input<string>;
-        /**
-         * System number of the ABAP server.
-         */
-        systemNumber: pulumi.Input<string>;
-        /**
-         * Represents the types of SAP systems.
-         * Expected value is 'Rfc'.
-         */
-        type: pulumi.Input<"Rfc">;
-    }
-
-    /**
-     * Describes the configuration of a SAP Docker agent.
-     */
-    export interface SapAgentConfigurationArgs {
-        /**
-         * The name of the docker agent.
-         * only letters with numbers, underscores and hyphens are allowed
-         * example: "my-agent"
-         */
-        agentContainerName?: pulumi.Input<string>;
-        /**
-         * The key mode of the agent.
-         * ManagedIdentity|ApplicationIdentity are the options
-         */
-        keyVaultAuthenticationMode?: pulumi.Input<string | enums.securityinsights.KeyVaultAuthenticationMode>;
-        /**
-         * The key vault resource id to access the key vault.
-         * example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
-         */
-        keyVaultResourceId?: pulumi.Input<string>;
-        /**
-         * The SDK path (a file not a folder) on the agent machine.
-         * example: "/path/to/nwrfc750P_8-70002755.zip"
-         */
-        sdkPath?: pulumi.Input<string>;
-        /**
-         * The secret source of the agent.
-         * AzureKeyVault is the option
-         */
-        secretSource?: pulumi.Input<string | enums.securityinsights.SecretSource>;
-        /**
-         * The SNC path (a folder not a file) on the agent machine.
-         * example: "/path/to/snc"
-         */
-        sncPath?: pulumi.Input<string>;
-        /**
-         * Type of the agent
-         * Expected value is 'SAP'.
-         */
-        type: pulumi.Input<"SAP">;
-    }
-
-    /**
-     * Describes the SapControl connector configuration.
-     */
-    export interface SapControlConnectorArgs {
-        /**
-         * Represents the types of HTTPS configuration to connect to the SapControl service.
-         */
-        httpsConfiguration?: pulumi.Input<string | enums.securityinsights.HttpsConfigurationType>;
-        /**
-         * The instance number. Only 2 digits are allowed.
-         */
-        instance: pulumi.Input<string>;
-        /**
-         * The port of the SOAP connection to SAP Control.
-         */
-        port?: pulumi.Input<string>;
-        /**
-         * The server name.
-         * FQDN or IP address.
-         */
-        server: pulumi.Input<string>;
-        /**
-         * The timezone.
-         * example: "GMT+0" or "GMT-8"
-         * default: "GMT+0"
-         */
-        timezone?: pulumi.Input<string>;
-        /**
-         * Represents the types of SAP systems.
-         * Expected value is 'SapControl'.
-         */
-        type: pulumi.Input<"SapControl">;
-    }
-    /**
-     * sapControlConnectorArgsProvideDefaults sets the appropriate defaults for SapControlConnectorArgs
-     */
-    export function sapControlConnectorArgsProvideDefaults(val: SapControlConnectorArgs): SapControlConnectorArgs {
-        return {
-            ...val,
-            timezone: (val.timezone) ?? "GMT+0",
-        };
-    }
-
-    /**
-     * Describes the SAP configuration.
-     */
-    export interface SapSystemsConfigurationArgs {
-        /**
-         * azure resource id
-         * example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
-         */
-        azureResourceId?: pulumi.Input<string>;
-        /**
-         * Base Model for SAP System Connector.
-         */
-        connector: pulumi.Input<inputs.securityinsights.RfcConnectorArgs | inputs.securityinsights.SapControlConnectorArgs>;
-        /**
-         * The logs configuration.
-         */
-        logs?: pulumi.Input<pulumi.Input<inputs.securityinsights.LogArgs>[]>;
-        /**
-         * Represents the types of configuration for a system.
-         * Expected value is 'SAP'.
-         */
-        type: pulumi.Input<"SAP">;
-    }
-
-    /**
      * security ml analytics settings data sources
      */
     export interface SecurityMLAnalyticsSettingsDataSourceArgs {
@@ -165051,7 +166892,7 @@ export namespace securityinsights {
         /**
          * Data type for indicators connection.
          */
-        indicators?: pulumi.Input<inputs.securityinsights.TIDataConnectorDataTypesIndicatorsArgs>;
+        indicators: pulumi.Input<inputs.securityinsights.TIDataConnectorDataTypesIndicatorsArgs>;
     }
 
     /**
@@ -165061,7 +166902,7 @@ export namespace securityinsights {
         /**
          * Describe whether this data type connection is enabled or not.
          */
-        state?: pulumi.Input<string | enums.securityinsights.DataTypeState>;
+        state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
     }
 
     /**
@@ -174991,7 +176832,7 @@ export namespace trafficmanager {
         /**
          * List of custom headers.
          */
-        customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesCustomHeadersArgs>[]>;
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesCustomHeadersItemArgs>[]>;
         /**
          * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
          */
@@ -175035,7 +176876,7 @@ export namespace trafficmanager {
         /**
          * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
          */
-        subnets?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesSubnetsArgs>[]>;
+        subnets?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesSubnetsItemArgs>[]>;
         /**
          * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
          */
@@ -175057,7 +176898,7 @@ export namespace trafficmanager {
     /**
      * Custom header name and value.
      */
-    export interface EndpointPropertiesCustomHeadersArgs {
+    export interface EndpointPropertiesCustomHeadersItemArgs {
         /**
          * Header name.
          */
@@ -175071,7 +176912,7 @@ export namespace trafficmanager {
     /**
      * Subnet first address, scope, and/or last address.
      */
-    export interface EndpointPropertiesSubnetsArgs {
+    export interface EndpointPropertiesSubnetsItemArgs {
         /**
          * First address in the subnet.
          */
@@ -175093,11 +176934,11 @@ export namespace trafficmanager {
         /**
          * List of custom headers.
          */
-        customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.MonitorConfigCustomHeadersArgs>[]>;
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.MonitorConfigCustomHeadersItemArgs>[]>;
         /**
          * List of expected status code ranges.
          */
-        expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<inputs.trafficmanager.MonitorConfigExpectedStatusCodeRangesArgs>[]>;
+        expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<inputs.trafficmanager.MonitorConfigExpectedStatusCodeRangesItemArgs>[]>;
         /**
          * The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
          */
@@ -175131,7 +176972,7 @@ export namespace trafficmanager {
     /**
      * Custom header name and value.
      */
-    export interface MonitorConfigCustomHeadersArgs {
+    export interface MonitorConfigCustomHeadersItemArgs {
         /**
          * Header name.
          */
@@ -175145,7 +176986,7 @@ export namespace trafficmanager {
     /**
      * Min and max value of a status code range.
      */
-    export interface MonitorConfigExpectedStatusCodeRangesArgs {
+    export interface MonitorConfigExpectedStatusCodeRangesItemArgs {
         /**
          * Max status code.
          */
@@ -175159,668 +177000,6 @@ export namespace trafficmanager {
 }
 
 export namespace verifiedid {
-}
-
-export namespace videoanalyzer {
-    /**
-     * Defines how the Video Analyzer account is (optionally) encrypted.
-     */
-    export interface AccountEncryptionArgs {
-        /**
-         * The Key Vault identity.
-         */
-        identity?: pulumi.Input<inputs.videoanalyzer.ResourceIdentityArgs>;
-        /**
-         * The properties of the key used to encrypt the account.
-         */
-        keyVaultProperties?: pulumi.Input<inputs.videoanalyzer.KeyVaultPropertiesArgs>;
-        /**
-         * The type of key used to encrypt the Account Key.
-         */
-        type: pulumi.Input<string | enums.videoanalyzer.AccountEncryptionKeyType>;
-    }
-
-    /**
-     * A custom preset for encoding audio with the AAC codec.
-     */
-    export interface AudioEncoderAacArgs {
-        /**
-         * Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
-         */
-        bitrateKbps?: pulumi.Input<string>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.AudioEncoderAac'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.AudioEncoderAac">;
-    }
-
-    /**
-     * Required validation properties for tokens generated with Elliptical Curve algorithm.
-     */
-    export interface EccTokenKeyArgs {
-        /**
-         * Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-         */
-        alg: pulumi.Input<string | enums.videoanalyzer.AccessPolicyEccAlgo>;
-        /**
-         * JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-         */
-        kid: pulumi.Input<string>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.EccTokenKey">;
-        /**
-         * X coordinate.
-         */
-        x: pulumi.Input<string>;
-        /**
-         * Y coordinate.
-         */
-        y: pulumi.Input<string>;
-    }
-
-    /**
-     * Describes a custom preset for encoding the input content using the encoder processor.
-     */
-    export interface EncoderCustomPresetArgs {
-        /**
-         * Describes a custom preset for encoding audio.
-         */
-        audioEncoder?: pulumi.Input<inputs.videoanalyzer.AudioEncoderAacArgs>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EncoderCustomPreset'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.EncoderCustomPreset">;
-        /**
-         * Describes a custom preset for encoding video.
-         */
-        videoEncoder?: pulumi.Input<inputs.videoanalyzer.VideoEncoderH264Args>;
-    }
-
-    /**
-     * Encoder processor allows for encoding of the input content. For example, it can used to change the resolution from 4K to 1280x720.
-     */
-    export interface EncoderProcessorArgs {
-        /**
-         * An array of upstream node references within the topology to be used as inputs for this node.
-         */
-        inputs: pulumi.Input<pulumi.Input<inputs.videoanalyzer.NodeInputArgs>[]>;
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The encoder preset, which defines the recipe or instructions on how the input content should be processed.
-         */
-        preset: pulumi.Input<inputs.videoanalyzer.EncoderCustomPresetArgs | inputs.videoanalyzer.EncoderSystemPresetArgs>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EncoderProcessor'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.EncoderProcessor">;
-    }
-
-    /**
-     * Describes a built-in preset for encoding the input content using the encoder processor.
-     */
-    export interface EncoderSystemPresetArgs {
-        /**
-         * Name of the built-in encoding preset.
-         */
-        name: pulumi.Input<string | enums.videoanalyzer.EncoderSystemPresetType>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.EncoderSystemPreset'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.EncoderSystemPreset">;
-    }
-
-    /**
-     * Group level network access control.
-     */
-    export interface GroupLevelAccessControlArgs {
-        /**
-         * Whether or not public network access is allowed for specified resources under the Video Analyzer account.
-         */
-        publicNetworkAccess?: pulumi.Input<string | enums.videoanalyzer.PublicNetworkAccess>;
-    }
-
-    /**
-     * The IoT Hub details.
-     */
-    export interface IotHubArgs {
-        /**
-         * The IoT Hub resource identifier.
-         */
-        id: pulumi.Input<string>;
-        /**
-         * The IoT Hub identity.
-         */
-        identity: pulumi.Input<inputs.videoanalyzer.ResourceIdentityArgs>;
-    }
-
-    /**
-     * Properties for access validation based on JSON Web Tokens (JWT).
-     */
-    export interface JwtAuthenticationArgs {
-        /**
-         * List of expected token audiences. Token audience is valid if it matches at least one of the given values.
-         */
-        audiences?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-         */
-        claims?: pulumi.Input<pulumi.Input<inputs.videoanalyzer.TokenClaimArgs>[]>;
-        /**
-         * List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-         */
-        issuers?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-         */
-        keys?: pulumi.Input<pulumi.Input<inputs.videoanalyzer.EccTokenKeyArgs | inputs.videoanalyzer.RsaTokenKeyArgs>[]>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.JwtAuthentication">;
-    }
-
-    /**
-     * The details for accessing the encryption keys in Key Vault.
-     */
-    export interface KeyVaultPropertiesArgs {
-        /**
-         * The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-         */
-        keyIdentifier: pulumi.Input<string>;
-    }
-
-    /**
-     * Network access control for video analyzer account.
-     */
-    export interface NetworkAccessControlArgs {
-        /**
-         * Public network access for consumption group.
-         */
-        consumption?: pulumi.Input<inputs.videoanalyzer.GroupLevelAccessControlArgs>;
-        /**
-         * Public network access for ingestion group.
-         */
-        ingestion?: pulumi.Input<inputs.videoanalyzer.GroupLevelAccessControlArgs>;
-        /**
-         * Public network access for integration group.
-         */
-        integration?: pulumi.Input<inputs.videoanalyzer.GroupLevelAccessControlArgs>;
-    }
-
-    /**
-     * Describes an input signal to be used on a pipeline node.
-     */
-    export interface NodeInputArgs {
-        /**
-         * The name of the upstream node in the pipeline which output is used as input of the current node.
-         */
-        nodeName: pulumi.Input<string>;
-    }
-
-    /**
-     * Single topology parameter declaration. Declared parameters can and must be referenced throughout the topology and can optionally have default values to be used when they are not defined in the pipelines.
-     */
-    export interface ParameterDeclarationArgs {
-        /**
-         * The default value for the parameter to be used if the pipeline does not specify a value.
-         */
-        default?: pulumi.Input<string>;
-        /**
-         * Description of the parameter.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Name of the parameter.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Type of the parameter.
-         */
-        type: pulumi.Input<string | enums.videoanalyzer.ParameterType>;
-    }
-
-    /**
-     * Defines the parameter value of an specific pipeline topology parameter. See pipeline topology parameters for more information.
-     */
-    export interface ParameterDefinitionArgs {
-        /**
-         * Name of the parameter declared in the pipeline topology.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Parameter value to be applied on this specific pipeline.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * A list of PEM formatted certificates.
-     */
-    export interface PemCertificateListArgs {
-        /**
-         * PEM formatted public certificates. One certificate per entry.
-         */
-        certificates: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.PemCertificateList'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.PemCertificateList">;
-    }
-
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    export interface PrivateLinkServiceConnectionStateArgs {
-        /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
-         */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The reason for approval/rejection of the connection.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-         */
-        status?: pulumi.Input<string | enums.videoanalyzer.PrivateEndpointServiceConnectionStatus>;
-    }
-
-    /**
-     * The user assigned managed identity to use when accessing a resource.
-     */
-    export interface ResourceIdentityArgs {
-        /**
-         * The user assigned managed identity's resource identifier to use when accessing a resource.
-         */
-        userAssignedIdentity: pulumi.Input<string>;
-    }
-
-    /**
-     * Required validation properties for tokens generated with RSA algorithm.
-     */
-    export interface RsaTokenKeyArgs {
-        /**
-         * RSA algorithm to be used: RS256, RS384 or RS512.
-         */
-        alg: pulumi.Input<string | enums.videoanalyzer.AccessPolicyRsaAlgo>;
-        /**
-         * RSA public key exponent.
-         */
-        e: pulumi.Input<string>;
-        /**
-         * JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-         */
-        kid: pulumi.Input<string>;
-        /**
-         * RSA public key modulus.
-         */
-        n: pulumi.Input<string>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.RsaTokenKey">;
-    }
-
-    /**
-     * RTSP source allows for media from an RTSP camera or generic RTSP server to be ingested into a pipeline.
-     */
-    export interface RtspSourceArgs {
-        /**
-         * RTSP endpoint information for Video Analyzer to connect to. This contains the required information for Video Analyzer to connect to RTSP cameras and/or generic RTSP servers.
-         */
-        endpoint: pulumi.Input<inputs.videoanalyzer.TlsEndpointArgs | inputs.videoanalyzer.UnsecuredEndpointArgs>;
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
-         */
-        transport?: pulumi.Input<string | enums.videoanalyzer.RtspTransport>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.RtspSource'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.RtspSource">;
-    }
-
-    /**
-     * A remote tunnel securely established using IoT Hub device information.
-     */
-    export interface SecureIotDeviceRemoteTunnelArgs {
-        /**
-         * The IoT device id to use when establishing the remote tunnel. This string is case-sensitive.
-         */
-        deviceId: pulumi.Input<string>;
-        /**
-         * Name of the IoT Hub.
-         */
-        iotHubName: pulumi.Input<string>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel">;
-    }
-
-    /**
-     * The SKU details.
-     */
-    export interface SkuArgs {
-        /**
-         * The SKU name.
-         */
-        name: pulumi.Input<string | enums.videoanalyzer.SkuName>;
-    }
-
-    /**
-     * The details about the associated storage account.
-     */
-    export interface StorageAccountArgs {
-        /**
-         * The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-         */
-        id: pulumi.Input<string>;
-        /**
-         * A managed identity that Video Analyzer will use to access the storage account.
-         */
-        identity?: pulumi.Input<inputs.videoanalyzer.ResourceIdentityArgs>;
-    }
-
-    /**
-     * TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
-     */
-    export interface TlsEndpointArgs {
-        /**
-         * Credentials to be presented to the endpoint.
-         */
-        credentials: pulumi.Input<inputs.videoanalyzer.UsernamePasswordCredentialsArgs>;
-        /**
-         * List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
-         */
-        trustedCertificates?: pulumi.Input<inputs.videoanalyzer.PemCertificateListArgs>;
-        /**
-         * Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
-         */
-        tunnel?: pulumi.Input<inputs.videoanalyzer.SecureIotDeviceRemoteTunnelArgs>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.TlsEndpoint">;
-        /**
-         * The endpoint URL for Video Analyzer to connect to.
-         */
-        url: pulumi.Input<string>;
-        /**
-         * Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-         */
-        validationOptions?: pulumi.Input<inputs.videoanalyzer.TlsValidationOptionsArgs>;
-    }
-
-    /**
-     * Options for controlling the validation of TLS endpoints.
-     */
-    export interface TlsValidationOptionsArgs {
-        /**
-         * When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
-         */
-        ignoreHostname?: pulumi.Input<string>;
-        /**
-         * When set to 'true' causes the certificate chain trust validation to be skipped. Default is 'false'.
-         */
-        ignoreSignature?: pulumi.Input<string>;
-    }
-
-    /**
-     * Properties for expected token claims.
-     */
-    export interface TokenClaimArgs {
-        /**
-         * Name of the claim which must be present on the token.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Expected value of the claim to be present on the token.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
-     */
-    export interface UnsecuredEndpointArgs {
-        /**
-         * Credentials to be presented to the endpoint.
-         */
-        credentials: pulumi.Input<inputs.videoanalyzer.UsernamePasswordCredentialsArgs>;
-        /**
-         * Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
-         */
-        tunnel?: pulumi.Input<inputs.videoanalyzer.SecureIotDeviceRemoteTunnelArgs>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.UnsecuredEndpoint'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.UnsecuredEndpoint">;
-        /**
-         * The endpoint URL for Video Analyzer to connect to.
-         */
-        url: pulumi.Input<string>;
-    }
-
-    /**
-     * Username and password credentials.
-     */
-    export interface UsernamePasswordCredentialsArgs {
-        /**
-         * Password to be presented as part of the credentials. It is recommended that this value is parameterized as a secret string in order to prevent this value to be returned as part of the resource on API requests.
-         */
-        password: pulumi.Input<string>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.UsernamePasswordCredentials">;
-        /**
-         * Username to be presented as part of the credentials.
-         */
-        username: pulumi.Input<string>;
-    }
-
-    /**
-     * The managed identity for the Video Analyzer resource.
-     */
-    export interface VideoAnalyzerIdentityArgs {
-        /**
-         * The identity type.
-         */
-        type: pulumi.Input<string>;
-        /**
-         * The User Assigned Managed Identities.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Video archival properties.
-     */
-    export interface VideoArchivalArgs {
-        /**
-         * Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
-         */
-        retentionPeriod?: pulumi.Input<string>;
-    }
-
-    /**
-     * Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
-     */
-    export interface VideoCreationPropertiesArgs {
-        /**
-         * Optional description provided by the user. Value can be up to 2048 characters long.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
-         */
-        retentionPeriod?: pulumi.Input<string>;
-        /**
-         * Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
-         */
-        segmentLength?: pulumi.Input<string>;
-        /**
-         * Optional title provided by the user. Value can be up to 256 characters long.
-         */
-        title?: pulumi.Input<string>;
-    }
-
-    /**
-     * A custom preset for encoding video with the H.264 (AVC) codec.
-     */
-    export interface VideoEncoderH264Args {
-        /**
-         * The maximum bitrate, in kilobits per second or Kbps, at which video should be encoded. If omitted, encoder sets it automatically to try and match the quality of the input video.
-         */
-        bitrateKbps?: pulumi.Input<string>;
-        /**
-         * The frame rate (in frames per second) of the encoded video. The value must be greater than zero, and less than or equal to 300. If omitted, the encoder uses the average frame rate of the input video.
-         */
-        frameRate?: pulumi.Input<string>;
-        /**
-         * Describes the resolution of the encoded video. If omitted, the encoder uses the resolution of the input video.
-         */
-        scale?: pulumi.Input<inputs.videoanalyzer.VideoScaleArgs>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoEncoderH264'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.VideoEncoderH264">;
-    }
-
-    /**
-     * Contains information about the video and audio content.
-     */
-    export interface VideoMediaInfoArgs {
-        /**
-         * Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
-         */
-        segmentLength?: pulumi.Input<string>;
-    }
-
-    /**
-     * Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
-     */
-    export interface VideoPublishingOptionsArgs {
-        /**
-         * When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
-         */
-        disableArchive?: pulumi.Input<string>;
-        /**
-         * When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
-         */
-        disableRtspPublishing?: pulumi.Input<string>;
-    }
-
-    /**
-     * The video scaling information.
-     */
-    export interface VideoScaleArgs {
-        /**
-         * The desired output video height.
-         */
-        height?: pulumi.Input<string>;
-        /**
-         * Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
-         */
-        mode?: pulumi.Input<string | enums.videoanalyzer.VideoScaleMode>;
-        /**
-         * The desired output video width.
-         */
-        width?: pulumi.Input<string>;
-    }
-
-    /**
-     * A sequence of absolute datetime ranges as a string. The datetime values should follow IS08601, and the sum of the ranges should add up to 24 hours or less. Currently, there can be only one range specified in the sequence.
-     */
-    export interface VideoSequenceAbsoluteTimeMarkersArgs {
-        /**
-         * The sequence of datetime ranges. Example: '[["2021-10-05T03:30:00Z", "2021-10-05T03:40:00Z"]]'.
-         */
-        ranges: pulumi.Input<string>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers">;
-    }
-
-    /**
-     * Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'
-     */
-    export interface VideoSinkArgs {
-        /**
-         * An array of upstream node references within the topology to be used as inputs for this node.
-         */
-        inputs: pulumi.Input<pulumi.Input<inputs.videoanalyzer.NodeInputArgs>[]>;
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoSink'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.VideoSink">;
-        /**
-         * Optional video properties to be used in case a new video resource needs to be created on the service.
-         */
-        videoCreationProperties?: pulumi.Input<inputs.videoanalyzer.VideoCreationPropertiesArgs>;
-        /**
-         * Name of a new or existing video resource used to capture and publish content. Note: if downstream of RTSP source, and if disableArchive is set to true, then no content is archived.
-         */
-        videoName: pulumi.Input<string>;
-        /**
-         * Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
-         */
-        videoPublishingOptions?: pulumi.Input<inputs.videoanalyzer.VideoPublishingOptionsArgs>;
-    }
-
-    /**
-     * Video source allows for content from a Video Analyzer video resource to be ingested into a pipeline. Currently supported only with batch pipelines.
-     */
-    export interface VideoSourceArgs {
-        /**
-         * Node name. Must be unique within the topology.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Describes a sequence of datetime ranges. The video source only picks up recorded media within these ranges.
-         */
-        timeSequences: pulumi.Input<inputs.videoanalyzer.VideoSequenceAbsoluteTimeMarkersArgs>;
-        /**
-         * The discriminator for derived types.
-         * Expected value is '#Microsoft.VideoAnalyzer.VideoSource'.
-         */
-        type: pulumi.Input<"#Microsoft.VideoAnalyzer.VideoSource">;
-        /**
-         * Name of the Video Analyzer video resource to be used as the source.
-         */
-        videoName: pulumi.Input<string>;
-    }
-
 }
 
 export namespace videoindexer {

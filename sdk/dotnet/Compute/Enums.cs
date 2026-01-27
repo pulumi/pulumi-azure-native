@@ -1164,6 +1164,55 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+    /// </summary>
+    [EnumType]
+    public readonly struct GalleryScriptParameterType : IEquatable<GalleryScriptParameterType>
+    {
+        private readonly string _value;
+
+        private GalleryScriptParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// String gallery script parameter type
+        /// </summary>
+        public static GalleryScriptParameterType String { get; } = new GalleryScriptParameterType("String");
+        /// <summary>
+        /// Int gallery script parameter type
+        /// </summary>
+        public static GalleryScriptParameterType Int { get; } = new GalleryScriptParameterType("Int");
+        /// <summary>
+        /// Double gallery script parameter type
+        /// </summary>
+        public static GalleryScriptParameterType Double { get; } = new GalleryScriptParameterType("Double");
+        /// <summary>
+        /// Boolean gallery script parameter type
+        /// </summary>
+        public static GalleryScriptParameterType Boolean { get; } = new GalleryScriptParameterType("Boolean");
+        /// <summary>
+        /// Enum gallery script parameter type
+        /// </summary>
+        public static GalleryScriptParameterType Enum { get; } = new GalleryScriptParameterType("Enum");
+
+        public static bool operator ==(GalleryScriptParameterType left, GalleryScriptParameterType right) => left.Equals(right);
+        public static bool operator !=(GalleryScriptParameterType left, GalleryScriptParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(GalleryScriptParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GalleryScriptParameterType other && Equals(other);
+        public bool Equals(GalleryScriptParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**
     /// </summary>
     [EnumType]
@@ -2454,6 +2503,43 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StatusLevelTypes other && Equals(other);
         public bool Equals(StatusLevelTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageAccountStrategy : IEquatable<StorageAccountStrategy>
+    {
+        private readonly string _value;
+
+        private StorageAccountStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Choose Standard_ZRS storage if the region supports it, else choose Standard_LRS storage, unless overridden by specifying regional storageAccountType. If no storageAccountStrategy is specified, this is the default strategy (from API version 2025-03-03 onwards).
+        /// </summary>
+        public static StorageAccountStrategy PreferStandard_ZRS { get; } = new StorageAccountStrategy("PreferStandard_ZRS");
+        /// <summary>
+        /// Choose Standard_LRS storage unless overridden by specifying regional storageAccountType.
+        /// </summary>
+        public static StorageAccountStrategy DefaultStandard_LRS { get; } = new StorageAccountStrategy("DefaultStandard_LRS");
+
+        public static bool operator ==(StorageAccountStrategy left, StorageAccountStrategy right) => left.Equals(right);
+        public static bool operator !=(StorageAccountStrategy left, StorageAccountStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAccountStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAccountStrategy other && Equals(other);
+        public bool Equals(StorageAccountStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

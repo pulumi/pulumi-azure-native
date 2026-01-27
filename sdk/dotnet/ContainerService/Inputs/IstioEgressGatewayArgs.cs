@@ -21,6 +21,24 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the gateway configuration custom resource for the Istio add-on egress gateway. Must be specified when enabling the Istio egress gateway. Must be deployed in the same namespace that the Istio egress gateway will be deployed in.
+        /// </summary>
+        [Input("gatewayConfigurationName")]
+        public Input<string>? GatewayConfigurationName { get; set; }
+
+        /// <summary>
+        /// Name of the Istio add-on egress gateway.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Namespace that the Istio add-on egress gateway should be deployed in. If unspecified, the default is aks-istio-egress.
+        /// </summary>
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
+
         public IstioEgressGatewayArgs()
         {
         }

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Security
     /// The private endpoint connection resource.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -91,6 +93,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20250901preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20260101:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

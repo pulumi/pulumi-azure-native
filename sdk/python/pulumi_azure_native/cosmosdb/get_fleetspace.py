@@ -27,10 +27,13 @@ class GetFleetspaceResult:
     """
     An Azure Cosmos DB Fleetspace.
     """
-    def __init__(__self__, azure_api_version=None, fleetspace_api_kind=None, id=None, name=None, provisioning_state=None, system_data=None, throughput_pool_configuration=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_regions=None, fleetspace_api_kind=None, id=None, name=None, provisioning_state=None, service_tier=None, system_data=None, throughput_pool_configuration=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if data_regions and not isinstance(data_regions, list):
+            raise TypeError("Expected argument 'data_regions' to be a list")
+        pulumi.set(__self__, "data_regions", data_regions)
         if fleetspace_api_kind and not isinstance(fleetspace_api_kind, str):
             raise TypeError("Expected argument 'fleetspace_api_kind' to be a str")
         pulumi.set(__self__, "fleetspace_api_kind", fleetspace_api_kind)
@@ -43,6 +46,9 @@ class GetFleetspaceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_tier and not isinstance(service_tier, str):
+            raise TypeError("Expected argument 'service_tier' to be a str")
+        pulumi.set(__self__, "service_tier", service_tier)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -60,6 +66,14 @@ class GetFleetspaceResult:
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRegions")
+    def data_regions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of data regions assigned to the fleetspace. Eg [westus2]
+        """
+        return pulumi.get(self, "data_regions")
 
     @_builtins.property
     @pulumi.getter(name="fleetspaceApiKind")
@@ -94,6 +108,14 @@ class GetFleetspaceResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="serviceTier")
+    def service_tier(self) -> Optional[_builtins.str]:
+        """
+        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+        return pulumi.get(self, "service_tier")
+
+    @_builtins.property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -125,10 +147,12 @@ class AwaitableGetFleetspaceResult(GetFleetspaceResult):
             yield self
         return GetFleetspaceResult(
             azure_api_version=self.azure_api_version,
+            data_regions=self.data_regions,
             fleetspace_api_kind=self.fleetspace_api_kind,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            service_tier=self.service_tier,
             system_data=self.system_data,
             throughput_pool_configuration=self.throughput_pool_configuration,
             type=self.type)
@@ -141,7 +165,9 @@ def get_fleetspace(fleet_name: Optional[_builtins.str] = None,
     """
     Retrieves the properties of an existing Azure Cosmos DB fleetspace under a fleet
 
-    Uses Azure REST API version 2025-05-01-preview.
+    Uses Azure REST API version 2025-10-15.
+
+    Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
@@ -157,10 +183,12 @@ def get_fleetspace(fleet_name: Optional[_builtins.str] = None,
 
     return AwaitableGetFleetspaceResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        data_regions=pulumi.get(__ret__, 'data_regions'),
         fleetspace_api_kind=pulumi.get(__ret__, 'fleetspace_api_kind'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_tier=pulumi.get(__ret__, 'service_tier'),
         system_data=pulumi.get(__ret__, 'system_data'),
         throughput_pool_configuration=pulumi.get(__ret__, 'throughput_pool_configuration'),
         type=pulumi.get(__ret__, 'type'))
@@ -171,7 +199,9 @@ def get_fleetspace_output(fleet_name: Optional[pulumi.Input[_builtins.str]] = No
     """
     Retrieves the properties of an existing Azure Cosmos DB fleetspace under a fleet
 
-    Uses Azure REST API version 2025-05-01-preview.
+    Uses Azure REST API version 2025-10-15.
+
+    Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
@@ -186,10 +216,12 @@ def get_fleetspace_output(fleet_name: Optional[pulumi.Input[_builtins.str]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:cosmosdb:getFleetspace', __args__, opts=opts, typ=GetFleetspaceResult)
     return __ret__.apply(lambda __response__: GetFleetspaceResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        data_regions=pulumi.get(__response__, 'data_regions'),
         fleetspace_api_kind=pulumi.get(__response__, 'fleetspace_api_kind'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_tier=pulumi.get(__response__, 'service_tier'),
         system_data=pulumi.get(__response__, 'system_data'),
         throughput_pool_configuration=pulumi.get(__response__, 'throughput_pool_configuration'),
         type=pulumi.get(__response__, 'type')))

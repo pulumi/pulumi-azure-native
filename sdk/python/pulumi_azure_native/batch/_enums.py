@@ -94,6 +94,9 @@ class AutoUserScope(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:CachingType")
 class CachingType(_builtins.str, Enum):
+    """
+    The type of caching to enable for the disk.
+    """
     NONE = "None"
     """
     The caching mode for the disk is not enabled.
@@ -164,6 +167,9 @@ class ComputeNodeDeallocationOption(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:ComputeNodeFillType")
 class ComputeNodeFillType(_builtins.str, Enum):
+    """
+    How tasks should be distributed across compute nodes.
+    """
     SPREAD = "Spread"
     """
     Tasks should be assigned evenly across all nodes in the pool.
@@ -176,6 +182,9 @@ class ComputeNodeFillType(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:ContainerHostDataPath")
 class ContainerHostDataPath(_builtins.str, Enum):
+    """
+    The paths which will be mounted to container task's container.
+    """
     SHARED = "Shared"
     """
     The path for multi-instances task to shared their files.
@@ -204,6 +213,9 @@ class ContainerHostDataPath(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:ContainerType")
 class ContainerType(_builtins.str, Enum):
+    """
+    The container technology to be used.
+    """
     DOCKER_COMPATIBLE = "DockerCompatible"
     """
     A Docker compatible container technology will be used to launch the containers.
@@ -216,6 +228,9 @@ class ContainerType(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:ContainerWorkingDirectory")
 class ContainerWorkingDirectory(_builtins.str, Enum):
+    """
+    A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+    """
     TASK_WORKING_DIRECTORY = "TaskWorkingDirectory"
     """
     Use the standard Batch service task working directory, which will contain the Task resource files populated by Batch.
@@ -233,7 +248,7 @@ class DiffDiskPlacement(_builtins.str, Enum):
     """
     CACHE_DISK = "CacheDisk"
     """
-    The Ephemeral OS Disk is stored on the VM cache.
+    The OS disk will be placed on the cache disk of the VM.
     """
 
 
@@ -254,6 +269,9 @@ class DiskEncryptionTarget(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:DynamicVNetAssignmentScope")
 class DynamicVNetAssignmentScope(_builtins.str, Enum):
+    """
+    The scope of dynamic vnet assignment.
+    """
     NONE = "none"
     """
     No dynamic VNet assignment is enabled.
@@ -326,6 +344,9 @@ class IPRuleAction(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:InboundEndpointProtocol")
 class InboundEndpointProtocol(_builtins.str, Enum):
+    """
+    The protocol of the endpoint.
+    """
     TCP = "TCP"
     """
     Use TCP for the endpoint.
@@ -383,6 +404,9 @@ class LoginMode(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:NetworkSecurityGroupRuleAccess")
 class NetworkSecurityGroupRuleAccess(_builtins.str, Enum):
+    """
+    The action that should be taken for a specified IP address, subnet range or tag.
+    """
     ALLOW = "Allow"
     """
     Allow access.
@@ -460,7 +484,7 @@ class PoolIdentityType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:batch:PublicNetworkAccessType")
 class PublicNetworkAccessType(_builtins.str, Enum):
     """
-    If not specified, the default value is 'enabled'.
+    The network access type for operating on the resources in the Batch account.
     """
     ENABLED = "Enabled"
     """
@@ -497,12 +521,18 @@ class ResourceIdentityType(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:SecurityEncryptionTypes")
 class SecurityEncryptionTypes(_builtins.str, Enum):
+    """
+    Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+    """
     NON_PERSISTED_TPM = "NonPersistedTPM"
     VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
 
 
 @pulumi.type_token("azure-native:batch:SecurityTypes")
 class SecurityTypes(_builtins.str, Enum):
+    """
+    Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+    """
     TRUSTED_LAUNCH = "trustedLaunch"
     """
     Trusted launch protects against advanced and persistent attack techniques.
@@ -515,6 +545,9 @@ class SecurityTypes(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:StorageAccountType")
 class StorageAccountType(_builtins.str, Enum):
+    """
+    The storage account type for use in creating data disks or OS disk.
+    """
     STANDARD_LRS = "Standard_LRS"
     """
     The data disk / OS disk should use standard locally redundant storage.
@@ -531,6 +564,9 @@ class StorageAccountType(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:UpgradeMode")
 class UpgradeMode(_builtins.str, Enum):
+    """
+    Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
+    """
     AUTOMATIC = "automatic"
     """
     All virtual machines in the scale set are automatically updated at the same time.

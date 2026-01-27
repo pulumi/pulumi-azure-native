@@ -17,7 +17,7 @@ from ._enums import *
 
 __all__ = [
     'ApplianceCredentialKubeconfigResponse',
-    'AppliancePropertiesResponseInfrastructureConfig',
+    'AppliancePropertiesInfrastructureConfigResponse',
     'ArtifactProfileResponse',
     'HybridConnectionConfigResponse',
     'IdentityResponse',
@@ -59,7 +59,7 @@ class ApplianceCredentialKubeconfigResponse(dict):
 
 
 @pulumi.output_type
-class AppliancePropertiesResponseInfrastructureConfig(dict):
+class AppliancePropertiesInfrastructureConfigResponse(dict):
     """
     Contains infrastructure information about the Appliance
     """

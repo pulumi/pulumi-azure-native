@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// The configuration for container-enabled pools.
+    /// </summary>
     public sealed class ContainerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerImageNames")]
@@ -36,6 +39,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
             set => _containerRegistries = value;
         }
 
+        /// <summary>
+        /// The container technology to be used.
+        /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Batch.ContainerType> Type { get; set; } = null!;
 

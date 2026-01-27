@@ -18,10 +18,37 @@ from ._enums import *
 
 __all__ = [
     'AccountEncryptionResponse',
+    'ActiveDirectoryConfigPropertiesResponse',
     'ActiveDirectoryResponse',
     'BucketServerPropertiesResponse',
+    'CacheMountTargetPropertiesResponse',
+    'CachePropertiesExportPolicyResponse',
+    'CachePropertiesResponse',
     'CifsUserResponse',
     'DailyScheduleResponse',
+    'ElasticAccountPropertiesResponse',
+    'ElasticBackupPolicyPropertiesResponse',
+    'ElasticBackupPropertiesResponse',
+    'ElasticBackupVaultPropertiesResponse',
+    'ElasticCapacityPoolPropertiesResponse',
+    'ElasticEncryptionConfigurationResponse',
+    'ElasticEncryptionIdentityResponse',
+    'ElasticEncryptionResponse',
+    'ElasticExportPolicyResponse',
+    'ElasticExportPolicyRuleResponse',
+    'ElasticKeyVaultPropertiesResponse',
+    'ElasticMountTargetPropertiesResponse',
+    'ElasticSmbPropertiesResponse',
+    'ElasticSnapshotPolicyDailyScheduleResponse',
+    'ElasticSnapshotPolicyHourlyScheduleResponse',
+    'ElasticSnapshotPolicyMonthlyScheduleResponse',
+    'ElasticSnapshotPolicyPropertiesResponse',
+    'ElasticSnapshotPolicyWeeklyScheduleResponse',
+    'ElasticSnapshotPropertiesResponse',
+    'ElasticVolumeBackupPropertiesResponse',
+    'ElasticVolumeDataProtectionPropertiesResponse',
+    'ElasticVolumePropertiesResponse',
+    'ElasticVolumeSnapshotPropertiesResponse',
     'EncryptionIdentityResponse',
     'ExportPolicyRuleResponse',
     'FileSystemUserResponse',
@@ -33,11 +60,16 @@ __all__ = [
     'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
     'NfsUserResponse',
+    'OriginClusterInformationResponse',
     'PlacementKeyValuePairsResponse',
     'QuotaReportResponse',
     'RemotePathResponse',
     'ReplicationObjectResponse',
     'ReplicationResponse',
+    'SecretPasswordIdentityResponse',
+    'SecretPasswordKeyVaultPropertiesResponse',
+    'SecretPasswordResponse',
+    'SmbSettingsResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'VolumeBackupPropertiesResponse',
@@ -117,6 +149,188 @@ class AccountEncryptionResponse(dict):
         Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
         """
         return pulumi.get(self, "key_vault_properties")
+
+
+@pulumi.output_type
+class ActiveDirectoryConfigPropertiesResponse(dict):
+    """
+    Active Directory Configuration properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryStatus":
+            suggest = "active_directory_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "secretPassword":
+            suggest = "secret_password"
+        elif key == "backupOperators":
+            suggest = "backup_operators"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+        elif key == "securityOperators":
+            suggest = "security_operators"
+        elif key == "smbServerName":
+            suggest = "smb_server_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActiveDirectoryConfigPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActiveDirectoryConfigPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_directory_status: _builtins.str,
+                 domain: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 secret_password: 'outputs.SecretPasswordResponse',
+                 administrators: Optional[Sequence[_builtins.str]] = None,
+                 backup_operators: Optional[Sequence[_builtins.str]] = None,
+                 dns: Optional[Sequence[_builtins.str]] = None,
+                 organizational_unit: Optional[_builtins.str] = None,
+                 security_operators: Optional[Sequence[_builtins.str]] = None,
+                 site: Optional[_builtins.str] = None,
+                 smb_server_name: Optional[_builtins.str] = None,
+                 user_name: Optional[_builtins.str] = None):
+        """
+        Active Directory Configuration properties
+        :param _builtins.str active_directory_status: Status of the Active Directory
+        :param _builtins.str domain: Name of the Active Directory domain
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        :param 'SecretPasswordResponse' secret_password: Access password from Azure KeyVault Secrets to connect Active Directory
+        :param Sequence[_builtins.str] administrators: Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        :param Sequence[_builtins.str] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        :param Sequence[_builtins.str] dns: An array of DNS server IP addresses(IPv4 only) for the Active Directory
+        :param _builtins.str organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
+        :param Sequence[_builtins.str] security_operators: Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        :param _builtins.str site: The Active Directory site the service will limit Domain Controller discovery to
+        :param _builtins.str smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+        :param _builtins.str user_name: A domain user account with permission to create machine accounts
+        """
+        pulumi.set(__self__, "active_directory_status", active_directory_status)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "secret_password", secret_password)
+        if administrators is not None:
+            pulumi.set(__self__, "administrators", administrators)
+        if backup_operators is not None:
+            pulumi.set(__self__, "backup_operators", backup_operators)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
+        if organizational_unit is not None:
+            pulumi.set(__self__, "organizational_unit", organizational_unit)
+        if security_operators is not None:
+            pulumi.set(__self__, "security_operators", security_operators)
+        if site is not None:
+            pulumi.set(__self__, "site", site)
+        if smb_server_name is not None:
+            pulumi.set(__self__, "smb_server_name", smb_server_name)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter(name="activeDirectoryStatus")
+    def active_directory_status(self) -> _builtins.str:
+        """
+        Status of the Active Directory
+        """
+        return pulumi.get(self, "active_directory_status")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Name of the Active Directory domain
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="secretPassword")
+    def secret_password(self) -> 'outputs.SecretPasswordResponse':
+        """
+        Access password from Azure KeyVault Secrets to connect Active Directory
+        """
+        return pulumi.get(self, "secret_password")
+
+    @_builtins.property
+    @pulumi.getter
+    def administrators(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "administrators")
+
+    @_builtins.property
+    @pulumi.getter(name="backupOperators")
+    def backup_operators(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "backup_operators")
+
+    @_builtins.property
+    @pulumi.getter
+    def dns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An array of DNS server IP addresses(IPv4 only) for the Active Directory
+        """
+        return pulumi.get(self, "dns")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnit")
+    def organizational_unit(self) -> Optional[_builtins.str]:
+        """
+        The Organizational Unit (OU) within the Windows Active Directory
+        """
+        return pulumi.get(self, "organizational_unit")
+
+    @_builtins.property
+    @pulumi.getter(name="securityOperators")
+    def security_operators(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "security_operators")
+
+    @_builtins.property
+    @pulumi.getter
+    def site(self) -> Optional[_builtins.str]:
+        """
+        The Active Directory site the service will limit Domain Controller discovery to
+        """
+        return pulumi.get(self, "site")
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerName")
+    def smb_server_name(self) -> Optional[_builtins.str]:
+        """
+        NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+        """
+        return pulumi.get(self, "smb_server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[_builtins.str]:
+        """
+        A domain user account with permission to create machine accounts
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -531,6 +745,431 @@ class BucketServerPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class CacheMountTargetPropertiesResponse(dict):
+    """
+    Contains all the information needed to mount a cache
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "mountTargetId":
+            suggest = "mount_target_id"
+        elif key == "smbServerFqdn":
+            suggest = "smb_server_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheMountTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheMountTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheMountTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: _builtins.str,
+                 mount_target_id: _builtins.str,
+                 smb_server_fqdn: _builtins.str):
+        """
+        Contains all the information needed to mount a cache
+        :param _builtins.str ip_address: The mount target's IPv4 address, used to mount the cache.
+        :param _builtins.str mount_target_id: UUID v4 used to identify the MountTarget
+        :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "mount_target_id", mount_target_id)
+        pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> _builtins.str:
+        """
+        The mount target's IPv4 address, used to mount the cache.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="mountTargetId")
+    def mount_target_id(self) -> _builtins.str:
+        """
+        UUID v4 used to identify the MountTarget
+        """
+        return pulumi.get(self, "mount_target_id")
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerFqdn")
+    def smb_server_fqdn(self) -> _builtins.str:
+        """
+        The SMB server's Fully Qualified Domain Name, FQDN
+        """
+        return pulumi.get(self, "smb_server_fqdn")
+
+
+@pulumi.output_type
+class CachePropertiesExportPolicyResponse(dict):
+    """
+    Set of export policy rules
+    """
+    def __init__(__self__, *,
+                 rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
+        """
+        Set of export policy rules
+        :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ExportPolicyRuleResponse']]:
+        """
+        Export policy rule
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class CachePropertiesResponse(dict):
+    """
+    Cache resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actualThroughputMibps":
+            suggest = "actual_throughput_mibps"
+        elif key == "cacheState":
+            suggest = "cache_state"
+        elif key == "cacheSubnetResourceId":
+            suggest = "cache_subnet_resource_id"
+        elif key == "encryptionKeySource":
+            suggest = "encryption_key_source"
+        elif key == "maximumNumberOfFiles":
+            suggest = "maximum_number_of_files"
+        elif key == "mountTargets":
+            suggest = "mount_targets"
+        elif key == "originClusterInformation":
+            suggest = "origin_cluster_information"
+        elif key == "peeringSubnetResourceId":
+            suggest = "peering_subnet_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "cifsChangeNotifications":
+            suggest = "cifs_change_notifications"
+        elif key == "exportPolicy":
+            suggest = "export_policy"
+        elif key == "globalFileLocking":
+            suggest = "global_file_locking"
+        elif key == "keyVaultPrivateEndpointResourceId":
+            suggest = "key_vault_private_endpoint_resource_id"
+        elif key == "ldapServerType":
+            suggest = "ldap_server_type"
+        elif key == "protocolTypes":
+            suggest = "protocol_types"
+        elif key == "smbSettings":
+            suggest = "smb_settings"
+        elif key == "throughputMibps":
+            suggest = "throughput_mibps"
+        elif key == "writeBack":
+            suggest = "write_back"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actual_throughput_mibps: _builtins.float,
+                 cache_state: _builtins.str,
+                 cache_subnet_resource_id: _builtins.str,
+                 encryption: _builtins.str,
+                 encryption_key_source: _builtins.str,
+                 filepath: _builtins.str,
+                 language: _builtins.str,
+                 maximum_number_of_files: _builtins.float,
+                 mount_targets: Sequence['outputs.CacheMountTargetPropertiesResponse'],
+                 origin_cluster_information: 'outputs.OriginClusterInformationResponse',
+                 peering_subnet_resource_id: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 size: _builtins.float,
+                 cifs_change_notifications: Optional[_builtins.str] = None,
+                 export_policy: Optional['outputs.CachePropertiesExportPolicyResponse'] = None,
+                 global_file_locking: Optional[_builtins.str] = None,
+                 kerberos: Optional[_builtins.str] = None,
+                 key_vault_private_endpoint_resource_id: Optional[_builtins.str] = None,
+                 ldap: Optional[_builtins.str] = None,
+                 ldap_server_type: Optional[_builtins.str] = None,
+                 protocol_types: Optional[Sequence[_builtins.str]] = None,
+                 smb_settings: Optional['outputs.SmbSettingsResponse'] = None,
+                 throughput_mibps: Optional[_builtins.float] = None,
+                 write_back: Optional[_builtins.str] = None):
+        """
+        Cache resource properties
+        :param _builtins.float actual_throughput_mibps: Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        :param _builtins.str cache_state: Azure NetApp Files Cache lifecycle management
+        :param _builtins.str cache_subnet_resource_id: The Azure Resource URI for a delegated cache subnet that will be used to allocate data IPs.
+        :param _builtins.str encryption: Specifies if the cache is encryption or not.
+        :param _builtins.str encryption_key_source: Source of key used to encrypt data in the cache. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+        :param _builtins.str filepath: The file path of the Cache.
+        :param _builtins.str language: Language supported for volume.
+        :param _builtins.float maximum_number_of_files: Maximum number of files allowed.
+        :param Sequence['CacheMountTargetPropertiesResponse'] mount_targets: List of mount targets that can be used to mount this cache
+        :param 'OriginClusterInformationResponse' origin_cluster_information: Origin cluster information
+        :param _builtins.str peering_subnet_resource_id: The Azure Resource URI for a delegated subnet that will be used for ANF Intercluster Interface IP addresses.
+        :param _builtins.str provisioning_state: Azure lifecycle management
+        :param _builtins.float size: Maximum storage quota allowed for a file system in bytes. Valid values are in the range 50GiB to 1PiB. Values expressed in bytes as multiples of 1GiB.
+        :param _builtins.str cifs_change_notifications: Flag indicating whether a CIFS change notification is enabled for the cache.
+        :param 'CachePropertiesExportPolicyResponse' export_policy: Set of export policy rules
+        :param _builtins.str global_file_locking: Flag indicating whether the global file lock is enabled for the cache.
+        :param _builtins.str kerberos: Describe if a cache is Kerberos enabled.
+        :param _builtins.str key_vault_private_endpoint_resource_id: The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        :param _builtins.str ldap: Specifies whether LDAP is enabled or not for flexcache volume.
+        :param _builtins.str ldap_server_type: Specifies the type of LDAP server for flexcache volume.
+        :param Sequence[_builtins.str] protocol_types: Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+        :param 'SmbSettingsResponse' smb_settings: SMB information for the cache
+        :param _builtins.float throughput_mibps: Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
+        :param _builtins.str write_back: Flag indicating whether writeback is enabled for the cache.
+        """
+        pulumi.set(__self__, "actual_throughput_mibps", actual_throughput_mibps)
+        pulumi.set(__self__, "cache_state", cache_state)
+        pulumi.set(__self__, "cache_subnet_resource_id", cache_subnet_resource_id)
+        pulumi.set(__self__, "encryption", encryption)
+        pulumi.set(__self__, "encryption_key_source", encryption_key_source)
+        pulumi.set(__self__, "filepath", filepath)
+        pulumi.set(__self__, "language", language)
+        pulumi.set(__self__, "maximum_number_of_files", maximum_number_of_files)
+        pulumi.set(__self__, "mount_targets", mount_targets)
+        pulumi.set(__self__, "origin_cluster_information", origin_cluster_information)
+        pulumi.set(__self__, "peering_subnet_resource_id", peering_subnet_resource_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "size", size)
+        if cifs_change_notifications is not None:
+            pulumi.set(__self__, "cifs_change_notifications", cifs_change_notifications)
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
+        if global_file_locking is not None:
+            pulumi.set(__self__, "global_file_locking", global_file_locking)
+        if kerberos is not None:
+            pulumi.set(__self__, "kerberos", kerberos)
+        if key_vault_private_endpoint_resource_id is not None:
+            pulumi.set(__self__, "key_vault_private_endpoint_resource_id", key_vault_private_endpoint_resource_id)
+        if ldap is not None:
+            pulumi.set(__self__, "ldap", ldap)
+        if ldap_server_type is not None:
+            pulumi.set(__self__, "ldap_server_type", ldap_server_type)
+        if protocol_types is not None:
+            pulumi.set(__self__, "protocol_types", protocol_types)
+        if smb_settings is not None:
+            pulumi.set(__self__, "smb_settings", smb_settings)
+        if throughput_mibps is not None:
+            pulumi.set(__self__, "throughput_mibps", throughput_mibps)
+        if write_back is not None:
+            pulumi.set(__self__, "write_back", write_back)
+
+    @_builtins.property
+    @pulumi.getter(name="actualThroughputMibps")
+    def actual_throughput_mibps(self) -> _builtins.float:
+        """
+        Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        """
+        return pulumi.get(self, "actual_throughput_mibps")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheState")
+    def cache_state(self) -> _builtins.str:
+        """
+        Azure NetApp Files Cache lifecycle management
+        """
+        return pulumi.get(self, "cache_state")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheSubnetResourceId")
+    def cache_subnet_resource_id(self) -> _builtins.str:
+        """
+        The Azure Resource URI for a delegated cache subnet that will be used to allocate data IPs.
+        """
+        return pulumi.get(self, "cache_subnet_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> _builtins.str:
+        """
+        Specifies if the cache is encryption or not.
+        """
+        return pulumi.get(self, "encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> _builtins.str:
+        """
+        Source of key used to encrypt data in the cache. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+        """
+        return pulumi.get(self, "encryption_key_source")
+
+    @_builtins.property
+    @pulumi.getter
+    def filepath(self) -> _builtins.str:
+        """
+        The file path of the Cache.
+        """
+        return pulumi.get(self, "filepath")
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> _builtins.str:
+        """
+        Language supported for volume.
+        """
+        return pulumi.get(self, "language")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumNumberOfFiles")
+    def maximum_number_of_files(self) -> _builtins.float:
+        """
+        Maximum number of files allowed.
+        """
+        return pulumi.get(self, "maximum_number_of_files")
+
+    @_builtins.property
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> Sequence['outputs.CacheMountTargetPropertiesResponse']:
+        """
+        List of mount targets that can be used to mount this cache
+        """
+        return pulumi.get(self, "mount_targets")
+
+    @_builtins.property
+    @pulumi.getter(name="originClusterInformation")
+    def origin_cluster_information(self) -> 'outputs.OriginClusterInformationResponse':
+        """
+        Origin cluster information
+        """
+        return pulumi.get(self, "origin_cluster_information")
+
+    @_builtins.property
+    @pulumi.getter(name="peeringSubnetResourceId")
+    def peering_subnet_resource_id(self) -> _builtins.str:
+        """
+        The Azure Resource URI for a delegated subnet that will be used for ANF Intercluster Interface IP addresses.
+        """
+        return pulumi.get(self, "peering_subnet_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.float:
+        """
+        Maximum storage quota allowed for a file system in bytes. Valid values are in the range 50GiB to 1PiB. Values expressed in bytes as multiples of 1GiB.
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="cifsChangeNotifications")
+    def cifs_change_notifications(self) -> Optional[_builtins.str]:
+        """
+        Flag indicating whether a CIFS change notification is enabled for the cache.
+        """
+        return pulumi.get(self, "cifs_change_notifications")
+
+    @_builtins.property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional['outputs.CachePropertiesExportPolicyResponse']:
+        """
+        Set of export policy rules
+        """
+        return pulumi.get(self, "export_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="globalFileLocking")
+    def global_file_locking(self) -> Optional[_builtins.str]:
+        """
+        Flag indicating whether the global file lock is enabled for the cache.
+        """
+        return pulumi.get(self, "global_file_locking")
+
+    @_builtins.property
+    @pulumi.getter
+    def kerberos(self) -> Optional[_builtins.str]:
+        """
+        Describe if a cache is Kerberos enabled.
+        """
+        return pulumi.get(self, "kerberos")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
+    def key_vault_private_endpoint_resource_id(self) -> Optional[_builtins.str]:
+        """
+        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def ldap(self) -> Optional[_builtins.str]:
+        """
+        Specifies whether LDAP is enabled or not for flexcache volume.
+        """
+        return pulumi.get(self, "ldap")
+
+    @_builtins.property
+    @pulumi.getter(name="ldapServerType")
+    def ldap_server_type(self) -> Optional[_builtins.str]:
+        """
+        Specifies the type of LDAP server for flexcache volume.
+        """
+        return pulumi.get(self, "ldap_server_type")
+
+    @_builtins.property
+    @pulumi.getter(name="protocolTypes")
+    def protocol_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+        """
+        return pulumi.get(self, "protocol_types")
+
+    @_builtins.property
+    @pulumi.getter(name="smbSettings")
+    def smb_settings(self) -> Optional['outputs.SmbSettingsResponse']:
+        """
+        SMB information for the cache
+        """
+        return pulumi.get(self, "smb_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="throughputMibps")
+    def throughput_mibps(self) -> Optional[_builtins.float]:
+        """
+        Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
+        """
+        return pulumi.get(self, "throughput_mibps")
+
+    @_builtins.property
+    @pulumi.getter(name="writeBack")
+    def write_back(self) -> Optional[_builtins.str]:
+        """
+        Flag indicating whether writeback is enabled for the cache.
+        """
+        return pulumi.get(self, "write_back")
+
+
+@pulumi.output_type
 class CifsUserResponse(dict):
     """
     The effective CIFS username when accessing the volume data.
@@ -632,6 +1271,1782 @@ class DailyScheduleResponse(dict):
 
 
 @pulumi.output_type
+class ElasticAccountPropertiesResponse(dict):
+    """
+    NetApp elastic account properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticAccountPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticAccountPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticAccountPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 encryption: Optional['outputs.ElasticEncryptionResponse'] = None):
+        """
+        NetApp elastic account properties
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        :param 'ElasticEncryptionResponse' encryption: Encryption settings
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.ElasticEncryptionResponse']:
+        """
+        Encryption settings
+        """
+        return pulumi.get(self, "encryption")
+
+
+@pulumi.output_type
+class ElasticBackupPolicyPropertiesResponse(dict):
+    """
+    Elastic Backup Policy properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedVolumesCount":
+            suggest = "assigned_volumes_count"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dailyBackupsToKeep":
+            suggest = "daily_backups_to_keep"
+        elif key == "monthlyBackupsToKeep":
+            suggest = "monthly_backups_to_keep"
+        elif key == "policyState":
+            suggest = "policy_state"
+        elif key == "weeklyBackupsToKeep":
+            suggest = "weekly_backups_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticBackupPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticBackupPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticBackupPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assigned_volumes_count: _builtins.int,
+                 provisioning_state: _builtins.str,
+                 daily_backups_to_keep: Optional[_builtins.int] = None,
+                 monthly_backups_to_keep: Optional[_builtins.int] = None,
+                 policy_state: Optional[_builtins.str] = None,
+                 weekly_backups_to_keep: Optional[_builtins.int] = None):
+        """
+        Elastic Backup Policy properties
+        :param _builtins.int assigned_volumes_count: The number of volumes currently using this Backup Policy.
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        :param _builtins.int daily_backups_to_keep: Daily backups count to keep
+        :param _builtins.int monthly_backups_to_keep: Monthly backups count to keep
+        :param _builtins.str policy_state: The property to identify whether Backup Policy is enabled or not
+        :param _builtins.int weekly_backups_to_keep: Weekly backups count to keep
+        """
+        pulumi.set(__self__, "assigned_volumes_count", assigned_volumes_count)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if daily_backups_to_keep is not None:
+            pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
+        if monthly_backups_to_keep is not None:
+            pulumi.set(__self__, "monthly_backups_to_keep", monthly_backups_to_keep)
+        if policy_state is not None:
+            pulumi.set(__self__, "policy_state", policy_state)
+        if weekly_backups_to_keep is not None:
+            pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedVolumesCount")
+    def assigned_volumes_count(self) -> _builtins.int:
+        """
+        The number of volumes currently using this Backup Policy.
+        """
+        return pulumi.get(self, "assigned_volumes_count")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="dailyBackupsToKeep")
+    def daily_backups_to_keep(self) -> Optional[_builtins.int]:
+        """
+        Daily backups count to keep
+        """
+        return pulumi.get(self, "daily_backups_to_keep")
+
+    @_builtins.property
+    @pulumi.getter(name="monthlyBackupsToKeep")
+    def monthly_backups_to_keep(self) -> Optional[_builtins.int]:
+        """
+        Monthly backups count to keep
+        """
+        return pulumi.get(self, "monthly_backups_to_keep")
+
+    @_builtins.property
+    @pulumi.getter(name="policyState")
+    def policy_state(self) -> Optional[_builtins.str]:
+        """
+        The property to identify whether Backup Policy is enabled or not
+        """
+        return pulumi.get(self, "policy_state")
+
+    @_builtins.property
+    @pulumi.getter(name="weeklyBackupsToKeep")
+    def weekly_backups_to_keep(self) -> Optional[_builtins.int]:
+        """
+        Weekly backups count to keep
+        """
+        return pulumi.get(self, "weekly_backups_to_keep")
+
+
+@pulumi.output_type
+class ElasticBackupPropertiesResponse(dict):
+    """
+    Elastic Backup properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupType":
+            suggest = "backup_type"
+        elif key == "completionDate":
+            suggest = "completion_date"
+        elif key == "creationDate":
+            suggest = "creation_date"
+        elif key == "elasticBackupPolicyResourceId":
+            suggest = "elastic_backup_policy_resource_id"
+        elif key == "elasticVolumeResourceId":
+            suggest = "elastic_volume_resource_id"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "snapshotCreationDate":
+            suggest = "snapshot_creation_date"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "elasticSnapshotResourceId":
+            suggest = "elastic_snapshot_resource_id"
+        elif key == "snapshotUsage":
+            suggest = "snapshot_usage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticBackupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticBackupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticBackupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_type: _builtins.str,
+                 completion_date: _builtins.str,
+                 creation_date: _builtins.str,
+                 elastic_backup_policy_resource_id: _builtins.str,
+                 elastic_volume_resource_id: _builtins.str,
+                 failure_reason: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 size: _builtins.float,
+                 snapshot_creation_date: _builtins.str,
+                 volume_size: _builtins.str,
+                 elastic_snapshot_resource_id: Optional[_builtins.str] = None,
+                 label: Optional[_builtins.str] = None,
+                 snapshot_usage: Optional[_builtins.str] = None):
+        """
+        Elastic Backup properties
+        :param _builtins.str backup_type: Type of backup Manual or Scheduled
+        :param _builtins.str completion_date: The completion date of the backup
+        :param _builtins.str creation_date: The creation date of the backup
+        :param _builtins.str elastic_backup_policy_resource_id: ResourceId used to identify the elastic backup policy
+        :param _builtins.str elastic_volume_resource_id: ResourceId used to identify the Elastic Volume
+        :param _builtins.str failure_reason: Failure reason
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        :param _builtins.float size: Size of backup in bytes
+        :param _builtins.str snapshot_creation_date: The snapshot creation date of the backup
+        :param _builtins.str volume_size: Specifies if the backup is for a large volume.
+        :param _builtins.str elastic_snapshot_resource_id: ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
+        :param _builtins.str label: Label for backup
+        :param _builtins.str snapshot_usage: Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+        """
+        pulumi.set(__self__, "backup_type", backup_type)
+        pulumi.set(__self__, "completion_date", completion_date)
+        pulumi.set(__self__, "creation_date", creation_date)
+        pulumi.set(__self__, "elastic_backup_policy_resource_id", elastic_backup_policy_resource_id)
+        pulumi.set(__self__, "elastic_volume_resource_id", elastic_volume_resource_id)
+        pulumi.set(__self__, "failure_reason", failure_reason)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "snapshot_creation_date", snapshot_creation_date)
+        pulumi.set(__self__, "volume_size", volume_size)
+        if elastic_snapshot_resource_id is not None:
+            pulumi.set(__self__, "elastic_snapshot_resource_id", elastic_snapshot_resource_id)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if snapshot_usage is None:
+            snapshot_usage = 'CreateNewSnapshot'
+        if snapshot_usage is not None:
+            pulumi.set(__self__, "snapshot_usage", snapshot_usage)
+
+    @_builtins.property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> _builtins.str:
+        """
+        Type of backup Manual or Scheduled
+        """
+        return pulumi.get(self, "backup_type")
+
+    @_builtins.property
+    @pulumi.getter(name="completionDate")
+    def completion_date(self) -> _builtins.str:
+        """
+        The completion date of the backup
+        """
+        return pulumi.get(self, "completion_date")
+
+    @_builtins.property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> _builtins.str:
+        """
+        The creation date of the backup
+        """
+        return pulumi.get(self, "creation_date")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticBackupPolicyResourceId")
+    def elastic_backup_policy_resource_id(self) -> _builtins.str:
+        """
+        ResourceId used to identify the elastic backup policy
+        """
+        return pulumi.get(self, "elastic_backup_policy_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticVolumeResourceId")
+    def elastic_volume_resource_id(self) -> _builtins.str:
+        """
+        ResourceId used to identify the Elastic Volume
+        """
+        return pulumi.get(self, "elastic_volume_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> _builtins.str:
+        """
+        Failure reason
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.float:
+        """
+        Size of backup in bytes
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotCreationDate")
+    def snapshot_creation_date(self) -> _builtins.str:
+        """
+        The snapshot creation date of the backup
+        """
+        return pulumi.get(self, "snapshot_creation_date")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> _builtins.str:
+        """
+        Specifies if the backup is for a large volume.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticSnapshotResourceId")
+    def elastic_snapshot_resource_id(self) -> Optional[_builtins.str]:
+        """
+        ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
+        """
+        return pulumi.get(self, "elastic_snapshot_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        """
+        Label for backup
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotUsage")
+    def snapshot_usage(self) -> Optional[_builtins.str]:
+        """
+        Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+        """
+        return pulumi.get(self, "snapshot_usage")
+
+
+@pulumi.output_type
+class ElasticBackupVaultPropertiesResponse(dict):
+    """
+    Elastic Backup Vault properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticBackupVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticBackupVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticBackupVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str):
+        """
+        Elastic Backup Vault properties
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class ElasticCapacityPoolPropertiesResponse(dict):
+    """
+    Elastic capacity pool properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityStatus":
+            suggest = "availability_status"
+        elif key == "currentZone":
+            suggest = "current_zone"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceLevel":
+            suggest = "service_level"
+        elif key == "subnetResourceId":
+            suggest = "subnet_resource_id"
+        elif key == "totalThroughputMibps":
+            suggest = "total_throughput_mibps"
+        elif key == "activeDirectoryConfigResourceId":
+            suggest = "active_directory_config_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticCapacityPoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticCapacityPoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticCapacityPoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_status: _builtins.str,
+                 current_zone: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 service_level: _builtins.str,
+                 size: _builtins.float,
+                 subnet_resource_id: _builtins.str,
+                 total_throughput_mibps: _builtins.float,
+                 active_directory_config_resource_id: Optional[_builtins.str] = None,
+                 encryption: Optional['outputs.ElasticEncryptionConfigurationResponse'] = None):
+        """
+        Elastic capacity pool properties
+        :param _builtins.str availability_status: Current availability status of the resource.
+        :param _builtins.str current_zone: Indicates the current zone of the pool. This can be changed for zoneRedundant service level pool with the changeZone action
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        :param _builtins.str service_level: The service level of the elastic capacity pool
+        :param _builtins.float size: Provisioned size of the pool (in bytes). For zoneRedundant service level pool, value must be in the range 1TiB to 16TiB or 1TiB to 128TiB for supported region. Values expressed in bytes as multiples of 1TiB till 16TiB and in multiples of 8TiB from 24TiB to 128TiB. Pool size can't be shrunk once it is created.
+        :param _builtins.str subnet_resource_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/elasticVolumes, this is used by all the volumes within the pool
+        :param _builtins.float total_throughput_mibps: Total throughput of the pool in MiB/s
+        :param _builtins.str active_directory_config_resource_id: The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
+        :param 'ElasticEncryptionConfigurationResponse' encryption: Encryption settings
+        """
+        pulumi.set(__self__, "availability_status", availability_status)
+        pulumi.set(__self__, "current_zone", current_zone)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+        pulumi.set(__self__, "total_throughput_mibps", total_throughput_mibps)
+        if active_directory_config_resource_id is not None:
+            pulumi.set(__self__, "active_directory_config_resource_id", active_directory_config_resource_id)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> _builtins.str:
+        """
+        Current availability status of the resource.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @_builtins.property
+    @pulumi.getter(name="currentZone")
+    def current_zone(self) -> _builtins.str:
+        """
+        Indicates the current zone of the pool. This can be changed for zoneRedundant service level pool with the changeZone action
+        """
+        return pulumi.get(self, "current_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> _builtins.str:
+        """
+        The service level of the elastic capacity pool
+        """
+        return pulumi.get(self, "service_level")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.float:
+        """
+        Provisioned size of the pool (in bytes). For zoneRedundant service level pool, value must be in the range 1TiB to 16TiB or 1TiB to 128TiB for supported region. Values expressed in bytes as multiples of 1TiB till 16TiB and in multiples of 8TiB from 24TiB to 128TiB. Pool size can't be shrunk once it is created.
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetResourceId")
+    def subnet_resource_id(self) -> _builtins.str:
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/elasticVolumes, this is used by all the volumes within the pool
+        """
+        return pulumi.get(self, "subnet_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="totalThroughputMibps")
+    def total_throughput_mibps(self) -> _builtins.float:
+        """
+        Total throughput of the pool in MiB/s
+        """
+        return pulumi.get(self, "total_throughput_mibps")
+
+    @_builtins.property
+    @pulumi.getter(name="activeDirectoryConfigResourceId")
+    def active_directory_config_resource_id(self) -> Optional[_builtins.str]:
+        """
+        The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
+        """
+        return pulumi.get(self, "active_directory_config_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.ElasticEncryptionConfigurationResponse']:
+        """
+        Encryption settings
+        """
+        return pulumi.get(self, "encryption")
+
+
+@pulumi.output_type
+class ElasticEncryptionConfigurationResponse(dict):
+    """
+    CMK Encryption Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elasticPoolEncryptionKeySource":
+            suggest = "elastic_pool_encryption_key_source"
+        elif key == "keyVaultPrivateEndpointResourceId":
+            suggest = "key_vault_private_endpoint_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticEncryptionConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticEncryptionConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticEncryptionConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 elastic_pool_encryption_key_source: _builtins.str,
+                 key_vault_private_endpoint_resource_id: _builtins.str):
+        """
+        CMK Encryption Configuration
+        :param _builtins.str elastic_pool_encryption_key_source: Pool Encryption Key Source.
+        :param _builtins.str key_vault_private_endpoint_resource_id: The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        """
+        pulumi.set(__self__, "elastic_pool_encryption_key_source", elastic_pool_encryption_key_source)
+        pulumi.set(__self__, "key_vault_private_endpoint_resource_id", key_vault_private_endpoint_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticPoolEncryptionKeySource")
+    def elastic_pool_encryption_key_source(self) -> _builtins.str:
+        """
+        Pool Encryption Key Source.
+        """
+        return pulumi.get(self, "elastic_pool_encryption_key_source")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
+    def key_vault_private_endpoint_resource_id(self) -> _builtins.str:
+        """
+        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_resource_id")
+
+
+@pulumi.output_type
+class ElasticEncryptionIdentityResponse(dict):
+    """
+    Identity used to authenticate with key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticEncryptionIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticEncryptionIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticEncryptionIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: _builtins.str,
+                 user_assigned_identity: Optional[_builtins.str] = None):
+        """
+        Identity used to authenticate with key vault.
+        :param _builtins.str principal_id: The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+        :param _builtins.str user_assigned_identity: The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[_builtins.str]:
+        """
+        The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class ElasticEncryptionResponse(dict):
+    """
+    Encryption settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: Optional['outputs.ElasticEncryptionIdentityResponse'] = None,
+                 key_source: Optional[_builtins.str] = None,
+                 key_vault_properties: Optional['outputs.ElasticKeyVaultPropertiesResponse'] = None):
+        """
+        Encryption settings
+        :param 'ElasticEncryptionIdentityResponse' identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+        :param 'ElasticKeyVaultPropertiesResponse' key_vault_properties: Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ElasticEncryptionIdentityResponse']:
+        """
+        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[_builtins.str]:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+        """
+        return pulumi.get(self, "key_source")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.ElasticKeyVaultPropertiesResponse']:
+        """
+        Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+
+@pulumi.output_type
+class ElasticExportPolicyResponse(dict):
+    """
+    Set of export policy rules
+    """
+    def __init__(__self__, *,
+                 rules: Optional[Sequence['outputs.ElasticExportPolicyRuleResponse']] = None):
+        """
+        Set of export policy rules
+        :param Sequence['ElasticExportPolicyRuleResponse'] rules: Export policy rule
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ElasticExportPolicyRuleResponse']]:
+        """
+        Export policy rule
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class ElasticExportPolicyRuleResponse(dict):
+    """
+    Elastic Volume Export Policy Rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "rootAccess":
+            suggest = "root_access"
+        elif key == "ruleIndex":
+            suggest = "rule_index"
+        elif key == "unixAccessRule":
+            suggest = "unix_access_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticExportPolicyRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticExportPolicyRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticExportPolicyRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_clients: Optional[Sequence[_builtins.str]] = None,
+                 nfsv3: Optional[_builtins.str] = None,
+                 nfsv4: Optional[_builtins.str] = None,
+                 root_access: Optional[_builtins.str] = None,
+                 rule_index: Optional[_builtins.int] = None,
+                 unix_access_rule: Optional[_builtins.str] = None):
+        """
+        Elastic Volume Export Policy Rule
+        :param Sequence[_builtins.str] allowed_clients: Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
+        :param _builtins.str nfsv3: Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+        :param _builtins.str nfsv4: Allows clients to access the volume with at least NFSv4.1 protocol.
+        :param _builtins.str root_access: Indicates whether root access to the volume is granted to clients affected by this rule
+        :param _builtins.int rule_index: Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
+        :param _builtins.str unix_access_rule: Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+        """
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if nfsv3 is None:
+            nfsv3 = 'Disabled'
+        if nfsv3 is not None:
+            pulumi.set(__self__, "nfsv3", nfsv3)
+        if nfsv4 is None:
+            nfsv4 = 'Disabled'
+        if nfsv4 is not None:
+            pulumi.set(__self__, "nfsv4", nfsv4)
+        if root_access is None:
+            root_access = 'Disabled'
+        if root_access is not None:
+            pulumi.set(__self__, "root_access", root_access)
+        if rule_index is not None:
+            pulumi.set(__self__, "rule_index", rule_index)
+        if unix_access_rule is None:
+            unix_access_rule = 'NoAccess'
+        if unix_access_rule is not None:
+            pulumi.set(__self__, "unix_access_rule", unix_access_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
+        """
+        return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter
+    def nfsv3(self) -> Optional[_builtins.str]:
+        """
+        Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+        """
+        return pulumi.get(self, "nfsv3")
+
+    @_builtins.property
+    @pulumi.getter
+    def nfsv4(self) -> Optional[_builtins.str]:
+        """
+        Allows clients to access the volume with at least NFSv4.1 protocol.
+        """
+        return pulumi.get(self, "nfsv4")
+
+    @_builtins.property
+    @pulumi.getter(name="rootAccess")
+    def root_access(self) -> Optional[_builtins.str]:
+        """
+        Indicates whether root access to the volume is granted to clients affected by this rule
+        """
+        return pulumi.get(self, "root_access")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleIndex")
+    def rule_index(self) -> Optional[_builtins.int]:
+        """
+        Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
+        """
+        return pulumi.get(self, "rule_index")
+
+    @_builtins.property
+    @pulumi.getter(name="unixAccessRule")
+    def unix_access_rule(self) -> Optional[_builtins.str]:
+        """
+        Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+        """
+        return pulumi.get(self, "unix_access_rule")
+
+
+@pulumi.output_type
+class ElasticKeyVaultPropertiesResponse(dict):
+    """
+    Properties of key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultResourceId":
+            suggest = "key_vault_resource_id"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticKeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticKeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticKeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 key_name: Optional[_builtins.str] = None,
+                 key_vault_resource_id: Optional[_builtins.str] = None,
+                 key_vault_uri: Optional[_builtins.str] = None):
+        """
+        Properties of key vault.
+        :param _builtins.str status: Status of the KeyVault connection.
+        :param _builtins.str key_name: The name of KeyVault key.
+        :param _builtins.str key_vault_resource_id: The resource ID of KeyVault.
+        :param _builtins.str key_vault_uri: The Uri of KeyVault.
+        """
+        pulumi.set(__self__, "status", status)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_resource_id is not None:
+            pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of the KeyVault connection.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[_builtins.str]:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultResourceId")
+    def key_vault_resource_id(self) -> Optional[_builtins.str]:
+        """
+        The resource ID of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[_builtins.str]:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+
+@pulumi.output_type
+class ElasticMountTargetPropertiesResponse(dict):
+    """
+    Contains all the information needed to mount an elastic volume
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "smbServerFqdn":
+            suggest = "smb_server_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticMountTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticMountTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticMountTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: _builtins.str,
+                 smb_server_fqdn: _builtins.str):
+        """
+        Contains all the information needed to mount an elastic volume
+        :param _builtins.str ip_address: The mount target's IPv4 address, used to mount the volume
+        :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> _builtins.str:
+        """
+        The mount target's IPv4 address, used to mount the volume
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerFqdn")
+    def smb_server_fqdn(self) -> _builtins.str:
+        """
+        The SMB server's Fully Qualified Domain Name, FQDN
+        """
+        return pulumi.get(self, "smb_server_fqdn")
+
+
+@pulumi.output_type
+class ElasticSmbPropertiesResponse(dict):
+    """
+    SMB Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smbEncryption":
+            suggest = "smb_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSmbPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSmbPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSmbPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 smb_encryption: Optional[_builtins.str] = None):
+        """
+        SMB Properties
+        :param _builtins.str smb_encryption: Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+        """
+        if smb_encryption is None:
+            smb_encryption = 'Disabled'
+        if smb_encryption is not None:
+            pulumi.set(__self__, "smb_encryption", smb_encryption)
+
+    @_builtins.property
+    @pulumi.getter(name="smbEncryption")
+    def smb_encryption(self) -> Optional[_builtins.str]:
+        """
+        Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+        """
+        return pulumi.get(self, "smb_encryption")
+
+
+@pulumi.output_type
+class ElasticSnapshotPolicyDailyScheduleResponse(dict):
+    """
+    Daily Schedule properties used to create NetApp snapshot policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSnapshotPolicyDailyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSnapshotPolicyDailyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSnapshotPolicyDailyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour: Optional[_builtins.int] = None,
+                 minute: Optional[_builtins.int] = None,
+                 snapshots_to_keep: Optional[_builtins.int] = None):
+        """
+        Daily Schedule properties used to create NetApp snapshot policy
+        :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param _builtins.int minute: Indicates which minute snapshot should be taken
+        :param _builtins.int snapshots_to_keep: Daily snapshot count to keep
+        """
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> Optional[_builtins.int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> Optional[_builtins.int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[_builtins.int]:
+        """
+        Daily snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class ElasticSnapshotPolicyHourlyScheduleResponse(dict):
+    """
+    Hourly Schedule properties used to create NetApp snapshot policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSnapshotPolicyHourlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSnapshotPolicyHourlyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSnapshotPolicyHourlyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minute: Optional[_builtins.int] = None,
+                 snapshots_to_keep: Optional[_builtins.int] = None):
+        """
+        Hourly Schedule properties used to create NetApp snapshot policy
+        :param _builtins.int minute: Indicates which minute snapshot should be taken
+        :param _builtins.int snapshots_to_keep: Hourly snapshot count to keep
+        """
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> Optional[_builtins.int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[_builtins.int]:
+        """
+        Hourly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class ElasticSnapshotPolicyMonthlyScheduleResponse(dict):
+    """
+    Monthly Schedule properties used to create NetApp snapshot policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfMonth":
+            suggest = "days_of_month"
+        elif key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSnapshotPolicyMonthlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSnapshotPolicyMonthlyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSnapshotPolicyMonthlyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_of_month: Optional[Sequence[_builtins.int]] = None,
+                 hour: Optional[_builtins.int] = None,
+                 minute: Optional[_builtins.int] = None,
+                 snapshots_to_keep: Optional[_builtins.int] = None):
+        """
+        Monthly Schedule properties used to create NetApp snapshot policy
+        :param Sequence[_builtins.int] days_of_month: Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
+        :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param _builtins.int minute: Indicates which minute snapshot should be taken
+        :param _builtins.int snapshots_to_keep: Monthly snapshot count to keep
+        """
+        if days_of_month is not None:
+            pulumi.set(__self__, "days_of_month", days_of_month)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfMonth")
+    def days_of_month(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
+        """
+        return pulumi.get(self, "days_of_month")
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> Optional[_builtins.int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> Optional[_builtins.int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[_builtins.int]:
+        """
+        Monthly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class ElasticSnapshotPolicyPropertiesResponse(dict):
+    """
+    Elastic Snapshot policy properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dailySchedule":
+            suggest = "daily_schedule"
+        elif key == "hourlySchedule":
+            suggest = "hourly_schedule"
+        elif key == "monthlySchedule":
+            suggest = "monthly_schedule"
+        elif key == "policyStatus":
+            suggest = "policy_status"
+        elif key == "weeklySchedule":
+            suggest = "weekly_schedule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSnapshotPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSnapshotPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSnapshotPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 daily_schedule: Optional['outputs.ElasticSnapshotPolicyDailyScheduleResponse'] = None,
+                 hourly_schedule: Optional['outputs.ElasticSnapshotPolicyHourlyScheduleResponse'] = None,
+                 monthly_schedule: Optional['outputs.ElasticSnapshotPolicyMonthlyScheduleResponse'] = None,
+                 policy_status: Optional[_builtins.str] = None,
+                 weekly_schedule: Optional['outputs.ElasticSnapshotPolicyWeeklyScheduleResponse'] = None):
+        """
+        Elastic Snapshot policy properties
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        :param 'ElasticSnapshotPolicyDailyScheduleResponse' daily_schedule: Schedule for daily snapshots
+        :param 'ElasticSnapshotPolicyHourlyScheduleResponse' hourly_schedule: Schedule for hourly snapshots
+        :param 'ElasticSnapshotPolicyMonthlyScheduleResponse' monthly_schedule: Schedule for monthly snapshots
+        :param _builtins.str policy_status: Configures if the snapshot policy is enabled on the volumes connected to the policy.
+        :param 'ElasticSnapshotPolicyWeeklyScheduleResponse' weekly_schedule: Schedule for weekly snapshots
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if monthly_schedule is not None:
+            pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+        if policy_status is not None:
+            pulumi.set(__self__, "policy_status", policy_status)
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional['outputs.ElasticSnapshotPolicyDailyScheduleResponse']:
+        """
+        Schedule for daily snapshots
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional['outputs.ElasticSnapshotPolicyHourlyScheduleResponse']:
+        """
+        Schedule for hourly snapshots
+        """
+        return pulumi.get(self, "hourly_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="monthlySchedule")
+    def monthly_schedule(self) -> Optional['outputs.ElasticSnapshotPolicyMonthlyScheduleResponse']:
+        """
+        Schedule for monthly snapshots
+        """
+        return pulumi.get(self, "monthly_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="policyStatus")
+    def policy_status(self) -> Optional[_builtins.str]:
+        """
+        Configures if the snapshot policy is enabled on the volumes connected to the policy.
+        """
+        return pulumi.get(self, "policy_status")
+
+    @_builtins.property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional['outputs.ElasticSnapshotPolicyWeeklyScheduleResponse']:
+        """
+        Schedule for weekly snapshots
+        """
+        return pulumi.get(self, "weekly_schedule")
+
+
+@pulumi.output_type
+class ElasticSnapshotPolicyWeeklyScheduleResponse(dict):
+    """
+    Weekly Schedule properties used to create NetApp snapshot policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSnapshotPolicyWeeklyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSnapshotPolicyWeeklyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSnapshotPolicyWeeklyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days: Optional[Sequence[_builtins.str]] = None,
+                 hour: Optional[_builtins.int] = None,
+                 minute: Optional[_builtins.int] = None,
+                 snapshots_to_keep: Optional[_builtins.int] = None):
+        """
+        Weekly Schedule properties used to create NetApp snapshot policy
+        :param Sequence[_builtins.str] days: Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
+        :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param _builtins.int minute: Indicates which minute snapshot should be taken
+        :param _builtins.int snapshots_to_keep: Weekly snapshot count to keep
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @_builtins.property
+    @pulumi.getter
+    def days(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
+        """
+        return pulumi.get(self, "days")
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> Optional[_builtins.int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @_builtins.property
+    @pulumi.getter
+    def minute(self) -> Optional[_builtins.int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[_builtins.int]:
+        """
+        Weekly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class ElasticSnapshotPropertiesResponse(dict):
+    """
+    Elastic Snapshot properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSnapshotPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSnapshotPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str):
+        """
+        Elastic Snapshot properties
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class ElasticVolumeBackupPropertiesResponse(dict):
+    """
+    Elastic Volume Backup Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elasticBackupPolicyResourceId":
+            suggest = "elastic_backup_policy_resource_id"
+        elif key == "elasticBackupVaultResourceId":
+            suggest = "elastic_backup_vault_resource_id"
+        elif key == "policyEnforcement":
+            suggest = "policy_enforcement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticVolumeBackupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticVolumeBackupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticVolumeBackupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 elastic_backup_policy_resource_id: Optional[_builtins.str] = None,
+                 elastic_backup_vault_resource_id: Optional[_builtins.str] = None,
+                 policy_enforcement: Optional[_builtins.str] = None):
+        """
+        Elastic Volume Backup Properties
+        :param _builtins.str elastic_backup_policy_resource_id: ResourceId used to identify Elastic Backup Policy
+        :param _builtins.str elastic_backup_vault_resource_id: ResourceId used to identify Elastic Backup Vault
+        :param _builtins.str policy_enforcement: The property to decide policy is enforced or not on the volume
+        """
+        if elastic_backup_policy_resource_id is not None:
+            pulumi.set(__self__, "elastic_backup_policy_resource_id", elastic_backup_policy_resource_id)
+        if elastic_backup_vault_resource_id is not None:
+            pulumi.set(__self__, "elastic_backup_vault_resource_id", elastic_backup_vault_resource_id)
+        if policy_enforcement is not None:
+            pulumi.set(__self__, "policy_enforcement", policy_enforcement)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticBackupPolicyResourceId")
+    def elastic_backup_policy_resource_id(self) -> Optional[_builtins.str]:
+        """
+        ResourceId used to identify Elastic Backup Policy
+        """
+        return pulumi.get(self, "elastic_backup_policy_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticBackupVaultResourceId")
+    def elastic_backup_vault_resource_id(self) -> Optional[_builtins.str]:
+        """
+        ResourceId used to identify Elastic Backup Vault
+        """
+        return pulumi.get(self, "elastic_backup_vault_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="policyEnforcement")
+    def policy_enforcement(self) -> Optional[_builtins.str]:
+        """
+        The property to decide policy is enforced or not on the volume
+        """
+        return pulumi.get(self, "policy_enforcement")
+
+
+@pulumi.output_type
+class ElasticVolumeDataProtectionPropertiesResponse(dict):
+    """
+    Data protection configuration option for the volume, including snapshot policies and backup.
+    """
+    def __init__(__self__, *,
+                 backup: Optional['outputs.ElasticVolumeBackupPropertiesResponse'] = None,
+                 snapshot: Optional['outputs.ElasticVolumeSnapshotPropertiesResponse'] = None):
+        """
+        Data protection configuration option for the volume, including snapshot policies and backup.
+        :param 'ElasticVolumeBackupPropertiesResponse' backup: Used to configure backups on an elastic volume.
+        :param 'ElasticVolumeSnapshotPropertiesResponse' snapshot: Used to apply a snapshot policy to a volume.
+        """
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
+        if snapshot is not None:
+            pulumi.set(__self__, "snapshot", snapshot)
+
+    @_builtins.property
+    @pulumi.getter
+    def backup(self) -> Optional['outputs.ElasticVolumeBackupPropertiesResponse']:
+        """
+        Used to configure backups on an elastic volume.
+        """
+        return pulumi.get(self, "backup")
+
+    @_builtins.property
+    @pulumi.getter
+    def snapshot(self) -> Optional['outputs.ElasticVolumeSnapshotPropertiesResponse']:
+        """
+        Used to apply a snapshot policy to a volume.
+        """
+        return pulumi.get(self, "snapshot")
+
+
+@pulumi.output_type
+class ElasticVolumePropertiesResponse(dict):
+    """
+    Elastic Volume properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityStatus":
+            suggest = "availability_status"
+        elif key == "filePath":
+            suggest = "file_path"
+        elif key == "mountTargets":
+            suggest = "mount_targets"
+        elif key == "protocolTypes":
+            suggest = "protocol_types"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "restorationState":
+            suggest = "restoration_state"
+        elif key == "backupResourceId":
+            suggest = "backup_resource_id"
+        elif key == "dataProtection":
+            suggest = "data_protection"
+        elif key == "exportPolicy":
+            suggest = "export_policy"
+        elif key == "smbProperties":
+            suggest = "smb_properties"
+        elif key == "snapshotDirectoryVisibility":
+            suggest = "snapshot_directory_visibility"
+        elif key == "snapshotResourceId":
+            suggest = "snapshot_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticVolumePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticVolumePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticVolumePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_status: _builtins.str,
+                 file_path: _builtins.str,
+                 mount_targets: Sequence['outputs.ElasticMountTargetPropertiesResponse'],
+                 protocol_types: Sequence[_builtins.str],
+                 provisioning_state: _builtins.str,
+                 restoration_state: _builtins.str,
+                 size: _builtins.float,
+                 backup_resource_id: Optional[_builtins.str] = None,
+                 data_protection: Optional['outputs.ElasticVolumeDataProtectionPropertiesResponse'] = None,
+                 export_policy: Optional['outputs.ElasticExportPolicyResponse'] = None,
+                 smb_properties: Optional['outputs.ElasticSmbPropertiesResponse'] = None,
+                 snapshot_directory_visibility: Optional[_builtins.str] = None,
+                 snapshot_resource_id: Optional[_builtins.str] = None):
+        """
+        Elastic Volume properties
+        :param _builtins.str availability_status: Current availability status of the resource.
+        :param _builtins.str file_path: A unique file path for the volume. Used when creating mount targets. This needs to be unique within the elastic capacity pool.
+        :param Sequence['ElasticMountTargetPropertiesResponse'] mount_targets: List of mount targets that can be used to mount this volume
+        :param Sequence[_builtins.str] protocol_types: Set of support protocol types for the elastic volume
+        :param _builtins.str provisioning_state: Azure lifecycle management.
+        :param _builtins.str restoration_state: The current state of the restoration process.
+        :param _builtins.float size: Maximum size allowed for a volume in bytes. Valid values are in the range 1GiB to 16TiB. Values expressed in bytes as multiples of 1 GiB.
+        :param _builtins.str backup_resource_id: Resource identifier used to identify the Elastic Backup.
+        :param 'ElasticVolumeDataProtectionPropertiesResponse' data_protection: Data protection configuration option for the volume, including snapshot policies and backup.
+        :param 'ElasticExportPolicyResponse' export_policy: Set of export policy rules
+        :param 'ElasticSmbPropertiesResponse' smb_properties: SMB Properties
+        :param _builtins.str snapshot_directory_visibility: Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+        :param _builtins.str snapshot_resource_id: Resource identifier used to identify the Elastic Snapshot.
+        """
+        pulumi.set(__self__, "availability_status", availability_status)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "mount_targets", mount_targets)
+        pulumi.set(__self__, "protocol_types", protocol_types)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "restoration_state", restoration_state)
+        pulumi.set(__self__, "size", size)
+        if backup_resource_id is not None:
+            pulumi.set(__self__, "backup_resource_id", backup_resource_id)
+        if data_protection is not None:
+            pulumi.set(__self__, "data_protection", data_protection)
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
+        if smb_properties is not None:
+            pulumi.set(__self__, "smb_properties", smb_properties)
+        if snapshot_directory_visibility is not None:
+            pulumi.set(__self__, "snapshot_directory_visibility", snapshot_directory_visibility)
+        if snapshot_resource_id is not None:
+            pulumi.set(__self__, "snapshot_resource_id", snapshot_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> _builtins.str:
+        """
+        Current availability status of the resource.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @_builtins.property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> _builtins.str:
+        """
+        A unique file path for the volume. Used when creating mount targets. This needs to be unique within the elastic capacity pool.
+        """
+        return pulumi.get(self, "file_path")
+
+    @_builtins.property
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> Sequence['outputs.ElasticMountTargetPropertiesResponse']:
+        """
+        List of mount targets that can be used to mount this volume
+        """
+        return pulumi.get(self, "mount_targets")
+
+    @_builtins.property
+    @pulumi.getter(name="protocolTypes")
+    def protocol_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of support protocol types for the elastic volume
+        """
+        return pulumi.get(self, "protocol_types")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Azure lifecycle management.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="restorationState")
+    def restoration_state(self) -> _builtins.str:
+        """
+        The current state of the restoration process.
+        """
+        return pulumi.get(self, "restoration_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.float:
+        """
+        Maximum size allowed for a volume in bytes. Valid values are in the range 1GiB to 16TiB. Values expressed in bytes as multiples of 1 GiB.
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="backupResourceId")
+    def backup_resource_id(self) -> Optional[_builtins.str]:
+        """
+        Resource identifier used to identify the Elastic Backup.
+        """
+        return pulumi.get(self, "backup_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dataProtection")
+    def data_protection(self) -> Optional['outputs.ElasticVolumeDataProtectionPropertiesResponse']:
+        """
+        Data protection configuration option for the volume, including snapshot policies and backup.
+        """
+        return pulumi.get(self, "data_protection")
+
+    @_builtins.property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional['outputs.ElasticExportPolicyResponse']:
+        """
+        Set of export policy rules
+        """
+        return pulumi.get(self, "export_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="smbProperties")
+    def smb_properties(self) -> Optional['outputs.ElasticSmbPropertiesResponse']:
+        """
+        SMB Properties
+        """
+        return pulumi.get(self, "smb_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotDirectoryVisibility")
+    def snapshot_directory_visibility(self) -> Optional[_builtins.str]:
+        """
+        Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+        """
+        return pulumi.get(self, "snapshot_directory_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotResourceId")
+    def snapshot_resource_id(self) -> Optional[_builtins.str]:
+        """
+        Resource identifier used to identify the Elastic Snapshot.
+        """
+        return pulumi.get(self, "snapshot_resource_id")
+
+
+@pulumi.output_type
+class ElasticVolumeSnapshotPropertiesResponse(dict):
+    """
+    Elastic Volume Snapshot Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotPolicyResourceId":
+            suggest = "snapshot_policy_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticVolumeSnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticVolumeSnapshotPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticVolumeSnapshotPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 snapshot_policy_resource_id: Optional[_builtins.str] = None):
+        """
+        Elastic Volume Snapshot Properties
+        :param _builtins.str snapshot_policy_resource_id: Snapshot Policy ResourceId
+        """
+        if snapshot_policy_resource_id is not None:
+            pulumi.set(__self__, "snapshot_policy_resource_id", snapshot_policy_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotPolicyResourceId")
+    def snapshot_policy_resource_id(self) -> Optional[_builtins.str]:
+        """
+        Snapshot Policy ResourceId
+        """
+        return pulumi.get(self, "snapshot_policy_resource_id")
+
+
+@pulumi.output_type
 class EncryptionIdentityResponse(dict):
     """
     Identity used to authenticate with key vault.
@@ -698,6 +3113,14 @@ class ExportPolicyRuleResponse(dict):
             suggest = "chown_mode"
         elif key == "hasRootAccess":
             suggest = "has_root_access"
+        elif key == "kerberos5IReadOnly":
+            suggest = "kerberos5_i_read_only"
+        elif key == "kerberos5IReadWrite":
+            suggest = "kerberos5_i_read_write"
+        elif key == "kerberos5PReadOnly":
+            suggest = "kerberos5_p_read_only"
+        elif key == "kerberos5PReadWrite":
+            suggest = "kerberos5_p_read_write"
         elif key == "kerberos5ReadOnly":
             suggest = "kerberos5_read_only"
         elif key == "kerberos5ReadWrite":
@@ -733,6 +3156,10 @@ class ExportPolicyRuleResponse(dict):
                  chown_mode: Optional[_builtins.str] = None,
                  cifs: Optional[_builtins.bool] = None,
                  has_root_access: Optional[_builtins.bool] = None,
+                 kerberos5_i_read_only: Optional[_builtins.bool] = None,
+                 kerberos5_i_read_write: Optional[_builtins.bool] = None,
+                 kerberos5_p_read_only: Optional[_builtins.bool] = None,
+                 kerberos5_p_read_write: Optional[_builtins.bool] = None,
                  kerberos5_read_only: Optional[_builtins.bool] = None,
                  kerberos5_read_write: Optional[_builtins.bool] = None,
                  kerberos5i_read_only: Optional[_builtins.bool] = None,
@@ -750,6 +3177,10 @@ class ExportPolicyRuleResponse(dict):
         :param _builtins.str chown_mode: This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
         :param _builtins.bool cifs: Allows CIFS protocol
         :param _builtins.bool has_root_access: Has root access to volume
+        :param _builtins.bool kerberos5_i_read_only: Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5_i_read_write: Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5_p_read_only: Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5_p_read_write: Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
         :param _builtins.bool kerberos5_read_only: Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
         :param _builtins.bool kerberos5_read_write: Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
         :param _builtins.bool kerberos5i_read_only: Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
@@ -774,6 +3205,22 @@ class ExportPolicyRuleResponse(dict):
             has_root_access = True
         if has_root_access is not None:
             pulumi.set(__self__, "has_root_access", has_root_access)
+        if kerberos5_i_read_only is None:
+            kerberos5_i_read_only = False
+        if kerberos5_i_read_only is not None:
+            pulumi.set(__self__, "kerberos5_i_read_only", kerberos5_i_read_only)
+        if kerberos5_i_read_write is None:
+            kerberos5_i_read_write = False
+        if kerberos5_i_read_write is not None:
+            pulumi.set(__self__, "kerberos5_i_read_write", kerberos5_i_read_write)
+        if kerberos5_p_read_only is None:
+            kerberos5_p_read_only = False
+        if kerberos5_p_read_only is not None:
+            pulumi.set(__self__, "kerberos5_p_read_only", kerberos5_p_read_only)
+        if kerberos5_p_read_write is None:
+            kerberos5_p_read_write = False
+        if kerberos5_p_read_write is not None:
+            pulumi.set(__self__, "kerberos5_p_read_write", kerberos5_p_read_write)
         if kerberos5_read_only is None:
             kerberos5_read_only = False
         if kerberos5_read_only is not None:
@@ -840,6 +3287,38 @@ class ExportPolicyRuleResponse(dict):
         Has root access to volume
         """
         return pulumi.get(self, "has_root_access")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5IReadOnly")
+    def kerberos5_i_read_only(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_i_read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5IReadWrite")
+    def kerberos5_i_read_write(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_i_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5PReadOnly")
+    def kerberos5_p_read_only(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_p_read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5PReadWrite")
+    def kerberos5_p_read_write(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_p_read_write")
 
     @_builtins.property
     @pulumi.getter(name="kerberos5ReadOnly")
@@ -1546,6 +4025,84 @@ class NfsUserResponse(dict):
 
 
 @pulumi.output_type
+class OriginClusterInformationResponse(dict):
+    """
+    Stores the origin cluster information associated to a cache.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "peerAddresses":
+            suggest = "peer_addresses"
+        elif key == "peerClusterName":
+            suggest = "peer_cluster_name"
+        elif key == "peerVolumeName":
+            suggest = "peer_volume_name"
+        elif key == "peerVserverName":
+            suggest = "peer_vserver_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginClusterInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginClusterInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginClusterInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 peer_addresses: Sequence[_builtins.str],
+                 peer_cluster_name: _builtins.str,
+                 peer_volume_name: _builtins.str,
+                 peer_vserver_name: _builtins.str):
+        """
+        Stores the origin cluster information associated to a cache.
+        :param Sequence[_builtins.str] peer_addresses: ONTAP Intercluster LIF IP addresses. One IP address per cluster node is required
+        :param _builtins.str peer_cluster_name: ONTAP cluster name of external cluster hosting the origin volume
+        :param _builtins.str peer_volume_name: External origin volume name associated to this cache
+        :param _builtins.str peer_vserver_name: External Vserver (SVM) name  name of the SVM hosting the origin volume
+        """
+        pulumi.set(__self__, "peer_addresses", peer_addresses)
+        pulumi.set(__self__, "peer_cluster_name", peer_cluster_name)
+        pulumi.set(__self__, "peer_volume_name", peer_volume_name)
+        pulumi.set(__self__, "peer_vserver_name", peer_vserver_name)
+
+    @_builtins.property
+    @pulumi.getter(name="peerAddresses")
+    def peer_addresses(self) -> Sequence[_builtins.str]:
+        """
+        ONTAP Intercluster LIF IP addresses. One IP address per cluster node is required
+        """
+        return pulumi.get(self, "peer_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="peerClusterName")
+    def peer_cluster_name(self) -> _builtins.str:
+        """
+        ONTAP cluster name of external cluster hosting the origin volume
+        """
+        return pulumi.get(self, "peer_cluster_name")
+
+    @_builtins.property
+    @pulumi.getter(name="peerVolumeName")
+    def peer_volume_name(self) -> _builtins.str:
+        """
+        External origin volume name associated to this cache
+        """
+        return pulumi.get(self, "peer_volume_name")
+
+    @_builtins.property
+    @pulumi.getter(name="peerVserverName")
+    def peer_vserver_name(self) -> _builtins.str:
+        """
+        External Vserver (SVM) name  name of the SVM hosting the origin volume
+        """
+        return pulumi.get(self, "peer_vserver_name")
+
+
+@pulumi.output_type
 class PlacementKeyValuePairsResponse(dict):
     """
     Application specific parameters for the placement of volumes in the volume group
@@ -1902,6 +4459,231 @@ class ReplicationResponse(dict):
         Schedule
         """
         return pulumi.get(self, "replication_schedule")
+
+
+@pulumi.output_type
+class SecretPasswordIdentityResponse(dict):
+    """
+    Identity used to authenticate with key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretPasswordIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretPasswordIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretPasswordIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: _builtins.str,
+                 user_assigned_identity: Optional[_builtins.str] = None):
+        """
+        Identity used to authenticate with key vault.
+        :param _builtins.str principal_id: The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+        :param _builtins.str user_assigned_identity: The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[_builtins.str]:
+        """
+        The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class SecretPasswordKeyVaultPropertiesResponse(dict):
+    """
+    Properties of key vault to get the secrets for password.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretPasswordKeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretPasswordKeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretPasswordKeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_uri: _builtins.str,
+                 secret_name: _builtins.str):
+        """
+        Properties of key vault to get the secrets for password.
+        :param _builtins.str key_vault_uri: The Uri of KeyVault.
+        :param _builtins.str secret_name: The name of KeyVault password secret.
+        """
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> _builtins.str:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> _builtins.str:
+        """
+        The name of KeyVault password secret.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class SecretPasswordResponse(dict):
+    """
+    Access password from Azure KeyVault Secrets to connect Active Directory
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretPasswordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretPasswordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretPasswordResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: Optional['outputs.SecretPasswordIdentityResponse'] = None,
+                 key_vault_properties: Optional['outputs.SecretPasswordKeyVaultPropertiesResponse'] = None):
+        """
+        Access password from Azure KeyVault Secrets to connect Active Directory
+        :param 'SecretPasswordIdentityResponse' identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        :param 'SecretPasswordKeyVaultPropertiesResponse' key_vault_properties: Properties provided by KeyVault.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.SecretPasswordIdentityResponse']:
+        """
+        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.SecretPasswordKeyVaultPropertiesResponse']:
+        """
+        Properties provided by KeyVault.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+
+@pulumi.output_type
+class SmbSettingsResponse(dict):
+    """
+    SMB settings for the cache
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smbAccessBasedEnumeration":
+            suggest = "smb_access_based_enumeration"
+        elif key == "smbEncryption":
+            suggest = "smb_encryption"
+        elif key == "smbNonBrowsable":
+            suggest = "smb_non_browsable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmbSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmbSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmbSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 smb_access_based_enumeration: Optional[_builtins.str] = None,
+                 smb_encryption: Optional[_builtins.str] = None,
+                 smb_non_browsable: Optional[_builtins.str] = None):
+        """
+        SMB settings for the cache
+        :param _builtins.str smb_access_based_enumeration: Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        :param _builtins.str smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+        :param _builtins.str smb_non_browsable: Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        if smb_access_based_enumeration is not None:
+            pulumi.set(__self__, "smb_access_based_enumeration", smb_access_based_enumeration)
+        if smb_encryption is not None:
+            pulumi.set(__self__, "smb_encryption", smb_encryption)
+        if smb_non_browsable is not None:
+            pulumi.set(__self__, "smb_non_browsable", smb_non_browsable)
+
+    @_builtins.property
+    @pulumi.getter(name="smbAccessBasedEnumeration")
+    def smb_access_based_enumeration(self) -> Optional[_builtins.str]:
+        """
+        Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_access_based_enumeration")
+
+    @_builtins.property
+    @pulumi.getter(name="smbEncryption")
+    def smb_encryption(self) -> Optional[_builtins.str]:
+        """
+        Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+        """
+        return pulumi.get(self, "smb_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="smbNonBrowsable")
+    def smb_non_browsable(self) -> Optional[_builtins.str]:
+        """
+        Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_non_browsable")
 
 
 @pulumi.output_type

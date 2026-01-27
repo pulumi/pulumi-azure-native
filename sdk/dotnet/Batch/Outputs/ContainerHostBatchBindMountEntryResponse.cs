@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The entry of path and mount mode you want to mount into task container.
+    /// </summary>
     [OutputType]
     public sealed class ContainerHostBatchBindMountEntryResponse
     {
@@ -17,6 +20,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
         /// </summary>
         public readonly bool? IsReadOnly;
+        /// <summary>
+        /// The paths which will be mounted to container task's container.
+        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]

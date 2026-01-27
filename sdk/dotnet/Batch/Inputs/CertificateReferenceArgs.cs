@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
     /// </summary>
     public sealed class CertificateReferenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The fully qualified ID of the certificate to install on the pool. This must be inside the same batch account as the pool.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -32,6 +35,10 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
         [Input("visibility")]
         private InputList<Pulumi.AzureNative.Batch.CertificateVisibility>? _visibility;
+
+        /// <summary>
+        /// Which user accounts on the compute node should have access to the private data of the certificate.
+        /// </summary>
         public InputList<Pulumi.AzureNative.Batch.CertificateVisibility> Visibility
         {
             get => _visibility ?? (_visibility = new InputList<Pulumi.AzureNative.Batch.CertificateVisibility>());

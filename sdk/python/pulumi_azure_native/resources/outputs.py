@@ -29,10 +29,22 @@ __all__ = [
     'DebugSettingResponse',
     'DenySettingsResponse',
     'DependencyResponse',
+    'DeploymentExtensionConfigItemResponse',
+    'DeploymentExtensionResponse',
     'DeploymentParameterResponse',
     'DeploymentPropertiesExtendedResponse',
     'DeploymentStacksDebugSettingResponse',
+    'DeploymentStacksDiagnosticResponse',
     'DeploymentStacksParametersLinkResponse',
+    'DeploymentStacksWhatIfChangeResponse',
+    'DeploymentStacksWhatIfChangeResponseDenySettingsChange',
+    'DeploymentStacksWhatIfChangeResponseDeploymentScopeChange',
+    'DeploymentStacksWhatIfPropertyChangeResponse',
+    'DeploymentStacksWhatIfResourceChangeResponse',
+    'DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange',
+    'DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange',
+    'DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges',
+    'DeploymentStacksWhatIfResultPropertiesResponse',
     'EnvironmentVariableResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
@@ -77,6 +89,8 @@ class ActionOnUnmanageResponse(dict):
             suggest = "management_groups"
         elif key == "resourceGroups":
             suggest = "resource_groups"
+        elif key == "resourcesWithoutDeleteSupport":
+            suggest = "resources_without_delete_support"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ActionOnUnmanageResponse. Access the value via the '{suggest}' property getter instead.")
@@ -92,18 +106,22 @@ class ActionOnUnmanageResponse(dict):
     def __init__(__self__, *,
                  resources: _builtins.str,
                  management_groups: Optional[_builtins.str] = None,
-                 resource_groups: Optional[_builtins.str] = None):
+                 resource_groups: Optional[_builtins.str] = None,
+                 resources_without_delete_support: Optional[_builtins.str] = None):
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
         :param _builtins.str resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param _builtins.str resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         """
         pulumi.set(__self__, "resources", resources)
         if management_groups is not None:
             pulumi.set(__self__, "management_groups", management_groups)
         if resource_groups is not None:
             pulumi.set(__self__, "resource_groups", resource_groups)
+        if resources_without_delete_support is not None:
+            pulumi.set(__self__, "resources_without_delete_support", resources_without_delete_support)
 
     @_builtins.property
     @pulumi.getter
@@ -128,6 +146,14 @@ class ActionOnUnmanageResponse(dict):
         Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         """
         return pulumi.get(self, "resource_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesWithoutDeleteSupport")
+    def resources_without_delete_support(self) -> Optional[_builtins.str]:
+        """
+        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        return pulumi.get(self, "resources_without_delete_support")
 
 
 @pulumi.output_type
@@ -786,6 +812,143 @@ class DependencyResponse(dict):
 
 
 @pulumi.output_type
+class DeploymentExtensionConfigItemResponse(dict):
+    """
+    The value or how to get a value for an extension config property.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultReference":
+            suggest = "key_vault_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentExtensionConfigItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentExtensionConfigItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentExtensionConfigItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 key_vault_reference: Optional['outputs.KeyVaultParameterReferenceResponse'] = None,
+                 value: Optional[Any] = None):
+        """
+        The value or how to get a value for an extension config property.
+        :param _builtins.str type: The type of the value.
+        :param 'KeyVaultParameterReferenceResponse' key_vault_reference: The key vault reference of the config item.
+        :param Any value: The value of the config item. The type is determined by the extension config schema.
+        """
+        pulumi.set(__self__, "type", type)
+        if key_vault_reference is not None:
+            pulumi.set(__self__, "key_vault_reference", key_vault_reference)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the value.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultReference")
+    def key_vault_reference(self) -> Optional['outputs.KeyVaultParameterReferenceResponse']:
+        """
+        The key vault reference of the config item.
+        """
+        return pulumi.get(self, "key_vault_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        The value of the config item. The type is determined by the extension config schema.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DeploymentExtensionResponse(dict):
+    """
+    Details about the usage of a deployment extension.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configId":
+            suggest = "config_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 version: _builtins.str,
+                 config: Optional[Mapping[str, 'outputs.DeploymentExtensionConfigItemResponse']] = None,
+                 config_id: Optional[_builtins.str] = None):
+        """
+        Details about the usage of a deployment extension.
+        :param _builtins.str name: The extension name.
+        :param _builtins.str version: The extension version.
+        :param Mapping[str, 'DeploymentExtensionConfigItemResponse'] config: The configuration used for deployment. The keys of this object should align with the extension config schema.
+        :param _builtins.str config_id: The configuration ID of the extension usage. It uniquely identifies a target the extension deploys to.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if config_id is not None:
+            pulumi.set(__self__, "config_id", config_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The extension name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        The extension version.
+        """
+        return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> Optional[Mapping[str, 'outputs.DeploymentExtensionConfigItemResponse']]:
+        """
+        The configuration used for deployment. The keys of this object should align with the extension config schema.
+        """
+        return pulumi.get(self, "config")
+
+    @_builtins.property
+    @pulumi.getter(name="configId")
+    def config_id(self) -> Optional[_builtins.str]:
+        """
+        The configuration ID of the extension usage. It uniquely identifies a target the extension deploys to.
+        """
+        return pulumi.get(self, "config_id")
+
+
+@pulumi.output_type
 class DeploymentParameterResponse(dict):
     """
     Deployment parameter for the template.
@@ -1104,6 +1267,91 @@ class DeploymentStacksDebugSettingResponse(dict):
 
 
 @pulumi.output_type
+class DeploymentStacksDiagnosticResponse(dict):
+    """
+    The error additional info
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksDiagnosticResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksDiagnosticResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksDiagnosticResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 level: _builtins.str,
+                 message: _builtins.str,
+                 additional_info: Optional[Sequence['outputs.ErrorAdditionalInfoResponse']] = None,
+                 target: Optional[_builtins.str] = None):
+        """
+        The error additional info
+        :param _builtins.str code: The error code.
+        :param _builtins.str level: Denotes the additional response level.
+        :param _builtins.str message: The error message.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: Additional error information.
+        :param _builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "message", message)
+        if additional_info is not None:
+            pulumi.set(__self__, "additional_info", additional_info)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        """
+        Denotes the additional response level.
+        """
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Optional[Sequence['outputs.ErrorAdditionalInfoResponse']]:
+        """
+        Additional error information.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> Optional[_builtins.str]:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class DeploymentStacksParametersLinkResponse(dict):
     """
     Entity representing the reference to the deployment parameters.
@@ -1152,6 +1400,781 @@ class DeploymentStacksParametersLinkResponse(dict):
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfChangeResponse(dict):
+    """
+    Changes predicted to the deployment stack as a result of the what-if operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "denySettingsChange":
+            suggest = "deny_settings_change"
+        elif key == "resourceChanges":
+            suggest = "resource_changes"
+        elif key == "deploymentScopeChange":
+            suggest = "deployment_scope_change"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksWhatIfChangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksWhatIfChangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksWhatIfChangeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deny_settings_change: 'outputs.DeploymentStacksWhatIfChangeResponseDenySettingsChange',
+                 resource_changes: Sequence['outputs.DeploymentStacksWhatIfResourceChangeResponse'],
+                 deployment_scope_change: Optional['outputs.DeploymentStacksWhatIfChangeResponseDeploymentScopeChange'] = None):
+        """
+        Changes predicted to the deployment stack as a result of the what-if operation.
+        :param 'DeploymentStacksWhatIfChangeResponseDenySettingsChange' deny_settings_change: Predicted changes to the deployment stack deny settings.
+        :param Sequence['DeploymentStacksWhatIfResourceChangeResponse'] resource_changes: List of resource changes predicted by What-If operation.
+        :param 'DeploymentStacksWhatIfChangeResponseDeploymentScopeChange' deployment_scope_change: Predicted changes to the deployment scope for the deployment stack.
+        """
+        pulumi.set(__self__, "deny_settings_change", deny_settings_change)
+        pulumi.set(__self__, "resource_changes", resource_changes)
+        if deployment_scope_change is not None:
+            pulumi.set(__self__, "deployment_scope_change", deployment_scope_change)
+
+    @_builtins.property
+    @pulumi.getter(name="denySettingsChange")
+    def deny_settings_change(self) -> 'outputs.DeploymentStacksWhatIfChangeResponseDenySettingsChange':
+        """
+        Predicted changes to the deployment stack deny settings.
+        """
+        return pulumi.get(self, "deny_settings_change")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceChanges")
+    def resource_changes(self) -> Sequence['outputs.DeploymentStacksWhatIfResourceChangeResponse']:
+        """
+        List of resource changes predicted by What-If operation.
+        """
+        return pulumi.get(self, "resource_changes")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentScopeChange")
+    def deployment_scope_change(self) -> Optional['outputs.DeploymentStacksWhatIfChangeResponseDeploymentScopeChange']:
+        """
+        Predicted changes to the deployment scope for the deployment stack.
+        """
+        return pulumi.get(self, "deployment_scope_change")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfChangeResponseDenySettingsChange(dict):
+    """
+    Predicted changes to the deployment stack deny settings.
+    """
+    def __init__(__self__, *,
+                 after: Optional['outputs.DenySettingsResponse'] = None,
+                 before: Optional['outputs.DenySettingsResponse'] = None,
+                 delta: Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']] = None):
+        """
+        Predicted changes to the deployment stack deny settings.
+        :param 'DenySettingsResponse' after: The predicted value after the deployment is executed.
+        :param 'DenySettingsResponse' before: The predicted value before the deployment is executed.
+        :param Sequence['DeploymentStacksWhatIfPropertyChangeResponse'] delta: The predicted changes to the properties."
+        """
+        if after is not None:
+            pulumi.set(__self__, "after", after)
+        if before is not None:
+            pulumi.set(__self__, "before", before)
+        if delta is not None:
+            pulumi.set(__self__, "delta", delta)
+
+    @_builtins.property
+    @pulumi.getter
+    def after(self) -> Optional['outputs.DenySettingsResponse']:
+        """
+        The predicted value after the deployment is executed.
+        """
+        return pulumi.get(self, "after")
+
+    @_builtins.property
+    @pulumi.getter
+    def before(self) -> Optional['outputs.DenySettingsResponse']:
+        """
+        The predicted value before the deployment is executed.
+        """
+        return pulumi.get(self, "before")
+
+    @_builtins.property
+    @pulumi.getter
+    def delta(self) -> Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']]:
+        """
+        The predicted changes to the properties."
+        """
+        return pulumi.get(self, "delta")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfChangeResponseDeploymentScopeChange(dict):
+    """
+    Predicted changes to the deployment scope for the deployment stack.
+    """
+    def __init__(__self__, *,
+                 after: Optional[_builtins.str] = None,
+                 before: Optional[_builtins.str] = None):
+        """
+        Predicted changes to the deployment scope for the deployment stack.
+        :param _builtins.str after: The predicted value after the deployment is executed.
+        :param _builtins.str before: The predicted value before the deployment is executed.
+        """
+        if after is not None:
+            pulumi.set(__self__, "after", after)
+        if before is not None:
+            pulumi.set(__self__, "before", before)
+
+    @_builtins.property
+    @pulumi.getter
+    def after(self) -> Optional[_builtins.str]:
+        """
+        The predicted value after the deployment is executed.
+        """
+        return pulumi.get(self, "after")
+
+    @_builtins.property
+    @pulumi.getter
+    def before(self) -> Optional[_builtins.str]:
+        """
+        The predicted value before the deployment is executed.
+        """
+        return pulumi.get(self, "before")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfPropertyChangeResponse(dict):
+    """
+    The predicted change to the resource property.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeType":
+            suggest = "change_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksWhatIfPropertyChangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksWhatIfPropertyChangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksWhatIfPropertyChangeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 change_type: _builtins.str,
+                 path: _builtins.str,
+                 after: Optional[Any] = None,
+                 before: Optional[Any] = None,
+                 children: Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']] = None):
+        """
+        The predicted change to the resource property.
+        :param _builtins.str change_type: Type of change that will be made to the resource when the deployment is executed.
+        :param _builtins.str path: Type of change that will be made to the resource when the deployment is executed.
+        :param Any after: The predicted value after the deployment is executed.
+        :param Any before: The predicted value before the deployment is executed.
+        :param Sequence['DeploymentStacksWhatIfPropertyChangeResponse'] children: Nested property changes.
+        """
+        pulumi.set(__self__, "change_type", change_type)
+        pulumi.set(__self__, "path", path)
+        if after is not None:
+            pulumi.set(__self__, "after", after)
+        if before is not None:
+            pulumi.set(__self__, "before", before)
+        if children is not None:
+            pulumi.set(__self__, "children", children)
+
+    @_builtins.property
+    @pulumi.getter(name="changeType")
+    def change_type(self) -> _builtins.str:
+        """
+        Type of change that will be made to the resource when the deployment is executed.
+        """
+        return pulumi.get(self, "change_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Type of change that will be made to the resource when the deployment is executed.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def after(self) -> Optional[Any]:
+        """
+        The predicted value after the deployment is executed.
+        """
+        return pulumi.get(self, "after")
+
+    @_builtins.property
+    @pulumi.getter
+    def before(self) -> Optional[Any]:
+        """
+        The predicted value before the deployment is executed.
+        """
+        return pulumi.get(self, "before")
+
+    @_builtins.property
+    @pulumi.getter
+    def children(self) -> Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']]:
+        """
+        Nested property changes.
+        """
+        return pulumi.get(self, "children")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfResourceChangeResponse(dict):
+    """
+    Information about a single resource change predicted by What-If operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersion":
+            suggest = "api_version"
+        elif key == "changeCertainty":
+            suggest = "change_certainty"
+        elif key == "changeType":
+            suggest = "change_type"
+        elif key == "denyStatusChange":
+            suggest = "deny_status_change"
+        elif key == "deploymentId":
+            suggest = "deployment_id"
+        elif key == "managementStatusChange":
+            suggest = "management_status_change"
+        elif key == "resourceConfigurationChanges":
+            suggest = "resource_configuration_changes"
+        elif key == "symbolicName":
+            suggest = "symbolic_name"
+        elif key == "unsupportedReason":
+            suggest = "unsupported_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksWhatIfResourceChangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksWhatIfResourceChangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksWhatIfResourceChangeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_version: _builtins.str,
+                 change_certainty: _builtins.str,
+                 change_type: _builtins.str,
+                 extension: 'outputs.DeploymentExtensionResponse',
+                 id: _builtins.str,
+                 identifiers: Any,
+                 type: _builtins.str,
+                 deny_status_change: Optional['outputs.DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange'] = None,
+                 deployment_id: Optional[_builtins.str] = None,
+                 management_status_change: Optional['outputs.DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange'] = None,
+                 resource_configuration_changes: Optional['outputs.DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges'] = None,
+                 symbolic_name: Optional[_builtins.str] = None,
+                 unsupported_reason: Optional[_builtins.str] = None):
+        """
+        Information about a single resource change predicted by What-If operation.
+        :param _builtins.str api_version: The API version the resource was deployed with
+        :param _builtins.str change_certainty: The confidence level of the predicted change.
+        :param _builtins.str change_type: Type of change that will be made to the resource when the deployment is executed.
+        :param 'DeploymentExtensionResponse' extension: The extension the resource was deployed with.
+        :param _builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
+        :param Any identifiers: The extensible resource identifiers.
+        :param _builtins.str type: The resource type.
+        :param 'DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange' deny_status_change: The predicted changes to the deployment stack deny status of the resource.
+        :param _builtins.str deployment_id: The resource id of the Deployment responsible for this change.
+        :param 'DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange' management_status_change: The predicted changes to the deployment stack management status of the resource.
+        :param 'DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges' resource_configuration_changes: The predicted changes to the resource configuration.
+        :param _builtins.str symbolic_name: The symbolic name of the resource being changed.
+        :param _builtins.str unsupported_reason: The explanation about why the resource is unsupported by What-If.
+        """
+        pulumi.set(__self__, "api_version", api_version)
+        pulumi.set(__self__, "change_certainty", change_certainty)
+        pulumi.set(__self__, "change_type", change_type)
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "identifiers", identifiers)
+        pulumi.set(__self__, "type", type)
+        if deny_status_change is not None:
+            pulumi.set(__self__, "deny_status_change", deny_status_change)
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if management_status_change is not None:
+            pulumi.set(__self__, "management_status_change", management_status_change)
+        if resource_configuration_changes is not None:
+            pulumi.set(__self__, "resource_configuration_changes", resource_configuration_changes)
+        if symbolic_name is not None:
+            pulumi.set(__self__, "symbolic_name", symbolic_name)
+        if unsupported_reason is not None:
+            pulumi.set(__self__, "unsupported_reason", unsupported_reason)
+
+    @_builtins.property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> _builtins.str:
+        """
+        The API version the resource was deployed with
+        """
+        return pulumi.get(self, "api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="changeCertainty")
+    def change_certainty(self) -> _builtins.str:
+        """
+        The confidence level of the predicted change.
+        """
+        return pulumi.get(self, "change_certainty")
+
+    @_builtins.property
+    @pulumi.getter(name="changeType")
+    def change_type(self) -> _builtins.str:
+        """
+        Type of change that will be made to the resource when the deployment is executed.
+        """
+        return pulumi.get(self, "change_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> 'outputs.DeploymentExtensionResponse':
+        """
+        The extension the resource was deployed with.
+        """
+        return pulumi.get(self, "extension")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ARM Resource ID of a resource managed by the deployment stack.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def identifiers(self) -> Any:
+        """
+        The extensible resource identifiers.
+        """
+        return pulumi.get(self, "identifiers")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="denyStatusChange")
+    def deny_status_change(self) -> Optional['outputs.DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange']:
+        """
+        The predicted changes to the deployment stack deny status of the resource.
+        """
+        return pulumi.get(self, "deny_status_change")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[_builtins.str]:
+        """
+        The resource id of the Deployment responsible for this change.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="managementStatusChange")
+    def management_status_change(self) -> Optional['outputs.DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange']:
+        """
+        The predicted changes to the deployment stack management status of the resource.
+        """
+        return pulumi.get(self, "management_status_change")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationChanges")
+    def resource_configuration_changes(self) -> Optional['outputs.DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges']:
+        """
+        The predicted changes to the resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_changes")
+
+    @_builtins.property
+    @pulumi.getter(name="symbolicName")
+    def symbolic_name(self) -> Optional[_builtins.str]:
+        """
+        The symbolic name of the resource being changed.
+        """
+        return pulumi.get(self, "symbolic_name")
+
+    @_builtins.property
+    @pulumi.getter(name="unsupportedReason")
+    def unsupported_reason(self) -> Optional[_builtins.str]:
+        """
+        The explanation about why the resource is unsupported by What-If.
+        """
+        return pulumi.get(self, "unsupported_reason")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange(dict):
+    """
+    The predicted changes to the deployment stack deny status of the resource.
+    """
+    def __init__(__self__, *,
+                 after: Optional[_builtins.str] = None,
+                 before: Optional[_builtins.str] = None):
+        """
+        The predicted changes to the deployment stack deny status of the resource.
+        :param _builtins.str after: The predicted value after the deployment is executed.
+        :param _builtins.str before: The predicted value before the deployment is executed.
+        """
+        if after is not None:
+            pulumi.set(__self__, "after", after)
+        if before is not None:
+            pulumi.set(__self__, "before", before)
+
+    @_builtins.property
+    @pulumi.getter
+    def after(self) -> Optional[_builtins.str]:
+        """
+        The predicted value after the deployment is executed.
+        """
+        return pulumi.get(self, "after")
+
+    @_builtins.property
+    @pulumi.getter
+    def before(self) -> Optional[_builtins.str]:
+        """
+        The predicted value before the deployment is executed.
+        """
+        return pulumi.get(self, "before")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange(dict):
+    """
+    The predicted changes to the deployment stack management status of the resource.
+    """
+    def __init__(__self__, *,
+                 after: Optional[_builtins.str] = None,
+                 before: Optional[_builtins.str] = None):
+        """
+        The predicted changes to the deployment stack management status of the resource.
+        :param _builtins.str after: The predicted value after the deployment is executed.
+        :param _builtins.str before: The predicted value before the deployment is executed.
+        """
+        if after is not None:
+            pulumi.set(__self__, "after", after)
+        if before is not None:
+            pulumi.set(__self__, "before", before)
+
+    @_builtins.property
+    @pulumi.getter
+    def after(self) -> Optional[_builtins.str]:
+        """
+        The predicted value after the deployment is executed.
+        """
+        return pulumi.get(self, "after")
+
+    @_builtins.property
+    @pulumi.getter
+    def before(self) -> Optional[_builtins.str]:
+        """
+        The predicted value before the deployment is executed.
+        """
+        return pulumi.get(self, "before")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges(dict):
+    """
+    The predicted changes to the resource configuration.
+    """
+    def __init__(__self__, *,
+                 after: Optional[Any] = None,
+                 before: Optional[Any] = None,
+                 delta: Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']] = None):
+        """
+        The predicted changes to the resource configuration.
+        :param Any after: The predicted value after the deployment is executed.
+        :param Any before: The predicted value before the deployment is executed.
+        :param Sequence['DeploymentStacksWhatIfPropertyChangeResponse'] delta: The predicted changes to the properties."
+        """
+        if after is not None:
+            pulumi.set(__self__, "after", after)
+        if before is not None:
+            pulumi.set(__self__, "before", before)
+        if delta is not None:
+            pulumi.set(__self__, "delta", delta)
+
+    @_builtins.property
+    @pulumi.getter
+    def after(self) -> Optional[Any]:
+        """
+        The predicted value after the deployment is executed.
+        """
+        return pulumi.get(self, "after")
+
+    @_builtins.property
+    @pulumi.getter
+    def before(self) -> Optional[Any]:
+        """
+        The predicted value before the deployment is executed.
+        """
+        return pulumi.get(self, "before")
+
+    @_builtins.property
+    @pulumi.getter
+    def delta(self) -> Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']]:
+        """
+        The predicted changes to the properties."
+        """
+        return pulumi.get(self, "delta")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfResultPropertiesResponse(dict):
+    """
+    DeploymentStack WhatIfResult Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionOnUnmanage":
+            suggest = "action_on_unmanage"
+        elif key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "denySettings":
+            suggest = "deny_settings"
+        elif key == "deploymentStackLastModified":
+            suggest = "deployment_stack_last_modified"
+        elif key == "deploymentStackResourceId":
+            suggest = "deployment_stack_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "retentionInterval":
+            suggest = "retention_interval"
+        elif key == "debugSetting":
+            suggest = "debug_setting"
+        elif key == "deploymentScope":
+            suggest = "deployment_scope"
+        elif key == "parametersLink":
+            suggest = "parameters_link"
+        elif key == "validationLevel":
+            suggest = "validation_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksWhatIfResultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksWhatIfResultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksWhatIfResultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_on_unmanage: 'outputs.ActionOnUnmanageResponse',
+                 changes: 'outputs.DeploymentStacksWhatIfChangeResponse',
+                 correlation_id: _builtins.str,
+                 deny_settings: 'outputs.DenySettingsResponse',
+                 deployment_stack_last_modified: _builtins.str,
+                 deployment_stack_resource_id: _builtins.str,
+                 diagnostics: Sequence['outputs.DeploymentStacksDiagnosticResponse'],
+                 provisioning_state: _builtins.str,
+                 retention_interval: _builtins.str,
+                 debug_setting: Optional['outputs.DeploymentStacksDebugSettingResponse'] = None,
+                 deployment_scope: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 error: Optional['outputs.ErrorDetailResponse'] = None,
+                 parameters: Optional[Mapping[str, 'outputs.DeploymentParameterResponse']] = None,
+                 parameters_link: Optional['outputs.DeploymentStacksParametersLinkResponse'] = None,
+                 validation_level: Optional[_builtins.str] = None):
+        """
+        DeploymentStack WhatIfResult Properties
+        :param 'ActionOnUnmanageResponse' action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        :param 'DeploymentStacksWhatIfChangeResponse' changes: All of the changes predicted by the deployment stack what-if operation.
+        :param _builtins.str correlation_id: The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        :param 'DenySettingsResponse' deny_settings: Defines how resources deployed by the stack are locked.
+        :param _builtins.str deployment_stack_last_modified: The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+        :param _builtins.str deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
+        :param Sequence['DeploymentStacksDiagnosticResponse'] diagnostics: List of resource diagnostics detected by What-If operation.
+        :param _builtins.str provisioning_state: State of the deployment stack.
+        :param _builtins.str retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
+        :param 'DeploymentStacksDebugSettingResponse' debug_setting: The debug setting of the deployment.
+        :param _builtins.str deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        :param _builtins.str description: Deployment stack description. Max length of 4096 characters.
+        :param 'ErrorDetailResponse' error: The error detail.
+        :param Mapping[str, 'DeploymentParameterResponse'] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        :param 'DeploymentStacksParametersLinkResponse' parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        :param _builtins.str validation_level: The validation level of the deployment stack
+        """
+        pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
+        pulumi.set(__self__, "changes", changes)
+        pulumi.set(__self__, "correlation_id", correlation_id)
+        pulumi.set(__self__, "deny_settings", deny_settings)
+        pulumi.set(__self__, "deployment_stack_last_modified", deployment_stack_last_modified)
+        pulumi.set(__self__, "deployment_stack_resource_id", deployment_stack_resource_id)
+        pulumi.set(__self__, "diagnostics", diagnostics)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "retention_interval", retention_interval)
+        if debug_setting is not None:
+            pulumi.set(__self__, "debug_setting", debug_setting)
+        if deployment_scope is not None:
+            pulumi.set(__self__, "deployment_scope", deployment_scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if parameters_link is not None:
+            pulumi.set(__self__, "parameters_link", parameters_link)
+        if validation_level is not None:
+            pulumi.set(__self__, "validation_level", validation_level)
+
+    @_builtins.property
+    @pulumi.getter(name="actionOnUnmanage")
+    def action_on_unmanage(self) -> 'outputs.ActionOnUnmanageResponse':
+        """
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        """
+        return pulumi.get(self, "action_on_unmanage")
+
+    @_builtins.property
+    @pulumi.getter
+    def changes(self) -> 'outputs.DeploymentStacksWhatIfChangeResponse':
+        """
+        All of the changes predicted by the deployment stack what-if operation.
+        """
+        return pulumi.get(self, "changes")
+
+    @_builtins.property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> _builtins.str:
+        """
+        The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="denySettings")
+    def deny_settings(self) -> 'outputs.DenySettingsResponse':
+        """
+        Defines how resources deployed by the stack are locked.
+        """
+        return pulumi.get(self, "deny_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStackLastModified")
+    def deployment_stack_last_modified(self) -> _builtins.str:
+        """
+        The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+        """
+        return pulumi.get(self, "deployment_stack_last_modified")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStackResourceId")
+    def deployment_stack_resource_id(self) -> _builtins.str:
+        """
+        The deployment stack id to use as the basis for comparison.
+        """
+        return pulumi.get(self, "deployment_stack_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def diagnostics(self) -> Sequence['outputs.DeploymentStacksDiagnosticResponse']:
+        """
+        List of resource diagnostics detected by What-If operation.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        State of the deployment stack.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionInterval")
+    def retention_interval(self) -> _builtins.str:
+        """
+        The interval to persist the deployment stack what-if result in ISO 8601 format.
+        """
+        return pulumi.get(self, "retention_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="debugSetting")
+    def debug_setting(self) -> Optional['outputs.DeploymentStacksDebugSettingResponse']:
+        """
+        The debug setting of the deployment.
+        """
+        return pulumi.get(self, "debug_setting")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentScope")
+    def deployment_scope(self) -> Optional[_builtins.str]:
+        """
+        The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        """
+        return pulumi.get(self, "deployment_scope")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Deployment stack description. Max length of 4096 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
+        """
+        The error detail.
+        """
+        return pulumi.get(self, "error")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.DeploymentParameterResponse']]:
+        """
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="parametersLink")
+    def parameters_link(self) -> Optional['outputs.DeploymentStacksParametersLinkResponse']:
+        """
+        The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters_link")
+
+    @_builtins.property
+    @pulumi.getter(name="validationLevel")
+    def validation_level(self) -> Optional[_builtins.str]:
+        """
+        The validation level of the deployment stack
+        """
+        return pulumi.get(self, "validation_level")
 
 
 @pulumi.output_type

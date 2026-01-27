@@ -19,61 +19,19 @@ export const AdministratorType = {
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
 export const AzureManagedDiskPerformanceTier = {
-    /**
-     * Entry-level SSD for minimal IOPS, ideal for light development or testing workloads.
-     */
     P1: "P1",
-    /**
-     * Slightly higher IOPS for small-scale applications needing consistent low latency.
-     */
     P2: "P2",
-    /**
-     * Balanced performance for basic production workloads with moderate throughput.
-     */
     P3: "P3",
-    /**
-     * Enhanced IOPS for growing apps with predictable performance needs.
-     */
     P4: "P4",
-    /**
-     * Mid-tier SSD for steady workloads requiring reliable throughput and latency.
-     */
     P6: "P6",
-    /**
-     * Popular choice for general-purpose production workloads with scalable performance.
-     */
     P10: "P10",
-    /**
-     * High IOPS tier for demanding apps with frequent read/write operations.
-     */
     P15: "P15",
-    /**
-     * Entry point for high-performance Solid State Disks (SSDs), suitable for small-scale I/O-intensive workloads.
-     */
     P20: "P20",
-    /**
-     * Balanced tier for moderate throughput and latency-sensitive applications.
-     */
     P30: "P30",
-    /**
-     * Enhanced performance for growing production workloads with consistent IOPS demands.
-     */
     P40: "P40",
-    /**
-     * Optimized for enterprise-grade applications needing sustained high throughput.
-     */
     P50: "P50",
-    /**
-     * High-capacity tier for large databases and analytics workloads with elevated IOPS.
-     */
     P60: "P60",
-    /**
-     * Designed for mission-critical systems requiring ultra-low latency and high concurrency.
-     */
     P70: "P70",
-    /**
-     * Top-tier SSD for maximum IOPS and throughput, ideal for the most demanding workloads.
-     */
     P80: "P80",
 } as const;
 
@@ -83,13 +41,7 @@ export const AzureManagedDiskPerformanceTier = {
 export type AzureManagedDiskPerformanceTier = (typeof AzureManagedDiskPerformanceTier)[keyof typeof AzureManagedDiskPerformanceTier];
 
 export const Cancel = {
-    /**
-     * Cancel must be triggered for the entire migration.
-     */
     True: "True",
-    /**
-     * Cancel must not be triggered for the entire migration.
-     */
     False: "False",
 } as const;
 
@@ -99,33 +51,12 @@ export const Cancel = {
 export type Cancel = (typeof Cancel)[keyof typeof Cancel];
 
 export const CreateMode = {
-    /**
-     * If the operation is triggered on a non-existing server, it's equivalent to 'Create'. If the operation is triggered on an existing server, it's equivalent to 'Update'.
-     */
     Default: "Default",
-    /**
-     * Operation creates a new server.
-     */
     Create: "Create",
-    /**
-     * Operation updates an existing server.
-     */
     Update: "Update",
-    /**
-     * Operation restores an existing backup of an existing server. This operation creates a new server, and then restores on it the backup of an existing server at a specific point in time.
-     */
     PointInTimeRestore: "PointInTimeRestore",
-    /**
-     * Operation restores an existing backup of an existing server, on the paired region of the existing server. This operation creates a new server on the paired region of the existing server, and then restores on it the backup of an existing server at a specific point in time, in a different region. This operation is only supported on existing servers that were created with geographically redundant backups enabled.
-     */
     GeoRestore: "GeoRestore",
-    /**
-     * Operation creates a replica of an existing server. This operation creates a new server, restores a base backup of the existing server (referred to as primary), and configures physical replication to asynchronously stream all changes which are recorded in the transaction log of the primary.
-     */
     Replica: "Replica",
-    /**
-     * Operation creates a new server, initialized with the backup of a server that was recently deleted.
-     */
     ReviveDropped: "ReviveDropped",
 } as const;
 
@@ -141,22 +72,6 @@ export const DataEncryptionType = {
 
 export type DataEncryptionType = (typeof DataEncryptionType)[keyof typeof DataEncryptionType];
 
-export const EncryptionKeyStatus = {
-    /**
-     * Key is valid and can be used for encryption.
-     */
-    Valid: "Valid",
-    /**
-     * Key is invalid and cannot be used for encryption. Possible causes include key deletion, permission changes, key being disabled, key type not supported, or current date being outside of validity period associated to the key.
-     */
-    Invalid: "Invalid",
-} as const;
-
-/**
- * Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
- */
-export type EncryptionKeyStatus = (typeof EncryptionKeyStatus)[keyof typeof EncryptionKeyStatus];
-
 export const GeoRedundantBackup = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -168,13 +83,7 @@ export const GeoRedundantBackup = {
 export type GeoRedundantBackup = (typeof GeoRedundantBackup)[keyof typeof GeoRedundantBackup];
 
 export const GeographicallyRedundantBackup = {
-    /**
-     * Server is configured to create geographically redundant backups.
-     */
     Enabled: "Enabled",
-    /**
-     * Server is not configured to create geographically redundant backups.
-     */
     Disabled: "Disabled",
 } as const;
 
@@ -182,26 +91,6 @@ export const GeographicallyRedundantBackup = {
  * Indicates if the server is configured to create geographically redundant backups.
  */
 export type GeographicallyRedundantBackup = (typeof GeographicallyRedundantBackup)[keyof typeof GeographicallyRedundantBackup];
-
-export const HighAvailabilityMode = {
-    /**
-     * High availability is disabled for the server.
-     */
-    Disabled: "Disabled",
-    /**
-     * High availability is enabled for the server, with standby server in a different availability zone than that of the primary.
-     */
-    ZoneRedundant: "ZoneRedundant",
-    /**
-     * High availability is enabled for the server, with standby server in the same availability zone as the primary.
-     */
-    SameZone: "SameZone",
-} as const;
-
-/**
- * High availability mode for a server.
- */
-export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
 export const IdentityType = {
     UserAssigned: "UserAssigned",
@@ -227,13 +116,7 @@ export const InfrastructureEncryption = {
 export type InfrastructureEncryption = (typeof InfrastructureEncryption)[keyof typeof InfrastructureEncryption];
 
 export const LogicalReplicationOnSourceServer = {
-    /**
-     * Logical replication will be set up on the source server.
-     */
     True: "True",
-    /**
-     * Logical replication will not be set up on the source server.
-     */
     False: "False",
 } as const;
 
@@ -243,13 +126,7 @@ export const LogicalReplicationOnSourceServer = {
 export type LogicalReplicationOnSourceServer = (typeof LogicalReplicationOnSourceServer)[keyof typeof LogicalReplicationOnSourceServer];
 
 export const MicrosoftEntraAuth = {
-    /**
-     * Server supports Microsoft Entra authentication.
-     */
     Enabled: "Enabled",
-    /**
-     * Server doesn't support Microsoft Entra authentication.
-     */
     Disabled: "Disabled",
 } as const;
 
@@ -259,13 +136,7 @@ export const MicrosoftEntraAuth = {
 export type MicrosoftEntraAuth = (typeof MicrosoftEntraAuth)[keyof typeof MicrosoftEntraAuth];
 
 export const MigrateRolesAndPermissions = {
-    /**
-     * Roles and permissions will be migrated.
-     */
     True: "True",
-    /**
-     * Roles and permissions will not be migrated.
-     */
     False: "False",
 } as const;
 
@@ -275,13 +146,7 @@ export const MigrateRolesAndPermissions = {
 export type MigrateRolesAndPermissions = (typeof MigrateRolesAndPermissions)[keyof typeof MigrateRolesAndPermissions];
 
 export const MigrationMode = {
-    /**
-     * Offline migration mode.
-     */
     Offline: "Offline",
-    /**
-     * Online migration mode.
-     */
     Online: "Online",
 } as const;
 
@@ -291,17 +156,8 @@ export const MigrationMode = {
 export type MigrationMode = (typeof MigrationMode)[keyof typeof MigrationMode];
 
 export const MigrationOption = {
-    /**
-     * Validate the migration without performing it.
-     */
     Validate: "Validate",
-    /**
-     * Perform the migration.
-     */
     Migrate: "Migrate",
-    /**
-     * Validate and perform the migration.
-     */
     ValidateAndMigrate: "ValidateAndMigrate",
 } as const;
 
@@ -323,13 +179,7 @@ export const MinimalTlsVersionEnum = {
 export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
 
 export const OverwriteDatabasesOnTargetServer = {
-    /**
-     * Databases on the target server can be overwritten when already present.
-     */
     True: "True",
-    /**
-     * Databases on the target server cannot be overwritten when already present.
-     */
     False: "False",
 } as const;
 
@@ -346,13 +196,7 @@ export const PasswordAuth = {
 export type PasswordAuth = (typeof PasswordAuth)[keyof typeof PasswordAuth];
 
 export const PasswordBasedAuth = {
-    /**
-     * Server supports password based authentication.
-     */
     Enabled: "Enabled",
-    /**
-     * Server doesn't support password based authentication.
-     */
     Disabled: "Disabled",
 } as const;
 
@@ -361,38 +205,25 @@ export const PasswordBasedAuth = {
  */
 export type PasswordBasedAuth = (typeof PasswordBasedAuth)[keyof typeof PasswordBasedAuth];
 
+export const PostgreSqlFlexibleServerHighAvailabilityMode = {
+    Disabled: "Disabled",
+    ZoneRedundant: "ZoneRedundant",
+    SameZone: "SameZone",
+} as const;
+
+/**
+ * High availability mode for a server.
+ */
+export type PostgreSqlFlexibleServerHighAvailabilityMode = (typeof PostgreSqlFlexibleServerHighAvailabilityMode)[keyof typeof PostgreSqlFlexibleServerHighAvailabilityMode];
+
 export const PostgresMajorVersion = {
-    /**
-     * PostgreSQL 18.
-     */
     PostgresMajorVersion_18: "18",
-    /**
-     * PostgreSQL 17.
-     */
     PostgresMajorVersion_17: "17",
-    /**
-     * PostgreSQL 16.
-     */
     PostgresMajorVersion_16: "16",
-    /**
-     * PostgreSQL 15.
-     */
     PostgresMajorVersion_15: "15",
-    /**
-     * PostgreSQL 14.
-     */
     PostgresMajorVersion_14: "14",
-    /**
-     * PostgreSQL 13.
-     */
     PostgresMajorVersion_13: "13",
-    /**
-     * PostgreSQL 12.
-     */
     PostgresMajorVersion_12: "12",
-    /**
-     * PostgreSQL 11.
-     */
     PostgresMajorVersion_11: "11",
 } as const;
 
@@ -463,21 +294,9 @@ export const ReadReplicaPromoteOption = {
 export type ReadReplicaPromoteOption = (typeof ReadReplicaPromoteOption)[keyof typeof ReadReplicaPromoteOption];
 
 export const ReplicationRole = {
-    /**
-     * No replication role assigned; the server operates independently.
-     */
     None: "None",
-    /**
-     * Acts as the source server for replication to one or more replicas.
-     */
     Primary: "Primary",
-    /**
-     * Receives data asynchronously from a primary server within the same region.
-     */
     AsyncReplica: "AsyncReplica",
-    /**
-     * Receives data asynchronously from a primary server in a different region for geographical redundancy.
-     */
     GeoAsyncReplica: "GeoAsyncReplica",
 } as const;
 
@@ -494,13 +313,7 @@ export const RoleType = {
 export type RoleType = (typeof RoleType)[keyof typeof RoleType];
 
 export const ServerPublicNetworkAccessState = {
-    /**
-     * Public network access is enabled. This allows the server to be accessed from the public internet, provided the necessary firewall rule that allows incoming traffic originating from the connecting client is in place. This is compatible with the use of private endpoints to connect to this server.
-     */
     Enabled: "Enabled",
-    /**
-     * Public network access is disabled. This means the server cannot be accessed from the public internet, but only via private endpoints.
-     */
     Disabled: "Disabled",
 } as const;
 
@@ -566,17 +379,8 @@ export const SingleServerVersion = {
 export type SingleServerVersion = (typeof SingleServerVersion)[keyof typeof SingleServerVersion];
 
 export const SkuTier = {
-    /**
-     * Cost-effective tier for infrequent CPU usage, ideal for development and testing workloads with low performance requirements.
-     */
     Burstable: "Burstable",
-    /**
-     * Balanced compute and memory for most workloads, offering scalable performance and I/O throughput.
-     */
     GeneralPurpose: "GeneralPurpose",
-    /**
-     * High memory-to-core ratio for demanding workloads needing fast in-memory processing and high concurrency.
-     */
     MemoryOptimized: "MemoryOptimized",
 } as const;
 
@@ -586,101 +390,29 @@ export const SkuTier = {
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const SourceType = {
-    /**
-     * On-premises PostgreSQL server.
-     */
     OnPremises: "OnPremises",
-    /**
-     * Amazon Web Services PostgreSQL server.
-     */
     AWS: "AWS",
-    /**
-     * Google Cloud Platform PostgreSQL server.
-     */
     GCP: "GCP",
-    /**
-     * Azure Virtual Machine PostgreSQL server.
-     */
     AzureVM: "AzureVM",
-    /**
-     * Azure Database for PostgreSQL single server.
-     */
     PostgreSQLSingleServer: "PostgreSQLSingleServer",
-    /**
-     * Amazon RDS for PostgreSQL.
-     */
     AWS_RDS: "AWS_RDS",
-    /**
-     * Amazon Aurora for PostgreSQL.
-     */
     AWS_AURORA: "AWS_AURORA",
-    /**
-     * Amazon EC2 for PostgreSQL.
-     */
     AWS_EC2: "AWS_EC2",
-    /**
-     * Google Cloud SQL for PostgreSQL.
-     */
     GCP_CloudSQL: "GCP_CloudSQL",
-    /**
-     * Google Cloud AlloyDB for PostgreSQL.
-     */
     GCP_AlloyDB: "GCP_AlloyDB",
-    /**
-     * Google Compute Engine for PostgreSQL.
-     */
     GCP_Compute: "GCP_Compute",
-    /**
-     * EnterpriseDB PostgreSQL server.
-     */
     EDB: "EDB",
-    /**
-     * EnterpriseDB Oracle Server.
-     */
     EDB_Oracle_Server: "EDB_Oracle_Server",
-    /**
-     * EnterpriseDB PostgreSQL server.
-     */
     EDB_PostgreSQL: "EDB_PostgreSQL",
-    /**
-     * Azure Database for PostgreSQL flexible server.
-     */
     PostgreSQLFlexibleServer: "PostgreSQLFlexibleServer",
-    /**
-     * .NET Cosmos DB for PostgreSQL
-     */
     PostgreSQLCosmosDB: "PostgreSQLCosmosDB",
-    /**
-     * Huawei RDS for PostgreSQL
-     */
     Huawei_RDS: "Huawei_RDS",
-    /**
-     * Huawei Compute for PostgreSQL
-     */
     Huawei_Compute: "Huawei_Compute",
-    /**
-     * Heroku PostgreSQL
-     */
     Heroku_PostgreSQL: "Heroku_PostgreSQL",
-    /**
-     * Crunchy PostgreSQL
-     */
     Crunchy_PostgreSQL: "Crunchy_PostgreSQL",
-    /**
-     * ApsaraDB RDS for PostgreSQL
-     */
     ApsaraDB_RDS: "ApsaraDB_RDS",
-    /**
-     * Digital Ocean Droplets for PostgreSQL
-     */
     Digital_Ocean_Droplets: "Digital_Ocean_Droplets",
-    /**
-     * Digital Ocean PostgreSQL
-     */
     Digital_Ocean_PostgreSQL: "Digital_Ocean_PostgreSQL",
-    /**
-     * Supabase PostgreSQL
-     */
     Supabase_PostgreSQL: "Supabase_PostgreSQL",
 } as const;
 
@@ -700,21 +432,9 @@ export const SslEnforcementEnum = {
 export type SslEnforcementEnum = (typeof SslEnforcementEnum)[keyof typeof SslEnforcementEnum];
 
 export const SslMode = {
-    /**
-     * Prefer SSL connection. If the server does not support SSL, the connection will be established without SSL.
-     */
     Prefer: "Prefer",
-    /**
-     * Require SSL connection. If the server does not support SSL, the connection will fail.
-     */
     Require: "Require",
-    /**
-     * Require SSL connection and verify the server certificate against the CA certificate.
-     */
     VerifyCA: "VerifyCA",
-    /**
-     * Require SSL connection, verify the server certificate against the CA certificate, and verify that the server hostname matches the certificate.
-     */
     VerifyFull: "VerifyFull",
 } as const;
 
@@ -724,13 +444,7 @@ export const SslMode = {
 export type SslMode = (typeof SslMode)[keyof typeof SslMode];
 
 export const StartDataMigration = {
-    /**
-     * Data migration must start right away.
-     */
     True: "True",
-    /**
-     * Data migration must not start right away.
-     */
     False: "False",
 } as const;
 
@@ -740,13 +454,7 @@ export const StartDataMigration = {
 export type StartDataMigration = (typeof StartDataMigration)[keyof typeof StartDataMigration];
 
 export const StorageAutoGrow = {
-    /**
-     * Server should automatically grow storage size when available space is nearing zero and conditions allow for automatically growing storage size.
-     */
     Enabled: "Enabled",
-    /**
-     * Server should not automatically grow storage size when available space is nearing zero.
-     */
     Disabled: "Disabled",
 } as const;
 
@@ -766,17 +474,8 @@ export const StorageAutogrow = {
 export type StorageAutogrow = (typeof StorageAutogrow)[keyof typeof StorageAutogrow];
 
 export const StorageType = {
-    /**
-     * Standard Solid State Disk (SSD) backed storage offering consistent performance for general purpose workloads.
-     */
     Premium_LRS: "Premium_LRS",
-    /**
-     * Next generation Solid State Disk (SSD) storage with improved scalability and performance for demanding enterprise workloads.
-     */
     PremiumV2_LRS: "PremiumV2_LRS",
-    /**
-     * High-end Solid State Disk (SSD) storage designed for extreme IOPS and latency-sensitive applications.
-     */
     UltraSSD_LRS: "UltraSSD_LRS",
 } as const;
 
@@ -786,13 +485,7 @@ export const StorageType = {
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 export const TriggerCutover = {
-    /**
-     * Cutover must be triggered for the entire migration.
-     */
     True: "True",
-    /**
-     * Cutover must not be triggered for the entire migration.
-     */
     False: "False",
 } as const;
 
@@ -802,9 +495,6 @@ export const TriggerCutover = {
 export type TriggerCutover = (typeof TriggerCutover)[keyof typeof TriggerCutover];
 
 export const VirtualEndpointType = {
-    /**
-     * Read-write endpoint.
-     */
     ReadWrite: "ReadWrite",
 } as const;
 

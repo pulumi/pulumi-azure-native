@@ -27,7 +27,7 @@ class GetGalleryImageResult:
     """
     The gallery images resource definition.
     """
-    def __init__(__self__, azure_api_version=None, cloud_init_data_source=None, container_id=None, extended_location=None, hyper_v_generation=None, id=None, identifier=None, image_path=None, location=None, name=None, os_type=None, provisioning_state=None, source_virtual_machine_id=None, status=None, system_data=None, tags=None, type=None, version=None, vm_image_repository_credentials=None):
+    def __init__(__self__, azure_api_version=None, cloud_init_data_source=None, container_id=None, extended_location=None, hyper_v_generation=None, id=None, identifier=None, image_path=None, location=None, name=None, os_type=None, provisioning_state=None, source_virtual_machine_id=None, status=None, system_data=None, tags=None, type=None, version=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -82,9 +82,6 @@ class GetGalleryImageResult:
         if version and not isinstance(version, dict):
             raise TypeError("Expected argument 'version' to be a dict")
         pulumi.set(__self__, "version", version)
-        if vm_image_repository_credentials and not isinstance(vm_image_repository_credentials, dict):
-            raise TypeError("Expected argument 'vm_image_repository_credentials' to be a dict")
-        pulumi.set(__self__, "vm_image_repository_credentials", vm_image_repository_credentials)
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")
@@ -230,14 +227,6 @@ class GetGalleryImageResult:
         """
         return pulumi.get(self, "version")
 
-    @_builtins.property
-    @pulumi.getter(name="vmImageRepositoryCredentials")
-    def vm_image_repository_credentials(self) -> Optional['outputs.VmImageRepositoryCredentialsResponse']:
-        """
-        The credentials used to login to the image repository that has access to the specified image
-        """
-        return pulumi.get(self, "vm_image_repository_credentials")
-
 
 class AwaitableGetGalleryImageResult(GetGalleryImageResult):
     # pylint: disable=using-constant-test
@@ -262,8 +251,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            version=self.version,
-            vm_image_repository_credentials=self.vm_image_repository_credentials)
+            version=self.version)
 
 
 def get_gallery_image(gallery_image_name: Optional[_builtins.str] = None,
@@ -274,7 +262,7 @@ def get_gallery_image(gallery_image_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str gallery_image_name: Name of the gallery image
@@ -304,8 +292,7 @@ def get_gallery_image(gallery_image_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
-        version=pulumi.get(__ret__, 'version'),
-        vm_image_repository_credentials=pulumi.get(__ret__, 'vm_image_repository_credentials'))
+        version=pulumi.get(__ret__, 'version'))
 def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageResult]:
@@ -314,7 +301,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[_builtins
 
     Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str gallery_image_name: Name of the gallery image
@@ -343,5 +330,4 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[_builtins
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version'),
-        vm_image_repository_credentials=pulumi.get(__response__, 'vm_image_repository_credentials')))
+        version=pulumi.get(__response__, 'version')))

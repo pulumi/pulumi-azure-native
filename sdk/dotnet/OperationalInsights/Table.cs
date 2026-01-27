@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// 
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
-    /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Table")]
     public partial class Table : global::Pulumi.CustomResource
@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Table" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250701:Table" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

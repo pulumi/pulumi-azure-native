@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// High availability mode for a server.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.HighAvailabilityMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.PostgreSqlFlexibleServerHighAvailabilityMode>? Mode { get; set; }
 
         /// <summary>
         /// Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.

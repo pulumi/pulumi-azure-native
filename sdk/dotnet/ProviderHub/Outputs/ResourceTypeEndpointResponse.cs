@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The dsts configuration.
         /// </summary>
-        public readonly Outputs.ResourceTypeEndpointResponseDstsConfiguration? DstsConfiguration;
+        public readonly Outputs.ResourceTypeEndpointDstsConfigurationResponse? DstsConfiguration;
         /// <summary>
         /// Whether the endpoint is enabled.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The features rule.
         /// </summary>
-        public readonly Outputs.ResourceTypeEndpointResponseFeaturesRule? FeaturesRule;
+        public readonly Outputs.ResourceTypeEndpointFeaturesRuleResponse? FeaturesRule;
         /// <summary>
         /// Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string? dataBoundary,
 
-            Outputs.ResourceTypeEndpointResponseDstsConfiguration? dstsConfiguration,
+            Outputs.ResourceTypeEndpointDstsConfigurationResponse? dstsConfiguration,
 
             bool? enabled,
 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<Outputs.ResourceTypeExtensionResponse> extensions,
 
-            Outputs.ResourceTypeEndpointResponseFeaturesRule? featuresRule,
+            Outputs.ResourceTypeEndpointFeaturesRuleResponse? featuresRule,
 
             string? kind,
 

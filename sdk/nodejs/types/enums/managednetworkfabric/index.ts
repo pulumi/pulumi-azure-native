@@ -43,6 +43,54 @@ export const AllowASOverride = {
  */
 export type AllowASOverride = (typeof AllowASOverride)[keyof typeof AllowASOverride];
 
+export const BmpExportPolicy = {
+    /**
+     * BMP ExportPolicy Pre-Policy
+     */
+    PrePolicy: "Pre-Policy",
+    /**
+     * BMP ExportPolicy Post-Policy
+     */
+    PostPolicy: "Post-Policy",
+    /**
+     * BMP ExportPolicy All
+     */
+    All: "All",
+} as const;
+
+/**
+ * Export Policy for the BMP Configuration.
+ */
+export type BmpExportPolicy = (typeof BmpExportPolicy)[keyof typeof BmpExportPolicy];
+
+export const BmpMonitoredAddressFamily = {
+    /**
+     * IPv4 Unicast
+     */
+    Ipv4Unicast: "ipv4Unicast",
+    /**
+     * IPv6 Unicast
+     */
+    Ipv6Unicast: "ipv6Unicast",
+    /**
+     * VPN IPv4
+     */
+    VpnIpv4: "vpnIpv4",
+    /**
+     * VPN IPv6
+     */
+    VpnIpv6: "vpnIpv6",
+    /**
+     * All Address Families
+     */
+    All: "All",
+} as const;
+
+/**
+ * Monitored Address Family.
+ */
+export type BmpMonitoredAddressFamily = (typeof BmpMonitoredAddressFamily)[keyof typeof BmpMonitoredAddressFamily];
+
 export const BooleanEnumProperty = {
     True: "True",
     False: "False",
@@ -307,6 +355,38 @@ export const SourceDestinationType = {
  * IP Address type that needs to be matched.
  */
 export type SourceDestinationType = (typeof SourceDestinationType)[keyof typeof SourceDestinationType];
+
+export const StationConfigurationState = {
+    /**
+     * StationConfigurationState Enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * StationConfigurationState Disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabling a station. Either True/False.
+ */
+export type StationConfigurationState = (typeof StationConfigurationState)[keyof typeof StationConfigurationState];
+
+export const StationConnectionMode = {
+    /**
+     * StationConnectionMode Active
+     */
+    Active: "Active",
+    /**
+     * StationConnectionMode Passive
+     */
+    Passive: "Passive",
+} as const;
+
+/**
+ * Station Connection Mode.
+ */
+export type StationConnectionMode = (typeof StationConnectionMode)[keyof typeof StationConnectionMode];
 
 export const TapRuleActionType = {
     Drop: "Drop",

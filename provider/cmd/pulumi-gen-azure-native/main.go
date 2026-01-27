@@ -83,6 +83,13 @@ func main() {
 		Version: version.String(),
 	}
 
+	nonDefaultFilters := namespaces != "*" || apiVersions != ""
+
+	if debugEnabled || nonDefaultFilters {
+		fmt.Println("Excluding explicit versions due to debug mode or non-default filters.")
+		buildSchemaArgs.ExcludeExplicitVersions = true
+	}
+
 	switch languages {
 	case "schema":
 		buildSchemaResult, buildSchemaErr := versioning.BuildSchema(buildSchemaArgs)

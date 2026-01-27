@@ -26,6 +26,7 @@ __all__ = [
     'AggregateRouteConfigurationResponse',
     'AggregateRouteResponse',
     'BfdConfigurationResponse',
+    'BmpConfigurationPropertiesResponse',
     'CommonDynamicMatchConfigurationResponse',
     'ConnectedSubnetResponse',
     'ConnectedSubnetRoutePolicyResponse',
@@ -51,11 +52,13 @@ __all__ = [
     'IsolationDomainPropertiesResponse',
     'L3ExportRoutePolicyResponse',
     'L3OptionBPropertiesResponse',
+    'LastOperationPropertiesResponse',
     'Layer2ConfigurationResponse',
     'ManagedResourceGroupConfigurationResponse',
     'ManagementNetworkConfigurationPropertiesResponse',
     'NeighborAddressResponse',
     'NeighborGroupDestinationResponse',
+    'NetworkMonitorPropertiesResponse',
     'NetworkTapPropertiesResponseDestinations',
     'NetworkTapRuleActionResponse',
     'NetworkTapRuleMatchConditionResponse',
@@ -70,6 +73,7 @@ __all__ = [
     'StatementActionPropertiesResponse',
     'StatementConditionPropertiesResponse',
     'StaticRoutePropertiesResponse',
+    'StationConnectionPropertiesResponse',
     'SystemDataResponse',
     'TerminalServerConfigurationResponse',
     'VlanGroupPropertiesResponse',
@@ -704,6 +708,190 @@ class BfdConfigurationResponse(dict):
         Multiplier for the Bfd Configuration. Example: 5.
         """
         return pulumi.get(self, "multiplier")
+
+
+@pulumi.output_type
+class BmpConfigurationPropertiesResponse(dict):
+    """
+    BGP Monitoring Protocol (BMP) Configuration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exportPolicy":
+            suggest = "export_policy"
+        elif key == "monitoredAddressFamilies":
+            suggest = "monitored_address_families"
+        elif key == "monitoredNetworks":
+            suggest = "monitored_networks"
+        elif key == "scopeResourceId":
+            suggest = "scope_resource_id"
+        elif key == "stationConfigurationState":
+            suggest = "station_configuration_state"
+        elif key == "stationConnectionMode":
+            suggest = "station_connection_mode"
+        elif key == "stationConnectionProperties":
+            suggest = "station_connection_properties"
+        elif key == "stationIp":
+            suggest = "station_ip"
+        elif key == "stationName":
+            suggest = "station_name"
+        elif key == "stationNetwork":
+            suggest = "station_network"
+        elif key == "stationPort":
+            suggest = "station_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BmpConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BmpConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BmpConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 export_policy: Optional[_builtins.str] = None,
+                 monitored_address_families: Optional[Sequence[_builtins.str]] = None,
+                 monitored_networks: Optional[Sequence[_builtins.str]] = None,
+                 scope_resource_id: Optional[_builtins.str] = None,
+                 station_configuration_state: Optional[_builtins.str] = None,
+                 station_connection_mode: Optional[_builtins.str] = None,
+                 station_connection_properties: Optional['outputs.StationConnectionPropertiesResponse'] = None,
+                 station_ip: Optional[_builtins.str] = None,
+                 station_name: Optional[_builtins.str] = None,
+                 station_network: Optional[_builtins.str] = None,
+                 station_port: Optional[_builtins.int] = None):
+        """
+        BGP Monitoring Protocol (BMP) Configuration properties.
+        :param _builtins.str export_policy: Export Policy for the BMP Configuration.
+        :param Sequence[_builtins.str] monitored_address_families: Monitored Address Families for the BMP Configuration.
+        :param Sequence[_builtins.str] monitored_networks: The List of Network ID's that need to be monitored.
+        :param _builtins.str scope_resource_id: Scope resource ARM Identifier.
+        :param _builtins.str station_configuration_state: Enabling a station. Either True/False.
+        :param _builtins.str station_connection_mode: Station Connection Mode.
+        :param 'StationConnectionPropertiesResponse' station_connection_properties: Station Connection Properties.
+        :param _builtins.str station_ip: IP Address of the station.
+        :param _builtins.str station_name: Name of the station.
+        :param _builtins.str station_network: Network of the station
+        :param _builtins.int station_port: Port of the station. Default value is 5000.
+        """
+        if export_policy is None:
+            export_policy = 'All'
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
+        if monitored_address_families is not None:
+            pulumi.set(__self__, "monitored_address_families", monitored_address_families)
+        if monitored_networks is not None:
+            pulumi.set(__self__, "monitored_networks", monitored_networks)
+        if scope_resource_id is not None:
+            pulumi.set(__self__, "scope_resource_id", scope_resource_id)
+        if station_configuration_state is not None:
+            pulumi.set(__self__, "station_configuration_state", station_configuration_state)
+        if station_connection_mode is not None:
+            pulumi.set(__self__, "station_connection_mode", station_connection_mode)
+        if station_connection_properties is not None:
+            pulumi.set(__self__, "station_connection_properties", station_connection_properties)
+        if station_ip is not None:
+            pulumi.set(__self__, "station_ip", station_ip)
+        if station_name is not None:
+            pulumi.set(__self__, "station_name", station_name)
+        if station_network is not None:
+            pulumi.set(__self__, "station_network", station_network)
+        if station_port is None:
+            station_port = 5000
+        if station_port is not None:
+            pulumi.set(__self__, "station_port", station_port)
+
+    @_builtins.property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional[_builtins.str]:
+        """
+        Export Policy for the BMP Configuration.
+        """
+        return pulumi.get(self, "export_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoredAddressFamilies")
+    def monitored_address_families(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Monitored Address Families for the BMP Configuration.
+        """
+        return pulumi.get(self, "monitored_address_families")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoredNetworks")
+    def monitored_networks(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The List of Network ID's that need to be monitored.
+        """
+        return pulumi.get(self, "monitored_networks")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeResourceId")
+    def scope_resource_id(self) -> Optional[_builtins.str]:
+        """
+        Scope resource ARM Identifier.
+        """
+        return pulumi.get(self, "scope_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="stationConfigurationState")
+    def station_configuration_state(self) -> Optional[_builtins.str]:
+        """
+        Enabling a station. Either True/False.
+        """
+        return pulumi.get(self, "station_configuration_state")
+
+    @_builtins.property
+    @pulumi.getter(name="stationConnectionMode")
+    def station_connection_mode(self) -> Optional[_builtins.str]:
+        """
+        Station Connection Mode.
+        """
+        return pulumi.get(self, "station_connection_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="stationConnectionProperties")
+    def station_connection_properties(self) -> Optional['outputs.StationConnectionPropertiesResponse']:
+        """
+        Station Connection Properties.
+        """
+        return pulumi.get(self, "station_connection_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="stationIp")
+    def station_ip(self) -> Optional[_builtins.str]:
+        """
+        IP Address of the station.
+        """
+        return pulumi.get(self, "station_ip")
+
+    @_builtins.property
+    @pulumi.getter(name="stationName")
+    def station_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the station.
+        """
+        return pulumi.get(self, "station_name")
+
+    @_builtins.property
+    @pulumi.getter(name="stationNetwork")
+    def station_network(self) -> Optional[_builtins.str]:
+        """
+        Network of the station
+        """
+        return pulumi.get(self, "station_network")
+
+    @_builtins.property
+    @pulumi.getter(name="stationPort")
+    def station_port(self) -> Optional[_builtins.int]:
+        """
+        Port of the station. Default value is 5000.
+        """
+        return pulumi.get(self, "station_port")
 
 
 @pulumi.output_type
@@ -2418,6 +2606,28 @@ class L3OptionBPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LastOperationPropertiesResponse(dict):
+    """
+    Details of the last operations performed on the resource
+    """
+    def __init__(__self__, *,
+                 details: _builtins.str):
+        """
+        Details of the last operations performed on the resource
+        :param _builtins.str details: Details status of the last operation performed on the resource.
+        """
+        pulumi.set(__self__, "details", details)
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> _builtins.str:
+        """
+        Details status of the last operation performed on the resource.
+        """
+        return pulumi.get(self, "details")
+
+
+@pulumi.output_type
 class Layer2ConfigurationResponse(dict):
     """
     Common properties for Layer2 Configuration.
@@ -2644,6 +2854,110 @@ class NeighborGroupDestinationResponse(dict):
         Array of IPv6 Addresses.
         """
         return pulumi.get(self, "ipv6_addresses")
+
+
+@pulumi.output_type
+class NetworkMonitorPropertiesResponse(dict):
+    """
+    Network Monitor Properties defines the properties of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administrativeState":
+            suggest = "administrative_state"
+        elif key == "configurationState":
+            suggest = "configuration_state"
+        elif key == "lastOperation":
+            suggest = "last_operation"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "bmpConfiguration":
+            suggest = "bmp_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkMonitorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkMonitorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkMonitorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 administrative_state: _builtins.str,
+                 configuration_state: _builtins.str,
+                 last_operation: 'outputs.LastOperationPropertiesResponse',
+                 provisioning_state: _builtins.str,
+                 annotation: Optional[_builtins.str] = None,
+                 bmp_configuration: Optional['outputs.BmpConfigurationPropertiesResponse'] = None):
+        """
+        Network Monitor Properties defines the properties of the resource.
+        :param _builtins.str administrative_state: Administrative state of the resource.
+        :param _builtins.str configuration_state: Configuration state of the resource.
+        :param 'LastOperationPropertiesResponse' last_operation: Details of the last operation performed on the resource
+        :param _builtins.str provisioning_state: Provides you the latest status of the NetworkMonitor resource
+        :param _builtins.str annotation: Switch configuration description.
+        :param 'BmpConfigurationPropertiesResponse' bmp_configuration: BMP Configurations for the Network Fabric.
+        """
+        pulumi.set(__self__, "administrative_state", administrative_state)
+        pulumi.set(__self__, "configuration_state", configuration_state)
+        pulumi.set(__self__, "last_operation", last_operation)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if annotation is not None:
+            pulumi.set(__self__, "annotation", annotation)
+        if bmp_configuration is not None:
+            pulumi.set(__self__, "bmp_configuration", bmp_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> _builtins.str:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> _builtins.str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> 'outputs.LastOperationPropertiesResponse':
+        """
+        Details of the last operation performed on the resource
+        """
+        return pulumi.get(self, "last_operation")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provides you the latest status of the NetworkMonitor resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def annotation(self) -> Optional[_builtins.str]:
+        """
+        Switch configuration description.
+        """
+        return pulumi.get(self, "annotation")
+
+    @_builtins.property
+    @pulumi.getter(name="bmpConfiguration")
+    def bmp_configuration(self) -> Optional['outputs.BmpConfigurationPropertiesResponse']:
+        """
+        BMP Configurations for the Network Fabric.
+        """
+        return pulumi.get(self, "bmp_configuration")
 
 
 @pulumi.output_type
@@ -3740,6 +4054,80 @@ class StaticRoutePropertiesResponse(dict):
         Prefix of the route.
         """
         return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class StationConnectionPropertiesResponse(dict):
+    """
+    Station Connection Properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keepaliveIdleTime":
+            suggest = "keepalive_idle_time"
+        elif key == "probeCount":
+            suggest = "probe_count"
+        elif key == "probeInterval":
+            suggest = "probe_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StationConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StationConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StationConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 keepalive_idle_time: Optional[_builtins.int] = None,
+                 probe_count: Optional[_builtins.int] = None,
+                 probe_interval: Optional[_builtins.int] = None):
+        """
+        Station Connection Properties.
+        :param _builtins.int keepalive_idle_time: Connection keepalive idle time in seconds
+        :param _builtins.int probe_count: Probe count, default value is 10
+        :param _builtins.int probe_interval: Probe interval in seconds, default value is 60
+        """
+        if keepalive_idle_time is None:
+            keepalive_idle_time = 180
+        if keepalive_idle_time is not None:
+            pulumi.set(__self__, "keepalive_idle_time", keepalive_idle_time)
+        if probe_count is None:
+            probe_count = 10
+        if probe_count is not None:
+            pulumi.set(__self__, "probe_count", probe_count)
+        if probe_interval is None:
+            probe_interval = 60
+        if probe_interval is not None:
+            pulumi.set(__self__, "probe_interval", probe_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="keepaliveIdleTime")
+    def keepalive_idle_time(self) -> Optional[_builtins.int]:
+        """
+        Connection keepalive idle time in seconds
+        """
+        return pulumi.get(self, "keepalive_idle_time")
+
+    @_builtins.property
+    @pulumi.getter(name="probeCount")
+    def probe_count(self) -> Optional[_builtins.int]:
+        """
+        Probe count, default value is 10
+        """
+        return pulumi.get(self, "probe_count")
+
+    @_builtins.property
+    @pulumi.getter(name="probeInterval")
+    def probe_interval(self) -> Optional[_builtins.int]:
+        """
+        Probe interval in seconds, default value is 60
+        """
+        return pulumi.get(self, "probe_interval")
 
 
 @pulumi.output_type

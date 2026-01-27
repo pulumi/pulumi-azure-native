@@ -228,6 +228,8 @@ def get_gallery_in_vm_access_control_profile_version(gallery_name: Optional[_bui
 
     Uses Azure REST API version 2024-03-03.
 
+    Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str gallery_name: The name of the Shared Image Gallery.
     :param _builtins.str in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
@@ -267,6 +269,8 @@ def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Option
     Retrieves information about a gallery inVMAccessControlProfile version.
 
     Uses Azure REST API version 2024-03-03.
+
+    Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str gallery_name: The name of the Shared Image Gallery.

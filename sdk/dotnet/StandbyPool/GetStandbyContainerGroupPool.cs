@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStandbyContainerGroupPoolResult> InvokeAsync(GetStandbyContainerGroupPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandbyContainerGroupPoolResult>("azure-native:standbypool:getStandbyContainerGroupPool", args ?? new GetStandbyContainerGroupPoolArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStandbyContainerGroupPoolResult> Invoke(GetStandbyContainerGroupPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyContainerGroupPoolResult>("azure-native:standbypool:getStandbyContainerGroupPool", args ?? new GetStandbyContainerGroupPoolInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStandbyContainerGroupPoolResult> Invoke(GetStandbyContainerGroupPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyContainerGroupPoolResult>("azure-native:standbypool:getStandbyContainerGroupPool", args ?? new GetStandbyContainerGroupPoolInvokeArgs(), options.WithDefaults());

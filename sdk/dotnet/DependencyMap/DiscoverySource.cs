@@ -38,22 +38,10 @@ namespace Pulumi.AzureNative.DependencyMap
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of Discovery Source resource.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Source ArmId of Discovery Source resource
-        /// </summary>
-        [Output("sourceId")]
-        public Output<string> SourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Source type of Discovery Source resource.
-        /// </summary>
-        [Output("sourceType")]
-        public Output<string> SourceType { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.OffAzureDiscoverySourceResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -137,28 +125,22 @@ namespace Pulumi.AzureNative.DependencyMap
         public Input<string> MapName { get; set; } = null!;
 
         /// <summary>
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.OffAzureDiscoverySourceResourcePropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Source ArmId of Discovery Source resource
-        /// </summary>
-        [Input("sourceId", required: true)]
-        public Input<string> SourceId { get; set; } = null!;
-
-        /// <summary>
         /// discovery source resource
         /// </summary>
         [Input("sourceName")]
         public Input<string>? SourceName { get; set; }
-
-        /// <summary>
-        /// Source type of Discovery Source resource.
-        /// </summary>
-        [Input("sourceType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DependencyMap.SourceType> SourceType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

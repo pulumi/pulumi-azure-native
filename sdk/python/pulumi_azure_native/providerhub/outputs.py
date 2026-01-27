@@ -28,31 +28,31 @@ __all__ = [
     'AuthorizationActionMappingResponse',
     'AuthorizedApplicationPropertiesResponse',
     'CustomRolloutPropertiesResponse',
-    'CustomRolloutPropertiesResponseSpecification',
-    'CustomRolloutPropertiesResponseStatus',
-    'CustomRolloutSpecificationResponseAutoProvisionConfig',
-    'CustomRolloutSpecificationResponseCanary',
-    'CustomRolloutSpecificationResponseProviderRegistration',
-    'CustomRolloutStatusResponseManifestCheckinStatus',
+    'CustomRolloutPropertiesSpecificationResponse',
+    'CustomRolloutPropertiesStatusResponse',
+    'CustomRolloutSpecificationAutoProvisionConfigResponse',
+    'CustomRolloutSpecificationCanaryResponse',
+    'CustomRolloutSpecificationProviderRegistrationResponse',
+    'CustomRolloutStatusManifestCheckinStatusResponse',
     'DefaultRolloutPropertiesResponse',
-    'DefaultRolloutPropertiesResponseSpecification',
-    'DefaultRolloutPropertiesResponseStatus',
-    'DefaultRolloutSpecificationResponseAutoProvisionConfig',
-    'DefaultRolloutSpecificationResponseCanary',
-    'DefaultRolloutSpecificationResponseExpeditedRollout',
-    'DefaultRolloutSpecificationResponseHighTraffic',
-    'DefaultRolloutSpecificationResponseLowTraffic',
-    'DefaultRolloutSpecificationResponseMediumTraffic',
-    'DefaultRolloutSpecificationResponseProviderRegistration',
-    'DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne',
-    'DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo',
-    'DefaultRolloutStatusResponseManifestCheckinStatus',
+    'DefaultRolloutPropertiesSpecificationResponse',
+    'DefaultRolloutPropertiesStatusResponse',
+    'DefaultRolloutSpecificationAutoProvisionConfigResponse',
+    'DefaultRolloutSpecificationCanaryResponse',
+    'DefaultRolloutSpecificationExpeditedRolloutResponse',
+    'DefaultRolloutSpecificationHighTrafficResponse',
+    'DefaultRolloutSpecificationLowTrafficResponse',
+    'DefaultRolloutSpecificationMediumTrafficResponse',
+    'DefaultRolloutSpecificationProviderRegistrationResponse',
+    'DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse',
+    'DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse',
+    'DefaultRolloutStatusManifestCheckinStatusResponse',
     'DeleteDependencyResponse',
     'EndpointInformationResponse',
     'ExtendedErrorInfoResponse',
     'ExtendedLocationOptionsResponse',
+    'FanoutLinkedNotificationRuleDstsConfigurationResponse',
     'FanoutLinkedNotificationRuleResponse',
-    'FanoutLinkedNotificationRuleResponseDstsConfiguration',
     'FilterRuleResponse',
     'LegacyDisallowedConditionResponse',
     'LightHouseAuthorizationResponse',
@@ -60,80 +60,80 @@ __all__ = [
     'LinkedNotificationRuleResponse',
     'LinkedOperationRuleResponse',
     'LocationQuotaRuleResponse',
+    'LoggingRuleHiddenPropertyPathsResponse',
     'LoggingRuleResponse',
-    'LoggingRuleResponseHiddenPropertyPaths',
     'NotificationEndpointResponse',
     'NotificationRegistrationPropertiesResponse',
     'NotificationResponse',
     'OpenApiConfigurationResponse',
     'OpenApiValidationResponse',
-    'ProviderHubMetadataResponseProviderAuthentication',
-    'ProviderHubMetadataResponseThirdPartyProviderAuthorization',
+    'ProviderHubMetadataProviderAuthenticationResponse',
+    'ProviderHubMetadataThirdPartyProviderAuthorizationResponse',
     'ProviderMonitorSettingPropertiesResponse',
+    'ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse',
+    'ProviderRegistrationPropertiesProviderHubMetadataResponse',
     'ProviderRegistrationPropertiesResponse',
-    'ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration',
-    'ProviderRegistrationPropertiesResponseProviderHubMetadata',
-    'ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications',
+    'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse',
     'QuotaRuleResponse',
     'ResourceAccessRoleResponse',
     'ResourceConcurrencyControlOptionResponse',
     'ResourceHydrationAccountResponse',
+    'ResourceProviderAuthorizationManagedByAuthorizationResponse',
     'ResourceProviderAuthorizationResponse',
-    'ResourceProviderAuthorizationResponseManagedByAuthorization',
     'ResourceProviderAuthorizationRulesResponse',
     'ResourceProviderCapabilitiesResponse',
+    'ResourceProviderEndpointFeaturesRuleResponse',
     'ResourceProviderEndpointResponse',
-    'ResourceProviderEndpointResponseFeaturesRule',
-    'ResourceProviderManagementResponseErrorResponseMessageOptions',
-    'ResourceProviderManagementResponseExpeditedRolloutMetadata',
-    'ResourceProviderManifestPropertiesResponseDstsConfiguration',
-    'ResourceProviderManifestPropertiesResponseFeaturesRule',
-    'ResourceProviderManifestPropertiesResponseManagement',
-    'ResourceProviderManifestPropertiesResponseNotificationSettings',
-    'ResourceProviderManifestPropertiesResponseProviderAuthentication',
-    'ResourceProviderManifestPropertiesResponseRequestHeaderOptions',
-    'ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove',
-    'ResourceProviderManifestPropertiesResponseResponseOptions',
-    'ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions',
+    'ResourceProviderManagementErrorResponseMessageOptionsResponse',
+    'ResourceProviderManagementExpeditedRolloutMetadataResponse',
+    'ResourceProviderManifestPropertiesDstsConfigurationResponse',
+    'ResourceProviderManifestPropertiesFeaturesRuleResponse',
+    'ResourceProviderManifestPropertiesManagementResponse',
+    'ResourceProviderManifestPropertiesNotificationSettingsResponse',
+    'ResourceProviderManifestPropertiesProviderAuthenticationResponse',
+    'ResourceProviderManifestPropertiesRequestHeaderOptionsResponse',
+    'ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse',
+    'ResourceProviderManifestPropertiesResponseOptionsResponse',
+    'ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse',
     'ResourceProviderServiceResponse',
+    'ResourceTypeEndpointDstsConfigurationResponse',
+    'ResourceTypeEndpointFeaturesRuleResponse',
     'ResourceTypeEndpointResponse',
-    'ResourceTypeEndpointResponseDstsConfiguration',
-    'ResourceTypeEndpointResponseFeaturesRule',
-    'ResourceTypeExtensionOptionsResponseResourceCreationBegin',
+    'ResourceTypeExtensionOptionsResourceCreationBeginResponse',
     'ResourceTypeExtensionResponse',
     'ResourceTypeOnBehalfOfTokenResponse',
+    'ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse',
+    'ResourceTypeRegistrationPropertiesCapacityRuleResponse',
+    'ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse',
+    'ResourceTypeRegistrationPropertiesDstsConfigurationResponse',
+    'ResourceTypeRegistrationPropertiesExtensionOptionsResponse',
+    'ResourceTypeRegistrationPropertiesFeaturesRuleResponse',
+    'ResourceTypeRegistrationPropertiesIdentityManagementResponse',
+    'ResourceTypeRegistrationPropertiesLegacyPolicyResponse',
+    'ResourceTypeRegistrationPropertiesManagementResponse',
+    'ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse',
+    'ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse',
+    'ResourceTypeRegistrationPropertiesResourceCacheResponse',
+    'ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse',
+    'ResourceTypeRegistrationPropertiesResourceMovePolicyResponse',
+    'ResourceTypeRegistrationPropertiesResourceQueryManagementResponse',
+    'ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse',
     'ResourceTypeRegistrationPropertiesResponse',
-    'ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule',
-    'ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport',
-    'ResourceTypeRegistrationPropertiesResponseCapacityRule',
-    'ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications',
-    'ResourceTypeRegistrationPropertiesResponseDstsConfiguration',
-    'ResourceTypeRegistrationPropertiesResponseExtensionOptions',
-    'ResourceTypeRegistrationPropertiesResponseFeaturesRule',
-    'ResourceTypeRegistrationPropertiesResponseIdentityManagement',
-    'ResourceTypeRegistrationPropertiesResponseLegacyPolicy',
-    'ResourceTypeRegistrationPropertiesResponseManagement',
-    'ResourceTypeRegistrationPropertiesResponseMarketplaceOptions',
-    'ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport',
-    'ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions',
-    'ResourceTypeRegistrationPropertiesResponseResourceCache',
-    'ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration',
-    'ResourceTypeRegistrationPropertiesResponseResourceManagementOptions',
-    'ResourceTypeRegistrationPropertiesResponseResourceMovePolicy',
-    'ResourceTypeRegistrationPropertiesResponseResourceQueryManagement',
-    'ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement',
-    'ResourceTypeRegistrationPropertiesResponseRoutingRule',
-    'ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications',
-    'ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions',
-    'ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy',
+    'ResourceTypeRegistrationPropertiesRoutingRuleResponse',
+    'ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse',
+    'ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse',
+    'ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse',
     'ResourceTypeRegistrationResponse',
     'ServiceTreeInfoResponse',
     'SkuCapabilityResponse',
     'SkuCostResponse',
     'SkuLocationInfoResponse',
-    'SkuResourceResponseProperties',
+    'SkuResourcePropertiesResponse',
+    'SkuSettingCapacityResponse',
     'SkuSettingResponse',
-    'SkuSettingResponseCapacity',
     'SkuZoneDetailResponse',
     'SubscriberSettingResponse',
     'SubscriptionStateOverrideActionResponse',
@@ -618,12 +618,12 @@ class CustomRolloutPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: _builtins.str,
-                 specification: 'outputs.CustomRolloutPropertiesResponseSpecification',
-                 status: Optional['outputs.CustomRolloutPropertiesResponseStatus'] = None):
+                 specification: 'outputs.CustomRolloutPropertiesSpecificationResponse',
+                 status: Optional['outputs.CustomRolloutPropertiesStatusResponse'] = None):
         """
         :param _builtins.str provisioning_state: The provisioned state of the resource.
-        :param 'CustomRolloutPropertiesResponseSpecification' specification: The specification.
-        :param 'CustomRolloutPropertiesResponseStatus' status: The status.
+        :param 'CustomRolloutPropertiesSpecificationResponse' specification: The specification.
+        :param 'CustomRolloutPropertiesStatusResponse' status: The status.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "specification", specification)
@@ -640,7 +640,7 @@ class CustomRolloutPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def specification(self) -> 'outputs.CustomRolloutPropertiesResponseSpecification':
+    def specification(self) -> 'outputs.CustomRolloutPropertiesSpecificationResponse':
         """
         The specification.
         """
@@ -648,7 +648,7 @@ class CustomRolloutPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional['outputs.CustomRolloutPropertiesResponseStatus']:
+    def status(self) -> Optional['outputs.CustomRolloutPropertiesStatusResponse']:
         """
         The status.
         """
@@ -656,7 +656,7 @@ class CustomRolloutPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class CustomRolloutPropertiesResponseSpecification(dict):
+class CustomRolloutPropertiesSpecificationResponse(dict):
     """
     The specification.
     """
@@ -677,29 +677,29 @@ class CustomRolloutPropertiesResponseSpecification(dict):
             suggest = "skip_release_scope_validation"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutPropertiesResponseSpecification. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutPropertiesSpecificationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CustomRolloutPropertiesResponseSpecification.__key_warning(key)
+        CustomRolloutPropertiesSpecificationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CustomRolloutPropertiesResponseSpecification.__key_warning(key)
+        CustomRolloutPropertiesSpecificationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auto_provision_config: Optional['outputs.CustomRolloutSpecificationResponseAutoProvisionConfig'] = None,
-                 canary: Optional['outputs.CustomRolloutSpecificationResponseCanary'] = None,
-                 provider_registration: Optional['outputs.CustomRolloutSpecificationResponseProviderRegistration'] = None,
+                 auto_provision_config: Optional['outputs.CustomRolloutSpecificationAutoProvisionConfigResponse'] = None,
+                 canary: Optional['outputs.CustomRolloutSpecificationCanaryResponse'] = None,
+                 provider_registration: Optional['outputs.CustomRolloutSpecificationProviderRegistrationResponse'] = None,
                  refresh_subscription_registration: Optional[_builtins.bool] = None,
                  release_scopes: Optional[Sequence[_builtins.str]] = None,
                  resource_type_registrations: Optional[Sequence['outputs.ResourceTypeRegistrationResponse']] = None,
                  skip_release_scope_validation: Optional[_builtins.bool] = None):
         """
         The specification.
-        :param 'CustomRolloutSpecificationResponseAutoProvisionConfig' auto_provision_config: The auto provisioning configuration.
-        :param 'CustomRolloutSpecificationResponseCanary' canary: The canary region configuration.
-        :param 'CustomRolloutSpecificationResponseProviderRegistration' provider_registration: The provider registration.
+        :param 'CustomRolloutSpecificationAutoProvisionConfigResponse' auto_provision_config: The auto provisioning configuration.
+        :param 'CustomRolloutSpecificationCanaryResponse' canary: The canary region configuration.
+        :param 'CustomRolloutSpecificationProviderRegistrationResponse' provider_registration: The provider registration.
         :param _builtins.bool refresh_subscription_registration: Whether refreshing subscription registration is enabled or disabled.
         :param Sequence[_builtins.str] release_scopes: The list of ARM regions scoped for the release.
         :param Sequence['ResourceTypeRegistrationResponse'] resource_type_registrations: The resource type registrations.
@@ -722,7 +722,7 @@ class CustomRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="autoProvisionConfig")
-    def auto_provision_config(self) -> Optional['outputs.CustomRolloutSpecificationResponseAutoProvisionConfig']:
+    def auto_provision_config(self) -> Optional['outputs.CustomRolloutSpecificationAutoProvisionConfigResponse']:
         """
         The auto provisioning configuration.
         """
@@ -730,7 +730,7 @@ class CustomRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter
-    def canary(self) -> Optional['outputs.CustomRolloutSpecificationResponseCanary']:
+    def canary(self) -> Optional['outputs.CustomRolloutSpecificationCanaryResponse']:
         """
         The canary region configuration.
         """
@@ -738,7 +738,7 @@ class CustomRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="providerRegistration")
-    def provider_registration(self) -> Optional['outputs.CustomRolloutSpecificationResponseProviderRegistration']:
+    def provider_registration(self) -> Optional['outputs.CustomRolloutSpecificationProviderRegistrationResponse']:
         """
         The provider registration.
         """
@@ -778,7 +778,7 @@ class CustomRolloutPropertiesResponseSpecification(dict):
 
 
 @pulumi.output_type
-class CustomRolloutPropertiesResponseStatus(dict):
+class CustomRolloutPropertiesStatusResponse(dict):
     """
     The status.
     """
@@ -793,25 +793,25 @@ class CustomRolloutPropertiesResponseStatus(dict):
             suggest = "manifest_checkin_status"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutPropertiesStatusResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CustomRolloutPropertiesResponseStatus.__key_warning(key)
+        CustomRolloutPropertiesStatusResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CustomRolloutPropertiesResponseStatus.__key_warning(key)
+        CustomRolloutPropertiesStatusResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  completed_regions: Optional[Sequence[_builtins.str]] = None,
                  failed_or_skipped_regions: Optional[Mapping[str, 'outputs.ExtendedErrorInfoResponse']] = None,
-                 manifest_checkin_status: Optional['outputs.CustomRolloutStatusResponseManifestCheckinStatus'] = None):
+                 manifest_checkin_status: Optional['outputs.CustomRolloutStatusManifestCheckinStatusResponse'] = None):
         """
         The status.
         :param Sequence[_builtins.str] completed_regions: The completed regions.
         :param Mapping[str, 'ExtendedErrorInfoResponse'] failed_or_skipped_regions: The failed or skipped regions.
-        :param 'CustomRolloutStatusResponseManifestCheckinStatus' manifest_checkin_status: The manifest checkin status.
+        :param 'CustomRolloutStatusManifestCheckinStatusResponse' manifest_checkin_status: The manifest checkin status.
         """
         if completed_regions is not None:
             pulumi.set(__self__, "completed_regions", completed_regions)
@@ -838,7 +838,7 @@ class CustomRolloutPropertiesResponseStatus(dict):
 
     @_builtins.property
     @pulumi.getter(name="manifestCheckinStatus")
-    def manifest_checkin_status(self) -> Optional['outputs.CustomRolloutStatusResponseManifestCheckinStatus']:
+    def manifest_checkin_status(self) -> Optional['outputs.CustomRolloutStatusManifestCheckinStatusResponse']:
         """
         The manifest checkin status.
         """
@@ -846,7 +846,7 @@ class CustomRolloutPropertiesResponseStatus(dict):
 
 
 @pulumi.output_type
-class CustomRolloutSpecificationResponseAutoProvisionConfig(dict):
+class CustomRolloutSpecificationAutoProvisionConfigResponse(dict):
     """
     The auto provisioning configuration.
     """
@@ -857,14 +857,14 @@ class CustomRolloutSpecificationResponseAutoProvisionConfig(dict):
             suggest = "resource_graph"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutSpecificationResponseAutoProvisionConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutSpecificationAutoProvisionConfigResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CustomRolloutSpecificationResponseAutoProvisionConfig.__key_warning(key)
+        CustomRolloutSpecificationAutoProvisionConfigResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CustomRolloutSpecificationResponseAutoProvisionConfig.__key_warning(key)
+        CustomRolloutSpecificationAutoProvisionConfigResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -890,7 +890,7 @@ class CustomRolloutSpecificationResponseAutoProvisionConfig(dict):
 
 
 @pulumi.output_type
-class CustomRolloutSpecificationResponseCanary(dict):
+class CustomRolloutSpecificationCanaryResponse(dict):
     """
     The canary region configuration.
     """
@@ -909,7 +909,7 @@ class CustomRolloutSpecificationResponseCanary(dict):
 
 
 @pulumi.output_type
-class CustomRolloutSpecificationResponseProviderRegistration(dict):
+class CustomRolloutSpecificationProviderRegistrationResponse(dict):
     """
     The provider registration.
     """
@@ -920,14 +920,14 @@ class CustomRolloutSpecificationResponseProviderRegistration(dict):
             suggest = "system_data"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutSpecificationResponseProviderRegistration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutSpecificationProviderRegistrationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CustomRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        CustomRolloutSpecificationProviderRegistrationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CustomRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        CustomRolloutSpecificationProviderRegistrationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1003,7 +1003,7 @@ class CustomRolloutSpecificationResponseProviderRegistration(dict):
 
 
 @pulumi.output_type
-class CustomRolloutStatusResponseManifestCheckinStatus(dict):
+class CustomRolloutStatusManifestCheckinStatusResponse(dict):
     """
     The manifest checkin status.
     """
@@ -1020,14 +1020,14 @@ class CustomRolloutStatusResponseManifestCheckinStatus(dict):
             suggest = "pull_request"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutStatusResponseManifestCheckinStatus. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CustomRolloutStatusManifestCheckinStatusResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CustomRolloutStatusResponseManifestCheckinStatus.__key_warning(key)
+        CustomRolloutStatusManifestCheckinStatusResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CustomRolloutStatusResponseManifestCheckinStatus.__key_warning(key)
+        CustomRolloutStatusManifestCheckinStatusResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1103,12 +1103,12 @@ class DefaultRolloutPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: _builtins.str,
-                 specification: Optional['outputs.DefaultRolloutPropertiesResponseSpecification'] = None,
-                 status: Optional['outputs.DefaultRolloutPropertiesResponseStatus'] = None):
+                 specification: Optional['outputs.DefaultRolloutPropertiesSpecificationResponse'] = None,
+                 status: Optional['outputs.DefaultRolloutPropertiesStatusResponse'] = None):
         """
         :param _builtins.str provisioning_state: The provisioned state of the resource.
-        :param 'DefaultRolloutPropertiesResponseSpecification' specification: The default rollout specification.
-        :param 'DefaultRolloutPropertiesResponseStatus' status: The default rollout status.
+        :param 'DefaultRolloutPropertiesSpecificationResponse' specification: The default rollout specification.
+        :param 'DefaultRolloutPropertiesStatusResponse' status: The default rollout status.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if specification is not None:
@@ -1126,7 +1126,7 @@ class DefaultRolloutPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def specification(self) -> Optional['outputs.DefaultRolloutPropertiesResponseSpecification']:
+    def specification(self) -> Optional['outputs.DefaultRolloutPropertiesSpecificationResponse']:
         """
         The default rollout specification.
         """
@@ -1134,7 +1134,7 @@ class DefaultRolloutPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional['outputs.DefaultRolloutPropertiesResponseStatus']:
+    def status(self) -> Optional['outputs.DefaultRolloutPropertiesStatusResponse']:
         """
         The default rollout status.
         """
@@ -1142,7 +1142,7 @@ class DefaultRolloutPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutPropertiesResponseSpecification(dict):
+class DefaultRolloutPropertiesSpecificationResponse(dict):
     """
     The default rollout specification.
     """
@@ -1169,39 +1169,39 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
             suggest = "rest_of_the_world_group_two"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutPropertiesResponseSpecification. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutPropertiesSpecificationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutPropertiesResponseSpecification.__key_warning(key)
+        DefaultRolloutPropertiesSpecificationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutPropertiesResponseSpecification.__key_warning(key)
+        DefaultRolloutPropertiesSpecificationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auto_provision_config: Optional['outputs.DefaultRolloutSpecificationResponseAutoProvisionConfig'] = None,
-                 canary: Optional['outputs.DefaultRolloutSpecificationResponseCanary'] = None,
-                 expedited_rollout: Optional['outputs.DefaultRolloutSpecificationResponseExpeditedRollout'] = None,
-                 high_traffic: Optional['outputs.DefaultRolloutSpecificationResponseHighTraffic'] = None,
-                 low_traffic: Optional['outputs.DefaultRolloutSpecificationResponseLowTraffic'] = None,
-                 medium_traffic: Optional['outputs.DefaultRolloutSpecificationResponseMediumTraffic'] = None,
-                 provider_registration: Optional['outputs.DefaultRolloutSpecificationResponseProviderRegistration'] = None,
+                 auto_provision_config: Optional['outputs.DefaultRolloutSpecificationAutoProvisionConfigResponse'] = None,
+                 canary: Optional['outputs.DefaultRolloutSpecificationCanaryResponse'] = None,
+                 expedited_rollout: Optional['outputs.DefaultRolloutSpecificationExpeditedRolloutResponse'] = None,
+                 high_traffic: Optional['outputs.DefaultRolloutSpecificationHighTrafficResponse'] = None,
+                 low_traffic: Optional['outputs.DefaultRolloutSpecificationLowTrafficResponse'] = None,
+                 medium_traffic: Optional['outputs.DefaultRolloutSpecificationMediumTrafficResponse'] = None,
+                 provider_registration: Optional['outputs.DefaultRolloutSpecificationProviderRegistrationResponse'] = None,
                  resource_type_registrations: Optional[Sequence['outputs.ResourceTypeRegistrationResponse']] = None,
-                 rest_of_the_world_group_one: Optional['outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne'] = None,
-                 rest_of_the_world_group_two: Optional['outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo'] = None):
+                 rest_of_the_world_group_one: Optional['outputs.DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse'] = None,
+                 rest_of_the_world_group_two: Optional['outputs.DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse'] = None):
         """
         The default rollout specification.
-        :param 'DefaultRolloutSpecificationResponseAutoProvisionConfig' auto_provision_config: The auto provisioning config.
-        :param 'DefaultRolloutSpecificationResponseCanary' canary: The canary traffic region configuration.
-        :param 'DefaultRolloutSpecificationResponseExpeditedRollout' expedited_rollout: The expedited rollout definition.
-        :param 'DefaultRolloutSpecificationResponseHighTraffic' high_traffic: The high traffic region configuration.
-        :param 'DefaultRolloutSpecificationResponseLowTraffic' low_traffic: The low traffic region configuration.
-        :param 'DefaultRolloutSpecificationResponseMediumTraffic' medium_traffic: The medium traffic region configuration.
-        :param 'DefaultRolloutSpecificationResponseProviderRegistration' provider_registration: The provider registration.
+        :param 'DefaultRolloutSpecificationAutoProvisionConfigResponse' auto_provision_config: The auto provisioning config.
+        :param 'DefaultRolloutSpecificationCanaryResponse' canary: The canary traffic region configuration.
+        :param 'DefaultRolloutSpecificationExpeditedRolloutResponse' expedited_rollout: The expedited rollout definition.
+        :param 'DefaultRolloutSpecificationHighTrafficResponse' high_traffic: The high traffic region configuration.
+        :param 'DefaultRolloutSpecificationLowTrafficResponse' low_traffic: The low traffic region configuration.
+        :param 'DefaultRolloutSpecificationMediumTrafficResponse' medium_traffic: The medium traffic region configuration.
+        :param 'DefaultRolloutSpecificationProviderRegistrationResponse' provider_registration: The provider registration.
         :param Sequence['ResourceTypeRegistrationResponse'] resource_type_registrations: The resource type registrations.
-        :param 'DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne' rest_of_the_world_group_one: The rest of the world group one region configuration.
-        :param 'DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo' rest_of_the_world_group_two: The rest of the world group two region configuration.
+        :param 'DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse' rest_of_the_world_group_one: The rest of the world group one region configuration.
+        :param 'DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse' rest_of_the_world_group_two: The rest of the world group two region configuration.
         """
         if auto_provision_config is not None:
             pulumi.set(__self__, "auto_provision_config", auto_provision_config)
@@ -1226,7 +1226,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="autoProvisionConfig")
-    def auto_provision_config(self) -> Optional['outputs.DefaultRolloutSpecificationResponseAutoProvisionConfig']:
+    def auto_provision_config(self) -> Optional['outputs.DefaultRolloutSpecificationAutoProvisionConfigResponse']:
         """
         The auto provisioning config.
         """
@@ -1234,7 +1234,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter
-    def canary(self) -> Optional['outputs.DefaultRolloutSpecificationResponseCanary']:
+    def canary(self) -> Optional['outputs.DefaultRolloutSpecificationCanaryResponse']:
         """
         The canary traffic region configuration.
         """
@@ -1242,7 +1242,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="expeditedRollout")
-    def expedited_rollout(self) -> Optional['outputs.DefaultRolloutSpecificationResponseExpeditedRollout']:
+    def expedited_rollout(self) -> Optional['outputs.DefaultRolloutSpecificationExpeditedRolloutResponse']:
         """
         The expedited rollout definition.
         """
@@ -1250,7 +1250,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="highTraffic")
-    def high_traffic(self) -> Optional['outputs.DefaultRolloutSpecificationResponseHighTraffic']:
+    def high_traffic(self) -> Optional['outputs.DefaultRolloutSpecificationHighTrafficResponse']:
         """
         The high traffic region configuration.
         """
@@ -1258,7 +1258,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="lowTraffic")
-    def low_traffic(self) -> Optional['outputs.DefaultRolloutSpecificationResponseLowTraffic']:
+    def low_traffic(self) -> Optional['outputs.DefaultRolloutSpecificationLowTrafficResponse']:
         """
         The low traffic region configuration.
         """
@@ -1266,7 +1266,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="mediumTraffic")
-    def medium_traffic(self) -> Optional['outputs.DefaultRolloutSpecificationResponseMediumTraffic']:
+    def medium_traffic(self) -> Optional['outputs.DefaultRolloutSpecificationMediumTrafficResponse']:
         """
         The medium traffic region configuration.
         """
@@ -1274,7 +1274,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="providerRegistration")
-    def provider_registration(self) -> Optional['outputs.DefaultRolloutSpecificationResponseProviderRegistration']:
+    def provider_registration(self) -> Optional['outputs.DefaultRolloutSpecificationProviderRegistrationResponse']:
         """
         The provider registration.
         """
@@ -1290,7 +1290,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="restOfTheWorldGroupOne")
-    def rest_of_the_world_group_one(self) -> Optional['outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne']:
+    def rest_of_the_world_group_one(self) -> Optional['outputs.DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse']:
         """
         The rest of the world group one region configuration.
         """
@@ -1298,7 +1298,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     @_builtins.property
     @pulumi.getter(name="restOfTheWorldGroupTwo")
-    def rest_of_the_world_group_two(self) -> Optional['outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo']:
+    def rest_of_the_world_group_two(self) -> Optional['outputs.DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse']:
         """
         The rest of the world group two region configuration.
         """
@@ -1306,7 +1306,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutPropertiesResponseStatus(dict):
+class DefaultRolloutPropertiesStatusResponse(dict):
     """
     The default rollout status.
     """
@@ -1327,20 +1327,20 @@ class DefaultRolloutPropertiesResponseStatus(dict):
             suggest = "subscription_reregistration_result"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutPropertiesStatusResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutPropertiesResponseStatus.__key_warning(key)
+        DefaultRolloutPropertiesStatusResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutPropertiesResponseStatus.__key_warning(key)
+        DefaultRolloutPropertiesStatusResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  completed_regions: Optional[Sequence[_builtins.str]] = None,
                  failed_or_skipped_regions: Optional[Mapping[str, 'outputs.ExtendedErrorInfoResponse']] = None,
-                 manifest_checkin_status: Optional['outputs.DefaultRolloutStatusResponseManifestCheckinStatus'] = None,
+                 manifest_checkin_status: Optional['outputs.DefaultRolloutStatusManifestCheckinStatusResponse'] = None,
                  next_traffic_region: Optional[_builtins.str] = None,
                  next_traffic_region_scheduled_time: Optional[_builtins.str] = None,
                  subscription_reregistration_result: Optional[_builtins.str] = None):
@@ -1348,7 +1348,7 @@ class DefaultRolloutPropertiesResponseStatus(dict):
         The default rollout status.
         :param Sequence[_builtins.str] completed_regions: The completed regions.
         :param Mapping[str, 'ExtendedErrorInfoResponse'] failed_or_skipped_regions: The failed or skipped regions.
-        :param 'DefaultRolloutStatusResponseManifestCheckinStatus' manifest_checkin_status: The manifest checkin status.
+        :param 'DefaultRolloutStatusManifestCheckinStatusResponse' manifest_checkin_status: The manifest checkin status.
         :param _builtins.str next_traffic_region: The next traffic region.
         :param _builtins.str next_traffic_region_scheduled_time: The next traffic region scheduled time.
         :param _builtins.str subscription_reregistration_result: The subscription reregistration result.
@@ -1384,7 +1384,7 @@ class DefaultRolloutPropertiesResponseStatus(dict):
 
     @_builtins.property
     @pulumi.getter(name="manifestCheckinStatus")
-    def manifest_checkin_status(self) -> Optional['outputs.DefaultRolloutStatusResponseManifestCheckinStatus']:
+    def manifest_checkin_status(self) -> Optional['outputs.DefaultRolloutStatusManifestCheckinStatusResponse']:
         """
         The manifest checkin status.
         """
@@ -1416,7 +1416,7 @@ class DefaultRolloutPropertiesResponseStatus(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseAutoProvisionConfig(dict):
+class DefaultRolloutSpecificationAutoProvisionConfigResponse(dict):
     """
     The auto provisioning config.
     """
@@ -1427,14 +1427,14 @@ class DefaultRolloutSpecificationResponseAutoProvisionConfig(dict):
             suggest = "resource_graph"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseAutoProvisionConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationAutoProvisionConfigResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseAutoProvisionConfig.__key_warning(key)
+        DefaultRolloutSpecificationAutoProvisionConfigResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseAutoProvisionConfig.__key_warning(key)
+        DefaultRolloutSpecificationAutoProvisionConfigResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1468,7 +1468,7 @@ class DefaultRolloutSpecificationResponseAutoProvisionConfig(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseCanary(dict):
+class DefaultRolloutSpecificationCanaryResponse(dict):
     """
     The canary traffic region configuration.
     """
@@ -1479,14 +1479,14 @@ class DefaultRolloutSpecificationResponseCanary(dict):
             suggest = "skip_regions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseCanary. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationCanaryResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseCanary.__key_warning(key)
+        DefaultRolloutSpecificationCanaryResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseCanary.__key_warning(key)
+        DefaultRolloutSpecificationCanaryResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1520,7 +1520,7 @@ class DefaultRolloutSpecificationResponseCanary(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseExpeditedRollout(dict):
+class DefaultRolloutSpecificationExpeditedRolloutResponse(dict):
     """
     The expedited rollout definition.
     """
@@ -1543,7 +1543,7 @@ class DefaultRolloutSpecificationResponseExpeditedRollout(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseHighTraffic(dict):
+class DefaultRolloutSpecificationHighTrafficResponse(dict):
     """
     The high traffic region configuration.
     """
@@ -1554,14 +1554,14 @@ class DefaultRolloutSpecificationResponseHighTraffic(dict):
             suggest = "wait_duration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseHighTraffic. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationHighTrafficResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseHighTraffic.__key_warning(key)
+        DefaultRolloutSpecificationHighTrafficResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseHighTraffic.__key_warning(key)
+        DefaultRolloutSpecificationHighTrafficResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1591,7 +1591,7 @@ class DefaultRolloutSpecificationResponseHighTraffic(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseLowTraffic(dict):
+class DefaultRolloutSpecificationLowTrafficResponse(dict):
     """
     The low traffic region configuration.
     """
@@ -1602,14 +1602,14 @@ class DefaultRolloutSpecificationResponseLowTraffic(dict):
             suggest = "wait_duration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseLowTraffic. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationLowTrafficResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseLowTraffic.__key_warning(key)
+        DefaultRolloutSpecificationLowTrafficResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseLowTraffic.__key_warning(key)
+        DefaultRolloutSpecificationLowTrafficResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1639,7 +1639,7 @@ class DefaultRolloutSpecificationResponseLowTraffic(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseMediumTraffic(dict):
+class DefaultRolloutSpecificationMediumTrafficResponse(dict):
     """
     The medium traffic region configuration.
     """
@@ -1650,14 +1650,14 @@ class DefaultRolloutSpecificationResponseMediumTraffic(dict):
             suggest = "wait_duration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseMediumTraffic. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationMediumTrafficResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseMediumTraffic.__key_warning(key)
+        DefaultRolloutSpecificationMediumTrafficResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseMediumTraffic.__key_warning(key)
+        DefaultRolloutSpecificationMediumTrafficResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1687,7 +1687,7 @@ class DefaultRolloutSpecificationResponseMediumTraffic(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseProviderRegistration(dict):
+class DefaultRolloutSpecificationProviderRegistrationResponse(dict):
     """
     The provider registration.
     """
@@ -1698,14 +1698,14 @@ class DefaultRolloutSpecificationResponseProviderRegistration(dict):
             suggest = "system_data"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseProviderRegistration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationProviderRegistrationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        DefaultRolloutSpecificationProviderRegistrationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        DefaultRolloutSpecificationProviderRegistrationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1781,7 +1781,7 @@ class DefaultRolloutSpecificationResponseProviderRegistration(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne(dict):
+class DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse(dict):
     """
     The rest of the world group one region configuration.
     """
@@ -1792,14 +1792,14 @@ class DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne(dict):
             suggest = "wait_duration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne.__key_warning(key)
+        DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne.__key_warning(key)
+        DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1829,7 +1829,7 @@ class DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo(dict):
+class DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse(dict):
     """
     The rest of the world group two region configuration.
     """
@@ -1840,14 +1840,14 @@ class DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo(dict):
             suggest = "wait_duration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo.__key_warning(key)
+        DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo.__key_warning(key)
+        DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1877,7 +1877,7 @@ class DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo(dict):
 
 
 @pulumi.output_type
-class DefaultRolloutStatusResponseManifestCheckinStatus(dict):
+class DefaultRolloutStatusManifestCheckinStatusResponse(dict):
     """
     The manifest checkin status.
     """
@@ -1894,14 +1894,14 @@ class DefaultRolloutStatusResponseManifestCheckinStatus(dict):
             suggest = "pull_request"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutStatusResponseManifestCheckinStatus. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutStatusManifestCheckinStatusResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefaultRolloutStatusResponseManifestCheckinStatus.__key_warning(key)
+        DefaultRolloutStatusManifestCheckinStatusResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefaultRolloutStatusResponseManifestCheckinStatus.__key_warning(key)
+        DefaultRolloutStatusManifestCheckinStatusResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2215,81 +2215,7 @@ class ExtendedLocationOptionsResponse(dict):
 
 
 @pulumi.output_type
-class FanoutLinkedNotificationRuleResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dstsConfiguration":
-            suggest = "dsts_configuration"
-        elif key == "tokenAuthConfiguration":
-            suggest = "token_auth_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FanoutLinkedNotificationRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FanoutLinkedNotificationRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FanoutLinkedNotificationRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions: Optional[Sequence[_builtins.str]] = None,
-                 dsts_configuration: Optional['outputs.FanoutLinkedNotificationRuleResponseDstsConfiguration'] = None,
-                 endpoints: Optional[Sequence['outputs.ResourceProviderEndpointResponse']] = None,
-                 token_auth_configuration: Optional['outputs.TokenAuthConfigurationResponse'] = None):
-        """
-        :param Sequence[_builtins.str] actions: The actions.
-        :param 'FanoutLinkedNotificationRuleResponseDstsConfiguration' dsts_configuration: The dsts configuration.
-        :param Sequence['ResourceProviderEndpointResponse'] endpoints: The endpoints.
-        :param 'TokenAuthConfigurationResponse' token_auth_configuration: The token auth configuration.
-        """
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if dsts_configuration is not None:
-            pulumi.set(__self__, "dsts_configuration", dsts_configuration)
-        if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
-        if token_auth_configuration is not None:
-            pulumi.set(__self__, "token_auth_configuration", token_auth_configuration)
-
-    @_builtins.property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The actions.
-        """
-        return pulumi.get(self, "actions")
-
-    @_builtins.property
-    @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional['outputs.FanoutLinkedNotificationRuleResponseDstsConfiguration']:
-        """
-        The dsts configuration.
-        """
-        return pulumi.get(self, "dsts_configuration")
-
-    @_builtins.property
-    @pulumi.getter
-    def endpoints(self) -> Optional[Sequence['outputs.ResourceProviderEndpointResponse']]:
-        """
-        The endpoints.
-        """
-        return pulumi.get(self, "endpoints")
-
-    @_builtins.property
-    @pulumi.getter(name="tokenAuthConfiguration")
-    def token_auth_configuration(self) -> Optional['outputs.TokenAuthConfigurationResponse']:
-        """
-        The token auth configuration.
-        """
-        return pulumi.get(self, "token_auth_configuration")
-
-
-@pulumi.output_type
-class FanoutLinkedNotificationRuleResponseDstsConfiguration(dict):
+class FanoutLinkedNotificationRuleDstsConfigurationResponse(dict):
     """
     The dsts configuration.
     """
@@ -2302,14 +2228,14 @@ class FanoutLinkedNotificationRuleResponseDstsConfiguration(dict):
             suggest = "service_dns_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FanoutLinkedNotificationRuleResponseDstsConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FanoutLinkedNotificationRuleDstsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FanoutLinkedNotificationRuleResponseDstsConfiguration.__key_warning(key)
+        FanoutLinkedNotificationRuleDstsConfigurationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FanoutLinkedNotificationRuleResponseDstsConfiguration.__key_warning(key)
+        FanoutLinkedNotificationRuleDstsConfigurationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2339,6 +2265,80 @@ class FanoutLinkedNotificationRuleResponseDstsConfiguration(dict):
         This is a URI property.
         """
         return pulumi.get(self, "service_dns_name")
+
+
+@pulumi.output_type
+class FanoutLinkedNotificationRuleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dstsConfiguration":
+            suggest = "dsts_configuration"
+        elif key == "tokenAuthConfiguration":
+            suggest = "token_auth_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FanoutLinkedNotificationRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FanoutLinkedNotificationRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FanoutLinkedNotificationRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Optional[Sequence[_builtins.str]] = None,
+                 dsts_configuration: Optional['outputs.FanoutLinkedNotificationRuleDstsConfigurationResponse'] = None,
+                 endpoints: Optional[Sequence['outputs.ResourceProviderEndpointResponse']] = None,
+                 token_auth_configuration: Optional['outputs.TokenAuthConfigurationResponse'] = None):
+        """
+        :param Sequence[_builtins.str] actions: The actions.
+        :param 'FanoutLinkedNotificationRuleDstsConfigurationResponse' dsts_configuration: The dsts configuration.
+        :param Sequence['ResourceProviderEndpointResponse'] endpoints: The endpoints.
+        :param 'TokenAuthConfigurationResponse' token_auth_configuration: The token auth configuration.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if dsts_configuration is not None:
+            pulumi.set(__self__, "dsts_configuration", dsts_configuration)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if token_auth_configuration is not None:
+            pulumi.set(__self__, "token_auth_configuration", token_auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The actions.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dstsConfiguration")
+    def dsts_configuration(self) -> Optional['outputs.FanoutLinkedNotificationRuleDstsConfigurationResponse']:
+        """
+        The dsts configuration.
+        """
+        return pulumi.get(self, "dsts_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoints(self) -> Optional[Sequence['outputs.ResourceProviderEndpointResponse']]:
+        """
+        The endpoints.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenAuthConfiguration")
+    def token_auth_configuration(self) -> Optional['outputs.TokenAuthConfigurationResponse']:
+        """
+        The token auth configuration.
+        """
+        return pulumi.get(self, "token_auth_configuration")
 
 
 @pulumi.output_type
@@ -2792,6 +2792,60 @@ class LocationQuotaRuleResponse(dict):
 
 
 @pulumi.output_type
+class LoggingRuleHiddenPropertyPathsResponse(dict):
+    """
+    The hidden property paths.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hiddenPathsOnRequest":
+            suggest = "hidden_paths_on_request"
+        elif key == "hiddenPathsOnResponse":
+            suggest = "hidden_paths_on_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingRuleHiddenPropertyPathsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingRuleHiddenPropertyPathsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingRuleHiddenPropertyPathsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hidden_paths_on_request: Optional[Sequence[_builtins.str]] = None,
+                 hidden_paths_on_response: Optional[Sequence[_builtins.str]] = None):
+        """
+        The hidden property paths.
+        :param Sequence[_builtins.str] hidden_paths_on_request: The hidden paths on request.
+        :param Sequence[_builtins.str] hidden_paths_on_response: The hidden paths on response.
+        """
+        if hidden_paths_on_request is not None:
+            pulumi.set(__self__, "hidden_paths_on_request", hidden_paths_on_request)
+        if hidden_paths_on_response is not None:
+            pulumi.set(__self__, "hidden_paths_on_response", hidden_paths_on_response)
+
+    @_builtins.property
+    @pulumi.getter(name="hiddenPathsOnRequest")
+    def hidden_paths_on_request(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The hidden paths on request.
+        """
+        return pulumi.get(self, "hidden_paths_on_request")
+
+    @_builtins.property
+    @pulumi.getter(name="hiddenPathsOnResponse")
+    def hidden_paths_on_response(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The hidden paths on response.
+        """
+        return pulumi.get(self, "hidden_paths_on_response")
+
+
+@pulumi.output_type
 class LoggingRuleResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2816,12 +2870,12 @@ class LoggingRuleResponse(dict):
                  action: _builtins.str,
                  detail_level: _builtins.str,
                  direction: _builtins.str,
-                 hidden_property_paths: Optional['outputs.LoggingRuleResponseHiddenPropertyPaths'] = None):
+                 hidden_property_paths: Optional['outputs.LoggingRuleHiddenPropertyPathsResponse'] = None):
         """
         :param _builtins.str action: The action.
         :param _builtins.str detail_level: The detail level.
         :param _builtins.str direction: The direction.
-        :param 'LoggingRuleResponseHiddenPropertyPaths' hidden_property_paths: The hidden property paths.
+        :param 'LoggingRuleHiddenPropertyPathsResponse' hidden_property_paths: The hidden property paths.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "detail_level", detail_level)
@@ -2855,65 +2909,11 @@ class LoggingRuleResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="hiddenPropertyPaths")
-    def hidden_property_paths(self) -> Optional['outputs.LoggingRuleResponseHiddenPropertyPaths']:
+    def hidden_property_paths(self) -> Optional['outputs.LoggingRuleHiddenPropertyPathsResponse']:
         """
         The hidden property paths.
         """
         return pulumi.get(self, "hidden_property_paths")
-
-
-@pulumi.output_type
-class LoggingRuleResponseHiddenPropertyPaths(dict):
-    """
-    The hidden property paths.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "hiddenPathsOnRequest":
-            suggest = "hidden_paths_on_request"
-        elif key == "hiddenPathsOnResponse":
-            suggest = "hidden_paths_on_response"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoggingRuleResponseHiddenPropertyPaths. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LoggingRuleResponseHiddenPropertyPaths.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LoggingRuleResponseHiddenPropertyPaths.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 hidden_paths_on_request: Optional[Sequence[_builtins.str]] = None,
-                 hidden_paths_on_response: Optional[Sequence[_builtins.str]] = None):
-        """
-        The hidden property paths.
-        :param Sequence[_builtins.str] hidden_paths_on_request: The hidden paths on request.
-        :param Sequence[_builtins.str] hidden_paths_on_response: The hidden paths on response.
-        """
-        if hidden_paths_on_request is not None:
-            pulumi.set(__self__, "hidden_paths_on_request", hidden_paths_on_request)
-        if hidden_paths_on_response is not None:
-            pulumi.set(__self__, "hidden_paths_on_response", hidden_paths_on_response)
-
-    @_builtins.property
-    @pulumi.getter(name="hiddenPathsOnRequest")
-    def hidden_paths_on_request(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The hidden paths on request.
-        """
-        return pulumi.get(self, "hidden_paths_on_request")
-
-    @_builtins.property
-    @pulumi.getter(name="hiddenPathsOnResponse")
-    def hidden_paths_on_response(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The hidden paths on response.
-        """
-        return pulumi.get(self, "hidden_paths_on_response")
 
 
 @pulumi.output_type
@@ -3161,7 +3161,7 @@ class OpenApiValidationResponse(dict):
 
 
 @pulumi.output_type
-class ProviderHubMetadataResponseProviderAuthentication(dict):
+class ProviderHubMetadataProviderAuthenticationResponse(dict):
     """
     The provider authentication.
     """
@@ -3172,14 +3172,14 @@ class ProviderHubMetadataResponseProviderAuthentication(dict):
             suggest = "allowed_audiences"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderHubMetadataResponseProviderAuthentication. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ProviderHubMetadataProviderAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ProviderHubMetadataResponseProviderAuthentication.__key_warning(key)
+        ProviderHubMetadataProviderAuthenticationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ProviderHubMetadataResponseProviderAuthentication.__key_warning(key)
+        ProviderHubMetadataProviderAuthenticationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3200,7 +3200,7 @@ class ProviderHubMetadataResponseProviderAuthentication(dict):
 
 
 @pulumi.output_type
-class ProviderHubMetadataResponseThirdPartyProviderAuthorization(dict):
+class ProviderHubMetadataThirdPartyProviderAuthorizationResponse(dict):
     """
     The third party provider authorization.
     """
@@ -3211,14 +3211,14 @@ class ProviderHubMetadataResponseThirdPartyProviderAuthorization(dict):
             suggest = "managed_by_tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderHubMetadataResponseThirdPartyProviderAuthorization. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ProviderHubMetadataThirdPartyProviderAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ProviderHubMetadataResponseThirdPartyProviderAuthorization.__key_warning(key)
+        ProviderHubMetadataThirdPartyProviderAuthorizationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ProviderHubMetadataResponseThirdPartyProviderAuthorization.__key_warning(key)
+        ProviderHubMetadataThirdPartyProviderAuthorizationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3284,6 +3284,156 @@ class ProviderMonitorSettingPropertiesResponse(dict):
         The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse(dict):
+    """
+    The private resource provider configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedSubscriptions":
+            suggest = "allowed_subscriptions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_subscriptions: Optional[Sequence[_builtins.str]] = None):
+        """
+        The private resource provider configuration.
+        :param Sequence[_builtins.str] allowed_subscriptions: The allowed subscriptions.
+        """
+        if allowed_subscriptions is not None:
+            pulumi.set(__self__, "allowed_subscriptions", allowed_subscriptions)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedSubscriptions")
+    def allowed_subscriptions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The allowed subscriptions.
+        """
+        return pulumi.get(self, "allowed_subscriptions")
+
+
+@pulumi.output_type
+class ProviderRegistrationPropertiesProviderHubMetadataResponse(dict):
+    """
+    The provider hub metadata.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directRpRoleDefinitionId":
+            suggest = "direct_rp_role_definition_id"
+        elif key == "globalAsyncOperationResourceTypeName":
+            suggest = "global_async_operation_resource_type_name"
+        elif key == "providerAuthentication":
+            suggest = "provider_authentication"
+        elif key == "providerAuthorizations":
+            suggest = "provider_authorizations"
+        elif key == "regionalAsyncOperationResourceTypeName":
+            suggest = "regional_async_operation_resource_type_name"
+        elif key == "thirdPartyProviderAuthorization":
+            suggest = "third_party_provider_authorization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesProviderHubMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderRegistrationPropertiesProviderHubMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderRegistrationPropertiesProviderHubMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 direct_rp_role_definition_id: Optional[_builtins.str] = None,
+                 global_async_operation_resource_type_name: Optional[_builtins.str] = None,
+                 provider_authentication: Optional['outputs.ProviderHubMetadataProviderAuthenticationResponse'] = None,
+                 provider_authorizations: Optional[Sequence['outputs.ResourceProviderAuthorizationResponse']] = None,
+                 regional_async_operation_resource_type_name: Optional[_builtins.str] = None,
+                 third_party_provider_authorization: Optional['outputs.ProviderHubMetadataThirdPartyProviderAuthorizationResponse'] = None):
+        """
+        The provider hub metadata.
+        :param _builtins.str direct_rp_role_definition_id: The direct RP role definition id.
+        :param _builtins.str global_async_operation_resource_type_name: The global async operation resource type name.
+        :param 'ProviderHubMetadataProviderAuthenticationResponse' provider_authentication: The provider authentication.
+        :param Sequence['ResourceProviderAuthorizationResponse'] provider_authorizations: The provider authorizations.
+        :param _builtins.str regional_async_operation_resource_type_name: The regional async operation resource type name.
+        :param 'ProviderHubMetadataThirdPartyProviderAuthorizationResponse' third_party_provider_authorization: The third party provider authorization.
+        """
+        if direct_rp_role_definition_id is not None:
+            pulumi.set(__self__, "direct_rp_role_definition_id", direct_rp_role_definition_id)
+        if global_async_operation_resource_type_name is not None:
+            pulumi.set(__self__, "global_async_operation_resource_type_name", global_async_operation_resource_type_name)
+        if provider_authentication is not None:
+            pulumi.set(__self__, "provider_authentication", provider_authentication)
+        if provider_authorizations is not None:
+            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
+        if regional_async_operation_resource_type_name is not None:
+            pulumi.set(__self__, "regional_async_operation_resource_type_name", regional_async_operation_resource_type_name)
+        if third_party_provider_authorization is not None:
+            pulumi.set(__self__, "third_party_provider_authorization", third_party_provider_authorization)
+
+    @_builtins.property
+    @pulumi.getter(name="directRpRoleDefinitionId")
+    def direct_rp_role_definition_id(self) -> Optional[_builtins.str]:
+        """
+        The direct RP role definition id.
+        """
+        return pulumi.get(self, "direct_rp_role_definition_id")
+
+    @_builtins.property
+    @pulumi.getter(name="globalAsyncOperationResourceTypeName")
+    def global_async_operation_resource_type_name(self) -> Optional[_builtins.str]:
+        """
+        The global async operation resource type name.
+        """
+        return pulumi.get(self, "global_async_operation_resource_type_name")
+
+    @_builtins.property
+    @pulumi.getter(name="providerAuthentication")
+    def provider_authentication(self) -> Optional['outputs.ProviderHubMetadataProviderAuthenticationResponse']:
+        """
+        The provider authentication.
+        """
+        return pulumi.get(self, "provider_authentication")
+
+    @_builtins.property
+    @pulumi.getter(name="providerAuthorizations")
+    def provider_authorizations(self) -> Optional[Sequence['outputs.ResourceProviderAuthorizationResponse']]:
+        """
+        The provider authorizations.
+        """
+        return pulumi.get(self, "provider_authorizations")
+
+    @_builtins.property
+    @pulumi.getter(name="regionalAsyncOperationResourceTypeName")
+    def regional_async_operation_resource_type_name(self) -> Optional[_builtins.str]:
+        """
+        The regional async operation resource type name.
+        """
+        return pulumi.get(self, "regional_async_operation_resource_type_name")
+
+    @_builtins.property
+    @pulumi.getter(name="thirdPartyProviderAuthorization")
+    def third_party_provider_authorization(self) -> Optional['outputs.ProviderHubMetadataThirdPartyProviderAuthorizationResponse']:
+        """
+        The third party provider authorization.
+        """
+        return pulumi.get(self, "third_party_provider_authorization")
 
 
 @pulumi.output_type
@@ -3368,74 +3518,74 @@ class ProviderRegistrationPropertiesResponse(dict):
                  capabilities: Optional[Sequence['outputs.ResourceProviderCapabilitiesResponse']] = None,
                  cross_tenant_token_validation: Optional[_builtins.str] = None,
                  custom_manifest_version: Optional[_builtins.str] = None,
-                 dsts_configuration: Optional['outputs.ResourceProviderManifestPropertiesResponseDstsConfiguration'] = None,
+                 dsts_configuration: Optional['outputs.ResourceProviderManifestPropertiesDstsConfigurationResponse'] = None,
                  enable_tenant_linked_notification: Optional[_builtins.bool] = None,
-                 features_rule: Optional['outputs.ResourceProviderManifestPropertiesResponseFeaturesRule'] = None,
+                 features_rule: Optional['outputs.ResourceProviderManifestPropertiesFeaturesRuleResponse'] = None,
                  global_notification_endpoints: Optional[Sequence['outputs.ResourceProviderEndpointResponse']] = None,
                  legacy_namespace: Optional[_builtins.str] = None,
                  legacy_registrations: Optional[Sequence[_builtins.str]] = None,
                  linked_notification_rules: Optional[Sequence['outputs.FanoutLinkedNotificationRuleResponse']] = None,
-                 management: Optional['outputs.ResourceProviderManifestPropertiesResponseManagement'] = None,
+                 management: Optional['outputs.ResourceProviderManifestPropertiesManagementResponse'] = None,
                  management_group_global_notification_endpoints: Optional[Sequence['outputs.ResourceProviderEndpointResponse']] = None,
                  metadata: Optional[Any] = None,
                  namespace: Optional[_builtins.str] = None,
                  notification_options: Optional[_builtins.str] = None,
-                 notification_settings: Optional['outputs.ResourceProviderManifestPropertiesResponseNotificationSettings'] = None,
+                 notification_settings: Optional['outputs.ResourceProviderManifestPropertiesNotificationSettingsResponse'] = None,
                  notifications: Optional[Sequence['outputs.NotificationResponse']] = None,
                  optional_features: Optional[Sequence[_builtins.str]] = None,
-                 private_resource_provider_configuration: Optional['outputs.ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration'] = None,
-                 provider_authentication: Optional['outputs.ResourceProviderManifestPropertiesResponseProviderAuthentication'] = None,
+                 private_resource_provider_configuration: Optional['outputs.ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse'] = None,
+                 provider_authentication: Optional['outputs.ResourceProviderManifestPropertiesProviderAuthenticationResponse'] = None,
                  provider_authorizations: Optional[Sequence['outputs.ResourceProviderAuthorizationResponse']] = None,
-                 provider_hub_metadata: Optional['outputs.ProviderRegistrationPropertiesResponseProviderHubMetadata'] = None,
+                 provider_hub_metadata: Optional['outputs.ProviderRegistrationPropertiesProviderHubMetadataResponse'] = None,
                  provider_type: Optional[_builtins.str] = None,
                  provider_version: Optional[_builtins.str] = None,
-                 request_header_options: Optional['outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions'] = None,
+                 request_header_options: Optional['outputs.ResourceProviderManifestPropertiesRequestHeaderOptionsResponse'] = None,
                  required_features: Optional[Sequence[_builtins.str]] = None,
-                 resource_group_lock_option_during_move: Optional['outputs.ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove'] = None,
+                 resource_group_lock_option_during_move: Optional['outputs.ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse'] = None,
                  resource_hydration_accounts: Optional[Sequence['outputs.ResourceHydrationAccountResponse']] = None,
                  resource_provider_authorization_rules: Optional['outputs.ResourceProviderAuthorizationRulesResponse'] = None,
-                 response_options: Optional['outputs.ResourceProviderManifestPropertiesResponseResponseOptions'] = None,
+                 response_options: Optional['outputs.ResourceProviderManifestPropertiesResponseOptionsResponse'] = None,
                  service_name: Optional[_builtins.str] = None,
                  services: Optional[Sequence['outputs.ResourceProviderServiceResponse']] = None,
-                 subscription_lifecycle_notification_specifications: Optional['outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications'] = None,
-                 template_deployment_options: Optional['outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions'] = None,
+                 subscription_lifecycle_notification_specifications: Optional['outputs.ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse'] = None,
+                 template_deployment_options: Optional['outputs.ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse'] = None,
                  token_auth_configuration: Optional['outputs.TokenAuthConfigurationResponse'] = None):
         """
         :param _builtins.str provisioning_state: The provisioning state.
         :param Sequence['ResourceProviderCapabilitiesResponse'] capabilities: The capabilities.
         :param _builtins.str cross_tenant_token_validation: The cross tenant token validation.
         :param _builtins.str custom_manifest_version: Custom manifest version.
-        :param 'ResourceProviderManifestPropertiesResponseDstsConfiguration' dsts_configuration: The dsts configuration.
+        :param 'ResourceProviderManifestPropertiesDstsConfigurationResponse' dsts_configuration: The dsts configuration.
         :param _builtins.bool enable_tenant_linked_notification: The enable tenant linked notification.
-        :param 'ResourceProviderManifestPropertiesResponseFeaturesRule' features_rule: The features rule.
+        :param 'ResourceProviderManifestPropertiesFeaturesRuleResponse' features_rule: The features rule.
         :param Sequence['ResourceProviderEndpointResponse'] global_notification_endpoints: The global notification endpoints.
         :param _builtins.str legacy_namespace: Legacy namespace.
         :param Sequence[_builtins.str] legacy_registrations: Legacy registrations.
         :param Sequence['FanoutLinkedNotificationRuleResponse'] linked_notification_rules: The linked notification rules.
-        :param 'ResourceProviderManifestPropertiesResponseManagement' management: The resource provider management.
+        :param 'ResourceProviderManifestPropertiesManagementResponse' management: The resource provider management.
         :param Sequence['ResourceProviderEndpointResponse'] management_group_global_notification_endpoints: Management groups global notification endpoints.
         :param Any metadata: The metadata.
         :param _builtins.str namespace: The namespace.
         :param _builtins.str notification_options: Notification options.
-        :param 'ResourceProviderManifestPropertiesResponseNotificationSettings' notification_settings: Notification settings.
+        :param 'ResourceProviderManifestPropertiesNotificationSettingsResponse' notification_settings: Notification settings.
         :param Sequence['NotificationResponse'] notifications: The notifications.
         :param Sequence[_builtins.str] optional_features: Optional features.
-        :param 'ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration' private_resource_provider_configuration: The private resource provider configuration.
-        :param 'ResourceProviderManifestPropertiesResponseProviderAuthentication' provider_authentication: The provider authentication.
+        :param 'ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse' private_resource_provider_configuration: The private resource provider configuration.
+        :param 'ResourceProviderManifestPropertiesProviderAuthenticationResponse' provider_authentication: The provider authentication.
         :param Sequence['ResourceProviderAuthorizationResponse'] provider_authorizations: The provider authorizations.
-        :param 'ProviderRegistrationPropertiesResponseProviderHubMetadata' provider_hub_metadata: The provider hub metadata.
+        :param 'ProviderRegistrationPropertiesProviderHubMetadataResponse' provider_hub_metadata: The provider hub metadata.
         :param _builtins.str provider_type: The provider type.
         :param _builtins.str provider_version: The provider version.
-        :param 'ResourceProviderManifestPropertiesResponseRequestHeaderOptions' request_header_options: The request header options.
+        :param 'ResourceProviderManifestPropertiesRequestHeaderOptionsResponse' request_header_options: The request header options.
         :param Sequence[_builtins.str] required_features: The required features.
-        :param 'ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove' resource_group_lock_option_during_move: Resource group lock option during move.
+        :param 'ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse' resource_group_lock_option_during_move: Resource group lock option during move.
         :param Sequence['ResourceHydrationAccountResponse'] resource_hydration_accounts: resource hydration accounts
         :param 'ResourceProviderAuthorizationRulesResponse' resource_provider_authorization_rules: The resource provider authorization rules.
-        :param 'ResourceProviderManifestPropertiesResponseResponseOptions' response_options: Response options.
+        :param 'ResourceProviderManifestPropertiesResponseOptionsResponse' response_options: Response options.
         :param _builtins.str service_name: The service name.
         :param Sequence['ResourceProviderServiceResponse'] services: The services.
-        :param 'ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications' subscription_lifecycle_notification_specifications: The subscription lifecycle notification specifications.
-        :param 'ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions' template_deployment_options: The template deployment options.
+        :param 'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse' subscription_lifecycle_notification_specifications: The subscription lifecycle notification specifications.
+        :param 'ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse' template_deployment_options: The template deployment options.
         :param 'TokenAuthConfigurationResponse' token_auth_configuration: The token auth configuration.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -3544,7 +3694,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseDstsConfiguration']:
+    def dsts_configuration(self) -> Optional['outputs.ResourceProviderManifestPropertiesDstsConfigurationResponse']:
         """
         The dsts configuration.
         """
@@ -3560,7 +3710,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseFeaturesRule']:
+    def features_rule(self) -> Optional['outputs.ResourceProviderManifestPropertiesFeaturesRuleResponse']:
         """
         The features rule.
         """
@@ -3600,7 +3750,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def management(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseManagement']:
+    def management(self) -> Optional['outputs.ResourceProviderManifestPropertiesManagementResponse']:
         """
         The resource provider management.
         """
@@ -3640,7 +3790,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseNotificationSettings']:
+    def notification_settings(self) -> Optional['outputs.ResourceProviderManifestPropertiesNotificationSettingsResponse']:
         """
         Notification settings.
         """
@@ -3664,7 +3814,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateResourceProviderConfiguration")
-    def private_resource_provider_configuration(self) -> Optional['outputs.ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration']:
+    def private_resource_provider_configuration(self) -> Optional['outputs.ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse']:
         """
         The private resource provider configuration.
         """
@@ -3672,7 +3822,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="providerAuthentication")
-    def provider_authentication(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseProviderAuthentication']:
+    def provider_authentication(self) -> Optional['outputs.ResourceProviderManifestPropertiesProviderAuthenticationResponse']:
         """
         The provider authentication.
         """
@@ -3688,7 +3838,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="providerHubMetadata")
-    def provider_hub_metadata(self) -> Optional['outputs.ProviderRegistrationPropertiesResponseProviderHubMetadata']:
+    def provider_hub_metadata(self) -> Optional['outputs.ProviderRegistrationPropertiesProviderHubMetadataResponse']:
         """
         The provider hub metadata.
         """
@@ -3712,7 +3862,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderOptions")
-    def request_header_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions']:
+    def request_header_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesRequestHeaderOptionsResponse']:
         """
         The request header options.
         """
@@ -3728,7 +3878,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupLockOptionDuringMove")
-    def resource_group_lock_option_during_move(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove']:
+    def resource_group_lock_option_during_move(self) -> Optional['outputs.ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse']:
         """
         Resource group lock option during move.
         """
@@ -3752,7 +3902,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="responseOptions")
-    def response_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseResponseOptions']:
+    def response_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseOptionsResponse']:
         """
         Response options.
         """
@@ -3776,7 +3926,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLifecycleNotificationSpecifications")
-    def subscription_lifecycle_notification_specifications(self) -> Optional['outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications']:
+    def subscription_lifecycle_notification_specifications(self) -> Optional['outputs.ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse']:
         """
         The subscription lifecycle notification specifications.
         """
@@ -3784,7 +3934,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="templateDeploymentOptions")
-    def template_deployment_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions']:
+    def template_deployment_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse']:
         """
         The template deployment options.
         """
@@ -3800,157 +3950,7 @@ class ProviderRegistrationPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration(dict):
-    """
-    The private resource provider configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "allowedSubscriptions":
-            suggest = "allowed_subscriptions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderRegistrationPropertiesResponsePrivateResourceProviderConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 allowed_subscriptions: Optional[Sequence[_builtins.str]] = None):
-        """
-        The private resource provider configuration.
-        :param Sequence[_builtins.str] allowed_subscriptions: The allowed subscriptions.
-        """
-        if allowed_subscriptions is not None:
-            pulumi.set(__self__, "allowed_subscriptions", allowed_subscriptions)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedSubscriptions")
-    def allowed_subscriptions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The allowed subscriptions.
-        """
-        return pulumi.get(self, "allowed_subscriptions")
-
-
-@pulumi.output_type
-class ProviderRegistrationPropertiesResponseProviderHubMetadata(dict):
-    """
-    The provider hub metadata.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "directRpRoleDefinitionId":
-            suggest = "direct_rp_role_definition_id"
-        elif key == "globalAsyncOperationResourceTypeName":
-            suggest = "global_async_operation_resource_type_name"
-        elif key == "providerAuthentication":
-            suggest = "provider_authentication"
-        elif key == "providerAuthorizations":
-            suggest = "provider_authorizations"
-        elif key == "regionalAsyncOperationResourceTypeName":
-            suggest = "regional_async_operation_resource_type_name"
-        elif key == "thirdPartyProviderAuthorization":
-            suggest = "third_party_provider_authorization"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesResponseProviderHubMetadata. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderRegistrationPropertiesResponseProviderHubMetadata.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderRegistrationPropertiesResponseProviderHubMetadata.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 direct_rp_role_definition_id: Optional[_builtins.str] = None,
-                 global_async_operation_resource_type_name: Optional[_builtins.str] = None,
-                 provider_authentication: Optional['outputs.ProviderHubMetadataResponseProviderAuthentication'] = None,
-                 provider_authorizations: Optional[Sequence['outputs.ResourceProviderAuthorizationResponse']] = None,
-                 regional_async_operation_resource_type_name: Optional[_builtins.str] = None,
-                 third_party_provider_authorization: Optional['outputs.ProviderHubMetadataResponseThirdPartyProviderAuthorization'] = None):
-        """
-        The provider hub metadata.
-        :param _builtins.str direct_rp_role_definition_id: The direct RP role definition id.
-        :param _builtins.str global_async_operation_resource_type_name: The global async operation resource type name.
-        :param 'ProviderHubMetadataResponseProviderAuthentication' provider_authentication: The provider authentication.
-        :param Sequence['ResourceProviderAuthorizationResponse'] provider_authorizations: The provider authorizations.
-        :param _builtins.str regional_async_operation_resource_type_name: The regional async operation resource type name.
-        :param 'ProviderHubMetadataResponseThirdPartyProviderAuthorization' third_party_provider_authorization: The third party provider authorization.
-        """
-        if direct_rp_role_definition_id is not None:
-            pulumi.set(__self__, "direct_rp_role_definition_id", direct_rp_role_definition_id)
-        if global_async_operation_resource_type_name is not None:
-            pulumi.set(__self__, "global_async_operation_resource_type_name", global_async_operation_resource_type_name)
-        if provider_authentication is not None:
-            pulumi.set(__self__, "provider_authentication", provider_authentication)
-        if provider_authorizations is not None:
-            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
-        if regional_async_operation_resource_type_name is not None:
-            pulumi.set(__self__, "regional_async_operation_resource_type_name", regional_async_operation_resource_type_name)
-        if third_party_provider_authorization is not None:
-            pulumi.set(__self__, "third_party_provider_authorization", third_party_provider_authorization)
-
-    @_builtins.property
-    @pulumi.getter(name="directRpRoleDefinitionId")
-    def direct_rp_role_definition_id(self) -> Optional[_builtins.str]:
-        """
-        The direct RP role definition id.
-        """
-        return pulumi.get(self, "direct_rp_role_definition_id")
-
-    @_builtins.property
-    @pulumi.getter(name="globalAsyncOperationResourceTypeName")
-    def global_async_operation_resource_type_name(self) -> Optional[_builtins.str]:
-        """
-        The global async operation resource type name.
-        """
-        return pulumi.get(self, "global_async_operation_resource_type_name")
-
-    @_builtins.property
-    @pulumi.getter(name="providerAuthentication")
-    def provider_authentication(self) -> Optional['outputs.ProviderHubMetadataResponseProviderAuthentication']:
-        """
-        The provider authentication.
-        """
-        return pulumi.get(self, "provider_authentication")
-
-    @_builtins.property
-    @pulumi.getter(name="providerAuthorizations")
-    def provider_authorizations(self) -> Optional[Sequence['outputs.ResourceProviderAuthorizationResponse']]:
-        """
-        The provider authorizations.
-        """
-        return pulumi.get(self, "provider_authorizations")
-
-    @_builtins.property
-    @pulumi.getter(name="regionalAsyncOperationResourceTypeName")
-    def regional_async_operation_resource_type_name(self) -> Optional[_builtins.str]:
-        """
-        The regional async operation resource type name.
-        """
-        return pulumi.get(self, "regional_async_operation_resource_type_name")
-
-    @_builtins.property
-    @pulumi.getter(name="thirdPartyProviderAuthorization")
-    def third_party_provider_authorization(self) -> Optional['outputs.ProviderHubMetadataResponseThirdPartyProviderAuthorization']:
-        """
-        The third party provider authorization.
-        """
-        return pulumi.get(self, "third_party_provider_authorization")
-
-
-@pulumi.output_type
-class ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications(dict):
+class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse(dict):
     """
     The subscription lifecycle notification specifications.
     """
@@ -3963,14 +3963,14 @@ class ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpe
             suggest = "subscription_state_override_actions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4213,6 +4213,70 @@ class ResourceHydrationAccountResponse(dict):
 
 
 @pulumi.output_type
+class ResourceProviderAuthorizationManagedByAuthorizationResponse(dict):
+    """
+    Managed by authorization.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalAuthorizations":
+            suggest = "additional_authorizations"
+        elif key == "allowManagedByInheritance":
+            suggest = "allow_managed_by_inheritance"
+        elif key == "managedByResourceRoleDefinitionId":
+            suggest = "managed_by_resource_role_definition_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderAuthorizationManagedByAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderAuthorizationManagedByAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderAuthorizationManagedByAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_authorizations: Optional[Sequence['outputs.AdditionalAuthorizationResponse']] = None,
+                 allow_managed_by_inheritance: Optional[_builtins.bool] = None,
+                 managed_by_resource_role_definition_id: Optional[_builtins.str] = None):
+        """
+        Managed by authorization.
+        :param _builtins.bool allow_managed_by_inheritance: Indicates whether the managed by resource role definition ID should be inherited.
+        :param _builtins.str managed_by_resource_role_definition_id: The managed by resource role definition ID for the application.
+        """
+        if additional_authorizations is not None:
+            pulumi.set(__self__, "additional_authorizations", additional_authorizations)
+        if allow_managed_by_inheritance is not None:
+            pulumi.set(__self__, "allow_managed_by_inheritance", allow_managed_by_inheritance)
+        if managed_by_resource_role_definition_id is not None:
+            pulumi.set(__self__, "managed_by_resource_role_definition_id", managed_by_resource_role_definition_id)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalAuthorizations")
+    def additional_authorizations(self) -> Optional[Sequence['outputs.AdditionalAuthorizationResponse']]:
+        return pulumi.get(self, "additional_authorizations")
+
+    @_builtins.property
+    @pulumi.getter(name="allowManagedByInheritance")
+    def allow_managed_by_inheritance(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the managed by resource role definition ID should be inherited.
+        """
+        return pulumi.get(self, "allow_managed_by_inheritance")
+
+    @_builtins.property
+    @pulumi.getter(name="managedByResourceRoleDefinitionId")
+    def managed_by_resource_role_definition_id(self) -> Optional[_builtins.str]:
+        """
+        The managed by resource role definition ID for the application.
+        """
+        return pulumi.get(self, "managed_by_resource_role_definition_id")
+
+
+@pulumi.output_type
 class ResourceProviderAuthorizationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4245,14 +4309,14 @@ class ResourceProviderAuthorizationResponse(dict):
                  allowed_third_party_extensions: Optional[Sequence['outputs.ThirdPartyExtensionResponse']] = None,
                  application_id: Optional[_builtins.str] = None,
                  grouping_tag: Optional[_builtins.str] = None,
-                 managed_by_authorization: Optional['outputs.ResourceProviderAuthorizationResponseManagedByAuthorization'] = None,
+                 managed_by_authorization: Optional['outputs.ResourceProviderAuthorizationManagedByAuthorizationResponse'] = None,
                  managed_by_role_definition_id: Optional[_builtins.str] = None,
                  role_definition_id: Optional[_builtins.str] = None):
         """
         :param Sequence['ThirdPartyExtensionResponse'] allowed_third_party_extensions: The allowed third party extensions.
         :param _builtins.str application_id: The application id.
         :param _builtins.str grouping_tag: The grouping tag.
-        :param 'ResourceProviderAuthorizationResponseManagedByAuthorization' managed_by_authorization: Managed by authorization.
+        :param 'ResourceProviderAuthorizationManagedByAuthorizationResponse' managed_by_authorization: Managed by authorization.
         :param _builtins.str managed_by_role_definition_id: The managed by role definition id.
         :param _builtins.str role_definition_id: The role definition id.
         """
@@ -4295,7 +4359,7 @@ class ResourceProviderAuthorizationResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="managedByAuthorization")
-    def managed_by_authorization(self) -> Optional['outputs.ResourceProviderAuthorizationResponseManagedByAuthorization']:
+    def managed_by_authorization(self) -> Optional['outputs.ResourceProviderAuthorizationManagedByAuthorizationResponse']:
         """
         Managed by authorization.
         """
@@ -4316,70 +4380,6 @@ class ResourceProviderAuthorizationResponse(dict):
         The role definition id.
         """
         return pulumi.get(self, "role_definition_id")
-
-
-@pulumi.output_type
-class ResourceProviderAuthorizationResponseManagedByAuthorization(dict):
-    """
-    Managed by authorization.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "additionalAuthorizations":
-            suggest = "additional_authorizations"
-        elif key == "allowManagedByInheritance":
-            suggest = "allow_managed_by_inheritance"
-        elif key == "managedByResourceRoleDefinitionId":
-            suggest = "managed_by_resource_role_definition_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderAuthorizationResponseManagedByAuthorization. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceProviderAuthorizationResponseManagedByAuthorization.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceProviderAuthorizationResponseManagedByAuthorization.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 additional_authorizations: Optional[Sequence['outputs.AdditionalAuthorizationResponse']] = None,
-                 allow_managed_by_inheritance: Optional[_builtins.bool] = None,
-                 managed_by_resource_role_definition_id: Optional[_builtins.str] = None):
-        """
-        Managed by authorization.
-        :param _builtins.bool allow_managed_by_inheritance: Indicates whether the managed by resource role definition ID should be inherited.
-        :param _builtins.str managed_by_resource_role_definition_id: The managed by resource role definition ID for the application.
-        """
-        if additional_authorizations is not None:
-            pulumi.set(__self__, "additional_authorizations", additional_authorizations)
-        if allow_managed_by_inheritance is not None:
-            pulumi.set(__self__, "allow_managed_by_inheritance", allow_managed_by_inheritance)
-        if managed_by_resource_role_definition_id is not None:
-            pulumi.set(__self__, "managed_by_resource_role_definition_id", managed_by_resource_role_definition_id)
-
-    @_builtins.property
-    @pulumi.getter(name="additionalAuthorizations")
-    def additional_authorizations(self) -> Optional[Sequence['outputs.AdditionalAuthorizationResponse']]:
-        return pulumi.get(self, "additional_authorizations")
-
-    @_builtins.property
-    @pulumi.getter(name="allowManagedByInheritance")
-    def allow_managed_by_inheritance(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether the managed by resource role definition ID should be inherited.
-        """
-        return pulumi.get(self, "allow_managed_by_inheritance")
-
-    @_builtins.property
-    @pulumi.getter(name="managedByResourceRoleDefinitionId")
-    def managed_by_resource_role_definition_id(self) -> Optional[_builtins.str]:
-        """
-        The managed by resource role definition ID for the application.
-        """
-        return pulumi.get(self, "managed_by_resource_role_definition_id")
 
 
 @pulumi.output_type
@@ -4479,6 +4479,45 @@ class ResourceProviderCapabilitiesResponse(dict):
 
 
 @pulumi.output_type
+class ResourceProviderEndpointFeaturesRuleResponse(dict):
+    """
+    The feature rules.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredFeaturesPolicy":
+            suggest = "required_features_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderEndpointFeaturesRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderEndpointFeaturesRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderEndpointFeaturesRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_features_policy: _builtins.str):
+        """
+        The feature rules.
+        :param _builtins.str required_features_policy: The required feature policy.
+        """
+        pulumi.set(__self__, "required_features_policy", required_features_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="requiredFeaturesPolicy")
+    def required_features_policy(self) -> _builtins.str:
+        """
+        The required feature policy.
+        """
+        return pulumi.get(self, "required_features_policy")
+
+
+@pulumi.output_type
 class ResourceProviderEndpointResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4512,7 +4551,7 @@ class ResourceProviderEndpointResponse(dict):
                  enabled: Optional[_builtins.bool] = None,
                  endpoint_type: Optional[_builtins.str] = None,
                  endpoint_uri: Optional[_builtins.str] = None,
-                 features_rule: Optional['outputs.ResourceProviderEndpointResponseFeaturesRule'] = None,
+                 features_rule: Optional['outputs.ResourceProviderEndpointFeaturesRuleResponse'] = None,
                  locations: Optional[Sequence[_builtins.str]] = None,
                  required_features: Optional[Sequence[_builtins.str]] = None,
                  sku_link: Optional[_builtins.str] = None,
@@ -4522,7 +4561,7 @@ class ResourceProviderEndpointResponse(dict):
         :param _builtins.bool enabled: Whether the endpoint is enabled.
         :param _builtins.str endpoint_type: The endpoint type.
         :param _builtins.str endpoint_uri: The endpoint uri.
-        :param 'ResourceProviderEndpointResponseFeaturesRule' features_rule: The feature rules.
+        :param 'ResourceProviderEndpointFeaturesRuleResponse' features_rule: The feature rules.
         :param Sequence[_builtins.str] locations: The locations.
         :param Sequence[_builtins.str] required_features: The required features.
         :param _builtins.str sku_link: The sku link.
@@ -4581,7 +4620,7 @@ class ResourceProviderEndpointResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional['outputs.ResourceProviderEndpointResponseFeaturesRule']:
+    def features_rule(self) -> Optional['outputs.ResourceProviderEndpointFeaturesRuleResponse']:
         """
         The feature rules.
         """
@@ -4621,46 +4660,7 @@ class ResourceProviderEndpointResponse(dict):
 
 
 @pulumi.output_type
-class ResourceProviderEndpointResponseFeaturesRule(dict):
-    """
-    The feature rules.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "requiredFeaturesPolicy":
-            suggest = "required_features_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderEndpointResponseFeaturesRule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceProviderEndpointResponseFeaturesRule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceProviderEndpointResponseFeaturesRule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 required_features_policy: _builtins.str):
-        """
-        The feature rules.
-        :param _builtins.str required_features_policy: The required feature policy.
-        """
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="requiredFeaturesPolicy")
-    def required_features_policy(self) -> _builtins.str:
-        """
-        The required feature policy.
-        """
-        return pulumi.get(self, "required_features_policy")
-
-
-@pulumi.output_type
-class ResourceProviderManagementResponseErrorResponseMessageOptions(dict):
+class ResourceProviderManagementErrorResponseMessageOptionsResponse(dict):
     """
     Options for error response messages.
     """
@@ -4671,14 +4671,14 @@ class ResourceProviderManagementResponseErrorResponseMessageOptions(dict):
             suggest = "server_failure_response_message_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManagementResponseErrorResponseMessageOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManagementErrorResponseMessageOptionsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManagementResponseErrorResponseMessageOptions.__key_warning(key)
+        ResourceProviderManagementErrorResponseMessageOptionsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManagementResponseErrorResponseMessageOptions.__key_warning(key)
+        ResourceProviderManagementErrorResponseMessageOptionsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4700,7 +4700,7 @@ class ResourceProviderManagementResponseErrorResponseMessageOptions(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManagementResponseExpeditedRolloutMetadata(dict):
+class ResourceProviderManagementExpeditedRolloutMetadataResponse(dict):
     """
     Metadata for expedited rollout.
     """
@@ -4711,14 +4711,14 @@ class ResourceProviderManagementResponseExpeditedRolloutMetadata(dict):
             suggest = "expedited_rollout_intent"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManagementResponseExpeditedRolloutMetadata. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManagementExpeditedRolloutMetadataResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManagementResponseExpeditedRolloutMetadata.__key_warning(key)
+        ResourceProviderManagementExpeditedRolloutMetadataResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManagementResponseExpeditedRolloutMetadata.__key_warning(key)
+        ResourceProviderManagementExpeditedRolloutMetadataResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4752,7 +4752,7 @@ class ResourceProviderManagementResponseExpeditedRolloutMetadata(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseDstsConfiguration(dict):
+class ResourceProviderManifestPropertiesDstsConfigurationResponse(dict):
     """
     The dsts configuration.
     """
@@ -4765,14 +4765,14 @@ class ResourceProviderManifestPropertiesResponseDstsConfiguration(dict):
             suggest = "service_dns_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseDstsConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesDstsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseDstsConfiguration.__key_warning(key)
+        ResourceProviderManifestPropertiesDstsConfigurationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseDstsConfiguration.__key_warning(key)
+        ResourceProviderManifestPropertiesDstsConfigurationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4805,7 +4805,7 @@ class ResourceProviderManifestPropertiesResponseDstsConfiguration(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseFeaturesRule(dict):
+class ResourceProviderManifestPropertiesFeaturesRuleResponse(dict):
     """
     The features rule.
     """
@@ -4816,14 +4816,14 @@ class ResourceProviderManifestPropertiesResponseFeaturesRule(dict):
             suggest = "required_features_policy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseFeaturesRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesFeaturesRuleResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseFeaturesRule.__key_warning(key)
+        ResourceProviderManifestPropertiesFeaturesRuleResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseFeaturesRule.__key_warning(key)
+        ResourceProviderManifestPropertiesFeaturesRuleResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4844,7 +4844,7 @@ class ResourceProviderManifestPropertiesResponseFeaturesRule(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseManagement(dict):
+class ResourceProviderManifestPropertiesManagementResponse(dict):
     """
     The resource provider management.
     """
@@ -4883,21 +4883,21 @@ class ResourceProviderManifestPropertiesResponseManagement(dict):
             suggest = "service_tree_infos"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseManagement. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesManagementResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseManagement.__key_warning(key)
+        ResourceProviderManifestPropertiesManagementResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseManagement.__key_warning(key)
+        ResourceProviderManifestPropertiesManagementResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  authorization_owners: Optional[Sequence[_builtins.str]] = None,
                  canary_manifest_owners: Optional[Sequence[_builtins.str]] = None,
-                 error_response_message_options: Optional['outputs.ResourceProviderManagementResponseErrorResponseMessageOptions'] = None,
-                 expedited_rollout_metadata: Optional['outputs.ResourceProviderManagementResponseExpeditedRolloutMetadata'] = None,
+                 error_response_message_options: Optional['outputs.ResourceProviderManagementErrorResponseMessageOptionsResponse'] = None,
+                 expedited_rollout_metadata: Optional['outputs.ResourceProviderManagementExpeditedRolloutMetadataResponse'] = None,
                  expedited_rollout_submitters: Optional[Sequence[_builtins.str]] = None,
                  incident_contact_email: Optional[_builtins.str] = None,
                  incident_routing_service: Optional[_builtins.str] = None,
@@ -4913,8 +4913,8 @@ class ResourceProviderManifestPropertiesResponseManagement(dict):
         The resource provider management.
         :param Sequence[_builtins.str] authorization_owners: The authorization owners.
         :param Sequence[_builtins.str] canary_manifest_owners: List of manifest owners for canary.
-        :param 'ResourceProviderManagementResponseErrorResponseMessageOptions' error_response_message_options: Options for error response messages.
-        :param 'ResourceProviderManagementResponseExpeditedRolloutMetadata' expedited_rollout_metadata: Metadata for expedited rollout.
+        :param 'ResourceProviderManagementErrorResponseMessageOptionsResponse' error_response_message_options: Options for error response messages.
+        :param 'ResourceProviderManagementExpeditedRolloutMetadataResponse' expedited_rollout_metadata: Metadata for expedited rollout.
         :param Sequence[_builtins.str] expedited_rollout_submitters: List of expedited rollout submitters.
         :param _builtins.str incident_contact_email: The incident contact email.
         :param _builtins.str incident_routing_service: The incident routing service.
@@ -4976,7 +4976,7 @@ class ResourceProviderManifestPropertiesResponseManagement(dict):
 
     @_builtins.property
     @pulumi.getter(name="errorResponseMessageOptions")
-    def error_response_message_options(self) -> Optional['outputs.ResourceProviderManagementResponseErrorResponseMessageOptions']:
+    def error_response_message_options(self) -> Optional['outputs.ResourceProviderManagementErrorResponseMessageOptionsResponse']:
         """
         Options for error response messages.
         """
@@ -4984,7 +4984,7 @@ class ResourceProviderManifestPropertiesResponseManagement(dict):
 
     @_builtins.property
     @pulumi.getter(name="expeditedRolloutMetadata")
-    def expedited_rollout_metadata(self) -> Optional['outputs.ResourceProviderManagementResponseExpeditedRolloutMetadata']:
+    def expedited_rollout_metadata(self) -> Optional['outputs.ResourceProviderManagementExpeditedRolloutMetadataResponse']:
         """
         Metadata for expedited rollout.
         """
@@ -5080,7 +5080,7 @@ class ResourceProviderManifestPropertiesResponseManagement(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseNotificationSettings(dict):
+class ResourceProviderManifestPropertiesNotificationSettingsResponse(dict):
     """
     Notification settings.
     """
@@ -5091,14 +5091,14 @@ class ResourceProviderManifestPropertiesResponseNotificationSettings(dict):
             suggest = "subscriber_settings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseNotificationSettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesNotificationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseNotificationSettings.__key_warning(key)
+        ResourceProviderManifestPropertiesNotificationSettingsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseNotificationSettings.__key_warning(key)
+        ResourceProviderManifestPropertiesNotificationSettingsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5116,7 +5116,7 @@ class ResourceProviderManifestPropertiesResponseNotificationSettings(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseProviderAuthentication(dict):
+class ResourceProviderManifestPropertiesProviderAuthenticationResponse(dict):
     """
     The provider authentication.
     """
@@ -5127,14 +5127,14 @@ class ResourceProviderManifestPropertiesResponseProviderAuthentication(dict):
             suggest = "allowed_audiences"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseProviderAuthentication. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesProviderAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseProviderAuthentication.__key_warning(key)
+        ResourceProviderManifestPropertiesProviderAuthenticationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseProviderAuthentication.__key_warning(key)
+        ResourceProviderManifestPropertiesProviderAuthenticationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5155,7 +5155,7 @@ class ResourceProviderManifestPropertiesResponseProviderAuthentication(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseRequestHeaderOptions(dict):
+class ResourceProviderManifestPropertiesRequestHeaderOptionsResponse(dict):
     """
     The request header options.
     """
@@ -5168,14 +5168,14 @@ class ResourceProviderManifestPropertiesResponseRequestHeaderOptions(dict):
             suggest = "opt_out_headers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseRequestHeaderOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesRequestHeaderOptionsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseRequestHeaderOptions.__key_warning(key)
+        ResourceProviderManifestPropertiesRequestHeaderOptionsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseRequestHeaderOptions.__key_warning(key)
+        ResourceProviderManifestPropertiesRequestHeaderOptionsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5209,7 +5209,7 @@ class ResourceProviderManifestPropertiesResponseRequestHeaderOptions(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove(dict):
+class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse(dict):
     """
     Resource group lock option during move.
     """
@@ -5220,14 +5220,14 @@ class ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMov
             suggest = "block_action_verb"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove.__key_warning(key)
+        ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMove.__key_warning(key)
+        ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5249,7 +5249,7 @@ class ResourceProviderManifestPropertiesResponseResourceGroupLockOptionDuringMov
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseResponseOptions(dict):
+class ResourceProviderManifestPropertiesResponseOptionsResponse(dict):
     """
     Response options.
     """
@@ -5260,14 +5260,14 @@ class ResourceProviderManifestPropertiesResponseResponseOptions(dict):
             suggest = "service_client_options_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseResponseOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseOptionsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseResponseOptions.__key_warning(key)
+        ResourceProviderManifestPropertiesResponseOptionsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseResponseOptions.__key_warning(key)
+        ResourceProviderManifestPropertiesResponseOptionsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5285,7 +5285,7 @@ class ResourceProviderManifestPropertiesResponseResponseOptions(dict):
 
 
 @pulumi.output_type
-class ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions(dict):
+class ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse(dict):
     """
     The template deployment options.
     """
@@ -5298,14 +5298,14 @@ class ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions(dict):
             suggest = "preflight_supported"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5391,6 +5391,98 @@ class ResourceProviderServiceResponse(dict):
 
 
 @pulumi.output_type
+class ResourceTypeEndpointDstsConfigurationResponse(dict):
+    """
+    The dsts configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceName":
+            suggest = "service_name"
+        elif key == "serviceDnsName":
+            suggest = "service_dns_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeEndpointDstsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeEndpointDstsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeEndpointDstsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_name: _builtins.str,
+                 service_dns_name: Optional[_builtins.str] = None):
+        """
+        The dsts configuration.
+        :param _builtins.str service_name: The service name.
+        :param _builtins.str service_dns_name: This is a URI property.
+        """
+        pulumi.set(__self__, "service_name", service_name)
+        if service_dns_name is not None:
+            pulumi.set(__self__, "service_dns_name", service_dns_name)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> _builtins.str:
+        """
+        The service name.
+        """
+        return pulumi.get(self, "service_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceDnsName")
+    def service_dns_name(self) -> Optional[_builtins.str]:
+        """
+        This is a URI property.
+        """
+        return pulumi.get(self, "service_dns_name")
+
+
+@pulumi.output_type
+class ResourceTypeEndpointFeaturesRuleResponse(dict):
+    """
+    The features rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredFeaturesPolicy":
+            suggest = "required_features_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeEndpointFeaturesRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeEndpointFeaturesRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeEndpointFeaturesRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_features_policy: _builtins.str):
+        """
+        The features rule.
+        :param _builtins.str required_features_policy: The required feature policy.
+        """
+        pulumi.set(__self__, "required_features_policy", required_features_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="requiredFeaturesPolicy")
+    def required_features_policy(self) -> _builtins.str:
+        """
+        The required feature policy.
+        """
+        return pulumi.get(self, "required_features_policy")
+
+
+@pulumi.output_type
 class ResourceTypeEndpointResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5431,12 +5523,12 @@ class ResourceTypeEndpointResponse(dict):
                  api_version: Optional[_builtins.str] = None,
                  api_versions: Optional[Sequence[_builtins.str]] = None,
                  data_boundary: Optional[_builtins.str] = None,
-                 dsts_configuration: Optional['outputs.ResourceTypeEndpointResponseDstsConfiguration'] = None,
+                 dsts_configuration: Optional['outputs.ResourceTypeEndpointDstsConfigurationResponse'] = None,
                  enabled: Optional[_builtins.bool] = None,
                  endpoint_type: Optional[_builtins.str] = None,
                  endpoint_uri: Optional[_builtins.str] = None,
                  extensions: Optional[Sequence['outputs.ResourceTypeExtensionResponse']] = None,
-                 features_rule: Optional['outputs.ResourceTypeEndpointResponseFeaturesRule'] = None,
+                 features_rule: Optional['outputs.ResourceTypeEndpointFeaturesRuleResponse'] = None,
                  kind: Optional[_builtins.str] = None,
                  locations: Optional[Sequence[_builtins.str]] = None,
                  required_features: Optional[Sequence[_builtins.str]] = None,
@@ -5448,12 +5540,12 @@ class ResourceTypeEndpointResponse(dict):
         :param _builtins.str api_version: Api version.
         :param Sequence[_builtins.str] api_versions: The api versions.
         :param _builtins.str data_boundary: The data boundary.
-        :param 'ResourceTypeEndpointResponseDstsConfiguration' dsts_configuration: The dsts configuration.
+        :param 'ResourceTypeEndpointDstsConfigurationResponse' dsts_configuration: The dsts configuration.
         :param _builtins.bool enabled: Whether the endpoint is enabled.
         :param _builtins.str endpoint_type: The endpoint type.
         :param _builtins.str endpoint_uri: The endpoint uri.
         :param Sequence['ResourceTypeExtensionResponse'] extensions: The extensions.
-        :param 'ResourceTypeEndpointResponseFeaturesRule' features_rule: The features rule.
+        :param 'ResourceTypeEndpointFeaturesRuleResponse' features_rule: The features rule.
         :param _builtins.str kind: Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param Sequence[_builtins.str] locations: The locations.
         :param Sequence[_builtins.str] required_features: The required features.
@@ -5523,7 +5615,7 @@ class ResourceTypeEndpointResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional['outputs.ResourceTypeEndpointResponseDstsConfiguration']:
+    def dsts_configuration(self) -> Optional['outputs.ResourceTypeEndpointDstsConfigurationResponse']:
         """
         The dsts configuration.
         """
@@ -5563,7 +5655,7 @@ class ResourceTypeEndpointResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional['outputs.ResourceTypeEndpointResponseFeaturesRule']:
+    def features_rule(self) -> Optional['outputs.ResourceTypeEndpointFeaturesRuleResponse']:
         """
         The features rule.
         """
@@ -5627,99 +5719,7 @@ class ResourceTypeEndpointResponse(dict):
 
 
 @pulumi.output_type
-class ResourceTypeEndpointResponseDstsConfiguration(dict):
-    """
-    The dsts configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serviceName":
-            suggest = "service_name"
-        elif key == "serviceDnsName":
-            suggest = "service_dns_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeEndpointResponseDstsConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeEndpointResponseDstsConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeEndpointResponseDstsConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 service_name: _builtins.str,
-                 service_dns_name: Optional[_builtins.str] = None):
-        """
-        The dsts configuration.
-        :param _builtins.str service_name: The service name.
-        :param _builtins.str service_dns_name: This is a URI property.
-        """
-        pulumi.set(__self__, "service_name", service_name)
-        if service_dns_name is not None:
-            pulumi.set(__self__, "service_dns_name", service_dns_name)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> _builtins.str:
-        """
-        The service name.
-        """
-        return pulumi.get(self, "service_name")
-
-    @_builtins.property
-    @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[_builtins.str]:
-        """
-        This is a URI property.
-        """
-        return pulumi.get(self, "service_dns_name")
-
-
-@pulumi.output_type
-class ResourceTypeEndpointResponseFeaturesRule(dict):
-    """
-    The features rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "requiredFeaturesPolicy":
-            suggest = "required_features_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeEndpointResponseFeaturesRule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeEndpointResponseFeaturesRule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeEndpointResponseFeaturesRule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 required_features_policy: _builtins.str):
-        """
-        The features rule.
-        :param _builtins.str required_features_policy: The required feature policy.
-        """
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="requiredFeaturesPolicy")
-    def required_features_policy(self) -> _builtins.str:
-        """
-        The required feature policy.
-        """
-        return pulumi.get(self, "required_features_policy")
-
-
-@pulumi.output_type
-class ResourceTypeExtensionOptionsResponseResourceCreationBegin(dict):
+class ResourceTypeExtensionOptionsResourceCreationBeginResponse(dict):
     """
     Resource creation begin.
     """
@@ -5863,6 +5863,1140 @@ class ResourceTypeOnBehalfOfTokenResponse(dict):
         This is a TimeSpan property.
         """
         return pulumi.get(self, "life_time")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse(dict):
+    """
+    The availability zone rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZonePolicy":
+            suggest = "availability_zone_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone_policy: Optional[_builtins.str] = None):
+        """
+        The availability zone rule.
+        """
+        if availability_zone_policy is not None:
+            pulumi.set(__self__, "availability_zone_policy", availability_zone_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZonePolicy")
+    def availability_zone_policy(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "availability_zone_policy")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesCapacityRuleResponse(dict):
+    """
+    Capacity rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityPolicy":
+            suggest = "capacity_policy"
+        elif key == "skuAlias":
+            suggest = "sku_alias"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesCapacityRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesCapacityRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesCapacityRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_policy: Optional[_builtins.str] = None,
+                 sku_alias: Optional[_builtins.str] = None):
+        """
+        Capacity rule.
+        :param _builtins.str capacity_policy: Capacity policy.
+        :param _builtins.str sku_alias: Sku alias
+        """
+        if capacity_policy is not None:
+            pulumi.set(__self__, "capacity_policy", capacity_policy)
+        if sku_alias is not None:
+            pulumi.set(__self__, "sku_alias", sku_alias)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityPolicy")
+    def capacity_policy(self) -> Optional[_builtins.str]:
+        """
+        Capacity policy.
+        """
+        return pulumi.get(self, "capacity_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="skuAlias")
+    def sku_alias(self) -> Optional[_builtins.str]:
+        """
+        Sku alias
+        """
+        return pulumi.get(self, "sku_alias")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse(dict):
+    """
+    The check name availability specifications.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableDefaultValidation":
+            suggest = "enable_default_validation"
+        elif key == "resourceTypesWithCustomValidation":
+            suggest = "resource_types_with_custom_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_default_validation: Optional[_builtins.bool] = None,
+                 resource_types_with_custom_validation: Optional[Sequence[_builtins.str]] = None):
+        """
+        The check name availability specifications.
+        :param _builtins.bool enable_default_validation: Whether default validation is enabled.
+        :param Sequence[_builtins.str] resource_types_with_custom_validation: The resource types with custom validation.
+        """
+        if enable_default_validation is not None:
+            pulumi.set(__self__, "enable_default_validation", enable_default_validation)
+        if resource_types_with_custom_validation is not None:
+            pulumi.set(__self__, "resource_types_with_custom_validation", resource_types_with_custom_validation)
+
+    @_builtins.property
+    @pulumi.getter(name="enableDefaultValidation")
+    def enable_default_validation(self) -> Optional[_builtins.bool]:
+        """
+        Whether default validation is enabled.
+        """
+        return pulumi.get(self, "enable_default_validation")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypesWithCustomValidation")
+    def resource_types_with_custom_validation(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The resource types with custom validation.
+        """
+        return pulumi.get(self, "resource_types_with_custom_validation")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesDstsConfigurationResponse(dict):
+    """
+    The dsts configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceName":
+            suggest = "service_name"
+        elif key == "serviceDnsName":
+            suggest = "service_dns_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesDstsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesDstsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesDstsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_name: _builtins.str,
+                 service_dns_name: Optional[_builtins.str] = None):
+        """
+        The dsts configuration.
+        :param _builtins.str service_name: The service name.
+        :param _builtins.str service_dns_name: This is a URI property.
+        """
+        pulumi.set(__self__, "service_name", service_name)
+        if service_dns_name is not None:
+            pulumi.set(__self__, "service_dns_name", service_dns_name)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> _builtins.str:
+        """
+        The service name.
+        """
+        return pulumi.get(self, "service_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceDnsName")
+    def service_dns_name(self) -> Optional[_builtins.str]:
+        """
+        This is a URI property.
+        """
+        return pulumi.get(self, "service_dns_name")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesExtensionOptionsResponse(dict):
+    """
+    The extension options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceCreationBegin":
+            suggest = "resource_creation_begin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesExtensionOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesExtensionOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesExtensionOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_creation_begin: Optional['outputs.ResourceTypeExtensionOptionsResourceCreationBeginResponse'] = None):
+        """
+        The extension options.
+        :param 'ResourceTypeExtensionOptionsResourceCreationBeginResponse' resource_creation_begin: Resource creation begin.
+        """
+        if resource_creation_begin is not None:
+            pulumi.set(__self__, "resource_creation_begin", resource_creation_begin)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceCreationBegin")
+    def resource_creation_begin(self) -> Optional['outputs.ResourceTypeExtensionOptionsResourceCreationBeginResponse']:
+        """
+        Resource creation begin.
+        """
+        return pulumi.get(self, "resource_creation_begin")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesFeaturesRuleResponse(dict):
+    """
+    The features rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredFeaturesPolicy":
+            suggest = "required_features_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesFeaturesRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesFeaturesRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesFeaturesRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_features_policy: _builtins.str):
+        """
+        The features rule.
+        :param _builtins.str required_features_policy: The required feature policy.
+        """
+        pulumi.set(__self__, "required_features_policy", required_features_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="requiredFeaturesPolicy")
+    def required_features_policy(self) -> _builtins.str:
+        """
+        The required feature policy.
+        """
+        return pulumi.get(self, "required_features_policy")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesIdentityManagementResponse(dict):
+    """
+    The identity management.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "applicationIds":
+            suggest = "application_ids"
+        elif key == "delegationAppIds":
+            suggest = "delegation_app_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesIdentityManagementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesIdentityManagementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesIdentityManagementResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: Optional[_builtins.str] = None,
+                 application_ids: Optional[Sequence[_builtins.str]] = None,
+                 delegation_app_ids: Optional[Sequence[_builtins.str]] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        The identity management.
+        :param _builtins.str application_id: The application id.
+        :param Sequence[_builtins.str] application_ids: The application ids.
+        :param Sequence[_builtins.str] delegation_app_ids: The delegation app ids.
+        :param _builtins.str type: The type.
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if application_ids is not None:
+            pulumi.set(__self__, "application_ids", application_ids)
+        if delegation_app_ids is not None:
+            pulumi.set(__self__, "delegation_app_ids", delegation_app_ids)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[_builtins.str]:
+        """
+        The application id.
+        """
+        return pulumi.get(self, "application_id")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationIds")
+    def application_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The application ids.
+        """
+        return pulumi.get(self, "application_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="delegationAppIds")
+    def delegation_app_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The delegation app ids.
+        """
+        return pulumi.get(self, "delegation_app_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesLegacyPolicyResponse(dict):
+    """
+    The legacy policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disallowedConditions":
+            suggest = "disallowed_conditions"
+        elif key == "disallowedLegacyOperations":
+            suggest = "disallowed_legacy_operations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesLegacyPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesLegacyPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesLegacyPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disallowed_conditions: Optional[Sequence['outputs.LegacyDisallowedConditionResponse']] = None,
+                 disallowed_legacy_operations: Optional[Sequence[_builtins.str]] = None):
+        """
+        The legacy policy.
+        """
+        if disallowed_conditions is not None:
+            pulumi.set(__self__, "disallowed_conditions", disallowed_conditions)
+        if disallowed_legacy_operations is not None:
+            pulumi.set(__self__, "disallowed_legacy_operations", disallowed_legacy_operations)
+
+    @_builtins.property
+    @pulumi.getter(name="disallowedConditions")
+    def disallowed_conditions(self) -> Optional[Sequence['outputs.LegacyDisallowedConditionResponse']]:
+        return pulumi.get(self, "disallowed_conditions")
+
+    @_builtins.property
+    @pulumi.getter(name="disallowedLegacyOperations")
+    def disallowed_legacy_operations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "disallowed_legacy_operations")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesManagementResponse(dict):
+    """
+    The resource provider management.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationOwners":
+            suggest = "authorization_owners"
+        elif key == "canaryManifestOwners":
+            suggest = "canary_manifest_owners"
+        elif key == "errorResponseMessageOptions":
+            suggest = "error_response_message_options"
+        elif key == "expeditedRolloutMetadata":
+            suggest = "expedited_rollout_metadata"
+        elif key == "expeditedRolloutSubmitters":
+            suggest = "expedited_rollout_submitters"
+        elif key == "incidentContactEmail":
+            suggest = "incident_contact_email"
+        elif key == "incidentRoutingService":
+            suggest = "incident_routing_service"
+        elif key == "incidentRoutingTeam":
+            suggest = "incident_routing_team"
+        elif key == "manifestOwners":
+            suggest = "manifest_owners"
+        elif key == "pcCode":
+            suggest = "pc_code"
+        elif key == "profitCenterProgramId":
+            suggest = "profit_center_program_id"
+        elif key == "resourceAccessPolicy":
+            suggest = "resource_access_policy"
+        elif key == "resourceAccessRoles":
+            suggest = "resource_access_roles"
+        elif key == "schemaOwners":
+            suggest = "schema_owners"
+        elif key == "serviceTreeInfos":
+            suggest = "service_tree_infos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesManagementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesManagementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesManagementResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_owners: Optional[Sequence[_builtins.str]] = None,
+                 canary_manifest_owners: Optional[Sequence[_builtins.str]] = None,
+                 error_response_message_options: Optional['outputs.ResourceProviderManagementErrorResponseMessageOptionsResponse'] = None,
+                 expedited_rollout_metadata: Optional['outputs.ResourceProviderManagementExpeditedRolloutMetadataResponse'] = None,
+                 expedited_rollout_submitters: Optional[Sequence[_builtins.str]] = None,
+                 incident_contact_email: Optional[_builtins.str] = None,
+                 incident_routing_service: Optional[_builtins.str] = None,
+                 incident_routing_team: Optional[_builtins.str] = None,
+                 manifest_owners: Optional[Sequence[_builtins.str]] = None,
+                 pc_code: Optional[_builtins.str] = None,
+                 profit_center_program_id: Optional[_builtins.str] = None,
+                 resource_access_policy: Optional[_builtins.str] = None,
+                 resource_access_roles: Optional[Sequence['outputs.ResourceAccessRoleResponse']] = None,
+                 schema_owners: Optional[Sequence[_builtins.str]] = None,
+                 service_tree_infos: Optional[Sequence['outputs.ServiceTreeInfoResponse']] = None):
+        """
+        The resource provider management.
+        :param Sequence[_builtins.str] authorization_owners: The authorization owners.
+        :param Sequence[_builtins.str] canary_manifest_owners: List of manifest owners for canary.
+        :param 'ResourceProviderManagementErrorResponseMessageOptionsResponse' error_response_message_options: Options for error response messages.
+        :param 'ResourceProviderManagementExpeditedRolloutMetadataResponse' expedited_rollout_metadata: Metadata for expedited rollout.
+        :param Sequence[_builtins.str] expedited_rollout_submitters: List of expedited rollout submitters.
+        :param _builtins.str incident_contact_email: The incident contact email.
+        :param _builtins.str incident_routing_service: The incident routing service.
+        :param _builtins.str incident_routing_team: The incident routing team.
+        :param Sequence[_builtins.str] manifest_owners: The manifest owners.
+        :param _builtins.str pc_code: The profit center code for the subscription.
+        :param _builtins.str profit_center_program_id: The profit center program id for the subscription.
+        :param _builtins.str resource_access_policy: The resource access policy.
+        :param Sequence['ResourceAccessRoleResponse'] resource_access_roles: The resource access roles.
+        :param Sequence[_builtins.str] schema_owners: The schema owners.
+        :param Sequence['ServiceTreeInfoResponse'] service_tree_infos: The service tree infos.
+        """
+        if authorization_owners is not None:
+            pulumi.set(__self__, "authorization_owners", authorization_owners)
+        if canary_manifest_owners is not None:
+            pulumi.set(__self__, "canary_manifest_owners", canary_manifest_owners)
+        if error_response_message_options is not None:
+            pulumi.set(__self__, "error_response_message_options", error_response_message_options)
+        if expedited_rollout_metadata is not None:
+            pulumi.set(__self__, "expedited_rollout_metadata", expedited_rollout_metadata)
+        if expedited_rollout_submitters is not None:
+            pulumi.set(__self__, "expedited_rollout_submitters", expedited_rollout_submitters)
+        if incident_contact_email is not None:
+            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
+        if incident_routing_service is not None:
+            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
+        if incident_routing_team is not None:
+            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
+        if manifest_owners is not None:
+            pulumi.set(__self__, "manifest_owners", manifest_owners)
+        if pc_code is not None:
+            pulumi.set(__self__, "pc_code", pc_code)
+        if profit_center_program_id is not None:
+            pulumi.set(__self__, "profit_center_program_id", profit_center_program_id)
+        if resource_access_policy is not None:
+            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
+        if resource_access_roles is not None:
+            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
+        if schema_owners is not None:
+            pulumi.set(__self__, "schema_owners", schema_owners)
+        if service_tree_infos is not None:
+            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationOwners")
+    def authorization_owners(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The authorization owners.
+        """
+        return pulumi.get(self, "authorization_owners")
+
+    @_builtins.property
+    @pulumi.getter(name="canaryManifestOwners")
+    def canary_manifest_owners(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of manifest owners for canary.
+        """
+        return pulumi.get(self, "canary_manifest_owners")
+
+    @_builtins.property
+    @pulumi.getter(name="errorResponseMessageOptions")
+    def error_response_message_options(self) -> Optional['outputs.ResourceProviderManagementErrorResponseMessageOptionsResponse']:
+        """
+        Options for error response messages.
+        """
+        return pulumi.get(self, "error_response_message_options")
+
+    @_builtins.property
+    @pulumi.getter(name="expeditedRolloutMetadata")
+    def expedited_rollout_metadata(self) -> Optional['outputs.ResourceProviderManagementExpeditedRolloutMetadataResponse']:
+        """
+        Metadata for expedited rollout.
+        """
+        return pulumi.get(self, "expedited_rollout_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="expeditedRolloutSubmitters")
+    def expedited_rollout_submitters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of expedited rollout submitters.
+        """
+        return pulumi.get(self, "expedited_rollout_submitters")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentContactEmail")
+    def incident_contact_email(self) -> Optional[_builtins.str]:
+        """
+        The incident contact email.
+        """
+        return pulumi.get(self, "incident_contact_email")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentRoutingService")
+    def incident_routing_service(self) -> Optional[_builtins.str]:
+        """
+        The incident routing service.
+        """
+        return pulumi.get(self, "incident_routing_service")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentRoutingTeam")
+    def incident_routing_team(self) -> Optional[_builtins.str]:
+        """
+        The incident routing team.
+        """
+        return pulumi.get(self, "incident_routing_team")
+
+    @_builtins.property
+    @pulumi.getter(name="manifestOwners")
+    def manifest_owners(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The manifest owners.
+        """
+        return pulumi.get(self, "manifest_owners")
+
+    @_builtins.property
+    @pulumi.getter(name="pcCode")
+    def pc_code(self) -> Optional[_builtins.str]:
+        """
+        The profit center code for the subscription.
+        """
+        return pulumi.get(self, "pc_code")
+
+    @_builtins.property
+    @pulumi.getter(name="profitCenterProgramId")
+    def profit_center_program_id(self) -> Optional[_builtins.str]:
+        """
+        The profit center program id for the subscription.
+        """
+        return pulumi.get(self, "profit_center_program_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceAccessPolicy")
+    def resource_access_policy(self) -> Optional[_builtins.str]:
+        """
+        The resource access policy.
+        """
+        return pulumi.get(self, "resource_access_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceAccessRoles")
+    def resource_access_roles(self) -> Optional[Sequence['outputs.ResourceAccessRoleResponse']]:
+        """
+        The resource access roles.
+        """
+        return pulumi.get(self, "resource_access_roles")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaOwners")
+    def schema_owners(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The schema owners.
+        """
+        return pulumi.get(self, "schema_owners")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTreeInfos")
+    def service_tree_infos(self) -> Optional[Sequence['outputs.ServiceTreeInfoResponse']]:
+        """
+        The service tree infos.
+        """
+        return pulumi.get(self, "service_tree_infos")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse(dict):
+    """
+    Marketplace options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addOnPlanConversionAllowed":
+            suggest = "add_on_plan_conversion_allowed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_on_plan_conversion_allowed: Optional[_builtins.bool] = None):
+        """
+        Marketplace options.
+        :param _builtins.bool add_on_plan_conversion_allowed: Add-on plan conversion allowed.
+        """
+        if add_on_plan_conversion_allowed is not None:
+            pulumi.set(__self__, "add_on_plan_conversion_allowed", add_on_plan_conversion_allowed)
+
+    @_builtins.property
+    @pulumi.getter(name="addOnPlanConversionAllowed")
+    def add_on_plan_conversion_allowed(self) -> Optional[_builtins.bool]:
+        """
+        Add-on plan conversion allowed.
+        """
+        return pulumi.get(self, "add_on_plan_conversion_allowed")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse(dict):
+    """
+    The request header options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optInHeaders":
+            suggest = "opt_in_headers"
+        elif key == "optOutHeaders":
+            suggest = "opt_out_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 opt_in_headers: Optional[_builtins.str] = None,
+                 opt_out_headers: Optional[_builtins.str] = None):
+        """
+        The request header options.
+        :param _builtins.str opt_in_headers: The opt in headers.
+        :param _builtins.str opt_out_headers: The opt out headers.
+        """
+        if opt_in_headers is not None:
+            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
+        if opt_out_headers is not None:
+            pulumi.set(__self__, "opt_out_headers", opt_out_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="optInHeaders")
+    def opt_in_headers(self) -> Optional[_builtins.str]:
+        """
+        The opt in headers.
+        """
+        return pulumi.get(self, "opt_in_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="optOutHeaders")
+    def opt_out_headers(self) -> Optional[_builtins.str]:
+        """
+        The opt out headers.
+        """
+        return pulumi.get(self, "opt_out_headers")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceCacheResponse(dict):
+    """
+    Resource cache options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResourceCache":
+            suggest = "enable_resource_cache"
+        elif key == "resourceCacheExpirationTimespan":
+            suggest = "resource_cache_expiration_timespan"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceCacheResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceCacheResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceCacheResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_resource_cache: Optional[_builtins.bool] = None,
+                 resource_cache_expiration_timespan: Optional[_builtins.str] = None):
+        """
+        Resource cache options.
+        :param _builtins.bool enable_resource_cache: Enable resource cache.
+        :param _builtins.str resource_cache_expiration_timespan: Resource cache expiration timespan. This is a TimeSpan property.
+        """
+        if enable_resource_cache is not None:
+            pulumi.set(__self__, "enable_resource_cache", enable_resource_cache)
+        if resource_cache_expiration_timespan is not None:
+            pulumi.set(__self__, "resource_cache_expiration_timespan", resource_cache_expiration_timespan)
+
+    @_builtins.property
+    @pulumi.getter(name="enableResourceCache")
+    def enable_resource_cache(self) -> Optional[_builtins.bool]:
+        """
+        Enable resource cache.
+        """
+        return pulumi.get(self, "enable_resource_cache")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceCacheExpirationTimespan")
+    def resource_cache_expiration_timespan(self) -> Optional[_builtins.str]:
+        """
+        Resource cache expiration timespan. This is a TimeSpan property.
+        """
+        return pulumi.get(self, "resource_cache_expiration_timespan")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse(dict):
+    """
+    The resource graph configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersion":
+            suggest = "api_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_version: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None):
+        """
+        The resource graph configuration.
+        :param _builtins.str api_version: The api version.
+        :param _builtins.bool enabled: Whether it's enabled.
+        """
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[_builtins.str]:
+        """
+        The api version.
+        """
+        return pulumi.get(self, "api_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether it's enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse(dict):
+    """
+    Batch provisioning support.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedOperations":
+            suggest = "supported_operations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 supported_operations: Optional[_builtins.str] = None):
+        """
+        Batch provisioning support.
+        :param _builtins.str supported_operations: Supported operations.
+        """
+        if supported_operations is not None:
+            pulumi.set(__self__, "supported_operations", supported_operations)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedOperations")
+    def supported_operations(self) -> Optional[_builtins.str]:
+        """
+        Supported operations.
+        """
+        return pulumi.get(self, "supported_operations")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse(dict):
+    """
+    Nested provisioning support.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumApiVersion":
+            suggest = "minimum_api_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_api_version: Optional[_builtins.str] = None):
+        """
+        Nested provisioning support.
+        :param _builtins.str minimum_api_version: Minimum API version.
+        """
+        if minimum_api_version is not None:
+            pulumi.set(__self__, "minimum_api_version", minimum_api_version)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumApiVersion")
+    def minimum_api_version(self) -> Optional[_builtins.str]:
+        """
+        Minimum API version.
+        """
+        return pulumi.get(self, "minimum_api_version")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse(dict):
+    """
+    Resource management options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchProvisioningSupport":
+            suggest = "batch_provisioning_support"
+        elif key == "deleteDependencies":
+            suggest = "delete_dependencies"
+        elif key == "nestedProvisioningSupport":
+            suggest = "nested_provisioning_support"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 batch_provisioning_support: Optional['outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse'] = None,
+                 delete_dependencies: Optional[Sequence['outputs.DeleteDependencyResponse']] = None,
+                 nested_provisioning_support: Optional['outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse'] = None):
+        """
+        Resource management options.
+        :param 'ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse' batch_provisioning_support: Batch provisioning support.
+        :param Sequence['DeleteDependencyResponse'] delete_dependencies: Delete dependencies.
+        :param 'ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse' nested_provisioning_support: Nested provisioning support.
+        """
+        if batch_provisioning_support is not None:
+            pulumi.set(__self__, "batch_provisioning_support", batch_provisioning_support)
+        if delete_dependencies is not None:
+            pulumi.set(__self__, "delete_dependencies", delete_dependencies)
+        if nested_provisioning_support is not None:
+            pulumi.set(__self__, "nested_provisioning_support", nested_provisioning_support)
+
+    @_builtins.property
+    @pulumi.getter(name="batchProvisioningSupport")
+    def batch_provisioning_support(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse']:
+        """
+        Batch provisioning support.
+        """
+        return pulumi.get(self, "batch_provisioning_support")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteDependencies")
+    def delete_dependencies(self) -> Optional[Sequence['outputs.DeleteDependencyResponse']]:
+        """
+        Delete dependencies.
+        """
+        return pulumi.get(self, "delete_dependencies")
+
+    @_builtins.property
+    @pulumi.getter(name="nestedProvisioningSupport")
+    def nested_provisioning_support(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse']:
+        """
+        Nested provisioning support.
+        """
+        return pulumi.get(self, "nested_provisioning_support")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceMovePolicyResponse(dict):
+    """
+    The resource move policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossResourceGroupMoveEnabled":
+            suggest = "cross_resource_group_move_enabled"
+        elif key == "crossSubscriptionMoveEnabled":
+            suggest = "cross_subscription_move_enabled"
+        elif key == "validationRequired":
+            suggest = "validation_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceMovePolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceMovePolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceMovePolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_resource_group_move_enabled: Optional[_builtins.bool] = None,
+                 cross_subscription_move_enabled: Optional[_builtins.bool] = None,
+                 validation_required: Optional[_builtins.bool] = None):
+        """
+        The resource move policy.
+        :param _builtins.bool cross_resource_group_move_enabled: Whether cross resource group move is enabled.
+        :param _builtins.bool cross_subscription_move_enabled: Whether cross subscription move is enabled.
+        :param _builtins.bool validation_required: Whether validation is required.
+        """
+        if cross_resource_group_move_enabled is not None:
+            pulumi.set(__self__, "cross_resource_group_move_enabled", cross_resource_group_move_enabled)
+        if cross_subscription_move_enabled is not None:
+            pulumi.set(__self__, "cross_subscription_move_enabled", cross_subscription_move_enabled)
+        if validation_required is not None:
+            pulumi.set(__self__, "validation_required", validation_required)
+
+    @_builtins.property
+    @pulumi.getter(name="crossResourceGroupMoveEnabled")
+    def cross_resource_group_move_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether cross resource group move is enabled.
+        """
+        return pulumi.get(self, "cross_resource_group_move_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="crossSubscriptionMoveEnabled")
+    def cross_subscription_move_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether cross subscription move is enabled.
+        """
+        return pulumi.get(self, "cross_subscription_move_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="validationRequired")
+    def validation_required(self) -> Optional[_builtins.bool]:
+        """
+        Whether validation is required.
+        """
+        return pulumi.get(self, "validation_required")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceQueryManagementResponse(dict):
+    """
+    Resource query management options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterOption":
+            suggest = "filter_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceQueryManagementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceQueryManagementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceQueryManagementResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_option: Optional[_builtins.str] = None):
+        """
+        Resource query management options.
+        :param _builtins.str filter_option: Filter option.
+        """
+        if filter_option is not None:
+            pulumi.set(__self__, "filter_option", filter_option)
+
+    @_builtins.property
+    @pulumi.getter(name="filterOption")
+    def filter_option(self) -> Optional[_builtins.str]:
+        """
+        Filter option.
+        """
+        return pulumi.get(self, "filter_option")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse(dict):
+    """
+    Resource type common attribute management.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonApiVersionsMergeMode":
+            suggest = "common_api_versions_merge_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_api_versions_merge_mode: Optional[_builtins.str] = None):
+        """
+        Resource type common attribute management.
+        :param _builtins.str common_api_versions_merge_mode: Common api versions merge mode.
+        """
+        if common_api_versions_merge_mode is not None:
+            pulumi.set(__self__, "common_api_versions_merge_mode", common_api_versions_merge_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="commonApiVersionsMergeMode")
+    def common_api_versions_merge_mode(self) -> Optional[_builtins.str]:
+        """
+        Common api versions merge mode.
+        """
+        return pulumi.get(self, "common_api_versions_merge_mode")
 
 
 @pulumi.output_type
@@ -6033,67 +7167,67 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
                  async_operation_resource_type_name: Optional[_builtins.str] = None,
                  async_timeout_rules: Optional[Sequence['outputs.AsyncTimeoutRuleResponse']] = None,
                  authorization_action_mappings: Optional[Sequence['outputs.AuthorizationActionMappingResponse']] = None,
-                 availability_zone_rule: Optional['outputs.ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule'] = None,
-                 capacity_rule: Optional['outputs.ResourceTypeRegistrationPropertiesResponseCapacityRule'] = None,
+                 availability_zone_rule: Optional['outputs.ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse'] = None,
+                 capacity_rule: Optional['outputs.ResourceTypeRegistrationPropertiesCapacityRuleResponse'] = None,
                  category: Optional[_builtins.str] = None,
-                 check_name_availability_specifications: Optional['outputs.ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications'] = None,
+                 check_name_availability_specifications: Optional['outputs.ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse'] = None,
                  common_api_versions: Optional[Sequence[_builtins.str]] = None,
                  cross_tenant_token_validation: Optional[_builtins.str] = None,
                  default_api_version: Optional[_builtins.str] = None,
                  disallowed_action_verbs: Optional[Sequence[_builtins.str]] = None,
                  disallowed_end_user_operations: Optional[Sequence[_builtins.str]] = None,
-                 dsts_configuration: Optional['outputs.ResourceTypeRegistrationPropertiesResponseDstsConfiguration'] = None,
+                 dsts_configuration: Optional['outputs.ResourceTypeRegistrationPropertiesDstsConfigurationResponse'] = None,
                  enable_async_operation: Optional[_builtins.bool] = None,
                  enable_third_party_s2_s: Optional[_builtins.bool] = None,
                  endpoints: Optional[Sequence['outputs.ResourceTypeEndpointResponse']] = None,
                  extended_locations: Optional[Sequence['outputs.ExtendedLocationOptionsResponse']] = None,
-                 extension_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseExtensionOptions'] = None,
-                 features_rule: Optional['outputs.ResourceTypeRegistrationPropertiesResponseFeaturesRule'] = None,
+                 extension_options: Optional['outputs.ResourceTypeRegistrationPropertiesExtensionOptionsResponse'] = None,
+                 features_rule: Optional['outputs.ResourceTypeRegistrationPropertiesFeaturesRuleResponse'] = None,
                  frontdoor_request_mode: Optional[_builtins.str] = None,
                  grouping_tag: Optional[_builtins.str] = None,
-                 identity_management: Optional['outputs.ResourceTypeRegistrationPropertiesResponseIdentityManagement'] = None,
+                 identity_management: Optional['outputs.ResourceTypeRegistrationPropertiesIdentityManagementResponse'] = None,
                  is_pure_proxy: Optional[_builtins.bool] = None,
                  legacy_name: Optional[_builtins.str] = None,
                  legacy_names: Optional[Sequence[_builtins.str]] = None,
-                 legacy_policy: Optional['outputs.ResourceTypeRegistrationPropertiesResponseLegacyPolicy'] = None,
+                 legacy_policy: Optional['outputs.ResourceTypeRegistrationPropertiesLegacyPolicyResponse'] = None,
                  linked_access_checks: Optional[Sequence['outputs.LinkedAccessCheckResponse']] = None,
                  linked_notification_rules: Optional[Sequence['outputs.LinkedNotificationRuleResponse']] = None,
                  linked_operation_rules: Optional[Sequence['outputs.LinkedOperationRuleResponse']] = None,
                  logging_rules: Optional[Sequence['outputs.LoggingRuleResponse']] = None,
-                 management: Optional['outputs.ResourceTypeRegistrationPropertiesResponseManagement'] = None,
+                 management: Optional['outputs.ResourceTypeRegistrationPropertiesManagementResponse'] = None,
                  manifest_link: Optional[_builtins.str] = None,
-                 marketplace_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseMarketplaceOptions'] = None,
+                 marketplace_options: Optional['outputs.ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse'] = None,
                  marketplace_type: Optional[_builtins.str] = None,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  notifications: Optional[Sequence['outputs.NotificationResponse']] = None,
                  on_behalf_of_tokens: Optional['outputs.ResourceTypeOnBehalfOfTokenResponse'] = None,
                  open_api_configuration: Optional['outputs.OpenApiConfigurationResponse'] = None,
                  policy_execution_type: Optional[_builtins.str] = None,
                  quota_rule: Optional['outputs.QuotaRuleResponse'] = None,
                  regionality: Optional[_builtins.str] = None,
-                 request_header_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions'] = None,
+                 request_header_options: Optional['outputs.ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse'] = None,
                  required_features: Optional[Sequence[_builtins.str]] = None,
-                 resource_cache: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceCache'] = None,
+                 resource_cache: Optional['outputs.ResourceTypeRegistrationPropertiesResourceCacheResponse'] = None,
                  resource_concurrency_control_options: Optional[Mapping[str, 'outputs.ResourceConcurrencyControlOptionResponse']] = None,
                  resource_deletion_policy: Optional[_builtins.str] = None,
-                 resource_graph_configuration: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration'] = None,
-                 resource_management_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceManagementOptions'] = None,
-                 resource_move_policy: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy'] = None,
+                 resource_graph_configuration: Optional['outputs.ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse'] = None,
+                 resource_management_options: Optional['outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse'] = None,
+                 resource_move_policy: Optional['outputs.ResourceTypeRegistrationPropertiesResourceMovePolicyResponse'] = None,
                  resource_provider_authorization_rules: Optional['outputs.ResourceProviderAuthorizationRulesResponse'] = None,
-                 resource_query_management: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceQueryManagement'] = None,
+                 resource_query_management: Optional['outputs.ResourceTypeRegistrationPropertiesResourceQueryManagementResponse'] = None,
                  resource_sub_type: Optional[_builtins.str] = None,
-                 resource_type_common_attribute_management: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement'] = None,
+                 resource_type_common_attribute_management: Optional['outputs.ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse'] = None,
                  resource_validation: Optional[_builtins.str] = None,
-                 routing_rule: Optional['outputs.ResourceTypeRegistrationPropertiesResponseRoutingRule'] = None,
+                 routing_rule: Optional['outputs.ResourceTypeRegistrationPropertiesRoutingRuleResponse'] = None,
                  routing_type: Optional[_builtins.str] = None,
                  service_tree_infos: Optional[Sequence['outputs.ServiceTreeInfoResponse']] = None,
                  sku_link: Optional[_builtins.str] = None,
-                 subscription_lifecycle_notification_specifications: Optional['outputs.ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications'] = None,
+                 subscription_lifecycle_notification_specifications: Optional['outputs.ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse'] = None,
                  subscription_state_rules: Optional[Sequence['outputs.SubscriptionStateRuleResponse']] = None,
                  supports_tags: Optional[_builtins.bool] = None,
                  swagger_specifications: Optional[Sequence['outputs.SwaggerSpecificationResponse']] = None,
-                 template_deployment_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions'] = None,
-                 template_deployment_policy: Optional['outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy'] = None,
+                 template_deployment_options: Optional['outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse'] = None,
+                 template_deployment_policy: Optional['outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse'] = None,
                  throttling_rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None,
                  token_auth_configuration: Optional['outputs.TokenAuthConfigurationResponse'] = None):
         """
@@ -6109,67 +7243,67 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
         :param _builtins.str async_operation_resource_type_name: The async operation resource type name.
         :param Sequence['AsyncTimeoutRuleResponse'] async_timeout_rules: Async timeout rules
         :param Sequence['AuthorizationActionMappingResponse'] authorization_action_mappings: The authorization action mappings
-        :param 'ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule' availability_zone_rule: The availability zone rule.
-        :param 'ResourceTypeRegistrationPropertiesResponseCapacityRule' capacity_rule: Capacity rule.
+        :param 'ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse' availability_zone_rule: The availability zone rule.
+        :param 'ResourceTypeRegistrationPropertiesCapacityRuleResponse' capacity_rule: Capacity rule.
         :param _builtins.str category: The category.
-        :param 'ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications' check_name_availability_specifications: The check name availability specifications.
+        :param 'ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse' check_name_availability_specifications: The check name availability specifications.
         :param Sequence[_builtins.str] common_api_versions: Common API versions for the resource type.
         :param _builtins.str cross_tenant_token_validation: The cross tenant token validation.
         :param _builtins.str default_api_version: The default api version.
         :param Sequence[_builtins.str] disallowed_action_verbs: The disallowed action verbs.
         :param Sequence[_builtins.str] disallowed_end_user_operations: The disallowed end user operations.
-        :param 'ResourceTypeRegistrationPropertiesResponseDstsConfiguration' dsts_configuration: The dsts configuration.
+        :param 'ResourceTypeRegistrationPropertiesDstsConfigurationResponse' dsts_configuration: The dsts configuration.
         :param _builtins.bool enable_async_operation: Whether async operation is enabled.
         :param _builtins.bool enable_third_party_s2_s: Whether third party S2S is enabled.
         :param Sequence['ResourceTypeEndpointResponse'] endpoints: The extensions.
         :param Sequence['ExtendedLocationOptionsResponse'] extended_locations: The extended locations.
-        :param 'ResourceTypeRegistrationPropertiesResponseExtensionOptions' extension_options: The extension options.
-        :param 'ResourceTypeRegistrationPropertiesResponseFeaturesRule' features_rule: The features rule.
+        :param 'ResourceTypeRegistrationPropertiesExtensionOptionsResponse' extension_options: The extension options.
+        :param 'ResourceTypeRegistrationPropertiesFeaturesRuleResponse' features_rule: The features rule.
         :param _builtins.str frontdoor_request_mode: The frontdoor request mode.
         :param _builtins.str grouping_tag: Grouping tag.
-        :param 'ResourceTypeRegistrationPropertiesResponseIdentityManagement' identity_management: The identity management.
+        :param 'ResourceTypeRegistrationPropertiesIdentityManagementResponse' identity_management: The identity management.
         :param _builtins.bool is_pure_proxy: Whether it is pure proxy.
         :param _builtins.str legacy_name: The legacy name.
         :param Sequence[_builtins.str] legacy_names: The legacy names.
-        :param 'ResourceTypeRegistrationPropertiesResponseLegacyPolicy' legacy_policy: The legacy policy.
+        :param 'ResourceTypeRegistrationPropertiesLegacyPolicyResponse' legacy_policy: The legacy policy.
         :param Sequence['LinkedAccessCheckResponse'] linked_access_checks: The linked access checks.
         :param Sequence['LinkedNotificationRuleResponse'] linked_notification_rules: The linked notification rules.
         :param Sequence['LinkedOperationRuleResponse'] linked_operation_rules: The linked operation rules.
         :param Sequence['LoggingRuleResponse'] logging_rules: The logging rules.
-        :param 'ResourceTypeRegistrationPropertiesResponseManagement' management: The resource provider management.
+        :param 'ResourceTypeRegistrationPropertiesManagementResponse' management: The resource provider management.
         :param _builtins.str manifest_link: Manifest link.
-        :param 'ResourceTypeRegistrationPropertiesResponseMarketplaceOptions' marketplace_options: Marketplace options.
+        :param 'ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse' marketplace_options: Marketplace options.
         :param _builtins.str marketplace_type: The marketplace type.
-        :param Mapping[str, Any] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param Sequence['NotificationResponse'] notifications: The notifications.
         :param 'ResourceTypeOnBehalfOfTokenResponse' on_behalf_of_tokens: The on behalf of tokens.
         :param 'OpenApiConfigurationResponse' open_api_configuration: The open api configuration.
         :param _builtins.str policy_execution_type: The policy execution type.
         :param 'QuotaRuleResponse' quota_rule: The quota rule.
         :param _builtins.str regionality: The regionality.
-        :param 'ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions' request_header_options: The request header options.
+        :param 'ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse' request_header_options: The request header options.
         :param Sequence[_builtins.str] required_features: The required features.
-        :param 'ResourceTypeRegistrationPropertiesResponseResourceCache' resource_cache: Resource cache options.
+        :param 'ResourceTypeRegistrationPropertiesResourceCacheResponse' resource_cache: Resource cache options.
         :param Mapping[str, 'ResourceConcurrencyControlOptionResponse'] resource_concurrency_control_options: The resource concurrency control options.
         :param _builtins.str resource_deletion_policy: The resource deletion policy.
-        :param 'ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration' resource_graph_configuration: The resource graph configuration.
-        :param 'ResourceTypeRegistrationPropertiesResponseResourceManagementOptions' resource_management_options: Resource management options.
-        :param 'ResourceTypeRegistrationPropertiesResponseResourceMovePolicy' resource_move_policy: The resource move policy.
+        :param 'ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse' resource_graph_configuration: The resource graph configuration.
+        :param 'ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse' resource_management_options: Resource management options.
+        :param 'ResourceTypeRegistrationPropertiesResourceMovePolicyResponse' resource_move_policy: The resource move policy.
         :param 'ResourceProviderAuthorizationRulesResponse' resource_provider_authorization_rules: The resource provider authorization rules.
-        :param 'ResourceTypeRegistrationPropertiesResponseResourceQueryManagement' resource_query_management: Resource query management options.
+        :param 'ResourceTypeRegistrationPropertiesResourceQueryManagementResponse' resource_query_management: Resource query management options.
         :param _builtins.str resource_sub_type: The resource sub type.
-        :param 'ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement' resource_type_common_attribute_management: Resource type common attribute management.
+        :param 'ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse' resource_type_common_attribute_management: Resource type common attribute management.
         :param _builtins.str resource_validation: The resource validation.
-        :param 'ResourceTypeRegistrationPropertiesResponseRoutingRule' routing_rule: Routing rule.
+        :param 'ResourceTypeRegistrationPropertiesRoutingRuleResponse' routing_rule: Routing rule.
         :param _builtins.str routing_type: The resource routing type.
         :param Sequence['ServiceTreeInfoResponse'] service_tree_infos: The service tree infos.
         :param _builtins.str sku_link: The sku link.
-        :param 'ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications' subscription_lifecycle_notification_specifications: The subscription lifecycle notification specifications.
+        :param 'ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse' subscription_lifecycle_notification_specifications: The subscription lifecycle notification specifications.
         :param Sequence['SubscriptionStateRuleResponse'] subscription_state_rules: The subscription state rules.
         :param _builtins.bool supports_tags: Whether tags are supported.
         :param Sequence['SwaggerSpecificationResponse'] swagger_specifications: The swagger specifications.
-        :param 'ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions' template_deployment_options: The template deployment options.
-        :param 'ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy' template_deployment_policy: The template deployment policy.
+        :param 'ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse' template_deployment_options: The template deployment options.
+        :param 'ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse' template_deployment_policy: The template deployment policy.
         :param Sequence['ThrottlingRuleResponse'] throttling_rules: The throttling rules.
         :param 'TokenAuthConfigurationResponse' token_auth_configuration: The token auth configuration.
         """
@@ -6421,7 +7555,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRule")
-    def availability_zone_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule']:
+    def availability_zone_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse']:
         """
         The availability zone rule.
         """
@@ -6429,7 +7563,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="capacityRule")
-    def capacity_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseCapacityRule']:
+    def capacity_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesCapacityRuleResponse']:
         """
         Capacity rule.
         """
@@ -6445,7 +7579,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="checkNameAvailabilitySpecifications")
-    def check_name_availability_specifications(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications']:
+    def check_name_availability_specifications(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse']:
         """
         The check name availability specifications.
         """
@@ -6493,7 +7627,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseDstsConfiguration']:
+    def dsts_configuration(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesDstsConfigurationResponse']:
         """
         The dsts configuration.
         """
@@ -6533,7 +7667,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="extensionOptions")
-    def extension_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseExtensionOptions']:
+    def extension_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesExtensionOptionsResponse']:
         """
         The extension options.
         """
@@ -6541,7 +7675,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseFeaturesRule']:
+    def features_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesFeaturesRuleResponse']:
         """
         The features rule.
         """
@@ -6565,7 +7699,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="identityManagement")
-    def identity_management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseIdentityManagement']:
+    def identity_management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesIdentityManagementResponse']:
         """
         The identity management.
         """
@@ -6597,7 +7731,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="legacyPolicy")
-    def legacy_policy(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseLegacyPolicy']:
+    def legacy_policy(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesLegacyPolicyResponse']:
         """
         The legacy policy.
         """
@@ -6637,7 +7771,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseManagement']:
+    def management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesManagementResponse']:
         """
         The resource provider management.
         """
@@ -6653,7 +7787,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="marketplaceOptions")
-    def marketplace_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseMarketplaceOptions']:
+    def marketplace_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse']:
         """
         Marketplace options.
         """
@@ -6669,7 +7803,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """
@@ -6725,7 +7859,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderOptions")
-    def request_header_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions']:
+    def request_header_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse']:
         """
         The request header options.
         """
@@ -6741,7 +7875,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourceCache")
-    def resource_cache(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceCache']:
+    def resource_cache(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceCacheResponse']:
         """
         Resource cache options.
         """
@@ -6765,7 +7899,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourceGraphConfiguration")
-    def resource_graph_configuration(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration']:
+    def resource_graph_configuration(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse']:
         """
         The resource graph configuration.
         """
@@ -6773,7 +7907,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourceManagementOptions")
-    def resource_management_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceManagementOptions']:
+    def resource_management_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse']:
         """
         Resource management options.
         """
@@ -6781,7 +7915,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourceMovePolicy")
-    def resource_move_policy(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy']:
+    def resource_move_policy(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceMovePolicyResponse']:
         """
         The resource move policy.
         """
@@ -6797,7 +7931,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourceQueryManagement")
-    def resource_query_management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceQueryManagement']:
+    def resource_query_management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceQueryManagementResponse']:
         """
         Resource query management options.
         """
@@ -6813,7 +7947,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeCommonAttributeManagement")
-    def resource_type_common_attribute_management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement']:
+    def resource_type_common_attribute_management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse']:
         """
         Resource type common attribute management.
         """
@@ -6829,7 +7963,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="routingRule")
-    def routing_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseRoutingRule']:
+    def routing_rule(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesRoutingRuleResponse']:
         """
         Routing rule.
         """
@@ -6861,7 +7995,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLifecycleNotificationSpecifications")
-    def subscription_lifecycle_notification_specifications(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications']:
+    def subscription_lifecycle_notification_specifications(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse']:
         """
         The subscription lifecycle notification specifications.
         """
@@ -6893,7 +8027,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="templateDeploymentOptions")
-    def template_deployment_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions']:
+    def template_deployment_options(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse']:
         """
         The template deployment options.
         """
@@ -6901,7 +8035,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="templateDeploymentPolicy")
-    def template_deployment_policy(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy']:
+    def template_deployment_policy(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse']:
         """
         The template deployment policy.
         """
@@ -6925,1141 +8059,7 @@ class ResourceTypeRegistrationPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule(dict):
-    """
-    The availability zone rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "availabilityZonePolicy":
-            suggest = "availability_zone_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 availability_zone_policy: Optional[_builtins.str] = None):
-        """
-        The availability zone rule.
-        """
-        if availability_zone_policy is not None:
-            pulumi.set(__self__, "availability_zone_policy", availability_zone_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZonePolicy")
-    def availability_zone_policy(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "availability_zone_policy")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport(dict):
-    """
-    Batch provisioning support.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "supportedOperations":
-            suggest = "supported_operations"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 supported_operations: Optional[_builtins.str] = None):
-        """
-        Batch provisioning support.
-        :param _builtins.str supported_operations: Supported operations.
-        """
-        if supported_operations is not None:
-            pulumi.set(__self__, "supported_operations", supported_operations)
-
-    @_builtins.property
-    @pulumi.getter(name="supportedOperations")
-    def supported_operations(self) -> Optional[_builtins.str]:
-        """
-        Supported operations.
-        """
-        return pulumi.get(self, "supported_operations")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseCapacityRule(dict):
-    """
-    Capacity rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "capacityPolicy":
-            suggest = "capacity_policy"
-        elif key == "skuAlias":
-            suggest = "sku_alias"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseCapacityRule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseCapacityRule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseCapacityRule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 capacity_policy: Optional[_builtins.str] = None,
-                 sku_alias: Optional[_builtins.str] = None):
-        """
-        Capacity rule.
-        :param _builtins.str capacity_policy: Capacity policy.
-        :param _builtins.str sku_alias: Sku alias
-        """
-        if capacity_policy is not None:
-            pulumi.set(__self__, "capacity_policy", capacity_policy)
-        if sku_alias is not None:
-            pulumi.set(__self__, "sku_alias", sku_alias)
-
-    @_builtins.property
-    @pulumi.getter(name="capacityPolicy")
-    def capacity_policy(self) -> Optional[_builtins.str]:
-        """
-        Capacity policy.
-        """
-        return pulumi.get(self, "capacity_policy")
-
-    @_builtins.property
-    @pulumi.getter(name="skuAlias")
-    def sku_alias(self) -> Optional[_builtins.str]:
-        """
-        Sku alias
-        """
-        return pulumi.get(self, "sku_alias")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications(dict):
-    """
-    The check name availability specifications.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enableDefaultValidation":
-            suggest = "enable_default_validation"
-        elif key == "resourceTypesWithCustomValidation":
-            suggest = "resource_types_with_custom_validation"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enable_default_validation: Optional[_builtins.bool] = None,
-                 resource_types_with_custom_validation: Optional[Sequence[_builtins.str]] = None):
-        """
-        The check name availability specifications.
-        :param _builtins.bool enable_default_validation: Whether default validation is enabled.
-        :param Sequence[_builtins.str] resource_types_with_custom_validation: The resource types with custom validation.
-        """
-        if enable_default_validation is not None:
-            pulumi.set(__self__, "enable_default_validation", enable_default_validation)
-        if resource_types_with_custom_validation is not None:
-            pulumi.set(__self__, "resource_types_with_custom_validation", resource_types_with_custom_validation)
-
-    @_builtins.property
-    @pulumi.getter(name="enableDefaultValidation")
-    def enable_default_validation(self) -> Optional[_builtins.bool]:
-        """
-        Whether default validation is enabled.
-        """
-        return pulumi.get(self, "enable_default_validation")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceTypesWithCustomValidation")
-    def resource_types_with_custom_validation(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The resource types with custom validation.
-        """
-        return pulumi.get(self, "resource_types_with_custom_validation")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseDstsConfiguration(dict):
-    """
-    The dsts configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serviceName":
-            suggest = "service_name"
-        elif key == "serviceDnsName":
-            suggest = "service_dns_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseDstsConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseDstsConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseDstsConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 service_name: _builtins.str,
-                 service_dns_name: Optional[_builtins.str] = None):
-        """
-        The dsts configuration.
-        :param _builtins.str service_name: The service name.
-        :param _builtins.str service_dns_name: This is a URI property.
-        """
-        pulumi.set(__self__, "service_name", service_name)
-        if service_dns_name is not None:
-            pulumi.set(__self__, "service_dns_name", service_dns_name)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> _builtins.str:
-        """
-        The service name.
-        """
-        return pulumi.get(self, "service_name")
-
-    @_builtins.property
-    @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[_builtins.str]:
-        """
-        This is a URI property.
-        """
-        return pulumi.get(self, "service_dns_name")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseExtensionOptions(dict):
-    """
-    The extension options.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceCreationBegin":
-            suggest = "resource_creation_begin"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseExtensionOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseExtensionOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseExtensionOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resource_creation_begin: Optional['outputs.ResourceTypeExtensionOptionsResponseResourceCreationBegin'] = None):
-        """
-        The extension options.
-        :param 'ResourceTypeExtensionOptionsResponseResourceCreationBegin' resource_creation_begin: Resource creation begin.
-        """
-        if resource_creation_begin is not None:
-            pulumi.set(__self__, "resource_creation_begin", resource_creation_begin)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceCreationBegin")
-    def resource_creation_begin(self) -> Optional['outputs.ResourceTypeExtensionOptionsResponseResourceCreationBegin']:
-        """
-        Resource creation begin.
-        """
-        return pulumi.get(self, "resource_creation_begin")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseFeaturesRule(dict):
-    """
-    The features rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "requiredFeaturesPolicy":
-            suggest = "required_features_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseFeaturesRule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseFeaturesRule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseFeaturesRule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 required_features_policy: _builtins.str):
-        """
-        The features rule.
-        :param _builtins.str required_features_policy: The required feature policy.
-        """
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="requiredFeaturesPolicy")
-    def required_features_policy(self) -> _builtins.str:
-        """
-        The required feature policy.
-        """
-        return pulumi.get(self, "required_features_policy")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseIdentityManagement(dict):
-    """
-    The identity management.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "applicationId":
-            suggest = "application_id"
-        elif key == "applicationIds":
-            suggest = "application_ids"
-        elif key == "delegationAppIds":
-            suggest = "delegation_app_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseIdentityManagement. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseIdentityManagement.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseIdentityManagement.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 application_id: Optional[_builtins.str] = None,
-                 application_ids: Optional[Sequence[_builtins.str]] = None,
-                 delegation_app_ids: Optional[Sequence[_builtins.str]] = None,
-                 type: Optional[_builtins.str] = None):
-        """
-        The identity management.
-        :param _builtins.str application_id: The application id.
-        :param Sequence[_builtins.str] application_ids: The application ids.
-        :param Sequence[_builtins.str] delegation_app_ids: The delegation app ids.
-        :param _builtins.str type: The type.
-        """
-        if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
-        if application_ids is not None:
-            pulumi.set(__self__, "application_ids", application_ids)
-        if delegation_app_ids is not None:
-            pulumi.set(__self__, "delegation_app_ids", delegation_app_ids)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[_builtins.str]:
-        """
-        The application id.
-        """
-        return pulumi.get(self, "application_id")
-
-    @_builtins.property
-    @pulumi.getter(name="applicationIds")
-    def application_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The application ids.
-        """
-        return pulumi.get(self, "application_ids")
-
-    @_builtins.property
-    @pulumi.getter(name="delegationAppIds")
-    def delegation_app_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The delegation app ids.
-        """
-        return pulumi.get(self, "delegation_app_ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        The type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseLegacyPolicy(dict):
-    """
-    The legacy policy.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "disallowedConditions":
-            suggest = "disallowed_conditions"
-        elif key == "disallowedLegacyOperations":
-            suggest = "disallowed_legacy_operations"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseLegacyPolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseLegacyPolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseLegacyPolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 disallowed_conditions: Optional[Sequence['outputs.LegacyDisallowedConditionResponse']] = None,
-                 disallowed_legacy_operations: Optional[Sequence[_builtins.str]] = None):
-        """
-        The legacy policy.
-        """
-        if disallowed_conditions is not None:
-            pulumi.set(__self__, "disallowed_conditions", disallowed_conditions)
-        if disallowed_legacy_operations is not None:
-            pulumi.set(__self__, "disallowed_legacy_operations", disallowed_legacy_operations)
-
-    @_builtins.property
-    @pulumi.getter(name="disallowedConditions")
-    def disallowed_conditions(self) -> Optional[Sequence['outputs.LegacyDisallowedConditionResponse']]:
-        return pulumi.get(self, "disallowed_conditions")
-
-    @_builtins.property
-    @pulumi.getter(name="disallowedLegacyOperations")
-    def disallowed_legacy_operations(self) -> Optional[Sequence[_builtins.str]]:
-        return pulumi.get(self, "disallowed_legacy_operations")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseManagement(dict):
-    """
-    The resource provider management.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "authorizationOwners":
-            suggest = "authorization_owners"
-        elif key == "canaryManifestOwners":
-            suggest = "canary_manifest_owners"
-        elif key == "errorResponseMessageOptions":
-            suggest = "error_response_message_options"
-        elif key == "expeditedRolloutMetadata":
-            suggest = "expedited_rollout_metadata"
-        elif key == "expeditedRolloutSubmitters":
-            suggest = "expedited_rollout_submitters"
-        elif key == "incidentContactEmail":
-            suggest = "incident_contact_email"
-        elif key == "incidentRoutingService":
-            suggest = "incident_routing_service"
-        elif key == "incidentRoutingTeam":
-            suggest = "incident_routing_team"
-        elif key == "manifestOwners":
-            suggest = "manifest_owners"
-        elif key == "pcCode":
-            suggest = "pc_code"
-        elif key == "profitCenterProgramId":
-            suggest = "profit_center_program_id"
-        elif key == "resourceAccessPolicy":
-            suggest = "resource_access_policy"
-        elif key == "resourceAccessRoles":
-            suggest = "resource_access_roles"
-        elif key == "schemaOwners":
-            suggest = "schema_owners"
-        elif key == "serviceTreeInfos":
-            suggest = "service_tree_infos"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseManagement. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseManagement.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseManagement.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 authorization_owners: Optional[Sequence[_builtins.str]] = None,
-                 canary_manifest_owners: Optional[Sequence[_builtins.str]] = None,
-                 error_response_message_options: Optional['outputs.ResourceProviderManagementResponseErrorResponseMessageOptions'] = None,
-                 expedited_rollout_metadata: Optional['outputs.ResourceProviderManagementResponseExpeditedRolloutMetadata'] = None,
-                 expedited_rollout_submitters: Optional[Sequence[_builtins.str]] = None,
-                 incident_contact_email: Optional[_builtins.str] = None,
-                 incident_routing_service: Optional[_builtins.str] = None,
-                 incident_routing_team: Optional[_builtins.str] = None,
-                 manifest_owners: Optional[Sequence[_builtins.str]] = None,
-                 pc_code: Optional[_builtins.str] = None,
-                 profit_center_program_id: Optional[_builtins.str] = None,
-                 resource_access_policy: Optional[_builtins.str] = None,
-                 resource_access_roles: Optional[Sequence['outputs.ResourceAccessRoleResponse']] = None,
-                 schema_owners: Optional[Sequence[_builtins.str]] = None,
-                 service_tree_infos: Optional[Sequence['outputs.ServiceTreeInfoResponse']] = None):
-        """
-        The resource provider management.
-        :param Sequence[_builtins.str] authorization_owners: The authorization owners.
-        :param Sequence[_builtins.str] canary_manifest_owners: List of manifest owners for canary.
-        :param 'ResourceProviderManagementResponseErrorResponseMessageOptions' error_response_message_options: Options for error response messages.
-        :param 'ResourceProviderManagementResponseExpeditedRolloutMetadata' expedited_rollout_metadata: Metadata for expedited rollout.
-        :param Sequence[_builtins.str] expedited_rollout_submitters: List of expedited rollout submitters.
-        :param _builtins.str incident_contact_email: The incident contact email.
-        :param _builtins.str incident_routing_service: The incident routing service.
-        :param _builtins.str incident_routing_team: The incident routing team.
-        :param Sequence[_builtins.str] manifest_owners: The manifest owners.
-        :param _builtins.str pc_code: The profit center code for the subscription.
-        :param _builtins.str profit_center_program_id: The profit center program id for the subscription.
-        :param _builtins.str resource_access_policy: The resource access policy.
-        :param Sequence['ResourceAccessRoleResponse'] resource_access_roles: The resource access roles.
-        :param Sequence[_builtins.str] schema_owners: The schema owners.
-        :param Sequence['ServiceTreeInfoResponse'] service_tree_infos: The service tree infos.
-        """
-        if authorization_owners is not None:
-            pulumi.set(__self__, "authorization_owners", authorization_owners)
-        if canary_manifest_owners is not None:
-            pulumi.set(__self__, "canary_manifest_owners", canary_manifest_owners)
-        if error_response_message_options is not None:
-            pulumi.set(__self__, "error_response_message_options", error_response_message_options)
-        if expedited_rollout_metadata is not None:
-            pulumi.set(__self__, "expedited_rollout_metadata", expedited_rollout_metadata)
-        if expedited_rollout_submitters is not None:
-            pulumi.set(__self__, "expedited_rollout_submitters", expedited_rollout_submitters)
-        if incident_contact_email is not None:
-            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
-        if incident_routing_service is not None:
-            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
-        if incident_routing_team is not None:
-            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
-        if manifest_owners is not None:
-            pulumi.set(__self__, "manifest_owners", manifest_owners)
-        if pc_code is not None:
-            pulumi.set(__self__, "pc_code", pc_code)
-        if profit_center_program_id is not None:
-            pulumi.set(__self__, "profit_center_program_id", profit_center_program_id)
-        if resource_access_policy is not None:
-            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
-        if resource_access_roles is not None:
-            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
-        if schema_owners is not None:
-            pulumi.set(__self__, "schema_owners", schema_owners)
-        if service_tree_infos is not None:
-            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationOwners")
-    def authorization_owners(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The authorization owners.
-        """
-        return pulumi.get(self, "authorization_owners")
-
-    @_builtins.property
-    @pulumi.getter(name="canaryManifestOwners")
-    def canary_manifest_owners(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of manifest owners for canary.
-        """
-        return pulumi.get(self, "canary_manifest_owners")
-
-    @_builtins.property
-    @pulumi.getter(name="errorResponseMessageOptions")
-    def error_response_message_options(self) -> Optional['outputs.ResourceProviderManagementResponseErrorResponseMessageOptions']:
-        """
-        Options for error response messages.
-        """
-        return pulumi.get(self, "error_response_message_options")
-
-    @_builtins.property
-    @pulumi.getter(name="expeditedRolloutMetadata")
-    def expedited_rollout_metadata(self) -> Optional['outputs.ResourceProviderManagementResponseExpeditedRolloutMetadata']:
-        """
-        Metadata for expedited rollout.
-        """
-        return pulumi.get(self, "expedited_rollout_metadata")
-
-    @_builtins.property
-    @pulumi.getter(name="expeditedRolloutSubmitters")
-    def expedited_rollout_submitters(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of expedited rollout submitters.
-        """
-        return pulumi.get(self, "expedited_rollout_submitters")
-
-    @_builtins.property
-    @pulumi.getter(name="incidentContactEmail")
-    def incident_contact_email(self) -> Optional[_builtins.str]:
-        """
-        The incident contact email.
-        """
-        return pulumi.get(self, "incident_contact_email")
-
-    @_builtins.property
-    @pulumi.getter(name="incidentRoutingService")
-    def incident_routing_service(self) -> Optional[_builtins.str]:
-        """
-        The incident routing service.
-        """
-        return pulumi.get(self, "incident_routing_service")
-
-    @_builtins.property
-    @pulumi.getter(name="incidentRoutingTeam")
-    def incident_routing_team(self) -> Optional[_builtins.str]:
-        """
-        The incident routing team.
-        """
-        return pulumi.get(self, "incident_routing_team")
-
-    @_builtins.property
-    @pulumi.getter(name="manifestOwners")
-    def manifest_owners(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The manifest owners.
-        """
-        return pulumi.get(self, "manifest_owners")
-
-    @_builtins.property
-    @pulumi.getter(name="pcCode")
-    def pc_code(self) -> Optional[_builtins.str]:
-        """
-        The profit center code for the subscription.
-        """
-        return pulumi.get(self, "pc_code")
-
-    @_builtins.property
-    @pulumi.getter(name="profitCenterProgramId")
-    def profit_center_program_id(self) -> Optional[_builtins.str]:
-        """
-        The profit center program id for the subscription.
-        """
-        return pulumi.get(self, "profit_center_program_id")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceAccessPolicy")
-    def resource_access_policy(self) -> Optional[_builtins.str]:
-        """
-        The resource access policy.
-        """
-        return pulumi.get(self, "resource_access_policy")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceAccessRoles")
-    def resource_access_roles(self) -> Optional[Sequence['outputs.ResourceAccessRoleResponse']]:
-        """
-        The resource access roles.
-        """
-        return pulumi.get(self, "resource_access_roles")
-
-    @_builtins.property
-    @pulumi.getter(name="schemaOwners")
-    def schema_owners(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The schema owners.
-        """
-        return pulumi.get(self, "schema_owners")
-
-    @_builtins.property
-    @pulumi.getter(name="serviceTreeInfos")
-    def service_tree_infos(self) -> Optional[Sequence['outputs.ServiceTreeInfoResponse']]:
-        """
-        The service tree infos.
-        """
-        return pulumi.get(self, "service_tree_infos")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseMarketplaceOptions(dict):
-    """
-    Marketplace options.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addOnPlanConversionAllowed":
-            suggest = "add_on_plan_conversion_allowed"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseMarketplaceOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseMarketplaceOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseMarketplaceOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 add_on_plan_conversion_allowed: Optional[_builtins.bool] = None):
-        """
-        Marketplace options.
-        :param _builtins.bool add_on_plan_conversion_allowed: Add-on plan conversion allowed.
-        """
-        if add_on_plan_conversion_allowed is not None:
-            pulumi.set(__self__, "add_on_plan_conversion_allowed", add_on_plan_conversion_allowed)
-
-    @_builtins.property
-    @pulumi.getter(name="addOnPlanConversionAllowed")
-    def add_on_plan_conversion_allowed(self) -> Optional[_builtins.bool]:
-        """
-        Add-on plan conversion allowed.
-        """
-        return pulumi.get(self, "add_on_plan_conversion_allowed")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport(dict):
-    """
-    Nested provisioning support.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "minimumApiVersion":
-            suggest = "minimum_api_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 minimum_api_version: Optional[_builtins.str] = None):
-        """
-        Nested provisioning support.
-        :param _builtins.str minimum_api_version: Minimum API version.
-        """
-        if minimum_api_version is not None:
-            pulumi.set(__self__, "minimum_api_version", minimum_api_version)
-
-    @_builtins.property
-    @pulumi.getter(name="minimumApiVersion")
-    def minimum_api_version(self) -> Optional[_builtins.str]:
-        """
-        Minimum API version.
-        """
-        return pulumi.get(self, "minimum_api_version")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions(dict):
-    """
-    The request header options.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "optInHeaders":
-            suggest = "opt_in_headers"
-        elif key == "optOutHeaders":
-            suggest = "opt_out_headers"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 opt_in_headers: Optional[_builtins.str] = None,
-                 opt_out_headers: Optional[_builtins.str] = None):
-        """
-        The request header options.
-        :param _builtins.str opt_in_headers: The opt in headers.
-        :param _builtins.str opt_out_headers: The opt out headers.
-        """
-        if opt_in_headers is not None:
-            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
-        if opt_out_headers is not None:
-            pulumi.set(__self__, "opt_out_headers", opt_out_headers)
-
-    @_builtins.property
-    @pulumi.getter(name="optInHeaders")
-    def opt_in_headers(self) -> Optional[_builtins.str]:
-        """
-        The opt in headers.
-        """
-        return pulumi.get(self, "opt_in_headers")
-
-    @_builtins.property
-    @pulumi.getter(name="optOutHeaders")
-    def opt_out_headers(self) -> Optional[_builtins.str]:
-        """
-        The opt out headers.
-        """
-        return pulumi.get(self, "opt_out_headers")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseResourceCache(dict):
-    """
-    Resource cache options.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enableResourceCache":
-            suggest = "enable_resource_cache"
-        elif key == "resourceCacheExpirationTimespan":
-            suggest = "resource_cache_expiration_timespan"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceCache. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceCache.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceCache.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enable_resource_cache: Optional[_builtins.bool] = None,
-                 resource_cache_expiration_timespan: Optional[_builtins.str] = None):
-        """
-        Resource cache options.
-        :param _builtins.bool enable_resource_cache: Enable resource cache.
-        :param _builtins.str resource_cache_expiration_timespan: Resource cache expiration timespan. This is a TimeSpan property.
-        """
-        if enable_resource_cache is not None:
-            pulumi.set(__self__, "enable_resource_cache", enable_resource_cache)
-        if resource_cache_expiration_timespan is not None:
-            pulumi.set(__self__, "resource_cache_expiration_timespan", resource_cache_expiration_timespan)
-
-    @_builtins.property
-    @pulumi.getter(name="enableResourceCache")
-    def enable_resource_cache(self) -> Optional[_builtins.bool]:
-        """
-        Enable resource cache.
-        """
-        return pulumi.get(self, "enable_resource_cache")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceCacheExpirationTimespan")
-    def resource_cache_expiration_timespan(self) -> Optional[_builtins.str]:
-        """
-        Resource cache expiration timespan. This is a TimeSpan property.
-        """
-        return pulumi.get(self, "resource_cache_expiration_timespan")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration(dict):
-    """
-    The resource graph configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "apiVersion":
-            suggest = "api_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 api_version: Optional[_builtins.str] = None,
-                 enabled: Optional[_builtins.bool] = None):
-        """
-        The resource graph configuration.
-        :param _builtins.str api_version: The api version.
-        :param _builtins.bool enabled: Whether it's enabled.
-        """
-        if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[_builtins.str]:
-        """
-        The api version.
-        """
-        return pulumi.get(self, "api_version")
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether it's enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseResourceManagementOptions(dict):
-    """
-    Resource management options.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "batchProvisioningSupport":
-            suggest = "batch_provisioning_support"
-        elif key == "deleteDependencies":
-            suggest = "delete_dependencies"
-        elif key == "nestedProvisioningSupport":
-            suggest = "nested_provisioning_support"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceManagementOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceManagementOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceManagementOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 batch_provisioning_support: Optional['outputs.ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport'] = None,
-                 delete_dependencies: Optional[Sequence['outputs.DeleteDependencyResponse']] = None,
-                 nested_provisioning_support: Optional['outputs.ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport'] = None):
-        """
-        Resource management options.
-        :param 'ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport' batch_provisioning_support: Batch provisioning support.
-        :param Sequence['DeleteDependencyResponse'] delete_dependencies: Delete dependencies.
-        :param 'ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport' nested_provisioning_support: Nested provisioning support.
-        """
-        if batch_provisioning_support is not None:
-            pulumi.set(__self__, "batch_provisioning_support", batch_provisioning_support)
-        if delete_dependencies is not None:
-            pulumi.set(__self__, "delete_dependencies", delete_dependencies)
-        if nested_provisioning_support is not None:
-            pulumi.set(__self__, "nested_provisioning_support", nested_provisioning_support)
-
-    @_builtins.property
-    @pulumi.getter(name="batchProvisioningSupport")
-    def batch_provisioning_support(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseBatchProvisioningSupport']:
-        """
-        Batch provisioning support.
-        """
-        return pulumi.get(self, "batch_provisioning_support")
-
-    @_builtins.property
-    @pulumi.getter(name="deleteDependencies")
-    def delete_dependencies(self) -> Optional[Sequence['outputs.DeleteDependencyResponse']]:
-        """
-        Delete dependencies.
-        """
-        return pulumi.get(self, "delete_dependencies")
-
-    @_builtins.property
-    @pulumi.getter(name="nestedProvisioningSupport")
-    def nested_provisioning_support(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseNestedProvisioningSupport']:
-        """
-        Nested provisioning support.
-        """
-        return pulumi.get(self, "nested_provisioning_support")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseResourceMovePolicy(dict):
-    """
-    The resource move policy.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "crossResourceGroupMoveEnabled":
-            suggest = "cross_resource_group_move_enabled"
-        elif key == "crossSubscriptionMoveEnabled":
-            suggest = "cross_subscription_move_enabled"
-        elif key == "validationRequired":
-            suggest = "validation_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceMovePolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceMovePolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceMovePolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cross_resource_group_move_enabled: Optional[_builtins.bool] = None,
-                 cross_subscription_move_enabled: Optional[_builtins.bool] = None,
-                 validation_required: Optional[_builtins.bool] = None):
-        """
-        The resource move policy.
-        :param _builtins.bool cross_resource_group_move_enabled: Whether cross resource group move is enabled.
-        :param _builtins.bool cross_subscription_move_enabled: Whether cross subscription move is enabled.
-        :param _builtins.bool validation_required: Whether validation is required.
-        """
-        if cross_resource_group_move_enabled is not None:
-            pulumi.set(__self__, "cross_resource_group_move_enabled", cross_resource_group_move_enabled)
-        if cross_subscription_move_enabled is not None:
-            pulumi.set(__self__, "cross_subscription_move_enabled", cross_subscription_move_enabled)
-        if validation_required is not None:
-            pulumi.set(__self__, "validation_required", validation_required)
-
-    @_builtins.property
-    @pulumi.getter(name="crossResourceGroupMoveEnabled")
-    def cross_resource_group_move_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether cross resource group move is enabled.
-        """
-        return pulumi.get(self, "cross_resource_group_move_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="crossSubscriptionMoveEnabled")
-    def cross_subscription_move_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether cross subscription move is enabled.
-        """
-        return pulumi.get(self, "cross_subscription_move_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="validationRequired")
-    def validation_required(self) -> Optional[_builtins.bool]:
-        """
-        Whether validation is required.
-        """
-        return pulumi.get(self, "validation_required")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseResourceQueryManagement(dict):
-    """
-    Resource query management options.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filterOption":
-            suggest = "filter_option"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceQueryManagement. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceQueryManagement.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceQueryManagement.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 filter_option: Optional[_builtins.str] = None):
-        """
-        Resource query management options.
-        :param _builtins.str filter_option: Filter option.
-        """
-        if filter_option is not None:
-            pulumi.set(__self__, "filter_option", filter_option)
-
-    @_builtins.property
-    @pulumi.getter(name="filterOption")
-    def filter_option(self) -> Optional[_builtins.str]:
-        """
-        Filter option.
-        """
-        return pulumi.get(self, "filter_option")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement(dict):
-    """
-    Resource type common attribute management.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "commonApiVersionsMergeMode":
-            suggest = "common_api_versions_merge_mode"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 common_api_versions_merge_mode: Optional[_builtins.str] = None):
-        """
-        Resource type common attribute management.
-        :param _builtins.str common_api_versions_merge_mode: Common api versions merge mode.
-        """
-        if common_api_versions_merge_mode is not None:
-            pulumi.set(__self__, "common_api_versions_merge_mode", common_api_versions_merge_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="commonApiVersionsMergeMode")
-    def common_api_versions_merge_mode(self) -> Optional[_builtins.str]:
-        """
-        Common api versions merge mode.
-        """
-        return pulumi.get(self, "common_api_versions_merge_mode")
-
-
-@pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseRoutingRule(dict):
+class ResourceTypeRegistrationPropertiesRoutingRuleResponse(dict):
     """
     Routing rule.
     """
@@ -8070,14 +8070,14 @@ class ResourceTypeRegistrationPropertiesResponseRoutingRule(dict):
             suggest = "host_resource_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseRoutingRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesRoutingRuleResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseRoutingRule.__key_warning(key)
+        ResourceTypeRegistrationPropertiesRoutingRuleResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseRoutingRule.__key_warning(key)
+        ResourceTypeRegistrationPropertiesRoutingRuleResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -8099,7 +8099,7 @@ class ResourceTypeRegistrationPropertiesResponseRoutingRule(dict):
 
 
 @pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications(dict):
+class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse(dict):
     """
     The subscription lifecycle notification specifications.
     """
@@ -8112,14 +8112,14 @@ class ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificatio
             suggest = "subscription_state_override_actions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -8153,7 +8153,7 @@ class ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificatio
 
 
 @pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions(dict):
+class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse(dict):
     """
     The template deployment options.
     """
@@ -8166,14 +8166,14 @@ class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions(dict):
             suggest = "preflight_supported"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -8207,7 +8207,7 @@ class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions(dict):
 
 
 @pulumi.output_type
-class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy(dict):
+class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse(dict):
     """
     The template deployment policy.
     """
@@ -8220,14 +8220,14 @@ class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy(dict):
             suggest = "preflight_notifications"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy.__key_warning(key)
+        ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy.__key_warning(key)
+        ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -8272,6 +8272,9 @@ class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy(dict):
 
 @pulumi.output_type
 class ResourceTypeRegistrationResponse(dict):
+    """
+    Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8297,6 +8300,7 @@ class ResourceTypeRegistrationResponse(dict):
                  kind: Optional[_builtins.str] = None,
                  properties: Optional['outputs.ResourceTypeRegistrationPropertiesResponse'] = None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -8598,7 +8602,7 @@ class SkuLocationInfoResponse(dict):
 
 
 @pulumi.output_type
-class SkuResourceResponseProperties(dict):
+class SkuResourcePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8608,14 +8612,14 @@ class SkuResourceResponseProperties(dict):
             suggest = "sku_settings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SkuResourceResponseProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SkuResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SkuResourceResponseProperties.__key_warning(key)
+        SkuResourcePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SkuResourceResponseProperties.__key_warning(key)
+        SkuResourcePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -8646,6 +8650,81 @@ class SkuResourceResponseProperties(dict):
 
 
 @pulumi.output_type
+class SkuSettingCapacityResponse(dict):
+    """
+    The capacity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleType":
+            suggest = "scale_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuSettingCapacityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuSettingCapacityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuSettingCapacityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum: _builtins.int,
+                 default: Optional[_builtins.int] = None,
+                 maximum: Optional[_builtins.int] = None,
+                 scale_type: Optional[_builtins.str] = None):
+        """
+        The capacity.
+        :param _builtins.int minimum: The minimum.
+        :param _builtins.int default: The default.
+        :param _builtins.int maximum: The maximum.
+        :param _builtins.str scale_type: The scale type.
+        """
+        pulumi.set(__self__, "minimum", minimum)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if scale_type is not None:
+            pulumi.set(__self__, "scale_type", scale_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def minimum(self) -> _builtins.int:
+        """
+        The minimum.
+        """
+        return pulumi.get(self, "minimum")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.int]:
+        """
+        The default.
+        """
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def maximum(self) -> Optional[_builtins.int]:
+        """
+        The maximum.
+        """
+        return pulumi.get(self, "maximum")
+
+    @_builtins.property
+    @pulumi.getter(name="scaleType")
+    def scale_type(self) -> Optional[_builtins.str]:
+        """
+        The scale type.
+        """
+        return pulumi.get(self, "scale_type")
+
+
+@pulumi.output_type
 class SkuSettingResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8671,7 +8750,7 @@ class SkuSettingResponse(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  capabilities: Optional[Sequence['outputs.SkuCapabilityResponse']] = None,
-                 capacity: Optional['outputs.SkuSettingResponseCapacity'] = None,
+                 capacity: Optional['outputs.SkuSettingCapacityResponse'] = None,
                  costs: Optional[Sequence['outputs.SkuCostResponse']] = None,
                  family: Optional[_builtins.str] = None,
                  kind: Optional[_builtins.str] = None,
@@ -8684,7 +8763,7 @@ class SkuSettingResponse(dict):
         """
         :param _builtins.str name: The name.
         :param Sequence['SkuCapabilityResponse'] capabilities: The capabilities.
-        :param 'SkuSettingResponseCapacity' capacity: The capacity.
+        :param 'SkuSettingCapacityResponse' capacity: The capacity.
         :param Sequence['SkuCostResponse'] costs: The costs.
         :param _builtins.str family: The family.
         :param _builtins.str kind: The kind.
@@ -8737,7 +8816,7 @@ class SkuSettingResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional['outputs.SkuSettingResponseCapacity']:
+    def capacity(self) -> Optional['outputs.SkuSettingCapacityResponse']:
         """
         The capacity.
         """
@@ -8814,81 +8893,6 @@ class SkuSettingResponse(dict):
         The tier.
         """
         return pulumi.get(self, "tier")
-
-
-@pulumi.output_type
-class SkuSettingResponseCapacity(dict):
-    """
-    The capacity.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "scaleType":
-            suggest = "scale_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SkuSettingResponseCapacity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SkuSettingResponseCapacity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SkuSettingResponseCapacity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 minimum: _builtins.int,
-                 default: Optional[_builtins.int] = None,
-                 maximum: Optional[_builtins.int] = None,
-                 scale_type: Optional[_builtins.str] = None):
-        """
-        The capacity.
-        :param _builtins.int minimum: The minimum.
-        :param _builtins.int default: The default.
-        :param _builtins.int maximum: The maximum.
-        :param _builtins.str scale_type: The scale type.
-        """
-        pulumi.set(__self__, "minimum", minimum)
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
-        if scale_type is not None:
-            pulumi.set(__self__, "scale_type", scale_type)
-
-    @_builtins.property
-    @pulumi.getter
-    def minimum(self) -> _builtins.int:
-        """
-        The minimum.
-        """
-        return pulumi.get(self, "minimum")
-
-    @_builtins.property
-    @pulumi.getter
-    def default(self) -> Optional[_builtins.int]:
-        """
-        The default.
-        """
-        return pulumi.get(self, "default")
-
-    @_builtins.property
-    @pulumi.getter
-    def maximum(self) -> Optional[_builtins.int]:
-        """
-        The maximum.
-        """
-        return pulumi.get(self, "maximum")
-
-    @_builtins.property
-    @pulumi.getter(name="scaleType")
-    def scale_type(self) -> Optional[_builtins.str]:
-        """
-        The scale type.
-        """
-        return pulumi.get(self, "scale_type")
 
 
 @pulumi.output_type

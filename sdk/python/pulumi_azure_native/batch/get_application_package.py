@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetApplicationPackageResult',
@@ -26,7 +27,7 @@ class GetApplicationPackageResult:
     """
     An application package which represents a particular version of an application.
     """
-    def __init__(__self__, azure_api_version=None, etag=None, format=None, id=None, last_activation_time=None, name=None, state=None, storage_url=None, storage_url_expiry=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, format=None, id=None, last_activation_time=None, name=None, state=None, storage_url=None, storage_url_expiry=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -54,6 +55,9 @@ class GetApplicationPackageResult:
         if storage_url_expiry and not isinstance(storage_url_expiry, str):
             raise TypeError("Expected argument 'storage_url_expiry' to be a str")
         pulumi.set(__self__, "storage_url_expiry", storage_url_expiry)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -89,7 +93,7 @@ class GetApplicationPackageResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ID of the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -105,7 +109,7 @@ class GetApplicationPackageResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -134,6 +138,14 @@ class GetApplicationPackageResult:
         return pulumi.get(self, "storage_url_expiry")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
@@ -145,7 +157,7 @@ class GetApplicationPackageResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -165,6 +177,7 @@ class AwaitableGetApplicationPackageResult(GetApplicationPackageResult):
             state=self.state,
             storage_url=self.storage_url,
             storage_url_expiry=self.storage_url_expiry,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -182,9 +195,9 @@ def get_application_package(account_name: Optional[_builtins.str] = None,
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str application_name: The name of the application. This must be unique within the account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str version_name: The version of the application.
     """
     __args__ = dict()
@@ -205,6 +218,7 @@ def get_application_package(account_name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         storage_url=pulumi.get(__ret__, 'storage_url'),
         storage_url_expiry=pulumi.get(__ret__, 'storage_url_expiry'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_package_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -220,9 +234,9 @@ def get_application_package_output(account_name: Optional[pulumi.Input[_builtins
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
     :param _builtins.str application_name: The name of the application. This must be unique within the account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str version_name: The version of the application.
     """
     __args__ = dict()
@@ -242,5 +256,6 @@ def get_application_package_output(account_name: Optional[pulumi.Input[_builtins
         state=pulumi.get(__response__, 'state'),
         storage_url=pulumi.get(__response__, 'storage_url'),
         storage_url_expiry=pulumi.get(__response__, 'storage_url_expiry'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

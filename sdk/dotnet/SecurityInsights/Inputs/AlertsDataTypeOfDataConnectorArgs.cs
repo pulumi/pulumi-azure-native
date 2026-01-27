@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// <summary>
         /// Alerts data type connection.
         /// </summary>
-        [Input("alerts")]
-        public Input<Inputs.DataConnectorDataTypeCommonArgs>? Alerts { get; set; }
+        [Input("alerts", required: true)]
+        public Input<Inputs.DataConnectorDataTypeCommonArgs> Alerts { get; set; } = null!;
 
         public AlertsDataTypeOfDataConnectorArgs()
         {

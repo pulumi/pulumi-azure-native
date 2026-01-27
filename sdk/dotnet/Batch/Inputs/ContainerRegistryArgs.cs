@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// A private container registry.
+    /// </summary>
     public sealed class ContainerRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("identityReference")]
         public Input<Inputs.ComputeNodeIdentityReferenceArgs>? IdentityReference { get; set; }
 
+        /// <summary>
+        /// The password to log into the registry server.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -27,6 +33,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("registryServer")]
         public Input<string>? RegistryServer { get; set; }
 
+        /// <summary>
+        /// The user name to log into the registry server.
+        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

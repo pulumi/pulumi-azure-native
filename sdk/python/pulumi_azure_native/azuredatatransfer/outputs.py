@@ -22,6 +22,7 @@ __all__ = [
     'ArchiveRulesetResponse',
     'ConnectionPropertiesResponse',
     'DataSizeRulesetResponse',
+    'FlowProfileMetadataResponse',
     'FlowProfilePropertiesResponse',
     'FlowProfileRulesetsResponse',
     'FlowPropertiesResponse',
@@ -599,6 +600,83 @@ class DataSizeRulesetResponse(dict):
         Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
         """
         return pulumi.get(self, "minimum")
+
+
+@pulumi.output_type
+class FlowProfileMetadataResponse(dict):
+    """
+    The FlowProfile Metadata used to concisely provide all publicly viewable information.
+    """
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 flow_profile_id: _builtins.str,
+                 name: _builtins.str,
+                 pipeline: _builtins.str,
+                 replication_scenario: _builtins.str,
+                 status: _builtins.str):
+        """
+        The FlowProfile Metadata used to concisely provide all publicly viewable information.
+        :param _builtins.str description: A description of the FlowProfile and its rulesets. The description should describe the flowprofile's purpose and rulesets applied.
+        :param _builtins.str flow_profile_id: A guid represented as a string for the FlowProfile resource, assigned by the system.
+        :param _builtins.str name: The name of the FlowProfile.
+        :param _builtins.str pipeline: The name of the parent Pipeline Azure resource associated with this FlowProfile.
+        :param _builtins.str replication_scenario: The data replication scenario handled by this FlowProfile. Please note, that this value cannot be updated after creation. See the FlowProfilePatchProperties to see updateable properties.
+        :param _builtins.str status: The operational status of the FlowProfile.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "flow_profile_id", flow_profile_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pipeline", pipeline)
+        pulumi.set(__self__, "replication_scenario", replication_scenario)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        A description of the FlowProfile and its rulesets. The description should describe the flowprofile's purpose and rulesets applied.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="flowProfileId")
+    def flow_profile_id(self) -> _builtins.str:
+        """
+        A guid represented as a string for the FlowProfile resource, assigned by the system.
+        """
+        return pulumi.get(self, "flow_profile_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the FlowProfile.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def pipeline(self) -> _builtins.str:
+        """
+        The name of the parent Pipeline Azure resource associated with this FlowProfile.
+        """
+        return pulumi.get(self, "pipeline")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationScenario")
+    def replication_scenario(self) -> _builtins.str:
+        """
+        The data replication scenario handled by this FlowProfile. Please note, that this value cannot be updated after creation. See the FlowProfilePatchProperties to see updateable properties.
+        """
+        return pulumi.get(self, "replication_scenario")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The operational status of the FlowProfile.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

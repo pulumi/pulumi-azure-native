@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Etag of the action.
+        /// ETag of the action.
         /// </summary>
         public readonly string? Etag;
         /// <summary>

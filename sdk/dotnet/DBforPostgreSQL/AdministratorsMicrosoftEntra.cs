@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// 
     /// Uses Azure REST API version 2025-08-01.
     /// 
-    /// Other available API versions: 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:AdministratorsMicrosoftEntra")]
     public partial class AdministratorsMicrosoftEntra : global::Pulumi.CustomResource
@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20250101preview:AdministratorsMicrosoftEntra" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20250601preview:AdministratorsMicrosoftEntra" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20250801:AdministratorsMicrosoftEntra" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20260101preview:AdministratorsMicrosoftEntra" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Administrator" },
                 },
             };

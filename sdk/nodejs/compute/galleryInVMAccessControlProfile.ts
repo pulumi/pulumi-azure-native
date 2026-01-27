@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Specifies information about the gallery inVMAccessControlProfile that you want to create or update.
  *
  * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
+ *
+ * Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryInVMAccessControlProfile extends pulumi.CustomResource {
     /**
@@ -105,7 +107,7 @@ export class GalleryInVMAccessControlProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20240303:GalleryInVMAccessControlProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20240303:GalleryInVMAccessControlProfile" }, { type: "azure-native:compute/v20250303:GalleryInVMAccessControlProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryInVMAccessControlProfile.__pulumiType, name, resourceInputs, opts);
     }

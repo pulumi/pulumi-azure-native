@@ -20,6 +20,7 @@ __all__ = [
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'GetDependencyViewForAllMachinesResultPropertiesResponse',
+    'OffAzureDiscoverySourceResourcePropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -142,6 +143,73 @@ class GetDependencyViewForAllMachinesResultPropertiesResponse(dict):
         The SAS URI of the blob containing the layout file for the multi-server view.
         """
         return pulumi.get(self, "layout_file_sas_url")
+
+
+@pulumi.output_type
+class OffAzureDiscoverySourceResourcePropertiesResponse(dict):
+    """
+    OffAzure discovery source resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceId":
+            suggest = "source_id"
+        elif key == "sourceType":
+            suggest = "source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OffAzureDiscoverySourceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OffAzureDiscoverySourceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OffAzureDiscoverySourceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 source_id: _builtins.str,
+                 source_type: _builtins.str):
+        """
+        OffAzure discovery source resource properties
+        :param _builtins.str provisioning_state: Provisioning state of Discovery Source resource.
+        :param _builtins.str source_id: Source ArmId of Discovery Source resource
+        :param _builtins.str source_type: Source type of the discoverySource
+               Expected value is 'OffAzure'.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "source_type", 'OffAzure')
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of Discovery Source resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.str:
+        """
+        Source ArmId of Discovery Source resource
+        """
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> _builtins.str:
+        """
+        Source type of the discoverySource
+        Expected value is 'OffAzure'.
+        """
+        return pulumi.get(self, "source_type")
 
 
 @pulumi.output_type

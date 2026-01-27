@@ -155,6 +155,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[_
 
     Uses Azure REST API version 2025-09-01-preview.
 
+    Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param _builtins.str private_link_name: The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
@@ -185,6 +187,8 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     Gets the specified private endpoint connection associated with the private link. Returns the connection details, status, and configuration for a specific private endpoint.
 
     Uses Azure REST API version 2025-09-01-preview.
+
+    Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.

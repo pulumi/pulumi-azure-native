@@ -21,7 +21,6 @@ __all__ = [
     'ActivityEntityQueriesPropertiesResponseQueryDefinitions',
     'ActivityTimelineItemResponse',
     'AddIncidentTaskActionPropertiesResponse',
-    'AgentSystemResponse',
     'AlertDetailsOverrideResponse',
     'AlertPropertyMappingResponse',
     'AlertsDataTypeOfDataConnectorResponse',
@@ -88,8 +87,6 @@ __all__ = [
     'InstructionStepDetailsResponse',
     'InstructionStepResponse',
     'JwtAuthModelResponse',
-    'LockUserActionResponse',
-    'LogResponse',
     'MCASDataConnectorDataTypesResponse',
     'MSTIDataConnectorDataTypesResponse',
     'MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed',
@@ -118,10 +115,6 @@ __all__ = [
     'ResourceProviderRequiredPermissionsResponse',
     'RestApiPollerRequestConfigResponse',
     'RestApiPollerRequestPagingConfigResponse',
-    'RfcConnectorResponse',
-    'SapAgentConfigurationResponse',
-    'SapControlConnectorResponse',
-    'SapSystemsConfigurationResponse',
     'SecurityAlertTimelineItemResponse',
     'SecurityMLAnalyticsSettingsDataSourceResponse',
     'SessionAuthModelResponse',
@@ -132,7 +125,6 @@ __all__ = [
     'TimelineAggregationResponse',
     'TimelineErrorResponse',
     'TimelineResultsMetadataResponse',
-    'UnlockUserActionResponse',
     'UserInfoResponse',
     'ValidationErrorResponse',
     'WatchlistUserInfoResponse',
@@ -364,52 +356,6 @@ class AddIncidentTaskActionPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class AgentSystemResponse(dict):
-    """
-    Describes the configuration of a system inside the agent.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "systemDisplayName":
-            suggest = "system_display_name"
-        elif key == "systemResourceName":
-            suggest = "system_resource_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgentSystemResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AgentSystemResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AgentSystemResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 system_display_name: Optional[_builtins.str] = None,
-                 system_resource_name: Optional[_builtins.str] = None):
-        """
-        Describes the configuration of a system inside the agent.
-        """
-        if system_display_name is not None:
-            pulumi.set(__self__, "system_display_name", system_display_name)
-        if system_resource_name is not None:
-            pulumi.set(__self__, "system_resource_name", system_resource_name)
-
-    @_builtins.property
-    @pulumi.getter(name="systemDisplayName")
-    def system_display_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "system_display_name")
-
-    @_builtins.property
-    @pulumi.getter(name="systemResourceName")
-    def system_resource_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "system_resource_name")
-
-
-@pulumi.output_type
 class AlertDetailsOverrideResponse(dict):
     """
     Settings for how to dynamically override alert static details
@@ -563,17 +509,16 @@ class AlertsDataTypeOfDataConnectorResponse(dict):
     Alerts data type for data connectors.
     """
     def __init__(__self__, *,
-                 alerts: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
+                 alerts: 'outputs.DataConnectorDataTypeCommonResponse'):
         """
         Alerts data type for data connectors.
         :param 'DataConnectorDataTypeCommonResponse' alerts: Alerts data type connection.
         """
-        if alerts is not None:
-            pulumi.set(__self__, "alerts", alerts)
+        pulumi.set(__self__, "alerts", alerts)
 
     @_builtins.property
     @pulumi.getter
-    def alerts(self) -> Optional['outputs.DataConnectorDataTypeCommonResponse']:
+    def alerts(self) -> 'outputs.DataConnectorDataTypeCommonResponse':
         """
         Alerts data type connection.
         """
@@ -1395,17 +1340,16 @@ class AwsCloudTrailDataConnectorDataTypesResponse(dict):
     The available data types for Amazon Web Services CloudTrail data connector.
     """
     def __init__(__self__, *,
-                 logs: Optional['outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs'] = None):
+                 logs: 'outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs'):
         """
         The available data types for Amazon Web Services CloudTrail data connector.
         :param 'AwsCloudTrailDataConnectorDataTypesResponseLogs' logs: Logs data type.
         """
-        if logs is not None:
-            pulumi.set(__self__, "logs", logs)
+        pulumi.set(__self__, "logs", logs)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional['outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs']:
+    def logs(self) -> 'outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs':
         """
         Logs data type.
         """
@@ -1418,17 +1362,16 @@ class AwsCloudTrailDataConnectorDataTypesResponseLogs(dict):
     Logs data type.
     """
     def __init__(__self__, *,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
         Logs data type.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -2678,17 +2621,16 @@ class DataConnectorDataTypeCommonResponse(dict):
     Common field for data type in data connectors.
     """
     def __init__(__self__, *,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
         Common field for data type in data connectors.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -4645,8 +4587,8 @@ class InsightsTableResultResponseColumns(dict):
                  name: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: the name of the colum
-        :param _builtins.str type: the type of the colum
+        :param _builtins.str name: the name of the column
+        :param _builtins.str type: the type of the column
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -4657,7 +4599,7 @@ class InsightsTableResultResponseColumns(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        the name of the colum
+        the name of the column
         """
         return pulumi.get(self, "name")
 
@@ -4665,7 +4607,7 @@ class InsightsTableResultResponseColumns(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        the type of the colum
+        the type of the column
         """
         return pulumi.get(self, "type")
 
@@ -4930,157 +4872,6 @@ class JwtAuthModelResponse(dict):
 
 
 @pulumi.output_type
-class LockUserActionResponse(dict):
-    """
-    Represents lock user action.
-    """
-    def __init__(__self__, *,
-                 kind: _builtins.str,
-                 failure_reason: Optional[_builtins.str] = None,
-                 user: Optional[_builtins.str] = None):
-        """
-        Represents lock user action.
-        :param _builtins.str kind: The kind of the action
-               Expected value is 'LockUser'.
-        :param _builtins.str failure_reason: The reason of the failure of the action. Empty if the action is successful.
-        :param _builtins.str user: The user to lock
-        """
-        pulumi.set(__self__, "kind", 'LockUser')
-        if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
-        if user is not None:
-            pulumi.set(__self__, "user", user)
-
-    @_builtins.property
-    @pulumi.getter
-    def kind(self) -> _builtins.str:
-        """
-        The kind of the action
-        Expected value is 'LockUser'.
-        """
-        return pulumi.get(self, "kind")
-
-    @_builtins.property
-    @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[_builtins.str]:
-        """
-        The reason of the failure of the action. Empty if the action is successful.
-        """
-        return pulumi.get(self, "failure_reason")
-
-    @_builtins.property
-    @pulumi.getter
-    def user(self) -> Optional[_builtins.str]:
-        """
-        The user to lock
-        """
-        return pulumi.get(self, "user")
-
-
-@pulumi.output_type
-class LogResponse(dict):
-    """
-    Describes a log.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bulkSize":
-            suggest = "bulk_size"
-        elif key == "ingestionType":
-            suggest = "ingestion_type"
-        elif key == "scheduleInterval":
-            suggest = "schedule_interval"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 type: _builtins.str,
-                 bulk_size: Optional[_builtins.int] = None,
-                 filters: Optional[Sequence[_builtins.str]] = None,
-                 ingestion_type: Optional[_builtins.str] = None,
-                 schedule_interval: Optional[_builtins.int] = None,
-                 status: Optional[_builtins.str] = None):
-        """
-        Describes a log.
-        :param _builtins.str type: Types of logs and tables.
-        :param _builtins.int bulk_size: The bulk size for the log.
-        :param Sequence[_builtins.str] filters: The filters for the log.
-        :param _builtins.str ingestion_type: Types of ingestion.
-        :param _builtins.int schedule_interval: The schedule interval in seconds.
-        :param _builtins.str status: Types of log status.
-        """
-        pulumi.set(__self__, "type", type)
-        if bulk_size is not None:
-            pulumi.set(__self__, "bulk_size", bulk_size)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
-        if ingestion_type is not None:
-            pulumi.set(__self__, "ingestion_type", ingestion_type)
-        if schedule_interval is not None:
-            pulumi.set(__self__, "schedule_interval", schedule_interval)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Types of logs and tables.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="bulkSize")
-    def bulk_size(self) -> Optional[_builtins.int]:
-        """
-        The bulk size for the log.
-        """
-        return pulumi.get(self, "bulk_size")
-
-    @_builtins.property
-    @pulumi.getter
-    def filters(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The filters for the log.
-        """
-        return pulumi.get(self, "filters")
-
-    @_builtins.property
-    @pulumi.getter(name="ingestionType")
-    def ingestion_type(self) -> Optional[_builtins.str]:
-        """
-        Types of ingestion.
-        """
-        return pulumi.get(self, "ingestion_type")
-
-    @_builtins.property
-    @pulumi.getter(name="scheduleInterval")
-    def schedule_interval(self) -> Optional[_builtins.int]:
-        """
-        The schedule interval in seconds.
-        """
-        return pulumi.get(self, "schedule_interval")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        """
-        Types of log status.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
 class MCASDataConnectorDataTypesResponse(dict):
     """
     The available data types for MCAS (Microsoft Cloud App Security) data connector.
@@ -5103,21 +4894,20 @@ class MCASDataConnectorDataTypesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 alerts: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None,
+                 alerts: 'outputs.DataConnectorDataTypeCommonResponse',
                  discovery_logs: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
         """
         The available data types for MCAS (Microsoft Cloud App Security) data connector.
         :param 'DataConnectorDataTypeCommonResponse' alerts: Alerts data type connection.
         :param 'DataConnectorDataTypeCommonResponse' discovery_logs: Discovery log data type connection.
         """
-        if alerts is not None:
-            pulumi.set(__self__, "alerts", alerts)
+        pulumi.set(__self__, "alerts", alerts)
         if discovery_logs is not None:
             pulumi.set(__self__, "discovery_logs", discovery_logs)
 
     @_builtins.property
     @pulumi.getter
-    def alerts(self) -> Optional['outputs.DataConnectorDataTypeCommonResponse']:
+    def alerts(self) -> 'outputs.DataConnectorDataTypeCommonResponse':
         """
         Alerts data type connection.
         """
@@ -5195,15 +4985,14 @@ class MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed(dict):
 
     def __init__(__self__, *,
                  lookback_period: _builtins.str,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
         Data type for Microsoft Threat Intelligence data connector.
         :param _builtins.str lookback_period: The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "lookback_period", lookback_period)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter(name="lookbackPeriod")
@@ -5215,7 +5004,7 @@ class MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed(dict):
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -5817,25 +5606,22 @@ class OfficeDataConnectorDataTypesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 exchange: Optional['outputs.OfficeDataConnectorDataTypesResponseExchange'] = None,
-                 share_point: Optional['outputs.OfficeDataConnectorDataTypesResponseSharePoint'] = None,
-                 teams: Optional['outputs.OfficeDataConnectorDataTypesResponseTeams'] = None):
+                 exchange: 'outputs.OfficeDataConnectorDataTypesResponseExchange',
+                 share_point: 'outputs.OfficeDataConnectorDataTypesResponseSharePoint',
+                 teams: 'outputs.OfficeDataConnectorDataTypesResponseTeams'):
         """
         The available data types for office data connector.
         :param 'OfficeDataConnectorDataTypesResponseExchange' exchange: Exchange data type connection.
         :param 'OfficeDataConnectorDataTypesResponseSharePoint' share_point: SharePoint data type connection.
         :param 'OfficeDataConnectorDataTypesResponseTeams' teams: Teams data type connection.
         """
-        if exchange is not None:
-            pulumi.set(__self__, "exchange", exchange)
-        if share_point is not None:
-            pulumi.set(__self__, "share_point", share_point)
-        if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+        pulumi.set(__self__, "exchange", exchange)
+        pulumi.set(__self__, "share_point", share_point)
+        pulumi.set(__self__, "teams", teams)
 
     @_builtins.property
     @pulumi.getter
-    def exchange(self) -> Optional['outputs.OfficeDataConnectorDataTypesResponseExchange']:
+    def exchange(self) -> 'outputs.OfficeDataConnectorDataTypesResponseExchange':
         """
         Exchange data type connection.
         """
@@ -5843,7 +5629,7 @@ class OfficeDataConnectorDataTypesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="sharePoint")
-    def share_point(self) -> Optional['outputs.OfficeDataConnectorDataTypesResponseSharePoint']:
+    def share_point(self) -> 'outputs.OfficeDataConnectorDataTypesResponseSharePoint':
         """
         SharePoint data type connection.
         """
@@ -5851,7 +5637,7 @@ class OfficeDataConnectorDataTypesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional['outputs.OfficeDataConnectorDataTypesResponseTeams']:
+    def teams(self) -> 'outputs.OfficeDataConnectorDataTypesResponseTeams':
         """
         Teams data type connection.
         """
@@ -5864,17 +5650,16 @@ class OfficeDataConnectorDataTypesResponseExchange(dict):
     Exchange data type connection.
     """
     def __init__(__self__, *,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
         Exchange data type connection.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -5887,17 +5672,16 @@ class OfficeDataConnectorDataTypesResponseSharePoint(dict):
     SharePoint data type connection.
     """
     def __init__(__self__, *,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
         SharePoint data type connection.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -5910,17 +5694,16 @@ class OfficeDataConnectorDataTypesResponseTeams(dict):
     Teams data type connection.
     """
     def __init__(__self__, *,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
         Teams data type connection.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -6070,13 +5853,13 @@ class PlaybookActionPropertiesResponse(dict):
 @pulumi.output_type
 class PremiumMdtiDataConnectorDataTypesResponse(dict):
     """
-    The available data types for Premium Microsoft Defender for Threat Intelligence data connector.
+    The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
     """
     def __init__(__self__, *,
                  connector: 'outputs.PremiumMdtiDataConnectorDataTypesResponseConnector'):
         """
-        The available data types for Premium Microsoft Defender for Threat Intelligence data connector.
-        :param 'PremiumMdtiDataConnectorDataTypesResponseConnector' connector: Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
+        :param 'PremiumMdtiDataConnectorDataTypesResponseConnector' connector: Data type for Microsoft Defender for Threat Intelligence Premium data connector.
         """
         pulumi.set(__self__, "connector", connector)
 
@@ -6084,7 +5867,7 @@ class PremiumMdtiDataConnectorDataTypesResponse(dict):
     @pulumi.getter
     def connector(self) -> 'outputs.PremiumMdtiDataConnectorDataTypesResponseConnector':
         """
-        Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        Data type for Microsoft Defender for Threat Intelligence Premium data connector.
         """
         return pulumi.get(self, "connector")
 
@@ -6092,20 +5875,19 @@ class PremiumMdtiDataConnectorDataTypesResponse(dict):
 @pulumi.output_type
 class PremiumMdtiDataConnectorDataTypesResponseConnector(dict):
     """
-    Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+    Data type for Microsoft Defender for Threat Intelligence Premium data connector.
     """
     def __init__(__self__, *,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
-        Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        Data type for Microsoft Defender for Threat Intelligence Premium data connector.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -6913,508 +6695,6 @@ class RestApiPollerRequestPagingConfigResponse(dict):
 
 
 @pulumi.output_type
-class RfcConnectorResponse(dict):
-    """
-    Describes the Rfc connector.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "systemId":
-            suggest = "system_id"
-        elif key == "systemNumber":
-            suggest = "system_number"
-        elif key == "abapServerHost":
-            suggest = "abap_server_host"
-        elif key == "authenticationType":
-            suggest = "authentication_type"
-        elif key == "codePage":
-            suggest = "code_page"
-        elif key == "messageServerHost":
-            suggest = "message_server_host"
-        elif key == "messageServerService":
-            suggest = "message_server_service"
-        elif key == "sncQop":
-            suggest = "snc_qop"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RfcConnectorResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RfcConnectorResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RfcConnectorResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client: _builtins.str,
-                 system_id: _builtins.str,
-                 system_number: _builtins.str,
-                 type: _builtins.str,
-                 abap_server_host: Optional[_builtins.str] = None,
-                 authentication_type: Optional[_builtins.str] = None,
-                 code_page: Optional[_builtins.str] = None,
-                 group: Optional[_builtins.str] = None,
-                 message_server_host: Optional[_builtins.str] = None,
-                 message_server_service: Optional[_builtins.str] = None,
-                 snc_qop: Optional[_builtins.str] = None):
-        """
-        Describes the Rfc connector.
-        :param _builtins.str client: Client number of the ABAP server.
-               Example - 001
-        :param _builtins.str system_id: System ID of the ABAP server.
-               Example - A4H
-        :param _builtins.str system_number: System number of the ABAP server.
-        :param _builtins.str type: Represents the types of SAP systems.
-               Expected value is 'Rfc'.
-        :param _builtins.str abap_server_host: FQDN, hostname, or IP address of the ABAP server.
-        :param _builtins.str authentication_type: The authentication type to SAP.
-        :param _builtins.str code_page: The SAP code page used for character encoding.
-               Example - 1100
-        :param _builtins.str group: Logon group of the message server.
-        :param _builtins.str message_server_host: FQDN, hostname, or IP address of the Message server.
-        :param _builtins.str message_server_service: Port number, or service name (from /etc/services) of the message server.
-        :param _builtins.str snc_qop: SNC QOP.
-               Options are 1, 2, 3, 8, 9.
-        """
-        pulumi.set(__self__, "client", client)
-        pulumi.set(__self__, "system_id", system_id)
-        pulumi.set(__self__, "system_number", system_number)
-        pulumi.set(__self__, "type", 'Rfc')
-        if abap_server_host is not None:
-            pulumi.set(__self__, "abap_server_host", abap_server_host)
-        if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
-        if code_page is not None:
-            pulumi.set(__self__, "code_page", code_page)
-        if group is not None:
-            pulumi.set(__self__, "group", group)
-        if message_server_host is not None:
-            pulumi.set(__self__, "message_server_host", message_server_host)
-        if message_server_service is not None:
-            pulumi.set(__self__, "message_server_service", message_server_service)
-        if snc_qop is not None:
-            pulumi.set(__self__, "snc_qop", snc_qop)
-
-    @_builtins.property
-    @pulumi.getter
-    def client(self) -> _builtins.str:
-        """
-        Client number of the ABAP server.
-        Example - 001
-        """
-        return pulumi.get(self, "client")
-
-    @_builtins.property
-    @pulumi.getter(name="systemId")
-    def system_id(self) -> _builtins.str:
-        """
-        System ID of the ABAP server.
-        Example - A4H
-        """
-        return pulumi.get(self, "system_id")
-
-    @_builtins.property
-    @pulumi.getter(name="systemNumber")
-    def system_number(self) -> _builtins.str:
-        """
-        System number of the ABAP server.
-        """
-        return pulumi.get(self, "system_number")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Represents the types of SAP systems.
-        Expected value is 'Rfc'.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="abapServerHost")
-    def abap_server_host(self) -> Optional[_builtins.str]:
-        """
-        FQDN, hostname, or IP address of the ABAP server.
-        """
-        return pulumi.get(self, "abap_server_host")
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[_builtins.str]:
-        """
-        The authentication type to SAP.
-        """
-        return pulumi.get(self, "authentication_type")
-
-    @_builtins.property
-    @pulumi.getter(name="codePage")
-    def code_page(self) -> Optional[_builtins.str]:
-        """
-        The SAP code page used for character encoding.
-        Example - 1100
-        """
-        return pulumi.get(self, "code_page")
-
-    @_builtins.property
-    @pulumi.getter
-    def group(self) -> Optional[_builtins.str]:
-        """
-        Logon group of the message server.
-        """
-        return pulumi.get(self, "group")
-
-    @_builtins.property
-    @pulumi.getter(name="messageServerHost")
-    def message_server_host(self) -> Optional[_builtins.str]:
-        """
-        FQDN, hostname, or IP address of the Message server.
-        """
-        return pulumi.get(self, "message_server_host")
-
-    @_builtins.property
-    @pulumi.getter(name="messageServerService")
-    def message_server_service(self) -> Optional[_builtins.str]:
-        """
-        Port number, or service name (from /etc/services) of the message server.
-        """
-        return pulumi.get(self, "message_server_service")
-
-    @_builtins.property
-    @pulumi.getter(name="sncQop")
-    def snc_qop(self) -> Optional[_builtins.str]:
-        """
-        SNC QOP.
-        Options are 1, 2, 3, 8, 9.
-        """
-        return pulumi.get(self, "snc_qop")
-
-
-@pulumi.output_type
-class SapAgentConfigurationResponse(dict):
-    """
-    Describes the configuration of a SAP Docker agent.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "agentContainerName":
-            suggest = "agent_container_name"
-        elif key == "keyVaultAuthenticationMode":
-            suggest = "key_vault_authentication_mode"
-        elif key == "keyVaultResourceId":
-            suggest = "key_vault_resource_id"
-        elif key == "sdkPath":
-            suggest = "sdk_path"
-        elif key == "secretSource":
-            suggest = "secret_source"
-        elif key == "sncPath":
-            suggest = "snc_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SapAgentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SapAgentConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SapAgentConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 type: _builtins.str,
-                 agent_container_name: Optional[_builtins.str] = None,
-                 key_vault_authentication_mode: Optional[_builtins.str] = None,
-                 key_vault_resource_id: Optional[_builtins.str] = None,
-                 sdk_path: Optional[_builtins.str] = None,
-                 secret_source: Optional[_builtins.str] = None,
-                 snc_path: Optional[_builtins.str] = None):
-        """
-        Describes the configuration of a SAP Docker agent.
-        :param _builtins.str type: Type of the agent
-               Expected value is 'SAP'.
-        :param _builtins.str agent_container_name: The name of the docker agent.
-               only letters with numbers, underscores and hyphens are allowed
-               example: "my-agent"
-        :param _builtins.str key_vault_authentication_mode: The key mode of the agent.
-               ManagedIdentity|ApplicationIdentity are the options
-        :param _builtins.str key_vault_resource_id: The key vault resource id to access the key vault.
-               example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
-        :param _builtins.str sdk_path: The SDK path (a file not a folder) on the agent machine.
-               example: "/path/to/nwrfc750P_8-70002755.zip"
-        :param _builtins.str secret_source: The secret source of the agent.
-               AzureKeyVault is the option
-        :param _builtins.str snc_path: The SNC path (a folder not a file) on the agent machine.
-               example: "/path/to/snc"
-        """
-        pulumi.set(__self__, "type", 'SAP')
-        if agent_container_name is not None:
-            pulumi.set(__self__, "agent_container_name", agent_container_name)
-        if key_vault_authentication_mode is not None:
-            pulumi.set(__self__, "key_vault_authentication_mode", key_vault_authentication_mode)
-        if key_vault_resource_id is not None:
-            pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
-        if sdk_path is not None:
-            pulumi.set(__self__, "sdk_path", sdk_path)
-        if secret_source is not None:
-            pulumi.set(__self__, "secret_source", secret_source)
-        if snc_path is not None:
-            pulumi.set(__self__, "snc_path", snc_path)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Type of the agent
-        Expected value is 'SAP'.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="agentContainerName")
-    def agent_container_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the docker agent.
-        only letters with numbers, underscores and hyphens are allowed
-        example: "my-agent"
-        """
-        return pulumi.get(self, "agent_container_name")
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultAuthenticationMode")
-    def key_vault_authentication_mode(self) -> Optional[_builtins.str]:
-        """
-        The key mode of the agent.
-        ManagedIdentity|ApplicationIdentity are the options
-        """
-        return pulumi.get(self, "key_vault_authentication_mode")
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultResourceId")
-    def key_vault_resource_id(self) -> Optional[_builtins.str]:
-        """
-        The key vault resource id to access the key vault.
-        example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
-        """
-        return pulumi.get(self, "key_vault_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="sdkPath")
-    def sdk_path(self) -> Optional[_builtins.str]:
-        """
-        The SDK path (a file not a folder) on the agent machine.
-        example: "/path/to/nwrfc750P_8-70002755.zip"
-        """
-        return pulumi.get(self, "sdk_path")
-
-    @_builtins.property
-    @pulumi.getter(name="secretSource")
-    def secret_source(self) -> Optional[_builtins.str]:
-        """
-        The secret source of the agent.
-        AzureKeyVault is the option
-        """
-        return pulumi.get(self, "secret_source")
-
-    @_builtins.property
-    @pulumi.getter(name="sncPath")
-    def snc_path(self) -> Optional[_builtins.str]:
-        """
-        The SNC path (a folder not a file) on the agent machine.
-        example: "/path/to/snc"
-        """
-        return pulumi.get(self, "snc_path")
-
-
-@pulumi.output_type
-class SapControlConnectorResponse(dict):
-    """
-    Describes the SapControl connector configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "httpsConfiguration":
-            suggest = "https_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SapControlConnectorResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SapControlConnectorResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SapControlConnectorResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance: _builtins.str,
-                 server: _builtins.str,
-                 type: _builtins.str,
-                 https_configuration: Optional[_builtins.str] = None,
-                 port: Optional[_builtins.str] = None,
-                 timezone: Optional[_builtins.str] = None):
-        """
-        Describes the SapControl connector configuration.
-        :param _builtins.str instance: The instance number. Only 2 digits are allowed.
-        :param _builtins.str server: The server name.
-               FQDN or IP address.
-        :param _builtins.str type: Represents the types of SAP systems.
-               Expected value is 'SapControl'.
-        :param _builtins.str https_configuration: Represents the types of HTTPS configuration to connect to the SapControl service.
-        :param _builtins.str port: The port of the SOAP connection to SAP Control.
-        :param _builtins.str timezone: The timezone.
-               example: "GMT+0" or "GMT-8"
-               default: "GMT+0"
-        """
-        pulumi.set(__self__, "instance", instance)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "type", 'SapControl')
-        if https_configuration is not None:
-            pulumi.set(__self__, "https_configuration", https_configuration)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if timezone is None:
-            timezone = 'GMT+0'
-        if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
-
-    @_builtins.property
-    @pulumi.getter
-    def instance(self) -> _builtins.str:
-        """
-        The instance number. Only 2 digits are allowed.
-        """
-        return pulumi.get(self, "instance")
-
-    @_builtins.property
-    @pulumi.getter
-    def server(self) -> _builtins.str:
-        """
-        The server name.
-        FQDN or IP address.
-        """
-        return pulumi.get(self, "server")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Represents the types of SAP systems.
-        Expected value is 'SapControl'.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="httpsConfiguration")
-    def https_configuration(self) -> Optional[_builtins.str]:
-        """
-        Represents the types of HTTPS configuration to connect to the SapControl service.
-        """
-        return pulumi.get(self, "https_configuration")
-
-    @_builtins.property
-    @pulumi.getter
-    def port(self) -> Optional[_builtins.str]:
-        """
-        The port of the SOAP connection to SAP Control.
-        """
-        return pulumi.get(self, "port")
-
-    @_builtins.property
-    @pulumi.getter
-    def timezone(self) -> Optional[_builtins.str]:
-        """
-        The timezone.
-        example: "GMT+0" or "GMT-8"
-        default: "GMT+0"
-        """
-        return pulumi.get(self, "timezone")
-
-
-@pulumi.output_type
-class SapSystemsConfigurationResponse(dict):
-    """
-    Describes the SAP configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "azureResourceId":
-            suggest = "azure_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SapSystemsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SapSystemsConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SapSystemsConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 connector: Any,
-                 type: _builtins.str,
-                 azure_resource_id: Optional[_builtins.str] = None,
-                 logs: Optional[Sequence['outputs.LogResponse']] = None):
-        """
-        Describes the SAP configuration.
-        :param Union['RfcConnectorResponse', 'SapControlConnectorResponse'] connector: Base Model for SAP System Connector.
-        :param _builtins.str type: Represents the types of configuration for a system.
-               Expected value is 'SAP'.
-        :param _builtins.str azure_resource_id: azure resource id
-               example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
-        :param Sequence['LogResponse'] logs: The logs configuration.
-        """
-        pulumi.set(__self__, "connector", connector)
-        pulumi.set(__self__, "type", 'SAP')
-        if azure_resource_id is not None:
-            pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        if logs is not None:
-            pulumi.set(__self__, "logs", logs)
-
-    @_builtins.property
-    @pulumi.getter
-    def connector(self) -> Any:
-        """
-        Base Model for SAP System Connector.
-        """
-        return pulumi.get(self, "connector")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Represents the types of configuration for a system.
-        Expected value is 'SAP'.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="azureResourceId")
-    def azure_resource_id(self) -> Optional[_builtins.str]:
-        """
-        azure resource id
-        example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
-        """
-        return pulumi.get(self, "azure_resource_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def logs(self) -> Optional[Sequence['outputs.LogResponse']]:
-        """
-        The logs configuration.
-        """
-        return pulumi.get(self, "logs")
-
-
-@pulumi.output_type
 class SecurityAlertTimelineItemResponse(dict):
     """
     Represents security alert timeline item.
@@ -7877,17 +7157,16 @@ class TIDataConnectorDataTypesResponse(dict):
     The available data types for TI (Threat Intelligence) data connector.
     """
     def __init__(__self__, *,
-                 indicators: Optional['outputs.TIDataConnectorDataTypesResponseIndicators'] = None):
+                 indicators: 'outputs.TIDataConnectorDataTypesResponseIndicators'):
         """
         The available data types for TI (Threat Intelligence) data connector.
         :param 'TIDataConnectorDataTypesResponseIndicators' indicators: Data type for indicators connection.
         """
-        if indicators is not None:
-            pulumi.set(__self__, "indicators", indicators)
+        pulumi.set(__self__, "indicators", indicators)
 
     @_builtins.property
     @pulumi.getter
-    def indicators(self) -> Optional['outputs.TIDataConnectorDataTypesResponseIndicators']:
+    def indicators(self) -> 'outputs.TIDataConnectorDataTypesResponseIndicators':
         """
         Data type for indicators connection.
         """
@@ -7900,17 +7179,16 @@ class TIDataConnectorDataTypesResponseIndicators(dict):
     Data type for indicators connection.
     """
     def __init__(__self__, *,
-                 state: Optional[_builtins.str] = None):
+                 state: _builtins.str):
         """
         Data type for indicators connection.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
+    def state(self) -> _builtins.str:
         """
         Describe whether this data type connection is enabled or not.
         """
@@ -8416,54 +7694,6 @@ class TimelineResultsMetadataResponse(dict):
         information about the failure queries
         """
         return pulumi.get(self, "errors")
-
-
-@pulumi.output_type
-class UnlockUserActionResponse(dict):
-    """
-    Represents an unlock user action.
-    """
-    def __init__(__self__, *,
-                 kind: _builtins.str,
-                 failure_reason: Optional[_builtins.str] = None,
-                 user: Optional[_builtins.str] = None):
-        """
-        Represents an unlock user action.
-        :param _builtins.str kind: The kind of the action
-               Expected value is 'UnlockUser'.
-        :param _builtins.str failure_reason: The reason of the failure of the action. Empty if the action is successful.
-        :param _builtins.str user: The user to unlock
-        """
-        pulumi.set(__self__, "kind", 'UnlockUser')
-        if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
-        if user is not None:
-            pulumi.set(__self__, "user", user)
-
-    @_builtins.property
-    @pulumi.getter
-    def kind(self) -> _builtins.str:
-        """
-        The kind of the action
-        Expected value is 'UnlockUser'.
-        """
-        return pulumi.get(self, "kind")
-
-    @_builtins.property
-    @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[_builtins.str]:
-        """
-        The reason of the failure of the action. Empty if the action is successful.
-        """
-        return pulumi.get(self, "failure_reason")
-
-    @_builtins.property
-    @pulumi.getter
-    def user(self) -> Optional[_builtins.str]:
-        """
-        The user to unlock
-        """
-        return pulumi.get(self, "user")
 
 
 @pulumi.output_type

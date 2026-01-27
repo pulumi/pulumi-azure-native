@@ -118,6 +118,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Inputs.LinuxOSConfigArgs>? LinuxOSConfig { get; set; }
 
         /// <summary>
+        /// Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+        /// </summary>
+        [Input("localDNSProfile")]
+        public Input<Inputs.LocalDNSProfileArgs>? LocalDNSProfile { get; set; }
+
+        /// <summary>
         /// The maximum number of nodes for auto-scaling
         /// </summary>
         [Input("maxCount")]

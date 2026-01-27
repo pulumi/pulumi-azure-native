@@ -37,6 +37,33 @@ namespace Pulumi.AzureNative.DBforMySQL
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct BackupType : IEquatable<BackupType>
+    {
+        private readonly string _value;
+
+        private BackupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupType FULL { get; } = new BackupType("FULL");
+
+        public static bool operator ==(BackupType left, BackupType right) => left.Equals(right);
+        public static bool operator !=(BackupType left, BackupType right) => !left.Equals(right);
+
+        public static explicit operator string(BackupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupType other && Equals(other);
+        public bool Equals(BackupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Source of the configuration.
     /// </summary>

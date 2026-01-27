@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Parameters to create and update an Azure Cosmos DB Gremlin Role Assignment.
     /// 
     /// Uses Azure REST API version 2025-05-01-preview.
+    /// 
+    /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:GremlinResourceGremlinRoleAssignment")]
     public partial class GremlinResourceGremlinRoleAssignment : global::Pulumi.CustomResource
@@ -91,6 +93,7 @@ namespace Pulumi.AzureNative.CosmosDB
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:GremlinResourceGremlinRoleAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:GremlinResourceGremlinRoleAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

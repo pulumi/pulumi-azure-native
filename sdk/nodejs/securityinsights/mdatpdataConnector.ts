@@ -67,7 +67,7 @@ export class MDATPDataConnector extends pulumi.CustomResource {
     /**
      * The tenant id to connect to, and get the data from.
      */
-    declare public readonly tenantId: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -89,6 +89,9 @@ export class MDATPDataConnector extends pulumi.CustomResource {
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (args?.tenantId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tenantId'");
             }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
@@ -145,7 +148,7 @@ export interface MDATPDataConnectorArgs {
     /**
      * The tenant id to connect to, and get the data from.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
     /// <summary>
-    /// The ARM ID for a Logical Network.
+    /// The Azure Resource ID for a Logical Network.
     /// </summary>
     public sealed class LogicalNetworkArmReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARM ID for a Logical Network.
+        /// The Azure Resource ID for a Logical Network.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

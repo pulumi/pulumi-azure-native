@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ExcludedPathResponse> ExcludedPaths;
         /// <summary>
+        /// List of paths to include in the full text indexing
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FullTextIndexPathResponse> FullTextIndexes;
+        /// <summary>
         /// List of paths to include in the indexing
         /// </summary>
         public readonly ImmutableArray<Outputs.IncludedPathResponse> IncludedPaths;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
 
             ImmutableArray<Outputs.ExcludedPathResponse> excludedPaths,
 
+            ImmutableArray<Outputs.FullTextIndexPathResponse> fullTextIndexes,
+
             ImmutableArray<Outputs.IncludedPathResponse> includedPaths,
 
             string? indexingMode,
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
             Automatic = automatic;
             CompositeIndexes = compositeIndexes;
             ExcludedPaths = excludedPaths;
+            FullTextIndexes = fullTextIndexes;
             IncludedPaths = includedPaths;
             IndexingMode = indexingMode;
             SpatialIndexes = spatialIndexes;

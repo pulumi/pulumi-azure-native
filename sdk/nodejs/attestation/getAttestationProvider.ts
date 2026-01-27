@@ -68,7 +68,7 @@ export interface GetAttestationProviderResult {
      */
     readonly status?: string;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.attestation.SystemDataResponse;
     /**
