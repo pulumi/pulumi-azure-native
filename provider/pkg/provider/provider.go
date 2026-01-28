@@ -916,7 +916,7 @@ func (k *azureNativeProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*
 	}
 
 	// Check if API version has changed between state and current provider metadata.
-	// If so, warn the user to run `pulumi refresh` for proper schema alignment.
+	// If so, warn the user to run `pulumi refresh --run-program` for proper schema alignment.
 	var oldApiVersion string
 	if azureApiVersion, ok := oldState["azureApiVersion"]; ok && azureApiVersion.IsString() {
 		oldApiVersion = azureApiVersion.StringValue()
@@ -926,7 +926,7 @@ func (k *azureNativeProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*
 
 			k.host.Log(ctx, diag.Warning, urn, fmt.Sprintf(
 				"Resource API version has changed from %s to %s. "+
-					"Run 'pulumi refresh' to update the resource state with the new API version schema.",
+					"Run 'pulumi refresh --run-program' to update the resource state with the new API version schema.",
 				oldApiVersion, res.APIVersion))
 		}
 	}
