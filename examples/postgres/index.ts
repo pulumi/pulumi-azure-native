@@ -17,7 +17,7 @@ const flexibleServer = new postgresql.Server("server", {
         name: "Standard_D2s_v3",
     },
     highAvailability: {
-        mode: postgresql.HighAvailabilityMode.SameZone,
+        mode: postgresql.PostgreSqlFlexibleServerHighAvailabilityMode.SameZone,
     },
     administratorLogin: "cloudsa",
     administratorLoginPassword: `pa$$w0rd`,
