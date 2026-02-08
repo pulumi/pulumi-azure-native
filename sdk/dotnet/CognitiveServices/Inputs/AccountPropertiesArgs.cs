@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// </summary>
     public sealed class AccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
+        /// </summary>
+        [Input("allowProjectManagement")]
+        public Input<bool>? AllowProjectManagement { get; set; }
+
         [Input("allowedFqdnList")]
         private InputList<string>? _allowedFqdnList;
         public InputList<string> AllowedFqdnList
@@ -24,7 +30,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         }
 
         /// <summary>
-        /// The user owned AML workspace properties.
+        /// The user owned AML account properties.
         /// </summary>
         [Input("amlWorkspace")]
         public Input<Inputs.UserOwnedAmlWorkspaceArgs>? AmlWorkspace { get; set; }
@@ -35,11 +41,29 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         [Input("apiProperties")]
         public Input<Inputs.ApiPropertiesArgs>? ApiProperties { get; set; }
 
+        [Input("associatedProjects")]
+        private InputList<string>? _associatedProjects;
+
+        /// <summary>
+        /// Specifies the projects, by project name, that are associated with this resource.
+        /// </summary>
+        public InputList<string> AssociatedProjects
+        {
+            get => _associatedProjects ?? (_associatedProjects = new InputList<string>());
+            set => _associatedProjects = value;
+        }
+
         /// <summary>
         /// Optional subdomain name used for token-based authentication.
         /// </summary>
         [Input("customSubDomainName")]
         public Input<string>? CustomSubDomainName { get; set; }
+
+        /// <summary>
+        /// Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
+        /// </summary>
+        [Input("defaultProject")]
+        public Input<string>? DefaultProject { get; set; }
 
         [Input("disableLocalAuth")]
         public Input<bool>? DisableLocalAuth { get; set; }
@@ -73,6 +97,14 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.NetworkRuleSetArgs>? NetworkAcls { get; set; }
+
+        [Input("networkInjections")]
+        private InputList<Inputs.NetworkInjectionArgs>? _networkInjections;
+        public InputList<Inputs.NetworkInjectionArgs> NetworkInjections
+        {
+            get => _networkInjections ?? (_networkInjections = new InputList<Inputs.NetworkInjectionArgs>());
+            set => _networkInjections = value;
+        }
 
         /// <summary>
         /// Whether or not public endpoint access is allowed for this account.

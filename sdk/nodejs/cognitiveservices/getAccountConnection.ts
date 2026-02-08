@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Connection base resource schema.
  *
- * Uses Azure REST API version 2025-04-01-preview.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAccountConnection(args: GetAccountConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,9 +66,9 @@ export interface GetAccountConnectionResult {
 /**
  * Connection base resource schema.
  *
- * Uses Azure REST API version 2025-04-01-preview.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAccountConnectionOutput(args: GetAccountConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

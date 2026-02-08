@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public Input<Inputs.DeploymentScaleSettingsArgs>? ScaleSettings { get; set; }
 
         /// <summary>
+        /// Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
+        /// </summary>
+        [Input("spilloverDeploymentName")]
+        public Input<string>? SpilloverDeploymentName { get; set; }
+
+        /// <summary>
         /// Deployment model version upgrade option.
         /// </summary>
         [Input("versionUpgradeOption")]

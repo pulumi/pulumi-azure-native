@@ -58,6 +58,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly Outputs.DeploymentScaleSettingsResponse? ScaleSettings;
         /// <summary>
+        /// Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
+        /// </summary>
+        public readonly string? SpilloverDeploymentName;
+        /// <summary>
         /// Deployment model version upgrade option.
         /// </summary>
         public readonly string? VersionUpgradeOption;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             Outputs.DeploymentScaleSettingsResponse? scaleSettings,
 
+            string? spilloverDeploymentName,
+
             string? versionUpgradeOption)
         {
             CallRateLimit = callRateLimit;
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             RaiPolicyName = raiPolicyName;
             RateLimits = rateLimits;
             ScaleSettings = scaleSettings;
+            SpilloverDeploymentName = spilloverDeploymentName;
             VersionUpgradeOption = versionUpgradeOption;
         }
     }

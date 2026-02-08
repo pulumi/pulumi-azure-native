@@ -57210,6 +57210,9 @@ export namespace cognitiveservices {
          */
         category?: string;
         createdByWorkspaceArmId: string;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -57221,9 +57224,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -57258,6 +57270,9 @@ export namespace cognitiveservices {
         category?: string;
         createdByWorkspaceArmId: string;
         credentials?: outputs.cognitiveservices.ConnectionAccessKeyResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -57269,9 +57284,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -57294,6 +57318,9 @@ export namespace cognitiveservices {
          * Account key object for connection credential.
          */
         credentials?: outputs.cognitiveservices.ConnectionAccountKeyResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -57305,9 +57332,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -57320,15 +57356,23 @@ export namespace cognitiveservices {
          * The abuse penalty.
          */
         abusePenalty: outputs.cognitiveservices.AbusePenaltyResponse;
+        /**
+         * Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
+         */
+        allowProjectManagement?: boolean;
         allowedFqdnList?: string[];
         /**
-         * The user owned AML workspace properties.
+         * The user owned AML account properties.
          */
         amlWorkspace?: outputs.cognitiveservices.UserOwnedAmlWorkspaceResponse;
         /**
          * The api properties for special APIs.
          */
         apiProperties?: outputs.cognitiveservices.ApiPropertiesResponse;
+        /**
+         * Specifies the projects, by project name, that are associated with this resource.
+         */
+        associatedProjects?: string[];
         /**
          * The call rate limit Cognitive Services account.
          */
@@ -57349,6 +57393,10 @@ export namespace cognitiveservices {
          * Gets the date of cognitive services account creation.
          */
         dateCreated: string;
+        /**
+         * Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
+         */
+        defaultProject?: string;
         /**
          * The deletion date, only available for deleted account.
          */
@@ -57387,6 +57435,7 @@ export namespace cognitiveservices {
          * A collection of rules governing the accessibility from specific network locations.
          */
         networkAcls?: outputs.cognitiveservices.NetworkRuleSetResponse;
+        networkInjections?: outputs.cognitiveservices.NetworkInjectionResponse[];
         /**
          * The private endpoint connection associated with the Cognitive Services account.
          */
@@ -57569,6 +57618,9 @@ export namespace cognitiveservices {
          * Api key object for connection credential.
          */
         credentials?: outputs.cognitiveservices.ConnectionApiKeyResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -57580,9 +57632,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -57718,7 +57779,7 @@ export namespace cognitiveservices {
          */
         provisioningState: string;
         /**
-         * List of Storage connections.
+         * List of connection names from those available in the account or project to be used as a storage resource.
          */
         storageConnections?: string[];
         /**
@@ -57726,22 +57787,13 @@ export namespace cognitiveservices {
          */
         tags?: {[key: string]: string};
         /**
-         * List of Thread storage connections.
+         * List of connection names from those available in the account or project to be used for Thread storage.
          */
         threadStorageConnections?: string[];
         /**
-         * List of VectorStore connections.
+         * List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
          */
         vectorStoreConnections?: string[];
-    }
-    /**
-     * capabilityHostResponseProvideDefaults sets the appropriate defaults for CapabilityHostResponse
-     */
-    export function capabilityHostResponseProvideDefaults(val: CapabilityHostResponse): CapabilityHostResponse {
-        return {
-            ...val,
-            capabilityHostKind: (val.capabilityHostKind) ?? "Agents",
-        };
     }
 
     /**
@@ -57973,6 +58025,9 @@ export namespace cognitiveservices {
          * Custom Keys credential object
          */
         credentials?: outputs.cognitiveservices.CustomKeysResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -57984,9 +58039,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -58109,6 +58173,10 @@ export namespace cognitiveservices {
          * Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
          */
         scaleSettings?: outputs.cognitiveservices.DeploymentScaleSettingsResponse;
+        /**
+         * Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
+         */
+        spilloverDeploymentName?: string;
         /**
          * Deployment model version upgrade option.
          */
@@ -58369,6 +58437,9 @@ export namespace cognitiveservices {
         category?: string;
         createdByWorkspaceArmId: string;
         credentials?: outputs.cognitiveservices.ConnectionManagedIdentityResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -58380,9 +58451,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -58396,6 +58476,24 @@ export namespace cognitiveservices {
          * Multiregion routing methods.
          */
         routingMethod?: string;
+    }
+
+    /**
+     * Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources.
+     */
+    export interface NetworkInjectionResponse {
+        /**
+         * Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
+         */
+        scenario?: string;
+        /**
+         * Specify the subnet for which your Agent Client is injected into.
+         */
+        subnetArmId?: string;
+        /**
+         * Boolean to enable Microsoft Managed Network for subnet delegation
+         */
+        useMicrosoftManagedNetwork?: boolean;
     }
 
     /**
@@ -58431,6 +58529,9 @@ export namespace cognitiveservices {
          */
         category?: string;
         createdByWorkspaceArmId: string;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -58442,9 +58543,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -58465,6 +58575,9 @@ export namespace cognitiveservices {
          * depending on each OAuth2 provider's implementation.
          */
         credentials?: outputs.cognitiveservices.ConnectionOAuth2Response;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -58476,9 +58589,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -58506,6 +58628,9 @@ export namespace cognitiveservices {
         category?: string;
         createdByWorkspaceArmId: string;
         credentials?: outputs.cognitiveservices.ConnectionPersonalAccessTokenResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -58517,9 +58642,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -58930,6 +59064,9 @@ export namespace cognitiveservices {
         category?: string;
         createdByWorkspaceArmId: string;
         credentials?: outputs.cognitiveservices.ConnectionSharedAccessSignatureResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -58941,9 +59078,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -58978,6 +59124,9 @@ export namespace cognitiveservices {
         category?: string;
         createdByWorkspaceArmId: string;
         credentials?: outputs.cognitiveservices.ConnectionServicePrincipalResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -58989,9 +59138,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }
@@ -59130,15 +59288,15 @@ export namespace cognitiveservices {
     }
 
     /**
-     * The user owned AML workspace for Cognitive Services account.
+     * The user owned AML account for Cognitive Services account.
      */
     export interface UserOwnedAmlWorkspaceResponse {
         /**
-         * Identity Client id of a AML workspace resource.
+         * Identity Client id of a AML account resource.
          */
         identityClientId?: string;
         /**
-         * Full resource id of a AML workspace resource.
+         * Full resource id of a AML account resource.
          */
         resourceId?: string;
     }
@@ -59166,6 +59324,9 @@ export namespace cognitiveservices {
         category?: string;
         createdByWorkspaceArmId: string;
         credentials?: outputs.cognitiveservices.ConnectionUsernamePasswordResponse;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: string;
         expiryTime?: string;
         /**
@@ -59177,9 +59338,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: string;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: string;
         sharedUserList?: string[];
+        /**
+         * The connection URL to be used.
+         */
         target?: string;
         useWorkspaceManagedIdentity?: boolean;
     }

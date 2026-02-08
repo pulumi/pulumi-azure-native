@@ -232,16 +232,11 @@ Cloudngfw:
 CodeSigning:
     tracking: 2024-09-30-preview
 CognitiveServices:
-    tracking: "2024-10-01"
+    tracking: "2025-06-01"
     additions:
-        AccountCapabilityHost: 2025-04-01-preview
-        AccountConnection: 2025-04-01-preview
         AgentApplication: 2025-10-01-preview
         AgentDeployment: 2025-10-01-preview
         OutboundRule: 2025-10-01-preview
-        Project: 2025-04-01-preview
-        ProjectCapabilityHost: 2025-04-01-preview
-        ProjectConnection: 2025-04-01-preview
         RaiExternalSafetyProvider: 2025-10-01-preview
         RaiToolLabel: 2025-10-01-preview
         RaiTopic: 2025-07-01-preview

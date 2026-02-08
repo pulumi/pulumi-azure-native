@@ -3300,18 +3300,18 @@ CodeSigning:
         RpNamespace: Microsoft.CodeSigning
 CognitiveServices:
     Account:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}
         RpNamespace: Microsoft.CognitiveServices
     AccountCapabilityHost:
-        ApiVersion: 2025-04-01-preview
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/capabilityHosts/{capabilityHostName}
         RpNamespace: Microsoft.CognitiveServices
     AccountConnection:
-        ApiVersion: 2025-04-01-preview
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/connections/{connectionName}
         RpNamespace: Microsoft.CognitiveServices
     AgentApplication:
@@ -3325,23 +3325,23 @@ CognitiveServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{appName}/agentDeployments/{deploymentName}
         RpNamespace: Microsoft.CognitiveServices
     CommitmentPlan:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/commitmentPlans/{commitmentPlanName}
         RpNamespace: Microsoft.CognitiveServices
     CommitmentPlanAssociation:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}/accountAssociations/{commitmentPlanAssociationName}
         RpNamespace: Microsoft.CognitiveServices
     Deployment:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}
         RpNamespace: Microsoft.CognitiveServices
     EncryptionScope:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/encryptionScopes/{encryptionScopeName}
         RpNamespace: Microsoft.CognitiveServices
     OutboundRule:
@@ -3350,33 +3350,33 @@ CognitiveServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName}
         RpNamespace: Microsoft.CognitiveServices
     PrivateEndpointConnection:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.CognitiveServices
     Project:
-        ApiVersion: 2025-04-01-preview
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}
         RpNamespace: Microsoft.CognitiveServices
     ProjectCapabilityHost:
-        ApiVersion: 2025-04-01-preview
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/capabilityHosts/{capabilityHostName}
         RpNamespace: Microsoft.CognitiveServices
     ProjectConnection:
-        ApiVersion: 2025-04-01-preview
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/connections/{connectionName}
         RpNamespace: Microsoft.CognitiveServices
     RaiBlocklist:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}
         RpNamespace: Microsoft.CognitiveServices
     RaiBlocklistItem:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}/raiBlocklistItems/{raiBlocklistItemName}
         RpNamespace: Microsoft.CognitiveServices
     RaiExternalSafetyProvider:
@@ -3385,8 +3385,8 @@ CognitiveServices:
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiExternalSafetyProviders/{safetyProviderName}
         RpNamespace: Microsoft.CognitiveServices
     RaiPolicy:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiPolicies/{raiPolicyName}
         RpNamespace: Microsoft.CognitiveServices
     RaiToolLabel:
@@ -3400,8 +3400,8 @@ CognitiveServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raitopics/{raiTopicName}
         RpNamespace: Microsoft.CognitiveServices
     SharedCommitmentPlan:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}
         RpNamespace: Microsoft.CognitiveServices
     SubscriptionRaiPolicy:
@@ -3410,8 +3410,8 @@ CognitiveServices:
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiPolicy/{raiPolicyName}
         RpNamespace: Microsoft.CognitiveServices
     listAccountKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/listKeys
         RpNamespace: Microsoft.CognitiveServices
     listAgentApplicationAgents:

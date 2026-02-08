@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// List of Storage connections.
+        /// List of connection names from those available in the account or project to be used as a storage resource.
         /// </summary>
         public readonly ImmutableArray<string> StorageConnections;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// List of Thread storage connections.
+        /// List of connection names from those available in the account or project to be used for Thread storage.
         /// </summary>
         public readonly ImmutableArray<string> ThreadStorageConnections;
         /// <summary>
-        /// List of VectorStore connections.
+        /// List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
         /// </summary>
         public readonly ImmutableArray<string> VectorStoreConnections;
 
