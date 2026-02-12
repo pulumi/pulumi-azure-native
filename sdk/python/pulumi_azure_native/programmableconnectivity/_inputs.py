@@ -22,43 +22,38 @@ __all__ = [
     'SaasPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationPropertiesArgsDict(TypedDict):
-        """
-        Details about the Application that would use the Operator's Network APIs.
-        """
-        application_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the application.
-        """
-        application_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The category that describes the application.
-        """
-        legal_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Legal name of the organization owning the application.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the application.
-        """
-        organization_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of the organization owning the application.
-        """
-        privacy_contact_email_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the Privacy contact or Data Protection officer of the organization.
-        """
-        tax_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique Tax Number for the user's organization in the country/region the APC Gateway is being purchased.
-        """
-elif False:
-    ApplicationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationPropertiesArgsDict(TypedDict):
+    """
+    Details about the Application that would use the Operator's Network APIs.
+    """
+    application_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the application.
+    """
+    application_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The category that describes the application.
+    """
+    legal_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Legal name of the organization owning the application.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the application.
+    """
+    organization_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the organization owning the application.
+    """
+    privacy_contact_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the Privacy contact or Data Protection officer of the organization.
+    """
+    tax_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique Tax Number for the user's organization in the country/region the APC Gateway is being purchased.
+    """
 
 @pulumi.input_type
 class ApplicationPropertiesArgs:
@@ -180,21 +175,18 @@ class ApplicationPropertiesArgs:
         pulumi.set(self, "tax_number", value)
 
 
-if not MYPY:
-    class SaasPropertiesArgsDict(TypedDict):
-        """
-        Details about the SaaS offer purchased from the marketplace.
-        """
-        saas_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of the SaaS offer purchased from the marketplace.
-        """
-        saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subscription ID of the SaaS offer purchased from the marketplace.
-        """
-elif False:
-    SaasPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SaasPropertiesArgsDict(TypedDict):
+    """
+    Details about the SaaS offer purchased from the marketplace.
+    """
+    saas_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of the SaaS offer purchased from the marketplace.
+    """
+    saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subscription ID of the SaaS offer purchased from the marketplace.
+    """
 
 @pulumi.input_type
 class SaasPropertiesArgs:

@@ -86,23 +86,18 @@ __all__ = [
     'WindowsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdvancedScheduleMonthlyOccurrenceArgsDict(TypedDict):
-        """
-        The properties of the create advanced schedule monthly occurrence.
-        """
-        day: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleDay']]]
-        """
-        Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        """
-        occurrence: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Occurrence of the week within the month. Must be between 1 and 5
-        """
-elif False:
-    AdvancedScheduleMonthlyOccurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class AdvancedScheduleMonthlyOccurrenceArgsDict(TypedDict):
+    """
+    The properties of the create advanced schedule monthly occurrence.
+    """
+    day: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleDay']]]
+    """
+    Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+    """
+    occurrence: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Occurrence of the week within the month. Must be between 1 and 5
+    """
 
 @pulumi.input_type
 class AdvancedScheduleMonthlyOccurrenceArgs:
@@ -144,25 +139,22 @@ class AdvancedScheduleMonthlyOccurrenceArgs:
         pulumi.set(self, "occurrence", value)
 
 
-if not MYPY:
-    class AdvancedScheduleArgsDict(TypedDict):
-        """
-        The properties of the create Advanced Schedule.
-        """
-        month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Days of the month that the job should execute on. Must be between 1 and 31.
-        """
-        monthly_occurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgsDict']]]]
-        """
-        Occurrences of days within a month.
-        """
-        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Days of the week that the job should execute on.
-        """
-elif False:
-    AdvancedScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class AdvancedScheduleArgsDict(TypedDict):
+    """
+    The properties of the create Advanced Schedule.
+    """
+    month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Days of the month that the job should execute on. Must be between 1 and 31.
+    """
+    monthly_occurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgsDict']]]]
+    """
+    Occurrences of days within a month.
+    """
+    week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Days of the week that the job should execute on.
+    """
 
 @pulumi.input_type
 class AdvancedScheduleArgs:
@@ -220,25 +212,22 @@ class AdvancedScheduleArgs:
         pulumi.set(self, "week_days", value)
 
 
-if not MYPY:
-    class AzureQueryPropertiesArgsDict(TypedDict):
-        """
-        Azure query for the update configuration.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of locations to scope the query to.
-        """
-        scope: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Subscription or Resource Group ARM Ids.
-        """
-        tag_settings: NotRequired[pulumi.Input['TagSettingsPropertiesArgsDict']]
-        """
-        Tag settings for the VM.
-        """
-elif False:
-    AzureQueryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AzureQueryPropertiesArgsDict(TypedDict):
+    """
+    Azure query for the update configuration.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of locations to scope the query to.
+    """
+    scope: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Subscription or Resource Group ARM Ids.
+    """
+    tag_settings: NotRequired[pulumi.Input['TagSettingsPropertiesArgsDict']]
+    """
+    Tag settings for the VM.
+    """
 
 @pulumi.input_type
 class AzureQueryPropertiesArgs:
@@ -296,17 +285,14 @@ class AzureQueryPropertiesArgs:
         pulumi.set(self, "tag_settings", value)
 
 
-if not MYPY:
-    class ConnectionTypeAssociationPropertyArgsDict(TypedDict):
-        """
-        The connection type property associated with the entity.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the connection type.
-        """
-elif False:
-    ConnectionTypeAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionTypeAssociationPropertyArgsDict(TypedDict):
+    """
+    The connection type property associated with the entity.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the connection type.
+    """
 
 @pulumi.input_type
 class ConnectionTypeAssociationPropertyArgs:
@@ -332,21 +318,18 @@ class ConnectionTypeAssociationPropertyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ContentHashArgsDict(TypedDict):
-        """
-        Definition of the runbook property type.
-        """
-        algorithm: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the content hash algorithm used to hash the content.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Gets or sets expected hash value of the content.
-        """
-elif False:
-    ContentHashArgsDict: TypeAlias = Mapping[str, Any]
+class ContentHashArgsDict(TypedDict):
+    """
+    Definition of the runbook property type.
+    """
+    algorithm: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the content hash algorithm used to hash the content.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Gets or sets expected hash value of the content.
+    """
 
 @pulumi.input_type
 class ContentHashArgs:
@@ -386,25 +369,22 @@ class ContentHashArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ContentLinkArgsDict(TypedDict):
-        """
-        Definition of the content link.
-        """
-        content_hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
-        """
-        Sets the hash.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets the uri of the content.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets the version of the content.
-        """
-elif False:
-    ContentLinkArgsDict: TypeAlias = Mapping[str, Any]
+class ContentLinkArgsDict(TypedDict):
+    """
+    Definition of the content link.
+    """
+    content_hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
+    """
+    Sets the hash.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets the uri of the content.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets the version of the content.
+    """
 
 @pulumi.input_type
 class ContentLinkArgs:
@@ -462,29 +442,26 @@ class ContentLinkArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ContentSourceArgsDict(TypedDict):
-        """
-        Definition of the content source.
-        """
-        hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
-        """
-        Gets or sets the hash.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ContentSourceType']]]
-        """
-        Gets or sets the content source type.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the value of the content. This is based on the content source type.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the version of the content.
-        """
-elif False:
-    ContentSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ContentSourceArgsDict(TypedDict):
+    """
+    Definition of the content source.
+    """
+    hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
+    """
+    Gets or sets the hash.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ContentSourceType']]]
+    """
+    Gets or sets the content source type.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the value of the content. This is based on the content source type.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the version of the content.
+    """
 
 @pulumi.input_type
 class ContentSourceArgs:
@@ -558,17 +535,14 @@ class ContentSourceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DscConfigurationAssociationPropertyArgsDict(TypedDict):
-        """
-        The Dsc configuration property associated with the entity.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the Dsc configuration.
-        """
-elif False:
-    DscConfigurationAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class DscConfigurationAssociationPropertyArgsDict(TypedDict):
+    """
+    The Dsc configuration property associated with the entity.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the Dsc configuration.
+    """
 
 @pulumi.input_type
 class DscConfigurationAssociationPropertyArgs:
@@ -594,29 +568,26 @@ class DscConfigurationAssociationPropertyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DscConfigurationParameterArgsDict(TypedDict):
-        """
-        Definition of the configuration parameter type.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the default value of parameter.
-        """
-        is_mandatory: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        """
-        position: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Get or sets the position of the parameter.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the type of the parameter.
-        """
-elif False:
-    DscConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class DscConfigurationParameterArgsDict(TypedDict):
+    """
+    Definition of the configuration parameter type.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the default value of parameter.
+    """
+    is_mandatory: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+    """
+    position: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Get or sets the position of the parameter.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the type of the parameter.
+    """
 
 @pulumi.input_type
 class DscConfigurationParameterArgs:
@@ -690,17 +661,14 @@ class DscConfigurationParameterArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class EncryptionPropertiesIdentityArgsDict(TypedDict):
-        """
-        User identity used for CMK.
-        """
-        user_assigned_identity: NotRequired[Any]
-        """
-        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    EncryptionPropertiesIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesIdentityArgsDict(TypedDict):
+    """
+    User identity used for CMK.
+    """
+    user_assigned_identity: NotRequired[Any]
+    """
+    The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesIdentityArgs:
@@ -726,25 +694,22 @@ class EncryptionPropertiesIdentityArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
-if not MYPY:
-    class EncryptionPropertiesArgsDict(TypedDict):
-        """
-        The encryption settings for automation account
-        """
-        identity: NotRequired[pulumi.Input['EncryptionPropertiesIdentityArgsDict']]
-        """
-        User identity used for CMK.
-        """
-        key_source: NotRequired[pulumi.Input['EncryptionKeySourceType']]
-        """
-        Encryption Key Source
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Key vault properties.
-        """
-elif False:
-    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesArgsDict(TypedDict):
+    """
+    The encryption settings for automation account
+    """
+    identity: NotRequired[pulumi.Input['EncryptionPropertiesIdentityArgsDict']]
+    """
+    User identity used for CMK.
+    """
+    key_source: NotRequired[pulumi.Input['EncryptionKeySourceType']]
+    """
+    Encryption Key Source
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Key vault properties.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -802,21 +767,18 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class ErrorResponseArgsDict(TypedDict):
-        """
-        Error response of an operation failure
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Error code
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Error message indicating why the operation failed.
-        """
-elif False:
-    ErrorResponseArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorResponseArgsDict(TypedDict):
+    """
+    Error response of an operation failure
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Error code
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Error message indicating why the operation failed.
+    """
 
 @pulumi.input_type
 class ErrorResponseArgs:
@@ -858,25 +820,22 @@ class ErrorResponseArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class FieldDefinitionArgsDict(TypedDict):
-        """
-        Definition of the connection fields.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the type of the connection field definition.
-        """
-        is_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets the isEncrypted flag of the connection field definition.
-        """
-        is_optional: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets the isOptional flag of the connection field definition.
-        """
-elif False:
-    FieldDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class FieldDefinitionArgsDict(TypedDict):
+    """
+    Definition of the connection fields.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the type of the connection field definition.
+    """
+    is_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets the isEncrypted flag of the connection field definition.
+    """
+    is_optional: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets the isOptional flag of the connection field definition.
+    """
 
 @pulumi.input_type
 class FieldDefinitionArgs:
@@ -933,21 +892,18 @@ class FieldDefinitionArgs:
         pulumi.set(self, "is_optional", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -989,25 +945,22 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Settings concerning key vault encryption for a configuration store.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of key used to encrypt data.
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key version of the key used to encrypt data.
-        """
-        keyvault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the key vault key used to encrypt data.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Settings concerning key vault encryption for a configuration store.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of key used to encrypt data.
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key version of the key used to encrypt data.
+    """
+    keyvault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the key vault key used to encrypt data.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -1065,29 +1018,26 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "keyvault_uri", value)
 
 
-if not MYPY:
-    class LinuxPropertiesArgsDict(TypedDict):
-        """
-        Linux specific update configuration.
-        """
-        excluded_package_name_masks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        packages excluded from the software update configuration.
-        """
-        included_package_classifications: NotRequired[pulumi.Input[Union[_builtins.str, 'LinuxUpdateClasses']]]
-        """
-        Update classifications included in the software update configuration.
-        """
-        included_package_name_masks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        packages included from the software update configuration.
-        """
-        reboot_setting: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reboot setting for the software update configuration.
-        """
-elif False:
-    LinuxPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LinuxPropertiesArgsDict(TypedDict):
+    """
+    Linux specific update configuration.
+    """
+    excluded_package_name_masks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    packages excluded from the software update configuration.
+    """
+    included_package_classifications: NotRequired[pulumi.Input[Union[_builtins.str, 'LinuxUpdateClasses']]]
+    """
+    Update classifications included in the software update configuration.
+    """
+    included_package_name_masks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    packages included from the software update configuration.
+    """
+    reboot_setting: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reboot setting for the software update configuration.
+    """
 
 @pulumi.input_type
 class LinuxPropertiesArgs:
@@ -1161,21 +1111,18 @@ class LinuxPropertiesArgs:
         pulumi.set(self, "reboot_setting", value)
 
 
-if not MYPY:
-    class NonAzureQueryPropertiesArgsDict(TypedDict):
-        """
-        Non Azure query for the update configuration.
-        """
-        function_alias: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Log Analytics Saved Search name.
-        """
-        workspace_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Workspace Id for Log Analytics in which the saved Search is resided.
-        """
-elif False:
-    NonAzureQueryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NonAzureQueryPropertiesArgsDict(TypedDict):
+    """
+    Non Azure query for the update configuration.
+    """
+    function_alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Log Analytics Saved Search name.
+    """
+    workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Workspace Id for Log Analytics in which the saved Search is resided.
+    """
 
 @pulumi.input_type
 class NonAzureQueryPropertiesArgs:
@@ -1217,17 +1164,14 @@ class NonAzureQueryPropertiesArgs:
         pulumi.set(self, "workspace_id", value)
 
 
-if not MYPY:
-    class PrivateEndpointPropertyArgsDict(TypedDict):
-        """
-        Private endpoint which the connection belongs to.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of the private endpoint.
-        """
-elif False:
-    PrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointPropertyArgsDict(TypedDict):
+    """
+    Private endpoint which the connection belongs to.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of the private endpoint.
+    """
 
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
@@ -1253,21 +1197,18 @@ class PrivateEndpointPropertyArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
-        """
-        Connection State of the Private Endpoint Connection.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private link service connection description.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+    """
+    Connection State of the Private Endpoint Connection.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private link service connection description.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private link service connection status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:
@@ -1309,17 +1250,14 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RunAsCredentialAssociationPropertyArgsDict(TypedDict):
-        """
-        Definition of RunAs credential to use for hybrid worker.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the credential.
-        """
-elif False:
-    RunAsCredentialAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class RunAsCredentialAssociationPropertyArgsDict(TypedDict):
+    """
+    Definition of RunAs credential to use for hybrid worker.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the credential.
+    """
 
 @pulumi.input_type
 class RunAsCredentialAssociationPropertyArgs:
@@ -1345,17 +1283,14 @@ class RunAsCredentialAssociationPropertyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RunbookAssociationPropertyArgsDict(TypedDict):
-        """
-        The runbook property associated with the entity.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the runbook.
-        """
-elif False:
-    RunbookAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class RunbookAssociationPropertyArgsDict(TypedDict):
+    """
+    The runbook property associated with the entity.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the runbook.
+    """
 
 @pulumi.input_type
 class RunbookAssociationPropertyArgs:
@@ -1381,34 +1316,31 @@ class RunbookAssociationPropertyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RunbookDraftArgsDict(TypedDict):
-        creation_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the creation time of the runbook draft.
-        """
-        draft_content_link: NotRequired[pulumi.Input['ContentLinkArgsDict']]
-        """
-        Gets or sets the draft runbook content link.
-        """
-        in_edit: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets whether runbook is in edit mode.
-        """
-        last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the last modified time of the runbook draft.
-        """
-        output_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the runbook output types.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgsDict']]]]
-        """
-        Gets or sets the runbook draft parameters.
-        """
-elif False:
-    RunbookDraftArgsDict: TypeAlias = Mapping[str, Any]
+class RunbookDraftArgsDict(TypedDict):
+    creation_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the creation time of the runbook draft.
+    """
+    draft_content_link: NotRequired[pulumi.Input['ContentLinkArgsDict']]
+    """
+    Gets or sets the draft runbook content link.
+    """
+    in_edit: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets whether runbook is in edit mode.
+    """
+    last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the last modified time of the runbook draft.
+    """
+    output_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the runbook output types.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgsDict']]]]
+    """
+    Gets or sets the runbook draft parameters.
+    """
 
 @pulumi.input_type
 class RunbookDraftArgs:
@@ -1513,29 +1445,26 @@ class RunbookDraftArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class RunbookParameterArgsDict(TypedDict):
-        """
-        Definition of the runbook parameter type.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the default value of parameter.
-        """
-        is_mandatory: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        """
-        position: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Get or sets the position of the parameter.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the type of the parameter.
-        """
-elif False:
-    RunbookParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RunbookParameterArgsDict(TypedDict):
+    """
+    Definition of the runbook parameter type.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the default value of parameter.
+    """
+    is_mandatory: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+    """
+    position: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Get or sets the position of the parameter.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the type of the parameter.
+    """
 
 @pulumi.input_type
 class RunbookParameterArgs:
@@ -1609,65 +1538,62 @@ class RunbookParameterArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SUCSchedulePropertiesArgsDict(TypedDict):
-        """
-        Definition of schedule parameters.
-        """
-        advanced_schedule: NotRequired[pulumi.Input['AdvancedScheduleArgsDict']]
-        """
-        Gets or sets the advanced schedule.
-        """
-        creation_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the creation time.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the description.
-        """
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the end time of the schedule.
-        """
-        expiry_time_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Gets or sets the expiry time's offset in minutes.
-        """
-        frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleFrequency']]]
-        """
-        Gets or sets the frequency of the schedule.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Gets or sets the interval of the schedule.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a value indicating whether this schedule is enabled.
-        """
-        last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the last modified time.
-        """
-        next_run: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the next run time of the schedule.
-        """
-        next_run_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Gets or sets the next run time's offset in minutes.
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the start time of the schedule.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the time zone of the schedule.
-        """
-elif False:
-    SUCSchedulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SUCSchedulePropertiesArgsDict(TypedDict):
+    """
+    Definition of schedule parameters.
+    """
+    advanced_schedule: NotRequired[pulumi.Input['AdvancedScheduleArgsDict']]
+    """
+    Gets or sets the advanced schedule.
+    """
+    creation_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the creation time.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the description.
+    """
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the end time of the schedule.
+    """
+    expiry_time_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Gets or sets the expiry time's offset in minutes.
+    """
+    frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleFrequency']]]
+    """
+    Gets or sets the frequency of the schedule.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Gets or sets the interval of the schedule.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a value indicating whether this schedule is enabled.
+    """
+    last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the last modified time.
+    """
+    next_run: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the next run time of the schedule.
+    """
+    next_run_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Gets or sets the next run time's offset in minutes.
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the start time of the schedule.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the time zone of the schedule.
+    """
 
 @pulumi.input_type
 class SUCSchedulePropertiesArgs:
@@ -1887,17 +1813,14 @@ class SUCSchedulePropertiesArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class ScheduleAssociationPropertyArgsDict(TypedDict):
-        """
-        The schedule property associated with the entity.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the Schedule.
-        """
-elif False:
-    ScheduleAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleAssociationPropertyArgsDict(TypedDict):
+    """
+    The schedule property associated with the entity.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the Schedule.
+    """
 
 @pulumi.input_type
 class ScheduleAssociationPropertyArgs:
@@ -1923,25 +1846,22 @@ class ScheduleAssociationPropertyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The account SKU.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuNameEnum']]
-        """
-        Gets or sets the SKU name of the account.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the SKU capacity.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SKU family.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The account SKU.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuNameEnum']]
+    """
+    Gets or sets the SKU name of the account.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the SKU capacity.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SKU family.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -1998,21 +1918,18 @@ class SkuArgs:
         pulumi.set(self, "family", value)
 
 
-if not MYPY:
-    class SoftwareUpdateConfigurationTasksArgsDict(TypedDict):
-        """
-        Task properties of the software update configuration.
-        """
-        post_task: NotRequired[pulumi.Input['TaskPropertiesArgsDict']]
-        """
-        Post task properties.
-        """
-        pre_task: NotRequired[pulumi.Input['TaskPropertiesArgsDict']]
-        """
-        Pre task properties.
-        """
-elif False:
-    SoftwareUpdateConfigurationTasksArgsDict: TypeAlias = Mapping[str, Any]
+class SoftwareUpdateConfigurationTasksArgsDict(TypedDict):
+    """
+    Task properties of the software update configuration.
+    """
+    post_task: NotRequired[pulumi.Input['TaskPropertiesArgsDict']]
+    """
+    Post task properties.
+    """
+    pre_task: NotRequired[pulumi.Input['TaskPropertiesArgsDict']]
+    """
+    Pre task properties.
+    """
 
 @pulumi.input_type
 class SoftwareUpdateConfigurationTasksArgs:
@@ -2054,22 +1971,19 @@ class SoftwareUpdateConfigurationTasksArgs:
         pulumi.set(self, "pre_task", value)
 
 
-if not MYPY:
-    class SourceControlSecurityTokenPropertiesArgsDict(TypedDict):
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The access token.
-        """
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The refresh token.
-        """
-        token_type: NotRequired[pulumi.Input[Union[_builtins.str, 'TokenType']]]
-        """
-        The token type. Must be either PersonalAccessToken or Oauth.
-        """
-elif False:
-    SourceControlSecurityTokenPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SourceControlSecurityTokenPropertiesArgsDict(TypedDict):
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The access token.
+    """
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The refresh token.
+    """
+    token_type: NotRequired[pulumi.Input[Union[_builtins.str, 'TokenType']]]
+    """
+    The token type. Must be either PersonalAccessToken or Oauth.
+    """
 
 @pulumi.input_type
 class SourceControlSecurityTokenPropertiesArgs:
@@ -2126,21 +2040,18 @@ class SourceControlSecurityTokenPropertiesArgs:
         pulumi.set(self, "token_type", value)
 
 
-if not MYPY:
-    class TagSettingsPropertiesArgsDict(TypedDict):
-        """
-        Tag filter information for the VM.
-        """
-        filter_operator: NotRequired[pulumi.Input['TagOperators']]
-        """
-        Filter VMs by Any or All specified tags.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
-        """
-        Dictionary of tags with its list of values.
-        """
-elif False:
-    TagSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TagSettingsPropertiesArgsDict(TypedDict):
+    """
+    Tag filter information for the VM.
+    """
+    filter_operator: NotRequired[pulumi.Input['TagOperators']]
+    """
+    Filter VMs by Any or All specified tags.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    """
+    Dictionary of tags with its list of values.
+    """
 
 @pulumi.input_type
 class TagSettingsPropertiesArgs:
@@ -2182,21 +2093,18 @@ class TagSettingsPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class TargetPropertiesArgsDict(TypedDict):
-        """
-        Group specific to the update configuration.
-        """
-        azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureQueryPropertiesArgsDict']]]]
-        """
-        List of Azure queries in the software update configuration.
-        """
-        non_azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgsDict']]]]
-        """
-        List of non Azure queries in the software update configuration.
-        """
-elif False:
-    TargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TargetPropertiesArgsDict(TypedDict):
+    """
+    Group specific to the update configuration.
+    """
+    azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureQueryPropertiesArgsDict']]]]
+    """
+    List of Azure queries in the software update configuration.
+    """
+    non_azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgsDict']]]]
+    """
+    List of non Azure queries in the software update configuration.
+    """
 
 @pulumi.input_type
 class TargetPropertiesArgs:
@@ -2238,21 +2146,18 @@ class TargetPropertiesArgs:
         pulumi.set(self, "non_azure_queries", value)
 
 
-if not MYPY:
-    class TaskPropertiesArgsDict(TypedDict):
-        """
-        Task properties of the software update configuration.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the parameters of the task.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the runbook.
-        """
-elif False:
-    TaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TaskPropertiesArgsDict(TypedDict):
+    """
+    Task properties of the software update configuration.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the parameters of the task.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the runbook.
+    """
 
 @pulumi.input_type
 class TaskPropertiesArgs:
@@ -2294,21 +2199,18 @@ class TaskPropertiesArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TrackedResourceArgsDict(TypedDict):
-        """
-        The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        The geo-location where the resource lives
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Resource tags.
-        """
-elif False:
-    TrackedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class TrackedResourceArgsDict(TypedDict):
+    """
+    The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    The geo-location where the resource lives
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
 
 @pulumi.input_type
 class TrackedResourceArgs:
@@ -2349,41 +2251,38 @@ class TrackedResourceArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class UpdateConfigurationArgsDict(TypedDict):
-        """
-        Update specific properties of the software update configuration.
-        """
-        operating_system: pulumi.Input['OperatingSystemType']
-        """
-        operating system of target machines
-        """
-        azure_virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of azure resource Ids for azure virtual machines targeted by the software update configuration.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
-        """
-        linux: NotRequired[pulumi.Input['LinuxPropertiesArgsDict']]
-        """
-        Linux specific update configuration.
-        """
-        non_azure_computer_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of names of non-azure machines targeted by the software update configuration.
-        """
-        targets: NotRequired[pulumi.Input['TargetPropertiesArgsDict']]
-        """
-        Group targets for the software update configuration.
-        """
-        windows: NotRequired[pulumi.Input['WindowsPropertiesArgsDict']]
-        """
-        Windows specific update configuration.
-        """
-elif False:
-    UpdateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class UpdateConfigurationArgsDict(TypedDict):
+    """
+    Update specific properties of the software update configuration.
+    """
+    operating_system: pulumi.Input['OperatingSystemType']
+    """
+    operating system of target machines
+    """
+    azure_virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
+    """
+    linux: NotRequired[pulumi.Input['LinuxPropertiesArgsDict']]
+    """
+    Linux specific update configuration.
+    """
+    non_azure_computer_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of names of non-azure machines targeted by the software update configuration.
+    """
+    targets: NotRequired[pulumi.Input['TargetPropertiesArgsDict']]
+    """
+    Group targets for the software update configuration.
+    """
+    windows: NotRequired[pulumi.Input['WindowsPropertiesArgsDict']]
+    """
+    Windows specific update configuration.
+    """
 
 @pulumi.input_type
 class UpdateConfigurationArgs:
@@ -2504,29 +2403,26 @@ class UpdateConfigurationArgs:
         pulumi.set(self, "windows", value)
 
 
-if not MYPY:
-    class WindowsPropertiesArgsDict(TypedDict):
-        """
-        Windows specific update configuration.
-        """
-        excluded_kb_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        KB numbers excluded from the software update configuration.
-        """
-        included_kb_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        KB numbers included from the software update configuration.
-        """
-        included_update_classifications: NotRequired[pulumi.Input[Union[_builtins.str, 'WindowsUpdateClasses']]]
-        """
-        Update classification included in the software update configuration. A comma separated string with required values
-        """
-        reboot_setting: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reboot setting for the software update configuration.
-        """
-elif False:
-    WindowsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WindowsPropertiesArgsDict(TypedDict):
+    """
+    Windows specific update configuration.
+    """
+    excluded_kb_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    KB numbers excluded from the software update configuration.
+    """
+    included_kb_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    KB numbers included from the software update configuration.
+    """
+    included_update_classifications: NotRequired[pulumi.Input[Union[_builtins.str, 'WindowsUpdateClasses']]]
+    """
+    Update classification included in the software update configuration. A comma separated string with required values
+    """
+    reboot_setting: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reboot setting for the software update configuration.
+    """
 
 @pulumi.input_type
 class WindowsPropertiesArgs:

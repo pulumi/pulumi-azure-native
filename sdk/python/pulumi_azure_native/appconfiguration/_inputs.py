@@ -32,23 +32,18 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataPlaneProxyPropertiesArgsDict(TypedDict):
-        """
-        The data plane proxy settings for a configuration store.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
-        """
-        private_link_delegation: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkDelegation']]]
-        """
-        The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
-        """
-elif False:
-    DataPlaneProxyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataPlaneProxyPropertiesArgsDict(TypedDict):
+    """
+    The data plane proxy settings for a configuration store.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
+    """
+    private_link_delegation: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkDelegation']]]
+    """
+    The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
+    """
 
 @pulumi.input_type
 class DataPlaneProxyPropertiesArgs:
@@ -90,17 +85,14 @@ class DataPlaneProxyPropertiesArgs:
         pulumi.set(self, "private_link_delegation", value)
 
 
-if not MYPY:
-    class EncryptionPropertiesArgsDict(TypedDict):
-        """
-        The encryption settings for a configuration store.
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Key vault properties.
-        """
-elif False:
-    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesArgsDict(TypedDict):
+    """
+    The encryption settings for a configuration store.
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Key vault properties.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -126,21 +118,18 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Settings concerning key vault encryption for a configuration store.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client id of the identity which will be used to access key vault.
-        """
-        key_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the key vault key used to encrypt data.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Settings concerning key vault encryption for a configuration store.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client id of the identity which will be used to access key vault.
+    """
+    key_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the key vault key used to encrypt data.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -182,17 +171,14 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_identifier", value)
 
 
-if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        Private endpoint which a connection belongs to.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id for private endpoint
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    Private endpoint which a connection belongs to.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id for private endpoint
+    """
 
 @pulumi.input_type
 class PrivateEndpointArgs:
@@ -218,21 +204,18 @@ class PrivateEndpointArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        The state of a private link service connection.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private link service connection description.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    The state of a private link service connection.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private link service connection description.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]
+    """
+    The private link service connection status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -274,21 +257,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        An identity that can be associated with a resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        """
-        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    An identity that can be associated with a resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -330,17 +310,14 @@ class ResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Describes a configuration store SKU.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The SKU name of the configuration store.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Describes a configuration store SKU.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The SKU name of the configuration store.
+    """
 
 @pulumi.input_type
 class SkuArgs:

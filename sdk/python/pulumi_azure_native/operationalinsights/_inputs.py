@@ -50,23 +50,18 @@ __all__ = [
     'WorkspaceSkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterSkuArgsDict(TypedDict):
-        """
-        The cluster sku definition.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The capacity reservation level in Gigabytes for this cluster.
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterSkuNameEnum']]]
-        """
-        The SKU (tier) of a cluster.
-        """
-elif False:
-    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterSkuArgsDict(TypedDict):
+    """
+    The cluster sku definition.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The capacity reservation level in Gigabytes for this cluster.
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterSkuNameEnum']]]
+    """
+    The SKU (tier) of a cluster.
+    """
 
 @pulumi.input_type
 class ClusterSkuArgs:
@@ -108,33 +103,30 @@ class ClusterSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ColumnArgsDict(TypedDict):
-        """
-        Table column.
-        """
-        data_type_hint: NotRequired[pulumi.Input[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]
-        """
-        Column data type logical hint.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Column description.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Column display name.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Column name.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ColumnTypeEnum']]]
-        """
-        Column data type.
-        """
-elif False:
-    ColumnArgsDict: TypeAlias = Mapping[str, Any]
+class ColumnArgsDict(TypedDict):
+    """
+    Table column.
+    """
+    data_type_hint: NotRequired[pulumi.Input[Union[_builtins.str, 'ColumnDataTypeHintEnum']]]
+    """
+    Column data type logical hint.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Column description.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Column display name.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Column name.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ColumnTypeEnum']]]
+    """
+    Column data type.
+    """
 
 @pulumi.input_type
 class ColumnArgs:
@@ -224,21 +216,18 @@ class ColumnArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: pulumi.Input['IdentityType']
-        """
-        Type of managed service identity.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: pulumi.Input['IdentityType']
+    """
+    Type of managed service identity.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -279,29 +268,26 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        The key vault properties.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the key associated with the Log Analytics cluster.
-        """
-        key_rsa_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Selected key minimum required size.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Key Vault uri which holds they key associated with the Log Analytics cluster.
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the key associated with the Log Analytics cluster.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    The key vault properties.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the key associated with the Log Analytics cluster.
+    """
+    key_rsa_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Selected key minimum required size.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Key Vault uri which holds they key associated with the Log Analytics cluster.
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the key associated with the Log Analytics cluster.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -375,25 +361,22 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
-if not MYPY:
-    class LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict(TypedDict):
-        """
-        The related metadata items for the function.
-        """
-        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The related categories for the function.
-        """
-        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The related resource types for the function.
-        """
-        solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The related Log Analytics solutions for the function.
-        """
-elif False:
-    LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict: TypeAlias = Mapping[str, Any]
+class LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict(TypedDict):
+    """
+    The related metadata items for the function.
+    """
+    categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The related categories for the function.
+    """
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The related resource types for the function.
+    """
+    solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The related Log Analytics solutions for the function.
+    """
 
 @pulumi.input_type
 class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
@@ -451,22 +434,19 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
         pulumi.set(self, "solutions", value)
 
 
-if not MYPY:
-    class MachineReferenceWithHintsArgsDict(TypedDict):
-        """
-        A machine reference with a hint of the machine's name and operating system.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource URI.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Specifies the sub-class of the reference.
-        Expected value is 'ref:machinewithhints'.
-        """
-elif False:
-    MachineReferenceWithHintsArgsDict: TypeAlias = Mapping[str, Any]
+class MachineReferenceWithHintsArgsDict(TypedDict):
+    """
+    A machine reference with a hint of the machine's name and operating system.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource URI.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Specifies the sub-class of the reference.
+    Expected value is 'ref:machinewithhints'.
+    """
 
 @pulumi.input_type
 class MachineReferenceWithHintsArgs:
@@ -508,21 +488,18 @@ class MachineReferenceWithHintsArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -563,25 +540,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class RestoredLogsArgsDict(TypedDict):
-        """
-        Restore parameters.
-        """
-        end_restore_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp to end the restore by (UTC).
-        """
-        source_table: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The table to restore data from.
-        """
-        start_restore_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp to start the restore from (UTC).
-        """
-elif False:
-    RestoredLogsArgsDict: TypeAlias = Mapping[str, Any]
+class RestoredLogsArgsDict(TypedDict):
+    """
+    Restore parameters.
+    """
+    end_restore_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp to end the restore by (UTC).
+    """
+    source_table: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The table to restore data from.
+    """
+    start_restore_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp to start the restore from (UTC).
+    """
 
 @pulumi.input_type
 class RestoredLogsArgs:
@@ -639,37 +613,34 @@ class RestoredLogsArgs:
         pulumi.set(self, "start_restore_time", value)
 
 
-if not MYPY:
-    class RuleDefinitionArgsDict(TypedDict):
-        """
-        Rule definition parameters.
-        """
-        bin_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum delay in seconds before bin processing.
-        """
-        bin_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
-        """
-        bin_start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The start time (UTC) when Summary rule execution starts.
-        """
-        destination_table: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination table used for the Summary rule results.
-        """
-        query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Summary rule query.
-        """
-        time_selector: NotRequired[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]
-        """
-        The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
-        """
-elif False:
-    RuleDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class RuleDefinitionArgsDict(TypedDict):
+    """
+    Rule definition parameters.
+    """
+    bin_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum delay in seconds before bin processing.
+    """
+    bin_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+    """
+    bin_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The start time (UTC) when Summary rule execution starts.
+    """
+    destination_table: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination table used for the Summary rule results.
+    """
+    query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Summary rule query.
+    """
+    time_selector: NotRequired[pulumi.Input[Union[_builtins.str, 'TimeSelectorEnum']]]
+    """
+    The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+    """
 
 @pulumi.input_type
 class RuleDefinitionArgs:
@@ -775,29 +746,26 @@ class RuleDefinitionArgs:
         pulumi.set(self, "time_selector", value)
 
 
-if not MYPY:
-    class SchemaArgsDict(TypedDict):
-        """
-        Table's schema.
-        """
-        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnArgsDict']]]]
-        """
-        A list of table custom columns.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Table description.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Table display name.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Table name.
-        """
-elif False:
-    SchemaArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaArgsDict(TypedDict):
+    """
+    Table's schema.
+    """
+    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnArgsDict']]]]
+    """
+    A list of table custom columns.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Table description.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Table display name.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Table name.
+    """
 
 @pulumi.input_type
 class SchemaArgs:
@@ -871,33 +839,30 @@ class SchemaArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SearchResultsArgsDict(TypedDict):
-        """
-        Parameters of the search job that initiated this table.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Search job Description.
-        """
-        end_search_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp to end the search by (UTC)
-        """
-        limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Limit the search job to return up to specified number of rows.
-        """
-        query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Search job query.
-        """
-        start_search_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp to start the search from (UTC)
-        """
-elif False:
-    SearchResultsArgsDict: TypeAlias = Mapping[str, Any]
+class SearchResultsArgsDict(TypedDict):
+    """
+    Parameters of the search job that initiated this table.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Search job Description.
+    """
+    end_search_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp to end the search by (UTC)
+    """
+    limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Limit the search job to return up to specified number of rows.
+    """
+    query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Search job query.
+    """
+    start_search_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp to start the search from (UTC)
+    """
 
 @pulumi.input_type
 class SearchResultsArgs:
@@ -987,21 +952,18 @@ class SearchResultsArgs:
         pulumi.set(self, "start_search_time", value)
 
 
-if not MYPY:
-    class StorageAccountArgsDict(TypedDict):
-        """
-        Describes a storage account connection.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The Azure Resource Manager ID of the storage account resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The storage account key.
-        """
-elif False:
-    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class StorageAccountArgsDict(TypedDict):
+    """
+    Describes a storage account connection.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The Azure Resource Manager ID of the storage account resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The storage account key.
+    """
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -1041,21 +1003,18 @@ class StorageAccountArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class TagArgsDict(TypedDict):
-        """
-        A tag of a saved search.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The tag name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The tag value.
-        """
-elif False:
-    TagArgsDict: TypeAlias = Mapping[str, Any]
+class TagArgsDict(TypedDict):
+    """
+    A tag of a saved search.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The tag name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class TagArgs:
@@ -1095,17 +1054,14 @@ class TagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WorkspaceCappingArgsDict(TypedDict):
-        """
-        The daily volume cap for ingestion.
-        """
-        daily_quota_gb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The workspace daily quota for ingestion.
-        """
-elif False:
-    WorkspaceCappingArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceCappingArgsDict(TypedDict):
+    """
+    The daily volume cap for ingestion.
+    """
+    daily_quota_gb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The workspace daily quota for ingestion.
+    """
 
 @pulumi.input_type
 class WorkspaceCappingArgs:
@@ -1131,33 +1087,30 @@ class WorkspaceCappingArgs:
         pulumi.set(self, "daily_quota_gb", value)
 
 
-if not MYPY:
-    class WorkspaceFeaturesArgsDict(TypedDict):
-        """
-        Workspace features.
-        """
-        cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dedicated LA cluster resourceId that is linked to the workspaces.
-        """
-        disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Disable Non-AAD based Auth.
-        """
-        enable_data_export: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag that indicate if data should be exported.
-        """
-        enable_log_access_using_only_resource_permissions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag that indicate which permission to use - resource or workspace or both.
-        """
-        immediate_purge_data_on30_days: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag that describes if we want to remove the data after 30 days.
-        """
-elif False:
-    WorkspaceFeaturesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceFeaturesArgsDict(TypedDict):
+    """
+    Workspace features.
+    """
+    cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dedicated LA cluster resourceId that is linked to the workspaces.
+    """
+    disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Disable Non-AAD based Auth.
+    """
+    enable_data_export: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag that indicate if data should be exported.
+    """
+    enable_log_access_using_only_resource_permissions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag that indicate which permission to use - resource or workspace or both.
+    """
+    immediate_purge_data_on30_days: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag that describes if we want to remove the data after 30 days.
+    """
 
 @pulumi.input_type
 class WorkspaceFeaturesArgs:
@@ -1247,21 +1200,18 @@ class WorkspaceFeaturesArgs:
         pulumi.set(self, "immediate_purge_data_on30_days", value)
 
 
-if not MYPY:
-    class WorkspaceSkuArgsDict(TypedDict):
-        """
-        The SKU (tier) of a workspace.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'WorkspaceSkuNameEnum']]
-        """
-        The name of the SKU.
-        """
-        capacity_reservation_level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
-        """
-elif False:
-    WorkspaceSkuArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceSkuArgsDict(TypedDict):
+    """
+    The SKU (tier) of a workspace.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'WorkspaceSkuNameEnum']]
+    """
+    The name of the SKU.
+    """
+    capacity_reservation_level: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+    """
 
 @pulumi.input_type
 class WorkspaceSkuArgs:

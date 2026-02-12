@@ -56,51 +56,46 @@ __all__ = [
     'SubstituteFromDefinitionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureBlobDefinitionArgsDict(TypedDict):
-        """
-        Parameters to reconcile to the AzureBlob source kind type.
-        """
-        account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account key (shared key) to access the storage account
-        """
-        container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Blob container name to sync from the url endpoint for the flux configuration.
-        """
-        local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
-        """
-        managed_identity: NotRequired[pulumi.Input['ManagedIdentityDefinitionArgsDict']]
-        """
-        Parameters to authenticate using a Managed Identity.
-        """
-        sas_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Shared Access token to access the storage container
-        """
-        service_principal: NotRequired[pulumi.Input['ServicePrincipalDefinitionArgsDict']]
-        """
-        Parameters to authenticate using Service Principal.
-        """
-        sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The interval at which to re-reconcile the cluster Azure Blob source with the remote.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to sync for the flux configuration Azure Blob storage account.
-        """
-elif False:
-    AzureBlobDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class AzureBlobDefinitionArgsDict(TypedDict):
+    """
+    Parameters to reconcile to the AzureBlob source kind type.
+    """
+    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account key (shared key) to access the storage account
+    """
+    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Blob container name to sync from the url endpoint for the flux configuration.
+    """
+    local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+    """
+    managed_identity: NotRequired[pulumi.Input['ManagedIdentityDefinitionArgsDict']]
+    """
+    Parameters to authenticate using a Managed Identity.
+    """
+    sas_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Shared Access token to access the storage container
+    """
+    service_principal: NotRequired[pulumi.Input['ServicePrincipalDefinitionArgsDict']]
+    """
+    Parameters to authenticate using Service Principal.
+    """
+    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to sync for the flux configuration Azure Blob storage account.
+    """
 
 @pulumi.input_type
 class AzureBlobDefinitionArgs:
@@ -258,41 +253,38 @@ class AzureBlobDefinitionArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class BucketDefinitionArgsDict(TypedDict):
-        """
-        Parameters to reconcile to the Bucket source kind type.
-        """
-        access_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plaintext access key used to securely access the S3 bucket
-        """
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bucket name to sync from the url endpoint for the flux configuration.
-        """
-        insecure: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify whether to use insecure communication when puling data from the S3 bucket.
-        """
-        local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
-        """
-        sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The interval at which to re-reconcile the cluster bucket source with the remote.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum time to attempt to reconcile the cluster bucket source with the remote.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to sync for the flux configuration S3 bucket.
-        """
-elif False:
-    BucketDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BucketDefinitionArgsDict(TypedDict):
+    """
+    Parameters to reconcile to the Bucket source kind type.
+    """
+    access_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plaintext access key used to securely access the S3 bucket
+    """
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bucket name to sync from the url endpoint for the flux configuration.
+    """
+    insecure: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify whether to use insecure communication when puling data from the S3 bucket.
+    """
+    local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+    """
+    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The interval at which to re-reconcile the cluster bucket source with the remote.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum time to attempt to reconcile the cluster bucket source with the remote.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to sync for the flux configuration S3 bucket.
+    """
 
 @pulumi.input_type
 class BucketDefinitionArgs:
@@ -420,17 +412,14 @@ class BucketDefinitionArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ExtensionAksAssignedIdentityArgsDict(TypedDict):
-        """
-        Identity of the Extension resource in an AKS cluster
-        """
-        type: NotRequired[pulumi.Input['AKSIdentityType']]
-        """
-        The identity type.
-        """
-elif False:
-    ExtensionAksAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionAksAssignedIdentityArgsDict(TypedDict):
+    """
+    Identity of the Extension resource in an AKS cluster
+    """
+    type: NotRequired[pulumi.Input['AKSIdentityType']]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class ExtensionAksAssignedIdentityArgs:
@@ -456,33 +445,30 @@ class ExtensionAksAssignedIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ExtensionStatusArgsDict(TypedDict):
-        """
-        Status from the extension.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status code provided by the Extension
-        """
-        display_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Short description of status of the extension.
-        """
-        level: NotRequired[pulumi.Input[Union[_builtins.str, 'LevelType']]]
-        """
-        Level of the status.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detailed message of the status from the Extension.
-        """
-        time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DateLiteral (per ISO8601) noting the time of installation status.
-        """
-elif False:
-    ExtensionStatusArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionStatusArgsDict(TypedDict):
+    """
+    Status from the extension.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status code provided by the Extension
+    """
+    display_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Short description of status of the extension.
+    """
+    level: NotRequired[pulumi.Input[Union[_builtins.str, 'LevelType']]]
+    """
+    Level of the status.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Detailed message of the status from the Extension.
+    """
+    time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DateLiteral (per ISO8601) noting the time of installation status.
+    """
 
 @pulumi.input_type
 class ExtensionStatusArgs:
@@ -574,45 +560,42 @@ class ExtensionStatusArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class GitRepositoryDefinitionArgsDict(TypedDict):
-        """
-        Parameters to reconcile to the GitRepository source kind type.
-        """
-        https_ca_cert: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-        """
-        https_user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plaintext HTTPS username used to access private git repositories over HTTPS
-        """
-        local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
-        """
-        repository_ref: NotRequired[pulumi.Input['RepositoryRefDefinitionArgsDict']]
-        """
-        The source reference for the GitRepository object.
-        """
-        ssh_known_hosts: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
-        """
-        sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The interval at which to re-reconcile the cluster git repository source with the remote.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum time to attempt to reconcile the cluster git repository source with the remote.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to sync for the flux configuration git repository.
-        """
-elif False:
-    GitRepositoryDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class GitRepositoryDefinitionArgsDict(TypedDict):
+    """
+    Parameters to reconcile to the GitRepository source kind type.
+    """
+    https_ca_cert: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
+    """
+    https_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plaintext HTTPS username used to access private git repositories over HTTPS
+    """
+    local_auth_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+    """
+    repository_ref: NotRequired[pulumi.Input['RepositoryRefDefinitionArgsDict']]
+    """
+    The source reference for the GitRepository object.
+    """
+    ssh_known_hosts: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
+    """
+    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The interval at which to re-reconcile the cluster git repository source with the remote.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum time to attempt to reconcile the cluster git repository source with the remote.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to sync for the flux configuration git repository.
+    """
 
 @pulumi.input_type
 class GitRepositoryDefinitionArgs:
@@ -754,21 +737,18 @@ class GitRepositoryDefinitionArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class HelmOperatorPropertiesArgsDict(TypedDict):
-        """
-        Properties for Helm operator.
-        """
-        chart_values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Values override for the operator Helm chart.
-        """
-        chart_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the operator Helm chart.
-        """
-elif False:
-    HelmOperatorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HelmOperatorPropertiesArgsDict(TypedDict):
+    """
+    Properties for Helm operator.
+    """
+    chart_values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Values override for the operator Helm chart.
+    """
+    chart_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the operator Helm chart.
+    """
 
 @pulumi.input_type
 class HelmOperatorPropertiesArgs:
@@ -810,17 +790,14 @@ class HelmOperatorPropertiesArgs:
         pulumi.set(self, "chart_version", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -846,21 +823,18 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class KubernetesConfigurationPrivateLinkScopePropertiesArgsDict(TypedDict):
-        """
-        Properties that define a Azure Arc PrivateLinkScope resource.
-        """
-        cluster_resource_id: pulumi.Input[_builtins.str]
-        """
-        Managed Cluster ARM ID for the private link scope  (Required)
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
-        """
-        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        """
-elif False:
-    KubernetesConfigurationPrivateLinkScopePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KubernetesConfigurationPrivateLinkScopePropertiesArgsDict(TypedDict):
+    """
+    Properties that define a Azure Arc PrivateLinkScope resource.
+    """
+    cluster_resource_id: pulumi.Input[_builtins.str]
+    """
+    Managed Cluster ARM ID for the private link scope  (Required)
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
+    """
+    Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+    """
 
 @pulumi.input_type
 class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
@@ -901,49 +875,46 @@ class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class KustomizationDefinitionArgsDict(TypedDict):
-        """
-        The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
-        """
-        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
-        """
-        force: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path in the source reference to reconcile on the cluster.
-        """
-        post_build: NotRequired[pulumi.Input['PostBuildDefinitionArgsDict']]
-        """
-        Used for variable substitution for this Kustomization after kustomize build.
-        """
-        prune: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
-        """
-        retry_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
-        """
-        sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The interval at which to re-reconcile the Kustomization on the cluster.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum time to attempt to reconcile the Kustomization on the cluster.
-        """
-        wait: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable/disable health check for all Kubernetes objects created by this Kustomization.
-        """
-elif False:
-    KustomizationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class KustomizationDefinitionArgsDict(TypedDict):
+    """
+    The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
+    """
+    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
+    """
+    force: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path in the source reference to reconcile on the cluster.
+    """
+    post_build: NotRequired[pulumi.Input['PostBuildDefinitionArgsDict']]
+    """
+    Used for variable substitution for this Kustomization after kustomize build.
+    """
+    prune: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
+    """
+    retry_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
+    """
+    sync_interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The interval at which to re-reconcile the Kustomization on the cluster.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum time to attempt to reconcile the Kustomization on the cluster.
+    """
+    wait: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable/disable health check for all Kubernetes objects created by this Kustomization.
+    """
 
 @pulumi.input_type
 class KustomizationDefinitionArgs:
@@ -1109,17 +1080,14 @@ class KustomizationDefinitionArgs:
         pulumi.set(self, "wait", value)
 
 
-if not MYPY:
-    class ManagedIdentityDefinitionArgsDict(TypedDict):
-        """
-        Parameters to authenticate using a Managed Identity.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client Id for authenticating a Managed Identity.
-        """
-elif False:
-    ManagedIdentityDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityDefinitionArgsDict(TypedDict):
+    """
+    Parameters to authenticate using a Managed Identity.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client Id for authenticating a Managed Identity.
+    """
 
 @pulumi.input_type
 class ManagedIdentityDefinitionArgs:
@@ -1145,33 +1113,30 @@ class ManagedIdentityDefinitionArgs:
         pulumi.set(self, "client_id", value)
 
 
-if not MYPY:
-    class PlanArgsDict(TypedDict):
-        """
-        Plan for the resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A user defined name of the 3rd Party Artifact that is being procured.
-        """
-        product: pulumi.Input[_builtins.str]
-        """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-        """
-        promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the desired product/artifact.
-        """
-elif False:
-    PlanArgsDict: TypeAlias = Mapping[str, Any]
+class PlanArgsDict(TypedDict):
+    """
+    Plan for the resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A user defined name of the 3rd Party Artifact that is being procured.
+    """
+    product: pulumi.Input[_builtins.str]
+    """
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the desired product/artifact.
+    """
 
 @pulumi.input_type
 class PlanArgs:
@@ -1258,21 +1223,18 @@ class PlanArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PostBuildDefinitionArgsDict(TypedDict):
-        """
-        The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
-        """
-        substitute: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key/value pairs holding the variables to be substituted in this Kustomization.
-        """
-        substitute_from: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgsDict']]]]
-        """
-        Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
-        """
-elif False:
-    PostBuildDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class PostBuildDefinitionArgsDict(TypedDict):
+    """
+    The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
+    """
+    substitute: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key/value pairs holding the variables to be substituted in this Kustomization.
+    """
+    substitute_from: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgsDict']]]]
+    """
+    Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+    """
 
 @pulumi.input_type
 class PostBuildDefinitionArgs:
@@ -1314,25 +1276,22 @@ class PostBuildDefinitionArgs:
         pulumi.set(self, "substitute_from", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -1390,29 +1349,26 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositoryRefDefinitionArgsDict(TypedDict):
-        """
-        The source reference for the GitRepository object.
-        """
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The git repository branch name to checkout.
-        """
-        commit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The commit SHA to checkout. This value must be combined with the branch name to be valid. This takes precedence over semver.
-        """
-        semver: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The semver range used to match against git repository tags. This takes precedence over tag.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The git repository tag name to checkout. This takes precedence over branch.
-        """
-elif False:
-    RepositoryRefDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRefDefinitionArgsDict(TypedDict):
+    """
+    The source reference for the GitRepository object.
+    """
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The git repository branch name to checkout.
+    """
+    commit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The commit SHA to checkout. This value must be combined with the branch name to be valid. This takes precedence over semver.
+    """
+    semver: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The semver range used to match against git repository tags. This takes precedence over tag.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The git repository tag name to checkout. This takes precedence over branch.
+    """
 
 @pulumi.input_type
 class RepositoryRefDefinitionArgs:
@@ -1486,17 +1442,14 @@ class RepositoryRefDefinitionArgs:
         pulumi.set(self, "tag", value)
 
 
-if not MYPY:
-    class ScopeClusterArgsDict(TypedDict):
-        """
-        Specifies that the scope of the extension is Cluster
-        """
-        release_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
-        """
-elif False:
-    ScopeClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeClusterArgsDict(TypedDict):
+    """
+    Specifies that the scope of the extension is Cluster
+    """
+    release_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+    """
 
 @pulumi.input_type
 class ScopeClusterArgs:
@@ -1522,17 +1475,14 @@ class ScopeClusterArgs:
         pulumi.set(self, "release_namespace", value)
 
 
-if not MYPY:
-    class ScopeNamespaceArgsDict(TypedDict):
-        """
-        Specifies that the scope of the extension is Namespace
-        """
-        target_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
-        """
-elif False:
-    ScopeNamespaceArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeNamespaceArgsDict(TypedDict):
+    """
+    Specifies that the scope of the extension is Namespace
+    """
+    target_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+    """
 
 @pulumi.input_type
 class ScopeNamespaceArgs:
@@ -1558,21 +1508,18 @@ class ScopeNamespaceArgs:
         pulumi.set(self, "target_namespace", value)
 
 
-if not MYPY:
-    class ScopeArgsDict(TypedDict):
-        """
-        Scope of the extension. It can be either Cluster or Namespace; but not both.
-        """
-        cluster: NotRequired[pulumi.Input['ScopeClusterArgsDict']]
-        """
-        Specifies that the scope of the extension is Cluster
-        """
-        namespace: NotRequired[pulumi.Input['ScopeNamespaceArgsDict']]
-        """
-        Specifies that the scope of the extension is Namespace
-        """
-elif False:
-    ScopeArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeArgsDict(TypedDict):
+    """
+    Scope of the extension. It can be either Cluster or Namespace; but not both.
+    """
+    cluster: NotRequired[pulumi.Input['ScopeClusterArgsDict']]
+    """
+    Specifies that the scope of the extension is Cluster
+    """
+    namespace: NotRequired[pulumi.Input['ScopeNamespaceArgsDict']]
+    """
+    Specifies that the scope of the extension is Namespace
+    """
 
 @pulumi.input_type
 class ScopeArgs:
@@ -1614,37 +1561,34 @@ class ScopeArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class ServicePrincipalDefinitionArgsDict(TypedDict):
-        """
-        Parameters to authenticate using Service Principal.
-        """
-        client_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base64-encoded certificate used to authenticate a Service Principal 
-        """
-        client_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password for the certificate used to authenticate a Service Principal 
-        """
-        client_certificate_send_chain: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client Id for authenticating a Service Principal.
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client secret for authenticating a Service Principal
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tenant Id for authenticating a Service Principal
-        """
-elif False:
-    ServicePrincipalDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePrincipalDefinitionArgsDict(TypedDict):
+    """
+    Parameters to authenticate using Service Principal.
+    """
+    client_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base64-encoded certificate used to authenticate a Service Principal 
+    """
+    client_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password for the certificate used to authenticate a Service Principal 
+    """
+    client_certificate_send_chain: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client Id for authenticating a Service Principal.
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client secret for authenticating a Service Principal
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenant Id for authenticating a Service Principal
+    """
 
 @pulumi.input_type
 class ServicePrincipalDefinitionArgs:
@@ -1752,25 +1696,22 @@ class ServicePrincipalDefinitionArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class SubstituteFromDefinitionArgsDict(TypedDict):
-        """
-        Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
-        """
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the ConfigMap/Secret that holds the variables to be used in substitution.
-        """
-        optional: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to True to proceed without ConfigMap/Secret, if it is not present.
-        """
-elif False:
-    SubstituteFromDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class SubstituteFromDefinitionArgsDict(TypedDict):
+    """
+    Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+    """
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the ConfigMap/Secret that holds the variables to be used in substitution.
+    """
+    optional: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to True to proceed without ConfigMap/Secret, if it is not present.
+    """
 
 @pulumi.input_type
 class SubstituteFromDefinitionArgs:

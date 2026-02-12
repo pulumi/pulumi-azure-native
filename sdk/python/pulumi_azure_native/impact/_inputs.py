@@ -42,23 +42,18 @@ __all__ = [
     'WorkloadArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClientIncidentDetailsArgsDict(TypedDict):
-        """
-        Client incident details ex: incidentId , incident source
-        """
-        client_incident_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client incident id. ex : id of the incident created to investigate and address the impact if any.
-        """
-        client_incident_source: NotRequired[pulumi.Input[Union[_builtins.str, 'IncidentSource']]]
-        """
-        Client incident source. ex : source system name where the incident is created
-        """
-elif False:
-    ClientIncidentDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ClientIncidentDetailsArgsDict(TypedDict):
+    """
+    Client incident details ex: incidentId , incident source
+    """
+    client_incident_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client incident id. ex : id of the incident created to investigate and address the impact if any.
+    """
+    client_incident_source: NotRequired[pulumi.Input[Union[_builtins.str, 'IncidentSource']]]
+    """
+    Client incident source. ex : source system name where the incident is created
+    """
 
 @pulumi.input_type
 class ClientIncidentDetailsArgs:
@@ -100,29 +95,26 @@ class ClientIncidentDetailsArgs:
         pulumi.set(self, "client_incident_source", value)
 
 
-if not MYPY:
-    class ConnectivityArgsDict(TypedDict):
-        """
-        Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource could be VM or the network. In such cases, the connectivity field will have the details about both VM and network.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port number for the connection
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'Protocol']]]
-        """
-        Protocol used for the connection
-        """
-        source: NotRequired[pulumi.Input['SourceOrTargetArgsDict']]
-        """
-        Source from which the connection was attempted
-        """
-        target: NotRequired[pulumi.Input['SourceOrTargetArgsDict']]
-        """
-        target which connection was attempted
-        """
-elif False:
-    ConnectivityArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectivityArgsDict(TypedDict):
+    """
+    Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource could be VM or the network. In such cases, the connectivity field will have the details about both VM and network.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port number for the connection
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'Protocol']]]
+    """
+    Protocol used for the connection
+    """
+    source: NotRequired[pulumi.Input['SourceOrTargetArgsDict']]
+    """
+    Source from which the connection was attempted
+    """
+    target: NotRequired[pulumi.Input['SourceOrTargetArgsDict']]
+    """
+    target which connection was attempted
+    """
 
 @pulumi.input_type
 class ConnectivityArgs:
@@ -196,17 +188,14 @@ class ConnectivityArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class ConnectorPropertiesArgsDict(TypedDict):
-        """
-        Details of the Connector.
-        """
-        connector_type: pulumi.Input[Union[_builtins.str, 'Platform']]
-        """
-        connector type
-        """
-elif False:
-    ConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorPropertiesArgsDict(TypedDict):
+    """
+    Details of the Connector.
+    """
+    connector_type: pulumi.Input[Union[_builtins.str, 'Platform']]
+    """
+    connector type
+    """
 
 @pulumi.input_type
 class ConnectorPropertiesArgs:
@@ -231,21 +220,18 @@ class ConnectorPropertiesArgs:
         pulumi.set(self, "connector_type", value)
 
 
-if not MYPY:
-    class ContentArgsDict(TypedDict):
-        """
-        Article details of the insight like title, description etc
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Description of the insight
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        Title of the insight
-        """
-elif False:
-    ContentArgsDict: TypeAlias = Mapping[str, Any]
+class ContentArgsDict(TypedDict):
+    """
+    Article details of the insight like title, description etc
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of the insight
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    Title of the insight
+    """
 
 @pulumi.input_type
 class ContentArgs:
@@ -285,21 +271,18 @@ class ContentArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class ErrorDetailPropertiesArgsDict(TypedDict):
-        """
-        ARM error code and error message associated with the impact
-        """
-        error_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Error code associated with the impact.
-        """
-        error_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Error Message associated with the impact
-        """
-elif False:
-    ErrorDetailPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorDetailPropertiesArgsDict(TypedDict):
+    """
+    ARM error code and error message associated with the impact
+    """
+    error_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Error code associated with the impact.
+    """
+    error_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Error Message associated with the impact
+    """
 
 @pulumi.input_type
 class ErrorDetailPropertiesArgs:
@@ -341,21 +324,18 @@ class ErrorDetailPropertiesArgs:
         pulumi.set(self, "error_message", value)
 
 
-if not MYPY:
-    class ExpectedValueRangeArgsDict(TypedDict):
-        """
-        Max and Min Threshold values for the metric
-        """
-        max: pulumi.Input[_builtins.float]
-        """
-        Max threshold value for the metric
-        """
-        min: pulumi.Input[_builtins.float]
-        """
-        Min threshold value for the metric
-        """
-elif False:
-    ExpectedValueRangeArgsDict: TypeAlias = Mapping[str, Any]
+class ExpectedValueRangeArgsDict(TypedDict):
+    """
+    Max and Min Threshold values for the metric
+    """
+    max: pulumi.Input[_builtins.float]
+    """
+    Max threshold value for the metric
+    """
+    min: pulumi.Input[_builtins.float]
+    """
+    Min threshold value for the metric
+    """
 
 @pulumi.input_type
 class ExpectedValueRangeArgs:
@@ -395,29 +375,26 @@ class ExpectedValueRangeArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class ImpactDetailsArgsDict(TypedDict):
-        """
-        details of of the impact for which insight has been generated.
-        """
-        impact_id: pulumi.Input[_builtins.str]
-        """
-        Azure Id of the impact.
-        """
-        impacted_resource_id: pulumi.Input[_builtins.str]
-        """
-        List of impacted Azure resources.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        Time at which impact was started according to reported impact.
-        """
-        end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time at which impact was ended according to reported impact.
-        """
-elif False:
-    ImpactDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ImpactDetailsArgsDict(TypedDict):
+    """
+    details of of the impact for which insight has been generated.
+    """
+    impact_id: pulumi.Input[_builtins.str]
+    """
+    Azure Id of the impact.
+    """
+    impacted_resource_id: pulumi.Input[_builtins.str]
+    """
+    List of impacted Azure resources.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    Time at which impact was started according to reported impact.
+    """
+    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time at which impact was ended according to reported impact.
+    """
 
 @pulumi.input_type
 class ImpactDetailsArgs:
@@ -488,49 +465,46 @@ class ImpactDetailsArgs:
         pulumi.set(self, "end_time", value)
 
 
-if not MYPY:
-    class InsightPropertiesArgsDict(TypedDict):
-        """
-        Impact category properties.
-        """
-        category: pulumi.Input[_builtins.str]
-        """
-        category of the insight.
-        """
-        content: pulumi.Input['ContentArgsDict']
-        """
-        Contains title & description for the insight
-        """
-        impact: pulumi.Input['ImpactDetailsArgsDict']
-        """
-        details of of the impact for which insight has been generated.
-        """
-        insight_unique_id: pulumi.Input[_builtins.str]
-        """
-        unique id of the insight.
-        """
-        additional_details: NotRequired[Any]
-        """
-        additional details of the insight.
-        """
-        event_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the event that has been correlated with this insight. This can be used to aggregate insights for the same event.
-        """
-        event_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time of the event, which has been correlated the impact.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier that can be used to group similar insights.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        status of the insight. example resolved, repaired, other.
-        """
-elif False:
-    InsightPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InsightPropertiesArgsDict(TypedDict):
+    """
+    Impact category properties.
+    """
+    category: pulumi.Input[_builtins.str]
+    """
+    category of the insight.
+    """
+    content: pulumi.Input['ContentArgsDict']
+    """
+    Contains title & description for the insight
+    """
+    impact: pulumi.Input['ImpactDetailsArgsDict']
+    """
+    details of of the impact for which insight has been generated.
+    """
+    insight_unique_id: pulumi.Input[_builtins.str]
+    """
+    unique id of the insight.
+    """
+    additional_details: NotRequired[Any]
+    """
+    additional details of the insight.
+    """
+    event_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the event that has been correlated with this insight. This can be used to aggregate insights for the same event.
+    """
+    event_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time of the event, which has been correlated the impact.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier that can be used to group similar insights.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    status of the insight. example resolved, repaired, other.
+    """
 
 @pulumi.input_type
 class InsightPropertiesArgs:
@@ -680,33 +654,30 @@ class InsightPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PerformanceArgsDict(TypedDict):
-        """
-        Details about impacted performance metrics. Applicable for performance related impact
-        """
-        actual: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Observed value for the metric
-        """
-        expected: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Threshold value for the metric
-        """
-        expected_value_range: NotRequired[pulumi.Input['ExpectedValueRangeArgsDict']]
-        """
-        Max and Min Threshold values for the metric
-        """
-        metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Metric examples:  Disk, IOPs, CPU, GPU, Memory, details can be found from /impactCategories API
-        """
-        unit: NotRequired[pulumi.Input[Union[_builtins.str, 'MetricUnit']]]
-        """
-        Unit of the metric ex: Bytes, Percentage, Count, Seconds, Milliseconds, Bytes/Second, Count/Second, etc.., Other
-        """
-elif False:
-    PerformanceArgsDict: TypeAlias = Mapping[str, Any]
+class PerformanceArgsDict(TypedDict):
+    """
+    Details about impacted performance metrics. Applicable for performance related impact
+    """
+    actual: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Observed value for the metric
+    """
+    expected: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Threshold value for the metric
+    """
+    expected_value_range: NotRequired[pulumi.Input['ExpectedValueRangeArgsDict']]
+    """
+    Max and Min Threshold values for the metric
+    """
+    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Metric examples:  Disk, IOPs, CPU, GPU, Memory, details can be found from /impactCategories API
+    """
+    unit: NotRequired[pulumi.Input[Union[_builtins.str, 'MetricUnit']]]
+    """
+    Unit of the metric ex: Bytes, Percentage, Count, Seconds, Milliseconds, Bytes/Second, Count/Second, etc.., Other
+    """
 
 @pulumi.input_type
 class PerformanceArgs:
@@ -796,17 +767,14 @@ class PerformanceArgs:
         pulumi.set(self, "unit", value)
 
 
-if not MYPY:
-    class SourceOrTargetArgsDict(TypedDict):
-        """
-        Resource details
-        """
-        azure_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure resource id, example /subscription/{subscription}/resourceGroup/{rg}/Microsoft.compute/virtualMachine/{vmName}
-        """
-elif False:
-    SourceOrTargetArgsDict: TypeAlias = Mapping[str, Any]
+class SourceOrTargetArgsDict(TypedDict):
+    """
+    Resource details
+    """
+    azure_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure resource id, example /subscription/{subscription}/resourceGroup/{rg}/Microsoft.compute/virtualMachine/{vmName}
+    """
 
 @pulumi.input_type
 class SourceOrTargetArgs:
@@ -832,69 +800,66 @@ class SourceOrTargetArgs:
         pulumi.set(self, "azure_resource_id", value)
 
 
-if not MYPY:
-    class WorkloadImpactPropertiesArgsDict(TypedDict):
-        """
-        Workload impact properties
-        """
-        impact_category: pulumi.Input[_builtins.str]
-        """
-        Category of the impact,  details can found from /impactCategories API
-        """
-        impacted_resource_id: pulumi.Input[_builtins.str]
-        """
-        Azure resource id of the impacted resource
-        """
-        start_date_time: pulumi.Input[_builtins.str]
-        """
-        Time at which impact was observed 
-        """
-        additional_properties: NotRequired[Any]
-        """
-        Additional fields related to impact, applicable fields per resource type are list under /impactCategories API
-        """
-        arm_correlation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ARM correlation ids, this is important field for control plane related impacts
-        """
-        client_incident_details: NotRequired[pulumi.Input['ClientIncidentDetailsArgsDict']]
-        """
-        Client incident details ex: incidentId , incident source
-        """
-        confidence_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfidenceLevel']]]
-        """
-        Degree of confidence on the impact being a platform issue
-        """
-        connectivity: NotRequired[pulumi.Input['ConnectivityArgsDict']]
-        """
-        Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource is identified as the VM, but the root cause is the network. In such cases, the connectivity field will have the details about the network issue
-        """
-        end_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time at which impact has ended 
-        """
-        error_details: NotRequired[pulumi.Input['ErrorDetailPropertiesArgsDict']]
-        """
-        ARM error code and error message associated with the impact
-        """
-        impact_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A detailed description of the impact
-        """
-        impact_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this field to group impacts
-        """
-        performance: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerformanceArgsDict']]]]
-        """
-        Details about performance issue. Applicable for performance impacts.
-        """
-        workload: NotRequired[pulumi.Input['WorkloadArgsDict']]
-        """
-        Information about the impacted workload
-        """
-elif False:
-    WorkloadImpactPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkloadImpactPropertiesArgsDict(TypedDict):
+    """
+    Workload impact properties
+    """
+    impact_category: pulumi.Input[_builtins.str]
+    """
+    Category of the impact,  details can found from /impactCategories API
+    """
+    impacted_resource_id: pulumi.Input[_builtins.str]
+    """
+    Azure resource id of the impacted resource
+    """
+    start_date_time: pulumi.Input[_builtins.str]
+    """
+    Time at which impact was observed 
+    """
+    additional_properties: NotRequired[Any]
+    """
+    Additional fields related to impact, applicable fields per resource type are list under /impactCategories API
+    """
+    arm_correlation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ARM correlation ids, this is important field for control plane related impacts
+    """
+    client_incident_details: NotRequired[pulumi.Input['ClientIncidentDetailsArgsDict']]
+    """
+    Client incident details ex: incidentId , incident source
+    """
+    confidence_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfidenceLevel']]]
+    """
+    Degree of confidence on the impact being a platform issue
+    """
+    connectivity: NotRequired[pulumi.Input['ConnectivityArgsDict']]
+    """
+    Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource is identified as the VM, but the root cause is the network. In such cases, the connectivity field will have the details about the network issue
+    """
+    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time at which impact has ended 
+    """
+    error_details: NotRequired[pulumi.Input['ErrorDetailPropertiesArgsDict']]
+    """
+    ARM error code and error message associated with the impact
+    """
+    impact_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A detailed description of the impact
+    """
+    impact_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this field to group impacts
+    """
+    performance: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerformanceArgsDict']]]]
+    """
+    Details about performance issue. Applicable for performance impacts.
+    """
+    workload: NotRequired[pulumi.Input['WorkloadArgsDict']]
+    """
+    Information about the impacted workload
+    """
 
 @pulumi.input_type
 class WorkloadImpactPropertiesArgs:
@@ -1125,21 +1090,18 @@ class WorkloadImpactPropertiesArgs:
         pulumi.set(self, "workload", value)
 
 
-if not MYPY:
-    class WorkloadArgsDict(TypedDict):
-        """
-        Information about the impacted workload
-        """
-        context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the scenario for the workload
-        """
-        toolset: NotRequired[pulumi.Input[Union[_builtins.str, 'Toolset']]]
-        """
-        Tool used to interact with Azure. SDK, AzPortal, etc.., Other
-        """
-elif False:
-    WorkloadArgsDict: TypeAlias = Mapping[str, Any]
+class WorkloadArgsDict(TypedDict):
+    """
+    Information about the impacted workload
+    """
+    context: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the scenario for the workload
+    """
+    toolset: NotRequired[pulumi.Input[Union[_builtins.str, 'Toolset']]]
+    """
+    Tool used to interact with Azure. SDK, AzPortal, etc.., Other
+    """
 
 @pulumi.input_type
 class WorkloadArgs:

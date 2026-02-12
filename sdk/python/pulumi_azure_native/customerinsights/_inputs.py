@@ -64,27 +64,22 @@ __all__ = [
     'TypePropertiesMappingArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssignmentPrincipalArgsDict(TypedDict):
-        """
-        The AssignmentPrincipal
-        """
-        principal_id: pulumi.Input[_builtins.str]
-        """
-        The principal id being assigned to.
-        """
-        principal_type: pulumi.Input[_builtins.str]
-        """
-        The Type of the principal ID.
-        """
-        principal_metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Other metadata for the principal.
-        """
-elif False:
-    AssignmentPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class AssignmentPrincipalArgsDict(TypedDict):
+    """
+    The AssignmentPrincipal
+    """
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    The principal id being assigned to.
+    """
+    principal_type: pulumi.Input[_builtins.str]
+    """
+    The Type of the principal ID.
+    """
+    principal_metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Other metadata for the principal.
+    """
 
 @pulumi.input_type
 class AssignmentPrincipalArgs:
@@ -140,21 +135,18 @@ class AssignmentPrincipalArgs:
         pulumi.set(self, "principal_metadata", value)
 
 
-if not MYPY:
-    class ConnectorMappingAvailabilityArgsDict(TypedDict):
-        """
-        Connector mapping property availability.
-        """
-        interval: pulumi.Input[_builtins.int]
-        """
-        The interval of the given frequency to use.
-        """
-        frequency: NotRequired[pulumi.Input['FrequencyTypes']]
-        """
-        The frequency to update.
-        """
-elif False:
-    ConnectorMappingAvailabilityArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorMappingAvailabilityArgsDict(TypedDict):
+    """
+    Connector mapping property availability.
+    """
+    interval: pulumi.Input[_builtins.int]
+    """
+    The interval of the given frequency to use.
+    """
+    frequency: NotRequired[pulumi.Input['FrequencyTypes']]
+    """
+    The frequency to update.
+    """
 
 @pulumi.input_type
 class ConnectorMappingAvailabilityArgs:
@@ -195,21 +187,18 @@ class ConnectorMappingAvailabilityArgs:
         pulumi.set(self, "frequency", value)
 
 
-if not MYPY:
-    class ConnectorMappingCompleteOperationArgsDict(TypedDict):
-        """
-        The complete operation.
-        """
-        completion_operation_type: NotRequired[pulumi.Input['CompletionOperationTypes']]
-        """
-        The type of completion operation.
-        """
-        destination_folder: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination folder where files will be moved to once the import is done.
-        """
-elif False:
-    ConnectorMappingCompleteOperationArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorMappingCompleteOperationArgsDict(TypedDict):
+    """
+    The complete operation.
+    """
+    completion_operation_type: NotRequired[pulumi.Input['CompletionOperationTypes']]
+    """
+    The type of completion operation.
+    """
+    destination_folder: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination folder where files will be moved to once the import is done.
+    """
 
 @pulumi.input_type
 class ConnectorMappingCompleteOperationArgs:
@@ -251,21 +240,18 @@ class ConnectorMappingCompleteOperationArgs:
         pulumi.set(self, "destination_folder", value)
 
 
-if not MYPY:
-    class ConnectorMappingErrorManagementArgsDict(TypedDict):
-        """
-        The error management.
-        """
-        error_management_type: pulumi.Input['ErrorManagementTypes']
-        """
-        The type of error management to use for the mapping.
-        """
-        error_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The error limit allowed while importing data.
-        """
-elif False:
-    ConnectorMappingErrorManagementArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorMappingErrorManagementArgsDict(TypedDict):
+    """
+    The error management.
+    """
+    error_management_type: pulumi.Input['ErrorManagementTypes']
+    """
+    The type of error management to use for the mapping.
+    """
+    error_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The error limit allowed while importing data.
+    """
 
 @pulumi.input_type
 class ConnectorMappingErrorManagementArgs:
@@ -306,37 +292,34 @@ class ConnectorMappingErrorManagementArgs:
         pulumi.set(self, "error_limit", value)
 
 
-if not MYPY:
-    class ConnectorMappingFormatArgsDict(TypedDict):
-        """
-        Connector mapping property format.
-        """
-        format_type: pulumi.Input['FormatTypes']
-        """
-        The type mapping format.
-        """
-        accept_language: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The oData language.
-        """
-        array_separator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Character separating array elements.
-        """
-        column_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The character that signifies a break between columns.
-        """
-        quote_character: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Quote character, used to indicate enquoted fields.
-        """
-        quote_escape_character: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Escape character for quotes, can be the same as the quoteCharacter.
-        """
-elif False:
-    ConnectorMappingFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorMappingFormatArgsDict(TypedDict):
+    """
+    Connector mapping property format.
+    """
+    format_type: pulumi.Input['FormatTypes']
+    """
+    The type mapping format.
+    """
+    accept_language: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The oData language.
+    """
+    array_separator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Character separating array elements.
+    """
+    column_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The character that signifies a break between columns.
+    """
+    quote_character: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Quote character, used to indicate enquoted fields.
+    """
+    quote_escape_character: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Escape character for quotes, can be the same as the quoteCharacter.
+    """
 
 @pulumi.input_type
 class ConnectorMappingFormatArgs:
@@ -441,45 +424,42 @@ class ConnectorMappingFormatArgs:
         pulumi.set(self, "quote_escape_character", value)
 
 
-if not MYPY:
-    class ConnectorMappingPropertiesArgsDict(TypedDict):
-        """
-        The connector mapping properties.
-        """
-        availability: pulumi.Input['ConnectorMappingAvailabilityArgsDict']
-        """
-        The availability of mapping property.
-        """
-        complete_operation: pulumi.Input['ConnectorMappingCompleteOperationArgsDict']
-        """
-        The operation after import is done.
-        """
-        error_management: pulumi.Input['ConnectorMappingErrorManagementArgsDict']
-        """
-        The error management setting for the mapping.
-        """
-        format: pulumi.Input['ConnectorMappingFormatArgsDict']
-        """
-        The format of mapping property.
-        """
-        structure: pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgsDict']]]
-        """
-        Ingestion mapping information at property level.
-        """
-        file_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The file filter for the mapping.
-        """
-        folder_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The folder path for the mapping.
-        """
-        has_header: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the file contains a header or not.
-        """
-elif False:
-    ConnectorMappingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorMappingPropertiesArgsDict(TypedDict):
+    """
+    The connector mapping properties.
+    """
+    availability: pulumi.Input['ConnectorMappingAvailabilityArgsDict']
+    """
+    The availability of mapping property.
+    """
+    complete_operation: pulumi.Input['ConnectorMappingCompleteOperationArgsDict']
+    """
+    The operation after import is done.
+    """
+    error_management: pulumi.Input['ConnectorMappingErrorManagementArgsDict']
+    """
+    The error management setting for the mapping.
+    """
+    format: pulumi.Input['ConnectorMappingFormatArgsDict']
+    """
+    The format of mapping property.
+    """
+    structure: pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgsDict']]]
+    """
+    Ingestion mapping information at property level.
+    """
+    file_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The file filter for the mapping.
+    """
+    folder_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The folder path for the mapping.
+    """
+    has_header: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the file contains a header or not.
+    """
 
 @pulumi.input_type
 class ConnectorMappingPropertiesArgs:
@@ -612,29 +592,26 @@ class ConnectorMappingPropertiesArgs:
         pulumi.set(self, "has_header", value)
 
 
-if not MYPY:
-    class ConnectorMappingStructureArgsDict(TypedDict):
-        """
-        Connector mapping property structure.
-        """
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The column name of the import file.
-        """
-        property_name: pulumi.Input[_builtins.str]
-        """
-        The property name of the mapping entity.
-        """
-        custom_format_specifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom format specifier for input parsing.
-        """
-        is_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the column is encrypted.
-        """
-elif False:
-    ConnectorMappingStructureArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorMappingStructureArgsDict(TypedDict):
+    """
+    Connector mapping property structure.
+    """
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The column name of the import file.
+    """
+    property_name: pulumi.Input[_builtins.str]
+    """
+    The property name of the mapping entity.
+    """
+    custom_format_specifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom format specifier for input parsing.
+    """
+    is_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the column is encrypted.
+    """
 
 @pulumi.input_type
 class ConnectorMappingStructureArgs:
@@ -706,25 +683,22 @@ class ConnectorMappingStructureArgs:
         pulumi.set(self, "is_encrypted", value)
 
 
-if not MYPY:
-    class HubBillingInfoFormatArgsDict(TypedDict):
-        """
-        Hub billing info.
-        """
-        max_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-        """
-        min_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-        """
-        sku_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku name.
-        """
-elif False:
-    HubBillingInfoFormatArgsDict: TypeAlias = Mapping[str, Any]
+class HubBillingInfoFormatArgsDict(TypedDict):
+    """
+    Hub billing info.
+    """
+    max_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+    """
+    min_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+    """
+    sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku name.
+    """
 
 @pulumi.input_type
 class HubBillingInfoFormatArgs:
@@ -782,21 +756,18 @@ class HubBillingInfoFormatArgs:
         pulumi.set(self, "sku_name", value)
 
 
-if not MYPY:
-    class KpiAliasArgsDict(TypedDict):
-        """
-        The KPI alias.
-        """
-        alias_name: pulumi.Input[_builtins.str]
-        """
-        KPI alias name.
-        """
-        expression: pulumi.Input[_builtins.str]
-        """
-        The expression.
-        """
-elif False:
-    KpiAliasArgsDict: TypeAlias = Mapping[str, Any]
+class KpiAliasArgsDict(TypedDict):
+    """
+    The KPI alias.
+    """
+    alias_name: pulumi.Input[_builtins.str]
+    """
+    KPI alias name.
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    The expression.
+    """
 
 @pulumi.input_type
 class KpiAliasArgs:
@@ -836,21 +807,18 @@ class KpiAliasArgs:
         pulumi.set(self, "expression", value)
 
 
-if not MYPY:
-    class KpiExtractArgsDict(TypedDict):
-        """
-        The KPI extract.
-        """
-        expression: pulumi.Input[_builtins.str]
-        """
-        The expression.
-        """
-        extract_name: pulumi.Input[_builtins.str]
-        """
-        KPI extract name.
-        """
-elif False:
-    KpiExtractArgsDict: TypeAlias = Mapping[str, Any]
+class KpiExtractArgsDict(TypedDict):
+    """
+    The KPI extract.
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    The expression.
+    """
+    extract_name: pulumi.Input[_builtins.str]
+    """
+    KPI extract name.
+    """
 
 @pulumi.input_type
 class KpiExtractArgs:
@@ -890,25 +858,22 @@ class KpiExtractArgs:
         pulumi.set(self, "extract_name", value)
 
 
-if not MYPY:
-    class KpiThresholdsArgsDict(TypedDict):
-        """
-        Defines the KPI Threshold limits.
-        """
-        increasing_kpi: pulumi.Input[_builtins.bool]
-        """
-        Whether or not the KPI is an increasing KPI.
-        """
-        lower_limit: pulumi.Input[_builtins.float]
-        """
-        The lower threshold limit.
-        """
-        upper_limit: pulumi.Input[_builtins.float]
-        """
-        The upper threshold limit.
-        """
-elif False:
-    KpiThresholdsArgsDict: TypeAlias = Mapping[str, Any]
+class KpiThresholdsArgsDict(TypedDict):
+    """
+    Defines the KPI Threshold limits.
+    """
+    increasing_kpi: pulumi.Input[_builtins.bool]
+    """
+    Whether or not the KPI is an increasing KPI.
+    """
+    lower_limit: pulumi.Input[_builtins.float]
+    """
+    The lower threshold limit.
+    """
+    upper_limit: pulumi.Input[_builtins.float]
+    """
+    The upper threshold limit.
+    """
 
 @pulumi.input_type
 class KpiThresholdsArgs:
@@ -963,21 +928,18 @@ class KpiThresholdsArgs:
         pulumi.set(self, "upper_limit", value)
 
 
-if not MYPY:
-    class ParticipantProfilePropertyReferenceArgsDict(TypedDict):
-        """
-        The participant profile property reference.
-        """
-        interaction_property_name: pulumi.Input[_builtins.str]
-        """
-        The source interaction property that maps to the target profile property.
-        """
-        profile_property_name: pulumi.Input[_builtins.str]
-        """
-        The target profile property that maps to the source interaction property.
-        """
-elif False:
-    ParticipantProfilePropertyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ParticipantProfilePropertyReferenceArgsDict(TypedDict):
+    """
+    The participant profile property reference.
+    """
+    interaction_property_name: pulumi.Input[_builtins.str]
+    """
+    The source interaction property that maps to the target profile property.
+    """
+    profile_property_name: pulumi.Input[_builtins.str]
+    """
+    The target profile property that maps to the source interaction property.
+    """
 
 @pulumi.input_type
 class ParticipantProfilePropertyReferenceArgs:
@@ -1017,21 +979,18 @@ class ParticipantProfilePropertyReferenceArgs:
         pulumi.set(self, "profile_property_name", value)
 
 
-if not MYPY:
-    class ParticipantPropertyReferenceArgsDict(TypedDict):
-        """
-        The participant property reference.
-        """
-        source_property_name: pulumi.Input[_builtins.str]
-        """
-        The source property that maps to the target property.
-        """
-        target_property_name: pulumi.Input[_builtins.str]
-        """
-        The target property that maps to the source property.
-        """
-elif False:
-    ParticipantPropertyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ParticipantPropertyReferenceArgsDict(TypedDict):
+    """
+    The participant property reference.
+    """
+    source_property_name: pulumi.Input[_builtins.str]
+    """
+    The source property that maps to the target property.
+    """
+    target_property_name: pulumi.Input[_builtins.str]
+    """
+    The target property that maps to the source property.
+    """
 
 @pulumi.input_type
 class ParticipantPropertyReferenceArgs:
@@ -1071,25 +1030,22 @@ class ParticipantPropertyReferenceArgs:
         pulumi.set(self, "target_property_name", value)
 
 
-if not MYPY:
-    class PredictionGradesArgsDict(TypedDict):
-        """
-        The definition of a prediction grade.
-        """
-        grade_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the grade.
-        """
-        max_score_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum score threshold.
-        """
-        min_score_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum score threshold.
-        """
-elif False:
-    PredictionGradesArgsDict: TypeAlias = Mapping[str, Any]
+class PredictionGradesArgsDict(TypedDict):
+    """
+    The definition of a prediction grade.
+    """
+    grade_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the grade.
+    """
+    max_score_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum score threshold.
+    """
+    min_score_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum score threshold.
+    """
 
 @pulumi.input_type
 class PredictionGradesArgs:
@@ -1147,25 +1103,22 @@ class PredictionGradesArgs:
         pulumi.set(self, "min_score_threshold", value)
 
 
-if not MYPY:
-    class PredictionMappingsArgsDict(TypedDict):
-        """
-        Definition of the link mapping of prediction.
-        """
-        grade: pulumi.Input[_builtins.str]
-        """
-        The grade of the link mapping.
-        """
-        reason: pulumi.Input[_builtins.str]
-        """
-        The reason of the link mapping.
-        """
-        score: pulumi.Input[_builtins.str]
-        """
-        The score of the link mapping.
-        """
-elif False:
-    PredictionMappingsArgsDict: TypeAlias = Mapping[str, Any]
+class PredictionMappingsArgsDict(TypedDict):
+    """
+    Definition of the link mapping of prediction.
+    """
+    grade: pulumi.Input[_builtins.str]
+    """
+    The grade of the link mapping.
+    """
+    reason: pulumi.Input[_builtins.str]
+    """
+    The reason of the link mapping.
+    """
+    score: pulumi.Input[_builtins.str]
+    """
+    The score of the link mapping.
+    """
 
 @pulumi.input_type
 class PredictionMappingsArgs:
@@ -1220,21 +1173,18 @@ class PredictionMappingsArgs:
         pulumi.set(self, "score", value)
 
 
-if not MYPY:
-    class ProfileEnumValidValuesFormatArgsDict(TypedDict):
-        """
-        Valid enum values in case of an enum property.
-        """
-        localized_value_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Localized names of the enum member.
-        """
-        value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The integer value of the enum member.
-        """
-elif False:
-    ProfileEnumValidValuesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileEnumValidValuesFormatArgsDict(TypedDict):
+    """
+    Valid enum values in case of an enum property.
+    """
+    localized_value_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Localized names of the enum member.
+    """
+    value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The integer value of the enum member.
+    """
 
 @pulumi.input_type
 class ProfileEnumValidValuesFormatArgs:
@@ -1276,73 +1226,70 @@ class ProfileEnumValidValuesFormatArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PropertyDefinitionArgsDict(TypedDict):
-        """
-        Property definition.
-        """
-        field_name: pulumi.Input[_builtins.str]
-        """
-        Name of the property.
-        """
-        field_type: pulumi.Input[_builtins.str]
-        """
-        Type of the property.
-        """
-        array_value_separator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Array value separator for properties with isArray set.
-        """
-        enum_valid_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgsDict']]]]
-        """
-        Describes valid values for an enum property.
-        """
-        is_array: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the property is actually an array of the fieldType above on the data api.
-        """
-        is_available_in_graph: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether property is available in graph or not.
-        """
-        is_enum: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the property is an enum.
-        """
-        is_flag_enum: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the property is an flag enum.
-        """
-        is_image: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the property is an Image.
-        """
-        is_localized_string: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the property is a localized string.
-        """
-        is_name: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the property is a name or a part of name.
-        """
-        is_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-        """
-        max_length: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Max length of string. Used only if type is string.
-        """
-        property_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID associated with the property.
-        """
-        schema_item_prop_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL encoded schema.org item prop link for the property.
-        """
-elif False:
-    PropertyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class PropertyDefinitionArgsDict(TypedDict):
+    """
+    Property definition.
+    """
+    field_name: pulumi.Input[_builtins.str]
+    """
+    Name of the property.
+    """
+    field_type: pulumi.Input[_builtins.str]
+    """
+    Type of the property.
+    """
+    array_value_separator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Array value separator for properties with isArray set.
+    """
+    enum_valid_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgsDict']]]]
+    """
+    Describes valid values for an enum property.
+    """
+    is_array: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the property is actually an array of the fieldType above on the data api.
+    """
+    is_available_in_graph: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether property is available in graph or not.
+    """
+    is_enum: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the property is an enum.
+    """
+    is_flag_enum: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the property is an flag enum.
+    """
+    is_image: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the property is an Image.
+    """
+    is_localized_string: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the property is a localized string.
+    """
+    is_name: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the property is a name or a part of name.
+    """
+    is_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+    """
+    max_length: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Max length of string. Used only if type is string.
+    """
+    property_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID associated with the property.
+    """
+    schema_item_prop_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL encoded schema.org item prop link for the property.
+    """
 
 @pulumi.input_type
 class PropertyDefinitionArgs:
@@ -1590,25 +1537,22 @@ class PropertyDefinitionArgs:
         pulumi.set(self, "schema_item_prop_link", value)
 
 
-if not MYPY:
-    class RelationshipLinkFieldMappingArgsDict(TypedDict):
-        """
-        The fields mapping for Relationships.
-        """
-        interaction_field_name: pulumi.Input[_builtins.str]
-        """
-        The field name on the Interaction Type.
-        """
-        relationship_field_name: pulumi.Input[_builtins.str]
-        """
-        The field name on the Relationship metadata.
-        """
-        link_type: NotRequired[pulumi.Input['LinkTypes']]
-        """
-        Link type.
-        """
-elif False:
-    RelationshipLinkFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class RelationshipLinkFieldMappingArgsDict(TypedDict):
+    """
+    The fields mapping for Relationships.
+    """
+    interaction_field_name: pulumi.Input[_builtins.str]
+    """
+    The field name on the Interaction Type.
+    """
+    relationship_field_name: pulumi.Input[_builtins.str]
+    """
+    The field name on the Relationship metadata.
+    """
+    link_type: NotRequired[pulumi.Input['LinkTypes']]
+    """
+    Link type.
+    """
 
 @pulumi.input_type
 class RelationshipLinkFieldMappingArgs:
@@ -1664,21 +1608,18 @@ class RelationshipLinkFieldMappingArgs:
         pulumi.set(self, "link_type", value)
 
 
-if not MYPY:
-    class RelationshipTypeFieldMappingArgsDict(TypedDict):
-        """
-        Map a field of profile to its corresponding StrongId in Related Profile.
-        """
-        profile_field_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the fieldName in profile.
-        """
-        related_profile_key_property: pulumi.Input[_builtins.str]
-        """
-        Specifies the KeyProperty (from StrongId) of the related profile.
-        """
-elif False:
-    RelationshipTypeFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class RelationshipTypeFieldMappingArgsDict(TypedDict):
+    """
+    Map a field of profile to its corresponding StrongId in Related Profile.
+    """
+    profile_field_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the fieldName in profile.
+    """
+    related_profile_key_property: pulumi.Input[_builtins.str]
+    """
+    Specifies the KeyProperty (from StrongId) of the related profile.
+    """
 
 @pulumi.input_type
 class RelationshipTypeFieldMappingArgs:
@@ -1718,17 +1659,14 @@ class RelationshipTypeFieldMappingArgs:
         pulumi.set(self, "related_profile_key_property", value)
 
 
-if not MYPY:
-    class RelationshipTypeMappingArgsDict(TypedDict):
-        """
-        Maps fields in Profile to their corresponding StrongIds in Related Profile.
-        """
-        field_mappings: pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgsDict']]]
-        """
-        Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
-        """
-elif False:
-    RelationshipTypeMappingArgsDict: TypeAlias = Mapping[str, Any]
+class RelationshipTypeMappingArgsDict(TypedDict):
+    """
+    Maps fields in Profile to their corresponding StrongIds in Related Profile.
+    """
+    field_mappings: pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgsDict']]]
+    """
+    Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+    """
 
 @pulumi.input_type
 class RelationshipTypeMappingArgs:
@@ -1753,21 +1691,18 @@ class RelationshipTypeMappingArgs:
         pulumi.set(self, "field_mappings", value)
 
 
-if not MYPY:
-    class ResourceSetDescriptionArgsDict(TypedDict):
-        """
-        The resource set description.
-        """
-        elements: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The elements included in the set.
-        """
-        exceptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-        """
-elif False:
-    ResourceSetDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetDescriptionArgsDict(TypedDict):
+    """
+    The resource set description.
+    """
+    elements: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The elements included in the set.
+    """
+    exceptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
 
 @pulumi.input_type
 class ResourceSetDescriptionArgs:
@@ -1809,29 +1744,26 @@ class ResourceSetDescriptionArgs:
         pulumi.set(self, "exceptions", value)
 
 
-if not MYPY:
-    class StrongIdArgsDict(TypedDict):
-        """
-        Property/Properties which represent a unique ID.
-        """
-        key_property_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The properties which make up the unique ID.
-        """
-        strong_id_name: pulumi.Input[_builtins.str]
-        """
-        The Name identifying the strong ID.
-        """
-        description: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Localized descriptions.
-        """
-        display_name: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Localized display name.
-        """
-elif False:
-    StrongIdArgsDict: TypeAlias = Mapping[str, Any]
+class StrongIdArgsDict(TypedDict):
+    """
+    Property/Properties which represent a unique ID.
+    """
+    key_property_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The properties which make up the unique ID.
+    """
+    strong_id_name: pulumi.Input[_builtins.str]
+    """
+    The Name identifying the strong ID.
+    """
+    description: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Localized descriptions.
+    """
+    display_name: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Localized display name.
+    """
 
 @pulumi.input_type
 class StrongIdArgs:
@@ -1903,25 +1835,22 @@ class StrongIdArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class TypePropertiesMappingArgsDict(TypedDict):
-        """
-        Metadata for a Link's property mapping.
-        """
-        source_property_name: pulumi.Input[_builtins.str]
-        """
-         Property name on the source Entity Type.
-        """
-        target_property_name: pulumi.Input[_builtins.str]
-        """
-        Property name on the target Entity Type.
-        """
-        link_type: NotRequired[pulumi.Input['LinkTypes']]
-        """
-        Link type.
-        """
-elif False:
-    TypePropertiesMappingArgsDict: TypeAlias = Mapping[str, Any]
+class TypePropertiesMappingArgsDict(TypedDict):
+    """
+    Metadata for a Link's property mapping.
+    """
+    source_property_name: pulumi.Input[_builtins.str]
+    """
+     Property name on the source Entity Type.
+    """
+    target_property_name: pulumi.Input[_builtins.str]
+    """
+    Property name on the target Entity Type.
+    """
+    link_type: NotRequired[pulumi.Input['LinkTypes']]
+    """
+    Link type.
+    """
 
 @pulumi.input_type
 class TypePropertiesMappingArgs:

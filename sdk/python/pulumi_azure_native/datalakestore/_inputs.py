@@ -30,27 +30,22 @@ __all__ = [
     'KeyVaultMetaInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CreateFirewallRuleWithAccountParametersArgsDict(TypedDict):
-        """
-        The parameters used to create a new firewall rule while creating a new Data Lake Store account.
-        """
-        end_ip_address: pulumi.Input[_builtins.str]
-        """
-        The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the firewall rule to create.
-        """
-        start_ip_address: pulumi.Input[_builtins.str]
-        """
-        The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-        """
-elif False:
-    CreateFirewallRuleWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CreateFirewallRuleWithAccountParametersArgsDict(TypedDict):
+    """
+    The parameters used to create a new firewall rule while creating a new Data Lake Store account.
+    """
+    end_ip_address: pulumi.Input[_builtins.str]
+    """
+    The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the firewall rule to create.
+    """
+    start_ip_address: pulumi.Input[_builtins.str]
+    """
+    The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+    """
 
 @pulumi.input_type
 class CreateFirewallRuleWithAccountParametersArgs:
@@ -105,21 +100,18 @@ class CreateFirewallRuleWithAccountParametersArgs:
         pulumi.set(self, "start_ip_address", value)
 
 
-if not MYPY:
-    class CreateTrustedIdProviderWithAccountParametersArgsDict(TypedDict):
-        """
-        The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
-        """
-        id_provider: pulumi.Input[_builtins.str]
-        """
-        The URL of this trusted identity provider.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the trusted identity provider to create.
-        """
-elif False:
-    CreateTrustedIdProviderWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CreateTrustedIdProviderWithAccountParametersArgsDict(TypedDict):
+    """
+    The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
+    """
+    id_provider: pulumi.Input[_builtins.str]
+    """
+    The URL of this trusted identity provider.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the trusted identity provider to create.
+    """
 
 @pulumi.input_type
 class CreateTrustedIdProviderWithAccountParametersArgs:
@@ -159,21 +151,18 @@ class CreateTrustedIdProviderWithAccountParametersArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CreateVirtualNetworkRuleWithAccountParametersArgsDict(TypedDict):
-        """
-        The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the virtual network rule to create.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The resource identifier for the subnet.
-        """
-elif False:
-    CreateVirtualNetworkRuleWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CreateVirtualNetworkRuleWithAccountParametersArgsDict(TypedDict):
+    """
+    The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the virtual network rule to create.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The resource identifier for the subnet.
+    """
 
 @pulumi.input_type
 class CreateVirtualNetworkRuleWithAccountParametersArgs:
@@ -213,21 +202,18 @@ class CreateVirtualNetworkRuleWithAccountParametersArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class EncryptionConfigArgsDict(TypedDict):
-        """
-        The encryption configuration for the account.
-        """
-        type: pulumi.Input['EncryptionConfigType']
-        """
-        The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-        """
-        key_vault_meta_info: NotRequired[pulumi.Input['KeyVaultMetaInfoArgsDict']]
-        """
-        The Key Vault information for connecting to user managed encryption keys.
-        """
-elif False:
-    EncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionConfigArgsDict(TypedDict):
+    """
+    The encryption configuration for the account.
+    """
+    type: pulumi.Input['EncryptionConfigType']
+    """
+    The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+    """
+    key_vault_meta_info: NotRequired[pulumi.Input['KeyVaultMetaInfoArgsDict']]
+    """
+    The Key Vault information for connecting to user managed encryption keys.
+    """
 
 @pulumi.input_type
 class EncryptionConfigArgs:
@@ -268,17 +254,14 @@ class EncryptionConfigArgs:
         pulumi.set(self, "key_vault_meta_info", value)
 
 
-if not MYPY:
-    class EncryptionIdentityArgsDict(TypedDict):
-        """
-        The encryption identity properties.
-        """
-        type: pulumi.Input['EncryptionIdentityType']
-        """
-        The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-        """
-elif False:
-    EncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionIdentityArgsDict(TypedDict):
+    """
+    The encryption identity properties.
+    """
+    type: pulumi.Input['EncryptionIdentityType']
+    """
+    The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
+    """
 
 @pulumi.input_type
 class EncryptionIdentityArgs:
@@ -303,25 +286,22 @@ class EncryptionIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class KeyVaultMetaInfoArgsDict(TypedDict):
-        """
-        Metadata information used by account encryption.
-        """
-        encryption_key_name: pulumi.Input[_builtins.str]
-        """
-        The name of the user managed encryption key.
-        """
-        encryption_key_version: pulumi.Input[_builtins.str]
-        """
-        The version of the user managed encryption key.
-        """
-        key_vault_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource identifier for the user managed Key Vault being used to encrypt.
-        """
-elif False:
-    KeyVaultMetaInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultMetaInfoArgsDict(TypedDict):
+    """
+    Metadata information used by account encryption.
+    """
+    encryption_key_name: pulumi.Input[_builtins.str]
+    """
+    The name of the user managed encryption key.
+    """
+    encryption_key_version: pulumi.Input[_builtins.str]
+    """
+    The version of the user managed encryption key.
+    """
+    key_vault_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource identifier for the user managed Key Vault being used to encrypt.
+    """
 
 @pulumi.input_type
 class KeyVaultMetaInfoArgs:

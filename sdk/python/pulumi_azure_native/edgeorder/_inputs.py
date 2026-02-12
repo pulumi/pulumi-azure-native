@@ -64,27 +64,22 @@ __all__ = [
     'TransportPreferencesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdditionalConfigurationArgsDict(TypedDict):
-        """
-        Additional Configuration details.
-        """
-        hierarchy_information: pulumi.Input['HierarchyInformationArgsDict']
-        """
-        Hierarchy of the product which uniquely identifies the configuration.
-        """
-        quantity: pulumi.Input[_builtins.int]
-        """
-        Quantity of the product.
-        """
-        provisioning_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProvisioningDetailsArgsDict']]]]
-        """
-        List Provisioning Details for Devices in Additional Config.
-        """
-elif False:
-    AdditionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AdditionalConfigurationArgsDict(TypedDict):
+    """
+    Additional Configuration details.
+    """
+    hierarchy_information: pulumi.Input['HierarchyInformationArgsDict']
+    """
+    Hierarchy of the product which uniquely identifies the configuration.
+    """
+    quantity: pulumi.Input[_builtins.int]
+    """
+    Quantity of the product.
+    """
+    provisioning_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProvisioningDetailsArgsDict']]]]
+    """
+    List Provisioning Details for Devices in Additional Config.
+    """
 
 @pulumi.input_type
 class AdditionalConfigurationArgs:
@@ -140,17 +135,14 @@ class AdditionalConfigurationArgs:
         pulumi.set(self, "provisioning_details", value)
 
 
-if not MYPY:
-    class AddressDetailsArgsDict(TypedDict):
-        """
-        Address details for an order item.
-        """
-        forward_address: pulumi.Input['AddressPropertiesArgsDict']
-        """
-        Customer address and contact details.
-        """
-elif False:
-    AddressDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class AddressDetailsArgsDict(TypedDict):
+    """
+    Address details for an order item.
+    """
+    forward_address: pulumi.Input['AddressPropertiesArgsDict']
+    """
+    Customer address and contact details.
+    """
 
 @pulumi.input_type
 class AddressDetailsArgs:
@@ -175,25 +167,22 @@ class AddressDetailsArgs:
         pulumi.set(self, "forward_address", value)
 
 
-if not MYPY:
-    class AddressPropertiesArgsDict(TypedDict):
-        """
-        Address Properties.
-        """
-        address_classification: NotRequired[pulumi.Input[Union[_builtins.str, 'AddressClassification']]]
-        """
-        Type of address based on its usage context.
-        """
-        contact_details: NotRequired[pulumi.Input['ContactDetailsArgsDict']]
-        """
-        Contact details for the address.
-        """
-        shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
-        """
-        Shipping details for the address.
-        """
-elif False:
-    AddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AddressPropertiesArgsDict(TypedDict):
+    """
+    Address Properties.
+    """
+    address_classification: NotRequired[pulumi.Input[Union[_builtins.str, 'AddressClassification']]]
+    """
+    Type of address based on its usage context.
+    """
+    contact_details: NotRequired[pulumi.Input['ContactDetailsArgsDict']]
+    """
+    Contact details for the address.
+    """
+    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    """
+    Shipping details for the address.
+    """
 
 @pulumi.input_type
 class AddressPropertiesArgs:
@@ -251,21 +240,18 @@ class AddressPropertiesArgs:
         pulumi.set(self, "shipping_address", value)
 
 
-if not MYPY:
-    class ChildConfigurationFilterDict(TypedDict):
-        """
-        Child configuration filter.
-        """
-        child_configuration_types: NotRequired[Sequence[Union[_builtins.str, 'ChildConfigurationType']]]
-        """
-        Filter to fetch all child configurations belonging to the given list of configuration types.
-        """
-        hierarchy_informations: NotRequired[Sequence['HierarchyInformationDict']]
-        """
-        The list of child configuration hierarchy customer wants to filter for the given configuration.
-        """
-elif False:
-    ChildConfigurationFilterDict: TypeAlias = Mapping[str, Any]
+class ChildConfigurationFilterDict(TypedDict):
+    """
+    Child configuration filter.
+    """
+    child_configuration_types: NotRequired[Sequence[Union[_builtins.str, 'ChildConfigurationType']]]
+    """
+    Filter to fetch all child configurations belonging to the given list of configuration types.
+    """
+    hierarchy_informations: NotRequired[Sequence['HierarchyInformationDict']]
+    """
+    The list of child configuration hierarchy customer wants to filter for the given configuration.
+    """
 
 @pulumi.input_type
 class ChildConfigurationFilter:
@@ -307,25 +293,22 @@ class ChildConfigurationFilter:
         pulumi.set(self, "hierarchy_informations", value)
 
 
-if not MYPY:
-    class ConfigurationFilterDict(TypedDict):
-        """
-        Configuration filters.
-        """
-        hierarchy_information: 'HierarchyInformationDict'
-        """
-        Product hierarchy information.
-        """
-        child_configuration_filter: NotRequired['ChildConfigurationFilterDict']
-        """
-        Filter to fetch specific child configurations that exist in the configuration. This must be passed to either fetch a list of specific child configurations, or all child configurations of specific types of child configurations.
-        """
-        filterable_property: NotRequired[Sequence['FilterablePropertyDict']]
-        """
-        Filters specific to product.
-        """
-elif False:
-    ConfigurationFilterDict: TypeAlias = Mapping[str, Any]
+class ConfigurationFilterDict(TypedDict):
+    """
+    Configuration filters.
+    """
+    hierarchy_information: 'HierarchyInformationDict'
+    """
+    Product hierarchy information.
+    """
+    child_configuration_filter: NotRequired['ChildConfigurationFilterDict']
+    """
+    Filter to fetch specific child configurations that exist in the configuration. This must be passed to either fetch a list of specific child configurations, or all child configurations of specific types of child configurations.
+    """
+    filterable_property: NotRequired[Sequence['FilterablePropertyDict']]
+    """
+    Filters specific to product.
+    """
 
 @pulumi.input_type
 class ConfigurationFilter:
@@ -382,33 +365,30 @@ class ConfigurationFilter:
         pulumi.set(self, "filterable_property", value)
 
 
-if not MYPY:
-    class ContactDetailsArgsDict(TypedDict):
-        """
-        Contact Details.
-        """
-        contact_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Contact name of the person.
-        """
-        email_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Email-ids to be notified about job progress.
-        """
-        mobile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mobile number of the contact person.
-        """
-        phone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone number of the contact person.
-        """
-        phone_extension: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone extension number of the contact person.
-        """
-elif False:
-    ContactDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ContactDetailsArgsDict(TypedDict):
+    """
+    Contact Details.
+    """
+    contact_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Contact name of the person.
+    """
+    email_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Email-ids to be notified about job progress.
+    """
+    mobile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mobile number of the contact person.
+    """
+    phone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone number of the contact person.
+    """
+    phone_extension: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone extension number of the contact person.
+    """
 
 @pulumi.input_type
 class ContactDetailsArgs:
@@ -498,25 +478,22 @@ class ContactDetailsArgs:
         pulumi.set(self, "phone_extension", value)
 
 
-if not MYPY:
-    class CustomerSubscriptionDetailsDict(TypedDict):
-        """
-        Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details.
-        """
-        quota_id: _builtins.str
-        """
-        Quota ID of a subscription.
-        """
-        location_placement_id: NotRequired[_builtins.str]
-        """
-        Location placement Id of a subscription.
-        """
-        registered_features: NotRequired[Sequence['CustomerSubscriptionRegisteredFeaturesDict']]
-        """
-        List of registered feature flags for subscription.
-        """
-elif False:
-    CustomerSubscriptionDetailsDict: TypeAlias = Mapping[str, Any]
+class CustomerSubscriptionDetailsDict(TypedDict):
+    """
+    Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details.
+    """
+    quota_id: _builtins.str
+    """
+    Quota ID of a subscription.
+    """
+    location_placement_id: NotRequired[_builtins.str]
+    """
+    Location placement Id of a subscription.
+    """
+    registered_features: NotRequired[Sequence['CustomerSubscriptionRegisteredFeaturesDict']]
+    """
+    List of registered feature flags for subscription.
+    """
 
 @pulumi.input_type
 class CustomerSubscriptionDetails:
@@ -573,21 +550,18 @@ class CustomerSubscriptionDetails:
         pulumi.set(self, "registered_features", value)
 
 
-if not MYPY:
-    class CustomerSubscriptionRegisteredFeaturesDict(TypedDict):
-        """
-        Represents subscription registered features.
-        """
-        name: NotRequired[_builtins.str]
-        """
-        Name of subscription registered feature.
-        """
-        state: NotRequired[_builtins.str]
-        """
-        State of subscription registered feature.
-        """
-elif False:
-    CustomerSubscriptionRegisteredFeaturesDict: TypeAlias = Mapping[str, Any]
+class CustomerSubscriptionRegisteredFeaturesDict(TypedDict):
+    """
+    Represents subscription registered features.
+    """
+    name: NotRequired[_builtins.str]
+    """
+    Name of subscription registered feature.
+    """
+    state: NotRequired[_builtins.str]
+    """
+    State of subscription registered feature.
+    """
 
 @pulumi.input_type
 class CustomerSubscriptionRegisteredFeatures:
@@ -629,17 +603,14 @@ class CustomerSubscriptionRegisteredFeatures:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class EncryptionPreferencesArgsDict(TypedDict):
-        """
-        Preferences related to the double encryption.
-        """
-        double_encryption_status: NotRequired[pulumi.Input[Union[_builtins.str, 'DoubleEncryptionStatus']]]
-        """
-        Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
-        """
-elif False:
-    EncryptionPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPreferencesArgsDict(TypedDict):
+    """
+    Preferences related to the double encryption.
+    """
+    double_encryption_status: NotRequired[pulumi.Input[Union[_builtins.str, 'DoubleEncryptionStatus']]]
+    """
+    Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
+    """
 
 @pulumi.input_type
 class EncryptionPreferencesArgs:
@@ -665,21 +636,18 @@ class EncryptionPreferencesArgs:
         pulumi.set(self, "double_encryption_status", value)
 
 
-if not MYPY:
-    class FilterablePropertyDict(TypedDict):
-        """
-        Different types of filters supported and its values.
-        """
-        supported_values: Sequence[_builtins.str]
-        """
-        Values to be filtered.
-        """
-        type: Union[_builtins.str, 'SupportedFilterTypes']
-        """
-        Type of product filter.
-        """
-elif False:
-    FilterablePropertyDict: TypeAlias = Mapping[str, Any]
+class FilterablePropertyDict(TypedDict):
+    """
+    Different types of filters supported and its values.
+    """
+    supported_values: Sequence[_builtins.str]
+    """
+    Values to be filtered.
+    """
+    type: Union[_builtins.str, 'SupportedFilterTypes']
+    """
+    Type of product filter.
+    """
 
 @pulumi.input_type
 class FilterableProperty:
@@ -719,33 +687,30 @@ class FilterableProperty:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class HierarchyInformationDict(TypedDict):
-        """
-        Holds details about product hierarchy information.
-        """
-        configuration_id_display_name: NotRequired[_builtins.str]
-        """
-        Represents Model Display Name.
-        """
-        configuration_name: NotRequired[_builtins.str]
-        """
-        Represents configuration name that uniquely identifies configuration.
-        """
-        product_family_name: NotRequired[_builtins.str]
-        """
-        Represents product family name that uniquely identifies product family.
-        """
-        product_line_name: NotRequired[_builtins.str]
-        """
-        Represents product line name that uniquely identifies product line.
-        """
-        product_name: NotRequired[_builtins.str]
-        """
-        Represents product name that uniquely identifies product.
-        """
-elif False:
-    HierarchyInformationDict: TypeAlias = Mapping[str, Any]
+class HierarchyInformationDict(TypedDict):
+    """
+    Holds details about product hierarchy information.
+    """
+    configuration_id_display_name: NotRequired[_builtins.str]
+    """
+    Represents Model Display Name.
+    """
+    configuration_name: NotRequired[_builtins.str]
+    """
+    Represents configuration name that uniquely identifies configuration.
+    """
+    product_family_name: NotRequired[_builtins.str]
+    """
+    Represents product family name that uniquely identifies product family.
+    """
+    product_line_name: NotRequired[_builtins.str]
+    """
+    Represents product line name that uniquely identifies product line.
+    """
+    product_name: NotRequired[_builtins.str]
+    """
+    Represents product name that uniquely identifies product.
+    """
 
 @pulumi.input_type
 class HierarchyInformation:
@@ -835,33 +800,30 @@ class HierarchyInformation:
         pulumi.set(self, "product_name", value)
 
 
-if not MYPY:
-    class HierarchyInformationArgsDict(TypedDict):
-        """
-        Holds details about product hierarchy information.
-        """
-        configuration_id_display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents Model Display Name.
-        """
-        configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents configuration name that uniquely identifies configuration.
-        """
-        product_family_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents product family name that uniquely identifies product family.
-        """
-        product_line_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents product line name that uniquely identifies product line.
-        """
-        product_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents product name that uniquely identifies product.
-        """
-elif False:
-    HierarchyInformationArgsDict: TypeAlias = Mapping[str, Any]
+class HierarchyInformationArgsDict(TypedDict):
+    """
+    Holds details about product hierarchy information.
+    """
+    configuration_id_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents Model Display Name.
+    """
+    configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents configuration name that uniquely identifies configuration.
+    """
+    product_family_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents product family name that uniquely identifies product family.
+    """
+    product_line_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents product line name that uniquely identifies product line.
+    """
+    product_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents product name that uniquely identifies product.
+    """
 
 @pulumi.input_type
 class HierarchyInformationArgs:
@@ -951,17 +913,14 @@ class HierarchyInformationArgs:
         pulumi.set(self, "product_name", value)
 
 
-if not MYPY:
-    class ManagementResourcePreferencesArgsDict(TypedDict):
-        """
-        Management resource preference to link device.
-        """
-        preferred_management_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer preferred Management resource ARM ID.
-        """
-elif False:
-    ManagementResourcePreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementResourcePreferencesArgsDict(TypedDict):
+    """
+    Management resource preference to link device.
+    """
+    preferred_management_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer preferred Management resource ARM ID.
+    """
 
 @pulumi.input_type
 class ManagementResourcePreferencesArgs:
@@ -987,21 +946,18 @@ class ManagementResourcePreferencesArgs:
         pulumi.set(self, "preferred_management_resource_id", value)
 
 
-if not MYPY:
-    class NotificationPreferenceArgsDict(TypedDict):
-        """
-        Notification preference for a job stage.
-        """
-        send_notification: pulumi.Input[_builtins.bool]
-        """
-        Notification is required or not.
-        """
-        stage_name: pulumi.Input[Union[_builtins.str, 'NotificationStageName']]
-        """
-        Name of the stage.
-        """
-elif False:
-    NotificationPreferenceArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationPreferenceArgsDict(TypedDict):
+    """
+    Notification preference for a job stage.
+    """
+    send_notification: pulumi.Input[_builtins.bool]
+    """
+    Notification is required or not.
+    """
+    stage_name: pulumi.Input[Union[_builtins.str, 'NotificationStageName']]
+    """
+    Name of the stage.
+    """
 
 @pulumi.input_type
 class NotificationPreferenceArgs:
@@ -1041,37 +997,34 @@ class NotificationPreferenceArgs:
         pulumi.set(self, "stage_name", value)
 
 
-if not MYPY:
-    class OrderItemDetailsArgsDict(TypedDict):
-        """
-        Order item details.
-        """
-        order_item_type: pulumi.Input[Union[_builtins.str, 'OrderItemType']]
-        """
-        Order item type.
-        """
-        product_details: pulumi.Input['ProductDetailsArgsDict']
-        """
-        Represents product details.
-        """
-        notification_email_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Additional notification email list.
-        """
-        order_item_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OrderMode']]]
-        """
-        Defines the mode of the Order item.
-        """
-        preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
-        """
-        Customer notification Preferences.
-        """
-        site_details: NotRequired[pulumi.Input['SiteDetailsArgsDict']]
-        """
-        Site Related Details.
-        """
-elif False:
-    OrderItemDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class OrderItemDetailsArgsDict(TypedDict):
+    """
+    Order item details.
+    """
+    order_item_type: pulumi.Input[Union[_builtins.str, 'OrderItemType']]
+    """
+    Order item type.
+    """
+    product_details: pulumi.Input['ProductDetailsArgsDict']
+    """
+    Represents product details.
+    """
+    notification_email_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Additional notification email list.
+    """
+    order_item_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OrderMode']]]
+    """
+    Defines the mode of the Order item.
+    """
+    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    """
+    Customer notification Preferences.
+    """
+    site_details: NotRequired[pulumi.Input['SiteDetailsArgsDict']]
+    """
+    Site Related Details.
+    """
 
 @pulumi.input_type
 class OrderItemDetailsArgs:
@@ -1175,33 +1128,30 @@ class OrderItemDetailsArgs:
         pulumi.set(self, "site_details", value)
 
 
-if not MYPY:
-    class PreferencesArgsDict(TypedDict):
-        """
-        Preferences related to the order.
-        """
-        encryption_preferences: NotRequired[pulumi.Input['EncryptionPreferencesArgsDict']]
-        """
-        Preferences related to the Encryption.
-        """
-        management_resource_preferences: NotRequired[pulumi.Input['ManagementResourcePreferencesArgsDict']]
-        """
-        Preferences related to the Management resource.
-        """
-        notification_preferences: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgsDict']]]]
-        """
-        Notification preferences.
-        """
-        term_commitment_preferences: NotRequired[pulumi.Input['TermCommitmentPreferencesArgsDict']]
-        """
-        Preferences related to the Term commitment.
-        """
-        transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
-        """
-        Preferences related to the shipment logistics of the order.
-        """
-elif False:
-    PreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class PreferencesArgsDict(TypedDict):
+    """
+    Preferences related to the order.
+    """
+    encryption_preferences: NotRequired[pulumi.Input['EncryptionPreferencesArgsDict']]
+    """
+    Preferences related to the Encryption.
+    """
+    management_resource_preferences: NotRequired[pulumi.Input['ManagementResourcePreferencesArgsDict']]
+    """
+    Preferences related to the Management resource.
+    """
+    notification_preferences: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgsDict']]]]
+    """
+    Notification preferences.
+    """
+    term_commitment_preferences: NotRequired[pulumi.Input['TermCommitmentPreferencesArgsDict']]
+    """
+    Preferences related to the Term commitment.
+    """
+    transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
+    """
+    Preferences related to the shipment logistics of the order.
+    """
 
 @pulumi.input_type
 class PreferencesArgs:
@@ -1291,25 +1241,22 @@ class PreferencesArgs:
         pulumi.set(self, "transport_preferences", value)
 
 
-if not MYPY:
-    class ProductDetailsArgsDict(TypedDict):
-        """
-        Represents product details.
-        """
-        hierarchy_information: pulumi.Input['HierarchyInformationArgsDict']
-        """
-        Hierarchy of the product which uniquely identifies the product.
-        """
-        opt_in_additional_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgsDict']]]]
-        """
-        List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
-        """
-        parent_provisioning_details: NotRequired[pulumi.Input['ProvisioningDetailsArgsDict']]
-        """
-        Device Provisioning Details for Parent.
-        """
-elif False:
-    ProductDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ProductDetailsArgsDict(TypedDict):
+    """
+    Represents product details.
+    """
+    hierarchy_information: pulumi.Input['HierarchyInformationArgsDict']
+    """
+    Hierarchy of the product which uniquely identifies the product.
+    """
+    opt_in_additional_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgsDict']]]]
+    """
+    List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
+    """
+    parent_provisioning_details: NotRequired[pulumi.Input['ProvisioningDetailsArgsDict']]
+    """
+    Device Provisioning Details for Parent.
+    """
 
 @pulumi.input_type
 class ProductDetailsArgs:
@@ -1366,45 +1313,42 @@ class ProductDetailsArgs:
         pulumi.set(self, "parent_provisioning_details", value)
 
 
-if not MYPY:
-    class ProvisioningDetailsArgsDict(TypedDict):
-        """
-        Details Related To Provision Resource.
-        """
-        auto_provisioning_status: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoProvisioningStatus']]]
-        """
-        Auto Provisioning Details.
-        """
-        management_resource_arm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Management Resource ArmId.
-        """
-        provisioning_arm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provisioning Resource Arm ID.
-        """
-        provisioning_end_point: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provisioning End Point.
-        """
-        quantity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Quantity of the devices.
-        """
-        ready_to_connect_arm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Arc Enabled Resource Arm id.
-        """
-        serial_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Serial Number for the Device.
-        """
-        vendor_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Vendor Name for the Device , (for 1P devices - Microsoft).
-        """
-elif False:
-    ProvisioningDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ProvisioningDetailsArgsDict(TypedDict):
+    """
+    Details Related To Provision Resource.
+    """
+    auto_provisioning_status: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoProvisioningStatus']]]
+    """
+    Auto Provisioning Details.
+    """
+    management_resource_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Management Resource ArmId.
+    """
+    provisioning_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provisioning Resource Arm ID.
+    """
+    provisioning_end_point: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provisioning End Point.
+    """
+    quantity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Quantity of the devices.
+    """
+    ready_to_connect_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arc Enabled Resource Arm id.
+    """
+    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Serial Number for the Device.
+    """
+    vendor_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Vendor Name for the Device , (for 1P devices - Microsoft).
+    """
 
 @pulumi.input_type
 class ProvisioningDetailsArgs:
@@ -1544,21 +1488,18 @@ class ProvisioningDetailsArgs:
         pulumi.set(self, "vendor_name", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        Msi identity details of the resource
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identity type
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        User Assigned Identities
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    Msi identity details of the resource
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity type
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    User Assigned Identities
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -1602,53 +1543,50 @@ class ResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ShippingAddressArgsDict(TypedDict):
-        """
-        Shipping address where customer wishes to receive the device.
-        """
-        country: pulumi.Input[_builtins.str]
-        """
-        Name of the Country.
-        """
-        address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AddressType']]]
-        """
-        Type of address.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the City.
-        """
-        company_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the company.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Postal code.
-        """
-        state_or_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the State or Province.
-        """
-        street_address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Street Address line 1.
-        """
-        street_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Street Address line 2.
-        """
-        street_address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Street Address line 3.
-        """
-        zip_extended_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Extended Zip Code.
-        """
-elif False:
-    ShippingAddressArgsDict: TypeAlias = Mapping[str, Any]
+class ShippingAddressArgsDict(TypedDict):
+    """
+    Shipping address where customer wishes to receive the device.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Name of the Country.
+    """
+    address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AddressType']]]
+    """
+    Type of address.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the City.
+    """
+    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the company.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Postal code.
+    """
+    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the State or Province.
+    """
+    street_address1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Street Address line 1.
+    """
+    street_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Street Address line 2.
+    """
+    street_address3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Street Address line 3.
+    """
+    zip_extended_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Extended Zip Code.
+    """
 
 @pulumi.input_type
 class ShippingAddressArgs:
@@ -1817,17 +1755,14 @@ class ShippingAddressArgs:
         pulumi.set(self, "zip_extended_code", value)
 
 
-if not MYPY:
-    class SiteDetailsArgsDict(TypedDict):
-        """
-        Represents Site Related Details.
-        """
-        site_id: pulumi.Input[_builtins.str]
-        """
-        Unique Id, Identifying A Site.
-        """
-elif False:
-    SiteDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class SiteDetailsArgsDict(TypedDict):
+    """
+    Represents Site Related Details.
+    """
+    site_id: pulumi.Input[_builtins.str]
+    """
+    Unique Id, Identifying A Site.
+    """
 
 @pulumi.input_type
 class SiteDetailsArgs:
@@ -1852,21 +1787,18 @@ class SiteDetailsArgs:
         pulumi.set(self, "site_id", value)
 
 
-if not MYPY:
-    class TermCommitmentPreferencesArgsDict(TypedDict):
-        """
-        Term Commitment preference received from customer.
-        """
-        preferred_term_commitment_type: pulumi.Input[Union[_builtins.str, 'TermCommitmentType']]
-        """
-        Term Commitment Type
-        """
-        preferred_term_commitment_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer preferred Term Duration.
-        """
-elif False:
-    TermCommitmentPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class TermCommitmentPreferencesArgsDict(TypedDict):
+    """
+    Term Commitment preference received from customer.
+    """
+    preferred_term_commitment_type: pulumi.Input[Union[_builtins.str, 'TermCommitmentType']]
+    """
+    Term Commitment Type
+    """
+    preferred_term_commitment_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer preferred Term Duration.
+    """
 
 @pulumi.input_type
 class TermCommitmentPreferencesArgs:
@@ -1907,17 +1839,14 @@ class TermCommitmentPreferencesArgs:
         pulumi.set(self, "preferred_term_commitment_duration", value)
 
 
-if not MYPY:
-    class TransportPreferencesArgsDict(TypedDict):
-        """
-        Preferences related to the shipment logistics of the sku.
-        """
-        preferred_shipment_type: pulumi.Input[Union[_builtins.str, 'TransportShipmentTypes']]
-        """
-        Indicates Shipment Logistics type that the customer preferred.
-        """
-elif False:
-    TransportPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class TransportPreferencesArgsDict(TypedDict):
+    """
+    Preferences related to the shipment logistics of the sku.
+    """
+    preferred_shipment_type: pulumi.Input[Union[_builtins.str, 'TransportShipmentTypes']]
+    """
+    Indicates Shipment Logistics type that the customer preferred.
+    """
 
 @pulumi.input_type
 class TransportPreferencesArgs:

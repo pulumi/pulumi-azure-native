@@ -44,23 +44,18 @@ __all__ = [
     'TagsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomNamingConventionArgsDict(TypedDict):
-        """
-        The details for the custom naming convention override for a specific resource type.
-        """
-        formula: pulumi.Input[_builtins.str]
-        """
-        The custom naming formula for the resource type.
-        """
-        resource_type: pulumi.Input[Union[_builtins.str, 'ResourceType']]
-        """
-        The type of the resource.
-        """
-elif False:
-    CustomNamingConventionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomNamingConventionArgsDict(TypedDict):
+    """
+    The details for the custom naming convention override for a specific resource type.
+    """
+    formula: pulumi.Input[_builtins.str]
+    """
+    The custom naming formula for the resource type.
+    """
+    resource_type: pulumi.Input[Union[_builtins.str, 'ResourceType']]
+    """
+    The type of the resource.
+    """
 
 @pulumi.input_type
 class CustomNamingConventionArgs:
@@ -100,21 +95,18 @@ class CustomNamingConventionArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class DecommissionedManagementGroupPropertiesArgsDict(TypedDict):
-        """
-        The 'Decommissioned' management group properties.
-        """
-        create: pulumi.Input[_builtins.bool]
-        """
-        This parameter determines whether the 'Decommissioned' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
-        """
-        policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
-        """
-        Array of policy initiatives applied to the management group.
-        """
-elif False:
-    DecommissionedManagementGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DecommissionedManagementGroupPropertiesArgsDict(TypedDict):
+    """
+    The 'Decommissioned' management group properties.
+    """
+    create: pulumi.Input[_builtins.bool]
+    """
+    This parameter determines whether the 'Decommissioned' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
+    """
+    policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
+    """
+    Array of policy initiatives applied to the management group.
+    """
 
 @pulumi.input_type
 class DecommissionedManagementGroupPropertiesArgs:
@@ -154,17 +146,14 @@ class DecommissionedManagementGroupPropertiesArgs:
         pulumi.set(self, "policy_initiatives_assignment_properties", value)
 
 
-if not MYPY:
-    class LandingZoneAccountResourcePropertiesArgsDict(TypedDict):
-        """
-        The properties of landing zone account resource type.
-        """
-        storage_account: pulumi.Input[_builtins.str]
-        """
-        The storage account that will host the generated infrastructure as code (IaC) for a landing zone deployment.
-        """
-elif False:
-    LandingZoneAccountResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LandingZoneAccountResourcePropertiesArgsDict(TypedDict):
+    """
+    The properties of landing zone account resource type.
+    """
+    storage_account: pulumi.Input[_builtins.str]
+    """
+    The storage account that will host the generated infrastructure as code (IaC) for a landing zone deployment.
+    """
 
 @pulumi.input_type
 class LandingZoneAccountResourcePropertiesArgs:
@@ -189,117 +178,114 @@ class LandingZoneAccountResourcePropertiesArgs:
         pulumi.set(self, "storage_account", value)
 
 
-if not MYPY:
-    class LandingZoneConfigurationResourcePropertiesArgsDict(TypedDict):
-        """
-        The properties of landing zone configuration resource type.
-        """
-        azure_bastion_creation_option: pulumi.Input[Union[_builtins.str, 'ResourceCreationOptions']]
-        """
-        Parameter used to deploy a Bastion: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing Bastion.
-        """
-        ddos_protection_creation_option: pulumi.Input[Union[_builtins.str, 'ResourceCreationOptions']]
-        """
-        Parameter used to deploy a DDoS protection plan: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing DDoS protection plan.
-        """
-        firewall_creation_option: pulumi.Input[Union[_builtins.str, 'FirewallCreationOptions']]
-        """
-        Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU.
-        """
-        gateway_subnet_cidr_block: pulumi.Input[_builtins.str]
-        """
-        The gateway subnet address used for deploying a virtual network. Specify the subnet using IPv4 CIDR notation.
-        """
-        hub_network_cidr_block: pulumi.Input[_builtins.str]
-        """
-        The Virtual Network address. Specify the address using IPv4 CIDR notation.
-        """
-        log_analytics_workspace_creation_option: pulumi.Input[Union[_builtins.str, 'ResourceCreationOptions']]
-        """
-        Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace.
-        """
-        log_retention_in_days: pulumi.Input[_builtins.float]
-        """
-        Parameter to define the retention period for logs, in days. The minimum duration is 30 days and the maximum is 730 days.
-        """
-        managed_identity: pulumi.Input['ManagedIdentityPropertiesArgsDict']
-        """
-        The managed identity to be assigned to this landing zone configuration.
-        """
-        azure_bastion_subnet_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Bastion subnet address. Specify the address using IPv4 CIDR notation.
-        """
-        custom_naming_convention: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomNamingConventionArgsDict']]]]
-        """
-        The custom naming convention applied to specific resource types for this landing zone configuration, which overrides the default naming convention for those resource types. Example - 'customNamingConvention': [{'resourceType': 'azureFirewalls', 'formula': '{DeploymentPrefix}-afwl-{DeploymentSuffix}'}]
-        """
-        decommissioned_mg_metadata: NotRequired[pulumi.Input['DecommissionedManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the 'Decommissioned' management group and indicator to create it or not.
-        """
-        existing_azure_bastion_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Bastion when reusing an existing one.
-        """
-        existing_ddos_protection_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the DDoS protection plan when reusing an existing one.
-        """
-        existing_log_analytics_workspace_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the log analytics workspace when reusing an existing one.
-        """
-        firewall_subnet_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Firewall subnet address used for deploying a firewall. Specify the Firewall subnet using IPv4 CIDR notation.
-        """
-        landing_zones_mg_children: NotRequired[pulumi.Input[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgsDict']]]]
-        """
-        The child management groups of 'Landing Zones' management group and their assigned policies.
-        """
-        landing_zones_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the 'Landing Zones' management group.
-        """
-        naming_convention_formula: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default naming convention applied to all resources for this landing zone configuration. Example - {DeploymentPrefix}-Contoso-{ResourceTypeAbbreviation}{DeploymentSuffix}-{Environment}-testing
-        """
-        platform_connectivity_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the 'Connectivity' management group under 'Platform' management group.
-        """
-        platform_identity_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the 'Identity' management group under 'Platform' management group.
-        """
-        platform_management_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the 'Management' management group under 'Platform' management group.
-        """
-        platform_mg_children: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgsDict']]]]
-        """
-        The names of the 'Platform' child management groups and their assigned policies, excluding the default ones: 'Connectivity', 'Identity', and 'Management'
-        """
-        platform_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the 'Platform' management group.
-        """
-        sandbox_mg_metadata: NotRequired[pulumi.Input['SandboxManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the 'Sandbox' management group and indicator to create it or not.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagsArgsDict']]]]
-        """
-        Tags are key-value pairs that can be assigned to a resource to organize and manage it more effectively. Example: {'name': 'a tag name', 'value': 'a tag value'}
-        """
-        top_level_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
-        """
-        The assigned policies of the parent management group.
-        """
-elif False:
-    LandingZoneConfigurationResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LandingZoneConfigurationResourcePropertiesArgsDict(TypedDict):
+    """
+    The properties of landing zone configuration resource type.
+    """
+    azure_bastion_creation_option: pulumi.Input[Union[_builtins.str, 'ResourceCreationOptions']]
+    """
+    Parameter used to deploy a Bastion: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing Bastion.
+    """
+    ddos_protection_creation_option: pulumi.Input[Union[_builtins.str, 'ResourceCreationOptions']]
+    """
+    Parameter used to deploy a DDoS protection plan: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing DDoS protection plan.
+    """
+    firewall_creation_option: pulumi.Input[Union[_builtins.str, 'FirewallCreationOptions']]
+    """
+    Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU.
+    """
+    gateway_subnet_cidr_block: pulumi.Input[_builtins.str]
+    """
+    The gateway subnet address used for deploying a virtual network. Specify the subnet using IPv4 CIDR notation.
+    """
+    hub_network_cidr_block: pulumi.Input[_builtins.str]
+    """
+    The Virtual Network address. Specify the address using IPv4 CIDR notation.
+    """
+    log_analytics_workspace_creation_option: pulumi.Input[Union[_builtins.str, 'ResourceCreationOptions']]
+    """
+    Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace.
+    """
+    log_retention_in_days: pulumi.Input[_builtins.float]
+    """
+    Parameter to define the retention period for logs, in days. The minimum duration is 30 days and the maximum is 730 days.
+    """
+    managed_identity: pulumi.Input['ManagedIdentityPropertiesArgsDict']
+    """
+    The managed identity to be assigned to this landing zone configuration.
+    """
+    azure_bastion_subnet_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Bastion subnet address. Specify the address using IPv4 CIDR notation.
+    """
+    custom_naming_convention: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomNamingConventionArgsDict']]]]
+    """
+    The custom naming convention applied to specific resource types for this landing zone configuration, which overrides the default naming convention for those resource types. Example - 'customNamingConvention': [{'resourceType': 'azureFirewalls', 'formula': '{DeploymentPrefix}-afwl-{DeploymentSuffix}'}]
+    """
+    decommissioned_mg_metadata: NotRequired[pulumi.Input['DecommissionedManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the 'Decommissioned' management group and indicator to create it or not.
+    """
+    existing_azure_bastion_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Bastion when reusing an existing one.
+    """
+    existing_ddos_protection_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the DDoS protection plan when reusing an existing one.
+    """
+    existing_log_analytics_workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the log analytics workspace when reusing an existing one.
+    """
+    firewall_subnet_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Firewall subnet address used for deploying a firewall. Specify the Firewall subnet using IPv4 CIDR notation.
+    """
+    landing_zones_mg_children: NotRequired[pulumi.Input[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgsDict']]]]
+    """
+    The child management groups of 'Landing Zones' management group and their assigned policies.
+    """
+    landing_zones_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the 'Landing Zones' management group.
+    """
+    naming_convention_formula: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default naming convention applied to all resources for this landing zone configuration. Example - {DeploymentPrefix}-Contoso-{ResourceTypeAbbreviation}{DeploymentSuffix}-{Environment}-testing
+    """
+    platform_connectivity_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the 'Connectivity' management group under 'Platform' management group.
+    """
+    platform_identity_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the 'Identity' management group under 'Platform' management group.
+    """
+    platform_management_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the 'Management' management group under 'Platform' management group.
+    """
+    platform_mg_children: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgsDict']]]]
+    """
+    The names of the 'Platform' child management groups and their assigned policies, excluding the default ones: 'Connectivity', 'Identity', and 'Management'
+    """
+    platform_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the 'Platform' management group.
+    """
+    sandbox_mg_metadata: NotRequired[pulumi.Input['SandboxManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the 'Sandbox' management group and indicator to create it or not.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagsArgsDict']]]]
+    """
+    Tags are key-value pairs that can be assigned to a resource to organize and manage it more effectively. Example: {'name': 'a tag name', 'value': 'a tag value'}
+    """
+    top_level_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    """
+    The assigned policies of the parent management group.
+    """
 
 @pulumi.input_type
 class LandingZoneConfigurationResourcePropertiesArgs:
@@ -717,21 +703,18 @@ class LandingZoneConfigurationResourcePropertiesArgs:
         pulumi.set(self, "top_level_mg_metadata", value)
 
 
-if not MYPY:
-    class LandingZoneManagementGroupPropertiesArgsDict(TypedDict):
-        """
-        The 'Landing Zones' management group properties..
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Management group name.
-        """
-        policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
-        """
-        Array of policy initiatives applied to the management group.
-        """
-elif False:
-    LandingZoneManagementGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LandingZoneManagementGroupPropertiesArgsDict(TypedDict):
+    """
+    The 'Landing Zones' management group properties..
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Management group name.
+    """
+    policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
+    """
+    Array of policy initiatives applied to the management group.
+    """
 
 @pulumi.input_type
 class LandingZoneManagementGroupPropertiesArgs:
@@ -771,25 +754,22 @@ class LandingZoneManagementGroupPropertiesArgs:
         pulumi.set(self, "policy_initiatives_assignment_properties", value)
 
 
-if not MYPY:
-    class LandingZoneRegistrationResourcePropertiesArgsDict(TypedDict):
-        """
-        The properties of landing zone registration resource type.
-        """
-        existing_landing_zone_configuration_id: pulumi.Input[_builtins.str]
-        """
-        The resource id of the associated landing zone configuration.
-        """
-        existing_top_level_mg_id: pulumi.Input[_builtins.str]
-        """
-        The resource id of the top level management group
-        """
-        managed_identity: NotRequired[pulumi.Input['ManagedIdentityPropertiesArgsDict']]
-        """
-        The managed identity to be assigned to this landing zone registration.
-        """
-elif False:
-    LandingZoneRegistrationResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LandingZoneRegistrationResourcePropertiesArgsDict(TypedDict):
+    """
+    The properties of landing zone registration resource type.
+    """
+    existing_landing_zone_configuration_id: pulumi.Input[_builtins.str]
+    """
+    The resource id of the associated landing zone configuration.
+    """
+    existing_top_level_mg_id: pulumi.Input[_builtins.str]
+    """
+    The resource id of the top level management group
+    """
+    managed_identity: NotRequired[pulumi.Input['ManagedIdentityPropertiesArgsDict']]
+    """
+    The managed identity to be assigned to this landing zone registration.
+    """
 
 @pulumi.input_type
 class LandingZoneRegistrationResourcePropertiesArgs:
@@ -845,21 +825,18 @@ class LandingZoneRegistrationResourcePropertiesArgs:
         pulumi.set(self, "managed_identity", value)
 
 
-if not MYPY:
-    class ManagedIdentityPropertiesArgsDict(TypedDict):
-        """
-        The properties of managed identity, specifically including type and resource ID.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedIdentityResourceType']]
-        """
-        The type of managed identity.
-        """
-        user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of the managed identity.
-        """
-elif False:
-    ManagedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityPropertiesArgsDict(TypedDict):
+    """
+    The properties of managed identity, specifically including type and resource ID.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedIdentityResourceType']]
+    """
+    The type of managed identity.
+    """
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of the managed identity.
+    """
 
 @pulumi.input_type
 class ManagedIdentityPropertiesArgs:
@@ -900,21 +877,18 @@ class ManagedIdentityPropertiesArgs:
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -955,17 +929,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ManagementGroupPropertiesArgsDict(TypedDict):
-        """
-        The properties of policy initiatives applied to the management group.
-        """
-        policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
-        """
-        Array of policy initiatives applied to the management group.
-        """
-elif False:
-    ManagementGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementGroupPropertiesArgsDict(TypedDict):
+    """
+    The properties of policy initiatives applied to the management group.
+    """
+    policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
+    """
+    Array of policy initiatives applied to the management group.
+    """
 
 @pulumi.input_type
 class ManagementGroupPropertiesArgs:
@@ -990,21 +961,18 @@ class ManagementGroupPropertiesArgs:
         pulumi.set(self, "policy_initiatives_assignment_properties", value)
 
 
-if not MYPY:
-    class PlatformManagementGroupPropertiesArgsDict(TypedDict):
-        """
-        The 'Platform' management group properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Management group name.
-        """
-        policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
-        """
-        Array of policy initiatives applied to the management group.
-        """
-elif False:
-    PlatformManagementGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlatformManagementGroupPropertiesArgsDict(TypedDict):
+    """
+    The 'Platform' management group properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Management group name.
+    """
+    policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
+    """
+    Array of policy initiatives applied to the management group.
+    """
 
 @pulumi.input_type
 class PlatformManagementGroupPropertiesArgs:
@@ -1044,21 +1012,18 @@ class PlatformManagementGroupPropertiesArgs:
         pulumi.set(self, "policy_initiatives_assignment_properties", value)
 
 
-if not MYPY:
-    class PolicyInitiativeAssignmentPropertiesArgsDict(TypedDict):
-        """
-        The properties of assigned policy initiatives.
-        """
-        assignment_parameters: Any
-        """
-        The parameters of the assigned policy initiative.
-        """
-        policy_initiative_id: pulumi.Input[_builtins.str]
-        """
-        The fully qualified id of the policy initiative.
-        """
-elif False:
-    PolicyInitiativeAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyInitiativeAssignmentPropertiesArgsDict(TypedDict):
+    """
+    The properties of assigned policy initiatives.
+    """
+    assignment_parameters: Any
+    """
+    The parameters of the assigned policy initiative.
+    """
+    policy_initiative_id: pulumi.Input[_builtins.str]
+    """
+    The fully qualified id of the policy initiative.
+    """
 
 @pulumi.input_type
 class PolicyInitiativeAssignmentPropertiesArgs:
@@ -1098,21 +1063,18 @@ class PolicyInitiativeAssignmentPropertiesArgs:
         pulumi.set(self, "policy_initiative_id", value)
 
 
-if not MYPY:
-    class SandboxManagementGroupPropertiesArgsDict(TypedDict):
-        """
-        The 'Sandbox' management group properties.
-        """
-        create: pulumi.Input[_builtins.bool]
-        """
-        This parameter determines whether the 'Sandbox' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
-        """
-        policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
-        """
-        Array of policy initiatives applied to the management group.
-        """
-elif False:
-    SandboxManagementGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SandboxManagementGroupPropertiesArgsDict(TypedDict):
+    """
+    The 'Sandbox' management group properties.
+    """
+    create: pulumi.Input[_builtins.bool]
+    """
+    This parameter determines whether the 'Sandbox' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
+    """
+    policy_initiatives_assignment_properties: pulumi.Input[Sequence[pulumi.Input['PolicyInitiativeAssignmentPropertiesArgsDict']]]
+    """
+    Array of policy initiatives applied to the management group.
+    """
 
 @pulumi.input_type
 class SandboxManagementGroupPropertiesArgs:
@@ -1152,21 +1114,18 @@ class SandboxManagementGroupPropertiesArgs:
         pulumi.set(self, "policy_initiatives_assignment_properties", value)
 
 
-if not MYPY:
-    class TagsArgsDict(TypedDict):
-        """
-        Key-value pairs that can be assigned to this resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A tag name.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A tag value.
-        """
-elif False:
-    TagsArgsDict: TypeAlias = Mapping[str, Any]
+class TagsArgsDict(TypedDict):
+    """
+    Key-value pairs that can be assigned to this resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A tag name.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A tag value.
+    """
 
 @pulumi.input_type
 class TagsArgs:

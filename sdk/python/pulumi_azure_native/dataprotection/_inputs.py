@@ -116,24 +116,19 @@ __all__ = [
     'TargetCopySettingArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AbsoluteDeleteOptionArgsDict(TypedDict):
-        """
-        Delete option with duration
-        """
-        duration: pulumi.Input[_builtins.str]
-        """
-        Duration of deletion after given timespan
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'AbsoluteDeleteOption'.
-        """
-elif False:
-    AbsoluteDeleteOptionArgsDict: TypeAlias = Mapping[str, Any]
+class AbsoluteDeleteOptionArgsDict(TypedDict):
+    """
+    Delete option with duration
+    """
+    duration: pulumi.Input[_builtins.str]
+    """
+    Duration of deletion after given timespan
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'AbsoluteDeleteOption'.
+    """
 
 @pulumi.input_type
 class AbsoluteDeleteOptionArgs:
@@ -175,17 +170,14 @@ class AbsoluteDeleteOptionArgs:
         pulumi.set(self, "object_type", value)
 
 
-if not MYPY:
-    class AdhocBasedTaggingCriteriaArgsDict(TypedDict):
-        """
-        Adhoc backup tagging criteria
-        """
-        tag_info: NotRequired[pulumi.Input['RetentionTagArgsDict']]
-        """
-        Retention tag information
-        """
-elif False:
-    AdhocBasedTaggingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class AdhocBasedTaggingCriteriaArgsDict(TypedDict):
+    """
+    Adhoc backup tagging criteria
+    """
+    tag_info: NotRequired[pulumi.Input['RetentionTagArgsDict']]
+    """
+    Retention tag information
+    """
 
 @pulumi.input_type
 class AdhocBasedTaggingCriteriaArgs:
@@ -211,22 +203,19 @@ class AdhocBasedTaggingCriteriaArgs:
         pulumi.set(self, "tag_info", value)
 
 
-if not MYPY:
-    class AdhocBasedTriggerContextArgsDict(TypedDict):
-        """
-        Adhoc trigger context
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'AdhocBasedTriggerContext'.
-        """
-        tagging_criteria: pulumi.Input['AdhocBasedTaggingCriteriaArgsDict']
-        """
-        Tagging Criteria containing retention tag for adhoc backup.
-        """
-elif False:
-    AdhocBasedTriggerContextArgsDict: TypeAlias = Mapping[str, Any]
+class AdhocBasedTriggerContextArgsDict(TypedDict):
+    """
+    Adhoc trigger context
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'AdhocBasedTriggerContext'.
+    """
+    tagging_criteria: pulumi.Input['AdhocBasedTaggingCriteriaArgsDict']
+    """
+    Tagging Criteria containing retention tag for adhoc backup.
+    """
 
 @pulumi.input_type
 class AdhocBasedTriggerContextArgs:
@@ -268,22 +257,19 @@ class AdhocBasedTriggerContextArgs:
         pulumi.set(self, "tagging_criteria", value)
 
 
-if not MYPY:
-    class AzureBackupParamsArgsDict(TypedDict):
-        """
-        Azure backup parameters
-        """
-        backup_type: pulumi.Input[_builtins.str]
-        """
-        BackupType ; Full/Incremental etc
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'AzureBackupParams'.
-        """
-elif False:
-    AzureBackupParamsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureBackupParamsArgsDict(TypedDict):
+    """
+    Azure backup parameters
+    """
+    backup_type: pulumi.Input[_builtins.str]
+    """
+    BackupType ; Full/Incremental etc
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'AzureBackupParams'.
+    """
 
 @pulumi.input_type
 class AzureBackupParamsArgs:
@@ -325,31 +311,28 @@ class AzureBackupParamsArgs:
         pulumi.set(self, "object_type", value)
 
 
-if not MYPY:
-    class AzureBackupRuleArgsDict(TypedDict):
-        """
-        Azure backup rule
-        """
-        data_store: pulumi.Input['DataStoreInfoBaseArgsDict']
-        """
-        DataStoreInfo base
-        """
-        name: pulumi.Input[_builtins.str]
-        object_type: pulumi.Input[_builtins.str]
-        """
+class AzureBackupRuleArgsDict(TypedDict):
+    """
+    Azure backup rule
+    """
+    data_store: pulumi.Input['DataStoreInfoBaseArgsDict']
+    """
+    DataStoreInfo base
+    """
+    name: pulumi.Input[_builtins.str]
+    object_type: pulumi.Input[_builtins.str]
+    """
 
-        Expected value is 'AzureBackupRule'.
-        """
-        trigger: pulumi.Input[Union['AdhocBasedTriggerContextArgsDict', 'ScheduleBasedTriggerContextArgsDict']]
-        """
-        Trigger context
-        """
-        backup_parameters: NotRequired[pulumi.Input['AzureBackupParamsArgsDict']]
-        """
-        BackupParameters base
-        """
-elif False:
-    AzureBackupRuleArgsDict: TypeAlias = Mapping[str, Any]
+    Expected value is 'AzureBackupRule'.
+    """
+    trigger: pulumi.Input[Union['AdhocBasedTriggerContextArgsDict', 'ScheduleBasedTriggerContextArgsDict']]
+    """
+    Trigger context
+    """
+    backup_parameters: NotRequired[pulumi.Input['AzureBackupParamsArgsDict']]
+    """
+    BackupParameters base
+    """
 
 @pulumi.input_type
 class AzureBackupRuleArgs:
@@ -433,14 +416,11 @@ class AzureBackupRuleArgs:
         pulumi.set(self, "backup_parameters", value)
 
 
-if not MYPY:
-    class AzureMonitorAlertSettingsArgsDict(TypedDict):
-        """
-        Settings for Azure Monitor based alerts
-        """
-        alerts_for_all_job_failures: NotRequired[pulumi.Input[Union[_builtins.str, 'AlertsState']]]
-elif False:
-    AzureMonitorAlertSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorAlertSettingsArgsDict(TypedDict):
+    """
+    Settings for Azure Monitor based alerts
+    """
+    alerts_for_all_job_failures: NotRequired[pulumi.Input[Union[_builtins.str, 'AlertsState']]]
 
 @pulumi.input_type
 class AzureMonitorAlertSettingsArgs:
@@ -462,26 +442,23 @@ class AzureMonitorAlertSettingsArgs:
         pulumi.set(self, "alerts_for_all_job_failures", value)
 
 
-if not MYPY:
-    class AzureOperationalStoreParametersArgsDict(TypedDict):
-        """
-        Parameters for Operational-Tier DataStore
-        """
-        data_store_type: pulumi.Input[Union[_builtins.str, 'DataStoreTypes']]
-        """
-        type of datastore; Operational/Vault/Archive
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'AzureOperationalStoreParameters'.
-        """
-        resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Snapshot Resource Group Uri.
-        """
-elif False:
-    AzureOperationalStoreParametersArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperationalStoreParametersArgsDict(TypedDict):
+    """
+    Parameters for Operational-Tier DataStore
+    """
+    data_store_type: pulumi.Input[Union[_builtins.str, 'DataStoreTypes']]
+    """
+    type of datastore; Operational/Vault/Archive
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'AzureOperationalStoreParameters'.
+    """
+    resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Snapshot Resource Group Uri.
+    """
 
 @pulumi.input_type
 class AzureOperationalStoreParametersArgs:
@@ -539,21 +516,18 @@ class AzureOperationalStoreParametersArgs:
         pulumi.set(self, "resource_group_id", value)
 
 
-if not MYPY:
-    class AzureRetentionRuleArgsDict(TypedDict):
-        """
-        Azure retention rule
-        """
-        lifecycles: pulumi.Input[Sequence[pulumi.Input['SourceLifeCycleArgsDict']]]
-        name: pulumi.Input[_builtins.str]
-        object_type: pulumi.Input[_builtins.str]
-        """
+class AzureRetentionRuleArgsDict(TypedDict):
+    """
+    Azure retention rule
+    """
+    lifecycles: pulumi.Input[Sequence[pulumi.Input['SourceLifeCycleArgsDict']]]
+    name: pulumi.Input[_builtins.str]
+    object_type: pulumi.Input[_builtins.str]
+    """
 
-        Expected value is 'AzureRetentionRule'.
-        """
-        is_default: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    AzureRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
+    Expected value is 'AzureRetentionRule'.
+    """
+    is_default: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AzureRetentionRuleArgs:
@@ -614,47 +588,44 @@ class AzureRetentionRuleArgs:
         pulumi.set(self, "is_default", value)
 
 
-if not MYPY:
-    class BackupInstanceArgsDict(TypedDict):
-        """
-        Backup Instance
-        """
-        data_source_info: pulumi.Input['DatasourceArgsDict']
-        """
-        Gets or sets the data source information.
-        """
-        object_type: pulumi.Input[_builtins.str]
-        policy_info: pulumi.Input['PolicyInfoArgsDict']
-        """
-        Gets or sets the policy information.
-        """
-        data_source_set_info: NotRequired[pulumi.Input['DatasourceSetArgsDict']]
-        """
-        Gets or sets the data source set information.
-        """
-        datasource_auth_credentials: NotRequired[pulumi.Input['SecretStoreBasedAuthCredentialsArgsDict']]
-        """
-        Credentials to use to authenticate with data source provider.
-        """
-        friendly_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Backup Instance friendly name.
-        """
-        identity_details: NotRequired[pulumi.Input['IdentityDetailsArgsDict']]
-        """
-        Contains information of the Identity Details for the BI.
-        If it is null, default will be considered as System Assigned.
-        """
-        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        ResourceGuardOperationRequests on which LAC check will be performed
-        """
-        validation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationType']]]
-        """
-        Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
-        """
-elif False:
-    BackupInstanceArgsDict: TypeAlias = Mapping[str, Any]
+class BackupInstanceArgsDict(TypedDict):
+    """
+    Backup Instance
+    """
+    data_source_info: pulumi.Input['DatasourceArgsDict']
+    """
+    Gets or sets the data source information.
+    """
+    object_type: pulumi.Input[_builtins.str]
+    policy_info: pulumi.Input['PolicyInfoArgsDict']
+    """
+    Gets or sets the policy information.
+    """
+    data_source_set_info: NotRequired[pulumi.Input['DatasourceSetArgsDict']]
+    """
+    Gets or sets the data source set information.
+    """
+    datasource_auth_credentials: NotRequired[pulumi.Input['SecretStoreBasedAuthCredentialsArgsDict']]
+    """
+    Credentials to use to authenticate with data source provider.
+    """
+    friendly_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Backup Instance friendly name.
+    """
+    identity_details: NotRequired[pulumi.Input['IdentityDetailsArgsDict']]
+    """
+    Contains information of the Identity Details for the BI.
+    If it is null, default will be considered as System Assigned.
+    """
+    resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    ResourceGuardOperationRequests on which LAC check will be performed
+    """
+    validation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationType']]]
+    """
+    Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+    """
 
 @pulumi.input_type
 class BackupInstanceArgs:
@@ -803,26 +774,23 @@ class BackupInstanceArgs:
         pulumi.set(self, "validation_type", value)
 
 
-if not MYPY:
-    class BackupPolicyArgsDict(TypedDict):
-        """
-        Rule based backup policy
-        """
-        datasource_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Type of datasource for the backup management
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
+class BackupPolicyArgsDict(TypedDict):
+    """
+    Rule based backup policy
+    """
+    datasource_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Type of datasource for the backup management
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
 
-        Expected value is 'BackupPolicy'.
-        """
-        policy_rules: pulumi.Input[Sequence[pulumi.Input[Union['AzureBackupRuleArgsDict', 'AzureRetentionRuleArgsDict']]]]
-        """
-        Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc
-        """
-elif False:
-    BackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    Expected value is 'BackupPolicy'.
+    """
+    policy_rules: pulumi.Input[Sequence[pulumi.Input[Union['AzureBackupRuleArgsDict', 'AzureRetentionRuleArgsDict']]]]
+    """
+    Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc
+    """
 
 @pulumi.input_type
 class BackupPolicyArgs:
@@ -879,54 +847,51 @@ class BackupPolicyArgs:
         pulumi.set(self, "policy_rules", value)
 
 
-if not MYPY:
-    class BackupScheduleArgsDict(TypedDict):
-        """
-        Schedule for backup
-        """
-        repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
+class BackupScheduleArgsDict(TypedDict):
+    """
+    Schedule for backup
+    """
+    repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
 
-        Supported ISO 8601 Time Formats
+    Supported ISO 8601 Time Formats
 
-        The following time formats were verified to be successfully parsed and supported:
-        - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
-        - T14:30:45 → Thh:mm:ss (standard time format)
-        - T14:30 → Thh:mm (hour and minute only)
+    The following time formats were verified to be successfully parsed and supported:
+    - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
+    - T14:30:45 → Thh:mm:ss (standard time format)
+    - T14:30 → Thh:mm (hour and minute only)
 
-        All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
+    All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
 
-        Examples of supported timestamps:
-        - 2023-10-15T14:30:45Z
-        - 2023-10-15T14:30:45.123+05:30
-        - 2023-10-15T14:30Z
+    Examples of supported timestamps:
+    - 2023-10-15T14:30:45Z
+    - 2023-10-15T14:30:45.123+05:30
+    - 2023-10-15T14:30Z
 
-        Unsupported or partially supported formats:
-        - T143045.123 or T143045 (no colons)
-        - T14.500 (decimal hours)
-        - T14 (hour only)
-        - T14:30.500 (minute fractions)
-        - T24:00:00 (invalid)
-        - T23:59:60 (leap second)
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time Zone for a schedule.
+    Unsupported or partially supported formats:
+    - T143045.123 or T143045 (no colons)
+    - T14.500 (decimal hours)
+    - T14 (hour only)
+    - T14:30.500 (minute fractions)
+    - T24:00:00 (invalid)
+    - T23:59:60 (leap second)
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time Zone for a schedule.
 
-        Supported timezone indicators include:
-        - 'Z' for UTC
-        - '+00:00'
-        - '+05:30'
-        - '-08:00'
+    Supported timezone indicators include:
+    - 'Z' for UTC
+    - '+00:00'
+    - '+05:30'
+    - '-08:00'
 
-        Examples:
-        - 2023-10-15T14:30:45Z
-        - 2023-10-15T14:30:45.123+05:30
-        - 2023-10-15T14:30-08:00
-        """
-elif False:
-    BackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
+    Examples:
+    - 2023-10-15T14:30:45Z
+    - 2023-10-15T14:30:45.123+05:30
+    - 2023-10-15T14:30-08:00
+    """
 
 @pulumi.input_type
 class BackupScheduleArgs:
@@ -1033,37 +998,34 @@ class BackupScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class BackupVaultArgsDict(TypedDict):
-        """
-        Backup Vault
-        """
-        storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgsDict']]]
-        """
-        Storage Settings
-        """
-        feature_settings: NotRequired[pulumi.Input['FeatureSettingsArgsDict']]
-        """
-        Feature Settings
-        """
-        monitoring_settings: NotRequired[pulumi.Input['MonitoringSettingsArgsDict']]
-        """
-        Monitoring Settings
-        """
-        replicated_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of replicated regions for Backup Vault
-        """
-        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        ResourceGuardOperationRequests on which LAC check will be performed
-        """
-        security_settings: NotRequired[pulumi.Input['SecuritySettingsArgsDict']]
-        """
-        Security Settings
-        """
-elif False:
-    BackupVaultArgsDict: TypeAlias = Mapping[str, Any]
+class BackupVaultArgsDict(TypedDict):
+    """
+    Backup Vault
+    """
+    storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgsDict']]]
+    """
+    Storage Settings
+    """
+    feature_settings: NotRequired[pulumi.Input['FeatureSettingsArgsDict']]
+    """
+    Feature Settings
+    """
+    monitoring_settings: NotRequired[pulumi.Input['MonitoringSettingsArgsDict']]
+    """
+    Monitoring Settings
+    """
+    replicated_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of replicated regions for Backup Vault
+    """
+    resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    ResourceGuardOperationRequests on which LAC check will be performed
+    """
+    security_settings: NotRequired[pulumi.Input['SecuritySettingsArgsDict']]
+    """
+    Security Settings
+    """
 
 @pulumi.input_type
 class BackupVaultArgs:
@@ -1168,22 +1130,19 @@ class BackupVaultArgs:
         pulumi.set(self, "security_settings", value)
 
 
-if not MYPY:
-    class BlobBackupDatasourceParametersArgsDict(TypedDict):
-        """
-        Parameters to be used during configuration of backup of blobs
-        """
-        containers_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of containers to be backed up during configuration of backup of blobs
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'BlobBackupDatasourceParameters'.
-        """
-elif False:
-    BlobBackupDatasourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+class BlobBackupDatasourceParametersArgsDict(TypedDict):
+    """
+    Parameters to be used during configuration of backup of blobs
+    """
+    containers_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of containers to be backed up during configuration of backup of blobs
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'BlobBackupDatasourceParameters'.
+    """
 
 @pulumi.input_type
 class BlobBackupDatasourceParametersArgs:
@@ -1225,21 +1184,18 @@ class BlobBackupDatasourceParametersArgs:
         pulumi.set(self, "object_type", value)
 
 
-if not MYPY:
-    class CmkKekIdentityArgsDict(TypedDict):
-        """
-        The details of the managed identity used for CMK
-        """
-        identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed identity to be used which has access permissions to the Key Vault. Provide a value here in case identity types: 'UserAssigned' only.
-        """
-        identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        """
-        The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
-        """
-elif False:
-    CmkKekIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class CmkKekIdentityArgsDict(TypedDict):
+    """
+    The details of the managed identity used for CMK
+    """
+    identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed identity to be used which has access permissions to the Key Vault. Provide a value here in case identity types: 'UserAssigned' only.
+    """
+    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    """
+    The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
+    """
 
 @pulumi.input_type
 class CmkKekIdentityArgs:
@@ -1281,17 +1237,14 @@ class CmkKekIdentityArgs:
         pulumi.set(self, "identity_type", value)
 
 
-if not MYPY:
-    class CmkKeyVaultPropertiesArgsDict(TypedDict):
-        """
-        The properties of the Key Vault which hosts CMK
-        """
-        key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key uri of the Customer Managed Key
-        """
-elif False:
-    CmkKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CmkKeyVaultPropertiesArgsDict(TypedDict):
+    """
+    The properties of the Key Vault which hosts CMK
+    """
+    key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key uri of the Customer Managed Key
+    """
 
 @pulumi.input_type
 class CmkKeyVaultPropertiesArgs:
@@ -1317,18 +1270,15 @@ class CmkKeyVaultPropertiesArgs:
         pulumi.set(self, "key_uri", value)
 
 
-if not MYPY:
-    class CopyOnExpiryOptionArgsDict(TypedDict):
-        """
-        Copy on Expiry Option
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'CopyOnExpiryOption'.
-        """
-elif False:
-    CopyOnExpiryOptionArgsDict: TypeAlias = Mapping[str, Any]
+class CopyOnExpiryOptionArgsDict(TypedDict):
+    """
+    Copy on Expiry Option
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'CopyOnExpiryOption'.
+    """
 
 @pulumi.input_type
 class CopyOnExpiryOptionArgs:
@@ -1355,14 +1305,11 @@ class CopyOnExpiryOptionArgs:
         pulumi.set(self, "object_type", value)
 
 
-if not MYPY:
-    class CrossRegionRestoreSettingsArgsDict(TypedDict):
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossRegionRestoreState']]]
-        """
-        CrossRegionRestore state
-        """
-elif False:
-    CrossRegionRestoreSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CrossRegionRestoreSettingsArgsDict(TypedDict):
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossRegionRestoreState']]]
+    """
+    CrossRegionRestore state
+    """
 
 @pulumi.input_type
 class CrossRegionRestoreSettingsArgs:
@@ -1387,17 +1334,14 @@ class CrossRegionRestoreSettingsArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class CrossSubscriptionRestoreSettingsArgsDict(TypedDict):
-        """
-        CrossSubscriptionRestore Settings
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossSubscriptionRestoreState']]]
-        """
-        CrossSubscriptionRestore state
-        """
-elif False:
-    CrossSubscriptionRestoreSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CrossSubscriptionRestoreSettingsArgsDict(TypedDict):
+    """
+    CrossSubscriptionRestore Settings
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossSubscriptionRestoreState']]]
+    """
+    CrossSubscriptionRestore state
+    """
 
 @pulumi.input_type
 class CrossSubscriptionRestoreSettingsArgs:
@@ -1423,22 +1367,19 @@ class CrossSubscriptionRestoreSettingsArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class CustomCopyOptionArgsDict(TypedDict):
-        """
-        Duration based custom options to copy
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'CustomCopyOption'.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Data copied after given timespan
-        """
-elif False:
-    CustomCopyOptionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomCopyOptionArgsDict(TypedDict):
+    """
+    Duration based custom options to copy
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'CustomCopyOption'.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Data copied after given timespan
+    """
 
 @pulumi.input_type
 class CustomCopyOptionArgs:
@@ -1481,21 +1422,18 @@ class CustomCopyOptionArgs:
         pulumi.set(self, "duration", value)
 
 
-if not MYPY:
-    class DataStoreInfoBaseArgsDict(TypedDict):
-        """
-        DataStoreInfo base
-        """
-        data_store_type: pulumi.Input[Union[_builtins.str, 'DataStoreTypes']]
-        """
-        type of datastore; Operational/Vault/Archive
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of Datasource object, used to initialize the right inherited type
-        """
-elif False:
-    DataStoreInfoBaseArgsDict: TypeAlias = Mapping[str, Any]
+class DataStoreInfoBaseArgsDict(TypedDict):
+    """
+    DataStoreInfo base
+    """
+    data_store_type: pulumi.Input[Union[_builtins.str, 'DataStoreTypes']]
+    """
+    type of datastore; Operational/Vault/Archive
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of Datasource object, used to initialize the right inherited type
+    """
 
 @pulumi.input_type
 class DataStoreInfoBaseArgs:
@@ -1535,45 +1473,42 @@ class DataStoreInfoBaseArgs:
         pulumi.set(self, "object_type", value)
 
 
-if not MYPY:
-    class DatasourceSetArgsDict(TypedDict):
-        """
-        DatasourceSet details of datasource to be backed up
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
-        """
-        datasource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DatasourceType of the resource.
-        """
-        object_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of Datasource object, used to initialize the right inherited type
-        """
-        resource_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of datasource.
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier of the resource in the context of parent.
-        """
-        resource_properties: NotRequired[pulumi.Input['DefaultResourcePropertiesArgsDict']]
-        """
-        Properties specific to data source set
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Type of Datasource.
-        """
-        resource_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of the resource.
-        """
-elif False:
-    DatasourceSetArgsDict: TypeAlias = Mapping[str, Any]
+class DatasourceSetArgsDict(TypedDict):
+    """
+    DatasourceSet details of datasource to be backed up
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
+    """
+    datasource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DatasourceType of the resource.
+    """
+    object_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of Datasource object, used to initialize the right inherited type
+    """
+    resource_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of datasource.
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier of the resource in the context of parent.
+    """
+    resource_properties: NotRequired[pulumi.Input['DefaultResourcePropertiesArgsDict']]
+    """
+    Properties specific to data source set
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Type of Datasource.
+    """
+    resource_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of the resource.
+    """
 
 @pulumi.input_type
 class DatasourceSetArgs:
@@ -1710,45 +1645,42 @@ class DatasourceSetArgs:
         pulumi.set(self, "resource_uri", value)
 
 
-if not MYPY:
-    class DatasourceArgsDict(TypedDict):
-        """
-        Datasource to be backed up
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
-        """
-        datasource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DatasourceType of the resource.
-        """
-        object_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of Datasource object, used to initialize the right inherited type
-        """
-        resource_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of datasource.
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier of the resource in the context of parent.
-        """
-        resource_properties: NotRequired[pulumi.Input['DefaultResourcePropertiesArgsDict']]
-        """
-        Properties specific to data source
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Type of Datasource.
-        """
-        resource_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of the resource.
-        """
-elif False:
-    DatasourceArgsDict: TypeAlias = Mapping[str, Any]
+class DatasourceArgsDict(TypedDict):
+    """
+    Datasource to be backed up
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
+    """
+    datasource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DatasourceType of the resource.
+    """
+    object_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of Datasource object, used to initialize the right inherited type
+    """
+    resource_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of datasource.
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier of the resource in the context of parent.
+    """
+    resource_properties: NotRequired[pulumi.Input['DefaultResourcePropertiesArgsDict']]
+    """
+    Properties specific to data source
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Type of Datasource.
+    """
+    resource_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of the resource.
+    """
 
 @pulumi.input_type
 class DatasourceArgs:
@@ -1885,21 +1817,18 @@ class DatasourceArgs:
         pulumi.set(self, "resource_uri", value)
 
 
-if not MYPY:
-    class DayArgsDict(TypedDict):
-        """
-        Day of the week
-        """
-        date: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Date of the month
-        """
-        is_last: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Date is last date of month
-        """
-elif False:
-    DayArgsDict: TypeAlias = Mapping[str, Any]
+class DayArgsDict(TypedDict):
+    """
+    Day of the week
+    """
+    date: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Date of the month
+    """
+    is_last: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Date is last date of month
+    """
 
 @pulumi.input_type
 class DayArgs:
@@ -1941,18 +1870,15 @@ class DayArgs:
         pulumi.set(self, "is_last", value)
 
 
-if not MYPY:
-    class DefaultResourcePropertiesArgsDict(TypedDict):
-        """
-        Default source properties
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'DefaultResourceProperties'.
-        """
-elif False:
-    DefaultResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultResourcePropertiesArgsDict(TypedDict):
+    """
+    Default source properties
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'DefaultResourceProperties'.
+    """
 
 @pulumi.input_type
 class DefaultResourcePropertiesArgs:
@@ -1979,21 +1905,18 @@ class DefaultResourcePropertiesArgs:
         pulumi.set(self, "object_type", value)
 
 
-if not MYPY:
-    class DppIdentityDetailsArgsDict(TypedDict):
-        """
-        Identity details
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the user assigned identities.
-        """
-elif False:
-    DppIdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DppIdentityDetailsArgsDict(TypedDict):
+    """
+    Identity details
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the user assigned identities.
+    """
 
 @pulumi.input_type
 class DppIdentityDetailsArgs:
@@ -2035,29 +1958,26 @@ class DppIdentityDetailsArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class EncryptionSettingsArgsDict(TypedDict):
-        """
-        Customer Managed Key details of the resource.
-        """
-        infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryptionState']]]
-        """
-        Enabling/Disabling the Double Encryption state
-        """
-        kek_identity: NotRequired[pulumi.Input['CmkKekIdentityArgsDict']]
-        """
-        The details of the managed identity used for CMK
-        """
-        key_vault_properties: NotRequired[pulumi.Input['CmkKeyVaultPropertiesArgsDict']]
-        """
-        The properties of the Key Vault which hosts CMK
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionState']]]
-        """
-        Encryption state of the Backup Vault.
-        """
-elif False:
-    EncryptionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionSettingsArgsDict(TypedDict):
+    """
+    Customer Managed Key details of the resource.
+    """
+    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryptionState']]]
+    """
+    Enabling/Disabling the Double Encryption state
+    """
+    kek_identity: NotRequired[pulumi.Input['CmkKekIdentityArgsDict']]
+    """
+    The details of the managed identity used for CMK
+    """
+    key_vault_properties: NotRequired[pulumi.Input['CmkKeyVaultPropertiesArgsDict']]
+    """
+    The properties of the Key Vault which hosts CMK
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionState']]]
+    """
+    Encryption state of the Backup Vault.
+    """
 
 @pulumi.input_type
 class EncryptionSettingsArgs:
@@ -2131,18 +2051,15 @@ class EncryptionSettingsArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class FeatureSettingsArgsDict(TypedDict):
-        """
-        Class containing feature settings of vault
-        """
-        cross_region_restore_settings: NotRequired[pulumi.Input['CrossRegionRestoreSettingsArgsDict']]
-        cross_subscription_restore_settings: NotRequired[pulumi.Input['CrossSubscriptionRestoreSettingsArgsDict']]
-        """
-        CrossSubscriptionRestore Settings
-        """
-elif False:
-    FeatureSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class FeatureSettingsArgsDict(TypedDict):
+    """
+    Class containing feature settings of vault
+    """
+    cross_region_restore_settings: NotRequired[pulumi.Input['CrossRegionRestoreSettingsArgsDict']]
+    cross_subscription_restore_settings: NotRequired[pulumi.Input['CrossSubscriptionRestoreSettingsArgsDict']]
+    """
+    CrossSubscriptionRestore Settings
+    """
 
 @pulumi.input_type
 class FeatureSettingsArgs:
@@ -2180,18 +2097,15 @@ class FeatureSettingsArgs:
         pulumi.set(self, "cross_subscription_restore_settings", value)
 
 
-if not MYPY:
-    class IdentityDetailsArgsDict(TypedDict):
-        use_system_assigned_identity: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the BI is protected by System Identity.
-        """
-        user_assigned_identity_arm_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM URL for User Assigned Identity.
-        """
-elif False:
-    IdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityDetailsArgsDict(TypedDict):
+    use_system_assigned_identity: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the BI is protected by System Identity.
+    """
+    user_assigned_identity_arm_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM URL for User Assigned Identity.
+    """
 
 @pulumi.input_type
 class IdentityDetailsArgs:
@@ -2232,18 +2146,15 @@ class IdentityDetailsArgs:
         pulumi.set(self, "user_assigned_identity_arm_url", value)
 
 
-if not MYPY:
-    class ImmediateCopyOptionArgsDict(TypedDict):
-        """
-        Immediate copy Option
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'ImmediateCopyOption'.
-        """
-elif False:
-    ImmediateCopyOptionArgsDict: TypeAlias = Mapping[str, Any]
+class ImmediateCopyOptionArgsDict(TypedDict):
+    """
+    Immediate copy Option
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'ImmediateCopyOption'.
+    """
 
 @pulumi.input_type
 class ImmediateCopyOptionArgs:
@@ -2270,17 +2181,14 @@ class ImmediateCopyOptionArgs:
         pulumi.set(self, "object_type", value)
 
 
-if not MYPY:
-    class ImmutabilitySettingsArgsDict(TypedDict):
-        """
-        Immutability Settings at vault level
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'ImmutabilityState']]]
-        """
-        Immutability state
-        """
-elif False:
-    ImmutabilitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ImmutabilitySettingsArgsDict(TypedDict):
+    """
+    Immutability Settings at vault level
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'ImmutabilityState']]]
+    """
+    Immutability state
+    """
 
 @pulumi.input_type
 class ImmutabilitySettingsArgs:
@@ -2306,54 +2214,51 @@ class ImmutabilitySettingsArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class KubernetesClusterBackupDatasourceParametersArgsDict(TypedDict):
-        """
-        Parameters for Kubernetes Cluster Backup Datasource
-        """
-        include_cluster_scope_resources: pulumi.Input[_builtins.bool]
-        """
-        Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'KubernetesClusterBackupDatasourceParameters'.
-        """
-        snapshot_volumes: pulumi.Input[_builtins.bool]
-        """
-        Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup.
-        """
-        backup_hook_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespacedNameResourceArgsDict']]]]
-        """
-        Gets or sets the backup hook references. This property sets the hook reference to be executed during backup.
-        """
-        excluded_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup.
-        """
-        excluded_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup.
-        """
-        included_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the include namespaces property. This property sets the namespaces to be included during backup.
-        """
-        included_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the include resource types property. This property sets the resource types to be included during backup.
-        """
-        included_volume_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AKSVolumeTypes']]]]]
-        """
-        Gets or sets the include volume types property. This property sets the volume types to be included during backup.
-        """
-        label_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup.
-        """
-elif False:
-    KubernetesClusterBackupDatasourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+class KubernetesClusterBackupDatasourceParametersArgsDict(TypedDict):
+    """
+    Parameters for Kubernetes Cluster Backup Datasource
+    """
+    include_cluster_scope_resources: pulumi.Input[_builtins.bool]
+    """
+    Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'KubernetesClusterBackupDatasourceParameters'.
+    """
+    snapshot_volumes: pulumi.Input[_builtins.bool]
+    """
+    Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup.
+    """
+    backup_hook_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespacedNameResourceArgsDict']]]]
+    """
+    Gets or sets the backup hook references. This property sets the hook reference to be executed during backup.
+    """
+    excluded_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup.
+    """
+    excluded_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup.
+    """
+    included_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the include namespaces property. This property sets the namespaces to be included during backup.
+    """
+    included_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the include resource types property. This property sets the resource types to be included during backup.
+    """
+    included_volume_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AKSVolumeTypes']]]]]
+    """
+    Gets or sets the include volume types property. This property sets the volume types to be included during backup.
+    """
+    label_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup.
+    """
 
 @pulumi.input_type
 class KubernetesClusterBackupDatasourceParametersArgs:
@@ -2522,17 +2427,14 @@ class KubernetesClusterBackupDatasourceParametersArgs:
         pulumi.set(self, "label_selectors", value)
 
 
-if not MYPY:
-    class MonitoringSettingsArgsDict(TypedDict):
-        """
-        Monitoring Settings
-        """
-        azure_monitor_alert_settings: NotRequired[pulumi.Input['AzureMonitorAlertSettingsArgsDict']]
-        """
-        Settings for Azure Monitor based alerts
-        """
-elif False:
-    MonitoringSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class MonitoringSettingsArgsDict(TypedDict):
+    """
+    Monitoring Settings
+    """
+    azure_monitor_alert_settings: NotRequired[pulumi.Input['AzureMonitorAlertSettingsArgsDict']]
+    """
+    Settings for Azure Monitor based alerts
+    """
 
 @pulumi.input_type
 class MonitoringSettingsArgs:
@@ -2558,21 +2460,18 @@ class MonitoringSettingsArgs:
         pulumi.set(self, "azure_monitor_alert_settings", value)
 
 
-if not MYPY:
-    class NamespacedNameResourceArgsDict(TypedDict):
-        """
-        Class to refer resources which contains namespace and name
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the resource
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace in which the resource exists
-        """
-elif False:
-    NamespacedNameResourceArgsDict: TypeAlias = Mapping[str, Any]
+class NamespacedNameResourceArgsDict(TypedDict):
+    """
+    Class to refer resources which contains namespace and name
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Namespace in which the resource exists
+    """
 
 @pulumi.input_type
 class NamespacedNameResourceArgs:
@@ -2614,18 +2513,15 @@ class NamespacedNameResourceArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class PolicyInfoArgsDict(TypedDict):
-        """
-        Policy Info in backupInstance
-        """
-        policy_id: pulumi.Input[_builtins.str]
-        policy_parameters: NotRequired[pulumi.Input['PolicyParametersArgsDict']]
-        """
-        Policy parameters for the backup instance
-        """
-elif False:
-    PolicyInfoArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyInfoArgsDict(TypedDict):
+    """
+    Policy Info in backupInstance
+    """
+    policy_id: pulumi.Input[_builtins.str]
+    policy_parameters: NotRequired[pulumi.Input['PolicyParametersArgsDict']]
+    """
+    Policy parameters for the backup instance
+    """
 
 @pulumi.input_type
 class PolicyInfoArgs:
@@ -2662,21 +2558,18 @@ class PolicyInfoArgs:
         pulumi.set(self, "policy_parameters", value)
 
 
-if not MYPY:
-    class PolicyParametersArgsDict(TypedDict):
-        """
-        Parameters in Policy
-        """
-        backup_datasource_parameters_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BlobBackupDatasourceParametersArgsDict', 'KubernetesClusterBackupDatasourceParametersArgsDict']]]]]
-        """
-        Gets or sets the Backup Data Source Parameters
-        """
-        data_store_parameters_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureOperationalStoreParametersArgsDict']]]]
-        """
-        Gets or sets the DataStore Parameters
-        """
-elif False:
-    PolicyParametersArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyParametersArgsDict(TypedDict):
+    """
+    Parameters in Policy
+    """
+    backup_datasource_parameters_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BlobBackupDatasourceParametersArgsDict', 'KubernetesClusterBackupDatasourceParametersArgsDict']]]]]
+    """
+    Gets or sets the Backup Data Source Parameters
+    """
+    data_store_parameters_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureOperationalStoreParametersArgsDict']]]]
+    """
+    Gets or sets the DataStore Parameters
+    """
 
 @pulumi.input_type
 class PolicyParametersArgs:
@@ -2718,15 +2611,12 @@ class PolicyParametersArgs:
         pulumi.set(self, "data_store_parameters_list", value)
 
 
-if not MYPY:
-    class ResourceGuardOperationDetailArgsDict(TypedDict):
-        """
-        VaultCritical Operation protected by a resource guard
-        """
-        default_resource_request: NotRequired[pulumi.Input[_builtins.str]]
-        vault_critical_operation: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ResourceGuardOperationDetailArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGuardOperationDetailArgsDict(TypedDict):
+    """
+    VaultCritical Operation protected by a resource guard
+    """
+    default_resource_request: NotRequired[pulumi.Input[_builtins.str]]
+    vault_critical_operation: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ResourceGuardOperationDetailArgs:
@@ -2760,17 +2650,14 @@ class ResourceGuardOperationDetailArgs:
         pulumi.set(self, "vault_critical_operation", value)
 
 
-if not MYPY:
-    class ResourceGuardProxyBaseArgsDict(TypedDict):
-        """
-        ResourceGuardProxyBase object, used in ResourceGuardProxyBaseResource
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        resource_guard_operation_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgsDict']]]]
-        resource_guard_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ResourceGuardProxyBaseArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGuardProxyBaseArgsDict(TypedDict):
+    """
+    ResourceGuardProxyBase object, used in ResourceGuardProxyBaseResource
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    resource_guard_operation_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgsDict']]]]
+    resource_guard_resource_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ResourceGuardProxyBaseArgs:
@@ -2828,14 +2715,11 @@ class ResourceGuardProxyBaseArgs:
         pulumi.set(self, "resource_guard_resource_id", value)
 
 
-if not MYPY:
-    class ResourceGuardArgsDict(TypedDict):
-        vault_critical_operation_exclusion_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of critical operations which are not protected by this resourceGuard
-        """
-elif False:
-    ResourceGuardArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGuardArgsDict(TypedDict):
+    vault_critical_operation_exclusion_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of critical operations which are not protected by this resourceGuard
+    """
 
 @pulumi.input_type
 class ResourceGuardArgs:
@@ -2860,17 +2744,14 @@ class ResourceGuardArgs:
         pulumi.set(self, "vault_critical_operation_exclusion_list", value)
 
 
-if not MYPY:
-    class RetentionTagArgsDict(TypedDict):
-        """
-        Retention tag
-        """
-        tag_name: pulumi.Input[_builtins.str]
-        """
-        Retention Tag Name to relate it to retention rule.
-        """
-elif False:
-    RetentionTagArgsDict: TypeAlias = Mapping[str, Any]
+class RetentionTagArgsDict(TypedDict):
+    """
+    Retention tag
+    """
+    tag_name: pulumi.Input[_builtins.str]
+    """
+    Retention Tag Name to relate it to retention rule.
+    """
 
 @pulumi.input_type
 class RetentionTagArgs:
@@ -2895,43 +2776,40 @@ class RetentionTagArgs:
         pulumi.set(self, "tag_name", value)
 
 
-if not MYPY:
-    class ScheduleBasedBackupCriteriaArgsDict(TypedDict):
-        """
-        Schedule based backup criteria
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'ScheduleBasedBackupCriteria'.
-        """
-        absolute_criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AbsoluteMarker']]]]]
-        """
-        it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
-        and should be part of AbsoluteMarker enum
-        """
-        days_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayArgsDict']]]]
-        """
-        This is day of the month from 1 to 28 other wise last of month
-        """
-        days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]
-        """
-        It should be Sunday/Monday/T..../Saturday
-        """
-        months_of_year: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Month']]]]]
-        """
-        It should be January/February/....../December
-        """
-        schedule_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of schedule times for backup
-        """
-        weeks_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeekNumber']]]]]
-        """
-        It should be First/Second/Third/Fourth/Last
-        """
-elif False:
-    ScheduleBasedBackupCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleBasedBackupCriteriaArgsDict(TypedDict):
+    """
+    Schedule based backup criteria
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'ScheduleBasedBackupCriteria'.
+    """
+    absolute_criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AbsoluteMarker']]]]]
+    """
+    it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
+    and should be part of AbsoluteMarker enum
+    """
+    days_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayArgsDict']]]]
+    """
+    This is day of the month from 1 to 28 other wise last of month
+    """
+    days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]
+    """
+    It should be Sunday/Monday/T..../Saturday
+    """
+    months_of_year: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Month']]]]]
+    """
+    It should be January/February/....../December
+    """
+    schedule_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of schedule times for backup
+    """
+    weeks_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeekNumber']]]]]
+    """
+    It should be First/Second/Third/Fourth/Last
+    """
 
 @pulumi.input_type
 class ScheduleBasedBackupCriteriaArgs:
@@ -3056,26 +2934,23 @@ class ScheduleBasedBackupCriteriaArgs:
         pulumi.set(self, "weeks_of_the_month", value)
 
 
-if not MYPY:
-    class ScheduleBasedTriggerContextArgsDict(TypedDict):
-        """
-        Schedule based trigger context
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'ScheduleBasedTriggerContext'.
-        """
-        schedule: pulumi.Input['BackupScheduleArgsDict']
-        """
-        Schedule for this backup
-        """
-        tagging_criteria: pulumi.Input[Sequence[pulumi.Input['TaggingCriteriaArgsDict']]]
-        """
-        List of tags that can be applicable for given schedule.
-        """
-elif False:
-    ScheduleBasedTriggerContextArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleBasedTriggerContextArgsDict(TypedDict):
+    """
+    Schedule based trigger context
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'ScheduleBasedTriggerContext'.
+    """
+    schedule: pulumi.Input['BackupScheduleArgsDict']
+    """
+    Schedule for this backup
+    """
+    tagging_criteria: pulumi.Input[Sequence[pulumi.Input['TaggingCriteriaArgsDict']]]
+    """
+    List of tags that can be applicable for given schedule.
+    """
 
 @pulumi.input_type
 class ScheduleBasedTriggerContextArgs:
@@ -3132,22 +3007,19 @@ class ScheduleBasedTriggerContextArgs:
         pulumi.set(self, "tagging_criteria", value)
 
 
-if not MYPY:
-    class SecretStoreBasedAuthCredentialsArgsDict(TypedDict):
-        """
-        Secret store based authentication credentials.
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'SecretStoreBasedAuthCredentials'.
-        """
-        secret_store_resource: NotRequired[pulumi.Input['SecretStoreResourceArgsDict']]
-        """
-        Secret store resource
-        """
-elif False:
-    SecretStoreBasedAuthCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SecretStoreBasedAuthCredentialsArgsDict(TypedDict):
+    """
+    Secret store based authentication credentials.
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    Type of the specific object - used for deserializing
+    Expected value is 'SecretStoreBasedAuthCredentials'.
+    """
+    secret_store_resource: NotRequired[pulumi.Input['SecretStoreResourceArgsDict']]
+    """
+    Secret store resource
+    """
 
 @pulumi.input_type
 class SecretStoreBasedAuthCredentialsArgs:
@@ -3190,25 +3062,22 @@ class SecretStoreBasedAuthCredentialsArgs:
         pulumi.set(self, "secret_store_resource", value)
 
 
-if not MYPY:
-    class SecretStoreResourceArgsDict(TypedDict):
-        """
-        Class representing a secret store resource.
-        """
-        secret_store_type: pulumi.Input[Union[_builtins.str, 'SecretStoreType']]
-        """
-        Gets or sets the type of secret store
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri to get to the resource
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets value stored in secret store resource
-        """
-elif False:
-    SecretStoreResourceArgsDict: TypeAlias = Mapping[str, Any]
+class SecretStoreResourceArgsDict(TypedDict):
+    """
+    Class representing a secret store resource.
+    """
+    secret_store_type: pulumi.Input[Union[_builtins.str, 'SecretStoreType']]
+    """
+    Gets or sets the type of secret store
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri to get to the resource
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets value stored in secret store resource
+    """
 
 @pulumi.input_type
 class SecretStoreResourceArgs:
@@ -3265,25 +3134,22 @@ class SecretStoreResourceArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SecuritySettingsArgsDict(TypedDict):
-        """
-        Class containing security settings of vault
-        """
-        encryption_settings: NotRequired[pulumi.Input['EncryptionSettingsArgsDict']]
-        """
-        Customer Managed Key details of the resource.
-        """
-        immutability_settings: NotRequired[pulumi.Input['ImmutabilitySettingsArgsDict']]
-        """
-        Immutability Settings at vault level
-        """
-        soft_delete_settings: NotRequired[pulumi.Input['SoftDeleteSettingsArgsDict']]
-        """
-        Soft delete related settings
-        """
-elif False:
-    SecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SecuritySettingsArgsDict(TypedDict):
+    """
+    Class containing security settings of vault
+    """
+    encryption_settings: NotRequired[pulumi.Input['EncryptionSettingsArgsDict']]
+    """
+    Customer Managed Key details of the resource.
+    """
+    immutability_settings: NotRequired[pulumi.Input['ImmutabilitySettingsArgsDict']]
+    """
+    Immutability Settings at vault level
+    """
+    soft_delete_settings: NotRequired[pulumi.Input['SoftDeleteSettingsArgsDict']]
+    """
+    Soft delete related settings
+    """
 
 @pulumi.input_type
 class SecuritySettingsArgs:
@@ -3341,21 +3207,18 @@ class SecuritySettingsArgs:
         pulumi.set(self, "soft_delete_settings", value)
 
 
-if not MYPY:
-    class SoftDeleteSettingsArgsDict(TypedDict):
-        """
-        Soft delete related settings
-        """
-        retention_duration_in_days: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Soft delete retention duration
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'SoftDeleteState']]]
-        """
-        State of soft delete
-        """
-elif False:
-    SoftDeleteSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SoftDeleteSettingsArgsDict(TypedDict):
+    """
+    Soft delete related settings
+    """
+    retention_duration_in_days: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Soft delete retention duration
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'SoftDeleteState']]]
+    """
+    State of soft delete
+    """
 
 @pulumi.input_type
 class SoftDeleteSettingsArgs:
@@ -3397,22 +3260,19 @@ class SoftDeleteSettingsArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class SourceLifeCycleArgsDict(TypedDict):
-        """
-        Source LifeCycle
-        """
-        delete_after: pulumi.Input['AbsoluteDeleteOptionArgsDict']
-        """
-        Delete Option
-        """
-        source_data_store: pulumi.Input['DataStoreInfoBaseArgsDict']
-        """
-        DataStoreInfo base
-        """
-        target_data_store_copy_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetCopySettingArgsDict']]]]
-elif False:
-    SourceLifeCycleArgsDict: TypeAlias = Mapping[str, Any]
+class SourceLifeCycleArgsDict(TypedDict):
+    """
+    Source LifeCycle
+    """
+    delete_after: pulumi.Input['AbsoluteDeleteOptionArgsDict']
+    """
+    Delete Option
+    """
+    source_data_store: pulumi.Input['DataStoreInfoBaseArgsDict']
+    """
+    DataStoreInfo base
+    """
+    target_data_store_copy_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetCopySettingArgsDict']]]]
 
 @pulumi.input_type
 class SourceLifeCycleArgs:
@@ -3464,21 +3324,18 @@ class SourceLifeCycleArgs:
         pulumi.set(self, "target_data_store_copy_settings", value)
 
 
-if not MYPY:
-    class StorageSettingArgsDict(TypedDict):
-        """
-        Storage setting
-        """
-        datastore_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageSettingStoreTypes']]]
-        """
-        Gets or sets the type of the datastore.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageSettingTypes']]]
-        """
-        Gets or sets the type.
-        """
-elif False:
-    StorageSettingArgsDict: TypeAlias = Mapping[str, Any]
+class StorageSettingArgsDict(TypedDict):
+    """
+    Storage setting
+    """
+    datastore_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageSettingStoreTypes']]]
+    """
+    Gets or sets the type of the datastore.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageSettingTypes']]]
+    """
+    Gets or sets the type.
+    """
 
 @pulumi.input_type
 class StorageSettingArgs:
@@ -3520,29 +3377,26 @@ class StorageSettingArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TaggingCriteriaArgsDict(TypedDict):
-        """
-        Tagging criteria
-        """
-        is_default: pulumi.Input[_builtins.bool]
-        """
-        Specifies if tag is default.
-        """
-        tag_info: pulumi.Input['RetentionTagArgsDict']
-        """
-        Retention tag information
-        """
-        tagging_priority: pulumi.Input[_builtins.float]
-        """
-        Retention Tag priority.
-        """
-        criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleBasedBackupCriteriaArgsDict']]]]
-        """
-        Criteria which decides whether the tag can be applied to a triggered backup.
-        """
-elif False:
-    TaggingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class TaggingCriteriaArgsDict(TypedDict):
+    """
+    Tagging criteria
+    """
+    is_default: pulumi.Input[_builtins.bool]
+    """
+    Specifies if tag is default.
+    """
+    tag_info: pulumi.Input['RetentionTagArgsDict']
+    """
+    Retention tag information
+    """
+    tagging_priority: pulumi.Input[_builtins.float]
+    """
+    Retention Tag priority.
+    """
+    criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleBasedBackupCriteriaArgsDict']]]]
+    """
+    Criteria which decides whether the tag can be applied to a triggered backup.
+    """
 
 @pulumi.input_type
 class TaggingCriteriaArgs:
@@ -3613,21 +3467,18 @@ class TaggingCriteriaArgs:
         pulumi.set(self, "criteria", value)
 
 
-if not MYPY:
-    class TargetCopySettingArgsDict(TypedDict):
-        """
-        Target copy settings
-        """
-        copy_after: pulumi.Input[Union['CopyOnExpiryOptionArgsDict', 'CustomCopyOptionArgsDict', 'ImmediateCopyOptionArgsDict']]
-        """
-        It can be CustomCopyOption or ImmediateCopyOption.
-        """
-        data_store: pulumi.Input['DataStoreInfoBaseArgsDict']
-        """
-        Info of target datastore
-        """
-elif False:
-    TargetCopySettingArgsDict: TypeAlias = Mapping[str, Any]
+class TargetCopySettingArgsDict(TypedDict):
+    """
+    Target copy settings
+    """
+    copy_after: pulumi.Input[Union['CopyOnExpiryOptionArgsDict', 'CustomCopyOptionArgsDict', 'ImmediateCopyOptionArgsDict']]
+    """
+    It can be CustomCopyOption or ImmediateCopyOption.
+    """
+    data_store: pulumi.Input['DataStoreInfoBaseArgsDict']
+    """
+    Info of target datastore
+    """
 
 @pulumi.input_type
 class TargetCopySettingArgs:

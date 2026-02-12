@@ -36,68 +36,63 @@ __all__ = [
     'ServiceBusArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureDataExplorerConnectionPropertiesArgsDict(TypedDict):
-        """
-        Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
-        """
-        adx_database_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Azure Data Explorer database.
-        """
-        adx_endpoint_uri: pulumi.Input[_builtins.str]
-        """
-        The URI of the Azure Data Explorer endpoint.
-        """
-        adx_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the Azure Data Explorer cluster.
-        """
-        connection_type: pulumi.Input[_builtins.str]
-        """
-        The type of time series connection resource.
-        Expected value is 'AzureDataExplorer'.
-        """
-        event_hub_endpoint_uri: pulumi.Input[_builtins.str]
-        """
-        The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
-        """
-        event_hub_entity_path: pulumi.Input[_builtins.str]
-        """
-        The EventHub name in the EventHub namespace for identity-based authentication.
-        """
-        event_hub_namespace_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the EventHub namespace.
-        """
-        adx_relationship_lifecycle_events_table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Data Explorer table used for recording relationship lifecycle events. The table will not be created if this property is left unspecified.
-        """
-        adx_table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Data Explorer table used for storing updates to properties of twins and relationships. Defaults to AdtPropertyEvents.
-        """
-        adx_twin_lifecycle_events_table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Data Explorer table used for recording twin lifecycle events. The table will not be created if this property is left unspecified.
-        """
-        event_hub_consumer_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
-        """
-        identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
-        """
-        Managed identity properties for the time series database connection resource.
-        """
-        record_property_and_item_removals: NotRequired[pulumi.Input[Union[_builtins.str, 'RecordPropertyAndItemRemovals']]]
-        """
-        Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
-        """
-elif False:
-    AzureDataExplorerConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AzureDataExplorerConnectionPropertiesArgsDict(TypedDict):
+    """
+    Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
+    """
+    adx_database_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure Data Explorer database.
+    """
+    adx_endpoint_uri: pulumi.Input[_builtins.str]
+    """
+    The URI of the Azure Data Explorer endpoint.
+    """
+    adx_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Azure Data Explorer cluster.
+    """
+    connection_type: pulumi.Input[_builtins.str]
+    """
+    The type of time series connection resource.
+    Expected value is 'AzureDataExplorer'.
+    """
+    event_hub_endpoint_uri: pulumi.Input[_builtins.str]
+    """
+    The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+    """
+    event_hub_entity_path: pulumi.Input[_builtins.str]
+    """
+    The EventHub name in the EventHub namespace for identity-based authentication.
+    """
+    event_hub_namespace_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the EventHub namespace.
+    """
+    adx_relationship_lifecycle_events_table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Data Explorer table used for recording relationship lifecycle events. The table will not be created if this property is left unspecified.
+    """
+    adx_table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Data Explorer table used for storing updates to properties of twins and relationships. Defaults to AdtPropertyEvents.
+    """
+    adx_twin_lifecycle_events_table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Data Explorer table used for recording twin lifecycle events. The table will not be created if this property is left unspecified.
+    """
+    event_hub_consumer_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+    """
+    identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
+    """
+    Managed identity properties for the time series database connection resource.
+    """
+    record_property_and_item_removals: NotRequired[pulumi.Input[Union[_builtins.str, 'RecordPropertyAndItemRemovals']]]
+    """
+    Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
+    """
 
 @pulumi.input_type
 class AzureDataExplorerConnectionPropertiesArgs:
@@ -316,25 +311,22 @@ class AzureDataExplorerConnectionPropertiesArgs:
         pulumi.set(self, "record_property_and_item_removals", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        The connection state.
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        The description for the current state of a private endpoint connection.
-        """
-        status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]
-        """
-        The status of a private endpoint connection.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Actions required for a private endpoint connection.
-        """
-elif False:
-    ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    The connection state.
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    The description for the current state of a private endpoint connection.
+    """
+    status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]
+    """
+    The status of a private endpoint connection.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Actions required for a private endpoint connection.
+    """
 
 @pulumi.input_type
 class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
@@ -390,21 +382,18 @@ class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "actions_required", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesArgsDict(TypedDict):
-        """
-        The properties of a private endpoint connection.
-        """
-        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of group ids for the private endpoint connection.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]
-        """
-        The connection state.
-        """
-elif False:
-    ConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesArgsDict(TypedDict):
+    """
+    The properties of a private endpoint connection.
+    """
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of group ids for the private endpoint connection.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]
+    """
+    The connection state.
+    """
 
 @pulumi.input_type
 class ConnectionPropertiesArgs:
@@ -446,23 +435,20 @@ class ConnectionPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class DigitalTwinsIdentityArgsDict(TypedDict):
-        """
-        The managed identity for the DigitalTwinsInstance.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'DigitalTwinsIdentityType']]]
-        """
-        The type of Managed Identity used by the DigitalTwinsInstance.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        .
-        """
-elif False:
-    DigitalTwinsIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class DigitalTwinsIdentityArgsDict(TypedDict):
+    """
+    The managed identity for the DigitalTwinsInstance.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DigitalTwinsIdentityType']]]
+    """
+    The type of Managed Identity used by the DigitalTwinsInstance.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+    '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    .
+    """
 
 @pulumi.input_type
 class DigitalTwinsIdentityArgs:
@@ -508,46 +494,43 @@ class DigitalTwinsIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class EventGridArgsDict(TypedDict):
-        """
-        Properties related to EventGrid.
-        """
-        access_key1: pulumi.Input[_builtins.str]
-        """
-        EventGrid secondary accesskey. Will be obfuscated during read.
-        """
-        endpoint_type: pulumi.Input[_builtins.str]
-        """
-        The type of Digital Twins endpoint
-        Expected value is 'EventGrid'.
-        """
-        topic_endpoint: pulumi.Input[_builtins.str]
-        """
-        EventGrid Topic Endpoint.
-        """
-        access_key2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        EventGrid secondary accesskey. Will be obfuscated during read.
-        """
-        authentication_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
-        """
-        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
-        """
-        dead_letter_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-        """
-        dead_letter_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dead letter storage URL for identity-based authentication.
-        """
-        identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
-        """
-        Managed identity properties for the endpoint.
-        """
-elif False:
-    EventGridArgsDict: TypeAlias = Mapping[str, Any]
+class EventGridArgsDict(TypedDict):
+    """
+    Properties related to EventGrid.
+    """
+    access_key1: pulumi.Input[_builtins.str]
+    """
+    EventGrid secondary accesskey. Will be obfuscated during read.
+    """
+    endpoint_type: pulumi.Input[_builtins.str]
+    """
+    The type of Digital Twins endpoint
+    Expected value is 'EventGrid'.
+    """
+    topic_endpoint: pulumi.Input[_builtins.str]
+    """
+    EventGrid Topic Endpoint.
+    """
+    access_key2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    EventGrid secondary accesskey. Will be obfuscated during read.
+    """
+    authentication_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    """
+    Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+    """
+    dead_letter_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+    """
+    dead_letter_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dead letter storage URL for identity-based authentication.
+    """
+    identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
+    """
+    Managed identity properties for the endpoint.
+    """
 
 @pulumi.input_type
 class EventGridArgs:
@@ -684,50 +667,47 @@ class EventGridArgs:
         pulumi.set(self, "identity", value)
 
 
-if not MYPY:
-    class EventHubArgsDict(TypedDict):
-        """
-        Properties related to EventHub.
-        """
-        endpoint_type: pulumi.Input[_builtins.str]
-        """
-        The type of Digital Twins endpoint
-        Expected value is 'EventHub'.
-        """
-        authentication_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
-        """
-        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
-        """
-        connection_string_primary_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-        """
-        connection_string_secondary_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-        """
-        dead_letter_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-        """
-        dead_letter_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dead letter storage URL for identity-based authentication.
-        """
-        endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.
-        """
-        entity_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The EventHub name in the EventHub namespace for identity-based authentication.
-        """
-        identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
-        """
-        Managed identity properties for the endpoint.
-        """
-elif False:
-    EventHubArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubArgsDict(TypedDict):
+    """
+    Properties related to EventHub.
+    """
+    endpoint_type: pulumi.Input[_builtins.str]
+    """
+    The type of Digital Twins endpoint
+    Expected value is 'EventHub'.
+    """
+    authentication_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    """
+    Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+    """
+    connection_string_primary_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+    """
+    connection_string_secondary_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+    """
+    dead_letter_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+    """
+    dead_letter_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dead letter storage URL for identity-based authentication.
+    """
+    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.
+    """
+    entity_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The EventHub name in the EventHub namespace for identity-based authentication.
+    """
+    identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
+    """
+    Managed identity properties for the endpoint.
+    """
 
 @pulumi.input_type
 class EventHubArgs:
@@ -882,21 +862,18 @@ class EventHubArgs:
         pulumi.set(self, "identity", value)
 
 
-if not MYPY:
-    class ManagedIdentityReferenceArgsDict(TypedDict):
-        """
-        The properties of the Managed Identity.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        """
-        The type of managed identity used.
-        """
-        user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user identity ARM resource id if the managed identity type is 'UserAssigned'.
-        """
-elif False:
-    ManagedIdentityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityReferenceArgsDict(TypedDict):
+    """
+    The properties of the Managed Identity.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    """
+    The type of managed identity used.
+    """
+    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user identity ARM resource id if the managed identity type is 'UserAssigned'.
+    """
 
 @pulumi.input_type
 class ManagedIdentityReferenceArgs:
@@ -938,17 +915,14 @@ class ManagedIdentityReferenceArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        The private endpoint connection of a Digital Twin.
-        """
-        properties: pulumi.Input['ConnectionPropertiesArgsDict']
-        """
-        The connection properties.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    The private endpoint connection of a Digital Twin.
+    """
+    properties: pulumi.Input['ConnectionPropertiesArgsDict']
+    """
+    The connection properties.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -973,50 +947,47 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class ServiceBusArgsDict(TypedDict):
-        """
-        Properties related to ServiceBus.
-        """
-        endpoint_type: pulumi.Input[_builtins.str]
-        """
-        The type of Digital Twins endpoint
-        Expected value is 'ServiceBus'.
-        """
-        authentication_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
-        """
-        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
-        """
-        dead_letter_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dead letter storage secret for key-based authentication. Will be obfuscated during read.
-        """
-        dead_letter_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dead letter storage URL for identity-based authentication.
-        """
-        endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.
-        """
-        entity_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ServiceBus Topic name for identity-based authentication.
-        """
-        identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
-        """
-        Managed identity properties for the endpoint.
-        """
-        primary_connection_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-        """
-        secondary_connection_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
-        """
-elif False:
-    ServiceBusArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceBusArgsDict(TypedDict):
+    """
+    Properties related to ServiceBus.
+    """
+    endpoint_type: pulumi.Input[_builtins.str]
+    """
+    The type of Digital Twins endpoint
+    Expected value is 'ServiceBus'.
+    """
+    authentication_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]]
+    """
+    Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+    """
+    dead_letter_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+    """
+    dead_letter_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dead letter storage URL for identity-based authentication.
+    """
+    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.
+    """
+    entity_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ServiceBus Topic name for identity-based authentication.
+    """
+    identity: NotRequired[pulumi.Input['ManagedIdentityReferenceArgsDict']]
+    """
+    Managed identity properties for the endpoint.
+    """
+    primary_connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+    """
+    secondary_connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+    """
 
 @pulumi.input_type
 class ServiceBusArgs:

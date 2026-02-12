@@ -70,24 +70,19 @@ __all__ = [
     'VirtualNetworkConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DistributeVersionerLatestArgsDict(TypedDict):
-        """
-        Generates version number that will be latest based on existing version numbers.
-        """
-        scheme: pulumi.Input[_builtins.str]
-        """
-        Version numbering scheme to be used.
-        Expected value is 'Latest'.
-        """
-        major: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Major version for the generated version number. Determine what is "latest" based on versions with this value as the major version. -1 is equivalent to leaving it unset.
-        """
-elif False:
-    DistributeVersionerLatestArgsDict: TypeAlias = Mapping[str, Any]
+class DistributeVersionerLatestArgsDict(TypedDict):
+    """
+    Generates version number that will be latest based on existing version numbers.
+    """
+    scheme: pulumi.Input[_builtins.str]
+    """
+    Version numbering scheme to be used.
+    Expected value is 'Latest'.
+    """
+    major: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Major version for the generated version number. Determine what is "latest" based on versions with this value as the major version. -1 is equivalent to leaving it unset.
+    """
 
 @pulumi.input_type
 class DistributeVersionerLatestArgs:
@@ -132,18 +127,15 @@ class DistributeVersionerLatestArgs:
         pulumi.set(self, "major", value)
 
 
-if not MYPY:
-    class DistributeVersionerSourceArgsDict(TypedDict):
-        """
-        Generates version number based on version number of source image
-        """
-        scheme: pulumi.Input[_builtins.str]
-        """
-        Version numbering scheme to be used.
-        Expected value is 'Source'.
-        """
-elif False:
-    DistributeVersionerSourceArgsDict: TypeAlias = Mapping[str, Any]
+class DistributeVersionerSourceArgsDict(TypedDict):
+    """
+    Generates version number based on version number of source image
+    """
+    scheme: pulumi.Input[_builtins.str]
+    """
+    Version numbering scheme to be used.
+    Expected value is 'Source'.
+    """
 
 @pulumi.input_type
 class DistributeVersionerSourceArgs:
@@ -170,17 +162,14 @@ class DistributeVersionerSourceArgs:
         pulumi.set(self, "scheme", value)
 
 
-if not MYPY:
-    class ImageTemplateAutoRunArgsDict(TypedDict):
-        """
-        Indicates if the image template needs to be built on create/update
-        """
-        state: NotRequired[pulumi.Input['AutoRunState']]
-        """
-        Enabling this field will trigger an automatic build on image template creation or update.
-        """
-elif False:
-    ImageTemplateAutoRunArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateAutoRunArgsDict(TypedDict):
+    """
+    Indicates if the image template needs to be built on create/update
+    """
+    state: NotRequired[pulumi.Input['AutoRunState']]
+    """
+    Enabling this field will trigger an automatic build on image template creation or update.
+    """
 
 @pulumi.input_type
 class ImageTemplateAutoRunArgs:
@@ -206,34 +195,31 @@ class ImageTemplateAutoRunArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class ImageTemplateFileCustomizerArgsDict(TypedDict):
-        """
-        Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        Expected value is 'File'.
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this customization step does
-        """
-        sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SHA256 checksum of the file provided in the sourceUri field above
-        """
-        source_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the file to be uploaded for customizing the VM. It can be a github link, SAS URI for Azure Storage, etc
-        """
-elif False:
-    ImageTemplateFileCustomizerArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateFileCustomizerArgsDict(TypedDict):
+    """
+    Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+    Expected value is 'File'.
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this customization step does
+    """
+    sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SHA256 checksum of the file provided in the sourceUri field above
+    """
+    source_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the file to be uploaded for customizing the VM. It can be a github link, SAS URI for Azure Storage, etc
+    """
 
 @pulumi.input_type
 class ImageTemplateFileCustomizerArgs:
@@ -326,34 +312,31 @@ class ImageTemplateFileCustomizerArgs:
         pulumi.set(self, "source_uri", value)
 
 
-if not MYPY:
-    class ImageTemplateFileValidatorArgsDict(TypedDict):
-        """
-        Uploads files required for validation to VMs (Linux, Windows). Corresponds to Packer file provisioner
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
-        Expected value is 'File'.
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this validation step does
-        """
-        sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SHA256 checksum of the file provided in the sourceUri field above
-        """
-        source_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the file to be uploaded to the VM for validation. It can be a github link, Azure Storage URI (authorized or SAS), etc
-        """
-elif False:
-    ImageTemplateFileValidatorArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateFileValidatorArgsDict(TypedDict):
+    """
+    Uploads files required for validation to VMs (Linux, Windows). Corresponds to Packer file provisioner
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+    Expected value is 'File'.
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this validation step does
+    """
+    sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SHA256 checksum of the file provided in the sourceUri field above
+    """
+    source_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the file to be uploaded to the VM for validation. It can be a github link, Azure Storage URI (authorized or SAS), etc
+    """
 
 @pulumi.input_type
 class ImageTemplateFileValidatorArgs:
@@ -446,21 +429,18 @@ class ImageTemplateFileValidatorArgs:
         pulumi.set(self, "source_uri", value)
 
 
-if not MYPY:
-    class ImageTemplateIdentityArgsDict(TypedDict):
-        """
-        Identity for the image template.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ImageTemplateIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateIdentityArgsDict(TypedDict):
+    """
+    Identity for the image template.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The type of identity used for the image template. The type 'None' will remove any identities from the image template.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ImageTemplateIdentityArgs:
@@ -502,34 +482,31 @@ class ImageTemplateIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ImageTemplateManagedImageDistributorArgsDict(TypedDict):
-        """
-        Distribute as a Managed Disk Image.
-        """
-        image_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of the Managed Disk Image
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        Azure location for the image, should match if image already exists
-        """
-        run_output_name: pulumi.Input[_builtins.str]
-        """
-        The name to be used for the associated RunOutput.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of distribution.
-        Expected value is 'ManagedImage'.
-        """
-        artifact_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tags that will be applied to the artifact once it has been created/updated by the distributor.
-        """
-elif False:
-    ImageTemplateManagedImageDistributorArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateManagedImageDistributorArgsDict(TypedDict):
+    """
+    Distribute as a Managed Disk Image.
+    """
+    image_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of the Managed Disk Image
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    Azure location for the image, should match if image already exists
+    """
+    run_output_name: pulumi.Input[_builtins.str]
+    """
+    The name to be used for the associated RunOutput.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of distribution.
+    Expected value is 'ManagedImage'.
+    """
+    artifact_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tags that will be applied to the artifact once it has been created/updated by the distributor.
+    """
 
 @pulumi.input_type
 class ImageTemplateManagedImageDistributorArgs:
@@ -617,22 +594,19 @@ class ImageTemplateManagedImageDistributorArgs:
         pulumi.set(self, "artifact_tags", value)
 
 
-if not MYPY:
-    class ImageTemplateManagedImageSourceArgsDict(TypedDict):
-        """
-        Describes an image source that is a managed image in customer subscription. This image must reside in the same subscription and region as the Image Builder template.
-        """
-        image_id: pulumi.Input[_builtins.str]
-        """
-        ARM resource id of the managed image in customer subscription
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of source image you want to start with.
-        Expected value is 'ManagedImage'.
-        """
-elif False:
-    ImageTemplateManagedImageSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateManagedImageSourceArgsDict(TypedDict):
+    """
+    Describes an image source that is a managed image in customer subscription. This image must reside in the same subscription and region as the Image Builder template.
+    """
+    image_id: pulumi.Input[_builtins.str]
+    """
+    ARM resource id of the managed image in customer subscription
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of source image you want to start with.
+    Expected value is 'ManagedImage'.
+    """
 
 @pulumi.input_type
 class ImageTemplateManagedImageSourceArgs:
@@ -674,38 +648,35 @@ class ImageTemplateManagedImageSourceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ImageTemplatePlatformImageSourceArgsDict(TypedDict):
-        """
-        Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of source image you want to start with.
-        Expected value is 'PlatformImage'.
-        """
-        offer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        """
-        plan_info: NotRequired[pulumi.Input['PlatformImagePurchasePlanArgsDict']]
-        """
-        Optional configuration of purchase plan for platform image.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        """
-        sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
-        """
-elif False:
-    ImageTemplatePlatformImageSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplatePlatformImageSourceArgsDict(TypedDict):
+    """
+    Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of source image you want to start with.
+    Expected value is 'PlatformImage'.
+    """
+    offer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+    """
+    plan_info: NotRequired[pulumi.Input['PlatformImagePurchasePlanArgsDict']]
+    """
+    Optional configuration of purchase plan for platform image.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+    """
+    sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
+    """
 
 @pulumi.input_type
 class ImageTemplatePlatformImageSourceArgs:
@@ -812,46 +783,43 @@ class ImageTemplatePlatformImageSourceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ImageTemplatePowerShellCustomizerArgsDict(TypedDict):
-        """
-        Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        Expected value is 'PowerShell'.
-        """
-        inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of PowerShell commands to execute
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this customization step does
-        """
-        run_as_system: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
-        """
-        run_elevated: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If specified, the PowerShell script will be run with elevated privileges
-        """
-        script_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
-        """
-        sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SHA256 checksum of the power shell script provided in the scriptUri field above
-        """
-        valid_exit_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Valid exit codes for the PowerShell script. [Default: 0]
-        """
-elif False:
-    ImageTemplatePowerShellCustomizerArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplatePowerShellCustomizerArgsDict(TypedDict):
+    """
+    Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+    Expected value is 'PowerShell'.
+    """
+    inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of PowerShell commands to execute
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this customization step does
+    """
+    run_as_system: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+    """
+    run_elevated: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If specified, the PowerShell script will be run with elevated privileges
+    """
+    script_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+    """
+    sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SHA256 checksum of the power shell script provided in the scriptUri field above
+    """
+    valid_exit_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Valid exit codes for the PowerShell script. [Default: 0]
+    """
 
 @pulumi.input_type
 class ImageTemplatePowerShellCustomizerArgs:
@@ -996,46 +964,43 @@ class ImageTemplatePowerShellCustomizerArgs:
         pulumi.set(self, "valid_exit_codes", value)
 
 
-if not MYPY:
-    class ImageTemplatePowerShellValidatorArgsDict(TypedDict):
-        """
-        Runs the specified PowerShell script during the validation phase (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
-        Expected value is 'PowerShell'.
-        """
-        inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of PowerShell commands to execute
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this validation step does
-        """
-        run_as_system: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
-        """
-        run_elevated: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If specified, the PowerShell script will be run with elevated privileges
-        """
-        script_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the PowerShell script to be run for validation. It can be a github link, Azure Storage URI, etc
-        """
-        sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SHA256 checksum of the power shell script provided in the scriptUri field above
-        """
-        valid_exit_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Valid exit codes for the PowerShell script. [Default: 0]
-        """
-elif False:
-    ImageTemplatePowerShellValidatorArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplatePowerShellValidatorArgsDict(TypedDict):
+    """
+    Runs the specified PowerShell script during the validation phase (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+    Expected value is 'PowerShell'.
+    """
+    inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of PowerShell commands to execute
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this validation step does
+    """
+    run_as_system: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+    """
+    run_elevated: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If specified, the PowerShell script will be run with elevated privileges
+    """
+    script_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI of the PowerShell script to be run for validation. It can be a github link, Azure Storage URI, etc
+    """
+    sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SHA256 checksum of the power shell script provided in the scriptUri field above
+    """
+    valid_exit_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Valid exit codes for the PowerShell script. [Default: 0]
+    """
 
 @pulumi.input_type
 class ImageTemplatePowerShellValidatorArgs:
@@ -1180,21 +1145,18 @@ class ImageTemplatePowerShellValidatorArgs:
         pulumi.set(self, "valid_exit_codes", value)
 
 
-if not MYPY:
-    class ImageTemplatePropertiesErrorHandlingArgsDict(TypedDict):
-        """
-        Error handling options upon a build failure
-        """
-        on_customizer_error: NotRequired[pulumi.Input[Union[_builtins.str, 'OnBuildError']]]
-        """
-        If there is a customizer error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a customizer error and this field is set to 'abort', the build VM will be preserved.
-        """
-        on_validation_error: NotRequired[pulumi.Input[Union[_builtins.str, 'OnBuildError']]]
-        """
-        If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
-        """
-elif False:
-    ImageTemplatePropertiesErrorHandlingArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplatePropertiesErrorHandlingArgsDict(TypedDict):
+    """
+    Error handling options upon a build failure
+    """
+    on_customizer_error: NotRequired[pulumi.Input[Union[_builtins.str, 'OnBuildError']]]
+    """
+    If there is a customizer error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a customizer error and this field is set to 'abort', the build VM will be preserved.
+    """
+    on_validation_error: NotRequired[pulumi.Input[Union[_builtins.str, 'OnBuildError']]]
+    """
+    If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
+    """
 
 @pulumi.input_type
 class ImageTemplatePropertiesErrorHandlingArgs:
@@ -1240,17 +1202,14 @@ class ImageTemplatePropertiesErrorHandlingArgs:
         pulumi.set(self, "on_validation_error", value)
 
 
-if not MYPY:
-    class ImageTemplatePropertiesOptimizeArgsDict(TypedDict):
-        """
-        Specifies optimization to be performed on image.
-        """
-        vm_boot: NotRequired[pulumi.Input['ImageTemplatePropertiesVmBootArgsDict']]
-        """
-        Optimization is applied on the image for a faster VM boot.
-        """
-elif False:
-    ImageTemplatePropertiesOptimizeArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplatePropertiesOptimizeArgsDict(TypedDict):
+    """
+    Specifies optimization to be performed on image.
+    """
+    vm_boot: NotRequired[pulumi.Input['ImageTemplatePropertiesVmBootArgsDict']]
+    """
+    Optimization is applied on the image for a faster VM boot.
+    """
 
 @pulumi.input_type
 class ImageTemplatePropertiesOptimizeArgs:
@@ -1276,25 +1235,22 @@ class ImageTemplatePropertiesOptimizeArgs:
         pulumi.set(self, "vm_boot", value)
 
 
-if not MYPY:
-    class ImageTemplatePropertiesValidateArgsDict(TypedDict):
-        """
-        Configuration options and list of validations to be performed on the resulting image.
-        """
-        continue_distribute_on_failure: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
-        """
-        in_vm_validations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileValidatorArgsDict', 'ImageTemplatePowerShellValidatorArgsDict', 'ImageTemplateShellValidatorArgsDict']]]]]
-        """
-        List of validations to be performed.
-        """
-        source_validation_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
-        """
-elif False:
-    ImageTemplatePropertiesValidateArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplatePropertiesValidateArgsDict(TypedDict):
+    """
+    Configuration options and list of validations to be performed on the resulting image.
+    """
+    continue_distribute_on_failure: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
+    """
+    in_vm_validations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileValidatorArgsDict', 'ImageTemplatePowerShellValidatorArgsDict', 'ImageTemplateShellValidatorArgsDict']]]]]
+    """
+    List of validations to be performed.
+    """
+    source_validation_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
+    """
 
 @pulumi.input_type
 class ImageTemplatePropertiesValidateArgs:
@@ -1356,17 +1312,14 @@ class ImageTemplatePropertiesValidateArgs:
         pulumi.set(self, "source_validation_only", value)
 
 
-if not MYPY:
-    class ImageTemplatePropertiesVmBootArgsDict(TypedDict):
-        """
-        Optimization is applied on the image for a faster VM boot.
-        """
-        state: NotRequired[pulumi.Input['VMBootOptimizationState']]
-        """
-        Enabling this field will improve VM boot time by optimizing the final customized image output.
-        """
-elif False:
-    ImageTemplatePropertiesVmBootArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplatePropertiesVmBootArgsDict(TypedDict):
+    """
+    Optimization is applied on the image for a faster VM boot.
+    """
+    state: NotRequired[pulumi.Input['VMBootOptimizationState']]
+    """
+    Enabling this field will improve VM boot time by optimizing the final customized image output.
+    """
 
 @pulumi.input_type
 class ImageTemplatePropertiesVmBootArgs:
@@ -1392,34 +1345,31 @@ class ImageTemplatePropertiesVmBootArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class ImageTemplateRestartCustomizerArgsDict(TypedDict):
-        """
-        Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        Expected value is 'WindowsRestart'.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this customization step does
-        """
-        restart_check_command: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Command to check if restart succeeded [Default: '']
-        """
-        restart_command: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Command to execute the restart [Default: 'shutdown /r /f /t 0 /c "packer restart"']
-        """
-        restart_timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Restart timeout specified as a string of magnitude and unit, e.g. '5m' (5 minutes) or '2h' (2 hours) [Default: '5m']
-        """
-elif False:
-    ImageTemplateRestartCustomizerArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateRestartCustomizerArgsDict(TypedDict):
+    """
+    Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+    Expected value is 'WindowsRestart'.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this customization step does
+    """
+    restart_check_command: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Command to check if restart succeeded [Default: '']
+    """
+    restart_command: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Command to execute the restart [Default: 'shutdown /r /f /t 0 /c "packer restart"']
+    """
+    restart_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Restart timeout specified as a string of magnitude and unit, e.g. '5m' (5 minutes) or '2h' (2 hours) [Default: '5m']
+    """
 
 @pulumi.input_type
 class ImageTemplateRestartCustomizerArgs:
@@ -1510,50 +1460,47 @@ class ImageTemplateRestartCustomizerArgs:
         pulumi.set(self, "restart_timeout", value)
 
 
-if not MYPY:
-    class ImageTemplateSharedImageDistributorArgsDict(TypedDict):
-        """
-        Distribute via Azure Compute Gallery.
-        """
-        gallery_image_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of the Azure Compute Gallery image
-        """
-        run_output_name: pulumi.Input[_builtins.str]
-        """
-        The name to be used for the associated RunOutput.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of distribution.
-        Expected value is 'SharedImage'.
-        """
-        artifact_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tags that will be applied to the artifact once it has been created/updated by the distributor.
-        """
-        exclude_from_latest: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag that indicates whether created image version should be excluded from latest. Omit to use the default (false).
-        """
-        replication_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        [Deprecated] A list of regions that the image will be replicated to. This list can be specified only if targetRegions is not specified. This field is deprecated - use targetRegions instead.
-        """
-        storage_account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedImageStorageAccountType']]]
-        """
-        [Deprecated] Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS). This field can be specified only if replicationRegions is specified. This field is deprecated - use targetRegions instead.
-        """
-        target_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgsDict']]]]
-        """
-        The target regions where the distributed Image Version is going to be replicated to. This object supersedes replicationRegions and can be specified only if replicationRegions is not specified.
-        """
-        versioning: NotRequired[pulumi.Input[Union['DistributeVersionerLatestArgsDict', 'DistributeVersionerSourceArgsDict']]]
-        """
-        Describes how to generate new x.y.z version number for distribution.
-        """
-elif False:
-    ImageTemplateSharedImageDistributorArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateSharedImageDistributorArgsDict(TypedDict):
+    """
+    Distribute via Azure Compute Gallery.
+    """
+    gallery_image_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of the Azure Compute Gallery image
+    """
+    run_output_name: pulumi.Input[_builtins.str]
+    """
+    The name to be used for the associated RunOutput.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of distribution.
+    Expected value is 'SharedImage'.
+    """
+    artifact_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tags that will be applied to the artifact once it has been created/updated by the distributor.
+    """
+    exclude_from_latest: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag that indicates whether created image version should be excluded from latest. Omit to use the default (false).
+    """
+    replication_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    [Deprecated] A list of regions that the image will be replicated to. This list can be specified only if targetRegions is not specified. This field is deprecated - use targetRegions instead.
+    """
+    storage_account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedImageStorageAccountType']]]
+    """
+    [Deprecated] Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS). This field can be specified only if replicationRegions is specified. This field is deprecated - use targetRegions instead.
+    """
+    target_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgsDict']]]]
+    """
+    The target regions where the distributed Image Version is going to be replicated to. This object supersedes replicationRegions and can be specified only if replicationRegions is not specified.
+    """
+    versioning: NotRequired[pulumi.Input[Union['DistributeVersionerLatestArgsDict', 'DistributeVersionerSourceArgsDict']]]
+    """
+    Describes how to generate new x.y.z version number for distribution.
+    """
 
 @pulumi.input_type
 class ImageTemplateSharedImageDistributorArgs:
@@ -1708,22 +1655,19 @@ class ImageTemplateSharedImageDistributorArgs:
         pulumi.set(self, "versioning", value)
 
 
-if not MYPY:
-    class ImageTemplateSharedImageVersionSourceArgsDict(TypedDict):
-        """
-        Describes an image source that is an image version in an Azure Compute Gallery or a Direct Shared Gallery.
-        """
-        image_version_id: pulumi.Input[_builtins.str]
-        """
-        ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of source image you want to start with.
-        Expected value is 'SharedImageVersion'.
-        """
-elif False:
-    ImageTemplateSharedImageVersionSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateSharedImageVersionSourceArgsDict(TypedDict):
+    """
+    Describes an image source that is an image version in an Azure Compute Gallery or a Direct Shared Gallery.
+    """
+    image_version_id: pulumi.Input[_builtins.str]
+    """
+    ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of source image you want to start with.
+    Expected value is 'SharedImageVersion'.
+    """
 
 @pulumi.input_type
 class ImageTemplateSharedImageVersionSourceArgs:
@@ -1765,34 +1709,31 @@ class ImageTemplateSharedImageVersionSourceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ImageTemplateShellCustomizerArgsDict(TypedDict):
-        """
-        Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        Expected value is 'Shell'.
-        """
-        inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of shell commands to execute
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this customization step does
-        """
-        script_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
-        """
-        sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SHA256 checksum of the shell script provided in the scriptUri field
-        """
-elif False:
-    ImageTemplateShellCustomizerArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateShellCustomizerArgsDict(TypedDict):
+    """
+    Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+    Expected value is 'Shell'.
+    """
+    inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of shell commands to execute
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this customization step does
+    """
+    script_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI of the shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+    """
+    sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SHA256 checksum of the shell script provided in the scriptUri field
+    """
 
 @pulumi.input_type
 class ImageTemplateShellCustomizerArgs:
@@ -1885,34 +1826,31 @@ class ImageTemplateShellCustomizerArgs:
         pulumi.set(self, "sha256_checksum", value)
 
 
-if not MYPY:
-    class ImageTemplateShellValidatorArgsDict(TypedDict):
-        """
-        Runs the specified shell script during the validation phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
-        Expected value is 'Shell'.
-        """
-        inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of shell commands to execute
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this validation step does
-        """
-        script_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the shell script to be run for validation. It can be a github link, Azure Storage URI, etc
-        """
-        sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SHA256 checksum of the shell script provided in the scriptUri field
-        """
-elif False:
-    ImageTemplateShellValidatorArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateShellValidatorArgsDict(TypedDict):
+    """
+    Runs the specified shell script during the validation phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+    Expected value is 'Shell'.
+    """
+    inline: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of shell commands to execute
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this validation step does
+    """
+    script_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI of the shell script to be run for validation. It can be a github link, Azure Storage URI, etc
+    """
+    sha256_checksum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SHA256 checksum of the shell script provided in the scriptUri field
+    """
 
 @pulumi.input_type
 class ImageTemplateShellValidatorArgs:
@@ -2005,30 +1943,27 @@ class ImageTemplateShellValidatorArgs:
         pulumi.set(self, "sha256_checksum", value)
 
 
-if not MYPY:
-    class ImageTemplateVhdDistributorArgsDict(TypedDict):
-        """
-        Distribute via VHD in a storage account.
-        """
-        run_output_name: pulumi.Input[_builtins.str]
-        """
-        The name to be used for the associated RunOutput.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of distribution.
-        Expected value is 'VHD'.
-        """
-        artifact_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tags that will be applied to the artifact once it has been created/updated by the distributor.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
-        """
-elif False:
-    ImageTemplateVhdDistributorArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateVhdDistributorArgsDict(TypedDict):
+    """
+    Distribute via VHD in a storage account.
+    """
+    run_output_name: pulumi.Input[_builtins.str]
+    """
+    The name to be used for the associated RunOutput.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of distribution.
+    Expected value is 'VHD'.
+    """
+    artifact_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tags that will be applied to the artifact once it has been created/updated by the distributor.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+    """
 
 @pulumi.input_type
 class ImageTemplateVhdDistributorArgs:
@@ -2102,29 +2037,26 @@ class ImageTemplateVhdDistributorArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class ImageTemplateVmProfileArgsDict(TypedDict):
-        """
-        Describes the virtual machines used to build and validate images
-        """
-        os_disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
-        """
-        vm_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
-        """
-        vnet_config: NotRequired[pulumi.Input['VirtualNetworkConfigArgsDict']]
-        """
-        Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
-        """
-elif False:
-    ImageTemplateVmProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateVmProfileArgsDict(TypedDict):
+    """
+    Describes the virtual machines used to build and validate images
+    """
+    os_disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
+    """
+    vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
+    """
+    vnet_config: NotRequired[pulumi.Input['VirtualNetworkConfigArgsDict']]
+    """
+    Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
+    """
 
 @pulumi.input_type
 class ImageTemplateVmProfileArgs:
@@ -2202,34 +2134,31 @@ class ImageTemplateVmProfileArgs:
         pulumi.set(self, "vnet_config", value)
 
 
-if not MYPY:
-    class ImageTemplateWindowsUpdateCustomizerArgsDict(TypedDict):
-        """
-        Installs Windows Updates. Corresponds to Packer Windows Update Provisioner (https://github.com/rgl/packer-provisioner-windows-update)
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        Expected value is 'WindowsUpdate'.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of filters to select updates to apply. Omit or specify empty array to use the default (no filter). Refer to above link for examples and detailed description of this field.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name to provide context on what this customization step does
-        """
-        search_criteria: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Criteria to search updates. Omit or specify empty string to use the default (search all). Refer to above link for examples and detailed description of this field.
-        """
-        update_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of updates to apply at a time. Omit or specify 0 to use the default (1000)
-        """
-elif False:
-    ImageTemplateWindowsUpdateCustomizerArgsDict: TypeAlias = Mapping[str, Any]
+class ImageTemplateWindowsUpdateCustomizerArgsDict(TypedDict):
+    """
+    Installs Windows Updates. Corresponds to Packer Windows Update Provisioner (https://github.com/rgl/packer-provisioner-windows-update)
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+    Expected value is 'WindowsUpdate'.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of filters to select updates to apply. Omit or specify empty array to use the default (no filter). Refer to above link for examples and detailed description of this field.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name to provide context on what this customization step does
+    """
+    search_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Criteria to search updates. Omit or specify empty string to use the default (search all). Refer to above link for examples and detailed description of this field.
+    """
+    update_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of updates to apply at a time. Omit or specify 0 to use the default (1000)
+    """
 
 @pulumi.input_type
 class ImageTemplateWindowsUpdateCustomizerArgs:
@@ -2322,25 +2251,22 @@ class ImageTemplateWindowsUpdateCustomizerArgs:
         pulumi.set(self, "update_limit", value)
 
 
-if not MYPY:
-    class PlatformImagePurchasePlanArgsDict(TypedDict):
-        """
-        Purchase plan configuration for platform image.
-        """
-        plan_name: pulumi.Input[_builtins.str]
-        """
-        Name of the purchase plan.
-        """
-        plan_product: pulumi.Input[_builtins.str]
-        """
-        Product of the purchase plan.
-        """
-        plan_publisher: pulumi.Input[_builtins.str]
-        """
-        Publisher of the purchase plan.
-        """
-elif False:
-    PlatformImagePurchasePlanArgsDict: TypeAlias = Mapping[str, Any]
+class PlatformImagePurchasePlanArgsDict(TypedDict):
+    """
+    Purchase plan configuration for platform image.
+    """
+    plan_name: pulumi.Input[_builtins.str]
+    """
+    Name of the purchase plan.
+    """
+    plan_product: pulumi.Input[_builtins.str]
+    """
+    Product of the purchase plan.
+    """
+    plan_publisher: pulumi.Input[_builtins.str]
+    """
+    Publisher of the purchase plan.
+    """
 
 @pulumi.input_type
 class PlatformImagePurchasePlanArgs:
@@ -2395,25 +2321,22 @@ class PlatformImagePurchasePlanArgs:
         pulumi.set(self, "plan_publisher", value)
 
 
-if not MYPY:
-    class TargetRegionArgsDict(TypedDict):
-        """
-        Describes the target region information.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the region.
-        """
-        replica_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of replicas of the Image Version to be created in this region. Omit to use the default (1).
-        """
-        storage_account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedImageStorageAccountType']]]
-        """
-        Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
-        """
-elif False:
-    TargetRegionArgsDict: TypeAlias = Mapping[str, Any]
+class TargetRegionArgsDict(TypedDict):
+    """
+    Describes the target region information.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the region.
+    """
+    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of replicas of the Image Version to be created in this region. Omit to use the default (1).
+    """
+    storage_account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedImageStorageAccountType']]]
+    """
+    Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
+    """
 
 @pulumi.input_type
 class TargetRegionArgs:
@@ -2472,25 +2395,22 @@ class TargetRegionArgs:
         pulumi.set(self, "storage_account_type", value)
 
 
-if not MYPY:
-    class VirtualNetworkConfigArgsDict(TypedDict):
-        """
-        Virtual Network configuration.
-        """
-        container_instance_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of a pre-existing subnet on which Azure Container Instance will be deployed for Isolated Builds. This field may be specified only if `subnetId` is also specified and must be on the same Virtual Network as the subnet specified in `subnetId`.
-        """
-        proxy_vm_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of a pre-existing subnet on which the build VM and validation VM will be deployed
-        """
-elif False:
-    VirtualNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkConfigArgsDict(TypedDict):
+    """
+    Virtual Network configuration.
+    """
+    container_instance_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of a pre-existing subnet on which Azure Container Instance will be deployed for Isolated Builds. This field may be specified only if `subnetId` is also specified and must be on the same Virtual Network as the subnet specified in `subnetId`.
+    """
+    proxy_vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of a pre-existing subnet on which the build VM and validation VM will be deployed
+    """
 
 @pulumi.input_type
 class VirtualNetworkConfigArgs:

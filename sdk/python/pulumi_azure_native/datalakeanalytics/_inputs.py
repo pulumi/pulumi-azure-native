@@ -26,23 +26,18 @@ __all__ = [
     'CreateFirewallRuleWithAccountParametersArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AddDataLakeStoreWithAccountParametersArgsDict(TypedDict):
-        """
-        The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the Data Lake Store account to add.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The optional suffix for the Data Lake Store account.
-        """
-elif False:
-    AddDataLakeStoreWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+class AddDataLakeStoreWithAccountParametersArgsDict(TypedDict):
+    """
+    The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the Data Lake Store account to add.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The optional suffix for the Data Lake Store account.
+    """
 
 @pulumi.input_type
 class AddDataLakeStoreWithAccountParametersArgs:
@@ -83,25 +78,22 @@ class AddDataLakeStoreWithAccountParametersArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class AddStorageAccountWithAccountParametersArgsDict(TypedDict):
-        """
-        The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
-        """
-        access_key: pulumi.Input[_builtins.str]
-        """
-        The access key associated with this Azure Storage account that will be used to connect to it.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the Azure Storage account to add.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The optional suffix for the storage account.
-        """
-elif False:
-    AddStorageAccountWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+class AddStorageAccountWithAccountParametersArgsDict(TypedDict):
+    """
+    The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
+    """
+    access_key: pulumi.Input[_builtins.str]
+    """
+    The access key associated with this Azure Storage account that will be used to connect to it.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the Azure Storage account to add.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The optional suffix for the storage account.
+    """
 
 @pulumi.input_type
 class AddStorageAccountWithAccountParametersArgs:
@@ -159,33 +151,30 @@ class AddStorageAccountWithAccountParametersArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class CreateComputePolicyWithAccountParametersArgsDict(TypedDict):
-        """
-        The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the compute policy to create.
-        """
-        object_id: pulumi.Input[_builtins.str]
-        """
-        The AAD object identifier for the entity to create a policy for.
-        """
-        object_type: pulumi.Input[Union[_builtins.str, 'AADObjectType']]
-        """
-        The type of AAD object the object identifier refers to.
-        """
-        max_degree_of_parallelism_per_job: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-        """
-        min_priority_per_job: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-        """
-elif False:
-    CreateComputePolicyWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CreateComputePolicyWithAccountParametersArgsDict(TypedDict):
+    """
+    The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the compute policy to create.
+    """
+    object_id: pulumi.Input[_builtins.str]
+    """
+    The AAD object identifier for the entity to create a policy for.
+    """
+    object_type: pulumi.Input[Union[_builtins.str, 'AADObjectType']]
+    """
+    The type of AAD object the object identifier refers to.
+    """
+    max_degree_of_parallelism_per_job: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+    """
+    min_priority_per_job: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+    """
 
 @pulumi.input_type
 class CreateComputePolicyWithAccountParametersArgs:
@@ -272,25 +261,22 @@ class CreateComputePolicyWithAccountParametersArgs:
         pulumi.set(self, "min_priority_per_job", value)
 
 
-if not MYPY:
-    class CreateFirewallRuleWithAccountParametersArgsDict(TypedDict):
-        """
-        The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
-        """
-        end_ip_address: pulumi.Input[_builtins.str]
-        """
-        The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the firewall rule to create.
-        """
-        start_ip_address: pulumi.Input[_builtins.str]
-        """
-        The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-        """
-elif False:
-    CreateFirewallRuleWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CreateFirewallRuleWithAccountParametersArgsDict(TypedDict):
+    """
+    The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
+    """
+    end_ip_address: pulumi.Input[_builtins.str]
+    """
+    The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the firewall rule to create.
+    """
+    start_ip_address: pulumi.Input[_builtins.str]
+    """
+    The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+    """
 
 @pulumi.input_type
 class CreateFirewallRuleWithAccountParametersArgs:

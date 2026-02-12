@@ -38,19 +38,14 @@ __all__ = [
     'UserPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Tenant Configuration Properties with Provisioning state
-        """
-        enforce_private_markdown_storage: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-        """
-elif False:
-    ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Tenant Configuration Properties with Provisioning state
+    """
+    enforce_private_markdown_storage: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+    """
 
 @pulumi.input_type
 class ConfigurationPropertiesArgs:
@@ -76,25 +71,22 @@ class ConfigurationPropertiesArgs:
         pulumi.set(self, "enforce_private_markdown_storage", value)
 
 
-if not MYPY:
-    class ConsoleCreatePropertiesArgsDict(TypedDict):
-        """
-        Cloud shell properties for creating a console.
-        """
-        os_type: pulumi.Input[Union[_builtins.str, 'OsType']]
-        """
-        The operating system type of the cloud shell.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
-        """
-        Provisioning state of the console.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of the console.
-        """
-elif False:
-    ConsoleCreatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConsoleCreatePropertiesArgsDict(TypedDict):
+    """
+    Cloud shell properties for creating a console.
+    """
+    os_type: pulumi.Input[Union[_builtins.str, 'OsType']]
+    """
+    The operating system type of the cloud shell.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    """
+    Provisioning state of the console.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of the console.
+    """
 
 @pulumi.input_type
 class ConsoleCreatePropertiesArgs:
@@ -151,25 +143,22 @@ class ConsoleCreatePropertiesArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class DashboardLensArgsDict(TypedDict):
-        """
-        A dashboard lens.
-        """
-        order: pulumi.Input[_builtins.int]
-        """
-        The lens order.
-        """
-        parts: pulumi.Input[Sequence[pulumi.Input['DashboardPartsArgsDict']]]
-        """
-        The dashboard parts.
-        """
-        metadata: NotRequired[Any]
-        """
-        The dashboard len's metadata.
-        """
-elif False:
-    DashboardLensArgsDict: TypeAlias = Mapping[str, Any]
+class DashboardLensArgsDict(TypedDict):
+    """
+    A dashboard lens.
+    """
+    order: pulumi.Input[_builtins.int]
+    """
+    The lens order.
+    """
+    parts: pulumi.Input[Sequence[pulumi.Input['DashboardPartsArgsDict']]]
+    """
+    The dashboard parts.
+    """
+    metadata: NotRequired[Any]
+    """
+    The dashboard len's metadata.
+    """
 
 @pulumi.input_type
 class DashboardLensArgs:
@@ -225,25 +214,22 @@ class DashboardLensArgs:
         pulumi.set(self, "metadata", value)
 
 
-if not MYPY:
-    class DashboardPartMetadataArgsDict(TypedDict):
-        """
-        A dashboard part metadata.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of dashboard part.
-        """
-        inputs: NotRequired[pulumi.Input[Sequence[Any]]]
-        """
-        Inputs to dashboard part.
-        """
-        settings: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        Settings of dashboard part.
-        """
-elif False:
-    DashboardPartMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class DashboardPartMetadataArgsDict(TypedDict):
+    """
+    A dashboard part metadata.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of dashboard part.
+    """
+    inputs: NotRequired[pulumi.Input[Sequence[Any]]]
+    """
+    Inputs to dashboard part.
+    """
+    settings: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Settings of dashboard part.
+    """
 
 @pulumi.input_type
 class DashboardPartMetadataArgs:
@@ -300,33 +286,30 @@ class DashboardPartMetadataArgs:
         pulumi.set(self, "settings", value)
 
 
-if not MYPY:
-    class DashboardPartsPositionArgsDict(TypedDict):
-        """
-        The dashboard's part position.
-        """
-        col_span: pulumi.Input[_builtins.int]
-        """
-        The dashboard's part column span.
-        """
-        row_span: pulumi.Input[_builtins.int]
-        """
-        The dashboard's part row span.
-        """
-        x: pulumi.Input[_builtins.int]
-        """
-        The dashboard's part x coordinate.
-        """
-        y: pulumi.Input[_builtins.int]
-        """
-        The dashboard's part y coordinate.
-        """
-        metadata: NotRequired[Any]
-        """
-        The dashboard part's metadata.
-        """
-elif False:
-    DashboardPartsPositionArgsDict: TypeAlias = Mapping[str, Any]
+class DashboardPartsPositionArgsDict(TypedDict):
+    """
+    The dashboard's part position.
+    """
+    col_span: pulumi.Input[_builtins.int]
+    """
+    The dashboard's part column span.
+    """
+    row_span: pulumi.Input[_builtins.int]
+    """
+    The dashboard's part row span.
+    """
+    x: pulumi.Input[_builtins.int]
+    """
+    The dashboard's part x coordinate.
+    """
+    y: pulumi.Input[_builtins.int]
+    """
+    The dashboard's part y coordinate.
+    """
+    metadata: NotRequired[Any]
+    """
+    The dashboard part's metadata.
+    """
 
 @pulumi.input_type
 class DashboardPartsPositionArgs:
@@ -412,21 +395,18 @@ class DashboardPartsPositionArgs:
         pulumi.set(self, "metadata", value)
 
 
-if not MYPY:
-    class DashboardPartsArgsDict(TypedDict):
-        """
-        A dashboard part.
-        """
-        position: pulumi.Input['DashboardPartsPositionArgsDict']
-        """
-        The dashboard's part position.
-        """
-        metadata: NotRequired[pulumi.Input['DashboardPartMetadataArgsDict']]
-        """
-        The dashboard's part metadata.
-        """
-elif False:
-    DashboardPartsArgsDict: TypeAlias = Mapping[str, Any]
+class DashboardPartsArgsDict(TypedDict):
+    """
+    A dashboard part.
+    """
+    position: pulumi.Input['DashboardPartsPositionArgsDict']
+    """
+    The dashboard's part position.
+    """
+    metadata: NotRequired[pulumi.Input['DashboardPartMetadataArgsDict']]
+    """
+    The dashboard's part metadata.
+    """
 
 @pulumi.input_type
 class DashboardPartsArgs:
@@ -467,21 +447,18 @@ class DashboardPartsArgs:
         pulumi.set(self, "metadata", value)
 
 
-if not MYPY:
-    class DashboardPropertiesWithProvisioningStateArgsDict(TypedDict):
-        """
-        Dashboard Properties with Provisioning state
-        """
-        lenses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgsDict']]]]
-        """
-        The dashboard lenses.
-        """
-        metadata: NotRequired[Any]
-        """
-        The dashboard metadata.
-        """
-elif False:
-    DashboardPropertiesWithProvisioningStateArgsDict: TypeAlias = Mapping[str, Any]
+class DashboardPropertiesWithProvisioningStateArgsDict(TypedDict):
+    """
+    Dashboard Properties with Provisioning state
+    """
+    lenses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgsDict']]]]
+    """
+    The dashboard lenses.
+    """
+    metadata: NotRequired[Any]
+    """
+    The dashboard metadata.
+    """
 
 @pulumi.input_type
 class DashboardPropertiesWithProvisioningStateArgs:
@@ -523,25 +500,22 @@ class DashboardPropertiesWithProvisioningStateArgs:
         pulumi.set(self, "metadata", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        The storage profile of the user settings.
-        """
-        disk_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of file share
-        """
-        file_share_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
-        """
-        storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Full resource ID of storage account.
-        """
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    The storage profile of the user settings.
+    """
+    disk_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of file share
+    """
+    file_share_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
+    """
+    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full resource ID of storage account.
+    """
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -599,21 +573,18 @@ class StorageProfileArgs:
         pulumi.set(self, "storage_account_resource_id", value)
 
 
-if not MYPY:
-    class TerminalSettingsArgsDict(TypedDict):
-        """
-        Settings for terminal appearance.
-        """
-        font_size: NotRequired[pulumi.Input[Union[_builtins.str, 'FontSize']]]
-        """
-        Size of terminal font.
-        """
-        font_style: NotRequired[pulumi.Input[Union[_builtins.str, 'FontStyle']]]
-        """
-        Style of terminal font.
-        """
-elif False:
-    TerminalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class TerminalSettingsArgsDict(TypedDict):
+    """
+    Settings for terminal appearance.
+    """
+    font_size: NotRequired[pulumi.Input[Union[_builtins.str, 'FontSize']]]
+    """
+    Size of terminal font.
+    """
+    font_style: NotRequired[pulumi.Input[Union[_builtins.str, 'FontStyle']]]
+    """
+    Style of terminal font.
+    """
 
 @pulumi.input_type
 class TerminalSettingsArgs:
@@ -655,33 +626,30 @@ class TerminalSettingsArgs:
         pulumi.set(self, "font_style", value)
 
 
-if not MYPY:
-    class UserPropertiesArgsDict(TypedDict):
-        """
-        The cloud shell user settings properties.
-        """
-        preferred_location: pulumi.Input[_builtins.str]
-        """
-        The preferred location of the cloud shell.
-        """
-        preferred_os_type: pulumi.Input[Union[_builtins.str, 'OsType']]
-        """
-        The operating system type of the cloud shell. Deprecated, use preferredShellType.
-        """
-        preferred_shell_type: pulumi.Input[Union[_builtins.str, 'ShellType']]
-        """
-        The shell type of the cloud shell.
-        """
-        storage_profile: pulumi.Input['StorageProfileArgsDict']
-        """
-        The storage profile of the user settings.
-        """
-        terminal_settings: pulumi.Input['TerminalSettingsArgsDict']
-        """
-        Settings for terminal appearance.
-        """
-elif False:
-    UserPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class UserPropertiesArgsDict(TypedDict):
+    """
+    The cloud shell user settings properties.
+    """
+    preferred_location: pulumi.Input[_builtins.str]
+    """
+    The preferred location of the cloud shell.
+    """
+    preferred_os_type: pulumi.Input[Union[_builtins.str, 'OsType']]
+    """
+    The operating system type of the cloud shell. Deprecated, use preferredShellType.
+    """
+    preferred_shell_type: pulumi.Input[Union[_builtins.str, 'ShellType']]
+    """
+    The shell type of the cloud shell.
+    """
+    storage_profile: pulumi.Input['StorageProfileArgsDict']
+    """
+    The storage profile of the user settings.
+    """
+    terminal_settings: pulumi.Input['TerminalSettingsArgsDict']
+    """
+    Settings for terminal appearance.
+    """
 
 @pulumi.input_type
 class UserPropertiesArgs:

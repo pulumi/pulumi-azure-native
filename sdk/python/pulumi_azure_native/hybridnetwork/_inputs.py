@@ -168,32 +168,27 @@ __all__ = [
     'VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ArmResourceDefinitionResourceElementTemplateDetailsArgsDict(TypedDict):
-        """
-        The arm resource definition resource element template details.
-        """
-        resource_element_type: pulumi.Input[_builtins.str]
-        """
-        The resource element template type.
-        Expected value is 'ArmResourceDefinition'.
-        """
-        configuration: NotRequired[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgsDict']]
-        """
-        The resource element template type.
-        """
-        depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
-        """
-        The depends on profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the resource element template.
-        """
-elif False:
-    ArmResourceDefinitionResourceElementTemplateDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ArmResourceDefinitionResourceElementTemplateDetailsArgsDict(TypedDict):
+    """
+    The arm resource definition resource element template details.
+    """
+    resource_element_type: pulumi.Input[_builtins.str]
+    """
+    The resource element template type.
+    Expected value is 'ArmResourceDefinition'.
+    """
+    configuration: NotRequired[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgsDict']]
+    """
+    The resource element template type.
+    """
+    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    """
+    The depends on profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource element template.
+    """
 
 @pulumi.input_type
 class ArmResourceDefinitionResourceElementTemplateDetailsArgs:
@@ -268,25 +263,22 @@ class ArmResourceDefinitionResourceElementTemplateDetailsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ArmResourceDefinitionResourceElementTemplateArgsDict(TypedDict):
-        """
-        The arm template RE.
-        """
-        artifact_profile: NotRequired[pulumi.Input['NSDArtifactProfileArgsDict']]
-        """
-        Artifact profile properties.
-        """
-        parameter_values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
-        """
-        template_type: NotRequired[pulumi.Input[Union[_builtins.str, 'TemplateType']]]
-        """
-        The template type.
-        """
-elif False:
-    ArmResourceDefinitionResourceElementTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class ArmResourceDefinitionResourceElementTemplateArgsDict(TypedDict):
+    """
+    The arm template RE.
+    """
+    artifact_profile: NotRequired[pulumi.Input['NSDArtifactProfileArgsDict']]
+    """
+    Artifact profile properties.
+    """
+    parameter_values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
+    """
+    template_type: NotRequired[pulumi.Input[Union[_builtins.str, 'TemplateType']]]
+    """
+    The template type.
+    """
 
 @pulumi.input_type
 class ArmResourceDefinitionResourceElementTemplateArgs:
@@ -344,21 +336,18 @@ class ArmResourceDefinitionResourceElementTemplateArgs:
         pulumi.set(self, "template_type", value)
 
 
-if not MYPY:
-    class ArmTemplateArtifactProfileArgsDict(TypedDict):
-        """
-        Template artifact profile.
-        """
-        template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Template name.
-        """
-        template_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Template version.
-        """
-elif False:
-    ArmTemplateArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ArmTemplateArtifactProfileArgsDict(TypedDict):
+    """
+    Template artifact profile.
+    """
+    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Template name.
+    """
+    template_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Template version.
+    """
 
 @pulumi.input_type
 class ArmTemplateArtifactProfileArgs:
@@ -400,17 +389,14 @@ class ArmTemplateArtifactProfileArgs:
         pulumi.set(self, "template_version", value)
 
 
-if not MYPY:
-    class ArmTemplateMappingRuleProfileArgsDict(TypedDict):
-        """
-        Template mapping rule profile
-        """
-        template_parameters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        List of template parameters.
-        """
-elif False:
-    ArmTemplateMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ArmTemplateMappingRuleProfileArgsDict(TypedDict):
+    """
+    Template mapping rule profile
+    """
+    template_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    List of template parameters.
+    """
 
 @pulumi.input_type
 class ArmTemplateMappingRuleProfileArgs:
@@ -436,17 +422,14 @@ class ArmTemplateMappingRuleProfileArgs:
         pulumi.set(self, "template_parameters", value)
 
 
-if not MYPY:
-    class ArtifactManifestPropertiesFormatArgsDict(TypedDict):
-        """
-        Artifact manifest properties.
-        """
-        artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManifestArtifactFormatArgsDict']]]]
-        """
-        The artifacts list.
-        """
-elif False:
-    ArtifactManifestPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ArtifactManifestPropertiesFormatArgsDict(TypedDict):
+    """
+    Artifact manifest properties.
+    """
+    artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManifestArtifactFormatArgsDict']]]]
+    """
+    The artifacts list.
+    """
 
 @pulumi.input_type
 class ArtifactManifestPropertiesFormatArgs:
@@ -472,18 +455,15 @@ class ArtifactManifestPropertiesFormatArgs:
         pulumi.set(self, "artifacts", value)
 
 
-if not MYPY:
-    class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict(TypedDict):
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed resource group location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed resource group name.
-        """
-elif False:
-    ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict(TypedDict):
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed resource group location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed resource group name.
+    """
 
 @pulumi.input_type
 class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs:
@@ -524,26 +504,23 @@ class ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ArtifactStorePropertiesFormatArgsDict(TypedDict):
-        """
-        Artifact store properties.
-        """
-        backing_resource_public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]
-        """
-        The artifact store backing resource network access type
-        """
-        managed_resource_group_configuration: NotRequired[pulumi.Input['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict']]
-        replication_strategy: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactReplicationStrategy']]]
-        """
-        The replication strategy.
-        """
-        store_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactStoreType']]]
-        """
-        The artifact store type.
-        """
-elif False:
-    ArtifactStorePropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ArtifactStorePropertiesFormatArgsDict(TypedDict):
+    """
+    Artifact store properties.
+    """
+    backing_resource_public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'BackingResourcePublicNetworkAccess']]]
+    """
+    The artifact store backing resource network access type
+    """
+    managed_resource_group_configuration: NotRequired[pulumi.Input['ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgsDict']]
+    replication_strategy: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactReplicationStrategy']]]
+    """
+    The replication strategy.
+    """
+    store_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactStoreType']]]
+    """
+    The artifact store type.
+    """
 
 @pulumi.input_type
 class ArtifactStorePropertiesFormatArgs:
@@ -613,26 +590,23 @@ class ArtifactStorePropertiesFormatArgs:
         pulumi.set(self, "store_type", value)
 
 
-if not MYPY:
-    class AzureArcK8sClusterNFVIDetailsArgsDict(TypedDict):
-        """
-        The AzureArcK8sCluster NFVI detail.
-        """
-        nfvi_type: pulumi.Input[_builtins.str]
-        """
-        The NFVI type.
-        Expected value is 'AzureArcKubernetes'.
-        """
-        custom_location_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The reference to the custom location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the nfvi.
-        """
-elif False:
-    AzureArcK8sClusterNFVIDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureArcK8sClusterNFVIDetailsArgsDict(TypedDict):
+    """
+    The AzureArcK8sCluster NFVI detail.
+    """
+    nfvi_type: pulumi.Input[_builtins.str]
+    """
+    The NFVI type.
+    Expected value is 'AzureArcKubernetes'.
+    """
+    custom_location_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The reference to the custom location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the nfvi.
+    """
 
 @pulumi.input_type
 class AzureArcK8sClusterNFVIDetailsArgs:
@@ -691,21 +665,18 @@ class AzureArcK8sClusterNFVIDetailsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureArcKubernetesArtifactProfileArgsDict(TypedDict):
-        """
-        Azure arc kubernetes artifact profile properties.
-        """
-        artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The reference to artifact store.
-        """
-        helm_artifact_profile: NotRequired[pulumi.Input['HelmArtifactProfileArgsDict']]
-        """
-        Helm artifact profile.
-        """
-elif False:
-    AzureArcKubernetesArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureArcKubernetesArtifactProfileArgsDict(TypedDict):
+    """
+    Azure arc kubernetes artifact profile properties.
+    """
+    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The reference to artifact store.
+    """
+    helm_artifact_profile: NotRequired[pulumi.Input['HelmArtifactProfileArgsDict']]
+    """
+    Helm artifact profile.
+    """
 
 @pulumi.input_type
 class AzureArcKubernetesArtifactProfileArgs:
@@ -747,21 +718,18 @@ class AzureArcKubernetesArtifactProfileArgs:
         pulumi.set(self, "helm_artifact_profile", value)
 
 
-if not MYPY:
-    class AzureArcKubernetesDeployMappingRuleProfileArgsDict(TypedDict):
-        """
-        Azure arc kubernetes deploy mapping rule profile.
-        """
-        application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
-        """
-        The application enablement.
-        """
-        helm_mapping_rule_profile: NotRequired[pulumi.Input['HelmMappingRuleProfileArgsDict']]
-        """
-        The helm mapping rule profile.
-        """
-elif False:
-    AzureArcKubernetesDeployMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureArcKubernetesDeployMappingRuleProfileArgsDict(TypedDict):
+    """
+    Azure arc kubernetes deploy mapping rule profile.
+    """
+    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    """
+    The application enablement.
+    """
+    helm_mapping_rule_profile: NotRequired[pulumi.Input['HelmMappingRuleProfileArgsDict']]
+    """
+    The helm mapping rule profile.
+    """
 
 @pulumi.input_type
 class AzureArcKubernetesDeployMappingRuleProfileArgs:
@@ -803,34 +771,31 @@ class AzureArcKubernetesDeployMappingRuleProfileArgs:
         pulumi.set(self, "helm_mapping_rule_profile", value)
 
 
-if not MYPY:
-    class AzureArcKubernetesHelmApplicationArgsDict(TypedDict):
-        """
-        Azure arc kubernetes helm application configurations.
-        """
-        artifact_type: pulumi.Input[_builtins.str]
-        """
-        The artifact type.
-        Expected value is 'HelmPackage'.
-        """
-        artifact_profile: NotRequired[pulumi.Input['AzureArcKubernetesArtifactProfileArgsDict']]
-        """
-        Azure arc kubernetes artifact profile.
-        """
-        depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
-        """
-        Depends on profile definition.
-        """
-        deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureArcKubernetesDeployMappingRuleProfileArgsDict']]
-        """
-        Deploy mapping rule profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function application.
-        """
-elif False:
-    AzureArcKubernetesHelmApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureArcKubernetesHelmApplicationArgsDict(TypedDict):
+    """
+    Azure arc kubernetes helm application configurations.
+    """
+    artifact_type: pulumi.Input[_builtins.str]
+    """
+    The artifact type.
+    Expected value is 'HelmPackage'.
+    """
+    artifact_profile: NotRequired[pulumi.Input['AzureArcKubernetesArtifactProfileArgsDict']]
+    """
+    Azure arc kubernetes artifact profile.
+    """
+    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    """
+    Depends on profile definition.
+    """
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureArcKubernetesDeployMappingRuleProfileArgsDict']]
+    """
+    Deploy mapping rule profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function application.
+    """
 
 @pulumi.input_type
 class AzureArcKubernetesHelmApplicationArgs:
@@ -921,22 +886,19 @@ class AzureArcKubernetesHelmApplicationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureArcKubernetesNetworkFunctionTemplateArgsDict(TypedDict):
-        """
-        Azure Arc kubernetes network function template.
-        """
-        nfvi_type: pulumi.Input[_builtins.str]
-        """
-        The network function type.
-        Expected value is 'AzureArcKubernetes'.
-        """
-        network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgsDict']]]]
-        """
-        Network function applications.
-        """
-elif False:
-    AzureArcKubernetesNetworkFunctionTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class AzureArcKubernetesNetworkFunctionTemplateArgsDict(TypedDict):
+    """
+    Azure Arc kubernetes network function template.
+    """
+    nfvi_type: pulumi.Input[_builtins.str]
+    """
+    The network function type.
+    Expected value is 'AzureArcKubernetes'.
+    """
+    network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureArcKubernetesHelmApplicationArgsDict']]]]
+    """
+    Network function applications.
+    """
 
 @pulumi.input_type
 class AzureArcKubernetesNetworkFunctionTemplateArgs:
@@ -979,21 +941,18 @@ class AzureArcKubernetesNetworkFunctionTemplateArgs:
         pulumi.set(self, "network_function_applications", value)
 
 
-if not MYPY:
-    class AzureCoreArmTemplateArtifactProfileArgsDict(TypedDict):
-        """
-        Azure template artifact profile properties.
-        """
-        artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The reference to artifact store.
-        """
-        template_artifact_profile: NotRequired[pulumi.Input['ArmTemplateArtifactProfileArgsDict']]
-        """
-        Template artifact profile.
-        """
-elif False:
-    AzureCoreArmTemplateArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreArmTemplateArtifactProfileArgsDict(TypedDict):
+    """
+    Azure template artifact profile properties.
+    """
+    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The reference to artifact store.
+    """
+    template_artifact_profile: NotRequired[pulumi.Input['ArmTemplateArtifactProfileArgsDict']]
+    """
+    Template artifact profile.
+    """
 
 @pulumi.input_type
 class AzureCoreArmTemplateArtifactProfileArgs:
@@ -1035,21 +994,18 @@ class AzureCoreArmTemplateArtifactProfileArgs:
         pulumi.set(self, "template_artifact_profile", value)
 
 
-if not MYPY:
-    class AzureCoreArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
-        """
-        Azure template deploy mapping rule profile.
-        """
-        application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
-        """
-        The application enablement.
-        """
-        template_mapping_rule_profile: NotRequired[pulumi.Input['ArmTemplateMappingRuleProfileArgsDict']]
-        """
-        The template mapping rule profile.
-        """
-elif False:
-    AzureCoreArmTemplateDeployMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
+    """
+    Azure template deploy mapping rule profile.
+    """
+    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    """
+    The application enablement.
+    """
+    template_mapping_rule_profile: NotRequired[pulumi.Input['ArmTemplateMappingRuleProfileArgsDict']]
+    """
+    The template mapping rule profile.
+    """
 
 @pulumi.input_type
 class AzureCoreArmTemplateDeployMappingRuleProfileArgs:
@@ -1091,26 +1047,23 @@ class AzureCoreArmTemplateDeployMappingRuleProfileArgs:
         pulumi.set(self, "template_mapping_rule_profile", value)
 
 
-if not MYPY:
-    class AzureCoreNFVIDetailsArgsDict(TypedDict):
-        """
-        The Azure Core NFVI detail.
-        """
-        nfvi_type: pulumi.Input[_builtins.str]
-        """
-        The NFVI type.
-        Expected value is 'AzureCore'.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the Azure core.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the nfvi.
-        """
-elif False:
-    AzureCoreNFVIDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreNFVIDetailsArgsDict(TypedDict):
+    """
+    The Azure Core NFVI detail.
+    """
+    nfvi_type: pulumi.Input[_builtins.str]
+    """
+    The NFVI type.
+    Expected value is 'AzureCore'.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of the Azure core.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the nfvi.
+    """
 
 @pulumi.input_type
 class AzureCoreNFVIDetailsArgs:
@@ -1169,34 +1122,31 @@ class AzureCoreNFVIDetailsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureCoreNetworkFunctionArmTemplateApplicationArgsDict(TypedDict):
-        """
-        Azure core network function Template application definition.
-        """
-        artifact_type: pulumi.Input[_builtins.str]
-        """
-        The artifact type.
-        Expected value is 'ArmTemplate'.
-        """
-        artifact_profile: NotRequired[pulumi.Input['AzureCoreArmTemplateArtifactProfileArgsDict']]
-        """
-        Azure template artifact profile.
-        """
-        depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
-        """
-        Depends on profile definition.
-        """
-        deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureCoreArmTemplateDeployMappingRuleProfileArgsDict']]
-        """
-        Deploy mapping rule profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function application.
-        """
-elif False:
-    AzureCoreNetworkFunctionArmTemplateApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreNetworkFunctionArmTemplateApplicationArgsDict(TypedDict):
+    """
+    Azure core network function Template application definition.
+    """
+    artifact_type: pulumi.Input[_builtins.str]
+    """
+    The artifact type.
+    Expected value is 'ArmTemplate'.
+    """
+    artifact_profile: NotRequired[pulumi.Input['AzureCoreArmTemplateArtifactProfileArgsDict']]
+    """
+    Azure template artifact profile.
+    """
+    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    """
+    Depends on profile definition.
+    """
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureCoreArmTemplateDeployMappingRuleProfileArgsDict']]
+    """
+    Deploy mapping rule profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function application.
+    """
 
 @pulumi.input_type
 class AzureCoreNetworkFunctionArmTemplateApplicationArgs:
@@ -1287,22 +1237,19 @@ class AzureCoreNetworkFunctionArmTemplateApplicationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureCoreNetworkFunctionTemplateArgsDict(TypedDict):
-        """
-        Azure virtual network function template.
-        """
-        nfvi_type: pulumi.Input[_builtins.str]
-        """
-        The network function type.
-        Expected value is 'AzureCore'.
-        """
-        network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgsDict', 'AzureCoreNetworkFunctionVhdApplicationArgsDict']]]]]
-        """
-        Network function applications.
-        """
-elif False:
-    AzureCoreNetworkFunctionTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreNetworkFunctionTemplateArgsDict(TypedDict):
+    """
+    Azure virtual network function template.
+    """
+    nfvi_type: pulumi.Input[_builtins.str]
+    """
+    The network function type.
+    Expected value is 'AzureCore'.
+    """
+    network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureCoreNetworkFunctionArmTemplateApplicationArgsDict', 'AzureCoreNetworkFunctionVhdApplicationArgsDict']]]]]
+    """
+    Network function applications.
+    """
 
 @pulumi.input_type
 class AzureCoreNetworkFunctionTemplateArgs:
@@ -1345,34 +1292,31 @@ class AzureCoreNetworkFunctionTemplateArgs:
         pulumi.set(self, "network_function_applications", value)
 
 
-if not MYPY:
-    class AzureCoreNetworkFunctionVhdApplicationArgsDict(TypedDict):
-        """
-        Azure core network function vhd application definition.
-        """
-        artifact_type: pulumi.Input[_builtins.str]
-        """
-        The artifact type.
-        Expected value is 'VhdImageFile'.
-        """
-        artifact_profile: NotRequired[pulumi.Input['AzureCoreVhdImageArtifactProfileArgsDict']]
-        """
-        Azure vhd image artifact profile.
-        """
-        depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
-        """
-        Depends on profile definition.
-        """
-        deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureCoreVhdImageDeployMappingRuleProfileArgsDict']]
-        """
-        Deploy mapping rule profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function application.
-        """
-elif False:
-    AzureCoreNetworkFunctionVhdApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreNetworkFunctionVhdApplicationArgsDict(TypedDict):
+    """
+    Azure core network function vhd application definition.
+    """
+    artifact_type: pulumi.Input[_builtins.str]
+    """
+    The artifact type.
+    Expected value is 'VhdImageFile'.
+    """
+    artifact_profile: NotRequired[pulumi.Input['AzureCoreVhdImageArtifactProfileArgsDict']]
+    """
+    Azure vhd image artifact profile.
+    """
+    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    """
+    Depends on profile definition.
+    """
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureCoreVhdImageDeployMappingRuleProfileArgsDict']]
+    """
+    Deploy mapping rule profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function application.
+    """
 
 @pulumi.input_type
 class AzureCoreNetworkFunctionVhdApplicationArgs:
@@ -1463,21 +1407,18 @@ class AzureCoreNetworkFunctionVhdApplicationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureCoreVhdImageArtifactProfileArgsDict(TypedDict):
-        """
-        Azure vhd artifact profile properties.
-        """
-        artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The reference to artifact store.
-        """
-        vhd_artifact_profile: NotRequired[pulumi.Input['VhdImageArtifactProfileArgsDict']]
-        """
-        Vhd artifact profile.
-        """
-elif False:
-    AzureCoreVhdImageArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreVhdImageArtifactProfileArgsDict(TypedDict):
+    """
+    Azure vhd artifact profile properties.
+    """
+    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The reference to artifact store.
+    """
+    vhd_artifact_profile: NotRequired[pulumi.Input['VhdImageArtifactProfileArgsDict']]
+    """
+    Vhd artifact profile.
+    """
 
 @pulumi.input_type
 class AzureCoreVhdImageArtifactProfileArgs:
@@ -1519,21 +1460,18 @@ class AzureCoreVhdImageArtifactProfileArgs:
         pulumi.set(self, "vhd_artifact_profile", value)
 
 
-if not MYPY:
-    class AzureCoreVhdImageDeployMappingRuleProfileArgsDict(TypedDict):
-        """
-        Azure vhd deploy mapping rule profile.
-        """
-        application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
-        """
-        The application enablement.
-        """
-        vhd_image_mapping_rule_profile: NotRequired[pulumi.Input['VhdImageMappingRuleProfileArgsDict']]
-        """
-        The vhd mapping rule profile.
-        """
-elif False:
-    AzureCoreVhdImageDeployMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCoreVhdImageDeployMappingRuleProfileArgsDict(TypedDict):
+    """
+    Azure vhd deploy mapping rule profile.
+    """
+    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    """
+    The application enablement.
+    """
+    vhd_image_mapping_rule_profile: NotRequired[pulumi.Input['VhdImageMappingRuleProfileArgsDict']]
+    """
+    The vhd mapping rule profile.
+    """
 
 @pulumi.input_type
 class AzureCoreVhdImageDeployMappingRuleProfileArgs:
@@ -1575,21 +1513,18 @@ class AzureCoreVhdImageDeployMappingRuleProfileArgs:
         pulumi.set(self, "vhd_image_mapping_rule_profile", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusArmTemplateArtifactProfileArgsDict(TypedDict):
-        """
-        Azure Operator Distributed Services vhd artifact profile properties.
-        """
-        artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The reference to artifact store.
-        """
-        template_artifact_profile: NotRequired[pulumi.Input['ArmTemplateArtifactProfileArgsDict']]
-        """
-        Template artifact profile.
-        """
-elif False:
-    AzureOperatorNexusArmTemplateArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusArmTemplateArtifactProfileArgsDict(TypedDict):
+    """
+    Azure Operator Distributed Services vhd artifact profile properties.
+    """
+    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The reference to artifact store.
+    """
+    template_artifact_profile: NotRequired[pulumi.Input['ArmTemplateArtifactProfileArgsDict']]
+    """
+    Template artifact profile.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusArmTemplateArtifactProfileArgs:
@@ -1631,21 +1566,18 @@ class AzureOperatorNexusArmTemplateArtifactProfileArgs:
         pulumi.set(self, "template_artifact_profile", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
-        """
-        Azure Operator Distributed Services template deploy mapping rule profile.
-        """
-        application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
-        """
-        The application enablement.
-        """
-        template_mapping_rule_profile: NotRequired[pulumi.Input['ArmTemplateMappingRuleProfileArgsDict']]
-        """
-        The template mapping rule profile.
-        """
-elif False:
-    AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict(TypedDict):
+    """
+    Azure Operator Distributed Services template deploy mapping rule profile.
+    """
+    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    """
+    The application enablement.
+    """
+    template_mapping_rule_profile: NotRequired[pulumi.Input['ArmTemplateMappingRuleProfileArgsDict']]
+    """
+    The template mapping rule profile.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs:
@@ -1687,26 +1619,23 @@ class AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgs:
         pulumi.set(self, "template_mapping_rule_profile", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusClusterNFVIDetailsArgsDict(TypedDict):
-        """
-        The AzureOperatorNexusCluster NFVI detail.
-        """
-        nfvi_type: pulumi.Input[_builtins.str]
-        """
-        The NFVI type.
-        Expected value is 'AzureOperatorNexus'.
-        """
-        custom_location_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The reference to the custom location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the nfvi.
-        """
-elif False:
-    AzureOperatorNexusClusterNFVIDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusClusterNFVIDetailsArgsDict(TypedDict):
+    """
+    The AzureOperatorNexusCluster NFVI detail.
+    """
+    nfvi_type: pulumi.Input[_builtins.str]
+    """
+    The NFVI type.
+    Expected value is 'AzureOperatorNexus'.
+    """
+    custom_location_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The reference to the custom location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the nfvi.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusClusterNFVIDetailsArgs:
@@ -1765,21 +1694,18 @@ class AzureOperatorNexusClusterNFVIDetailsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusImageArtifactProfileArgsDict(TypedDict):
-        """
-        Azure Operator Distributed Services image artifact profile properties.
-        """
-        artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The reference to artifact store.
-        """
-        image_artifact_profile: NotRequired[pulumi.Input['ImageArtifactProfileArgsDict']]
-        """
-        Image artifact profile.
-        """
-elif False:
-    AzureOperatorNexusImageArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusImageArtifactProfileArgsDict(TypedDict):
+    """
+    Azure Operator Distributed Services image artifact profile properties.
+    """
+    artifact_store: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The reference to artifact store.
+    """
+    image_artifact_profile: NotRequired[pulumi.Input['ImageArtifactProfileArgsDict']]
+    """
+    Image artifact profile.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusImageArtifactProfileArgs:
@@ -1821,21 +1747,18 @@ class AzureOperatorNexusImageArtifactProfileArgs:
         pulumi.set(self, "image_artifact_profile", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusImageDeployMappingRuleProfileArgsDict(TypedDict):
-        """
-        Azure Operator Distributed Services image deploy mapping rule profile.
-        """
-        application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
-        """
-        The application enablement.
-        """
-        image_mapping_rule_profile: NotRequired[pulumi.Input['ImageMappingRuleProfileArgsDict']]
-        """
-        The vhd mapping rule profile.
-        """
-elif False:
-    AzureOperatorNexusImageDeployMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusImageDeployMappingRuleProfileArgsDict(TypedDict):
+    """
+    Azure Operator Distributed Services image deploy mapping rule profile.
+    """
+    application_enablement: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationEnablement']]]
+    """
+    The application enablement.
+    """
+    image_mapping_rule_profile: NotRequired[pulumi.Input['ImageMappingRuleProfileArgsDict']]
+    """
+    The vhd mapping rule profile.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusImageDeployMappingRuleProfileArgs:
@@ -1877,34 +1800,31 @@ class AzureOperatorNexusImageDeployMappingRuleProfileArgs:
         pulumi.set(self, "image_mapping_rule_profile", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict(TypedDict):
-        """
-        Azure Operator Distributed Services network function Template application definition.
-        """
-        artifact_type: pulumi.Input[_builtins.str]
-        """
-        The artifact type.
-        Expected value is 'ArmTemplate'.
-        """
-        artifact_profile: NotRequired[pulumi.Input['AzureOperatorNexusArmTemplateArtifactProfileArgsDict']]
-        """
-        Azure Operator Distributed Services Template artifact profile.
-        """
-        depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
-        """
-        Depends on profile definition.
-        """
-        deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict']]
-        """
-        Deploy mapping rule profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function application.
-        """
-elif False:
-    AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict(TypedDict):
+    """
+    Azure Operator Distributed Services network function Template application definition.
+    """
+    artifact_type: pulumi.Input[_builtins.str]
+    """
+    The artifact type.
+    Expected value is 'ArmTemplate'.
+    """
+    artifact_profile: NotRequired[pulumi.Input['AzureOperatorNexusArmTemplateArtifactProfileArgsDict']]
+    """
+    Azure Operator Distributed Services Template artifact profile.
+    """
+    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    """
+    Depends on profile definition.
+    """
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureOperatorNexusArmTemplateDeployMappingRuleProfileArgsDict']]
+    """
+    Deploy mapping rule profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function application.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs:
@@ -1995,34 +1915,31 @@ class AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusNetworkFunctionImageApplicationArgsDict(TypedDict):
-        """
-        Azure Operator Distributed Services network function image application definition.
-        """
-        artifact_type: pulumi.Input[_builtins.str]
-        """
-        The artifact type.
-        Expected value is 'ImageFile'.
-        """
-        artifact_profile: NotRequired[pulumi.Input['AzureOperatorNexusImageArtifactProfileArgsDict']]
-        """
-        Azure Operator Distributed Services image artifact profile.
-        """
-        depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
-        """
-        Depends on profile definition.
-        """
-        deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureOperatorNexusImageDeployMappingRuleProfileArgsDict']]
-        """
-        Deploy mapping rule profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function application.
-        """
-elif False:
-    AzureOperatorNexusNetworkFunctionImageApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusNetworkFunctionImageApplicationArgsDict(TypedDict):
+    """
+    Azure Operator Distributed Services network function image application definition.
+    """
+    artifact_type: pulumi.Input[_builtins.str]
+    """
+    The artifact type.
+    Expected value is 'ImageFile'.
+    """
+    artifact_profile: NotRequired[pulumi.Input['AzureOperatorNexusImageArtifactProfileArgsDict']]
+    """
+    Azure Operator Distributed Services image artifact profile.
+    """
+    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    """
+    Depends on profile definition.
+    """
+    deploy_parameters_mapping_rule_profile: NotRequired[pulumi.Input['AzureOperatorNexusImageDeployMappingRuleProfileArgsDict']]
+    """
+    Deploy mapping rule profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function application.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusNetworkFunctionImageApplicationArgs:
@@ -2113,22 +2030,19 @@ class AzureOperatorNexusNetworkFunctionImageApplicationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureOperatorNexusNetworkFunctionTemplateArgsDict(TypedDict):
-        """
-        Azure Operator Distributed Services network function template.
-        """
-        nfvi_type: pulumi.Input[_builtins.str]
-        """
-        The network function type.
-        Expected value is 'AzureOperatorNexus'.
-        """
-        network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict', 'AzureOperatorNexusNetworkFunctionImageApplicationArgsDict']]]]]
-        """
-        Network function applications.
-        """
-elif False:
-    AzureOperatorNexusNetworkFunctionTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class AzureOperatorNexusNetworkFunctionTemplateArgsDict(TypedDict):
+    """
+    Azure Operator Distributed Services network function template.
+    """
+    nfvi_type: pulumi.Input[_builtins.str]
+    """
+    The network function type.
+    Expected value is 'AzureOperatorNexus'.
+    """
+    network_function_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationArgsDict', 'AzureOperatorNexusNetworkFunctionImageApplicationArgsDict']]]]]
+    """
+    Network function applications.
+    """
 
 @pulumi.input_type
 class AzureOperatorNexusNetworkFunctionTemplateArgs:
@@ -2171,21 +2085,18 @@ class AzureOperatorNexusNetworkFunctionTemplateArgs:
         pulumi.set(self, "network_function_applications", value)
 
 
-if not MYPY:
-    class ConfigurationGroupSchemaPropertiesFormatArgsDict(TypedDict):
-        """
-        Configuration group schema properties.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of what schema can contain.
-        """
-        schema_definition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
-        """
-elif False:
-    ConfigurationGroupSchemaPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationGroupSchemaPropertiesFormatArgsDict(TypedDict):
+    """
+    Configuration group schema properties.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of what schema can contain.
+    """
+    schema_definition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
+    """
 
 @pulumi.input_type
 class ConfigurationGroupSchemaPropertiesFormatArgs:
@@ -2227,26 +2138,23 @@ class ConfigurationGroupSchemaPropertiesFormatArgs:
         pulumi.set(self, "schema_definition", value)
 
 
-if not MYPY:
-    class ConfigurationValueWithSecretsArgsDict(TypedDict):
-        """
-        The ConfigurationValue with secrets.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The secret type which indicates if secret or not.
-        Expected value is 'Secret'.
-        """
-        configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
-        """
-        The configuration group schema resource reference.
-        """
-        secret_configuration_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name and value pairs that define the configuration value secrets. It can be a well formed escaped JSON string.
-        """
-elif False:
-    ConfigurationValueWithSecretsArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationValueWithSecretsArgsDict(TypedDict):
+    """
+    The ConfigurationValue with secrets.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The secret type which indicates if secret or not.
+    Expected value is 'Secret'.
+    """
+    configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    """
+    The configuration group schema resource reference.
+    """
+    secret_configuration_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name and value pairs that define the configuration value secrets. It can be a well formed escaped JSON string.
+    """
 
 @pulumi.input_type
 class ConfigurationValueWithSecretsArgs:
@@ -2305,26 +2213,23 @@ class ConfigurationValueWithSecretsArgs:
         pulumi.set(self, "secret_configuration_value", value)
 
 
-if not MYPY:
-    class ConfigurationValueWithoutSecretsArgsDict(TypedDict):
-        """
-        The ConfigurationValue with no secrets.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The secret type which indicates if secret or not.
-        Expected value is 'Open'.
-        """
-        configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
-        """
-        The configuration group schema resource reference.
-        """
-        configuration_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
-        """
-elif False:
-    ConfigurationValueWithoutSecretsArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationValueWithoutSecretsArgsDict(TypedDict):
+    """
+    The ConfigurationValue with no secrets.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The secret type which indicates if secret or not.
+    Expected value is 'Open'.
+    """
+    configuration_group_schema_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    """
+    The configuration group schema resource reference.
+    """
+    configuration_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name and value pairs that define the configuration value. It can be a well formed escaped JSON string.
+    """
 
 @pulumi.input_type
 class ConfigurationValueWithoutSecretsArgs:
@@ -2383,30 +2288,27 @@ class ConfigurationValueWithoutSecretsArgs:
         pulumi.set(self, "configuration_value", value)
 
 
-if not MYPY:
-    class ContainerizedNetworkFunctionDefinitionVersionArgsDict(TypedDict):
-        """
-        Containerized network function network function definition version properties.
-        """
-        network_function_type: pulumi.Input[_builtins.str]
-        """
-        The network function type.
-        Expected value is 'ContainerizedNetworkFunction'.
-        """
-        deploy_parameters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The deployment parameters of the network function definition version.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network function definition version description.
-        """
-        network_function_template: NotRequired[pulumi.Input['AzureArcKubernetesNetworkFunctionTemplateArgsDict']]
-        """
-        Containerized network function template.
-        """
-elif False:
-    ContainerizedNetworkFunctionDefinitionVersionArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerizedNetworkFunctionDefinitionVersionArgsDict(TypedDict):
+    """
+    Containerized network function network function definition version properties.
+    """
+    network_function_type: pulumi.Input[_builtins.str]
+    """
+    The network function type.
+    Expected value is 'ContainerizedNetworkFunction'.
+    """
+    deploy_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The deployment parameters of the network function definition version.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network function definition version description.
+    """
+    network_function_template: NotRequired[pulumi.Input['AzureArcKubernetesNetworkFunctionTemplateArgsDict']]
+    """
+    Containerized network function template.
+    """
 
 @pulumi.input_type
 class ContainerizedNetworkFunctionDefinitionVersionArgs:
@@ -2481,17 +2383,14 @@ class ContainerizedNetworkFunctionDefinitionVersionArgs:
         pulumi.set(self, "network_function_template", value)
 
 
-if not MYPY:
-    class CustomProfileArgsDict(TypedDict):
-        """
-        Specifies the custom settings for the virtual machine.
-        """
-        metadata_configuration_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path for metadata configuration.
-        """
-elif False:
-    CustomProfileArgsDict: TypeAlias = Mapping[str, Any]
+class CustomProfileArgsDict(TypedDict):
+    """
+    Specifies the custom settings for the virtual machine.
+    """
+    metadata_configuration_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path for metadata configuration.
+    """
 
 @pulumi.input_type
 class CustomProfileArgs:
@@ -2517,25 +2416,22 @@ class CustomProfileArgs:
         pulumi.set(self, "metadata_configuration_path", value)
 
 
-if not MYPY:
-    class DataDiskArgsDict(TypedDict):
-        """
-        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        """
-        create_option: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskCreateOptionTypes']]]
-        """
-        Specifies how the virtual machine should be created.
-        """
-        disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of data disk.
-        """
-elif False:
-    DataDiskArgsDict: TypeAlias = Mapping[str, Any]
+class DataDiskArgsDict(TypedDict):
+    """
+    Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    """
+    create_option: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskCreateOptionTypes']]]
+    """
+    Specifies how the virtual machine should be created.
+    """
+    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of data disk.
+    """
 
 @pulumi.input_type
 class DataDiskArgs:
@@ -2593,25 +2489,22 @@ class DataDiskArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DependsOnProfileArgsDict(TypedDict):
-        """
-        Depends on profile definition.
-        """
-        install_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Application installation operation dependency.
-        """
-        uninstall_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Application deletion operation dependency.
-        """
-        update_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Application update operation dependency.
-        """
-elif False:
-    DependsOnProfileArgsDict: TypeAlias = Mapping[str, Any]
+class DependsOnProfileArgsDict(TypedDict):
+    """
+    Depends on profile definition.
+    """
+    install_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Application installation operation dependency.
+    """
+    uninstall_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Application deletion operation dependency.
+    """
+    update_depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Application update operation dependency.
+    """
 
 @pulumi.input_type
 class DependsOnProfileArgs:
@@ -2669,29 +2562,26 @@ class DependsOnProfileArgs:
         pulumi.set(self, "update_depends_on", value)
 
 
-if not MYPY:
-    class HelmArtifactProfileArgsDict(TypedDict):
-        """
-        Helm artifact profile.
-        """
-        helm_package_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm package name.
-        """
-        helm_package_version_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm package version range.
-        """
-        image_pull_secrets_values_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The image pull secrets values path list.
-        """
-        registry_values_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The registry values path list.
-        """
-elif False:
-    HelmArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class HelmArtifactProfileArgsDict(TypedDict):
+    """
+    Helm artifact profile.
+    """
+    helm_package_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm package name.
+    """
+    helm_package_version_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm package version range.
+    """
+    image_pull_secrets_values_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The image pull secrets values path list.
+    """
+    registry_values_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The registry values path list.
+    """
 
 @pulumi.input_type
 class HelmArtifactProfileArgs:
@@ -2765,25 +2655,22 @@ class HelmArtifactProfileArgs:
         pulumi.set(self, "registry_values_paths", value)
 
 
-if not MYPY:
-    class HelmInstallOptionsArgsDict(TypedDict):
-        """
-        The helm deployment install options
-        """
-        atomic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The helm deployment atomic options
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The helm deployment timeout options
-        """
-        wait: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The helm deployment wait options
-        """
-elif False:
-    HelmInstallOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class HelmInstallOptionsArgsDict(TypedDict):
+    """
+    The helm deployment install options
+    """
+    atomic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The helm deployment atomic options
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The helm deployment timeout options
+    """
+    wait: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The helm deployment wait options
+    """
 
 @pulumi.input_type
 class HelmInstallOptionsArgs:
@@ -2841,21 +2728,18 @@ class HelmInstallOptionsArgs:
         pulumi.set(self, "wait", value)
 
 
-if not MYPY:
-    class HelmMappingRuleProfileOptionsArgsDict(TypedDict):
-        """
-        The helm deployment options
-        """
-        install_options: NotRequired[pulumi.Input['HelmInstallOptionsArgsDict']]
-        """
-        The helm deployment install options
-        """
-        upgrade_options: NotRequired[pulumi.Input['HelmUpgradeOptionsArgsDict']]
-        """
-        The helm deployment upgrade options
-        """
-elif False:
-    HelmMappingRuleProfileOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class HelmMappingRuleProfileOptionsArgsDict(TypedDict):
+    """
+    The helm deployment options
+    """
+    install_options: NotRequired[pulumi.Input['HelmInstallOptionsArgsDict']]
+    """
+    The helm deployment install options
+    """
+    upgrade_options: NotRequired[pulumi.Input['HelmUpgradeOptionsArgsDict']]
+    """
+    The helm deployment upgrade options
+    """
 
 @pulumi.input_type
 class HelmMappingRuleProfileOptionsArgs:
@@ -2897,33 +2781,30 @@ class HelmMappingRuleProfileOptionsArgs:
         pulumi.set(self, "upgrade_options", value)
 
 
-if not MYPY:
-    class HelmMappingRuleProfileArgsDict(TypedDict):
-        """
-        Helm mapping rule profile
-        """
-        helm_package_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm package version.
-        """
-        options: NotRequired[pulumi.Input['HelmMappingRuleProfileOptionsArgsDict']]
-        """
-        The helm deployment options
-        """
-        release_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm release name.
-        """
-        release_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm release namespace.
-        """
-        values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm release values.
-        """
-elif False:
-    HelmMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class HelmMappingRuleProfileArgsDict(TypedDict):
+    """
+    Helm mapping rule profile
+    """
+    helm_package_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm package version.
+    """
+    options: NotRequired[pulumi.Input['HelmMappingRuleProfileOptionsArgsDict']]
+    """
+    The helm deployment options
+    """
+    release_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm release name.
+    """
+    release_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm release namespace.
+    """
+    values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm release values.
+    """
 
 @pulumi.input_type
 class HelmMappingRuleProfileArgs:
@@ -3013,25 +2894,22 @@ class HelmMappingRuleProfileArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class HelmUpgradeOptionsArgsDict(TypedDict):
-        """
-        The helm deployment install options
-        """
-        atomic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The helm deployment atomic options
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The helm deployment timeout options
-        """
-        wait: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The helm deployment wait options
-        """
-elif False:
-    HelmUpgradeOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class HelmUpgradeOptionsArgsDict(TypedDict):
+    """
+    The helm deployment install options
+    """
+    atomic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The helm deployment atomic options
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The helm deployment timeout options
+    """
+    wait: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The helm deployment wait options
+    """
 
 @pulumi.input_type
 class HelmUpgradeOptionsArgs:
@@ -3089,21 +2967,18 @@ class HelmUpgradeOptionsArgs:
         pulumi.set(self, "wait", value)
 
 
-if not MYPY:
-    class ImageArtifactProfileArgsDict(TypedDict):
-        """
-        Image artifact profile.
-        """
-        image_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image name.
-        """
-        image_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image version.
-        """
-elif False:
-    ImageArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ImageArtifactProfileArgsDict(TypedDict):
+    """
+    Image artifact profile.
+    """
+    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image name.
+    """
+    image_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image version.
+    """
 
 @pulumi.input_type
 class ImageArtifactProfileArgs:
@@ -3145,17 +3020,14 @@ class ImageArtifactProfileArgs:
         pulumi.set(self, "image_version", value)
 
 
-if not MYPY:
-    class ImageMappingRuleProfileArgsDict(TypedDict):
-        """
-        Image mapping rule profile
-        """
-        user_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        List of values.
-        """
-elif False:
-    ImageMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ImageMappingRuleProfileArgsDict(TypedDict):
+    """
+    Image mapping rule profile
+    """
+    user_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    List of values.
+    """
 
 @pulumi.input_type
 class ImageMappingRuleProfileArgs:
@@ -3181,33 +3053,30 @@ class ImageMappingRuleProfileArgs:
         pulumi.set(self, "user_configuration", value)
 
 
-if not MYPY:
-    class ImageReferenceArgsDict(TypedDict):
-        """
-        The image reference properties.
-        """
-        exact_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies in decimal numbers, the exact version of image used to create the virtual machine.
-        """
-        offer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the offer of the image used to create the virtual machine.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image publisher.
-        """
-        sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image SKU.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-        """
-elif False:
-    ImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageReferenceArgsDict(TypedDict):
+    """
+    The image reference properties.
+    """
+    exact_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+    """
+    offer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the offer of the image used to create the virtual machine.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image publisher.
+    """
+    sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image SKU.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+    """
 
 @pulumi.input_type
 class ImageReferenceArgs:
@@ -3297,17 +3166,14 @@ class ImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class LinuxConfigurationArgsDict(TypedDict):
-        """
-        Specifies the Linux operating system settings on the virtual machine.
-        """
-        ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
-        """
-        Specifies the ssh key configuration for a Linux OS.
-        """
-elif False:
-    LinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LinuxConfigurationArgsDict(TypedDict):
+    """
+    Specifies the Linux operating system settings on the virtual machine.
+    """
+    ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+    """
+    Specifies the ssh key configuration for a Linux OS.
+    """
 
 @pulumi.input_type
 class LinuxConfigurationArgs:
@@ -3333,21 +3199,18 @@ class LinuxConfigurationArgs:
         pulumi.set(self, "ssh", value)
 
 
-if not MYPY:
-    class ManagedResourceGroupConfigurationArgsDict(TypedDict):
-        """
-        Managed resource group configuration.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Managed resource group location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Managed resource group name.
-        """
-elif False:
-    ManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedResourceGroupConfigurationArgsDict(TypedDict):
+    """
+    Managed resource group configuration.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Managed resource group location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Managed resource group name.
+    """
 
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
@@ -3389,21 +3252,18 @@ class ManagedResourceGroupConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -3444,25 +3304,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ManifestArtifactFormatArgsDict(TypedDict):
-        """
-        Manifest artifact properties.
-        """
-        artifact_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The artifact name
-        """
-        artifact_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactType']]]
-        """
-        The artifact type.
-        """
-        artifact_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The artifact version.
-        """
-elif False:
-    ManifestArtifactFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ManifestArtifactFormatArgsDict(TypedDict):
+    """
+    Manifest artifact properties.
+    """
+    artifact_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The artifact name
+    """
+    artifact_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactType']]]
+    """
+    The artifact type.
+    """
+    artifact_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The artifact version.
+    """
 
 @pulumi.input_type
 class ManifestArtifactFormatArgs:
@@ -3520,25 +3377,22 @@ class ManifestArtifactFormatArgs:
         pulumi.set(self, "artifact_version", value)
 
 
-if not MYPY:
-    class NSDArtifactProfileArgsDict(TypedDict):
-        """
-        Artifact profile properties.
-        """
-        artifact_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Artifact name.
-        """
-        artifact_store_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The artifact store resource id
-        """
-        artifact_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Artifact version.
-        """
-elif False:
-    NSDArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NSDArtifactProfileArgsDict(TypedDict):
+    """
+    Artifact profile properties.
+    """
+    artifact_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Artifact name.
+    """
+    artifact_store_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The artifact store resource id
+    """
+    artifact_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Artifact version.
+    """
 
 @pulumi.input_type
 class NSDArtifactProfileArgs:
@@ -3596,17 +3450,14 @@ class NSDArtifactProfileArgs:
         pulumi.set(self, "artifact_version", value)
 
 
-if not MYPY:
-    class NetworkFunctionDefinitionGroupPropertiesFormatArgsDict(TypedDict):
-        """
-        Network function definition group properties.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network function definition group description.
-        """
-elif False:
-    NetworkFunctionDefinitionGroupPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkFunctionDefinitionGroupPropertiesFormatArgsDict(TypedDict):
+    """
+    Network function definition group properties.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network function definition group description.
+    """
 
 @pulumi.input_type
 class NetworkFunctionDefinitionGroupPropertiesFormatArgs:
@@ -3632,30 +3483,27 @@ class NetworkFunctionDefinitionGroupPropertiesFormatArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict(TypedDict):
-        """
-        The network function definition resource element template details.
-        """
-        resource_element_type: pulumi.Input[_builtins.str]
-        """
-        The resource element template type.
-        Expected value is 'NetworkFunctionDefinition'.
-        """
-        configuration: NotRequired[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgsDict']]
-        """
-        The resource element template type.
-        """
-        depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
-        """
-        The depends on profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the resource element template.
-        """
-elif False:
-    NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict(TypedDict):
+    """
+    The network function definition resource element template details.
+    """
+    resource_element_type: pulumi.Input[_builtins.str]
+    """
+    The resource element template type.
+    Expected value is 'NetworkFunctionDefinition'.
+    """
+    configuration: NotRequired[pulumi.Input['ArmResourceDefinitionResourceElementTemplateArgsDict']]
+    """
+    The resource element template type.
+    """
+    depends_on_profile: NotRequired[pulumi.Input['DependsOnProfileArgsDict']]
+    """
+    The depends on profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource element template.
+    """
 
 @pulumi.input_type
 class NetworkFunctionDefinitionResourceElementTemplateDetailsArgs:
@@ -3730,49 +3578,46 @@ class NetworkFunctionDefinitionResourceElementTemplateDetailsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class NetworkFunctionRoleConfigurationArgsDict(TypedDict):
-        """
-        Network function role configuration.
-        """
-        custom_profile: NotRequired[pulumi.Input['CustomProfileArgsDict']]
-        """
-        Specifies the custom settings for the virtual machine.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
-        """
-        The network interface configurations.
-        """
-        os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
-        """
-        Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
-        """
-        role_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function role.
-        """
-        role_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]
-        """
-        Role type.
-        """
-        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-        """
-        Specifies the storage settings for the virtual machine disks.
-        """
-        user_data_parameters: NotRequired[Any]
-        """
-        The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-        """
-        user_data_template: NotRequired[Any]
-        """
-        The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
-        """
-        virtual_machine_size: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualMachineSizeTypes']]]
-        """
-        The size of the virtual machine.
-        """
-elif False:
-    NetworkFunctionRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkFunctionRoleConfigurationArgsDict(TypedDict):
+    """
+    Network function role configuration.
+    """
+    custom_profile: NotRequired[pulumi.Input['CustomProfileArgsDict']]
+    """
+    Specifies the custom settings for the virtual machine.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+    """
+    The network interface configurations.
+    """
+    os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
+    """
+    Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+    """
+    role_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function role.
+    """
+    role_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkFunctionRoleConfigurationType']]]
+    """
+    Role type.
+    """
+    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    """
+    Specifies the storage settings for the virtual machine disks.
+    """
+    user_data_parameters: NotRequired[Any]
+    """
+    The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+    """
+    user_data_template: NotRequired[Any]
+    """
+    The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+    """
+    virtual_machine_size: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualMachineSizeTypes']]]
+    """
+    The size of the virtual machine.
+    """
 
 @pulumi.input_type
 class NetworkFunctionRoleConfigurationArgs:
@@ -3926,17 +3771,14 @@ class NetworkFunctionRoleConfigurationArgs:
         pulumi.set(self, "virtual_machine_size", value)
 
 
-if not MYPY:
-    class NetworkFunctionTemplateArgsDict(TypedDict):
-        """
-        The network function template.
-        """
-        network_function_role_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgsDict']]]]
-        """
-        An array of network function role definitions.
-        """
-elif False:
-    NetworkFunctionTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkFunctionTemplateArgsDict(TypedDict):
+    """
+    The network function template.
+    """
+    network_function_role_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgsDict']]]]
+    """
+    An array of network function role definitions.
+    """
 
 @pulumi.input_type
 class NetworkFunctionTemplateArgs:
@@ -3962,62 +3804,59 @@ class NetworkFunctionTemplateArgs:
         pulumi.set(self, "network_function_role_configurations", value)
 
 
-if not MYPY:
-    class NetworkFunctionValueWithSecretsArgsDict(TypedDict):
-        """
-        NetworkFunction with secrets.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The secret type which indicates if secret or not.
-        Expected value is 'Secret'.
-        """
-        allow_software_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if software updates are allowed during deployment.
-        """
-        network_function_definition_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network function definition group name for the network function.
-        """
-        network_function_definition_offering_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location of the network function definition offering.
-        """
-        network_function_definition_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network function definition version for the network function.
-        """
-        network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
-        """
-        The network function definition version resource reference.
-        """
-        nfvi_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The nfviId for the network function.
-        """
-        nfvi_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NFVIType']]]
-        """
-        The nfvi type for the network function.
-        """
-        publisher_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher name for the network function.
-        """
-        publisher_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
-        """
-        The scope of the publisher.
-        """
-        role_override_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The role configuration override values from the user.
-        """
-        secret_deployment_values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JSON-serialized secret deployment values from the user. This contains secrets like passwords,keys etc
-        """
-elif False:
-    NetworkFunctionValueWithSecretsArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkFunctionValueWithSecretsArgsDict(TypedDict):
+    """
+    NetworkFunction with secrets.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The secret type which indicates if secret or not.
+    Expected value is 'Secret'.
+    """
+    allow_software_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if software updates are allowed during deployment.
+    """
+    network_function_definition_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network function definition group name for the network function.
+    """
+    network_function_definition_offering_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location of the network function definition offering.
+    """
+    network_function_definition_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network function definition version for the network function.
+    """
+    network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    """
+    The network function definition version resource reference.
+    """
+    nfvi_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The nfviId for the network function.
+    """
+    nfvi_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NFVIType']]]
+    """
+    The nfvi type for the network function.
+    """
+    publisher_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher name for the network function.
+    """
+    publisher_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
+    """
+    The scope of the publisher.
+    """
+    role_override_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The role configuration override values from the user.
+    """
+    secret_deployment_values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JSON-serialized secret deployment values from the user. This contains secrets like passwords,keys etc
+    """
 
 @pulumi.input_type
 class NetworkFunctionValueWithSecretsArgs:
@@ -4220,62 +4059,59 @@ class NetworkFunctionValueWithSecretsArgs:
         pulumi.set(self, "secret_deployment_values", value)
 
 
-if not MYPY:
-    class NetworkFunctionValueWithoutSecretsArgsDict(TypedDict):
-        """
-        NetworkFunction with no secrets.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The secret type which indicates if secret or not.
-        Expected value is 'Open'.
-        """
-        allow_software_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if software updates are allowed during deployment.
-        """
-        deployment_values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JSON-serialized deployment values from the user.
-        """
-        network_function_definition_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network function definition group name for the network function.
-        """
-        network_function_definition_offering_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location of the network function definition offering.
-        """
-        network_function_definition_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network function definition version for the network function.
-        """
-        network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
-        """
-        The network function definition version resource reference.
-        """
-        nfvi_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The nfviId for the network function.
-        """
-        nfvi_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NFVIType']]]
-        """
-        The nfvi type for the network function.
-        """
-        publisher_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher name for the network function.
-        """
-        publisher_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
-        """
-        The scope of the publisher.
-        """
-        role_override_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The role configuration override values from the user.
-        """
-elif False:
-    NetworkFunctionValueWithoutSecretsArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkFunctionValueWithoutSecretsArgsDict(TypedDict):
+    """
+    NetworkFunction with no secrets.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The secret type which indicates if secret or not.
+    Expected value is 'Open'.
+    """
+    allow_software_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if software updates are allowed during deployment.
+    """
+    deployment_values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JSON-serialized deployment values from the user.
+    """
+    network_function_definition_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network function definition group name for the network function.
+    """
+    network_function_definition_offering_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location of the network function definition offering.
+    """
+    network_function_definition_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network function definition version for the network function.
+    """
+    network_function_definition_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    """
+    The network function definition version resource reference.
+    """
+    nfvi_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The nfviId for the network function.
+    """
+    nfvi_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NFVIType']]]
+    """
+    The nfvi type for the network function.
+    """
+    publisher_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher name for the network function.
+    """
+    publisher_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
+    """
+    The scope of the publisher.
+    """
+    role_override_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The role configuration override values from the user.
+    """
 
 @pulumi.input_type
 class NetworkFunctionValueWithoutSecretsArgs:
@@ -4478,37 +4314,34 @@ class NetworkFunctionValueWithoutSecretsArgs:
         pulumi.set(self, "role_override_values", value)
 
 
-if not MYPY:
-    class NetworkInterfaceIPConfigurationArgsDict(TypedDict):
-        """
-        Network interface IP configuration properties.
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of DNS servers IP addresses.
-        """
-        gateway: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the gateway.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the IP address.
-        """
-        ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]
-        """
-        IP address allocation method.
-        """
-        ip_version: NotRequired[pulumi.Input[Union[_builtins.str, 'IPVersion']]]
-        """
-        IP address version.
-        """
-        subnet: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the subnet.
-        """
-elif False:
-    NetworkInterfaceIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceIPConfigurationArgsDict(TypedDict):
+    """
+    Network interface IP configuration properties.
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of DNS servers IP addresses.
+    """
+    gateway: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the gateway.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the IP address.
+    """
+    ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]
+    """
+    IP address allocation method.
+    """
+    ip_version: NotRequired[pulumi.Input[Union[_builtins.str, 'IPVersion']]]
+    """
+    IP address version.
+    """
+    subnet: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the subnet.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceIPConfigurationArgs:
@@ -4614,29 +4447,26 @@ class NetworkInterfaceIPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class NetworkInterfaceArgsDict(TypedDict):
-        """
-        Network interface properties.
-        """
-        ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgsDict']]]]
-        """
-        A list of IP configurations of the network interface.
-        """
-        mac_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MAC address of the network interface.
-        """
-        network_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network interface.
-        """
-        vm_switch_type: NotRequired[pulumi.Input[Union[_builtins.str, 'VMSwitchType']]]
-        """
-        The type of the VM switch.
-        """
-elif False:
-    NetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceArgsDict(TypedDict):
+    """
+    Network interface properties.
+    """
+    ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgsDict']]]]
+    """
+    A list of IP configurations of the network interface.
+    """
+    mac_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MAC address of the network interface.
+    """
+    network_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network interface.
+    """
+    vm_switch_type: NotRequired[pulumi.Input[Union[_builtins.str, 'VMSwitchType']]]
+    """
+    The type of the VM switch.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceArgs:
@@ -4710,17 +4540,14 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "vm_switch_type", value)
 
 
-if not MYPY:
-    class NetworkServiceDesignGroupPropertiesFormatArgsDict(TypedDict):
-        """
-        network service design group properties.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network service design group description.
-        """
-elif False:
-    NetworkServiceDesignGroupPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkServiceDesignGroupPropertiesFormatArgsDict(TypedDict):
+    """
+    network service design group properties.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network service design group description.
+    """
 
 @pulumi.input_type
 class NetworkServiceDesignGroupPropertiesFormatArgs:
@@ -4746,29 +4573,26 @@ class NetworkServiceDesignGroupPropertiesFormatArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class NetworkServiceDesignVersionPropertiesFormatArgsDict(TypedDict):
-        """
-        network service design version properties.
-        """
-        configuration_group_schema_references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]
-        """
-        The configuration schemas to used to define the values.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network service design version description.
-        """
-        nfvis_from_site: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['NfviDetailsArgsDict']]]]
-        """
-        The nfvis from the site.
-        """
-        resource_element_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgsDict', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict']]]]]
-        """
-        List of resource element template
-        """
-elif False:
-    NetworkServiceDesignVersionPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkServiceDesignVersionPropertiesFormatArgsDict(TypedDict):
+    """
+    network service design version properties.
+    """
+    configuration_group_schema_references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]
+    """
+    The configuration schemas to used to define the values.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network service design version description.
+    """
+    nfvis_from_site: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['NfviDetailsArgsDict']]]]
+    """
+    The nfvis from the site.
+    """
+    resource_element_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ArmResourceDefinitionResourceElementTemplateDetailsArgsDict', 'NetworkFunctionDefinitionResourceElementTemplateDetailsArgsDict']]]]]
+    """
+    List of resource element template
+    """
 
 @pulumi.input_type
 class NetworkServiceDesignVersionPropertiesFormatArgs:
@@ -4842,21 +4666,18 @@ class NetworkServiceDesignVersionPropertiesFormatArgs:
         pulumi.set(self, "resource_element_templates", value)
 
 
-if not MYPY:
-    class NfviDetailsArgsDict(TypedDict):
-        """
-        The nfvi details.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The nfvi name.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The nfvi type.
-        """
-elif False:
-    NfviDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class NfviDetailsArgsDict(TypedDict):
+    """
+    The nfvi details.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The nfvi name.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The nfvi type.
+    """
 
 @pulumi.input_type
 class NfviDetailsArgs:
@@ -4898,22 +4719,19 @@ class NfviDetailsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class OpenDeploymentResourceReferenceArgsDict(TypedDict):
-        """
-        Non secret deployment resource id reference.
-        """
-        id_type: pulumi.Input[_builtins.str]
-        """
-        The resource reference arm id type.
-        Expected value is 'Open'.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID.
-        """
-elif False:
-    OpenDeploymentResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class OpenDeploymentResourceReferenceArgsDict(TypedDict):
+    """
+    Non secret deployment resource id reference.
+    """
+    id_type: pulumi.Input[_builtins.str]
+    """
+    The resource reference arm id type.
+    Expected value is 'Open'.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class OpenDeploymentResourceReferenceArgs:
@@ -4956,29 +4774,26 @@ class OpenDeploymentResourceReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class OsDiskArgsDict(TypedDict):
-        """
-        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        """
-        disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The VHD name.
-        """
-        os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]]
-        """
-        The OS type.
-        """
-        vhd: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
-        """
-        The virtual hard disk.
-        """
-elif False:
-    OsDiskArgsDict: TypeAlias = Mapping[str, Any]
+class OsDiskArgsDict(TypedDict):
+    """
+    Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    """
+    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The VHD name.
+    """
+    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]]
+    """
+    The OS type.
+    """
+    vhd: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+    """
+    The virtual hard disk.
+    """
 
 @pulumi.input_type
 class OsDiskArgs:
@@ -5052,29 +4867,26 @@ class OsDiskArgs:
         pulumi.set(self, "vhd", value)
 
 
-if not MYPY:
-    class OsProfileArgsDict(TypedDict):
-        """
-        Specifies the operating system settings for the role instance.
-        """
-        admin_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        """
-        custom_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        """
-        custom_data_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if custom data is required to deploy this role.
-        """
-        linux_configuration: NotRequired[pulumi.Input['LinuxConfigurationArgsDict']]
-        """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        """
-elif False:
-    OsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OsProfileArgsDict(TypedDict):
+    """
+    Specifies the operating system settings for the role instance.
+    """
+    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    """
+    custom_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+    """
+    custom_data_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if custom data is required to deploy this role.
+    """
+    linux_configuration: NotRequired[pulumi.Input['LinuxConfigurationArgsDict']]
+    """
+    Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    """
 
 @pulumi.input_type
 class OsProfileArgs:
@@ -5150,17 +4962,14 @@ class OsProfileArgs:
         pulumi.set(self, "linux_configuration", value)
 
 
-if not MYPY:
-    class PublisherPropertiesFormatArgsDict(TypedDict):
-        """
-        publisher properties.
-        """
-        scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
-        """
-        The publisher scope.
-        """
-elif False:
-    PublisherPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class PublisherPropertiesFormatArgsDict(TypedDict):
+    """
+    publisher properties.
+    """
+    scope: NotRequired[pulumi.Input[Union[_builtins.str, 'PublisherScope']]]
+    """
+    The publisher scope.
+    """
 
 @pulumi.input_type
 class PublisherPropertiesFormatArgs:
@@ -5186,17 +4995,14 @@ class PublisherPropertiesFormatArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class ReferencedResourceArgsDict(TypedDict):
-        """
-        Reference to another resource.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID.
-        """
-elif False:
-    ReferencedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ReferencedResourceArgsDict(TypedDict):
+    """
+    Reference to another resource.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class ReferencedResourceArgs:
@@ -5222,22 +5028,19 @@ class ReferencedResourceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SecretDeploymentResourceReferenceArgsDict(TypedDict):
-        """
-        Secret deployment resource id reference.
-        """
-        id_type: pulumi.Input[_builtins.str]
-        """
-        The resource reference arm id type.
-        Expected value is 'Secret'.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID.
-        """
-elif False:
-    SecretDeploymentResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class SecretDeploymentResourceReferenceArgsDict(TypedDict):
+    """
+    Secret deployment resource id reference.
+    """
+    id_type: pulumi.Input[_builtins.str]
+    """
+    The resource reference arm id type.
+    Expected value is 'Secret'.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class SecretDeploymentResourceReferenceArgs:
@@ -5280,29 +5083,26 @@ class SecretDeploymentResourceReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SiteNetworkServicePropertiesFormatArgsDict(TypedDict):
-        """
-        Site network service properties.
-        """
-        desired_state_configuration_group_value_references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]
-        """
-        The goal state of the site network service resource. This has references to the configuration group value objects that describe the desired state of the site network service.
-        """
-        managed_resource_group_configuration: NotRequired[pulumi.Input['ManagedResourceGroupConfigurationArgsDict']]
-        """
-        Managed resource group configuration.
-        """
-        network_service_design_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
-        """
-        The network service design version resource reference.
-        """
-        site_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
-        """
-        The site details
-        """
-elif False:
-    SiteNetworkServicePropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class SiteNetworkServicePropertiesFormatArgsDict(TypedDict):
+    """
+    Site network service properties.
+    """
+    desired_state_configuration_group_value_references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReferencedResourceArgsDict']]]]
+    """
+    The goal state of the site network service resource. This has references to the configuration group value objects that describe the desired state of the site network service.
+    """
+    managed_resource_group_configuration: NotRequired[pulumi.Input['ManagedResourceGroupConfigurationArgsDict']]
+    """
+    Managed resource group configuration.
+    """
+    network_service_design_version_resource_reference: NotRequired[pulumi.Input[Union['OpenDeploymentResourceReferenceArgsDict', 'SecretDeploymentResourceReferenceArgsDict']]]
+    """
+    The network service design version resource reference.
+    """
+    site_reference: NotRequired[pulumi.Input['ReferencedResourceArgsDict']]
+    """
+    The site details
+    """
 
 @pulumi.input_type
 class SiteNetworkServicePropertiesFormatArgs:
@@ -5376,17 +5176,14 @@ class SiteNetworkServicePropertiesFormatArgs:
         pulumi.set(self, "site_reference", value)
 
 
-if not MYPY:
-    class SitePropertiesFormatArgsDict(TypedDict):
-        """
-        Site properties.
-        """
-        nfvis: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgsDict', 'AzureCoreNFVIDetailsArgsDict', 'AzureOperatorNexusClusterNFVIDetailsArgsDict']]]]]
-        """
-        List of NFVIs
-        """
-elif False:
-    SitePropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+class SitePropertiesFormatArgsDict(TypedDict):
+    """
+    Site properties.
+    """
+    nfvis: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['AzureArcK8sClusterNFVIDetailsArgsDict', 'AzureCoreNFVIDetailsArgsDict', 'AzureOperatorNexusClusterNFVIDetailsArgsDict']]]]]
+    """
+    List of NFVIs
+    """
 
 @pulumi.input_type
 class SitePropertiesFormatArgs:
@@ -5412,17 +5209,14 @@ class SitePropertiesFormatArgs:
         pulumi.set(self, "nfvis", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Sku, to be associated with a SiteNetworkService.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        Name of this Sku
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Sku, to be associated with a SiteNetworkService.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    Name of this Sku
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -5447,17 +5241,14 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SshConfigurationArgsDict(TypedDict):
-        """
-        SSH configuration for Linux based VMs running on Azure
-        """
-        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
-        """
-        The list of SSH public keys used to authenticate with linux based VMs.
-        """
-elif False:
-    SshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SshConfigurationArgsDict(TypedDict):
+    """
+    SSH configuration for Linux based VMs running on Azure
+    """
+    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+    """
+    The list of SSH public keys used to authenticate with linux based VMs.
+    """
 
 @pulumi.input_type
 class SshConfigurationArgs:
@@ -5483,21 +5274,18 @@ class SshConfigurationArgs:
         pulumi.set(self, "public_keys", value)
 
 
-if not MYPY:
-    class SshPublicKeyArgsDict(TypedDict):
-        """
-        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
-        """
-        key_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-elif False:
-    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SshPublicKeyArgsDict(TypedDict):
+    """
+    Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+    """
+    key_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+    """
 
 @pulumi.input_type
 class SshPublicKeyArgs:
@@ -5539,25 +5327,22 @@ class SshPublicKeyArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        Specifies the storage settings for the virtual machine disks.
-        """
-        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskArgsDict']]]]
-        """
-        Specifies the parameters that are used to add a data disk to a virtual machine.
-        """
-        image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
-        """
-        The image reference properties.
-        """
-        os_disk: NotRequired[pulumi.Input['OsDiskArgsDict']]
-        """
-        Specifies information about the operating system disk used by the virtual machine.
-        """
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    Specifies the storage settings for the virtual machine disks.
+    """
+    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskArgsDict']]]]
+    """
+    Specifies the parameters that are used to add a data disk to a virtual machine.
+    """
+    image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
+    """
+    The image reference properties.
+    """
+    os_disk: NotRequired[pulumi.Input['OsDiskArgsDict']]
+    """
+    Specifies information about the operating system disk used by the virtual machine.
+    """
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -5615,21 +5400,18 @@ class StorageProfileArgs:
         pulumi.set(self, "os_disk", value)
 
 
-if not MYPY:
-    class VhdImageArtifactProfileArgsDict(TypedDict):
-        """
-        Vhd artifact profile.
-        """
-        vhd_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Vhd name.
-        """
-        vhd_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Vhd version.
-        """
-elif False:
-    VhdImageArtifactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VhdImageArtifactProfileArgsDict(TypedDict):
+    """
+    Vhd artifact profile.
+    """
+    vhd_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Vhd name.
+    """
+    vhd_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Vhd version.
+    """
 
 @pulumi.input_type
 class VhdImageArtifactProfileArgs:
@@ -5671,17 +5453,14 @@ class VhdImageArtifactProfileArgs:
         pulumi.set(self, "vhd_version", value)
 
 
-if not MYPY:
-    class VhdImageMappingRuleProfileArgsDict(TypedDict):
-        """
-        Vhd mapping rule profile
-        """
-        user_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        List of values.
-        """
-elif False:
-    VhdImageMappingRuleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VhdImageMappingRuleProfileArgsDict(TypedDict):
+    """
+    Vhd mapping rule profile
+    """
+    user_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    List of values.
+    """
 
 @pulumi.input_type
 class VhdImageMappingRuleProfileArgs:
@@ -5707,17 +5486,14 @@ class VhdImageMappingRuleProfileArgs:
         pulumi.set(self, "user_configuration", value)
 
 
-if not MYPY:
-    class VirtualHardDiskArgsDict(TypedDict):
-        """
-        Describes the uri of a disk.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the virtual hard disk's uri.
-        """
-elif False:
-    VirtualHardDiskArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualHardDiskArgsDict(TypedDict):
+    """
+    Describes the uri of a disk.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the virtual hard disk's uri.
+    """
 
 @pulumi.input_type
 class VirtualHardDiskArgs:
@@ -5743,30 +5519,27 @@ class VirtualHardDiskArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgsDict(TypedDict):
-        """
-        Virtual network function network function definition version properties.
-        """
-        network_function_type: pulumi.Input[_builtins.str]
-        """
-        The network function type.
-        Expected value is 'VirtualNetworkFunction'.
-        """
-        deploy_parameters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The deployment parameters of the network function definition version.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network function definition version description.
-        """
-        network_function_template: NotRequired[pulumi.Input[Union['AzureCoreNetworkFunctionTemplateArgsDict', 'AzureOperatorNexusNetworkFunctionTemplateArgsDict']]]
-        """
-        Virtual network function template.
-        """
-elif False:
-    VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgsDict(TypedDict):
+    """
+    Virtual network function network function definition version properties.
+    """
+    network_function_type: pulumi.Input[_builtins.str]
+    """
+    The network function type.
+    Expected value is 'VirtualNetworkFunction'.
+    """
+    deploy_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The deployment parameters of the network function definition version.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network function definition version description.
+    """
+    network_function_template: NotRequired[pulumi.Input[Union['AzureCoreNetworkFunctionTemplateArgsDict', 'AzureOperatorNexusNetworkFunctionTemplateArgsDict']]]
+    """
+    Virtual network function template.
+    """
 
 @pulumi.input_type
 class VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs:

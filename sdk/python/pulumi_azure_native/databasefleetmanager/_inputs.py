@@ -36,27 +36,22 @@ __all__ = [
     'TransparentDataEncryptionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DatabaseIdentityArgsDict(TypedDict):
-        """
-        Database Identity properties.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client Id of the database identity.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Principal Id of the database identity.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id of the database identity.
-        """
-elif False:
-    DatabaseIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseIdentityArgsDict(TypedDict):
+    """
+    Database Identity properties.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client Id of the database identity.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Principal Id of the database identity.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id of the database identity.
+    """
 
 @pulumi.input_type
 class DatabaseIdentityArgs:
@@ -114,21 +109,18 @@ class DatabaseIdentityArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class FirewallRulePropertiesArgsDict(TypedDict):
-        """
-        A Firewall rule properties.
-        """
-        end_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        End IP address.
-        """
-        start_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start IP address.
-        """
-elif False:
-    FirewallRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallRulePropertiesArgsDict(TypedDict):
+    """
+    A Firewall rule properties.
+    """
+    end_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End IP address.
+    """
+    start_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start IP address.
+    """
 
 @pulumi.input_type
 class FirewallRulePropertiesArgs:
@@ -170,45 +162,42 @@ class FirewallRulePropertiesArgs:
         pulumi.set(self, "start_ip_address", value)
 
 
-if not MYPY:
-    class FleetDatabasePropertiesArgsDict(TypedDict):
-        """
-        Fleet database properties.
-        """
-        collation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Database collation.
-        """
-        create_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DatabaseCreateMode']]]
-        """
-        Create mode. Available options: Default - Create a database. Copy - Copy the source database (source database name must be specified) PointInTimeRestore - Create a database by restoring source database from a point in time (source database name and restore from time must be specified)
-        """
-        identity: NotRequired[pulumi.Input['IdentityArgsDict']]
-        """
-        Identity property.
-        """
-        resource_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Additional database properties to be applied as the underlying database resource tags.
-        """
-        restore_from_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Restore from time when CreateMode is PointInTimeRestore.
-        """
-        source_database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Source database name used when CreateMode is Copy or PointInTimeRestore.
-        """
-        tier_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the tier this database belongs to.
-        """
-        transparent_data_encryption: NotRequired[pulumi.Input['TransparentDataEncryptionArgsDict']]
-        """
-        Transparent Data Encryption properties
-        """
-elif False:
-    FleetDatabasePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetDatabasePropertiesArgsDict(TypedDict):
+    """
+    Fleet database properties.
+    """
+    collation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Database collation.
+    """
+    create_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DatabaseCreateMode']]]
+    """
+    Create mode. Available options: Default - Create a database. Copy - Copy the source database (source database name must be specified) PointInTimeRestore - Create a database by restoring source database from a point in time (source database name and restore from time must be specified)
+    """
+    identity: NotRequired[pulumi.Input['IdentityArgsDict']]
+    """
+    Identity property.
+    """
+    resource_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Additional database properties to be applied as the underlying database resource tags.
+    """
+    restore_from_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Restore from time when CreateMode is PointInTimeRestore.
+    """
+    source_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Source database name used when CreateMode is Copy or PointInTimeRestore.
+    """
+    tier_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the tier this database belongs to.
+    """
+    transparent_data_encryption: NotRequired[pulumi.Input['TransparentDataEncryptionArgsDict']]
+    """
+    Transparent Data Encryption properties
+    """
 
 @pulumi.input_type
 class FleetDatabasePropertiesArgs:
@@ -346,17 +335,14 @@ class FleetDatabasePropertiesArgs:
         pulumi.set(self, "transparent_data_encryption", value)
 
 
-if not MYPY:
-    class FleetPropertiesArgsDict(TypedDict):
-        """
-        The Database Fleet properties.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fleet description.
-        """
-elif False:
-    FleetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetPropertiesArgsDict(TypedDict):
+    """
+    The Database Fleet properties.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fleet description.
+    """
 
 @pulumi.input_type
 class FleetPropertiesArgs:
@@ -382,57 +368,54 @@ class FleetPropertiesArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class FleetTierPropertiesArgsDict(TypedDict):
-        """
-        A Fleet tier properties.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Capacity of provisioned resources in the tier, in units matching the specified service tier, for example vCore for GeneralPurpose.
-        """
-        database_capacity_max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum allocated capacity per database, in units matching the specified service tier.
-        """
-        database_capacity_min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum allocated capacity per database, in units matching the specified service tier.
-        """
-        database_size_gb_max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum database size in Gb.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Family of provisioned resources, for example Gen5.
-        """
-        high_availability_replica_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of high availability replicas for databases in this tier.
-        """
-        pool_num_of_databases_max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of databases per pool.
-        """
-        pooled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, databases are pooled.
-        """
-        serverless: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, serverless resources are provisioned in the tier.
-        """
-        service_tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service tier of provisioned resources. Supported values: GeneralPurpose, Hyperscale.
-        """
-        zone_redundancy: NotRequired[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]
-        """
-        Enable zone redundancy for all databases in this tier.
-        """
-elif False:
-    FleetTierPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetTierPropertiesArgsDict(TypedDict):
+    """
+    A Fleet tier properties.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Capacity of provisioned resources in the tier, in units matching the specified service tier, for example vCore for GeneralPurpose.
+    """
+    database_capacity_max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum allocated capacity per database, in units matching the specified service tier.
+    """
+    database_capacity_min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum allocated capacity per database, in units matching the specified service tier.
+    """
+    database_size_gb_max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum database size in Gb.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Family of provisioned resources, for example Gen5.
+    """
+    high_availability_replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of high availability replicas for databases in this tier.
+    """
+    pool_num_of_databases_max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of databases per pool.
+    """
+    pooled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, databases are pooled.
+    """
+    serverless: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, serverless resources are provisioned in the tier.
+    """
+    service_tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Service tier of provisioned resources. Supported values: GeneralPurpose, Hyperscale.
+    """
+    zone_redundancy: NotRequired[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]
+    """
+    Enable zone redundancy for all databases in this tier.
+    """
 
 @pulumi.input_type
 class FleetTierPropertiesArgs:
@@ -618,21 +601,18 @@ class FleetTierPropertiesArgs:
         pulumi.set(self, "zone_redundancy", value)
 
 
-if not MYPY:
-    class FleetspacePropertiesArgsDict(TypedDict):
-        """
-        A Fleetspace properties.
-        """
-        capacity_max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of vCores database fleet manager is allowed to provision in the fleetspace.
-        """
-        main_principal: NotRequired[pulumi.Input['MainPrincipalArgsDict']]
-        """
-        Main Microsoft Entra ID principal that has admin access to all databases in the fleetspace.
-        """
-elif False:
-    FleetspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetspacePropertiesArgsDict(TypedDict):
+    """
+    A Fleetspace properties.
+    """
+    capacity_max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of vCores database fleet manager is allowed to provision in the fleetspace.
+    """
+    main_principal: NotRequired[pulumi.Input['MainPrincipalArgsDict']]
+    """
+    Main Microsoft Entra ID principal that has admin access to all databases in the fleetspace.
+    """
 
 @pulumi.input_type
 class FleetspacePropertiesArgs:
@@ -674,25 +654,22 @@ class FleetspacePropertiesArgs:
         pulumi.set(self, "main_principal", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Database Identity.
-        """
-        federated_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The federated client id for the SQL Database. It is used for cross tenant CMK scenario.
-        """
-        identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        """
-        Identity type of the main principal.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseIdentityArgsDict']]]]
-        """
-        User identity ids
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Database Identity.
+    """
+    federated_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The federated client id for the SQL Database. It is used for cross tenant CMK scenario.
+    """
+    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    """
+    Identity type of the main principal.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseIdentityArgsDict']]]]
+    """
+    User identity ids
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -750,33 +727,30 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class MainPrincipalArgsDict(TypedDict):
-        """
-        A main principal.
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Application Id of the main principal.
-        """
-        login: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Login name of the main principal.
-        """
-        object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object Id of the main principal.
-        """
-        principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
-        """
-        Principal type of the main principal.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant Id of the main principal.
-        """
-elif False:
-    MainPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class MainPrincipalArgsDict(TypedDict):
+    """
+    A main principal.
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application Id of the main principal.
+    """
+    login: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Login name of the main principal.
+    """
+    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object Id of the main principal.
+    """
+    principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
+    """
+    Principal type of the main principal.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant Id of the main principal.
+    """
 
 @pulumi.input_type
 class MainPrincipalArgs:
@@ -866,25 +840,22 @@ class MainPrincipalArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class TransparentDataEncryptionArgsDict(TypedDict):
-        """
-        Transparent Data Encryption properties.
-        """
-        enable_auto_rotation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable key auto rotation
-        """
-        key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer Managed Key (CMK) Uri.
-        """
-        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Additional Keys
-        """
-elif False:
-    TransparentDataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class TransparentDataEncryptionArgsDict(TypedDict):
+    """
+    Transparent Data Encryption properties.
+    """
+    enable_auto_rotation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable key auto rotation
+    """
+    key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer Managed Key (CMK) Uri.
+    """
+    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Additional Keys
+    """
 
 @pulumi.input_type
 class TransparentDataEncryptionArgs:

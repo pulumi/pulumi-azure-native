@@ -58,25 +58,20 @@ __all__ = [
     'StorageQueueMessageArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BasicAuthenticationArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the HTTP authentication type.
-        Expected value is 'Basic'.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the password, return value will always be empty.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the username.
-        """
-elif False:
-    BasicAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class BasicAuthenticationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the HTTP authentication type.
+    Expected value is 'Basic'.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the password, return value will always be empty.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the username.
+    """
 
 @pulumi.input_type
 class BasicAuthenticationArgs:
@@ -134,35 +129,32 @@ class BasicAuthenticationArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ClientCertAuthenticationArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the HTTP authentication type.
-        Expected value is 'ClientCertificate'.
-        """
-        certificate_expiration_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the certificate expiration date.
-        """
-        certificate_subject_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the certificate subject name.
-        """
-        certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the certificate thumbprint.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the certificate password, return value will always be empty.
-        """
-        pfx: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
-        """
-elif False:
-    ClientCertAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ClientCertAuthenticationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the HTTP authentication type.
+    Expected value is 'ClientCertificate'.
+    """
+    certificate_expiration_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the certificate expiration date.
+    """
+    certificate_subject_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the certificate subject name.
+    """
+    certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the certificate thumbprint.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the certificate password, return value will always be empty.
+    """
+    pfx: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+    """
 
 @pulumi.input_type
 class ClientCertAuthenticationArgs:
@@ -268,30 +260,27 @@ class ClientCertAuthenticationArgs:
         pulumi.set(self, "pfx", value)
 
 
-if not MYPY:
-    class HttpRequestArgsDict(TypedDict):
-        authentication: NotRequired[pulumi.Input[Union['BasicAuthenticationArgsDict', 'ClientCertAuthenticationArgsDict', 'OAuthAuthenticationArgsDict']]]
-        """
-        Gets or sets the authentication method of the request.
-        """
-        body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the request body.
-        """
-        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the headers.
-        """
-        method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the method of the request.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the URI of the request.
-        """
-elif False:
-    HttpRequestArgsDict: TypeAlias = Mapping[str, Any]
+class HttpRequestArgsDict(TypedDict):
+    authentication: NotRequired[pulumi.Input[Union['BasicAuthenticationArgsDict', 'ClientCertAuthenticationArgsDict', 'OAuthAuthenticationArgsDict']]]
+    """
+    Gets or sets the authentication method of the request.
+    """
+    body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the request body.
+    """
+    headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the headers.
+    """
+    method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the method of the request.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the URI of the request.
+    """
 
 @pulumi.input_type
 class HttpRequestArgs:
@@ -380,38 +369,35 @@ class HttpRequestArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class JobActionArgsDict(TypedDict):
-        error_action: NotRequired[pulumi.Input['JobErrorActionArgsDict']]
-        """
-        Gets or sets the error action.
-        """
-        queue_message: NotRequired[pulumi.Input['StorageQueueMessageArgsDict']]
-        """
-        Gets or sets the storage queue message.
-        """
-        request: NotRequired[pulumi.Input['HttpRequestArgsDict']]
-        """
-        Gets or sets the http requests.
-        """
-        retry_policy: NotRequired[pulumi.Input['RetryPolicyArgsDict']]
-        """
-        Gets or sets the retry policy.
-        """
-        service_bus_queue_message: NotRequired[pulumi.Input['ServiceBusQueueMessageArgsDict']]
-        """
-        Gets or sets the service bus queue message.
-        """
-        service_bus_topic_message: NotRequired[pulumi.Input['ServiceBusTopicMessageArgsDict']]
-        """
-        Gets or sets the service bus topic message.
-        """
-        type: NotRequired[pulumi.Input['JobActionType']]
-        """
-        Gets or sets the job action type.
-        """
-elif False:
-    JobActionArgsDict: TypeAlias = Mapping[str, Any]
+class JobActionArgsDict(TypedDict):
+    error_action: NotRequired[pulumi.Input['JobErrorActionArgsDict']]
+    """
+    Gets or sets the error action.
+    """
+    queue_message: NotRequired[pulumi.Input['StorageQueueMessageArgsDict']]
+    """
+    Gets or sets the storage queue message.
+    """
+    request: NotRequired[pulumi.Input['HttpRequestArgsDict']]
+    """
+    Gets or sets the http requests.
+    """
+    retry_policy: NotRequired[pulumi.Input['RetryPolicyArgsDict']]
+    """
+    Gets or sets the retry policy.
+    """
+    service_bus_queue_message: NotRequired[pulumi.Input['ServiceBusQueueMessageArgsDict']]
+    """
+    Gets or sets the service bus queue message.
+    """
+    service_bus_topic_message: NotRequired[pulumi.Input['ServiceBusTopicMessageArgsDict']]
+    """
+    Gets or sets the service bus topic message.
+    """
+    type: NotRequired[pulumi.Input['JobActionType']]
+    """
+    Gets or sets the job action type.
+    """
 
 @pulumi.input_type
 class JobActionArgs:
@@ -532,22 +518,19 @@ class JobActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class JobCollectionPropertiesArgsDict(TypedDict):
-        quota: NotRequired[pulumi.Input['JobCollectionQuotaArgsDict']]
-        """
-        Gets or sets the job collection quota.
-        """
-        sku: NotRequired[pulumi.Input['SkuArgsDict']]
-        """
-        Gets or sets the SKU.
-        """
-        state: NotRequired[pulumi.Input['JobCollectionState']]
-        """
-        Gets or sets the state.
-        """
-elif False:
-    JobCollectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class JobCollectionPropertiesArgsDict(TypedDict):
+    quota: NotRequired[pulumi.Input['JobCollectionQuotaArgsDict']]
+    """
+    Gets or sets the job collection quota.
+    """
+    sku: NotRequired[pulumi.Input['SkuArgsDict']]
+    """
+    Gets or sets the SKU.
+    """
+    state: NotRequired[pulumi.Input['JobCollectionState']]
+    """
+    Gets or sets the state.
+    """
 
 @pulumi.input_type
 class JobCollectionPropertiesArgs:
@@ -604,22 +587,19 @@ class JobCollectionPropertiesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class JobCollectionQuotaArgsDict(TypedDict):
-        max_job_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or set the maximum job count.
-        """
-        max_job_occurrence: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the maximum job occurrence.
-        """
-        max_recurrence: NotRequired[pulumi.Input['JobMaxRecurrenceArgsDict']]
-        """
-        Gets or set the maximum recurrence.
-        """
-elif False:
-    JobCollectionQuotaArgsDict: TypeAlias = Mapping[str, Any]
+class JobCollectionQuotaArgsDict(TypedDict):
+    max_job_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or set the maximum job count.
+    """
+    max_job_occurrence: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the maximum job occurrence.
+    """
+    max_recurrence: NotRequired[pulumi.Input['JobMaxRecurrenceArgsDict']]
+    """
+    Gets or set the maximum recurrence.
+    """
 
 @pulumi.input_type
 class JobCollectionQuotaArgs:
@@ -676,34 +656,31 @@ class JobCollectionQuotaArgs:
         pulumi.set(self, "max_recurrence", value)
 
 
-if not MYPY:
-    class JobErrorActionArgsDict(TypedDict):
-        queue_message: NotRequired[pulumi.Input['StorageQueueMessageArgsDict']]
-        """
-        Gets or sets the storage queue message.
-        """
-        request: NotRequired[pulumi.Input['HttpRequestArgsDict']]
-        """
-        Gets or sets the http requests.
-        """
-        retry_policy: NotRequired[pulumi.Input['RetryPolicyArgsDict']]
-        """
-        Gets or sets the retry policy.
-        """
-        service_bus_queue_message: NotRequired[pulumi.Input['ServiceBusQueueMessageArgsDict']]
-        """
-        Gets or sets the service bus queue message.
-        """
-        service_bus_topic_message: NotRequired[pulumi.Input['ServiceBusTopicMessageArgsDict']]
-        """
-        Gets or sets the service bus topic message.
-        """
-        type: NotRequired[pulumi.Input['JobActionType']]
-        """
-        Gets or sets the job error action type.
-        """
-elif False:
-    JobErrorActionArgsDict: TypeAlias = Mapping[str, Any]
+class JobErrorActionArgsDict(TypedDict):
+    queue_message: NotRequired[pulumi.Input['StorageQueueMessageArgsDict']]
+    """
+    Gets or sets the storage queue message.
+    """
+    request: NotRequired[pulumi.Input['HttpRequestArgsDict']]
+    """
+    Gets or sets the http requests.
+    """
+    retry_policy: NotRequired[pulumi.Input['RetryPolicyArgsDict']]
+    """
+    Gets or sets the retry policy.
+    """
+    service_bus_queue_message: NotRequired[pulumi.Input['ServiceBusQueueMessageArgsDict']]
+    """
+    Gets or sets the service bus queue message.
+    """
+    service_bus_topic_message: NotRequired[pulumi.Input['ServiceBusTopicMessageArgsDict']]
+    """
+    Gets or sets the service bus topic message.
+    """
+    type: NotRequired[pulumi.Input['JobActionType']]
+    """
+    Gets or sets the job error action type.
+    """
 
 @pulumi.input_type
 class JobErrorActionArgs:
@@ -808,18 +785,15 @@ class JobErrorActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class JobMaxRecurrenceArgsDict(TypedDict):
-        frequency: NotRequired[pulumi.Input['RecurrenceFrequency']]
-        """
-        Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-        """
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the interval between retries.
-        """
-elif False:
-    JobMaxRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class JobMaxRecurrenceArgsDict(TypedDict):
+    frequency: NotRequired[pulumi.Input['RecurrenceFrequency']]
+    """
+    Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+    """
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the interval between retries.
+    """
 
 @pulumi.input_type
 class JobMaxRecurrenceArgs:
@@ -860,26 +834,23 @@ class JobMaxRecurrenceArgs:
         pulumi.set(self, "interval", value)
 
 
-if not MYPY:
-    class JobPropertiesArgsDict(TypedDict):
-        action: NotRequired[pulumi.Input['JobActionArgsDict']]
-        """
-        Gets or sets the job action.
-        """
-        recurrence: NotRequired[pulumi.Input['JobRecurrenceArgsDict']]
-        """
-        Gets or sets the job recurrence.
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the job start time.
-        """
-        state: NotRequired[pulumi.Input['JobState']]
-        """
-        Gets or set the job state.
-        """
-elif False:
-    JobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class JobPropertiesArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input['JobActionArgsDict']]
+    """
+    Gets or sets the job action.
+    """
+    recurrence: NotRequired[pulumi.Input['JobRecurrenceArgsDict']]
+    """
+    Gets or sets the job recurrence.
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the job start time.
+    """
+    state: NotRequired[pulumi.Input['JobState']]
+    """
+    Gets or set the job state.
+    """
 
 @pulumi.input_type
 class JobPropertiesArgs:
@@ -952,18 +923,15 @@ class JobPropertiesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class JobRecurrenceScheduleMonthlyOccurrenceArgsDict(TypedDict):
-        day: NotRequired[pulumi.Input['JobScheduleDay']]
-        """
-        Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        """
-        occurrence: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the occurrence. Must be between -5 and 5.
-        """
-elif False:
-    JobRecurrenceScheduleMonthlyOccurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class JobRecurrenceScheduleMonthlyOccurrenceArgsDict(TypedDict):
+    day: NotRequired[pulumi.Input['JobScheduleDay']]
+    """
+    Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+    """
+    occurrence: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the occurrence. Must be between -5 and 5.
+    """
 
 @pulumi.input_type
 class JobRecurrenceScheduleMonthlyOccurrenceArgs:
@@ -1004,30 +972,27 @@ class JobRecurrenceScheduleMonthlyOccurrenceArgs:
         pulumi.set(self, "occurrence", value)
 
 
-if not MYPY:
-    class JobRecurrenceScheduleArgsDict(TypedDict):
-        hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Gets or sets the hours of the day that the job should execute at.
-        """
-        minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Gets or sets the minutes of the hour that the job should execute at.
-        """
-        month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
-        """
-        monthly_occurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgsDict']]]]
-        """
-        Gets or sets the occurrences of days within a month.
-        """
-        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
-        """
-        Gets or sets the days of the week that the job should execute on.
-        """
-elif False:
-    JobRecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class JobRecurrenceScheduleArgsDict(TypedDict):
+    hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Gets or sets the hours of the day that the job should execute at.
+    """
+    minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Gets or sets the minutes of the hour that the job should execute at.
+    """
+    month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+    """
+    monthly_occurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgsDict']]]]
+    """
+    Gets or sets the occurrences of days within a month.
+    """
+    week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+    """
+    Gets or sets the days of the week that the job should execute on.
+    """
 
 @pulumi.input_type
 class JobRecurrenceScheduleArgs:
@@ -1116,27 +1081,24 @@ class JobRecurrenceScheduleArgs:
         pulumi.set(self, "week_days", value)
 
 
-if not MYPY:
-    class JobRecurrenceArgsDict(TypedDict):
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the maximum number of times that the job should run.
-        """
-        end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the time at which the job will complete.
-        """
-        frequency: NotRequired[pulumi.Input['RecurrenceFrequency']]
-        """
-        Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-        """
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the interval between retries.
-        """
-        schedule: NotRequired[pulumi.Input['JobRecurrenceScheduleArgsDict']]
-elif False:
-    JobRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class JobRecurrenceArgsDict(TypedDict):
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the maximum number of times that the job should run.
+    """
+    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the time at which the job will complete.
+    """
+    frequency: NotRequired[pulumi.Input['RecurrenceFrequency']]
+    """
+    Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+    """
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the interval between retries.
+    """
+    schedule: NotRequired[pulumi.Input['JobRecurrenceScheduleArgsDict']]
 
 @pulumi.input_type
 class JobRecurrenceArgs:
@@ -1221,31 +1183,28 @@ class JobRecurrenceArgs:
         pulumi.set(self, "schedule", value)
 
 
-if not MYPY:
-    class OAuthAuthenticationArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the HTTP authentication type.
-        Expected value is 'ActiveDirectoryOAuth'.
-        """
-        audience: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the audience.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the client identifier.
-        """
-        secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the secret, return value will always be empty.
-        """
-        tenant: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the tenant.
-        """
-elif False:
-    OAuthAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class OAuthAuthenticationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the HTTP authentication type.
+    Expected value is 'ActiveDirectoryOAuth'.
+    """
+    audience: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the audience.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the client identifier.
+    """
+    secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the secret, return value will always be empty.
+    """
+    tenant: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the tenant.
+    """
 
 @pulumi.input_type
 class OAuthAuthenticationArgs:
@@ -1335,22 +1294,19 @@ class OAuthAuthenticationArgs:
         pulumi.set(self, "tenant", value)
 
 
-if not MYPY:
-    class RetryPolicyArgsDict(TypedDict):
-        retry_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the number of times a retry should be attempted.
-        """
-        retry_interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
-        """
-        retry_type: NotRequired[pulumi.Input['RetryType']]
-        """
-        Gets or sets the retry strategy to be used.
-        """
-elif False:
-    RetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RetryPolicyArgsDict(TypedDict):
+    retry_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the number of times a retry should be attempted.
+    """
+    retry_interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
+    """
+    retry_type: NotRequired[pulumi.Input['RetryType']]
+    """
+    Gets or sets the retry strategy to be used.
+    """
 
 @pulumi.input_type
 class RetryPolicyArgs:
@@ -1407,22 +1363,19 @@ class RetryPolicyArgs:
         pulumi.set(self, "retry_type", value)
 
 
-if not MYPY:
-    class ServiceBusAuthenticationArgsDict(TypedDict):
-        sas_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAS key.
-        """
-        sas_key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAS key name.
-        """
-        type: NotRequired[pulumi.Input['ServiceBusAuthenticationType']]
-        """
-        Gets or sets the authentication type.
-        """
-elif False:
-    ServiceBusAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceBusAuthenticationArgsDict(TypedDict):
+    sas_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAS key.
+    """
+    sas_key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAS key name.
+    """
+    type: NotRequired[pulumi.Input['ServiceBusAuthenticationType']]
+    """
+    Gets or sets the authentication type.
+    """
 
 @pulumi.input_type
 class ServiceBusAuthenticationArgs:
@@ -1479,62 +1432,59 @@ class ServiceBusAuthenticationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServiceBusBrokeredMessagePropertiesArgsDict(TypedDict):
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the content type.
-        """
-        correlation_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the correlation ID.
-        """
-        force_persistence: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets the force persistence.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the label.
-        """
-        message_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the message ID.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the partition key.
-        """
-        reply_to: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the reply to.
-        """
-        reply_to_session_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the reply to session ID.
-        """
-        scheduled_enqueue_time_utc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the scheduled enqueue time UTC.
-        """
-        session_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the session ID.
-        """
-        time_to_live: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the time to live.
-        """
-        to: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the to.
-        """
-        via_partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the via partition key.
-        """
-elif False:
-    ServiceBusBrokeredMessagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceBusBrokeredMessagePropertiesArgsDict(TypedDict):
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the content type.
+    """
+    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the correlation ID.
+    """
+    force_persistence: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets the force persistence.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the label.
+    """
+    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the message ID.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the partition key.
+    """
+    reply_to: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the reply to.
+    """
+    reply_to_session_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the reply to session ID.
+    """
+    scheduled_enqueue_time_utc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the scheduled enqueue time UTC.
+    """
+    session_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the session ID.
+    """
+    time_to_live: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the time to live.
+    """
+    to: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the to.
+    """
+    via_partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the via partition key.
+    """
 
 @pulumi.input_type
 class ServiceBusBrokeredMessagePropertiesArgs:
@@ -1751,38 +1701,35 @@ class ServiceBusBrokeredMessagePropertiesArgs:
         pulumi.set(self, "via_partition_key", value)
 
 
-if not MYPY:
-    class ServiceBusQueueMessageArgsDict(TypedDict):
-        authentication: NotRequired[pulumi.Input['ServiceBusAuthenticationArgsDict']]
-        """
-        Gets or sets the Service Bus authentication.
-        """
-        brokered_message_properties: NotRequired[pulumi.Input['ServiceBusBrokeredMessagePropertiesArgsDict']]
-        """
-        Gets or sets the brokered message properties.
-        """
-        custom_message_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the custom message properties.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the message.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the namespace.
-        """
-        queue_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the queue name.
-        """
-        transport_type: NotRequired[pulumi.Input['ServiceBusTransportType']]
-        """
-        Gets or sets the transport type.
-        """
-elif False:
-    ServiceBusQueueMessageArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceBusQueueMessageArgsDict(TypedDict):
+    authentication: NotRequired[pulumi.Input['ServiceBusAuthenticationArgsDict']]
+    """
+    Gets or sets the Service Bus authentication.
+    """
+    brokered_message_properties: NotRequired[pulumi.Input['ServiceBusBrokeredMessagePropertiesArgsDict']]
+    """
+    Gets or sets the brokered message properties.
+    """
+    custom_message_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the custom message properties.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the message.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the namespace.
+    """
+    queue_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the queue name.
+    """
+    transport_type: NotRequired[pulumi.Input['ServiceBusTransportType']]
+    """
+    Gets or sets the transport type.
+    """
 
 @pulumi.input_type
 class ServiceBusQueueMessageArgs:
@@ -1903,38 +1850,35 @@ class ServiceBusQueueMessageArgs:
         pulumi.set(self, "transport_type", value)
 
 
-if not MYPY:
-    class ServiceBusTopicMessageArgsDict(TypedDict):
-        authentication: NotRequired[pulumi.Input['ServiceBusAuthenticationArgsDict']]
-        """
-        Gets or sets the Service Bus authentication.
-        """
-        brokered_message_properties: NotRequired[pulumi.Input['ServiceBusBrokeredMessagePropertiesArgsDict']]
-        """
-        Gets or sets the brokered message properties.
-        """
-        custom_message_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the custom message properties.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the message.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the namespace.
-        """
-        topic_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the topic path.
-        """
-        transport_type: NotRequired[pulumi.Input['ServiceBusTransportType']]
-        """
-        Gets or sets the transport type.
-        """
-elif False:
-    ServiceBusTopicMessageArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceBusTopicMessageArgsDict(TypedDict):
+    authentication: NotRequired[pulumi.Input['ServiceBusAuthenticationArgsDict']]
+    """
+    Gets or sets the Service Bus authentication.
+    """
+    brokered_message_properties: NotRequired[pulumi.Input['ServiceBusBrokeredMessagePropertiesArgsDict']]
+    """
+    Gets or sets the brokered message properties.
+    """
+    custom_message_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the custom message properties.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the message.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the namespace.
+    """
+    topic_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the topic path.
+    """
+    transport_type: NotRequired[pulumi.Input['ServiceBusTransportType']]
+    """
+    Gets or sets the transport type.
+    """
 
 @pulumi.input_type
 class ServiceBusTopicMessageArgs:
@@ -2055,14 +1999,11 @@ class ServiceBusTopicMessageArgs:
         pulumi.set(self, "transport_type", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input['SkuDefinition']]
-        """
-        Gets or set the SKU.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input['SkuDefinition']]
+    """
+    Gets or set the SKU.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -2087,26 +2028,23 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class StorageQueueMessageArgsDict(TypedDict):
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the message.
-        """
-        queue_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the queue name.
-        """
-        sas_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAS key.
-        """
-        storage_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the storage account name.
-        """
-elif False:
-    StorageQueueMessageArgsDict: TypeAlias = Mapping[str, Any]
+class StorageQueueMessageArgsDict(TypedDict):
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the message.
+    """
+    queue_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the queue name.
+    """
+    sas_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAS key.
+    """
+    storage_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the storage account name.
+    """
 
 @pulumi.input_type
 class StorageQueueMessageArgs:

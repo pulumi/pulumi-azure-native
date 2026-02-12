@@ -19,23 +19,18 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Sku of the resource
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the sku
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tier of the sku like Basic or Enterprise
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Sku of the resource
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the sku
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tier of the sku like Basic or Enterprise
+    """
 
 @pulumi.input_type
 class SkuArgs:

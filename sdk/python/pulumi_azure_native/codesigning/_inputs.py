@@ -20,19 +20,14 @@ __all__ = [
     'AccountSkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountSkuArgsDict(TypedDict):
-        """
-        SKU of the trusted signing account.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        Name of the SKU.
-        """
-elif False:
-    AccountSkuArgsDict: TypeAlias = Mapping[str, Any]
+class AccountSkuArgsDict(TypedDict):
+    """
+    SKU of the trusted signing account.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    Name of the SKU.
+    """
 
 @pulumi.input_type
 class AccountSkuArgs:

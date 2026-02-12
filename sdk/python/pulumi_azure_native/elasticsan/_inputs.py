@@ -40,19 +40,14 @@ __all__ = [
     'VirtualNetworkRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EncryptionIdentityArgsDict(TypedDict):
-        """
-        Encryption identity for the volume group.
-        """
-        encryption_user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
-        """
-elif False:
-    EncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionIdentityArgsDict(TypedDict):
+    """
+    Encryption identity for the volume group.
+    """
+    encryption_user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
+    """
 
 @pulumi.input_type
 class EncryptionIdentityArgs:
@@ -78,21 +73,18 @@ class EncryptionIdentityArgs:
         pulumi.set(self, "encryption_user_assigned_identity", value)
 
 
-if not MYPY:
-    class EncryptionPropertiesArgsDict(TypedDict):
-        """
-        The encryption settings on the volume group.
-        """
-        encryption_identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
-        """
-        The identity to be used with service-side encryption at rest.
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Properties provided by key vault.
-        """
-elif False:
-    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesArgsDict(TypedDict):
+    """
+    The encryption settings on the volume group.
+    """
+    encryption_identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
+    """
+    The identity to be used with service-side encryption at rest.
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Properties provided by key vault.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -134,21 +126,18 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
-        """
-        The identity type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this volume group. The key is the ARM resource identifier of the identity.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
+    """
+    The identity type.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this volume group. The key is the ARM resource identifier of the identity.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -189,25 +178,22 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of key vault.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of KeyVault key.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Uri of KeyVault.
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of KeyVault key.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of key vault.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of KeyVault key.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Uri of KeyVault.
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of KeyVault key.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -265,17 +251,14 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
-if not MYPY:
-    class ManagedByInfoArgsDict(TypedDict):
-        """
-        Parent resource information.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
-        """
-elif False:
-    ManagedByInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedByInfoArgsDict(TypedDict):
+    """
+    Parent resource information.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
+    """
 
 @pulumi.input_type
 class ManagedByInfoArgs:
@@ -301,17 +284,14 @@ class ManagedByInfoArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class NetworkRuleSetArgsDict(TypedDict):
-        """
-        A set of rules governing the network accessibility.
-        """
-        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
-        """
-        The list of virtual network rules.
-        """
-elif False:
-    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkRuleSetArgsDict(TypedDict):
+    """
+    A set of rules governing the network accessibility.
+    """
+    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+    """
+    The list of virtual network rules.
+    """
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -337,25 +317,22 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        Response for Private Link Service Connection state
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    Response for Private Link Service Connection state
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -413,21 +390,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The SKU name. Required for account creation; optional for update.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        The sku name.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
-        """
-        The sku tier.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The SKU name. Required for account creation; optional for update.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    The sku name.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    """
+    The sku tier.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -468,17 +442,14 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SnapshotCreationDataArgsDict(TypedDict):
-        """
-        Data used when creating a volume snapshot.
-        """
-        source_id: pulumi.Input[_builtins.str]
-        """
-        Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}"
-        """
-elif False:
-    SnapshotCreationDataArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotCreationDataArgsDict(TypedDict):
+    """
+    Data used when creating a volume snapshot.
+    """
+    source_id: pulumi.Input[_builtins.str]
+    """
+    Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}"
+    """
 
 @pulumi.input_type
 class SnapshotCreationDataArgs:
@@ -503,21 +474,18 @@ class SnapshotCreationDataArgs:
         pulumi.set(self, "source_id", value)
 
 
-if not MYPY:
-    class SourceCreationDataArgsDict(TypedDict):
-        """
-        Data source used when creating the volume.
-        """
-        create_source: NotRequired[pulumi.Input[Union[_builtins.str, 'VolumeCreateOption']]]
-        """
-        This enumerates the possible sources of a volume creation.
-        """
-        source_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-        """
-elif False:
-    SourceCreationDataArgsDict: TypeAlias = Mapping[str, Any]
+class SourceCreationDataArgsDict(TypedDict):
+    """
+    Data source used when creating the volume.
+    """
+    create_source: NotRequired[pulumi.Input[Union[_builtins.str, 'VolumeCreateOption']]]
+    """
+    This enumerates the possible sources of a volume creation.
+    """
+    source_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+    """
 
 @pulumi.input_type
 class SourceCreationDataArgs:
@@ -559,21 +527,18 @@ class SourceCreationDataArgs:
         pulumi.set(self, "source_id", value)
 
 
-if not MYPY:
-    class VirtualNetworkRuleArgsDict(TypedDict):
-        """
-        Virtual Network rule.
-        """
-        virtual_network_resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, 'Action']]]
-        """
-        The action of virtual network rule.
-        """
-elif False:
-    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkRuleArgsDict(TypedDict):
+    """
+    Virtual Network rule.
+    """
+    virtual_network_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'Action']]]
+    """
+    The action of virtual network rule.
+    """
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

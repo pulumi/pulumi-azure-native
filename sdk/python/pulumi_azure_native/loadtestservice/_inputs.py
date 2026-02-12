@@ -24,23 +24,18 @@ __all__ = [
     'ManagedServiceIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EncryptionPropertiesIdentityArgsDict(TypedDict):
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
-        """
-        Managed identity type to use for accessing encryption key Url.
-        """
-elif False:
-    EncryptionPropertiesIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesIdentityArgsDict(TypedDict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    """
+    Managed identity type to use for accessing encryption key Url.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesIdentityArgs:
@@ -82,21 +77,18 @@ class EncryptionPropertiesIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class EncryptionPropertiesArgsDict(TypedDict):
-        """
-        Key and identity details for Customer Managed Key encryption of load test resource.
-        """
-        identity: NotRequired[pulumi.Input['EncryptionPropertiesIdentityArgsDict']]
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        key_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-        """
-elif False:
-    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesArgsDict(TypedDict):
+    """
+    Key and identity details for Customer Managed Key encryption of load test resource.
+    """
+    identity: NotRequired[pulumi.Input['EncryptionPropertiesIdentityArgsDict']]
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    key_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -138,21 +130,18 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "key_url", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:

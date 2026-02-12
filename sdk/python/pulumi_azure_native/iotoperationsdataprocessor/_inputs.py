@@ -25,23 +25,18 @@ __all__ = [
     'PipelineStageArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DatasetPropertyKeyArgsDict(TypedDict):
-        """
-        Key that can be used for joining on enrich.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        Path to the input value from the message.
-        """
-        primary_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true the property will be used as a primary key. At most one primary key can exists.
-        """
-elif False:
-    DatasetPropertyKeyArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetPropertyKeyArgsDict(TypedDict):
+    """
+    Key that can be used for joining on enrich.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    Path to the input value from the message.
+    """
+    primary_key: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true the property will be used as a primary key. At most one primary key can exists.
+    """
 
 @pulumi.input_type
 class DatasetPropertyKeyArgs:
@@ -82,21 +77,18 @@ class DatasetPropertyKeyArgs:
         pulumi.set(self, "primary_key", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extended location.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the extended location.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extended location.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the extended location.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -136,25 +128,22 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PipelineInputArgsDict(TypedDict):
-        """
-        Stage configuration for Pipeline input stage.
-        """
-        next: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Next stage in the pipeline.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        ARM resource type.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description for stage.
-        """
-elif False:
-    PipelineInputArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineInputArgsDict(TypedDict):
+    """
+    Stage configuration for Pipeline input stage.
+    """
+    next: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Next stage in the pipeline.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    ARM resource type.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description for stage.
+    """
 
 @pulumi.input_type
 class PipelineInputArgs:
@@ -210,25 +199,22 @@ class PipelineInputArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PipelineStageArgsDict(TypedDict):
-        """
-        Stage configurations for all Pipeline processing and output stages.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        ARM resource type.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description for stage.
-        """
-        next: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Next stage in the pipeline. Not required if output stage.
-        """
-elif False:
-    PipelineStageArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineStageArgsDict(TypedDict):
+    """
+    Stage configurations for all Pipeline processing and output stages.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    ARM resource type.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description for stage.
+    """
+    next: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Next stage in the pipeline. Not required if output stage.
+    """
 
 @pulumi.input_type
 class PipelineStageArgs:

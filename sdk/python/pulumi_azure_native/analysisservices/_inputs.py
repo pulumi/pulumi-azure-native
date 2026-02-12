@@ -28,19 +28,14 @@ __all__ = [
     'ServerAdministratorsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GatewayDetailsArgsDict(TypedDict):
-        """
-        The gateway details.
-        """
-        gateway_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gateway resource to be associated with the server.
-        """
-elif False:
-    GatewayDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayDetailsArgsDict(TypedDict):
+    """
+    The gateway details.
+    """
+    gateway_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gateway resource to be associated with the server.
+    """
 
 @pulumi.input_type
 class GatewayDetailsArgs:
@@ -66,25 +61,22 @@ class GatewayDetailsArgs:
         pulumi.set(self, "gateway_resource_id", value)
 
 
-if not MYPY:
-    class IPv4FirewallRuleArgsDict(TypedDict):
-        """
-        The detail of firewall rule.
-        """
-        firewall_rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule name.
-        """
-        range_end: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end range of IPv4.
-        """
-        range_start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The start range of IPv4.
-        """
-elif False:
-    IPv4FirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IPv4FirewallRuleArgsDict(TypedDict):
+    """
+    The detail of firewall rule.
+    """
+    firewall_rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule name.
+    """
+    range_end: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end range of IPv4.
+    """
+    range_start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The start range of IPv4.
+    """
 
 @pulumi.input_type
 class IPv4FirewallRuleArgs:
@@ -142,21 +134,18 @@ class IPv4FirewallRuleArgs:
         pulumi.set(self, "range_start", value)
 
 
-if not MYPY:
-    class IPv4FirewallSettingsArgsDict(TypedDict):
-        """
-        An array of firewall rules.
-        """
-        enable_power_bi_service: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The indicator of enabling PBI service.
-        """
-        firewall_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgsDict']]]]
-        """
-        An array of firewall rules.
-        """
-elif False:
-    IPv4FirewallSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class IPv4FirewallSettingsArgsDict(TypedDict):
+    """
+    An array of firewall rules.
+    """
+    enable_power_bi_service: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The indicator of enabling PBI service.
+    """
+    firewall_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgsDict']]]]
+    """
+    An array of firewall rules.
+    """
 
 @pulumi.input_type
 class IPv4FirewallSettingsArgs:
@@ -198,25 +187,22 @@ class IPv4FirewallSettingsArgs:
         pulumi.set(self, "firewall_rules", value)
 
 
-if not MYPY:
-    class ResourceSkuArgsDict(TypedDict):
-        """
-        Represents the SKU name and Azure pricing tier for Analysis Services resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the SKU level.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of instances in the read only query pool.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
-        """
-        The name of the Azure pricing tier to which the SKU applies.
-        """
-elif False:
-    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSkuArgsDict(TypedDict):
+    """
+    Represents the SKU name and Azure pricing tier for Analysis Services resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the SKU level.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of instances in the read only query pool.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    """
+    The name of the Azure pricing tier to which the SKU applies.
+    """
 
 @pulumi.input_type
 class ResourceSkuArgs:
@@ -275,17 +261,14 @@ class ResourceSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class ServerAdministratorsArgsDict(TypedDict):
-        """
-        An array of administrator user identities.
-        """
-        members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of administrator user identities.
-        """
-elif False:
-    ServerAdministratorsArgsDict: TypeAlias = Mapping[str, Any]
+class ServerAdministratorsArgsDict(TypedDict):
+    """
+    An array of administrator user identities.
+    """
+    members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of administrator user identities.
+    """
 
 @pulumi.input_type
 class ServerAdministratorsArgs:

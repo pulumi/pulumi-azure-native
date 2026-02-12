@@ -124,19 +124,14 @@ __all__ = [
     'VolumeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApiEntityReferenceArgsDict(TypedDict):
-        """
-        The API entity reference.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-elif False:
-    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEntityReferenceArgsDict(TypedDict):
+    """
+    The API entity reference.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+    """
 
 @pulumi.input_type
 class ApiEntityReferenceArgs:
@@ -162,17 +157,14 @@ class ApiEntityReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
-        """
-        NGroups application gateway backend address pool
-        """
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application gateway backend address pool ARM resource Id.
-        """
-elif False:
-    ApplicationGatewayBackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
+    """
+    NGroups application gateway backend address pool
+    """
+    resource: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application gateway backend address pool ARM resource Id.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayBackendAddressPoolArgs:
@@ -198,21 +190,18 @@ class ApplicationGatewayBackendAddressPoolArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class ApplicationGatewayArgsDict(TypedDict):
-        """
-        Application Gateway the CG profile will use to interact with CGs in a backend pool
-        """
-        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgsDict']]]]
-        """
-        List of Application Gateway Backend Address Pools.
-        """
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Application Gateway ARM resource Id.
-        """
-elif False:
-    ApplicationGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayArgsDict(TypedDict):
+    """
+    Application Gateway the CG profile will use to interact with CGs in a backend pool
+    """
+    backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgsDict']]]]
+    """
+    List of Application Gateway Backend Address Pools.
+    """
+    resource: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Application Gateway ARM resource Id.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayArgs:
@@ -254,33 +243,30 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class AzureFileVolumeArgsDict(TypedDict):
-        """
-        The properties of the Azure File volume. Azure File shares are mounted as volumes.
-        """
-        share_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Azure File share to be mounted as a volume.
-        """
-        storage_account_name: pulumi.Input[_builtins.str]
-        """
-        The name of the storage account that contains the Azure File share.
-        """
-        read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag indicating whether the Azure File shared mounted as a volume is read-only.
-        """
-        storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage account access key used to access the Azure File share.
-        """
-        storage_account_key_reference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reference to the storage account access key used to access the Azure File share.
-        """
-elif False:
-    AzureFileVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class AzureFileVolumeArgsDict(TypedDict):
+    """
+    The properties of the Azure File volume. Azure File shares are mounted as volumes.
+    """
+    share_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure File share to be mounted as a volume.
+    """
+    storage_account_name: pulumi.Input[_builtins.str]
+    """
+    The name of the storage account that contains the Azure File share.
+    """
+    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag indicating whether the Azure File shared mounted as a volume is read-only.
+    """
+    storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage account access key used to access the Azure File share.
+    """
+    storage_account_key_reference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference to the storage account access key used to access the Azure File share.
+    """
 
 @pulumi.input_type
 class AzureFileVolumeArgs:
@@ -368,17 +354,14 @@ class AzureFileVolumeArgs:
         pulumi.set(self, "storage_account_key_reference", value)
 
 
-if not MYPY:
-    class ConfidentialComputePropertiesArgsDict(TypedDict):
-        """
-        The properties for confidential container group
-        """
-        cce_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base64 encoded confidential compute enforcement policy
-        """
-elif False:
-    ConfidentialComputePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfidentialComputePropertiesArgsDict(TypedDict):
+    """
+    The properties for confidential container group
+    """
+    cce_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base64 encoded confidential compute enforcement policy
+    """
 
 @pulumi.input_type
 class ConfidentialComputePropertiesArgs:
@@ -404,17 +387,14 @@ class ConfidentialComputePropertiesArgs:
         pulumi.set(self, "cce_policy", value)
 
 
-if not MYPY:
-    class ConfigMapArgsDict(TypedDict):
-        """
-        The container config map.
-        """
-        key_value_pairs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The key value pairs dictionary in the config map.
-        """
-elif False:
-    ConfigMapArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigMapArgsDict(TypedDict):
+    """
+    The container config map.
+    """
+    key_value_pairs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The key value pairs dictionary in the config map.
+    """
 
 @pulumi.input_type
 class ConfigMapArgs:
@@ -440,17 +420,14 @@ class ConfigMapArgs:
         pulumi.set(self, "key_value_pairs", value)
 
 
-if not MYPY:
-    class ContainerExecArgsDict(TypedDict):
-        """
-        The container execution command, for liveness or readiness probe
-        """
-        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The commands to execute within the container.
-        """
-elif False:
-    ContainerExecArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerExecArgsDict(TypedDict):
+    """
+    The container execution command, for liveness or readiness probe
+    """
+    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The commands to execute within the container.
+    """
 
 @pulumi.input_type
 class ContainerExecArgs:
@@ -476,17 +453,14 @@ class ContainerExecArgs:
         pulumi.set(self, "command", value)
 
 
-if not MYPY:
-    class ContainerGroupDiagnosticsArgsDict(TypedDict):
-        """
-        Container group diagnostic information.
-        """
-        log_analytics: NotRequired[pulumi.Input['LogAnalyticsArgsDict']]
-        """
-        Container group log analytics information.
-        """
-elif False:
-    ContainerGroupDiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDiagnosticsArgsDict(TypedDict):
+    """
+    Container group diagnostic information.
+    """
+    log_analytics: NotRequired[pulumi.Input['LogAnalyticsArgsDict']]
+    """
+    Container group log analytics information.
+    """
 
 @pulumi.input_type
 class ContainerGroupDiagnosticsArgs:
@@ -512,21 +486,18 @@ class ContainerGroupDiagnosticsArgs:
         pulumi.set(self, "log_analytics", value)
 
 
-if not MYPY:
-    class ContainerGroupIdentityArgsDict(TypedDict):
-        """
-        Identity for the container group.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the container group.
-        """
-elif False:
-    ContainerGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupIdentityArgsDict(TypedDict):
+    """
+    Identity for the container group.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the container group.
+    """
 
 @pulumi.input_type
 class ContainerGroupIdentityArgs:
@@ -568,21 +539,18 @@ class ContainerGroupIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ContainerGroupProfileReferenceDefinitionArgsDict(TypedDict):
-        """
-        The container group profile reference.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
-        """
-        revision: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The container group profile reference revision.
-        """
-elif False:
-    ContainerGroupProfileReferenceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupProfileReferenceDefinitionArgsDict(TypedDict):
+    """
+    The container group profile reference.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
+    """
+    revision: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The container group profile reference revision.
+    """
 
 @pulumi.input_type
 class ContainerGroupProfileReferenceDefinitionArgs:
@@ -624,33 +592,30 @@ class ContainerGroupProfileReferenceDefinitionArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class ContainerGroupProfileStubArgsDict(TypedDict):
-        """
-        The object that contains a reference to a Container Group Profile and it's other related properties.
-        """
-        container_group_properties: NotRequired[pulumi.Input['NGroupContainerGroupPropertiesArgsDict']]
-        """
-         Container Group properties which can be set while creating or updating the NGroups.
-        """
-        network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
-        """
-        A network profile for network settings of a ContainerGroupProfile.
-        """
-        resource: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
-        """
-        A reference to the container group profile ARM resource hosted in ACI RP.
-        """
-        revision: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
-        """
-        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-        """
-        Storage profile for storage related settings of a container group profile.
-        """
-elif False:
-    ContainerGroupProfileStubArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupProfileStubArgsDict(TypedDict):
+    """
+    The object that contains a reference to a Container Group Profile and it's other related properties.
+    """
+    container_group_properties: NotRequired[pulumi.Input['NGroupContainerGroupPropertiesArgsDict']]
+    """
+     Container Group properties which can be set while creating or updating the NGroups.
+    """
+    network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
+    """
+    A network profile for network settings of a ContainerGroupProfile.
+    """
+    resource: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+    """
+    A reference to the container group profile ARM resource hosted in ACI RP.
+    """
+    revision: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+    """
+    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    """
+    Storage profile for storage related settings of a container group profile.
+    """
 
 @pulumi.input_type
 class ContainerGroupProfileStubArgs:
@@ -740,21 +705,18 @@ class ContainerGroupProfileStubArgs:
         pulumi.set(self, "storage_profile", value)
 
 
-if not MYPY:
-    class ContainerGroupSubnetIdArgsDict(TypedDict):
-        """
-        Container group subnet information.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of virtual network and subnet.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly name for the subnet.
-        """
-elif False:
-    ContainerGroupSubnetIdArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupSubnetIdArgsDict(TypedDict):
+    """
+    Container group subnet information.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of virtual network and subnet.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly name for the subnet.
+    """
 
 @pulumi.input_type
 class ContainerGroupSubnetIdArgs:
@@ -795,29 +757,26 @@ class ContainerGroupSubnetIdArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ContainerHttpGetArgsDict(TypedDict):
-        """
-        The container Http Get settings, for liveness or readiness probe
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number to probe.
-        """
-        http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgsDict']]]]
-        """
-        The HTTP headers.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to probe.
-        """
-        scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'Scheme']]]
-        """
-        The scheme.
-        """
-elif False:
-    ContainerHttpGetArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerHttpGetArgsDict(TypedDict):
+    """
+    The container Http Get settings, for liveness or readiness probe
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to probe.
+    """
+    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgsDict']]]]
+    """
+    The HTTP headers.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to probe.
+    """
+    scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'Scheme']]]
+    """
+    The scheme.
+    """
 
 @pulumi.input_type
 class ContainerHttpGetArgs:
@@ -890,21 +849,18 @@ class ContainerHttpGetArgs:
         pulumi.set(self, "scheme", value)
 
 
-if not MYPY:
-    class ContainerPortArgsDict(TypedDict):
-        """
-        The port exposed on the container instance.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number exposed within the container group.
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']]]
-        """
-        The protocol associated with the port.
-        """
-elif False:
-    ContainerPortArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerPortArgsDict(TypedDict):
+    """
+    The port exposed on the container instance.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number exposed within the container group.
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'ContainerNetworkProtocol']]]
+    """
+    The protocol associated with the port.
+    """
 
 @pulumi.input_type
 class ContainerPortArgs:
@@ -945,41 +901,38 @@ class ContainerPortArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class ContainerProbeArgsDict(TypedDict):
-        """
-        The container probe, for liveness or readiness
-        """
-        exec_: NotRequired[pulumi.Input['ContainerExecArgsDict']]
-        """
-        The execution command to probe
-        """
-        failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The failure threshold.
-        """
-        http_get: NotRequired[pulumi.Input['ContainerHttpGetArgsDict']]
-        """
-        The Http Get settings to probe
-        """
-        initial_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The initial delay seconds.
-        """
-        period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The period seconds.
-        """
-        success_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The success threshold.
-        """
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The timeout seconds.
-        """
-elif False:
-    ContainerProbeArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerProbeArgsDict(TypedDict):
+    """
+    The container probe, for liveness or readiness
+    """
+    exec_: NotRequired[pulumi.Input['ContainerExecArgsDict']]
+    """
+    The execution command to probe
+    """
+    failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The failure threshold.
+    """
+    http_get: NotRequired[pulumi.Input['ContainerHttpGetArgsDict']]
+    """
+    The Http Get settings to probe
+    """
+    initial_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The initial delay seconds.
+    """
+    period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The period seconds.
+    """
+    success_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The success threshold.
+    """
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The timeout seconds.
+    """
 
 @pulumi.input_type
 class ContainerProbeArgs:
@@ -1101,57 +1054,54 @@ class ContainerProbeArgs:
         pulumi.set(self, "timeout_seconds", value)
 
 
-if not MYPY:
-    class ContainerArgsDict(TypedDict):
-        """
-        A container instance.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The user-provided name of the container instance.
-        """
-        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The commands to execute within the container instance in exec form.
-        """
-        config_map: NotRequired[pulumi.Input['ConfigMapArgsDict']]
-        """
-        The config map.
-        """
-        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
-        """
-        The environment variables to set in the container instance.
-        """
-        image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the image used to create the container instance.
-        """
-        liveness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
-        """
-        The liveness probe.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgsDict']]]]
-        """
-        The exposed ports on the container instance.
-        """
-        readiness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
-        """
-        The readiness probe.
-        """
-        resources: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
-        """
-        The resource requirements of the container instance.
-        """
-        security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
-        """
-        The container security properties.
-        """
-        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
-        """
-        The volume mounts available to the container instance.
-        """
-elif False:
-    ContainerArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerArgsDict(TypedDict):
+    """
+    A container instance.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The user-provided name of the container instance.
+    """
+    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The commands to execute within the container instance in exec form.
+    """
+    config_map: NotRequired[pulumi.Input['ConfigMapArgsDict']]
+    """
+    The config map.
+    """
+    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+    """
+    The environment variables to set in the container instance.
+    """
+    image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the image used to create the container instance.
+    """
+    liveness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
+    """
+    The liveness probe.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgsDict']]]]
+    """
+    The exposed ports on the container instance.
+    """
+    readiness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
+    """
+    The readiness probe.
+    """
+    resources: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+    """
+    The resource requirements of the container instance.
+    """
+    security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
+    """
+    The container security properties.
+    """
+    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
+    """
+    The volume mounts available to the container instance.
+    """
 
 @pulumi.input_type
 class ContainerArgs:
@@ -1336,33 +1286,30 @@ class ContainerArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
-if not MYPY:
-    class DeploymentExtensionSpecArgsDict(TypedDict):
-        """
-        Extension sidecars to be added to the deployment.
-        """
-        extension_type: pulumi.Input[_builtins.str]
-        """
-        Type of extension to be added.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the extension.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Version of the extension being used.
-        """
-        protected_settings: NotRequired[Any]
-        """
-        Protected settings for the extension.
-        """
-        settings: NotRequired[Any]
-        """
-        Settings for the extension.
-        """
-elif False:
-    DeploymentExtensionSpecArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentExtensionSpecArgsDict(TypedDict):
+    """
+    Extension sidecars to be added to the deployment.
+    """
+    extension_type: pulumi.Input[_builtins.str]
+    """
+    Type of extension to be added.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the extension.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Version of the extension being used.
+    """
+    protected_settings: NotRequired[Any]
+    """
+    Protected settings for the extension.
+    """
+    settings: NotRequired[Any]
+    """
+    Settings for the extension.
+    """
 
 @pulumi.input_type
 class DeploymentExtensionSpecArgs:
@@ -1449,25 +1396,22 @@ class DeploymentExtensionSpecArgs:
         pulumi.set(self, "settings", value)
 
 
-if not MYPY:
-    class DnsConfigurationArgsDict(TypedDict):
-        """
-        DNS configuration for the container group.
-        """
-        name_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The DNS servers for the container group.
-        """
-        options: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS options for the container group.
-        """
-        search_domains: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS search domains for hostname lookup in the container group.
-        """
-elif False:
-    DnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DnsConfigurationArgsDict(TypedDict):
+    """
+    DNS configuration for the container group.
+    """
+    name_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The DNS servers for the container group.
+    """
+    options: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS options for the container group.
+    """
+    search_domains: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS search domains for hostname lookup in the container group.
+    """
 
 @pulumi.input_type
 class DnsConfigurationArgs:
@@ -1524,14 +1468,11 @@ class DnsConfigurationArgs:
         pulumi.set(self, "search_domains", value)
 
 
-if not MYPY:
-    class ElasticProfileContainerGroupNamingPolicyArgsDict(TypedDict):
-        """
-        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-        """
-        guid_naming_policy: NotRequired[pulumi.Input['ElasticProfileGuidNamingPolicyArgsDict']]
-elif False:
-    ElasticProfileContainerGroupNamingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticProfileContainerGroupNamingPolicyArgsDict(TypedDict):
+    """
+    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+    """
+    guid_naming_policy: NotRequired[pulumi.Input['ElasticProfileGuidNamingPolicyArgsDict']]
 
 @pulumi.input_type
 class ElasticProfileContainerGroupNamingPolicyArgs:
@@ -1553,14 +1494,11 @@ class ElasticProfileContainerGroupNamingPolicyArgs:
         pulumi.set(self, "guid_naming_policy", value)
 
 
-if not MYPY:
-    class ElasticProfileGuidNamingPolicyArgsDict(TypedDict):
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
-        """
-elif False:
-    ElasticProfileGuidNamingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticProfileGuidNamingPolicyArgsDict(TypedDict):
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+    """
 
 @pulumi.input_type
 class ElasticProfileGuidNamingPolicyArgs:
@@ -1585,22 +1523,19 @@ class ElasticProfileGuidNamingPolicyArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class ElasticProfileArgsDict(TypedDict):
-        """
-        Describes the elastic profile of the NGroup
-        """
-        container_group_naming_policy: NotRequired[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgsDict']]
-        """
-        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-        """
-        desired_count: NotRequired[pulumi.Input[_builtins.int]]
-        maintain_desired_count: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
-        """
-elif False:
-    ElasticProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticProfileArgsDict(TypedDict):
+    """
+    Describes the elastic profile of the NGroup
+    """
+    container_group_naming_policy: NotRequired[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgsDict']]
+    """
+    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+    """
+    desired_count: NotRequired[pulumi.Input[_builtins.int]]
+    maintain_desired_count: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
+    """
 
 @pulumi.input_type
 class ElasticProfileArgs:
@@ -1654,29 +1589,26 @@ class ElasticProfileArgs:
         pulumi.set(self, "maintain_desired_count", value)
 
 
-if not MYPY:
-    class EncryptionPropertiesArgsDict(TypedDict):
-        """
-        The container group encryption properties.
-        """
-        key_name: pulumi.Input[_builtins.str]
-        """
-        The encryption key name.
-        """
-        key_version: pulumi.Input[_builtins.str]
-        """
-        The encryption key version.
-        """
-        vault_base_url: pulumi.Input[_builtins.str]
-        """
-        The keyvault base url.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The keyvault managed identity.
-        """
-elif False:
-    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesArgsDict(TypedDict):
+    """
+    The container group encryption properties.
+    """
+    key_name: pulumi.Input[_builtins.str]
+    """
+    The encryption key name.
+    """
+    key_version: pulumi.Input[_builtins.str]
+    """
+    The encryption key version.
+    """
+    vault_base_url: pulumi.Input[_builtins.str]
+    """
+    The keyvault base url.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The keyvault managed identity.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -1747,29 +1679,26 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "identity", value)
 
 
-if not MYPY:
-    class EnvironmentVariableArgsDict(TypedDict):
-        """
-        The environment variable to set within the container instance.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable.
-        """
-        secure_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the secure environment variable.
-        """
-        secure_value_reference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reference of the secure environment variable.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the environment variable.
-        """
-elif False:
-    EnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentVariableArgsDict(TypedDict):
+    """
+    The environment variable to set within the container instance.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable.
+    """
+    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the secure environment variable.
+    """
+    secure_value_reference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference of the secure environment variable.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the environment variable.
+    """
 
 @pulumi.input_type
 class EnvironmentVariableArgs:
@@ -1842,18 +1771,15 @@ class EnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FileSharePropertiesArgsDict(TypedDict):
-        share_access_tier: NotRequired[pulumi.Input['AzureFileShareAccessTier']]
-        """
-        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
-        """
-        share_access_type: NotRequired[pulumi.Input['AzureFileShareAccessType']]
-        """
-         Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
-        """
-elif False:
-    FileSharePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FileSharePropertiesArgsDict(TypedDict):
+    share_access_tier: NotRequired[pulumi.Input['AzureFileShareAccessTier']]
+    """
+    Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+    """
+    share_access_type: NotRequired[pulumi.Input['AzureFileShareAccessType']]
+    """
+     Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+    """
 
 @pulumi.input_type
 class FileSharePropertiesArgs:
@@ -1896,17 +1822,14 @@ class FileSharePropertiesArgs:
         pulumi.set(self, "share_access_type", value)
 
 
-if not MYPY:
-    class FileShareArgsDict(TypedDict):
-        """
-        File shares that can be mounted on container groups.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        properties: NotRequired[pulumi.Input['FileSharePropertiesArgsDict']]
-        resource_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FileShareArgsDict: TypeAlias = Mapping[str, Any]
+class FileShareArgsDict(TypedDict):
+    """
+    File shares that can be mounted on container groups.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    properties: NotRequired[pulumi.Input['FileSharePropertiesArgsDict']]
+    resource_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FileShareArgs:
@@ -1964,25 +1887,22 @@ class FileShareArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
-if not MYPY:
-    class GitRepoVolumeArgsDict(TypedDict):
-        """
-        Represents a volume that is populated with the contents of a git repository
-        """
-        repository: pulumi.Input[_builtins.str]
-        """
-        Repository URL
-        """
-        directory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
-        """
-        revision: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Commit hash for the specified revision.
-        """
-elif False:
-    GitRepoVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class GitRepoVolumeArgsDict(TypedDict):
+    """
+    Represents a volume that is populated with the contents of a git repository
+    """
+    repository: pulumi.Input[_builtins.str]
+    """
+    Repository URL
+    """
+    directory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+    """
+    revision: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Commit hash for the specified revision.
+    """
 
 @pulumi.input_type
 class GitRepoVolumeArgs:
@@ -2039,21 +1959,18 @@ class GitRepoVolumeArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class GpuResourceArgsDict(TypedDict):
-        """
-        The GPU resource.
-        """
-        count: pulumi.Input[_builtins.int]
-        """
-        The count of the GPU resource.
-        """
-        sku: pulumi.Input[Union[_builtins.str, 'GpuSku']]
-        """
-        The SKU of the GPU resource.
-        """
-elif False:
-    GpuResourceArgsDict: TypeAlias = Mapping[str, Any]
+class GpuResourceArgsDict(TypedDict):
+    """
+    The GPU resource.
+    """
+    count: pulumi.Input[_builtins.int]
+    """
+    The count of the GPU resource.
+    """
+    sku: pulumi.Input[Union[_builtins.str, 'GpuSku']]
+    """
+    The SKU of the GPU resource.
+    """
 
 @pulumi.input_type
 class GpuResourceArgs:
@@ -2093,21 +2010,18 @@ class GpuResourceArgs:
         pulumi.set(self, "sku", value)
 
 
-if not MYPY:
-    class HttpHeaderArgsDict(TypedDict):
-        """
-        The HTTP header.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The header name.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The header value.
-        """
-elif False:
-    HttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class HttpHeaderArgsDict(TypedDict):
+    """
+    The HTTP header.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The header name.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The header value.
+    """
 
 @pulumi.input_type
 class HttpHeaderArgs:
@@ -2149,37 +2063,34 @@ class HttpHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ImageRegistryCredentialArgsDict(TypedDict):
-        """
-        Image registry credential.
-        """
-        server: pulumi.Input[_builtins.str]
-        """
-        The Docker image registry server without a protocol such as "http" and "https".
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity for the private registry.
-        """
-        identity_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity URL for the private registry.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password for the private registry.
-        """
-        password_reference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reference for the private registry password.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username for the private registry.
-        """
-elif False:
-    ImageRegistryCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRegistryCredentialArgsDict(TypedDict):
+    """
+    Image registry credential.
+    """
+    server: pulumi.Input[_builtins.str]
+    """
+    The Docker image registry server without a protocol such as "http" and "https".
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity for the private registry.
+    """
+    identity_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity URL for the private registry.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password for the private registry.
+    """
+    password_reference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference for the private registry password.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username for the private registry.
+    """
 
 @pulumi.input_type
 class ImageRegistryCredentialArgs:
@@ -2284,37 +2195,34 @@ class ImageRegistryCredentialArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class InitContainerDefinitionArgsDict(TypedDict):
-        """
-        The init container definition.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name for the init container.
-        """
-        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The command to execute within the init container in exec form.
-        """
-        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
-        """
-        The environment variables to set in the init container.
-        """
-        image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image of the init container.
-        """
-        security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
-        """
-        The container security properties.
-        """
-        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
-        """
-        The volume mounts available to the init container.
-        """
-elif False:
-    InitContainerDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class InitContainerDefinitionArgsDict(TypedDict):
+    """
+    The init container definition.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name for the init container.
+    """
+    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The command to execute within the init container in exec form.
+    """
+    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+    """
+    The environment variables to set in the init container.
+    """
+    image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image of the init container.
+    """
+    security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
+    """
+    The container security properties.
+    """
+    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
+    """
+    The volume mounts available to the init container.
+    """
 
 @pulumi.input_type
 class InitContainerDefinitionArgs:
@@ -2419,33 +2327,30 @@ class InitContainerDefinitionArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
-if not MYPY:
-    class IpAddressArgsDict(TypedDict):
-        """
-        IP address for the container group.
-        """
-        ports: pulumi.Input[Sequence[pulumi.Input['PortArgsDict']]]
-        """
-        The list of ports exposed on the container group.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ContainerGroupIpAddressType']]
-        """
-        Specifies if the IP is exposed to the public internet or private VNET.
-        """
-        auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]
-        """
-        The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
-        """
-        dns_name_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Dns name label for the IP.
-        """
-        ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP exposed to the public internet.
-        """
-elif False:
-    IpAddressArgsDict: TypeAlias = Mapping[str, Any]
+class IpAddressArgsDict(TypedDict):
+    """
+    IP address for the container group.
+    """
+    ports: pulumi.Input[Sequence[pulumi.Input['PortArgsDict']]]
+    """
+    The list of ports exposed on the container group.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ContainerGroupIpAddressType']]
+    """
+    Specifies if the IP is exposed to the public internet or private VNET.
+    """
+    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'DnsNameLabelReusePolicy']]]
+    """
+    The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+    """
+    dns_name_label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Dns name label for the IP.
+    """
+    ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP exposed to the public internet.
+    """
 
 @pulumi.input_type
 class IpAddressArgs:
@@ -2535,17 +2440,14 @@ class IpAddressArgs:
         pulumi.set(self, "ip", value)
 
 
-if not MYPY:
-    class LoadBalancerBackendAddressPoolArgsDict(TypedDict):
-        """
-        NGroups load balancer backend address pool
-        """
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Load Balancer backend address pool ARM resource Id.
-        """
-elif False:
-    LoadBalancerBackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerBackendAddressPoolArgsDict(TypedDict):
+    """
+    NGroups load balancer backend address pool
+    """
+    resource: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Load Balancer backend address pool ARM resource Id.
+    """
 
 @pulumi.input_type
 class LoadBalancerBackendAddressPoolArgs:
@@ -2571,17 +2473,14 @@ class LoadBalancerBackendAddressPoolArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class LoadBalancerArgsDict(TypedDict):
-        """
-        LoadBalancer the CG profile will use to interact with CGs in a backend pool
-        """
-        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgsDict']]]]
-        """
-        List of Load Balancer Backend Address Pools.
-        """
-elif False:
-    LoadBalancerArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerArgsDict(TypedDict):
+    """
+    LoadBalancer the CG profile will use to interact with CGs in a backend pool
+    """
+    backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgsDict']]]]
+    """
+    List of Load Balancer Backend Address Pools.
+    """
 
 @pulumi.input_type
 class LoadBalancerArgs:
@@ -2607,33 +2506,30 @@ class LoadBalancerArgs:
         pulumi.set(self, "backend_address_pools", value)
 
 
-if not MYPY:
-    class LogAnalyticsArgsDict(TypedDict):
-        """
-        Container group log analytics information.
-        """
-        workspace_id: pulumi.Input[_builtins.str]
-        """
-        The workspace id for log analytics
-        """
-        workspace_key: pulumi.Input[_builtins.str]
-        """
-        The workspace key for log analytics
-        """
-        log_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LogAnalyticsLogType']]]
-        """
-        The log type to be used.
-        """
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Metadata for log analytics.
-        """
-        workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The workspace resource id for log analytics
-        """
-elif False:
-    LogAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+class LogAnalyticsArgsDict(TypedDict):
+    """
+    Container group log analytics information.
+    """
+    workspace_id: pulumi.Input[_builtins.str]
+    """
+    The workspace id for log analytics
+    """
+    workspace_key: pulumi.Input[_builtins.str]
+    """
+    The workspace key for log analytics
+    """
+    log_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LogAnalyticsLogType']]]
+    """
+    The log type to be used.
+    """
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Metadata for log analytics.
+    """
+    workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The workspace resource id for log analytics
+    """
 
 @pulumi.input_type
 class LogAnalyticsArgs:
@@ -2721,14 +2617,11 @@ class LogAnalyticsArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
-if not MYPY:
-    class NGroupCGPropertyContainerPropertiesArgsDict(TypedDict):
-        """
-        container properties
-        """
-        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
-elif False:
-    NGroupCGPropertyContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NGroupCGPropertyContainerPropertiesArgsDict(TypedDict):
+    """
+    container properties
+    """
+    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
 
 @pulumi.input_type
 class NGroupCGPropertyContainerPropertiesArgs:
@@ -2750,21 +2643,18 @@ class NGroupCGPropertyContainerPropertiesArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
-if not MYPY:
-    class NGroupCGPropertyContainerArgsDict(TypedDict):
-        """
-        Container properties that can be provided with NGroups object.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        container name
-        """
-        properties: NotRequired[pulumi.Input['NGroupCGPropertyContainerPropertiesArgsDict']]
-        """
-        container properties
-        """
-elif False:
-    NGroupCGPropertyContainerArgsDict: TypeAlias = Mapping[str, Any]
+class NGroupCGPropertyContainerArgsDict(TypedDict):
+    """
+    Container properties that can be provided with NGroups object.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    container name
+    """
+    properties: NotRequired[pulumi.Input['NGroupCGPropertyContainerPropertiesArgsDict']]
+    """
+    container properties
+    """
 
 @pulumi.input_type
 class NGroupCGPropertyContainerArgs:
@@ -2806,21 +2696,18 @@ class NGroupCGPropertyContainerArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class NGroupCGPropertyVolumeArgsDict(TypedDict):
-        """
-        Contains information about the volumes that can be mounted by Containers in the Container Groups.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the volume.
-        """
-        azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
-        """
-        The Azure File volume.
-        """
-elif False:
-    NGroupCGPropertyVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class NGroupCGPropertyVolumeArgsDict(TypedDict):
+    """
+    Contains information about the volumes that can be mounted by Containers in the Container Groups.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the volume.
+    """
+    azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
+    """
+    The Azure File volume.
+    """
 
 @pulumi.input_type
 class NGroupCGPropertyVolumeArgs:
@@ -2861,25 +2748,22 @@ class NGroupCGPropertyVolumeArgs:
         pulumi.set(self, "azure_file", value)
 
 
-if not MYPY:
-    class NGroupContainerGroupPropertiesArgsDict(TypedDict):
-        """
-        Container Group properties which can be set while creating or updating the NGroups.
-        """
-        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgsDict']]]]
-        """
-        Contains information about Container which can be set while creating or updating the NGroups.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
-        """
-        Contains information about Virtual Network Subnet ARM Resource
-        """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgsDict']]]]
-        """
-        Contains information about the volumes that can be mounted by Containers in the Container Groups.
-        """
-elif False:
-    NGroupContainerGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NGroupContainerGroupPropertiesArgsDict(TypedDict):
+    """
+    Container Group properties which can be set while creating or updating the NGroups.
+    """
+    containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgsDict']]]]
+    """
+    Contains information about Container which can be set while creating or updating the NGroups.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
+    """
+    Contains information about Virtual Network Subnet ARM Resource
+    """
+    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgsDict']]]]
+    """
+    Contains information about the volumes that can be mounted by Containers in the Container Groups.
+    """
 
 @pulumi.input_type
 class NGroupContainerGroupPropertiesArgs:
@@ -2937,21 +2821,18 @@ class NGroupContainerGroupPropertiesArgs:
         pulumi.set(self, "volumes", value)
 
 
-if not MYPY:
-    class NGroupIdentityArgsDict(TypedDict):
-        """
-        Identity for the NGroup.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the NGroup.
-        """
-elif False:
-    NGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class NGroupIdentityArgsDict(TypedDict):
+    """
+    Identity for the NGroup.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the NGroup.
+    """
 
 @pulumi.input_type
 class NGroupIdentityArgs:
@@ -2993,21 +2874,18 @@ class NGroupIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class NetworkProfileArgsDict(TypedDict):
-        """
-        A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
-        """
-        application_gateway: NotRequired[pulumi.Input['ApplicationGatewayArgsDict']]
-        """
-        Application Gateway the CG profile will use to interact with CGs in a backend pool
-        """
-        load_balancer: NotRequired[pulumi.Input['LoadBalancerArgsDict']]
-        """
-        LoadBalancer the CG profile will use to interact with CGs in a backend pool
-        """
-elif False:
-    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkProfileArgsDict(TypedDict):
+    """
+    A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
+    """
+    application_gateway: NotRequired[pulumi.Input['ApplicationGatewayArgsDict']]
+    """
+    Application Gateway the CG profile will use to interact with CGs in a backend pool
+    """
+    load_balancer: NotRequired[pulumi.Input['LoadBalancerArgsDict']]
+    """
+    LoadBalancer the CG profile will use to interact with CGs in a backend pool
+    """
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -3049,17 +2927,14 @@ class NetworkProfileArgs:
         pulumi.set(self, "load_balancer", value)
 
 
-if not MYPY:
-    class PlacementProfileArgsDict(TypedDict):
-        """
-        Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
-        """
-        fault_domain_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
-        """
-elif False:
-    PlacementProfileArgsDict: TypeAlias = Mapping[str, Any]
+class PlacementProfileArgsDict(TypedDict):
+    """
+    Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
+    """
+    fault_domain_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
+    """
 
 @pulumi.input_type
 class PlacementProfileArgs:
@@ -3085,21 +2960,18 @@ class PlacementProfileArgs:
         pulumi.set(self, "fault_domain_count", value)
 
 
-if not MYPY:
-    class PortArgsDict(TypedDict):
-        """
-        The port exposed on the container group.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number.
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]
-        """
-        The protocol associated with the port.
-        """
-elif False:
-    PortArgsDict: TypeAlias = Mapping[str, Any]
+class PortArgsDict(TypedDict):
+    """
+    The port exposed on the container group.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number.
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'ContainerGroupNetworkProtocol']]]
+    """
+    The protocol associated with the port.
+    """
 
 @pulumi.input_type
 class PortArgs:
@@ -3140,25 +3012,22 @@ class PortArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class ResourceLimitsArgsDict(TypedDict):
-        """
-        The resource limits.
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The CPU limit of this container instance.
-        """
-        gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
-        """
-        The GPU limit of this container instance.
-        """
-        memory_in_gb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The memory limit in GB of this container instance.
-        """
-elif False:
-    ResourceLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceLimitsArgsDict(TypedDict):
+    """
+    The resource limits.
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The CPU limit of this container instance.
+    """
+    gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
+    """
+    The GPU limit of this container instance.
+    """
+    memory_in_gb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The memory limit in GB of this container instance.
+    """
 
 @pulumi.input_type
 class ResourceLimitsArgs:
@@ -3216,25 +3085,22 @@ class ResourceLimitsArgs:
         pulumi.set(self, "memory_in_gb", value)
 
 
-if not MYPY:
-    class ResourceRequestsArgsDict(TypedDict):
-        """
-        The resource requests.
-        """
-        cpu: pulumi.Input[_builtins.float]
-        """
-        The CPU request of this container instance.
-        """
-        memory_in_gb: pulumi.Input[_builtins.float]
-        """
-        The memory request in GB of this container instance.
-        """
-        gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
-        """
-        The GPU request of this container instance.
-        """
-elif False:
-    ResourceRequestsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceRequestsArgsDict(TypedDict):
+    """
+    The resource requests.
+    """
+    cpu: pulumi.Input[_builtins.float]
+    """
+    The CPU request of this container instance.
+    """
+    memory_in_gb: pulumi.Input[_builtins.float]
+    """
+    The memory request in GB of this container instance.
+    """
+    gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
+    """
+    The GPU request of this container instance.
+    """
 
 @pulumi.input_type
 class ResourceRequestsArgs:
@@ -3290,21 +3156,18 @@ class ResourceRequestsArgs:
         pulumi.set(self, "gpu", value)
 
 
-if not MYPY:
-    class ResourceRequirementsArgsDict(TypedDict):
-        """
-        The resource requirements.
-        """
-        requests: pulumi.Input['ResourceRequestsArgsDict']
-        """
-        The resource requests of this container instance.
-        """
-        limits: NotRequired[pulumi.Input['ResourceLimitsArgsDict']]
-        """
-        The resource limits of this container instance.
-        """
-elif False:
-    ResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceRequirementsArgsDict(TypedDict):
+    """
+    The resource requirements.
+    """
+    requests: pulumi.Input['ResourceRequestsArgsDict']
+    """
+    The resource requests of this container instance.
+    """
+    limits: NotRequired[pulumi.Input['ResourceLimitsArgsDict']]
+    """
+    The resource limits of this container instance.
+    """
 
 @pulumi.input_type
 class ResourceRequirementsArgs:
@@ -3345,21 +3208,18 @@ class ResourceRequirementsArgs:
         pulumi.set(self, "limits", value)
 
 
-if not MYPY:
-    class SecurityContextCapabilitiesDefinitionArgsDict(TypedDict):
-        """
-        The capabilities to add or drop from a container.
-        """
-        add: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The capabilities to add to the container.
-        """
-        drop: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The capabilities to drop from the container.
-        """
-elif False:
-    SecurityContextCapabilitiesDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityContextCapabilitiesDefinitionArgsDict(TypedDict):
+    """
+    The capabilities to add or drop from a container.
+    """
+    add: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The capabilities to add to the container.
+    """
+    drop: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The capabilities to drop from the container.
+    """
 
 @pulumi.input_type
 class SecurityContextCapabilitiesDefinitionArgs:
@@ -3401,37 +3261,34 @@ class SecurityContextCapabilitiesDefinitionArgs:
         pulumi.set(self, "drop", value)
 
 
-if not MYPY:
-    class SecurityContextDefinitionArgsDict(TypedDict):
-        """
-        The security context for the container.
-        """
-        allow_privilege_escalation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value indicating whether the init process can elevate its privileges
-        """
-        capabilities: NotRequired[pulumi.Input['SecurityContextCapabilitiesDefinitionArgsDict']]
-        """
-        The capabilities to add or drop from a container.
-        """
-        privileged: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag to determine if the container permissions is elevated to Privileged.
-        """
-        run_as_group: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Sets the User GID for the container.
-        """
-        run_as_user: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Sets the User UID for the container.
-        """
-        seccomp_profile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        a base64 encoded string containing the contents of the JSON in the seccomp profile
-        """
-elif False:
-    SecurityContextDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityContextDefinitionArgsDict(TypedDict):
+    """
+    The security context for the container.
+    """
+    allow_privilege_escalation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value indicating whether the init process can elevate its privileges
+    """
+    capabilities: NotRequired[pulumi.Input['SecurityContextCapabilitiesDefinitionArgsDict']]
+    """
+    The capabilities to add or drop from a container.
+    """
+    privileged: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to determine if the container permissions is elevated to Privileged.
+    """
+    run_as_group: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Sets the User GID for the container.
+    """
+    run_as_user: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Sets the User UID for the container.
+    """
+    seccomp_profile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    a base64 encoded string containing the contents of the JSON in the seccomp profile
+    """
 
 @pulumi.input_type
 class SecurityContextDefinitionArgs:
@@ -3537,21 +3394,18 @@ class SecurityContextDefinitionArgs:
         pulumi.set(self, "seccomp_profile", value)
 
 
-if not MYPY:
-    class StandbyPoolProfileDefinitionArgsDict(TypedDict):
-        """
-        The standby pool profile reference.
-        """
-        fail_container_group_create_on_reuse_failure: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
-        """
-elif False:
-    StandbyPoolProfileDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class StandbyPoolProfileDefinitionArgsDict(TypedDict):
+    """
+    The standby pool profile reference.
+    """
+    fail_container_group_create_on_reuse_failure: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
+    """
 
 @pulumi.input_type
 class StandbyPoolProfileDefinitionArgs:
@@ -3593,14 +3447,11 @@ class StandbyPoolProfileDefinitionArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        Storage profile for storage related settings of a container group profile.
-        """
-        file_shares: NotRequired[pulumi.Input[Sequence[pulumi.Input['FileShareArgsDict']]]]
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    Storage profile for storage related settings of a container group profile.
+    """
+    file_shares: NotRequired[pulumi.Input[Sequence[pulumi.Input['FileShareArgsDict']]]]
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -3622,29 +3473,26 @@ class StorageProfileArgs:
         pulumi.set(self, "file_shares", value)
 
 
-if not MYPY:
-    class UpdateProfileRollingUpdateProfileArgsDict(TypedDict):
-        """
-        This profile allows the customers to customize the rolling update.
-        """
-        in_place_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
-        """
-        max_batch_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
-        """
-        max_unhealthy_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
-        """
-        pause_time_between_batches: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
-        """
-elif False:
-    UpdateProfileRollingUpdateProfileArgsDict: TypeAlias = Mapping[str, Any]
+class UpdateProfileRollingUpdateProfileArgsDict(TypedDict):
+    """
+    This profile allows the customers to customize the rolling update.
+    """
+    in_place_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
+    """
+    max_batch_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
+    """
+    max_unhealthy_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
+    """
+    pause_time_between_batches: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
+    """
 
 @pulumi.input_type
 class UpdateProfileRollingUpdateProfileArgs:
@@ -3718,18 +3566,15 @@ class UpdateProfileRollingUpdateProfileArgs:
         pulumi.set(self, "pause_time_between_batches", value)
 
 
-if not MYPY:
-    class UpdateProfileArgsDict(TypedDict):
-        """
-        Used by the customer to specify the way to update the Container Groups in NGroup.
-        """
-        rolling_update_profile: NotRequired[pulumi.Input['UpdateProfileRollingUpdateProfileArgsDict']]
-        """
-        This profile allows the customers to customize the rolling update.
-        """
-        update_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NGroupUpdateMode']]]
-elif False:
-    UpdateProfileArgsDict: TypeAlias = Mapping[str, Any]
+class UpdateProfileArgsDict(TypedDict):
+    """
+    Used by the customer to specify the way to update the Container Groups in NGroup.
+    """
+    rolling_update_profile: NotRequired[pulumi.Input['UpdateProfileRollingUpdateProfileArgsDict']]
+    """
+    This profile allows the customers to customize the rolling update.
+    """
+    update_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NGroupUpdateMode']]]
 
 @pulumi.input_type
 class UpdateProfileArgs:
@@ -3767,25 +3612,22 @@ class UpdateProfileArgs:
         pulumi.set(self, "update_mode", value)
 
 
-if not MYPY:
-    class VolumeMountArgsDict(TypedDict):
-        """
-        The properties of the volume mount.
-        """
-        mount_path: pulumi.Input[_builtins.str]
-        """
-        The path within the container where the volume should be mounted. Must not contain colon (:).
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the volume mount.
-        """
-        read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag indicating whether the volume mount is read-only.
-        """
-elif False:
-    VolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeMountArgsDict(TypedDict):
+    """
+    The properties of the volume mount.
+    """
+    mount_path: pulumi.Input[_builtins.str]
+    """
+    The path within the container where the volume should be mounted. Must not contain colon (:).
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the volume mount.
+    """
+    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag indicating whether the volume mount is read-only.
+    """
 
 @pulumi.input_type
 class VolumeMountArgs:
@@ -3841,37 +3683,34 @@ class VolumeMountArgs:
         pulumi.set(self, "read_only", value)
 
 
-if not MYPY:
-    class VolumeArgsDict(TypedDict):
-        """
-        The properties of the volume.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the volume.
-        """
-        azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
-        """
-        The Azure File volume.
-        """
-        empty_dir: NotRequired[Any]
-        """
-        The empty directory volume.
-        """
-        git_repo: NotRequired[pulumi.Input['GitRepoVolumeArgsDict']]
-        """
-        The git repo volume.
-        """
-        secret: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The secret volume.
-        """
-        secret_reference: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The secret reference volume.
-        """
-elif False:
-    VolumeArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeArgsDict(TypedDict):
+    """
+    The properties of the volume.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the volume.
+    """
+    azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
+    """
+    The Azure File volume.
+    """
+    empty_dir: NotRequired[Any]
+    """
+    The empty directory volume.
+    """
+    git_repo: NotRequired[pulumi.Input['GitRepoVolumeArgsDict']]
+    """
+    The git repo volume.
+    """
+    secret: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The secret volume.
+    """
+    secret_reference: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The secret reference volume.
+    """
 
 @pulumi.input_type
 class VolumeArgs:

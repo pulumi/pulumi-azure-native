@@ -28,27 +28,22 @@ __all__ = [
     'SiteSpnPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        Service Connection State
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        actions required
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        description string
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]
-        """
-        state status
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    Service Connection State
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    actions required
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    description string
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]
+    """
+    state status
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -106,21 +101,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SiteAgentPropertiesArgsDict(TypedDict):
-        """
-        Class for site agent properties.
-        """
-        key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the key vault ARM Id.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the key vault URI.
-        """
-elif False:
-    SiteAgentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SiteAgentPropertiesArgsDict(TypedDict):
+    """
+    Class for site agent properties.
+    """
+    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the key vault ARM Id.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the key vault URI.
+    """
 
 @pulumi.input_type
 class SiteAgentPropertiesArgs:
@@ -162,25 +154,22 @@ class SiteAgentPropertiesArgs:
         pulumi.set(self, "key_vault_uri", value)
 
 
-if not MYPY:
-    class SiteAppliancePropertiesArgsDict(TypedDict):
-        """
-        Class for site appliance properties.
-        """
-        agent_details: NotRequired[pulumi.Input['SiteAgentPropertiesArgsDict']]
-        """
-        Gets or sets the on-premises agent details.
-        """
-        appliance_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Appliance Name.
-        """
-        service_principal_identity_details: NotRequired[pulumi.Input['SiteSpnPropertiesArgsDict']]
-        """
-         Gets or sets the service principal identity details used by agent for  communication              to the service.  
-        """
-elif False:
-    SiteAppliancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SiteAppliancePropertiesArgsDict(TypedDict):
+    """
+    Class for site appliance properties.
+    """
+    agent_details: NotRequired[pulumi.Input['SiteAgentPropertiesArgsDict']]
+    """
+    Gets or sets the on-premises agent details.
+    """
+    appliance_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Appliance Name.
+    """
+    service_principal_identity_details: NotRequired[pulumi.Input['SiteSpnPropertiesArgsDict']]
+    """
+     Gets or sets the service principal identity details used by agent for  communication              to the service.  
+    """
 
 @pulumi.input_type
 class SiteAppliancePropertiesArgs:
@@ -238,29 +227,26 @@ class SiteAppliancePropertiesArgs:
         pulumi.set(self, "service_principal_identity_details", value)
 
 
-if not MYPY:
-    class SitePropertiesArgsDict(TypedDict):
-        """
-        Class for site properties.
-        """
-        agent_details: NotRequired[pulumi.Input['SiteAgentPropertiesArgsDict']]
-        """
-        On-premises agent details.
-        """
-        appliance_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Appliance Name.
-        """
-        discovery_solution_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM ID of migration hub solution for SDS.
-        """
-        service_principal_identity_details: NotRequired[pulumi.Input['SiteSpnPropertiesArgsDict']]
-        """
-        Service principal identity details used by agent for communication to the service.
-        """
-elif False:
-    SitePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SitePropertiesArgsDict(TypedDict):
+    """
+    Class for site properties.
+    """
+    agent_details: NotRequired[pulumi.Input['SiteAgentPropertiesArgsDict']]
+    """
+    On-premises agent details.
+    """
+    appliance_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Appliance Name.
+    """
+    discovery_solution_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM ID of migration hub solution for SDS.
+    """
+    service_principal_identity_details: NotRequired[pulumi.Input['SiteSpnPropertiesArgsDict']]
+    """
+    Service principal identity details used by agent for communication to the service.
+    """
 
 @pulumi.input_type
 class SitePropertiesArgs:
@@ -334,49 +320,46 @@ class SitePropertiesArgs:
         pulumi.set(self, "service_principal_identity_details", value)
 
 
-if not MYPY:
-    class SiteSpnPropertiesArgsDict(TypedDict):
-        """
-        Class for site properties.
-        """
-        aad_authority: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the AAD Authority URL which was used to request the token for
-        the
-                    service principal.
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the application/client Id for the service principal with which
-        the
-                    on-premise management/data plane components would communicate
-        with our Azure 
-                    services.
-        """
-        audience: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the intended audience for the service principal.
-        """
-        object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the object Id of the service principal with which the on-premise
+class SiteSpnPropertiesArgsDict(TypedDict):
+    """
+    Class for site properties.
+    """
+    aad_authority: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the AAD Authority URL which was used to request the token for
+    the
+                service principal.
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the application/client Id for the service principal with which
+    the
+                on-premise management/data plane components would communicate
+    with our Azure 
+                services.
+    """
+    audience: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the intended audience for the service principal.
+    """
+    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the object Id of the service principal with which the on-premise
 
-                   management/data plane components would communicate with our Azure
-        services.
-        """
-        raw_cert_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the raw certificate data for building certificate expiry flows.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the tenant Id for the service principal with which the
-        on-premise
-                    management/data plane components would communicate with
-        our Azure services.
-        """
-elif False:
-    SiteSpnPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+               management/data plane components would communicate with our Azure
+    services.
+    """
+    raw_cert_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the raw certificate data for building certificate expiry flows.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the tenant Id for the service principal with which the
+    on-premise
+                management/data plane components would communicate with
+    our Azure services.
+    """
 
 @pulumi.input_type
 class SiteSpnPropertiesArgs:

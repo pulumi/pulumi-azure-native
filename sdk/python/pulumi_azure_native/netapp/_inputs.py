@@ -124,27 +124,22 @@ __all__ = [
     'WeeklyScheduleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountEncryptionArgsDict(TypedDict):
-        """
-        Encryption settings
-        """
-        identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
-        """
-        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        """
-        key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
-        """
-        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        """
-elif False:
-    AccountEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class AccountEncryptionArgsDict(TypedDict):
+    """
+    Encryption settings
+    """
+    identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
+    """
+    Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
+    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
+    """
+    The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
 
 @pulumi.input_type
 class AccountEncryptionArgs:
@@ -204,53 +199,50 @@ class AccountEncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class ActiveDirectoryConfigPropertiesArgsDict(TypedDict):
-        """
-        Active Directory Configuration properties
-        """
-        domain: pulumi.Input[_builtins.str]
-        """
-        Name of the Active Directory domain
-        """
-        secret_password: pulumi.Input['SecretPasswordArgsDict']
-        """
-        Access password from Azure KeyVault Secrets to connect Active Directory
-        """
-        administrators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
-        """
-        backup_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-        """
-        dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of DNS server IP addresses(IPv4 only) for the Active Directory
-        """
-        organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Organizational Unit (OU) within the Windows Active Directory
-        """
-        security_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-        """
-        site: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Active Directory site the service will limit Domain Controller discovery to
-        """
-        smb_server_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-        """
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A domain user account with permission to create machine accounts
-        """
-elif False:
-    ActiveDirectoryConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ActiveDirectoryConfigPropertiesArgsDict(TypedDict):
+    """
+    Active Directory Configuration properties
+    """
+    domain: pulumi.Input[_builtins.str]
+    """
+    Name of the Active Directory domain
+    """
+    secret_password: pulumi.Input['SecretPasswordArgsDict']
+    """
+    Access password from Azure KeyVault Secrets to connect Active Directory
+    """
+    administrators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+    """
+    backup_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+    """
+    dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of DNS server IP addresses(IPv4 only) for the Active Directory
+    """
+    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Organizational Unit (OU) within the Windows Active Directory
+    """
+    security_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Domain Users in the Active directory to be given SecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+    """
+    site: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Active Directory site the service will limit Domain Controller discovery to
+    """
+    smb_server_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+    """
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A domain user account with permission to create machine accounts
+    """
 
 @pulumi.input_type
 class ActiveDirectoryConfigPropertiesArgs:
@@ -418,97 +410,94 @@ class ActiveDirectoryConfigPropertiesArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class ActiveDirectoryArgsDict(TypedDict):
-        """
-        Active Directory
-        """
-        active_directory_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the Active Directory
-        """
-        ad_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the active directory machine. This optional parameter is used only while creating kerberos volume
-        """
-        administrators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
-        """
-        aes_encryption: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If enabled, AES encryption will be enabled for SMB communication.
-        """
-        allow_local_nfs_users_with_ldap: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-         If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
-        """
-        backup_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-        """
-        dns: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-        """
-        domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Active Directory domain
-        """
-        encrypt_dc_connections: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
-        """
-        kdc_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
-        """
-        ldap_over_tls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether or not the LDAP traffic needs to be secured via TLS.
-        """
-        ldap_search_scope: NotRequired[pulumi.Input['LdapSearchScopeOptArgsDict']]
-        """
-        LDAP Search scope options
-        """
-        ldap_signing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether or not the LDAP traffic needs to be signed.
-        """
-        organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Organizational Unit (OU) within the Windows Active Directory
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plain text password of Active Directory domain administrator, value is masked in the response
-        """
-        preferred_servers_for_ldap_client: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
-        """
-        security_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
-        """
-        server_root_ca_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
-        """
-        site: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Active Directory site the service will limit Domain Controller discovery to
-        """
-        smb_server_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A domain user account with permission to create machine accounts
-        """
-elif False:
-    ActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+class ActiveDirectoryArgsDict(TypedDict):
+    """
+    Active Directory
+    """
+    active_directory_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the Active Directory
+    """
+    ad_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the active directory machine. This optional parameter is used only while creating kerberos volume
+    """
+    administrators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+    """
+    aes_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If enabled, AES encryption will be enabled for SMB communication.
+    """
+    allow_local_nfs_users_with_ldap: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+     If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+    """
+    backup_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+    """
+    dns: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+    """
+    domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Active Directory domain
+    """
+    encrypt_dc_connections: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+    """
+    kdc_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
+    """
+    ldap_over_tls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether or not the LDAP traffic needs to be secured via TLS.
+    """
+    ldap_search_scope: NotRequired[pulumi.Input['LdapSearchScopeOptArgsDict']]
+    """
+    LDAP Search scope options
+    """
+    ldap_signing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether or not the LDAP traffic needs to be signed.
+    """
+    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Organizational Unit (OU) within the Windows Active Directory
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plain text password of Active Directory domain administrator, value is masked in the response
+    """
+    preferred_servers_for_ldap_client: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
+    """
+    security_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+    """
+    server_root_ca_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
+    """
+    site: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Active Directory site the service will limit Domain Controller discovery to
+    """
+    smb_server_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A domain user account with permission to create machine accounts
+    """
 
 @pulumi.input_type
 class ActiveDirectoryArgs:
@@ -856,21 +845,18 @@ class ActiveDirectoryArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class BucketServerPropertiesArgsDict(TypedDict):
-        """
-        Properties of the server managing the lifecycle of volume buckets
-        """
-        certificate_object: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A base64-encoded PEM file, which includes both the bucket server's certificate and private key. It is used to authenticate the user and allows access to volume data in a read-only manner.
-        """
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
-        """
-elif False:
-    BucketServerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BucketServerPropertiesArgsDict(TypedDict):
+    """
+    Properties of the server managing the lifecycle of volume buckets
+    """
+    certificate_object: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A base64-encoded PEM file, which includes both the bucket server's certificate and private key. It is used to authenticate the user and allows access to volume data in a read-only manner.
+    """
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
+    """
 
 @pulumi.input_type
 class BucketServerPropertiesArgs:
@@ -912,17 +898,14 @@ class BucketServerPropertiesArgs:
         pulumi.set(self, "fqdn", value)
 
 
-if not MYPY:
-    class CachePropertiesExportPolicyArgsDict(TypedDict):
-        """
-        Set of export policy rules
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]
-        """
-        Export policy rule
-        """
-elif False:
-    CachePropertiesExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class CachePropertiesExportPolicyArgsDict(TypedDict):
+    """
+    Set of export policy rules
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]
+    """
+    Export policy rule
+    """
 
 @pulumi.input_type
 class CachePropertiesExportPolicyArgs:
@@ -948,81 +931,78 @@ class CachePropertiesExportPolicyArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class CachePropertiesArgsDict(TypedDict):
-        """
-        Cache resource properties
-        """
-        cache_subnet_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure Resource URI for a delegated cache subnet that will be used to allocate data IPs.
-        """
-        encryption_key_source: pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]
-        """
-        Source of key used to encrypt data in the cache. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
-        """
-        filepath: pulumi.Input[_builtins.str]
-        """
-        The file path of the Cache.
-        """
-        origin_cluster_information: pulumi.Input['OriginClusterInformationArgsDict']
-        """
-        Origin cluster information
-        """
-        peering_subnet_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure Resource URI for a delegated subnet that will be used for ANF Intercluster Interface IP addresses.
-        """
-        size: pulumi.Input[_builtins.float]
-        """
-        Maximum storage quota allowed for a file system in bytes. Valid values are in the range 50GiB to 1PiB. Values expressed in bytes as multiples of 1GiB.
-        """
-        cifs_change_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'CifsChangeNotifyState']]]
-        """
-        Flag indicating whether a CIFS change notification is enabled for the cache.
-        """
-        export_policy: NotRequired[pulumi.Input['CachePropertiesExportPolicyArgsDict']]
-        """
-        Set of export policy rules
-        """
-        global_file_locking: NotRequired[pulumi.Input[Union[_builtins.str, 'GlobalFileLockingState']]]
-        """
-        Flag indicating whether the global file lock is enabled for the cache.
-        """
-        kerberos: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosState']]]
-        """
-        Describe if a cache is Kerberos enabled.
-        """
-        key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
-        """
-        ldap: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapState']]]
-        """
-        Specifies whether LDAP is enabled or not for flexcache volume.
-        """
-        ldap_server_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapServerType']]]
-        """
-        Specifies the type of LDAP server for flexcache volume.
-        """
-        protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]
-        """
-        Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
-        """
-        smb_settings: NotRequired[pulumi.Input['SmbSettingsArgsDict']]
-        """
-        SMB information for the cache
-        """
-        throughput_mibps: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
-        """
-        write_back: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableWriteBackState']]]
-        """
-        Flag indicating whether writeback is enabled for the cache.
-        """
-elif False:
-    CachePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CachePropertiesArgsDict(TypedDict):
+    """
+    Cache resource properties
+    """
+    cache_subnet_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure Resource URI for a delegated cache subnet that will be used to allocate data IPs.
+    """
+    encryption_key_source: pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]
+    """
+    Source of key used to encrypt data in the cache. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+    """
+    filepath: pulumi.Input[_builtins.str]
+    """
+    The file path of the Cache.
+    """
+    origin_cluster_information: pulumi.Input['OriginClusterInformationArgsDict']
+    """
+    Origin cluster information
+    """
+    peering_subnet_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure Resource URI for a delegated subnet that will be used for ANF Intercluster Interface IP addresses.
+    """
+    size: pulumi.Input[_builtins.float]
+    """
+    Maximum storage quota allowed for a file system in bytes. Valid values are in the range 50GiB to 1PiB. Values expressed in bytes as multiples of 1GiB.
+    """
+    cifs_change_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'CifsChangeNotifyState']]]
+    """
+    Flag indicating whether a CIFS change notification is enabled for the cache.
+    """
+    export_policy: NotRequired[pulumi.Input['CachePropertiesExportPolicyArgsDict']]
+    """
+    Set of export policy rules
+    """
+    global_file_locking: NotRequired[pulumi.Input[Union[_builtins.str, 'GlobalFileLockingState']]]
+    """
+    Flag indicating whether the global file lock is enabled for the cache.
+    """
+    kerberos: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosState']]]
+    """
+    Describe if a cache is Kerberos enabled.
+    """
+    key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+    """
+    ldap: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapState']]]
+    """
+    Specifies whether LDAP is enabled or not for flexcache volume.
+    """
+    ldap_server_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapServerType']]]
+    """
+    Specifies the type of LDAP server for flexcache volume.
+    """
+    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ProtocolTypes']]]]]
+    """
+    Set of supported protocol types, which include NFSv3, NFSv4 and SMB protocol
+    """
+    smb_settings: NotRequired[pulumi.Input['SmbSettingsArgsDict']]
+    """
+    SMB information for the cache
+    """
+    throughput_mibps: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum throughput in MiB/s that can be achieved by this cache volume and this will be accepted as input only for manual qosType cache
+    """
+    write_back: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableWriteBackState']]]
+    """
+    Flag indicating whether writeback is enabled for the cache.
+    """
 
 @pulumi.input_type
 class CachePropertiesArgs:
@@ -1298,17 +1278,14 @@ class CachePropertiesArgs:
         pulumi.set(self, "write_back", value)
 
 
-if not MYPY:
-    class CifsUserArgsDict(TypedDict):
-        """
-        The effective CIFS username when accessing the volume data.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CIFS user's username
-        """
-elif False:
-    CifsUserArgsDict: TypeAlias = Mapping[str, Any]
+class CifsUserArgsDict(TypedDict):
+    """
+    The effective CIFS username when accessing the volume data.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CIFS user's username
+    """
 
 @pulumi.input_type
 class CifsUserArgs:
@@ -1334,29 +1311,26 @@ class CifsUserArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class DailyScheduleArgsDict(TypedDict):
-        """
-        Daily Schedule properties
-        """
-        hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which hour in UTC timezone a snapshot should be taken
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Daily snapshot count to keep
-        """
-        used_bytes: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Resource size in bytes, current storage usage for the volume in bytes
-        """
-elif False:
-    DailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class DailyScheduleArgsDict(TypedDict):
+    """
+    Daily Schedule properties
+    """
+    hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which hour in UTC timezone a snapshot should be taken
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Daily snapshot count to keep
+    """
+    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Resource size in bytes, current storage usage for the volume in bytes
+    """
 
 @pulumi.input_type
 class DailyScheduleArgs:
@@ -1430,17 +1404,14 @@ class DailyScheduleArgs:
         pulumi.set(self, "used_bytes", value)
 
 
-if not MYPY:
-    class ElasticAccountPropertiesArgsDict(TypedDict):
-        """
-        NetApp elastic account properties
-        """
-        encryption: NotRequired[pulumi.Input['ElasticEncryptionArgsDict']]
-        """
-        Encryption settings
-        """
-elif False:
-    ElasticAccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticAccountPropertiesArgsDict(TypedDict):
+    """
+    NetApp elastic account properties
+    """
+    encryption: NotRequired[pulumi.Input['ElasticEncryptionArgsDict']]
+    """
+    Encryption settings
+    """
 
 @pulumi.input_type
 class ElasticAccountPropertiesArgs:
@@ -1466,29 +1437,26 @@ class ElasticAccountPropertiesArgs:
         pulumi.set(self, "encryption", value)
 
 
-if not MYPY:
-    class ElasticBackupPolicyPropertiesArgsDict(TypedDict):
-        """
-        Elastic Backup Policy properties
-        """
-        daily_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Daily backups count to keep
-        """
-        monthly_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Monthly backups count to keep
-        """
-        policy_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticBackupPolicyState']]]
-        """
-        The property to identify whether Backup Policy is enabled or not
-        """
-        weekly_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Weekly backups count to keep
-        """
-elif False:
-    ElasticBackupPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticBackupPolicyPropertiesArgsDict(TypedDict):
+    """
+    Elastic Backup Policy properties
+    """
+    daily_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Daily backups count to keep
+    """
+    monthly_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Monthly backups count to keep
+    """
+    policy_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticBackupPolicyState']]]
+    """
+    The property to identify whether Backup Policy is enabled or not
+    """
+    weekly_backups_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Weekly backups count to keep
+    """
 
 @pulumi.input_type
 class ElasticBackupPolicyPropertiesArgs:
@@ -1562,29 +1530,26 @@ class ElasticBackupPolicyPropertiesArgs:
         pulumi.set(self, "weekly_backups_to_keep", value)
 
 
-if not MYPY:
-    class ElasticBackupPropertiesArgsDict(TypedDict):
-        """
-        Elastic Backup properties
-        """
-        elastic_volume_resource_id: pulumi.Input[_builtins.str]
-        """
-        ResourceId used to identify the Elastic Volume
-        """
-        elastic_snapshot_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label for backup
-        """
-        snapshot_usage: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapshotUsage']]]
-        """
-        Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
-        """
-elif False:
-    ElasticBackupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticBackupPropertiesArgsDict(TypedDict):
+    """
+    Elastic Backup properties
+    """
+    elastic_volume_resource_id: pulumi.Input[_builtins.str]
+    """
+    ResourceId used to identify the Elastic Volume
+    """
+    elastic_snapshot_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ResourceId used to identify the elastic snapshot resource. This is required when an existing snapshot needs to be used for creating a manual backup
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Label for backup
+    """
+    snapshot_usage: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapshotUsage']]]
+    """
+    Manual backup using an already existing snapshot. This will always be CreateNewSnapshot for scheduled backups and UseExistingSnapshot/CreateNewSnapshot for manual backups
+    """
 
 @pulumi.input_type
 class ElasticBackupPropertiesArgs:
@@ -1659,33 +1624,30 @@ class ElasticBackupPropertiesArgs:
         pulumi.set(self, "snapshot_usage", value)
 
 
-if not MYPY:
-    class ElasticCapacityPoolPropertiesArgsDict(TypedDict):
-        """
-        Elastic capacity pool properties
-        """
-        service_level: pulumi.Input[Union[_builtins.str, 'ElasticServiceLevel']]
-        """
-        The service level of the elastic capacity pool
-        """
-        size: pulumi.Input[_builtins.float]
-        """
-        Provisioned size of the pool (in bytes). For zoneRedundant service level pool, value must be in the range 1TiB to 16TiB or 1TiB to 128TiB for supported region. Values expressed in bytes as multiples of 1TiB till 16TiB and in multiples of 8TiB from 24TiB to 128TiB. Pool size can't be shrunk once it is created.
-        """
-        subnet_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/elasticVolumes, this is used by all the volumes within the pool
-        """
-        active_directory_config_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
-        """
-        encryption: NotRequired[pulumi.Input['ElasticEncryptionConfigurationArgsDict']]
-        """
-        Encryption settings
-        """
-elif False:
-    ElasticCapacityPoolPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticCapacityPoolPropertiesArgsDict(TypedDict):
+    """
+    Elastic capacity pool properties
+    """
+    service_level: pulumi.Input[Union[_builtins.str, 'ElasticServiceLevel']]
+    """
+    The service level of the elastic capacity pool
+    """
+    size: pulumi.Input[_builtins.float]
+    """
+    Provisioned size of the pool (in bytes). For zoneRedundant service level pool, value must be in the range 1TiB to 16TiB or 1TiB to 128TiB for supported region. Values expressed in bytes as multiples of 1TiB till 16TiB and in multiples of 8TiB from 24TiB to 128TiB. Pool size can't be shrunk once it is created.
+    """
+    subnet_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/elasticVolumes, this is used by all the volumes within the pool
+    """
+    active_directory_config_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource URI for an Active Directory configuration. This is used by all the SMB volumes within the pool
+    """
+    encryption: NotRequired[pulumi.Input['ElasticEncryptionConfigurationArgsDict']]
+    """
+    Encryption settings
+    """
 
 @pulumi.input_type
 class ElasticCapacityPoolPropertiesArgs:
@@ -1772,21 +1734,18 @@ class ElasticCapacityPoolPropertiesArgs:
         pulumi.set(self, "encryption", value)
 
 
-if not MYPY:
-    class ElasticEncryptionConfigurationArgsDict(TypedDict):
-        """
-        CMK Encryption Configuration
-        """
-        elastic_pool_encryption_key_source: pulumi.Input[Union[_builtins.str, 'ElasticPoolEncryptionKeySource']]
-        """
-        Pool Encryption Key Source.
-        """
-        key_vault_private_endpoint_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
-        """
-elif False:
-    ElasticEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticEncryptionConfigurationArgsDict(TypedDict):
+    """
+    CMK Encryption Configuration
+    """
+    elastic_pool_encryption_key_source: pulumi.Input[Union[_builtins.str, 'ElasticPoolEncryptionKeySource']]
+    """
+    Pool Encryption Key Source.
+    """
+    key_vault_private_endpoint_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+    """
 
 @pulumi.input_type
 class ElasticEncryptionConfigurationArgs:
@@ -1826,17 +1785,14 @@ class ElasticEncryptionConfigurationArgs:
         pulumi.set(self, "key_vault_private_endpoint_resource_id", value)
 
 
-if not MYPY:
-    class ElasticEncryptionIdentityArgsDict(TypedDict):
-        """
-        Identity used to authenticate with key vault.
-        """
-        user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
-        """
-elif False:
-    ElasticEncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticEncryptionIdentityArgsDict(TypedDict):
+    """
+    Identity used to authenticate with key vault.
+    """
+    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+    """
 
 @pulumi.input_type
 class ElasticEncryptionIdentityArgs:
@@ -1862,25 +1818,22 @@ class ElasticEncryptionIdentityArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
-if not MYPY:
-    class ElasticEncryptionArgsDict(TypedDict):
-        """
-        Encryption settings
-        """
-        identity: NotRequired[pulumi.Input['ElasticEncryptionIdentityArgsDict']]
-        """
-        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        """
-        key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
-        """
-        The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
-        """
-        key_vault_properties: NotRequired[pulumi.Input['ElasticKeyVaultPropertiesArgsDict']]
-        """
-        Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        """
-elif False:
-    ElasticEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticEncryptionArgsDict(TypedDict):
+    """
+    Encryption settings
+    """
+    identity: NotRequired[pulumi.Input['ElasticEncryptionIdentityArgsDict']]
+    """
+    Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
+    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
+    """
+    The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
+    """
+    key_vault_properties: NotRequired[pulumi.Input['ElasticKeyVaultPropertiesArgsDict']]
+    """
+    Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
 
 @pulumi.input_type
 class ElasticEncryptionArgs:
@@ -1938,37 +1891,34 @@ class ElasticEncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class ElasticExportPolicyRuleArgsDict(TypedDict):
-        """
-        Elastic Volume Export Policy Rule
-        """
-        allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
-        """
-        nfsv3: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticNfsv3Access']]]
-        """
-        Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
-        """
-        nfsv4: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticNfsv4Access']]]
-        """
-        Allows clients to access the volume with at least NFSv4.1 protocol.
-        """
-        root_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticRootAccess']]]
-        """
-        Indicates whether root access to the volume is granted to clients affected by this rule
-        """
-        rule_index: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
-        """
-        unix_access_rule: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticUnixAccessRule']]]
-        """
-        Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
-        """
-elif False:
-    ElasticExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticExportPolicyRuleArgsDict(TypedDict):
+    """
+    Elastic Volume Export Policy Rule
+    """
+    allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
+    """
+    nfsv3: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticNfsv3Access']]]
+    """
+    Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
+    """
+    nfsv4: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticNfsv4Access']]]
+    """
+    Allows clients to access the volume with at least NFSv4.1 protocol.
+    """
+    root_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticRootAccess']]]
+    """
+    Indicates whether root access to the volume is granted to clients affected by this rule
+    """
+    rule_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Controls the priority of the export policy rule. When connecting to the volume the rule with the lowest index that applies to the connecting client is used
+    """
+    unix_access_rule: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticUnixAccessRule']]]
+    """
+    Specifies the Unix file access level for the volume. It encompasses both read-only and read-write permissions. Additionally, NoAccess can be set to block all access to the volume
+    """
 
 @pulumi.input_type
 class ElasticExportPolicyRuleArgs:
@@ -2082,17 +2032,14 @@ class ElasticExportPolicyRuleArgs:
         pulumi.set(self, "unix_access_rule", value)
 
 
-if not MYPY:
-    class ElasticExportPolicyArgsDict(TypedDict):
-        """
-        Set of export policy rules
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgsDict']]]]
-        """
-        Export policy rule
-        """
-elif False:
-    ElasticExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticExportPolicyArgsDict(TypedDict):
+    """
+    Set of export policy rules
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ElasticExportPolicyRuleArgsDict']]]]
+    """
+    Export policy rule
+    """
 
 @pulumi.input_type
 class ElasticExportPolicyArgs:
@@ -2118,25 +2065,22 @@ class ElasticExportPolicyArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class ElasticKeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of key vault.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of KeyVault key.
-        """
-        key_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of KeyVault.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Uri of KeyVault.
-        """
-elif False:
-    ElasticKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticKeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of key vault.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of KeyVault key.
+    """
+    key_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of KeyVault.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Uri of KeyVault.
+    """
 
 @pulumi.input_type
 class ElasticKeyVaultPropertiesArgs:
@@ -2194,17 +2138,14 @@ class ElasticKeyVaultPropertiesArgs:
         pulumi.set(self, "key_vault_uri", value)
 
 
-if not MYPY:
-    class ElasticSmbPropertiesArgsDict(TypedDict):
-        """
-        SMB Properties
-        """
-        smb_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticSmbEncryption']]]
-        """
-        Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
-        """
-elif False:
-    ElasticSmbPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticSmbPropertiesArgsDict(TypedDict):
+    """
+    SMB Properties
+    """
+    smb_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticSmbEncryption']]]
+    """
+    Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
+    """
 
 @pulumi.input_type
 class ElasticSmbPropertiesArgs:
@@ -2232,25 +2173,22 @@ class ElasticSmbPropertiesArgs:
         pulumi.set(self, "smb_encryption", value)
 
 
-if not MYPY:
-    class ElasticSnapshotPolicyDailyScheduleArgsDict(TypedDict):
-        """
-        Daily Schedule properties used to create NetApp snapshot policy
-        """
-        hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which hour in UTC timezone a snapshot should be taken
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Daily snapshot count to keep
-        """
-elif False:
-    ElasticSnapshotPolicyDailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticSnapshotPolicyDailyScheduleArgsDict(TypedDict):
+    """
+    Daily Schedule properties used to create NetApp snapshot policy
+    """
+    hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which hour in UTC timezone a snapshot should be taken
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Daily snapshot count to keep
+    """
 
 @pulumi.input_type
 class ElasticSnapshotPolicyDailyScheduleArgs:
@@ -2308,21 +2246,18 @@ class ElasticSnapshotPolicyDailyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class ElasticSnapshotPolicyHourlyScheduleArgsDict(TypedDict):
-        """
-        Hourly Schedule properties used to create NetApp snapshot policy
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Hourly snapshot count to keep
-        """
-elif False:
-    ElasticSnapshotPolicyHourlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticSnapshotPolicyHourlyScheduleArgsDict(TypedDict):
+    """
+    Hourly Schedule properties used to create NetApp snapshot policy
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Hourly snapshot count to keep
+    """
 
 @pulumi.input_type
 class ElasticSnapshotPolicyHourlyScheduleArgs:
@@ -2364,29 +2299,26 @@ class ElasticSnapshotPolicyHourlyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class ElasticSnapshotPolicyMonthlyScheduleArgsDict(TypedDict):
-        """
-        Monthly Schedule properties used to create NetApp snapshot policy
-        """
-        days_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
-        """
-        hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which hour in UTC timezone a snapshot should be taken
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Monthly snapshot count to keep
-        """
-elif False:
-    ElasticSnapshotPolicyMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticSnapshotPolicyMonthlyScheduleArgsDict(TypedDict):
+    """
+    Monthly Schedule properties used to create NetApp snapshot policy
+    """
+    days_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
+    """
+    hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which hour in UTC timezone a snapshot should be taken
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Monthly snapshot count to keep
+    """
 
 @pulumi.input_type
 class ElasticSnapshotPolicyMonthlyScheduleArgs:
@@ -2460,33 +2392,30 @@ class ElasticSnapshotPolicyMonthlyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class ElasticSnapshotPolicyPropertiesArgsDict(TypedDict):
-        """
-        Elastic Snapshot policy properties
-        """
-        daily_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyDailyScheduleArgsDict']]
-        """
-        Schedule for daily snapshots
-        """
-        hourly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyHourlyScheduleArgsDict']]
-        """
-        Schedule for hourly snapshots
-        """
-        monthly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyMonthlyScheduleArgsDict']]
-        """
-        Schedule for monthly snapshots
-        """
-        policy_status: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]]
-        """
-        Configures if the snapshot policy is enabled on the volumes connected to the policy.
-        """
-        weekly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyWeeklyScheduleArgsDict']]
-        """
-        Schedule for weekly snapshots
-        """
-elif False:
-    ElasticSnapshotPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticSnapshotPolicyPropertiesArgsDict(TypedDict):
+    """
+    Elastic Snapshot policy properties
+    """
+    daily_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyDailyScheduleArgsDict']]
+    """
+    Schedule for daily snapshots
+    """
+    hourly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyHourlyScheduleArgsDict']]
+    """
+    Schedule for hourly snapshots
+    """
+    monthly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyMonthlyScheduleArgsDict']]
+    """
+    Schedule for monthly snapshots
+    """
+    policy_status: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]]
+    """
+    Configures if the snapshot policy is enabled on the volumes connected to the policy.
+    """
+    weekly_schedule: NotRequired[pulumi.Input['ElasticSnapshotPolicyWeeklyScheduleArgsDict']]
+    """
+    Schedule for weekly snapshots
+    """
 
 @pulumi.input_type
 class ElasticSnapshotPolicyPropertiesArgs:
@@ -2576,29 +2505,26 @@ class ElasticSnapshotPolicyPropertiesArgs:
         pulumi.set(self, "weekly_schedule", value)
 
 
-if not MYPY:
-    class ElasticSnapshotPolicyWeeklyScheduleArgsDict(TypedDict):
-        """
-        Weekly Schedule properties used to create NetApp snapshot policy
-        """
-        days: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]
-        """
-        Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
-        """
-        hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which hour in UTC timezone a snapshot should be taken
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Weekly snapshot count to keep
-        """
-elif False:
-    ElasticSnapshotPolicyWeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticSnapshotPolicyWeeklyScheduleArgsDict(TypedDict):
+    """
+    Weekly Schedule properties used to create NetApp snapshot policy
+    """
+    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]
+    """
+    Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
+    """
+    hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which hour in UTC timezone a snapshot should be taken
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Weekly snapshot count to keep
+    """
 
 @pulumi.input_type
 class ElasticSnapshotPolicyWeeklyScheduleArgs:
@@ -2672,25 +2598,22 @@ class ElasticSnapshotPolicyWeeklyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class ElasticVolumeBackupPropertiesArgsDict(TypedDict):
-        """
-        Elastic Volume Backup Properties
-        """
-        elastic_backup_policy_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ResourceId used to identify Elastic Backup Policy
-        """
-        elastic_backup_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ResourceId used to identify Elastic Backup Vault
-        """
-        policy_enforcement: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]
-        """
-        The property to decide policy is enforced or not on the volume
-        """
-elif False:
-    ElasticVolumeBackupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticVolumeBackupPropertiesArgsDict(TypedDict):
+    """
+    Elastic Volume Backup Properties
+    """
+    elastic_backup_policy_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ResourceId used to identify Elastic Backup Policy
+    """
+    elastic_backup_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ResourceId used to identify Elastic Backup Vault
+    """
+    policy_enforcement: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticVolumePolicyEnforcement']]]
+    """
+    The property to decide policy is enforced or not on the volume
+    """
 
 @pulumi.input_type
 class ElasticVolumeBackupPropertiesArgs:
@@ -2748,21 +2671,18 @@ class ElasticVolumeBackupPropertiesArgs:
         pulumi.set(self, "policy_enforcement", value)
 
 
-if not MYPY:
-    class ElasticVolumeDataProtectionPropertiesArgsDict(TypedDict):
-        """
-        Data protection configuration option for the volume, including snapshot policies and backup.
-        """
-        backup: NotRequired[pulumi.Input['ElasticVolumeBackupPropertiesArgsDict']]
-        """
-        Used to configure backups on an elastic volume.
-        """
-        snapshot: NotRequired[pulumi.Input['ElasticVolumeSnapshotPropertiesArgsDict']]
-        """
-        Used to apply a snapshot policy to a volume.
-        """
-elif False:
-    ElasticVolumeDataProtectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticVolumeDataProtectionPropertiesArgsDict(TypedDict):
+    """
+    Data protection configuration option for the volume, including snapshot policies and backup.
+    """
+    backup: NotRequired[pulumi.Input['ElasticVolumeBackupPropertiesArgsDict']]
+    """
+    Used to configure backups on an elastic volume.
+    """
+    snapshot: NotRequired[pulumi.Input['ElasticVolumeSnapshotPropertiesArgsDict']]
+    """
+    Used to apply a snapshot policy to a volume.
+    """
 
 @pulumi.input_type
 class ElasticVolumeDataProtectionPropertiesArgs:
@@ -2804,49 +2724,46 @@ class ElasticVolumeDataProtectionPropertiesArgs:
         pulumi.set(self, "snapshot", value)
 
 
-if not MYPY:
-    class ElasticVolumePropertiesArgsDict(TypedDict):
-        """
-        Elastic Volume properties
-        """
-        file_path: pulumi.Input[_builtins.str]
-        """
-        A unique file path for the volume. Used when creating mount targets. This needs to be unique within the elastic capacity pool.
-        """
-        protocol_types: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ElasticProtocolType']]]]
-        """
-        Set of support protocol types for the elastic volume
-        """
-        size: pulumi.Input[_builtins.float]
-        """
-        Maximum size allowed for a volume in bytes. Valid values are in the range 1GiB to 16TiB. Values expressed in bytes as multiples of 1 GiB.
-        """
-        backup_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource identifier used to identify the Elastic Backup.
-        """
-        data_protection: NotRequired[pulumi.Input['ElasticVolumeDataProtectionPropertiesArgsDict']]
-        """
-        Data protection configuration option for the volume, including snapshot policies and backup.
-        """
-        export_policy: NotRequired[pulumi.Input['ElasticExportPolicyArgsDict']]
-        """
-        Set of export policy rules
-        """
-        smb_properties: NotRequired[pulumi.Input['ElasticSmbPropertiesArgsDict']]
-        """
-        SMB Properties
-        """
-        snapshot_directory_visibility: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]
-        """
-        Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
-        """
-        snapshot_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource identifier used to identify the Elastic Snapshot.
-        """
-elif False:
-    ElasticVolumePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticVolumePropertiesArgsDict(TypedDict):
+    """
+    Elastic Volume properties
+    """
+    file_path: pulumi.Input[_builtins.str]
+    """
+    A unique file path for the volume. Used when creating mount targets. This needs to be unique within the elastic capacity pool.
+    """
+    protocol_types: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ElasticProtocolType']]]]
+    """
+    Set of support protocol types for the elastic volume
+    """
+    size: pulumi.Input[_builtins.float]
+    """
+    Maximum size allowed for a volume in bytes. Valid values are in the range 1GiB to 16TiB. Values expressed in bytes as multiples of 1 GiB.
+    """
+    backup_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource identifier used to identify the Elastic Backup.
+    """
+    data_protection: NotRequired[pulumi.Input['ElasticVolumeDataProtectionPropertiesArgsDict']]
+    """
+    Data protection configuration option for the volume, including snapshot policies and backup.
+    """
+    export_policy: NotRequired[pulumi.Input['ElasticExportPolicyArgsDict']]
+    """
+    Set of export policy rules
+    """
+    smb_properties: NotRequired[pulumi.Input['ElasticSmbPropertiesArgsDict']]
+    """
+    SMB Properties
+    """
+    snapshot_directory_visibility: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapshotDirectoryVisibility']]]
+    """
+    Controls the visibility of the volume's read-only snapshot directory, which provides access to each of the volume's snapshots.
+    """
+    snapshot_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource identifier used to identify the Elastic Snapshot.
+    """
 
 @pulumi.input_type
 class ElasticVolumePropertiesArgs:
@@ -2997,17 +2914,14 @@ class ElasticVolumePropertiesArgs:
         pulumi.set(self, "snapshot_resource_id", value)
 
 
-if not MYPY:
-    class ElasticVolumeSnapshotPropertiesArgsDict(TypedDict):
-        """
-        Elastic Volume Snapshot Properties
-        """
-        snapshot_policy_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Snapshot Policy ResourceId
-        """
-elif False:
-    ElasticVolumeSnapshotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticVolumeSnapshotPropertiesArgsDict(TypedDict):
+    """
+    Elastic Volume Snapshot Properties
+    """
+    snapshot_policy_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Snapshot Policy ResourceId
+    """
 
 @pulumi.input_type
 class ElasticVolumeSnapshotPropertiesArgs:
@@ -3033,17 +2947,14 @@ class ElasticVolumeSnapshotPropertiesArgs:
         pulumi.set(self, "snapshot_policy_resource_id", value)
 
 
-if not MYPY:
-    class EncryptionIdentityArgsDict(TypedDict):
-        """
-        Identity used to authenticate with key vault.
-        """
-        user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
-        """
-elif False:
-    EncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionIdentityArgsDict(TypedDict):
+    """
+    Identity used to authenticate with key vault.
+    """
+    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+    """
 
 @pulumi.input_type
 class EncryptionIdentityArgs:
@@ -3069,89 +2980,86 @@ class EncryptionIdentityArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
-if not MYPY:
-    class ExportPolicyRuleArgsDict(TypedDict):
-        """
-        Volume Export Policy Rule
-        """
-        allowed_clients: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-        """
-        chown_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ChownMode']]]
-        """
-        This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
-        """
-        cifs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows CIFS protocol
-        """
-        has_root_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Has root access to volume
-        """
-        kerberos5_i_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5_i_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5_p_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5_p_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5i_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5i_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5p_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-        """
-        kerberos5p_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-        """
-        nfsv3: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-        """
-        nfsv41: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-        """
-        rule_index: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Order index
-        """
-        unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Read only access
-        """
-        unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Read and write access
-        """
-elif False:
-    ExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ExportPolicyRuleArgsDict(TypedDict):
+    """
+    Volume Export Policy Rule
+    """
+    allowed_clients: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+    """
+    chown_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ChownMode']]]
+    """
+    This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+    """
+    cifs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows CIFS protocol
+    """
+    has_root_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Has root access to volume
+    """
+    kerberos5_i_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5_i_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5_p_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5_p_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5i_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5i_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5p_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+    """
+    kerberos5p_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+    """
+    nfsv3: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+    """
+    nfsv41: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+    """
+    rule_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Order index
+    """
+    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Read only access
+    """
+    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Read and write access
+    """
 
 @pulumi.input_type
 class ExportPolicyRuleArgs:
@@ -3489,21 +3397,18 @@ class ExportPolicyRuleArgs:
         pulumi.set(self, "unix_read_write", value)
 
 
-if not MYPY:
-    class FileSystemUserArgsDict(TypedDict):
-        """
-        File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
-        """
-        cifs_user: NotRequired[pulumi.Input['CifsUserArgsDict']]
-        """
-        The effective CIFS username when accessing the volume data.
-        """
-        nfs_user: NotRequired[pulumi.Input['NfsUserArgsDict']]
-        """
-        The effective NFS User ID and Group ID when accessing the volume data.
-        """
-elif False:
-    FileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+class FileSystemUserArgsDict(TypedDict):
+    """
+    File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
+    """
+    cifs_user: NotRequired[pulumi.Input['CifsUserArgsDict']]
+    """
+    The effective CIFS username when accessing the volume data.
+    """
+    nfs_user: NotRequired[pulumi.Input['NfsUserArgsDict']]
+    """
+    The effective NFS User ID and Group ID when accessing the volume data.
+    """
 
 @pulumi.input_type
 class FileSystemUserArgs:
@@ -3545,25 +3450,22 @@ class FileSystemUserArgs:
         pulumi.set(self, "nfs_user", value)
 
 
-if not MYPY:
-    class HourlyScheduleArgsDict(TypedDict):
-        """
-        Hourly Schedule properties
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Hourly snapshot count to keep
-        """
-        used_bytes: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Resource size in bytes, current storage usage for the volume in bytes
-        """
-elif False:
-    HourlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class HourlyScheduleArgsDict(TypedDict):
+    """
+    Hourly Schedule properties
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Hourly snapshot count to keep
+    """
+    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Resource size in bytes, current storage usage for the volume in bytes
+    """
 
 @pulumi.input_type
 class HourlyScheduleArgs:
@@ -3621,25 +3523,22 @@ class HourlyScheduleArgs:
         pulumi.set(self, "used_bytes", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of key vault.
-        """
-        key_name: pulumi.Input[_builtins.str]
-        """
-        The name of KeyVault key.
-        """
-        key_vault_uri: pulumi.Input[_builtins.str]
-        """
-        The Uri of KeyVault.
-        """
-        key_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of KeyVault.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of key vault.
+    """
+    key_name: pulumi.Input[_builtins.str]
+    """
+    The name of KeyVault key.
+    """
+    key_vault_uri: pulumi.Input[_builtins.str]
+    """
+    The Uri of KeyVault.
+    """
+    key_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of KeyVault.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -3695,25 +3594,22 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_vault_resource_id", value)
 
 
-if not MYPY:
-    class LdapSearchScopeOptArgsDict(TypedDict):
-        """
-        LDAP search scope 
-        """
-        group_dn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This specifies the group DN, which overrides the base DN for group lookups.
-        """
-        group_membership_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
-        """
-        user_dn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This specifies the user DN, which overrides the base DN for user lookups.
-        """
-elif False:
-    LdapSearchScopeOptArgsDict: TypeAlias = Mapping[str, Any]
+class LdapSearchScopeOptArgsDict(TypedDict):
+    """
+    LDAP search scope 
+    """
+    group_dn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This specifies the group DN, which overrides the base DN for group lookups.
+    """
+    group_membership_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+    """
+    user_dn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This specifies the user DN, which overrides the base DN for user lookups.
+    """
 
 @pulumi.input_type
 class LdapSearchScopeOptArgs:
@@ -3771,21 +3667,18 @@ class LdapSearchScopeOptArgs:
         pulumi.set(self, "user_dn", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -3826,33 +3719,30 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class MonthlyScheduleArgsDict(TypedDict):
-        """
-        Monthly Schedule properties
-        """
-        days_of_month: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates which days of the month snapshot should be taken. A comma delimited string.
-        """
-        hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which hour in UTC timezone a snapshot should be taken
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Monthly snapshot count to keep
-        """
-        used_bytes: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Resource size in bytes, current storage usage for the volume in bytes
-        """
-elif False:
-    MonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class MonthlyScheduleArgsDict(TypedDict):
+    """
+    Monthly Schedule properties
+    """
+    days_of_month: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates which days of the month snapshot should be taken. A comma delimited string.
+    """
+    hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which hour in UTC timezone a snapshot should be taken
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Monthly snapshot count to keep
+    """
+    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Resource size in bytes, current storage usage for the volume in bytes
+    """
 
 @pulumi.input_type
 class MonthlyScheduleArgs:
@@ -3942,21 +3832,18 @@ class MonthlyScheduleArgs:
         pulumi.set(self, "used_bytes", value)
 
 
-if not MYPY:
-    class NfsUserArgsDict(TypedDict):
-        """
-        The effective NFS User ID and Group ID when accessing the volume data.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The NFS user's GID
-        """
-        user_id: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The NFS user's UID
-        """
-elif False:
-    NfsUserArgsDict: TypeAlias = Mapping[str, Any]
+class NfsUserArgsDict(TypedDict):
+    """
+    The effective NFS User ID and Group ID when accessing the volume data.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The NFS user's GID
+    """
+    user_id: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The NFS user's UID
+    """
 
 @pulumi.input_type
 class NfsUserArgs:
@@ -3998,29 +3885,26 @@ class NfsUserArgs:
         pulumi.set(self, "user_id", value)
 
 
-if not MYPY:
-    class OriginClusterInformationArgsDict(TypedDict):
-        """
-        Stores the origin cluster information associated to a cache.
-        """
-        peer_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        ONTAP Intercluster LIF IP addresses. One IP address per cluster node is required
-        """
-        peer_cluster_name: pulumi.Input[_builtins.str]
-        """
-        ONTAP cluster name of external cluster hosting the origin volume
-        """
-        peer_volume_name: pulumi.Input[_builtins.str]
-        """
-        External origin volume name associated to this cache
-        """
-        peer_vserver_name: pulumi.Input[_builtins.str]
-        """
-        External Vserver (SVM) name  name of the SVM hosting the origin volume
-        """
-elif False:
-    OriginClusterInformationArgsDict: TypeAlias = Mapping[str, Any]
+class OriginClusterInformationArgsDict(TypedDict):
+    """
+    Stores the origin cluster information associated to a cache.
+    """
+    peer_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    ONTAP Intercluster LIF IP addresses. One IP address per cluster node is required
+    """
+    peer_cluster_name: pulumi.Input[_builtins.str]
+    """
+    ONTAP cluster name of external cluster hosting the origin volume
+    """
+    peer_volume_name: pulumi.Input[_builtins.str]
+    """
+    External origin volume name associated to this cache
+    """
+    peer_vserver_name: pulumi.Input[_builtins.str]
+    """
+    External Vserver (SVM) name  name of the SVM hosting the origin volume
+    """
 
 @pulumi.input_type
 class OriginClusterInformationArgs:
@@ -4090,21 +3974,18 @@ class OriginClusterInformationArgs:
         pulumi.set(self, "peer_vserver_name", value)
 
 
-if not MYPY:
-    class PlacementKeyValuePairsArgsDict(TypedDict):
-        """
-        Application specific parameters for the placement of volumes in the volume group
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        Key for an application specific parameter for the placement of volumes in the volume group
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value for an application specific parameter for the placement of volumes in the volume group
-        """
-elif False:
-    PlacementKeyValuePairsArgsDict: TypeAlias = Mapping[str, Any]
+class PlacementKeyValuePairsArgsDict(TypedDict):
+    """
+    Application specific parameters for the placement of volumes in the volume group
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    Key for an application specific parameter for the placement of volumes in the volume group
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value for an application specific parameter for the placement of volumes in the volume group
+    """
 
 @pulumi.input_type
 class PlacementKeyValuePairsArgs:
@@ -4144,25 +4025,22 @@ class PlacementKeyValuePairsArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RemotePathArgsDict(TypedDict):
-        """
-        The full path to a volume that is to be migrated into ANF. Required for Migration volumes
-        """
-        external_host_name: pulumi.Input[_builtins.str]
-        """
-        The Path to a ONTAP Host
-        """
-        server_name: pulumi.Input[_builtins.str]
-        """
-        The name of a server on the ONTAP Host
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        The name of a volume on the server
-        """
-elif False:
-    RemotePathArgsDict: TypeAlias = Mapping[str, Any]
+class RemotePathArgsDict(TypedDict):
+    """
+    The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+    """
+    external_host_name: pulumi.Input[_builtins.str]
+    """
+    The Path to a ONTAP Host
+    """
+    server_name: pulumi.Input[_builtins.str]
+    """
+    The name of a server on the ONTAP Host
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    The name of a volume on the server
+    """
 
 @pulumi.input_type
 class RemotePathArgs:
@@ -4217,33 +4095,30 @@ class RemotePathArgs:
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class ReplicationObjectArgsDict(TypedDict):
-        """
-        Replication properties
-        """
-        endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointType']]]
-        """
-        Indicates whether the local volume is the source or destination for the Volume Replication
-        """
-        remote_path: NotRequired[pulumi.Input['RemotePathArgsDict']]
-        """
-        The full path to a volume that is to be migrated into ANF. Required for Migration volumes
-        """
-        remote_volume_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The remote region for the other end of the Volume Replication.
-        """
-        remote_volume_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the remote volume. Required for cross region and cross zone replication
-        """
-        replication_schedule: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationSchedule']]]
-        """
-        Schedule
-        """
-elif False:
-    ReplicationObjectArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationObjectArgsDict(TypedDict):
+    """
+    Replication properties
+    """
+    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointType']]]
+    """
+    Indicates whether the local volume is the source or destination for the Volume Replication
+    """
+    remote_path: NotRequired[pulumi.Input['RemotePathArgsDict']]
+    """
+    The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+    """
+    remote_volume_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The remote region for the other end of the Volume Replication.
+    """
+    remote_volume_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the remote volume. Required for cross region and cross zone replication
+    """
+    replication_schedule: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationSchedule']]]
+    """
+    Schedule
+    """
 
 @pulumi.input_type
 class ReplicationObjectArgs:
@@ -4333,17 +4208,14 @@ class ReplicationObjectArgs:
         pulumi.set(self, "replication_schedule", value)
 
 
-if not MYPY:
-    class SecretPasswordIdentityArgsDict(TypedDict):
-        """
-        Identity used to authenticate with key vault.
-        """
-        user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
-        """
-elif False:
-    SecretPasswordIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class SecretPasswordIdentityArgsDict(TypedDict):
+    """
+    Identity used to authenticate with key vault.
+    """
+    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+    """
 
 @pulumi.input_type
 class SecretPasswordIdentityArgs:
@@ -4369,21 +4241,18 @@ class SecretPasswordIdentityArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
-if not MYPY:
-    class SecretPasswordKeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of key vault to get the secrets for password.
-        """
-        key_vault_uri: pulumi.Input[_builtins.str]
-        """
-        The Uri of KeyVault.
-        """
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of KeyVault password secret.
-        """
-elif False:
-    SecretPasswordKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SecretPasswordKeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of key vault to get the secrets for password.
+    """
+    key_vault_uri: pulumi.Input[_builtins.str]
+    """
+    The Uri of KeyVault.
+    """
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of KeyVault password secret.
+    """
 
 @pulumi.input_type
 class SecretPasswordKeyVaultPropertiesArgs:
@@ -4423,21 +4292,18 @@ class SecretPasswordKeyVaultPropertiesArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class SecretPasswordArgsDict(TypedDict):
-        """
-        Access password from Azure KeyVault Secrets to connect Active Directory
-        """
-        identity: NotRequired[pulumi.Input['SecretPasswordIdentityArgsDict']]
-        """
-        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
-        """
-        key_vault_properties: NotRequired[pulumi.Input['SecretPasswordKeyVaultPropertiesArgsDict']]
-        """
-        Properties provided by KeyVault.
-        """
-elif False:
-    SecretPasswordArgsDict: TypeAlias = Mapping[str, Any]
+class SecretPasswordArgsDict(TypedDict):
+    """
+    Access password from Azure KeyVault Secrets to connect Active Directory
+    """
+    identity: NotRequired[pulumi.Input['SecretPasswordIdentityArgsDict']]
+    """
+    Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+    """
+    key_vault_properties: NotRequired[pulumi.Input['SecretPasswordKeyVaultPropertiesArgsDict']]
+    """
+    Properties provided by KeyVault.
+    """
 
 @pulumi.input_type
 class SecretPasswordArgs:
@@ -4479,25 +4345,22 @@ class SecretPasswordArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class SmbSettingsArgsDict(TypedDict):
-        """
-        SMB settings for the cache
-        """
-        smb_access_based_enumeration: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]
-        """
-        Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        """
-        smb_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbEncryptionState']]]
-        """
-        Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
-        """
-        smb_non_browsable: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]
-        """
-        Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        """
-elif False:
-    SmbSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SmbSettingsArgsDict(TypedDict):
+    """
+    SMB settings for the cache
+    """
+    smb_access_based_enumeration: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]
+    """
+    Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    """
+    smb_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbEncryptionState']]]
+    """
+    Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
+    """
+    smb_non_browsable: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]
+    """
+    Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    """
 
 @pulumi.input_type
 class SmbSettingsArgs:
@@ -4555,25 +4418,22 @@ class SmbSettingsArgs:
         pulumi.set(self, "smb_non_browsable", value)
 
 
-if not MYPY:
-    class VolumeBackupPropertiesArgsDict(TypedDict):
-        """
-        Volume Backup Properties
-        """
-        backup_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Backup Policy Resource ID
-        """
-        backup_vault_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Backup Vault Resource ID
-        """
-        policy_enforced: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Policy Enforced
-        """
-elif False:
-    VolumeBackupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeBackupPropertiesArgsDict(TypedDict):
+    """
+    Volume Backup Properties
+    """
+    backup_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Backup Policy Resource ID
+    """
+    backup_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Backup Vault Resource ID
+    """
+    policy_enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Policy Enforced
+    """
 
 @pulumi.input_type
 class VolumeBackupPropertiesArgs:
@@ -4631,29 +4491,26 @@ class VolumeBackupPropertiesArgs:
         pulumi.set(self, "policy_enforced", value)
 
 
-if not MYPY:
-    class VolumeGroupMetaDataArgsDict(TypedDict):
-        """
-        Volume group properties
-        """
-        application_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Application specific identifier
-        """
-        application_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationType']]]
-        """
-        Application Type
-        """
-        global_placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
-        """
-        Application specific placement rules for the volume group
-        """
-        group_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Group Description
-        """
-elif False:
-    VolumeGroupMetaDataArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupMetaDataArgsDict(TypedDict):
+    """
+    Volume group properties
+    """
+    application_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application specific identifier
+    """
+    application_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ApplicationType']]]
+    """
+    Application Type
+    """
+    global_placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
+    """
+    Application specific placement rules for the volume group
+    """
+    group_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Group Description
+    """
 
 @pulumi.input_type
 class VolumeGroupMetaDataArgs:
@@ -4727,181 +4584,178 @@ class VolumeGroupMetaDataArgs:
         pulumi.set(self, "group_description", value)
 
 
-if not MYPY:
-    class VolumeGroupVolumePropertiesArgsDict(TypedDict):
-        """
-        Volume resource
-        """
-        creation_token: pulumi.Input[_builtins.str]
-        """
-        A unique file path for the volume. Used when creating mount targets
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        """
-        usage_threshold: pulumi.Input[_builtins.float]
-        """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
-        """
-        avs_data_store: NotRequired[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]]
-        """
-        Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
-        """
-        backup_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource identifier used to identify the Backup.
-        """
-        capacity_pool_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Pool Resource Id used in case of creating a volume through volume group
-        """
-        cool_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Cool Access(tiering) is enabled for the volume.
-        """
-        cool_access_retrieval_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]
-        """
-        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
-         Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
-         OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
-         Never - No client-driven data is pulled from cool tier to standard storage.
-        """
-        cool_access_tiering_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]]
-        """
-        coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
-        """
-        coolness_period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of days after which data that is not accessed by clients will be tiered.
-        """
-        data_protection: NotRequired[pulumi.Input['VolumePropertiesDataProtectionArgsDict']]
-        """
-        DataProtection type volumes include an object containing details of the replication
-        """
-        default_group_quota_in_ki_bs: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
-        """
-        default_user_quota_in_ki_bs: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
-        """
-        delete_base_snapshot: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
-        """
-        enable_subvolumes: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]]
-        """
-        Flag indicating whether subvolume operations are enabled on the volume
-        """
-        encryption_key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]]
-        """
-        Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
-        """
-        export_policy: NotRequired[pulumi.Input['VolumePropertiesExportPolicyArgsDict']]
-        """
-        Set of export policy rules
-        """
-        is_default_quota_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if default quota is enabled for the volume.
-        """
-        is_large_volume: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether volume is a Large Volume or Regular Volume.
-        """
-        is_restoring: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Restoring
-        """
-        kerberos_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-        """
-        key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
-        """
-        ldap_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether LDAP is enabled or not for a given NFS volume.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name
-        """
-        network_features: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]]
-        """
-        The original value of the network features type available to the volume at the time it was created.
-        """
-        placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
-        """
-        Application specific placement rules for the particular volume
-        """
-        protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of protocol types, default NFSv3, CIFS for SMB protocol
-        """
-        proximity_placement_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Proximity placement group associated with the volume
-        """
-        security_style: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]]
-        """
-        The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-        """
-        service_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]]
-        """
-        The service level of the file system
-        """
-        smb_access_based_enumeration: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]
-        """
-        Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        """
-        smb_continuously_available: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables continuously available share property for smb volume. Only applicable for SMB volume
-        """
-        smb_encryption: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        """
-        smb_non_browsable: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]
-        """
-        Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        """
-        snapshot_directory_visible: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
-        """
-        snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource identifier used to identify the Snapshot.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Resource tags
-        """
-        throughput_mibps: NotRequired[pulumi.Input[_builtins.float]]
-        unix_permissions: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-        """
-        volume_spec_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
-        """
-        volume_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Availability Zone
-        """
-elif False:
-    VolumeGroupVolumePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupVolumePropertiesArgsDict(TypedDict):
+    """
+    Volume resource
+    """
+    creation_token: pulumi.Input[_builtins.str]
+    """
+    A unique file path for the volume. Used when creating mount targets
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+    """
+    usage_threshold: pulumi.Input[_builtins.float]
+    """
+    Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
+    """
+    avs_data_store: NotRequired[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]]
+    """
+    Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+    """
+    backup_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource identifier used to identify the Backup.
+    """
+    capacity_pool_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Pool Resource Id used in case of creating a volume through volume group
+    """
+    cool_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Cool Access(tiering) is enabled for the volume.
+    """
+    cool_access_retrieval_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]
+    """
+    coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+     Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+     OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+     Never - No client-driven data is pulled from cool tier to standard storage.
+    """
+    cool_access_tiering_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]]
+    """
+    coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+    """
+    coolness_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of days after which data that is not accessed by clients will be tiered.
+    """
+    data_protection: NotRequired[pulumi.Input['VolumePropertiesDataProtectionArgsDict']]
+    """
+    DataProtection type volumes include an object containing details of the replication
+    """
+    default_group_quota_in_ki_bs: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+    """
+    default_user_quota_in_ki_bs: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+    """
+    delete_base_snapshot: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+    """
+    enable_subvolumes: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]]
+    """
+    Flag indicating whether subvolume operations are enabled on the volume
+    """
+    encryption_key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]]
+    """
+    Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+    """
+    export_policy: NotRequired[pulumi.Input['VolumePropertiesExportPolicyArgsDict']]
+    """
+    Set of export policy rules
+    """
+    is_default_quota_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if default quota is enabled for the volume.
+    """
+    is_large_volume: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether volume is a Large Volume or Regular Volume.
+    """
+    is_restoring: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Restoring
+    """
+    kerberos_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+    """
+    key_vault_private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+    """
+    ldap_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether LDAP is enabled or not for a given NFS volume.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name
+    """
+    network_features: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]]
+    """
+    The original value of the network features type available to the volume at the time it was created.
+    """
+    placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
+    """
+    Application specific placement rules for the particular volume
+    """
+    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of protocol types, default NFSv3, CIFS for SMB protocol
+    """
+    proximity_placement_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Proximity placement group associated with the volume
+    """
+    security_style: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]]
+    """
+    The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+    """
+    service_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]]
+    """
+    The service level of the file system
+    """
+    smb_access_based_enumeration: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]
+    """
+    Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    """
+    smb_continuously_available: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables continuously available share property for smb volume. Only applicable for SMB volume
+    """
+    smb_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+    """
+    smb_non_browsable: NotRequired[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]
+    """
+    Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    """
+    snapshot_directory_visible: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
+    """
+    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource identifier used to identify the Snapshot.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags
+    """
+    throughput_mibps: NotRequired[pulumi.Input[_builtins.float]]
+    unix_permissions: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+    """
+    volume_spec_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+    """
+    volume_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Availability Zone
+    """
 
 @pulumi.input_type
 class VolumeGroupVolumePropertiesArgs:
@@ -5612,29 +5466,26 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class VolumePropertiesDataProtectionArgsDict(TypedDict):
-        """
-        DataProtection type volumes include an object containing details of the replication
-        """
-        backup: NotRequired[pulumi.Input['VolumeBackupPropertiesArgsDict']]
-        """
-        Backup Properties
-        """
-        replication: NotRequired[pulumi.Input['ReplicationObjectArgsDict']]
-        """
-        Replication properties
-        """
-        snapshot: NotRequired[pulumi.Input['VolumeSnapshotPropertiesArgsDict']]
-        """
-        Snapshot properties.
-        """
-        volume_relocation: NotRequired[pulumi.Input['VolumeRelocationPropertiesArgsDict']]
-        """
-        VolumeRelocation properties
-        """
-elif False:
-    VolumePropertiesDataProtectionArgsDict: TypeAlias = Mapping[str, Any]
+class VolumePropertiesDataProtectionArgsDict(TypedDict):
+    """
+    DataProtection type volumes include an object containing details of the replication
+    """
+    backup: NotRequired[pulumi.Input['VolumeBackupPropertiesArgsDict']]
+    """
+    Backup Properties
+    """
+    replication: NotRequired[pulumi.Input['ReplicationObjectArgsDict']]
+    """
+    Replication properties
+    """
+    snapshot: NotRequired[pulumi.Input['VolumeSnapshotPropertiesArgsDict']]
+    """
+    Snapshot properties.
+    """
+    volume_relocation: NotRequired[pulumi.Input['VolumeRelocationPropertiesArgsDict']]
+    """
+    VolumeRelocation properties
+    """
 
 @pulumi.input_type
 class VolumePropertiesDataProtectionArgs:
@@ -5708,17 +5559,14 @@ class VolumePropertiesDataProtectionArgs:
         pulumi.set(self, "volume_relocation", value)
 
 
-if not MYPY:
-    class VolumePropertiesExportPolicyArgsDict(TypedDict):
-        """
-        Set of export policy rules
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]
-        """
-        Export policy rule
-        """
-elif False:
-    VolumePropertiesExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VolumePropertiesExportPolicyArgsDict(TypedDict):
+    """
+    Set of export policy rules
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]
+    """
+    Export policy rule
+    """
 
 @pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
@@ -5744,17 +5592,14 @@ class VolumePropertiesExportPolicyArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class VolumeRelocationPropertiesArgsDict(TypedDict):
-        """
-        Volume relocation properties
-        """
-        relocation_requested: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Has relocation been requested for this volume
-        """
-elif False:
-    VolumeRelocationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeRelocationPropertiesArgsDict(TypedDict):
+    """
+    Volume relocation properties
+    """
+    relocation_requested: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Has relocation been requested for this volume
+    """
 
 @pulumi.input_type
 class VolumeRelocationPropertiesArgs:
@@ -5780,17 +5625,14 @@ class VolumeRelocationPropertiesArgs:
         pulumi.set(self, "relocation_requested", value)
 
 
-if not MYPY:
-    class VolumeSnapshotPropertiesArgsDict(TypedDict):
-        """
-        Volume Snapshot Properties
-        """
-        snapshot_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Snapshot Policy ResourceId
-        """
-elif False:
-    VolumeSnapshotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeSnapshotPropertiesArgsDict(TypedDict):
+    """
+    Volume Snapshot Properties
+    """
+    snapshot_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Snapshot Policy ResourceId
+    """
 
 @pulumi.input_type
 class VolumeSnapshotPropertiesArgs:
@@ -5816,33 +5658,30 @@ class VolumeSnapshotPropertiesArgs:
         pulumi.set(self, "snapshot_policy_id", value)
 
 
-if not MYPY:
-    class WeeklyScheduleArgsDict(TypedDict):
-        """
-        Weekly Schedule properties, make a snapshot every week at a specific day or days
-        """
-        day: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
-        """
-        hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which hour in UTC timezone a snapshot should be taken
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates which minute snapshot should be taken
-        """
-        snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Weekly snapshot count to keep
-        """
-        used_bytes: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Resource size in bytes, current storage usage for the volume in bytes
-        """
-elif False:
-    WeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class WeeklyScheduleArgsDict(TypedDict):
+    """
+    Weekly Schedule properties, make a snapshot every week at a specific day or days
+    """
+    day: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+    """
+    hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which hour in UTC timezone a snapshot should be taken
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates which minute snapshot should be taken
+    """
+    snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Weekly snapshot count to keep
+    """
+    used_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Resource size in bytes, current storage usage for the volume in bytes
+    """
 
 @pulumi.input_type
 class WeeklyScheduleArgs:

@@ -46,19 +46,14 @@ __all__ = [
     'UsersArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureMonitorWorkspaceIntegrationArgsDict(TypedDict):
-        """
-        Integrations for Azure Monitor Workspace.
-        """
-        azure_monitor_workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of the connected Azure Monitor Workspace.
-        """
-elif False:
-    AzureMonitorWorkspaceIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorWorkspaceIntegrationArgsDict(TypedDict):
+    """
+    Integrations for Azure Monitor Workspace.
+    """
+    azure_monitor_workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of the connected Azure Monitor Workspace.
+    """
 
 @pulumi.input_type
 class AzureMonitorWorkspaceIntegrationArgs:
@@ -84,17 +79,14 @@ class AzureMonitorWorkspaceIntegrationArgs:
         pulumi.set(self, "azure_monitor_workspace_resource_id", value)
 
 
-if not MYPY:
-    class DashboardDefinitionPropertiesArgsDict(TypedDict):
-        """
-        Properties specific to the dashboard definition.
-        """
-        serialized_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The dashboard definition data in JSON format.
-        """
-elif False:
-    DashboardDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DashboardDefinitionPropertiesArgsDict(TypedDict):
+    """
+    Properties specific to the dashboard definition.
+    """
+    serialized_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The dashboard definition data in JSON format.
+    """
 
 @pulumi.input_type
 class DashboardDefinitionPropertiesArgs:
@@ -120,21 +112,18 @@ class DashboardDefinitionPropertiesArgs:
         pulumi.set(self, "serialized_data", value)
 
 
-if not MYPY:
-    class EnterpriseConfigurationsArgsDict(TypedDict):
-        """
-        Enterprise settings of a Grafana instance
-        """
-        marketplace_auto_renew: NotRequired[pulumi.Input[Union[_builtins.str, 'MarketplaceAutoRenew']]]
-        """
-        The AutoRenew setting of the Enterprise subscription
-        """
-        marketplace_plan_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Plan Id of the Azure Marketplace subscription for the Enterprise plugins
-        """
-elif False:
-    EnterpriseConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class EnterpriseConfigurationsArgsDict(TypedDict):
+    """
+    Enterprise settings of a Grafana instance
+    """
+    marketplace_auto_renew: NotRequired[pulumi.Input[Union[_builtins.str, 'MarketplaceAutoRenew']]]
+    """
+    The AutoRenew setting of the Enterprise subscription
+    """
+    marketplace_plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Plan Id of the Azure Marketplace subscription for the Enterprise plugins
+    """
 
 @pulumi.input_type
 class EnterpriseConfigurationsArgs:
@@ -176,30 +165,27 @@ class EnterpriseConfigurationsArgs:
         pulumi.set(self, "marketplace_plan_id", value)
 
 
-if not MYPY:
-    class GrafanaConfigurationsArgsDict(TypedDict):
-        """
-        Server configurations of a Grafana instance
-        """
-        security: NotRequired[pulumi.Input['SecurityArgsDict']]
-        """
-        Grafana security settings
-        """
-        smtp: NotRequired[pulumi.Input['SmtpArgsDict']]
-        """
-        Email server settings.
-        https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
-        """
-        snapshots: NotRequired[pulumi.Input['SnapshotsArgsDict']]
-        """
-        Grafana Snapshots settings
-        """
-        users: NotRequired[pulumi.Input['UsersArgsDict']]
-        """
-        Grafana users settings
-        """
-elif False:
-    GrafanaConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class GrafanaConfigurationsArgsDict(TypedDict):
+    """
+    Server configurations of a Grafana instance
+    """
+    security: NotRequired[pulumi.Input['SecurityArgsDict']]
+    """
+    Grafana security settings
+    """
+    smtp: NotRequired[pulumi.Input['SmtpArgsDict']]
+    """
+    Email server settings.
+    https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
+    """
+    snapshots: NotRequired[pulumi.Input['SnapshotsArgsDict']]
+    """
+    Grafana Snapshots settings
+    """
+    users: NotRequired[pulumi.Input['UsersArgsDict']]
+    """
+    Grafana users settings
+    """
 
 @pulumi.input_type
 class GrafanaConfigurationsArgs:
@@ -275,14 +261,11 @@ class GrafanaConfigurationsArgs:
         pulumi.set(self, "users", value)
 
 
-if not MYPY:
-    class GrafanaIntegrationsArgsDict(TypedDict):
-        """
-        GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
-        """
-        azure_monitor_workspace_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgsDict']]]]
-elif False:
-    GrafanaIntegrationsArgsDict: TypeAlias = Mapping[str, Any]
+class GrafanaIntegrationsArgsDict(TypedDict):
+    """
+    GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+    """
+    azure_monitor_workspace_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgsDict']]]]
 
 @pulumi.input_type
 class GrafanaIntegrationsArgs:
@@ -304,22 +287,19 @@ class GrafanaIntegrationsArgs:
         pulumi.set(self, "azure_monitor_workspace_integrations", value)
 
 
-if not MYPY:
-    class IntegrationFabricPropertiesArgsDict(TypedDict):
-        data_source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
-        """
-        scenarios: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of integration scenarios covered by this integration fabric
-        """
-        target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
-        """
-elif False:
-    IntegrationFabricPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationFabricPropertiesArgsDict(TypedDict):
+    data_source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
+    """
+    scenarios: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of integration scenarios covered by this integration fabric
+    """
+    target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
+    """
 
 @pulumi.input_type
 class IntegrationFabricPropertiesArgs:
@@ -376,53 +356,50 @@ class IntegrationFabricPropertiesArgs:
         pulumi.set(self, "target_resource_id", value)
 
 
-if not MYPY:
-    class ManagedGrafanaPropertiesArgsDict(TypedDict):
-        """
-        Properties specific to the grafana resource.
-        """
-        api_key: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiKey']]]
-        """
-        The api key setting of the Grafana instance.
-        """
-        auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]
-        """
-        Scope for dns deterministic name hash calculation.
-        """
-        deterministic_outbound_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'DeterministicOutboundIP']]]
-        """
-        Whether a Grafana instance uses deterministic outbound IPs.
-        """
-        enterprise_configurations: NotRequired[pulumi.Input['EnterpriseConfigurationsArgsDict']]
-        """
-        Enterprise settings of a Grafana instance
-        """
-        grafana_configurations: NotRequired[pulumi.Input['GrafanaConfigurationsArgsDict']]
-        """
-        Server configurations of a Grafana instance
-        """
-        grafana_integrations: NotRequired[pulumi.Input['GrafanaIntegrationsArgsDict']]
-        """
-        GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
-        """
-        grafana_major_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The major Grafana software version to target.
-        """
-        grafana_plugins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Indicate the state for enable or disable traffic over the public interface.
-        """
-        zone_redundancy: NotRequired[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]
-        """
-        The zone redundancy setting of the Grafana instance.
-        """
-elif False:
-    ManagedGrafanaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedGrafanaPropertiesArgsDict(TypedDict):
+    """
+    Properties specific to the grafana resource.
+    """
+    api_key: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiKey']]]
+    """
+    The api key setting of the Grafana instance.
+    """
+    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]
+    """
+    Scope for dns deterministic name hash calculation.
+    """
+    deterministic_outbound_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'DeterministicOutboundIP']]]
+    """
+    Whether a Grafana instance uses deterministic outbound IPs.
+    """
+    enterprise_configurations: NotRequired[pulumi.Input['EnterpriseConfigurationsArgsDict']]
+    """
+    Enterprise settings of a Grafana instance
+    """
+    grafana_configurations: NotRequired[pulumi.Input['GrafanaConfigurationsArgsDict']]
+    """
+    Server configurations of a Grafana instance
+    """
+    grafana_integrations: NotRequired[pulumi.Input['GrafanaIntegrationsArgsDict']]
+    """
+    GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+    """
+    grafana_major_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The major Grafana software version to target.
+    """
+    grafana_plugins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Indicate the state for enable or disable traffic over the public interface.
+    """
+    zone_redundancy: NotRequired[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]
+    """
+    The zone redundancy setting of the Grafana instance.
+    """
 
 @pulumi.input_type
 class ManagedGrafanaPropertiesArgs:
@@ -592,21 +569,18 @@ class ManagedGrafanaPropertiesArgs:
         pulumi.set(self, "zone_redundancy", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -647,25 +621,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -723,11 +694,8 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ResourceSkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-elif False:
-    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ResourceSkuArgs:
@@ -745,17 +713,14 @@ class ResourceSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SecurityArgsDict(TypedDict):
-        """
-        Grafana security settings
-        """
-        csrf_always_check: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
-        """
-elif False:
-    SecurityArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityArgsDict(TypedDict):
+    """
+    Grafana security settings
+    """
+    csrf_always_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+    """
 
 @pulumi.input_type
 class SecurityArgs:
@@ -781,50 +746,47 @@ class SecurityArgs:
         pulumi.set(self, "csrf_always_check", value)
 
 
-if not MYPY:
-    class SmtpArgsDict(TypedDict):
-        """
-        Email server settings.
-        https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable this to allow Grafana to send email. Default is false
-        """
-        from_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address used when sending out emails
-        https://pkg.go.dev/net/mail#Address
-        """
-        from_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name to be used when sending out emails. Default is "Azure Managed Grafana Notification"
-        https://pkg.go.dev/net/mail#Address
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SMTP server hostname with port, e.g. test.email.net:587
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password of SMTP auth. If the password contains # or ;, then you have to wrap it with triple quotes
-        """
-        skip_verify: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Verify SSL for SMTP server. Default is false
-        https://pkg.go.dev/crypto/tls#Config
-        """
-        start_tls_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'StartTLSPolicy']]]
-        """
-        The StartTLSPolicy setting of the SMTP configuration
-        https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
-        """
-        user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User of SMTP auth
-        """
-elif False:
-    SmtpArgsDict: TypeAlias = Mapping[str, Any]
+class SmtpArgsDict(TypedDict):
+    """
+    Email server settings.
+    https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable this to allow Grafana to send email. Default is false
+    """
+    from_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address used when sending out emails
+    https://pkg.go.dev/net/mail#Address
+    """
+    from_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name to be used when sending out emails. Default is "Azure Managed Grafana Notification"
+    https://pkg.go.dev/net/mail#Address
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SMTP server hostname with port, e.g. test.email.net:587
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password of SMTP auth. If the password contains # or ;, then you have to wrap it with triple quotes
+    """
+    skip_verify: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Verify SSL for SMTP server. Default is false
+    https://pkg.go.dev/crypto/tls#Config
+    """
+    start_tls_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'StartTLSPolicy']]]
+    """
+    The StartTLSPolicy setting of the SMTP configuration
+    https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
+    """
+    user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User of SMTP auth
+    """
 
 @pulumi.input_type
 class SmtpArgs:
@@ -973,17 +935,14 @@ class SmtpArgs:
         pulumi.set(self, "user", value)
 
 
-if not MYPY:
-    class SnapshotsArgsDict(TypedDict):
-        """
-        Grafana Snapshots settings
-        """
-        external_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to false to disable external snapshot publish endpoint
-        """
-elif False:
-    SnapshotsArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotsArgsDict(TypedDict):
+    """
+    Grafana Snapshots settings
+    """
+    external_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to false to disable external snapshot publish endpoint
+    """
 
 @pulumi.input_type
 class SnapshotsArgs:
@@ -1009,17 +968,14 @@ class SnapshotsArgs:
         pulumi.set(self, "external_enabled", value)
 
 
-if not MYPY:
-    class UsersArgsDict(TypedDict):
-        """
-        Grafana users settings
-        """
-        viewers_can_edit: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true so viewers can access and use explore and perform temporary edits on panels in dashboards they have access to. They cannot save their changes.
-        """
-elif False:
-    UsersArgsDict: TypeAlias = Mapping[str, Any]
+class UsersArgsDict(TypedDict):
+    """
+    Grafana users settings
+    """
+    viewers_can_edit: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true so viewers can access and use explore and perform temporary edits on panels in dashboards they have access to. They cannot save their changes.
+    """
 
 @pulumi.input_type
 class UsersArgs:

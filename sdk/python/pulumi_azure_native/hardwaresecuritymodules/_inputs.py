@@ -32,19 +32,14 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApiEntityReferenceArgsDict(TypedDict):
-        """
-        The API entity reference.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-elif False:
-    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEntityReferenceArgsDict(TypedDict):
+    """
+    The API entity reference.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+    """
 
 @pulumi.input_type
 class ApiEntityReferenceArgs:
@@ -70,25 +65,22 @@ class ApiEntityReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class CloudHsmClusterSkuArgsDict(TypedDict):
-        """
-        Cloud Hsm Cluster SKU information
-        """
-        family: pulumi.Input[Union[_builtins.str, 'CloudHsmClusterSkuFamily']]
-        """
-        Sku family of the Cloud HSM Cluster
-        """
-        name: pulumi.Input['CloudHsmClusterSkuName']
-        """
-        Sku name of the Cloud HSM Cluster
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Sku capacity
-        """
-elif False:
-    CloudHsmClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
+class CloudHsmClusterSkuArgsDict(TypedDict):
+    """
+    Cloud Hsm Cluster SKU information
+    """
+    family: pulumi.Input[Union[_builtins.str, 'CloudHsmClusterSkuFamily']]
+    """
+    Sku family of the Cloud HSM Cluster
+    """
+    name: pulumi.Input['CloudHsmClusterSkuName']
+    """
+    Sku name of the Cloud HSM Cluster
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Sku capacity
+    """
 
 @pulumi.input_type
 class CloudHsmClusterSkuArgs:
@@ -144,21 +136,18 @@ class CloudHsmClusterSkuArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -199,17 +188,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class NetworkInterfaceArgsDict(TypedDict):
-        """
-        The network interface definition.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private Ip address of the interface
-        """
-elif False:
-    NetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceArgsDict(TypedDict):
+    """
+    The network interface definition.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private Ip address of the interface
+    """
 
 @pulumi.input_type
 class NetworkInterfaceArgs:
@@ -235,21 +221,18 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-if not MYPY:
-    class NetworkProfileArgsDict(TypedDict):
-        """
-        The network profile definition.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
-        """
-        Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
-        """
-        subnet: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
-        """
-        Specifies the identifier of the subnet.
-        """
-elif False:
-    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkProfileArgsDict(TypedDict):
+    """
+    The network profile definition.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+    """
+    Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+    """
+    subnet: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+    """
+    Specifies the identifier of the subnet.
+    """
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -291,25 +274,22 @@ class NetworkProfileArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -367,17 +347,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        SKU of the dedicated HSM
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
-        """
-        SKU of the dedicated HSM
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    SKU of the dedicated HSM
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
+    """
+    SKU of the dedicated HSM
+    """
 
 @pulumi.input_type
 class SkuArgs:

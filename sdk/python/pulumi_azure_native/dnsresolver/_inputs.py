@@ -26,23 +26,18 @@ __all__ = [
     'TargetDnsServerArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DnsSecurityRuleActionArgsDict(TypedDict):
-        """
-        The action to take on DNS requests that match the DNS security rule.
-        """
-        action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionType']]]
-        """
-        The type of action to take.
-        """
-        block_response_code: NotRequired[pulumi.Input[Union[_builtins.str, 'BlockResponseCode']]]
-        """
-        The response code for block actions.
-        """
-elif False:
-    DnsSecurityRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class DnsSecurityRuleActionArgsDict(TypedDict):
+    """
+    The action to take on DNS requests that match the DNS security rule.
+    """
+    action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionType']]]
+    """
+    The type of action to take.
+    """
+    block_response_code: NotRequired[pulumi.Input[Union[_builtins.str, 'BlockResponseCode']]]
+    """
+    The response code for block actions.
+    """
 
 @pulumi.input_type
 class DnsSecurityRuleActionArgs:
@@ -84,25 +79,22 @@ class DnsSecurityRuleActionArgs:
         pulumi.set(self, "block_response_code", value)
 
 
-if not MYPY:
-    class IpConfigurationArgsDict(TypedDict):
-        """
-        IP configuration.
-        """
-        subnet: pulumi.Input['SubResourceArgsDict']
-        """
-        The reference to the subnet bound to the IP configuration.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private IP address of the IP configuration.
-        """
-        private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethod']]]
-        """
-        Private IP address allocation method.
-        """
-elif False:
-    IpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IpConfigurationArgsDict(TypedDict):
+    """
+    IP configuration.
+    """
+    subnet: pulumi.Input['SubResourceArgsDict']
+    """
+    The reference to the subnet bound to the IP configuration.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private IP address of the IP configuration.
+    """
+    private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethod']]]
+    """
+    Private IP address allocation method.
+    """
 
 @pulumi.input_type
 class IpConfigurationArgs:
@@ -161,20 +153,17 @@ class IpConfigurationArgs:
         pulumi.set(self, "private_ip_allocation_method", value)
 
 
-if not MYPY:
-    class SubResourceArgsDict(TypedDict):
-        """
-        Reference to another ARM resource.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
-        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
-        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
-        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
-        """
-elif False:
-    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+class SubResourceArgsDict(TypedDict):
+    """
+    Reference to another ARM resource.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+    An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+    A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+    Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+    """
 
 @pulumi.input_type
 class SubResourceArgs:
@@ -205,21 +194,18 @@ class SubResourceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TargetDnsServerArgsDict(TypedDict):
-        """
-        Describes a server to forward the DNS queries to.
-        """
-        ip_address: pulumi.Input[_builtins.str]
-        """
-        DNS server IP address.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        DNS server port.
-        """
-elif False:
-    TargetDnsServerArgsDict: TypeAlias = Mapping[str, Any]
+class TargetDnsServerArgsDict(TypedDict):
+    """
+    Describes a server to forward the DNS queries to.
+    """
+    ip_address: pulumi.Input[_builtins.str]
+    """
+    DNS server IP address.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    DNS server port.
+    """
 
 @pulumi.input_type
 class TargetDnsServerArgs:

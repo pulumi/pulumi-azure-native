@@ -114,29 +114,24 @@ __all__ = [
     'TransformationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AggregateFunctionPropertiesArgsDict(TypedDict):
-        """
-        The properties that are associated with an aggregate function.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of function.
-        Expected value is 'Aggregate'.
-        """
-        binding: NotRequired[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgsDict', 'JavaScriptFunctionBindingArgsDict']]]
-        """
-        The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        """
-        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgsDict']]]]
-        output: NotRequired[pulumi.Input['FunctionOutputArgsDict']]
-        """
-        Describes the output of a function.
-        """
-elif False:
-    AggregateFunctionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AggregateFunctionPropertiesArgsDict(TypedDict):
+    """
+    The properties that are associated with an aggregate function.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of function.
+    Expected value is 'Aggregate'.
+    """
+    binding: NotRequired[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgsDict', 'JavaScriptFunctionBindingArgsDict']]]
+    """
+    The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+    """
+    inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgsDict']]]]
+    output: NotRequired[pulumi.Input['FunctionOutputArgsDict']]
+    """
+    Describes the output of a function.
+    """
 
 @pulumi.input_type
 class AggregateFunctionPropertiesArgs:
@@ -207,18 +202,15 @@ class AggregateFunctionPropertiesArgs:
         pulumi.set(self, "output", value)
 
 
-if not MYPY:
-    class AvroSerializationArgsDict(TypedDict):
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Avro'.
-        """
-elif False:
-    AvroSerializationArgsDict: TypeAlias = Mapping[str, Any]
+class AvroSerializationArgsDict(TypedDict):
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Avro'.
+    """
 
 @pulumi.input_type
 class AvroSerializationArgs:
@@ -245,54 +237,51 @@ class AvroSerializationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AzureDataLakeStoreOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Azure Data Lake Store output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.DataLake/Accounts'.
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        date_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
-        """
-        file_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.
-        """
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tenant id of the user used to obtain the refresh token. Required on PUT (CreateOrReplace) requests.
-        """
-        time_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time format. Wherever {time} appears in filePathPrefix, the value of this property is used as the time format instead.
-        """
-        token_user_display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
-        """
-        token_user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
-        """
-elif False:
-    AzureDataLakeStoreOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AzureDataLakeStoreOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Azure Data Lake Store output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.DataLake/Accounts'.
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    date_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
+    """
+    file_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.
+    """
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenant id of the user used to obtain the refresh token. Required on PUT (CreateOrReplace) requests.
+    """
+    time_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time format. Wherever {time} appears in filePathPrefix, the value of this property is used as the time format instead.
+    """
+    token_user_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+    """
+    token_user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+    """
 
 @pulumi.input_type
 class AzureDataLakeStoreOutputDataSourceArgs:
@@ -463,38 +452,35 @@ class AzureDataLakeStoreOutputDataSourceArgs:
         pulumi.set(self, "token_user_principal_name", value)
 
 
-if not MYPY:
-    class AzureFunctionOutputDataSourceArgsDict(TypedDict):
-        """
-        Defines the metadata of AzureFunctionOutputDataSource
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.AzureFunction'.
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
-        """
-        function_app_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of your Azure Functions app.
-        """
-        function_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the function in your Azure Functions app.
-        """
-        max_batch_count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
-        """
-        max_batch_size: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
-        """
-elif False:
-    AzureFunctionOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AzureFunctionOutputDataSourceArgsDict(TypedDict):
+    """
+    Defines the metadata of AzureFunctionOutputDataSource
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.AzureFunction'.
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+    """
+    function_app_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of your Azure Functions app.
+    """
+    function_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the function in your Azure Functions app.
+    """
+    max_batch_count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+    """
+    max_batch_size: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+    """
 
 @pulumi.input_type
 class AzureFunctionOutputDataSourceArgs:
@@ -601,38 +587,35 @@ class AzureFunctionOutputDataSourceArgs:
         pulumi.set(self, "max_batch_size", value)
 
 
-if not MYPY:
-    class AzureMachineLearningWebServiceFunctionBindingArgsDict(TypedDict):
-        """
-        The binding to an Azure Machine Learning web service.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the function binding type.
-        Expected value is 'Microsoft.MachineLearning/WebService'.
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The API key used to authenticate with Request-Response endpoint.
-        """
-        batch_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Request-Response execute endpoint of the Azure Machine Learning web service. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
-        """
-        inputs: NotRequired[pulumi.Input['AzureMachineLearningWebServiceInputsArgsDict']]
-        """
-        The inputs for the Azure Machine Learning web service endpoint.
-        """
-        outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgsDict']]]]
-        """
-        A list of outputs from the Azure Machine Learning web service endpoint execution.
-        """
-elif False:
-    AzureMachineLearningWebServiceFunctionBindingArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMachineLearningWebServiceFunctionBindingArgsDict(TypedDict):
+    """
+    The binding to an Azure Machine Learning web service.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the function binding type.
+    Expected value is 'Microsoft.MachineLearning/WebService'.
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The API key used to authenticate with Request-Response endpoint.
+    """
+    batch_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Request-Response execute endpoint of the Azure Machine Learning web service. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
+    """
+    inputs: NotRequired[pulumi.Input['AzureMachineLearningWebServiceInputsArgsDict']]
+    """
+    The inputs for the Azure Machine Learning web service endpoint.
+    """
+    outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgsDict']]]]
+    """
+    A list of outputs from the Azure Machine Learning web service endpoint execution.
+    """
 
 @pulumi.input_type
 class AzureMachineLearningWebServiceFunctionBindingArgs:
@@ -739,25 +722,22 @@ class AzureMachineLearningWebServiceFunctionBindingArgs:
         pulumi.set(self, "outputs", value)
 
 
-if not MYPY:
-    class AzureMachineLearningWebServiceInputColumnArgsDict(TypedDict):
-        """
-        Describes an input column for the Azure Machine Learning web service endpoint.
-        """
-        data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
-        """
-        map_to: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The zero based index of the function parameter this input maps to.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the input column.
-        """
-elif False:
-    AzureMachineLearningWebServiceInputColumnArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMachineLearningWebServiceInputColumnArgsDict(TypedDict):
+    """
+    Describes an input column for the Azure Machine Learning web service endpoint.
+    """
+    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+    """
+    map_to: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The zero based index of the function parameter this input maps to.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the input column.
+    """
 
 @pulumi.input_type
 class AzureMachineLearningWebServiceInputColumnArgs:
@@ -815,21 +795,18 @@ class AzureMachineLearningWebServiceInputColumnArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureMachineLearningWebServiceInputsArgsDict(TypedDict):
-        """
-        The inputs for the Azure Machine Learning web service endpoint.
-        """
-        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgsDict']]]]
-        """
-        A list of input columns for the Azure Machine Learning web service endpoint.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the input. This is the name provided while authoring the endpoint.
-        """
-elif False:
-    AzureMachineLearningWebServiceInputsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMachineLearningWebServiceInputsArgsDict(TypedDict):
+    """
+    The inputs for the Azure Machine Learning web service endpoint.
+    """
+    column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgsDict']]]]
+    """
+    A list of input columns for the Azure Machine Learning web service endpoint.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the input. This is the name provided while authoring the endpoint.
+    """
 
 @pulumi.input_type
 class AzureMachineLearningWebServiceInputsArgs:
@@ -871,21 +848,18 @@ class AzureMachineLearningWebServiceInputsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureMachineLearningWebServiceOutputColumnArgsDict(TypedDict):
-        """
-        Describes an output column for the Azure Machine Learning web service endpoint.
-        """
-        data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the output column.
-        """
-elif False:
-    AzureMachineLearningWebServiceOutputColumnArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMachineLearningWebServiceOutputColumnArgsDict(TypedDict):
+    """
+    Describes an output column for the Azure Machine Learning web service endpoint.
+    """
+    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the output column.
+    """
 
 @pulumi.input_type
 class AzureMachineLearningWebServiceOutputColumnArgs:
@@ -927,50 +901,47 @@ class AzureMachineLearningWebServiceOutputColumnArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureSqlDatabaseOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Azure SQL database output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Sql/Server/Database'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        database: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        max_batch_count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
-        """
-        max_writer_count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        table: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    AzureSqlDatabaseOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AzureSqlDatabaseOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Azure SQL database output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Sql/Server/Database'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    database: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    max_batch_count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
+    """
+    max_writer_count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    table: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class AzureSqlDatabaseOutputDataSourceArgs:
@@ -1125,54 +1096,51 @@ class AzureSqlDatabaseOutputDataSourceArgs:
         pulumi.set(self, "user", value)
 
 
-if not MYPY:
-    class AzureSqlReferenceInputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Azure SQL database reference input data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Sql/Server/Database'.
-        """
-        database: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. This is the name of the database that output will be written to.
-        """
-        delta_snapshot_query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
-        """
-        full_snapshot_query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. This query is used to fetch data from the sql database.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. This is the password that will be used to connect to the SQL Database instance.
-        """
-        refresh_rate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.
-        """
-        refresh_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshType']]]
-        """
-        Indicates the type of data refresh option.
-        """
-        server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
-        """
-        table: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. The name of the table in the Azure SQL database..
-        """
-        user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
-        """
-elif False:
-    AzureSqlReferenceInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AzureSqlReferenceInputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Azure SQL database reference input data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Sql/Server/Database'.
+    """
+    database: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. This is the name of the database that output will be written to.
+    """
+    delta_snapshot_query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
+    """
+    full_snapshot_query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. This query is used to fetch data from the sql database.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. This is the password that will be used to connect to the SQL Database instance.
+    """
+    refresh_rate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.
+    """
+    refresh_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshType']]]
+    """
+    Indicates the type of data refresh option.
+    """
+    server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
+    """
+    table: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. The name of the table in the Azure SQL database..
+    """
+    user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
+    """
 
 @pulumi.input_type
 class AzureSqlReferenceInputDataSourceArgs:
@@ -1343,38 +1311,35 @@ class AzureSqlReferenceInputDataSourceArgs:
         pulumi.set(self, "user", value)
 
 
-if not MYPY:
-    class AzureSynapseOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Azure Synapse output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
-        """
-        database: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        table: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-        user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    AzureSynapseOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AzureSynapseOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Azure Synapse output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
+    """
+    database: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    table: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
+    user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class AzureSynapseOutputDataSourceArgs:
@@ -1481,46 +1446,43 @@ class AzureSynapseOutputDataSourceArgs:
         pulumi.set(self, "user", value)
 
 
-if not MYPY:
-    class AzureTableOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Azure Table output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Storage/Table'.
-        """
-        account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        """
-        batch_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of rows to write to the Azure Table at a time.
-        """
-        columns_to_remove: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        If specified, each item in the array is the name of a column to remove (if present) from output event entities.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element indicates the name of a column from the SELECT statement in the query that will be used as the partition key for the Azure Table. Required on PUT (CreateOrReplace) requests.
-        """
-        row_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
-        """
-        table: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    AzureTableOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AzureTableOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Azure Table output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Storage/Table'.
+    """
+    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+    """
+    batch_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of rows to write to the Azure Table at a time.
+    """
+    columns_to_remove: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    If specified, each item in the array is the name of a column to remove (if present) from output event entities.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element indicates the name of a column from the SELECT statement in the query that will be used as the partition key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+    """
+    row_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+    """
+    table: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class AzureTableOutputDataSourceArgs:
@@ -1659,46 +1621,43 @@ class AzureTableOutputDataSourceArgs:
         pulumi.set(self, "table", value)
 
 
-if not MYPY:
-    class BlobOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes a blob output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Storage/Blob'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        blob_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Blob path prefix.
-        """
-        container: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
-        """
-        date_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
-        """
-        path_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        """
-        storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
-        """
-        A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
-        """
-        time_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
-        """
-elif False:
-    BlobOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BlobOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes a blob output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Storage/Blob'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    blob_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Blob path prefix.
+    """
+    container: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+    """
+    date_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+    """
+    path_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+    """
+    storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
+    """
+    A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+    """
+    time_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+    """
 
 @pulumi.input_type
 class BlobOutputDataSourceArgs:
@@ -1837,42 +1796,39 @@ class BlobOutputDataSourceArgs:
         pulumi.set(self, "time_format", value)
 
 
-if not MYPY:
-    class BlobReferenceInputDataSourceArgsDict(TypedDict):
-        """
-        Describes a blob input data source that contains reference data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Storage/Blob'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        container: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
-        """
-        date_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
-        """
-        path_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        """
-        storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
-        """
-        A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
-        """
-        time_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
-        """
-elif False:
-    BlobReferenceInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BlobReferenceInputDataSourceArgsDict(TypedDict):
+    """
+    Describes a blob input data source that contains reference data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Storage/Blob'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    container: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+    """
+    date_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+    """
+    path_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+    """
+    storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
+    """
+    A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+    """
+    time_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+    """
 
 @pulumi.input_type
 class BlobReferenceInputDataSourceArgs:
@@ -1995,46 +1951,43 @@ class BlobReferenceInputDataSourceArgs:
         pulumi.set(self, "time_format", value)
 
 
-if not MYPY:
-    class BlobStreamInputDataSourceArgsDict(TypedDict):
-        """
-        Describes a blob input data source that contains stream data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Storage/Blob'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        container: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
-        """
-        date_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
-        """
-        path_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        """
-        source_partition_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The partition count of the blob input data source. Range 1 - 1024.
-        """
-        storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
-        """
-        A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
-        """
-        time_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
-        """
-elif False:
-    BlobStreamInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BlobStreamInputDataSourceArgsDict(TypedDict):
+    """
+    Describes a blob input data source that contains stream data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Storage/Blob'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    container: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+    """
+    date_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+    """
+    path_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+    """
+    source_partition_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The partition count of the blob input data source. Range 1 - 1024.
+    """
+    storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
+    """
+    A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+    """
+    time_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+    """
 
 @pulumi.input_type
 class BlobStreamInputDataSourceArgs:
@@ -2173,17 +2126,14 @@ class BlobStreamInputDataSourceArgs:
         pulumi.set(self, "time_format", value)
 
 
-if not MYPY:
-    class ClusterInfoArgsDict(TypedDict):
-        """
-        The properties associated with a Stream Analytics cluster.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of cluster.
-        """
-elif False:
-    ClusterInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterInfoArgsDict(TypedDict):
+    """
+    The properties associated with a Stream Analytics cluster.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of cluster.
+    """
 
 @pulumi.input_type
 class ClusterInfoArgs:
@@ -2209,21 +2159,18 @@ class ClusterInfoArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ClusterSkuArgsDict(TypedDict):
-        """
-        The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterSkuName']]]
-        """
-        Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
-        """
-elif False:
-    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterSkuArgsDict(TypedDict):
+    """
+    The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterSkuName']]]
+    """
+    Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+    """
 
 @pulumi.input_type
 class ClusterSkuArgs:
@@ -2265,17 +2212,14 @@ class ClusterSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CompressionArgsDict(TypedDict):
-        """
-        Describes how input data is compressed
-        """
-        type: pulumi.Input[Union[_builtins.str, 'CompressionType']]
-        """
-        Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    CompressionArgsDict: TypeAlias = Mapping[str, Any]
+class CompressionArgsDict(TypedDict):
+    """
+    Describes how input data is compressed
+    """
+    type: pulumi.Input[Union[_builtins.str, 'CompressionType']]
+    """
+    Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class CompressionArgs:
@@ -2300,26 +2244,23 @@ class CompressionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CsvSerializationArgsDict(TypedDict):
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Csv'.
-        """
-        encoding: NotRequired[pulumi.Input[Union[_builtins.str, 'Encoding']]]
-        """
-        Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
-        """
-        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    CsvSerializationArgsDict: TypeAlias = Mapping[str, Any]
+class CsvSerializationArgsDict(TypedDict):
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Csv'.
+    """
+    encoding: NotRequired[pulumi.Input[Union[_builtins.str, 'Encoding']]]
+    """
+    Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+    """
+    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class CsvSerializationArgs:
@@ -2378,42 +2319,39 @@ class CsvSerializationArgs:
         pulumi.set(self, "field_delimiter", value)
 
 
-if not MYPY:
-    class DocumentDbOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes a DocumentDB output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Storage/DocumentDB'.
-        """
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
-        """
-        account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
-        """
-        collection_name_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
-        """
-        database: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
-        """
-        document_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field in output events used to specify the primary key which insert or update operations are based on.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
-        """
-elif False:
-    DocumentDbOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class DocumentDbOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes a DocumentDB output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Storage/DocumentDB'.
+    """
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
+    """
+    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
+    """
+    collection_name_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
+    """
+    database: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
+    """
+    document_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field in output events used to specify the primary key which insert or update operations are based on.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
+    """
 
 @pulumi.input_type
 class DocumentDbOutputDataSourceArgs:
@@ -2536,46 +2474,43 @@ class DocumentDbOutputDataSourceArgs:
         pulumi.set(self, "partition_key", value)
 
 
-if not MYPY:
-    class EventHubOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Event Hub output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.ServiceBus/EventHub'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key/column that is used to determine to which partition to send event data.
-        """
-        property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The properties associated with this Event Hub output.
-        """
-        service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    EventHubOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Event Hub output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.ServiceBus/EventHub'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key/column that is used to determine to which partition to send event data.
+    """
+    property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The properties associated with this Event Hub output.
+    """
+    service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class EventHubOutputDataSourceArgs:
@@ -2714,42 +2649,39 @@ class EventHubOutputDataSourceArgs:
         pulumi.set(self, "shared_access_policy_name", value)
 
 
-if not MYPY:
-    class EventHubStreamInputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Event Hub input data source that contains stream data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.ServiceBus/EventHub'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        consumer_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
-        """
-        event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
-        """
-        service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    EventHubStreamInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubStreamInputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Event Hub input data source that contains stream data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.ServiceBus/EventHub'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    consumer_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+    """
+    event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+    """
+    service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class EventHubStreamInputDataSourceArgs:
@@ -2872,46 +2804,43 @@ class EventHubStreamInputDataSourceArgs:
         pulumi.set(self, "shared_access_policy_name", value)
 
 
-if not MYPY:
-    class EventHubV2OutputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Event Hub output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.EventHub/EventHub'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key/column that is used to determine to which partition to send event data.
-        """
-        property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The properties associated with this Event Hub output.
-        """
-        service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    EventHubV2OutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubV2OutputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Event Hub output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.EventHub/EventHub'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key/column that is used to determine to which partition to send event data.
+    """
+    property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The properties associated with this Event Hub output.
+    """
+    service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class EventHubV2OutputDataSourceArgs:
@@ -3050,42 +2979,39 @@ class EventHubV2OutputDataSourceArgs:
         pulumi.set(self, "shared_access_policy_name", value)
 
 
-if not MYPY:
-    class EventHubV2StreamInputDataSourceArgsDict(TypedDict):
-        """
-        Describes an Event Hub input data source that contains stream data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.EventHub/EventHub'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        consumer_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
-        """
-        event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
-        """
-        service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    EventHubV2StreamInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubV2StreamInputDataSourceArgsDict(TypedDict):
+    """
+    Describes an Event Hub input data source that contains stream data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.EventHub/EventHub'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    consumer_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+    """
+    event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+    """
+    service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class EventHubV2StreamInputDataSourceArgs:
@@ -3208,22 +3134,19 @@ class EventHubV2StreamInputDataSourceArgs:
         pulumi.set(self, "shared_access_policy_name", value)
 
 
-if not MYPY:
-    class FileReferenceInputDataSourceArgsDict(TypedDict):
-        """
-        Describes a file input data source that contains reference data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'File'.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path of the file.
-        """
-elif False:
-    FileReferenceInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class FileReferenceInputDataSourceArgsDict(TypedDict):
+    """
+    Describes a file input data source that contains reference data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'File'.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path of the file.
+    """
 
 @pulumi.input_type
 class FileReferenceInputDataSourceArgs:
@@ -3266,21 +3189,18 @@ class FileReferenceInputDataSourceArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class FunctionInputArgsDict(TypedDict):
-        """
-        Describes one input parameter of a function.
-        """
-        data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
-        """
-        is_configuration_parameter: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
-        """
-elif False:
-    FunctionInputArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionInputArgsDict(TypedDict):
+    """
+    Describes one input parameter of a function.
+    """
+    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+    """
+    is_configuration_parameter: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
+    """
 
 @pulumi.input_type
 class FunctionInputArgs:
@@ -3322,17 +3242,14 @@ class FunctionInputArgs:
         pulumi.set(self, "is_configuration_parameter", value)
 
 
-if not MYPY:
-    class FunctionOutputArgsDict(TypedDict):
-        """
-        Describes the output of a function.
-        """
-        data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
-        """
-elif False:
-    FunctionOutputArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionOutputArgsDict(TypedDict):
+    """
+    Describes the output of a function.
+    """
+    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+    """
 
 @pulumi.input_type
 class FunctionOutputArgs:
@@ -3358,21 +3275,18 @@ class FunctionOutputArgs:
         pulumi.set(self, "data_type", value)
 
 
-if not MYPY:
-    class FunctionArgsDict(TypedDict):
-        """
-        A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name
-        """
-        properties: NotRequired[pulumi.Input[Union['AggregateFunctionPropertiesArgsDict', 'ScalarFunctionPropertiesArgsDict']]]
-        """
-        The properties that are associated with a function.
-        """
-elif False:
-    FunctionArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionArgsDict(TypedDict):
+    """
+    A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name
+    """
+    properties: NotRequired[pulumi.Input[Union['AggregateFunctionPropertiesArgsDict', 'ScalarFunctionPropertiesArgsDict']]]
+    """
+    The properties that are associated with a function.
+    """
 
 @pulumi.input_type
 class FunctionArgs:
@@ -3414,22 +3328,19 @@ class FunctionArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class GatewayMessageBusOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes a Gateway Message Bus output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'GatewayMessageBus'.
-        """
-        topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Service Bus topic.
-        """
-elif False:
-    GatewayMessageBusOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayMessageBusOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes a Gateway Message Bus output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'GatewayMessageBus'.
+    """
+    topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Service Bus topic.
+    """
 
 @pulumi.input_type
 class GatewayMessageBusOutputDataSourceArgs:
@@ -3472,22 +3383,19 @@ class GatewayMessageBusOutputDataSourceArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class GatewayMessageBusStreamInputDataSourceArgsDict(TypedDict):
-        """
-        Describes a blob input data source that contains stream data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'GatewayMessageBus'.
-        """
-        topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Service Bus topic.
-        """
-elif False:
-    GatewayMessageBusStreamInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayMessageBusStreamInputDataSourceArgsDict(TypedDict):
+    """
+    Describes a blob input data source that contains stream data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'GatewayMessageBus'.
+    """
+    topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Service Bus topic.
+    """
 
 @pulumi.input_type
 class GatewayMessageBusStreamInputDataSourceArgs:
@@ -3530,17 +3438,14 @@ class GatewayMessageBusStreamInputDataSourceArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Describes how identity is verified
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity type
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Describes how identity is verified
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity type
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -3566,21 +3471,18 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class InputArgsDict(TypedDict):
-        """
-        An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name
-        """
-        properties: NotRequired[pulumi.Input[Union['ReferenceInputPropertiesArgsDict', 'StreamInputPropertiesArgsDict']]]
-        """
-        The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    InputArgsDict: TypeAlias = Mapping[str, Any]
+class InputArgsDict(TypedDict):
+    """
+    An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name
+    """
+    properties: NotRequired[pulumi.Input[Union['ReferenceInputPropertiesArgsDict', 'StreamInputPropertiesArgsDict']]]
+    """
+    The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class InputArgs:
@@ -3622,38 +3524,35 @@ class InputArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class IoTHubStreamInputDataSourceArgsDict(TypedDict):
-        """
-        Describes an IoT Hub input data source that contains stream data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Devices/IotHubs'.
-        """
-        consumer_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
-        """
-        iot_hub_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name or the URI of the IoT Hub. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy name for the IoT Hub. This policy must contain at least the Service connect permission. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    IoTHubStreamInputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class IoTHubStreamInputDataSourceArgsDict(TypedDict):
+    """
+    Describes an IoT Hub input data source that contains stream data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.Devices/IotHubs'.
+    """
+    consumer_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
+    """
+    iot_hub_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name or the URI of the IoT Hub. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy name for the IoT Hub. This policy must contain at least the Service connect permission. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class IoTHubStreamInputDataSourceArgs:
@@ -3760,22 +3659,19 @@ class IoTHubStreamInputDataSourceArgs:
         pulumi.set(self, "shared_access_policy_name", value)
 
 
-if not MYPY:
-    class JavaScriptFunctionBindingArgsDict(TypedDict):
-        """
-        The binding to a JavaScript function.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the function binding type.
-        Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
-        """
-        script: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
-        """
-elif False:
-    JavaScriptFunctionBindingArgsDict: TypeAlias = Mapping[str, Any]
+class JavaScriptFunctionBindingArgsDict(TypedDict):
+    """
+    The binding to a JavaScript function.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the function binding type.
+    Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
+    """
+    script: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
+    """
 
 @pulumi.input_type
 class JavaScriptFunctionBindingArgs:
@@ -3818,25 +3714,22 @@ class JavaScriptFunctionBindingArgs:
         pulumi.set(self, "script", value)
 
 
-if not MYPY:
-    class JobStorageAccountArgsDict(TypedDict):
-        """
-        The properties that are associated with an Azure Storage account with MSI
-        """
-        account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-elif False:
-    JobStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class JobStorageAccountArgsDict(TypedDict):
+    """
+    The properties that are associated with an Azure Storage account with MSI
+    """
+    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
 
 @pulumi.input_type
 class JobStorageAccountArgs:
@@ -3894,26 +3787,23 @@ class JobStorageAccountArgs:
         pulumi.set(self, "authentication_mode", value)
 
 
-if not MYPY:
-    class JsonSerializationArgsDict(TypedDict):
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Json'.
-        """
-        encoding: NotRequired[pulumi.Input[Union[_builtins.str, 'Encoding']]]
-        """
-        Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
-        """
-        format: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonOutputSerializationFormat']]]
-        """
-        This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
-        """
-elif False:
-    JsonSerializationArgsDict: TypeAlias = Mapping[str, Any]
+class JsonSerializationArgsDict(TypedDict):
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Json'.
+    """
+    encoding: NotRequired[pulumi.Input[Union[_builtins.str, 'Encoding']]]
+    """
+    Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+    """
+    format: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonOutputSerializationFormat']]]
+    """
+    This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
+    """
 
 @pulumi.input_type
 class JsonSerializationArgs:
@@ -3972,33 +3862,30 @@ class JsonSerializationArgs:
         pulumi.set(self, "format", value)
 
 
-if not MYPY:
-    class OutputArgsDict(TypedDict):
-        """
-        An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        """
-        datasource: NotRequired[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgsDict', 'AzureFunctionOutputDataSourceArgsDict', 'AzureSqlDatabaseOutputDataSourceArgsDict', 'AzureSynapseOutputDataSourceArgsDict', 'AzureTableOutputDataSourceArgsDict', 'BlobOutputDataSourceArgsDict', 'DocumentDbOutputDataSourceArgsDict', 'EventHubOutputDataSourceArgsDict', 'EventHubV2OutputDataSourceArgsDict', 'GatewayMessageBusOutputDataSourceArgsDict', 'PowerBIOutputDataSourceArgsDict', 'ServiceBusQueueOutputDataSourceArgsDict', 'ServiceBusTopicOutputDataSourceArgsDict']]]
-        """
-        Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name
-        """
-        serialization: NotRequired[pulumi.Input[Union['AvroSerializationArgsDict', 'CsvSerializationArgsDict', 'JsonSerializationArgsDict', 'ParquetSerializationArgsDict']]]
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-        """
-        size_window: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size window to constrain a Stream Analytics output to.
-        """
-        time_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time frame for filtering Stream Analytics job outputs.
-        """
-elif False:
-    OutputArgsDict: TypeAlias = Mapping[str, Any]
+class OutputArgsDict(TypedDict):
+    """
+    An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+    """
+    datasource: NotRequired[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgsDict', 'AzureFunctionOutputDataSourceArgsDict', 'AzureSqlDatabaseOutputDataSourceArgsDict', 'AzureSynapseOutputDataSourceArgsDict', 'AzureTableOutputDataSourceArgsDict', 'BlobOutputDataSourceArgsDict', 'DocumentDbOutputDataSourceArgsDict', 'EventHubOutputDataSourceArgsDict', 'EventHubV2OutputDataSourceArgsDict', 'GatewayMessageBusOutputDataSourceArgsDict', 'PowerBIOutputDataSourceArgsDict', 'ServiceBusQueueOutputDataSourceArgsDict', 'ServiceBusTopicOutputDataSourceArgsDict']]]
+    """
+    Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name
+    """
+    serialization: NotRequired[pulumi.Input[Union['AvroSerializationArgsDict', 'CsvSerializationArgsDict', 'JsonSerializationArgsDict', 'ParquetSerializationArgsDict']]]
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+    """
+    size_window: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size window to constrain a Stream Analytics output to.
+    """
+    time_window: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time frame for filtering Stream Analytics job outputs.
+    """
 
 @pulumi.input_type
 class OutputArgs:
@@ -4088,18 +3975,15 @@ class OutputArgs:
         pulumi.set(self, "time_window", value)
 
 
-if not MYPY:
-    class ParquetSerializationArgsDict(TypedDict):
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Parquet'.
-        """
-elif False:
-    ParquetSerializationArgsDict: TypeAlias = Mapping[str, Any]
+class ParquetSerializationArgsDict(TypedDict):
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Parquet'.
+    """
 
 @pulumi.input_type
 class ParquetSerializationArgs:
@@ -4126,50 +4010,47 @@ class ParquetSerializationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PowerBIOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes a Power BI output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'PowerBI'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        dataset: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Power BI group.
-        """
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
-        """
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
-        """
-        table: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Power BI table under the specified dataset. Required on PUT (CreateOrReplace) requests.
-        """
-        token_user_display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
-        """
-        token_user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
-        """
-elif False:
-    PowerBIOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class PowerBIOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes a Power BI output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'PowerBI'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    dataset: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Power BI group.
+    """
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
+    """
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+    """
+    table: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Power BI table under the specified dataset. Required on PUT (CreateOrReplace) requests.
+    """
+    token_user_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+    """
+    token_user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+    """
 
 @pulumi.input_type
 class PowerBIOutputDataSourceArgs:
@@ -4324,21 +4205,18 @@ class PowerBIOutputDataSourceArgs:
         pulumi.set(self, "token_user_principal_name", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionArgsDict(TypedDict):
-        """
-        A grouping of information about the connection to the remote resource.
-        """
-        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
-        """
-        private_link_service_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
-        """
-elif False:
-    PrivateLinkServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionArgsDict(TypedDict):
+    """
+    A grouping of information about the connection to the remote resource.
+    """
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+    """
+    private_link_service_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionArgs:
@@ -4380,34 +4258,31 @@ class PrivateLinkServiceConnectionArgs:
         pulumi.set(self, "private_link_service_id", value)
 
 
-if not MYPY:
-    class ReferenceInputPropertiesArgsDict(TypedDict):
-        """
-        The properties that are associated with an input containing reference data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Reference'.
-        """
-        compression: NotRequired[pulumi.Input['CompressionArgsDict']]
-        """
-        Describes how input data is compressed
-        """
-        datasource: NotRequired[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgsDict', 'BlobReferenceInputDataSourceArgsDict', 'FileReferenceInputDataSourceArgsDict']]]
-        """
-        Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        partitionKey Describes a key in the input data which is used for partitioning the input data
-        """
-        serialization: NotRequired[pulumi.Input[Union['AvroSerializationArgsDict', 'CsvSerializationArgsDict', 'JsonSerializationArgsDict', 'ParquetSerializationArgsDict']]]
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    ReferenceInputPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ReferenceInputPropertiesArgsDict(TypedDict):
+    """
+    The properties that are associated with an input containing reference data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Reference'.
+    """
+    compression: NotRequired[pulumi.Input['CompressionArgsDict']]
+    """
+    Describes how input data is compressed
+    """
+    datasource: NotRequired[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgsDict', 'BlobReferenceInputDataSourceArgsDict', 'FileReferenceInputDataSourceArgsDict']]]
+    """
+    Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    partitionKey Describes a key in the input data which is used for partitioning the input data
+    """
+    serialization: NotRequired[pulumi.Input[Union['AvroSerializationArgsDict', 'CsvSerializationArgsDict', 'JsonSerializationArgsDict', 'ParquetSerializationArgsDict']]]
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class ReferenceInputPropertiesArgs:
@@ -4498,27 +4373,24 @@ class ReferenceInputPropertiesArgs:
         pulumi.set(self, "serialization", value)
 
 
-if not MYPY:
-    class ScalarFunctionPropertiesArgsDict(TypedDict):
-        """
-        The properties that are associated with a scalar function.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of function.
-        Expected value is 'Scalar'.
-        """
-        binding: NotRequired[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgsDict', 'JavaScriptFunctionBindingArgsDict']]]
-        """
-        The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        """
-        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgsDict']]]]
-        output: NotRequired[pulumi.Input['FunctionOutputArgsDict']]
-        """
-        Describes the output of a function.
-        """
-elif False:
-    ScalarFunctionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ScalarFunctionPropertiesArgsDict(TypedDict):
+    """
+    The properties that are associated with a scalar function.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of function.
+    Expected value is 'Scalar'.
+    """
+    binding: NotRequired[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgsDict', 'JavaScriptFunctionBindingArgsDict']]]
+    """
+    The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+    """
+    inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgsDict']]]]
+    output: NotRequired[pulumi.Input['FunctionOutputArgsDict']]
+    """
+    Describes the output of a function.
+    """
 
 @pulumi.input_type
 class ScalarFunctionPropertiesArgs:
@@ -4589,46 +4461,43 @@ class ScalarFunctionPropertiesArgs:
         pulumi.set(self, "output", value)
 
 
-if not MYPY:
-    class ServiceBusQueueOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes a Service Bus Queue output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.ServiceBus/Queue'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A string array of the names of output columns to be attached to Service Bus messages as custom properties.
-        """
-        queue_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
-        """
-        service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        system_property_columns: NotRequired[Any]
-        """
-        The system properties associated with the Service Bus Queue. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
-        """
-elif False:
-    ServiceBusQueueOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceBusQueueOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes a Service Bus Queue output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.ServiceBus/Queue'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+    """
+    queue_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
+    """
+    service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    system_property_columns: NotRequired[Any]
+    """
+    The system properties associated with the Service Bus Queue. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
+    """
 
 @pulumi.input_type
 class ServiceBusQueueOutputDataSourceArgs:
@@ -4767,46 +4636,43 @@ class ServiceBusQueueOutputDataSourceArgs:
         pulumi.set(self, "system_property_columns", value)
 
 
-if not MYPY:
-    class ServiceBusTopicOutputDataSourceArgsDict(TypedDict):
-        """
-        Describes a Service Bus Topic output data source.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.ServiceBus/Topic'.
-        """
-        authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
-        """
-        Authentication Mode.
-        """
-        property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A string array of the names of output columns to be attached to Service Bus messages as custom properties.
-        """
-        service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
-        """
-        shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
-        """
-        system_property_columns: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The system properties associated with the Service Bus Topic Output. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
-        """
-        topic_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    ServiceBusTopicOutputDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceBusTopicOutputDataSourceArgsDict(TypedDict):
+    """
+    Describes a Service Bus Topic output data source.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Microsoft.ServiceBus/Topic'.
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMode']]]
+    """
+    Authentication Mode.
+    """
+    property_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+    """
+    service_bus_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+    """
+    shared_access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+    """
+    system_property_columns: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The system properties associated with the Service Bus Topic Output. The following system properties are supported: ReplyToSessionId, ContentType, To, Subject, CorrelationId, TimeToLive, PartitionKey, SessionId, ScheduledEnqueueTime, MessageId, ReplyTo, Label, ScheduledEnqueueTimeUtc.
+    """
+    topic_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class ServiceBusTopicOutputDataSourceArgs:
@@ -4945,17 +4811,14 @@ class ServiceBusTopicOutputDataSourceArgs:
         pulumi.set(self, "topic_name", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The properties that are associated with a SKU.
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
-        """
-        The name of the SKU. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The properties that are associated with a SKU.
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
+    """
+    The name of the SKU. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -4981,21 +4844,18 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class StorageAccountArgsDict(TypedDict):
-        """
-        The properties that are associated with an Azure Storage account
-        """
-        account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class StorageAccountArgsDict(TypedDict):
+    """
+    The properties that are associated with an Azure Storage account
+    """
+    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -5037,34 +4897,31 @@ class StorageAccountArgs:
         pulumi.set(self, "account_name", value)
 
 
-if not MYPY:
-    class StreamInputPropertiesArgsDict(TypedDict):
-        """
-        The properties that are associated with an input containing stream data.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Stream'.
-        """
-        compression: NotRequired[pulumi.Input['CompressionArgsDict']]
-        """
-        Describes how input data is compressed
-        """
-        datasource: NotRequired[pulumi.Input[Union['BlobStreamInputDataSourceArgsDict', 'EventHubStreamInputDataSourceArgsDict', 'EventHubV2StreamInputDataSourceArgsDict', 'GatewayMessageBusStreamInputDataSourceArgsDict', 'IoTHubStreamInputDataSourceArgsDict']]]
-        """
-        Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        partitionKey Describes a key in the input data which is used for partitioning the input data
-        """
-        serialization: NotRequired[pulumi.Input[Union['AvroSerializationArgsDict', 'CsvSerializationArgsDict', 'JsonSerializationArgsDict', 'ParquetSerializationArgsDict']]]
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-        """
-elif False:
-    StreamInputPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StreamInputPropertiesArgsDict(TypedDict):
+    """
+    The properties that are associated with an input containing stream data.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+    Expected value is 'Stream'.
+    """
+    compression: NotRequired[pulumi.Input['CompressionArgsDict']]
+    """
+    Describes how input data is compressed
+    """
+    datasource: NotRequired[pulumi.Input[Union['BlobStreamInputDataSourceArgsDict', 'EventHubStreamInputDataSourceArgsDict', 'EventHubV2StreamInputDataSourceArgsDict', 'GatewayMessageBusStreamInputDataSourceArgsDict', 'IoTHubStreamInputDataSourceArgsDict']]]
+    """
+    Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    partitionKey Describes a key in the input data which is used for partitioning the input data
+    """
+    serialization: NotRequired[pulumi.Input[Union['AvroSerializationArgsDict', 'CsvSerializationArgsDict', 'JsonSerializationArgsDict', 'ParquetSerializationArgsDict']]]
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+    """
 
 @pulumi.input_type
 class StreamInputPropertiesArgs:
@@ -5155,29 +5012,26 @@ class StreamInputPropertiesArgs:
         pulumi.set(self, "serialization", value)
 
 
-if not MYPY:
-    class TransformationArgsDict(TypedDict):
-        """
-        A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name
-        """
-        query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-        """
-        streaming_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of streaming units that the streaming job uses.
-        """
-        valid_streaming_units: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Specifies the valid streaming units a streaming job can scale to.
-        """
-elif False:
-    TransformationArgsDict: TypeAlias = Mapping[str, Any]
+class TransformationArgsDict(TypedDict):
+    """
+    A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name
+    """
+    query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+    """
+    streaming_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of streaming units that the streaming job uses.
+    """
+    valid_streaming_units: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Specifies the valid streaming units a streaming job can scale to.
+    """
 
 @pulumi.input_type
 class TransformationArgs:

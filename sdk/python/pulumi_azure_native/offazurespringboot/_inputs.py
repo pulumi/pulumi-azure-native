@@ -34,51 +34,46 @@ __all__ = [
     'SpringbootsitesPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ErrorArgsDict(TypedDict):
-        """
-        Defines the error.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error code.
-        """
-        id: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The error ID.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The detailed error message.
-        """
-        possible_causes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error possible causes.
-        """
-        recommended_action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error recommended action
-        """
-        run_as_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account ID used to login.
-        """
-        severity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error severity
-        """
-        summary_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The summarized error message.
-        """
-        updated_time_stamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time when this error was last updated.
-        """
-elif False:
-    ErrorArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorArgsDict(TypedDict):
+    """
+    Defines the error.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error code.
+    """
+    id: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The error ID.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The detailed error message.
+    """
+    possible_causes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error possible causes.
+    """
+    recommended_action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error recommended action
+    """
+    run_as_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account ID used to login.
+    """
+    severity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error severity
+    """
+    summary_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The summarized error message.
+    """
+    updated_time_stamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time when this error was last updated.
+    """
 
 @pulumi.input_type
 class ErrorArgs:
@@ -232,18 +227,15 @@ class ErrorArgs:
         pulumi.set(self, "updated_time_stamp", value)
 
 
-if not MYPY:
-    class SpringbootappsPropertiesApplicationConfigurationsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The application config file name.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application config file content, only contains config keys.
-        """
-elif False:
-    SpringbootappsPropertiesApplicationConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class SpringbootappsPropertiesApplicationConfigurationsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The application config file name.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application config file content, only contains config keys.
+    """
 
 @pulumi.input_type
 class SpringbootappsPropertiesApplicationConfigurationsArgs:
@@ -283,22 +275,19 @@ class SpringbootappsPropertiesApplicationConfigurationsArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SpringbootappsPropertiesInstancesArgsDict(TypedDict):
-        machine_arm_id: pulumi.Input[_builtins.str]
-        """
-        The machine ARM resource Id of this app instance
-        """
-        instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The instance count of this app instance
-        """
-        jvm_memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The jvm heap memory allocated of this app instance
-        """
-elif False:
-    SpringbootappsPropertiesInstancesArgsDict: TypeAlias = Mapping[str, Any]
+class SpringbootappsPropertiesInstancesArgsDict(TypedDict):
+    machine_arm_id: pulumi.Input[_builtins.str]
+    """
+    The machine ARM resource Id of this app instance
+    """
+    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The instance count of this app instance
+    """
+    jvm_memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The jvm heap memory allocated of this app instance
+    """
 
 @pulumi.input_type
 class SpringbootappsPropertiesInstancesArgs:
@@ -354,18 +343,15 @@ class SpringbootappsPropertiesInstancesArgs:
         pulumi.set(self, "jvm_memory_in_mb", value)
 
 
-if not MYPY:
-    class SpringbootappsPropertiesMiscsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The miscs. key.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The miscs. value.
-        """
-elif False:
-    SpringbootappsPropertiesMiscsArgsDict: TypeAlias = Mapping[str, Any]
+class SpringbootappsPropertiesMiscsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The miscs. key.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The miscs. value.
+    """
 
 @pulumi.input_type
 class SpringbootappsPropertiesMiscsArgs:
@@ -405,121 +391,118 @@ class SpringbootappsPropertiesMiscsArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SpringbootappsPropertiesArgsDict(TypedDict):
-        """
-        The springbootapps resource definition.
-        """
-        app_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of SpringBootApp.
-        """
-        app_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The application port.
-        """
-        app_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application type, whether it is a SpringBoot app.
-        """
-        application_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesApplicationConfigurationsArgsDict']]]]
-        """
-        The application configuration file list.
-        """
-        artifact_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The artifact name of SpringBootApp.
-        """
-        binding_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The application binding port list.
-        """
-        build_jdk_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The jdk version in build.
-        """
-        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The certificate file list.
-        """
-        checksum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The checksum of jar file.
-        """
-        connection_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The connection string list.
-        """
-        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The dependency list.
-        """
-        environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The environment variable list.
-        """
-        errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorArgsDict']]]]
-        """
-        The list of errors.
-        """
-        instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The total instance count the app deployed.
-        """
-        instances: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesInstancesArgsDict']]]]
-        """
-        The breakdown info for app instances on all the servers
-        """
-        jar_file_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The jar file location on the server.
-        """
-        jvm_memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The jvm heap memory allocated.
-        """
-        jvm_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The jvm options.
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Resource labels
-        """
-        last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time when this springbootapps jar file was last modified.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time when this springbootapps instance was last refreshed.
-        """
-        machine_arm_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The machine ARM id list the app belongs to.
-        """
-        miscs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesMiscsArgsDict']]]]
-        """
-        The other types of date collected.
-        """
-        runtime_jdk_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The jdk version installed on server
-        """
-        servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The server list the app installed
-        """
-        spring_boot_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The spring boot version.
-        """
-        static_content_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The static content location list.
-        """
-elif False:
-    SpringbootappsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SpringbootappsPropertiesArgsDict(TypedDict):
+    """
+    The springbootapps resource definition.
+    """
+    app_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of SpringBootApp.
+    """
+    app_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The application port.
+    """
+    app_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application type, whether it is a SpringBoot app.
+    """
+    application_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesApplicationConfigurationsArgsDict']]]]
+    """
+    The application configuration file list.
+    """
+    artifact_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The artifact name of SpringBootApp.
+    """
+    binding_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The application binding port list.
+    """
+    build_jdk_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The jdk version in build.
+    """
+    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The certificate file list.
+    """
+    checksum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The checksum of jar file.
+    """
+    connection_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The connection string list.
+    """
+    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The dependency list.
+    """
+    environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The environment variable list.
+    """
+    errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorArgsDict']]]]
+    """
+    The list of errors.
+    """
+    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The total instance count the app deployed.
+    """
+    instances: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesInstancesArgsDict']]]]
+    """
+    The breakdown info for app instances on all the servers
+    """
+    jar_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The jar file location on the server.
+    """
+    jvm_memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The jvm heap memory allocated.
+    """
+    jvm_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The jvm options.
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource labels
+    """
+    last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time when this springbootapps jar file was last modified.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time when this springbootapps instance was last refreshed.
+    """
+    machine_arm_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The machine ARM id list the app belongs to.
+    """
+    miscs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesMiscsArgsDict']]]]
+    """
+    The other types of date collected.
+    """
+    runtime_jdk_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The jdk version installed on server
+    """
+    servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The server list the app installed
+    """
+    spring_boot_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The spring boot version.
+    """
+    static_content_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The static content location list.
+    """
 
 @pulumi.input_type
 class SpringbootappsPropertiesArgs:
@@ -961,49 +944,46 @@ class SpringbootappsPropertiesArgs:
         pulumi.set(self, "static_content_locations", value)
 
 
-if not MYPY:
-    class SpringbootserversPropertiesArgsDict(TypedDict):
-        """
-        The springbootservers resource definition.
-        """
-        server: pulumi.Input[_builtins.str]
-        """
-        Server is the target server name or ip address to discover of SpringBootServer.
-        """
-        errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorArgsDict']]]]
-        """
-        The list of errors.
-        """
-        fqdn_and_ip_address_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The alternative FQDN or IP addresses to discover for this server
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Resource labels
-        """
-        machine_arm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The machine Id from ARM
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Target server port for remote login
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
-        """
-        The resource provisioning state.
-        """
-        spring_boot_apps: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The total number of spring boot apps been discovered
-        """
-        total_apps: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The total number of apps been discovered
-        """
-elif False:
-    SpringbootserversPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SpringbootserversPropertiesArgsDict(TypedDict):
+    """
+    The springbootservers resource definition.
+    """
+    server: pulumi.Input[_builtins.str]
+    """
+    Server is the target server name or ip address to discover of SpringBootServer.
+    """
+    errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorArgsDict']]]]
+    """
+    The list of errors.
+    """
+    fqdn_and_ip_address_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The alternative FQDN or IP addresses to discover for this server
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource labels
+    """
+    machine_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The machine Id from ARM
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Target server port for remote login
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    """
+    The resource provisioning state.
+    """
+    spring_boot_apps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The total number of spring boot apps been discovered
+    """
+    total_apps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The total number of apps been discovered
+    """
 
 @pulumi.input_type
 class SpringbootserversPropertiesArgs:
@@ -1156,21 +1136,18 @@ class SpringbootserversPropertiesArgs:
         pulumi.set(self, "total_apps", value)
 
 
-if not MYPY:
-    class SpringbootsitesModelExtendedLocationArgsDict(TypedDict):
-        """
-        The extended location definition.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended location name.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended location type.
-        """
-elif False:
-    SpringbootsitesModelExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class SpringbootsitesModelExtendedLocationArgsDict(TypedDict):
+    """
+    The extended location definition.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended location name.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended location type.
+    """
 
 @pulumi.input_type
 class SpringbootsitesModelExtendedLocationArgs:
@@ -1212,25 +1189,22 @@ class SpringbootsitesModelExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SpringbootsitesPropertiesArgsDict(TypedDict):
-        """
-        The springbootsites resource definition.
-        """
-        master_site_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The master site ID from Azure Migrate.
-        """
-        migrate_project_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The migrate project ID from Azure Migrate.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
-        """
-        The resource provisioning state.
-        """
-elif False:
-    SpringbootsitesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SpringbootsitesPropertiesArgsDict(TypedDict):
+    """
+    The springbootsites resource definition.
+    """
+    master_site_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The master site ID from Azure Migrate.
+    """
+    migrate_project_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The migrate project ID from Azure Migrate.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    """
+    The resource provisioning state.
+    """
 
 @pulumi.input_type
 class SpringbootsitesPropertiesArgs:

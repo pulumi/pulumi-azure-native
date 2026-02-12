@@ -36,23 +36,18 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApiBridgePropertiesArgsDict(TypedDict):
-        """
-        Configuration of the API Bridge.
-        """
-        allowed_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed source IP addresses or CIDR ranges for accessing the API Bridge
-        """
-        configure_api_bridge: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiBridgeActivationState']]]
-        """
-        The activation state of the API Bridge for this Communications Gateway
-        """
-elif False:
-    ApiBridgePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiBridgePropertiesArgsDict(TypedDict):
+    """
+    Configuration of the API Bridge.
+    """
+    allowed_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed source IP addresses or CIDR ranges for accessing the API Bridge
+    """
+    configure_api_bridge: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiBridgeActivationState']]]
+    """
+    The activation state of the API Bridge for this Communications Gateway
+    """
 
 @pulumi.input_type
 class ApiBridgePropertiesArgs:
@@ -96,17 +91,14 @@ class ApiBridgePropertiesArgs:
         pulumi.set(self, "configure_api_bridge", value)
 
 
-if not MYPY:
-    class CustomSipHeadersPropertiesArgsDict(TypedDict):
-        """
-        Properties of Custom SIP Headers.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomSipHeaderArgsDict']]]]
-        """
-        The Custom SIP Headers to apply to the calls which traverse the Communications Gateway
-        """
-elif False:
-    CustomSipHeadersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomSipHeadersPropertiesArgsDict(TypedDict):
+    """
+    Properties of Custom SIP Headers.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomSipHeaderArgsDict']]]]
+    """
+    The Custom SIP Headers to apply to the calls which traverse the Communications Gateway
+    """
 
 @pulumi.input_type
 class CustomSipHeadersPropertiesArgs:
@@ -132,17 +124,14 @@ class CustomSipHeadersPropertiesArgs:
         pulumi.set(self, "headers", value)
 
 
-if not MYPY:
-    class CustomSipHeaderArgsDict(TypedDict):
-        """
-        Details of a Custom SIP Header.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Custom SIP Header
-        """
-elif False:
-    CustomSipHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class CustomSipHeaderArgsDict(TypedDict):
+    """
+    Details of a Custom SIP Header.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Custom SIP Header
+    """
 
 @pulumi.input_type
 class CustomSipHeaderArgs:
@@ -168,17 +157,14 @@ class CustomSipHeaderArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DnsDelegationPropertiesArgsDict(TypedDict):
-        """
-        Details of a DNS Domain delegated to the Communications Gateway.
-        """
-        domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Domain name to delegate
-        """
-elif False:
-    DnsDelegationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DnsDelegationPropertiesArgsDict(TypedDict):
+    """
+    Details of a DNS Domain delegated to the Communications Gateway.
+    """
+    domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Domain name to delegate
+    """
 
 @pulumi.input_type
 class DnsDelegationPropertiesArgs:
@@ -204,17 +190,14 @@ class DnsDelegationPropertiesArgs:
         pulumi.set(self, "domain", value)
 
 
-if not MYPY:
-    class DnsDelegationsPropertiesArgsDict(TypedDict):
-        """
-        Details of DNS Domains delegated to the Communications Gateway.
-        """
-        delegations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DnsDelegationPropertiesArgsDict']]]]
-        """
-        DNS Domains to delegate for the creation of DNS Zones by the Azure Communications Gateway
-        """
-elif False:
-    DnsDelegationsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DnsDelegationsPropertiesArgsDict(TypedDict):
+    """
+    Details of DNS Domains delegated to the Communications Gateway.
+    """
+    delegations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DnsDelegationPropertiesArgsDict']]]]
+    """
+    DNS Domains to delegate for the creation of DNS Zones by the Azure Communications Gateway
+    """
 
 @pulumi.input_type
 class DnsDelegationsPropertiesArgs:
@@ -240,21 +223,18 @@ class DnsDelegationsPropertiesArgs:
         pulumi.set(self, "delegations", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -295,29 +275,26 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PrimaryRegionPropertiesArgsDict(TypedDict):
-        """
-        The configuration used in this region as primary, and other regions as backup.
-        """
-        operator_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        IP address to use to contact the operator network from this region
-        """
-        allowed_media_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed source IP addresses or CIDR ranges for media
-        """
-        allowed_signaling_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed source IP addresses or CIDR ranges for signaling
-        """
-        esrp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        IP address to use to contact the ESRP from this region
-        """
-elif False:
-    PrimaryRegionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrimaryRegionPropertiesArgsDict(TypedDict):
+    """
+    The configuration used in this region as primary, and other regions as backup.
+    """
+    operator_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    IP address to use to contact the operator network from this region
+    """
+    allowed_media_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed source IP addresses or CIDR ranges for media
+    """
+    allowed_signaling_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed source IP addresses or CIDR ranges for signaling
+    """
+    esrp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    IP address to use to contact the ESRP from this region
+    """
 
 @pulumi.input_type
 class PrimaryRegionPropertiesArgs:
@@ -390,21 +367,18 @@ class PrimaryRegionPropertiesArgs:
         pulumi.set(self, "esrp_addresses", value)
 
 
-if not MYPY:
-    class ServiceRegionPropertiesArgsDict(TypedDict):
-        """
-        The service region configuration needed for Teams Callings.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the region in which the resources needed for Teams Calling will be deployed.
-        """
-        primary_region_properties: pulumi.Input['PrimaryRegionPropertiesArgsDict']
-        """
-        The configuration used in this region as primary, and other regions as backup.
-        """
-elif False:
-    ServiceRegionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceRegionPropertiesArgsDict(TypedDict):
+    """
+    The service region configuration needed for Teams Callings.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the region in which the resources needed for Teams Calling will be deployed.
+    """
+    primary_region_properties: pulumi.Input['PrimaryRegionPropertiesArgsDict']
+    """
+    The configuration used in this region as primary, and other regions as backup.
+    """
 
 @pulumi.input_type
 class ServiceRegionPropertiesArgs:
@@ -444,33 +418,30 @@ class ServiceRegionPropertiesArgs:
         pulumi.set(self, "primary_region_properties", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Ex - P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class SkuArgs:

@@ -20,63 +20,58 @@ __all__ = [
     'SaasCreationPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SaasCreationPropertiesArgsDict(TypedDict):
-        """
-        properties for creation saas
-        """
-        auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the SaaS subscription will auto renew upon term end.
-        """
-        offer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The offer id.
-        """
-        payment_channel_metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
-        """
-        payment_channel_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PaymentChannelType']]]
-        """
-        The Payment channel for the SaasSubscription.
-        """
-        publisher_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher id.
-        """
-        publisher_test_environment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The environment in the publisher side for this resource.
-        """
-        quantity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The seat count.
-        """
-        saas_resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SaaS resource name.
-        """
-        saas_session_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The saas session id used for dev service migration request.
-        """
-        saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The saas subscription id used for tenant to subscription level migration request.
-        """
-        sku_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plan id.
-        """
-        term_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The current Term id.
-        """
-elif False:
-    SaasCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SaasCreationPropertiesArgsDict(TypedDict):
+    """
+    properties for creation saas
+    """
+    auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the SaaS subscription will auto renew upon term end.
+    """
+    offer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The offer id.
+    """
+    payment_channel_metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
+    """
+    payment_channel_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PaymentChannelType']]]
+    """
+    The Payment channel for the SaasSubscription.
+    """
+    publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher id.
+    """
+    publisher_test_environment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The environment in the publisher side for this resource.
+    """
+    quantity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The seat count.
+    """
+    saas_resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SaaS resource name.
+    """
+    saas_session_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The saas session id used for dev service migration request.
+    """
+    saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The saas subscription id used for tenant to subscription level migration request.
+    """
+    sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plan id.
+    """
+    term_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current Term id.
+    """
 
 @pulumi.input_type
 class SaasCreationPropertiesArgs:

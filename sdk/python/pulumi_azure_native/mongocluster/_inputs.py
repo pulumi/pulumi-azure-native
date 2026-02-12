@@ -48,23 +48,18 @@ __all__ = [
     'UserPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdministratorPropertiesArgsDict(TypedDict):
-        """
-        The local administrator login properties.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The administrator password.
-        """
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The administrator user name.
-        """
-elif False:
-    AdministratorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AdministratorPropertiesArgsDict(TypedDict):
+    """
+    The local administrator login properties.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The administrator password.
+    """
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The administrator user name.
+    """
 
 @pulumi.input_type
 class AdministratorPropertiesArgs:
@@ -106,17 +101,14 @@ class AdministratorPropertiesArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class ComputePropertiesArgsDict(TypedDict):
-        """
-        The compute properties of the cluster. This includes the virtual-cores/memory and scaling options applied to servers in the cluster.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The compute tier to assign to the cluster, where each tier maps to a virtual-core and memory size. Example values: 'M30', 'M40'.
-        """
-elif False:
-    ComputePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ComputePropertiesArgsDict(TypedDict):
+    """
+    The compute properties of the cluster. This includes the virtual-cores/memory and scaling options applied to servers in the cluster.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The compute tier to assign to the cluster, where each tier maps to a virtual-core and memory size. Example values: 'M30', 'M40'.
+    """
 
 @pulumi.input_type
 class ComputePropertiesArgs:
@@ -142,21 +134,18 @@ class ComputePropertiesArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class DatabaseRoleArgsDict(TypedDict):
-        """
-        Database role definition that is assigned to a user.
-        """
-        db: pulumi.Input[_builtins.str]
-        """
-        Database scope that the role is assigned to.
-        """
-        role: pulumi.Input[Union[_builtins.str, 'UserRole']]
-        """
-        The role that is assigned to the user on the database scope.
-        """
-elif False:
-    DatabaseRoleArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseRoleArgsDict(TypedDict):
+    """
+    Database role definition that is assigned to a user.
+    """
+    db: pulumi.Input[_builtins.str]
+    """
+    Database scope that the role is assigned to.
+    """
+    role: pulumi.Input[Union[_builtins.str, 'UserRole']]
+    """
+    The role that is assigned to the user on the database scope.
+    """
 
 @pulumi.input_type
 class DatabaseRoleArgs:
@@ -196,17 +185,14 @@ class DatabaseRoleArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class EntraIdentityProviderPropertiesArgsDict(TypedDict):
-        """
-        Microsoft Entra ID provider properties.
-        """
-        principal_type: pulumi.Input[Union[_builtins.str, 'EntraPrincipalType']]
-        """
-        The principal type of the user.
-        """
-elif False:
-    EntraIdentityProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EntraIdentityProviderPropertiesArgsDict(TypedDict):
+    """
+    Microsoft Entra ID provider properties.
+    """
+    principal_type: pulumi.Input[Union[_builtins.str, 'EntraPrincipalType']]
+    """
+    The principal type of the user.
+    """
 
 @pulumi.input_type
 class EntraIdentityProviderPropertiesArgs:
@@ -231,22 +217,19 @@ class EntraIdentityProviderPropertiesArgs:
         pulumi.set(self, "principal_type", value)
 
 
-if not MYPY:
-    class EntraIdentityProviderArgsDict(TypedDict):
-        """
-        Defines a Microsoft Entra ID Mongo user.
-        """
-        properties: pulumi.Input['EntraIdentityProviderPropertiesArgsDict']
-        """
-        The Entra identity properties for the user.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Identity provider types that a a user identity can belong to.
-        Expected value is 'MicrosoftEntraID'.
-        """
-elif False:
-    EntraIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
+class EntraIdentityProviderArgsDict(TypedDict):
+    """
+    Defines a Microsoft Entra ID Mongo user.
+    """
+    properties: pulumi.Input['EntraIdentityProviderPropertiesArgsDict']
+    """
+    The Entra identity properties for the user.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Identity provider types that a a user identity can belong to.
+    Expected value is 'MicrosoftEntraID'.
+    """
 
 @pulumi.input_type
 class EntraIdentityProviderArgs:
@@ -288,21 +271,18 @@ class EntraIdentityProviderArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FirewallRulePropertiesArgsDict(TypedDict):
-        """
-        The properties of a mongo cluster firewall rule.
-        """
-        end_ip_address: pulumi.Input[_builtins.str]
-        """
-        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        start_ip_address: pulumi.Input[_builtins.str]
-        """
-        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-elif False:
-    FirewallRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallRulePropertiesArgsDict(TypedDict):
+    """
+    The properties of a mongo cluster firewall rule.
+    """
+    end_ip_address: pulumi.Input[_builtins.str]
+    """
+    The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+    """
+    start_ip_address: pulumi.Input[_builtins.str]
+    """
+    The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+    """
 
 @pulumi.input_type
 class FirewallRulePropertiesArgs:
@@ -342,17 +322,14 @@ class FirewallRulePropertiesArgs:
         pulumi.set(self, "start_ip_address", value)
 
 
-if not MYPY:
-    class HighAvailabilityPropertiesArgsDict(TypedDict):
-        """
-        The high availability properties of the cluster.
-        """
-        target_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]]
-        """
-        The target high availability mode requested for the cluster.
-        """
-elif False:
-    HighAvailabilityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HighAvailabilityPropertiesArgsDict(TypedDict):
+    """
+    The high availability properties of the cluster.
+    """
+    target_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]]
+    """
+    The target high availability mode requested for the cluster.
+    """
 
 @pulumi.input_type
 class HighAvailabilityPropertiesArgs:
@@ -378,57 +355,54 @@ class HighAvailabilityPropertiesArgs:
         pulumi.set(self, "target_mode", value)
 
 
-if not MYPY:
-    class MongoClusterPropertiesArgsDict(TypedDict):
-        """
-        The properties of a mongo cluster.
-        """
-        administrator: NotRequired[pulumi.Input['AdministratorPropertiesArgsDict']]
-        """
-        The local administrator properties for the mongo cluster.
-        """
-        compute: NotRequired[pulumi.Input['ComputePropertiesArgsDict']]
-        """
-        The compute properties of the mongo cluster.
-        """
-        create_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'CreateMode']]]
-        """
-        The mode to create a mongo cluster.
-        """
-        high_availability: NotRequired[pulumi.Input['HighAvailabilityPropertiesArgsDict']]
-        """
-        The high availability properties of the mongo cluster.
-        """
-        preview_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreviewFeature']]]]]
-        """
-        List of private endpoint connections.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Whether or not public endpoint access is allowed for this mongo cluster.
-        """
-        replica_parameters: NotRequired[pulumi.Input['MongoClusterReplicaParametersArgsDict']]
-        """
-        The parameters to create a replica mongo cluster.
-        """
-        restore_parameters: NotRequired[pulumi.Input['MongoClusterRestoreParametersArgsDict']]
-        """
-        The parameters to create a point-in-time restore mongo cluster.
-        """
-        server_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Mongo DB server version. Defaults to the latest available version if not specified.
-        """
-        sharding: NotRequired[pulumi.Input['ShardingPropertiesArgsDict']]
-        """
-        The sharding properties of the mongo cluster.
-        """
-        storage: NotRequired[pulumi.Input['StoragePropertiesArgsDict']]
-        """
-        The storage properties of the mongo cluster.
-        """
-elif False:
-    MongoClusterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterPropertiesArgsDict(TypedDict):
+    """
+    The properties of a mongo cluster.
+    """
+    administrator: NotRequired[pulumi.Input['AdministratorPropertiesArgsDict']]
+    """
+    The local administrator properties for the mongo cluster.
+    """
+    compute: NotRequired[pulumi.Input['ComputePropertiesArgsDict']]
+    """
+    The compute properties of the mongo cluster.
+    """
+    create_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'CreateMode']]]
+    """
+    The mode to create a mongo cluster.
+    """
+    high_availability: NotRequired[pulumi.Input['HighAvailabilityPropertiesArgsDict']]
+    """
+    The high availability properties of the mongo cluster.
+    """
+    preview_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreviewFeature']]]]]
+    """
+    List of private endpoint connections.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Whether or not public endpoint access is allowed for this mongo cluster.
+    """
+    replica_parameters: NotRequired[pulumi.Input['MongoClusterReplicaParametersArgsDict']]
+    """
+    The parameters to create a replica mongo cluster.
+    """
+    restore_parameters: NotRequired[pulumi.Input['MongoClusterRestoreParametersArgsDict']]
+    """
+    The parameters to create a point-in-time restore mongo cluster.
+    """
+    server_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Mongo DB server version. Defaults to the latest available version if not specified.
+    """
+    sharding: NotRequired[pulumi.Input['ShardingPropertiesArgsDict']]
+    """
+    The sharding properties of the mongo cluster.
+    """
+    storage: NotRequired[pulumi.Input['StoragePropertiesArgsDict']]
+    """
+    The storage properties of the mongo cluster.
+    """
 
 @pulumi.input_type
 class MongoClusterPropertiesArgs:
@@ -614,21 +588,18 @@ class MongoClusterPropertiesArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class MongoClusterReplicaParametersArgsDict(TypedDict):
-        """
-        Parameters used for replica operations.
-        """
-        source_location: pulumi.Input[_builtins.str]
-        """
-        The location of the source cluster
-        """
-        source_resource_id: pulumi.Input[_builtins.str]
-        """
-        The id of the replication source cluster.
-        """
-elif False:
-    MongoClusterReplicaParametersArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterReplicaParametersArgsDict(TypedDict):
+    """
+    Parameters used for replica operations.
+    """
+    source_location: pulumi.Input[_builtins.str]
+    """
+    The location of the source cluster
+    """
+    source_resource_id: pulumi.Input[_builtins.str]
+    """
+    The id of the replication source cluster.
+    """
 
 @pulumi.input_type
 class MongoClusterReplicaParametersArgs:
@@ -668,21 +639,18 @@ class MongoClusterReplicaParametersArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
-if not MYPY:
-    class MongoClusterRestoreParametersArgsDict(TypedDict):
-        """
-        Parameters used for restore operations
-        """
-        point_in_time_utc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UTC point in time to restore a mongo cluster
-        """
-        source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID to locate the source cluster to restore
-        """
-elif False:
-    MongoClusterRestoreParametersArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterRestoreParametersArgsDict(TypedDict):
+    """
+    Parameters used for restore operations
+    """
+    point_in_time_utc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UTC point in time to restore a mongo cluster
+    """
+    source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID to locate the source cluster to restore
+    """
 
 @pulumi.input_type
 class MongoClusterRestoreParametersArgs:
@@ -724,17 +692,14 @@ class MongoClusterRestoreParametersArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        Properties of the private endpoint connection.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    Properties of the private endpoint connection.
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -759,25 +724,22 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -835,17 +797,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ShardingPropertiesArgsDict(TypedDict):
-        """
-        The sharding properties of the cluster. This includes the shard count and scaling options for the cluster.
-        """
-        shard_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of shards to provision on the cluster.
-        """
-elif False:
-    ShardingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ShardingPropertiesArgsDict(TypedDict):
+    """
+    The sharding properties of the cluster. This includes the shard count and scaling options for the cluster.
+    """
+    shard_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of shards to provision on the cluster.
+    """
 
 @pulumi.input_type
 class ShardingPropertiesArgs:
@@ -871,17 +830,14 @@ class ShardingPropertiesArgs:
         pulumi.set(self, "shard_count", value)
 
 
-if not MYPY:
-    class StoragePropertiesArgsDict(TypedDict):
-        """
-        The storage properties of the cluster. This includes the data storage size and scaling applied to servers in the cluster.
-        """
-        size_gb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The size of the data disk assigned to each server.
-        """
-elif False:
-    StoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StoragePropertiesArgsDict(TypedDict):
+    """
+    The storage properties of the cluster. This includes the data storage size and scaling applied to servers in the cluster.
+    """
+    size_gb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The size of the data disk assigned to each server.
+    """
 
 @pulumi.input_type
 class StoragePropertiesArgs:
@@ -907,21 +863,18 @@ class StoragePropertiesArgs:
         pulumi.set(self, "size_gb", value)
 
 
-if not MYPY:
-    class UserPropertiesArgsDict(TypedDict):
-        """
-        Definition of Mongo user resource on a cluster.
-        """
-        identity_provider: NotRequired[pulumi.Input['EntraIdentityProviderArgsDict']]
-        """
-        The user's identity provider definition.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleArgsDict']]]]
-        """
-        Database roles that are assigned to the user.
-        """
-elif False:
-    UserPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class UserPropertiesArgsDict(TypedDict):
+    """
+    Definition of Mongo user resource on a cluster.
+    """
+    identity_provider: NotRequired[pulumi.Input['EntraIdentityProviderArgsDict']]
+    """
+    The user's identity provider definition.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleArgsDict']]]]
+    """
+    Database roles that are assigned to the user.
+    """
 
 @pulumi.input_type
 class UserPropertiesArgs:

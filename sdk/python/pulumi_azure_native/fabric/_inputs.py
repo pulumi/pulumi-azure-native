@@ -22,19 +22,14 @@ __all__ = [
     'RpSkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CapacityAdministrationArgsDict(TypedDict):
-        """
-        The administration properties of the Fabric capacity resource
-        """
-        members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        An array of administrator user identities.
-        """
-elif False:
-    CapacityAdministrationArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityAdministrationArgsDict(TypedDict):
+    """
+    The administration properties of the Fabric capacity resource
+    """
+    members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An array of administrator user identities.
+    """
 
 @pulumi.input_type
 class CapacityAdministrationArgs:
@@ -59,21 +54,18 @@ class CapacityAdministrationArgs:
         pulumi.set(self, "members", value)
 
 
-if not MYPY:
-    class RpSkuArgsDict(TypedDict):
-        """
-        Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU level.
-        """
-        tier: pulumi.Input[Union[_builtins.str, 'RpSkuTier']]
-        """
-        The name of the Azure pricing tier to which the SKU applies.
-        """
-elif False:
-    RpSkuArgsDict: TypeAlias = Mapping[str, Any]
+class RpSkuArgsDict(TypedDict):
+    """
+    Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU level.
+    """
+    tier: pulumi.Input[Union[_builtins.str, 'RpSkuTier']]
+    """
+    The name of the Azure pricing tier to which the SKU applies.
+    """
 
 @pulumi.input_type
 class RpSkuArgs:

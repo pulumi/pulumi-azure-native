@@ -22,51 +22,46 @@ __all__ = [
     'ExtendedLocationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ErrorArgsDict(TypedDict):
-        """
-        Defines the error.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error code.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error ID.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The detailed error message.
-        """
-        possible_cause: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error possible cause.
-        """
-        recommended_action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets description of the checkpoint.
-        """
-        run_as_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account ID used to login.
-        """
-        severity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets description of the severity.
-        """
-        summary_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The summarized error message.
-        """
-        updated_time_stamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time when this error was last updated.
-        """
-elif False:
-    ErrorArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorArgsDict(TypedDict):
+    """
+    Defines the error.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error code.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error ID.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The detailed error message.
+    """
+    possible_cause: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error possible cause.
+    """
+    recommended_action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets description of the checkpoint.
+    """
+    run_as_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account ID used to login.
+    """
+    severity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets description of the severity.
+    """
+    summary_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The summarized error message.
+    """
+    updated_time_stamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time when this error was last updated.
+    """
 
 @pulumi.input_type
 class ErrorArgs:
@@ -220,21 +215,18 @@ class ErrorArgs:
         pulumi.set(self, "updated_time_stamp", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        The extended location for off-azure resources.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended location name.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended location type.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    The extended location for off-azure resources.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended location name.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended location type.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:

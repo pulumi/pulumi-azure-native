@@ -20,19 +20,14 @@ __all__ = [
     'ResourceReferenceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ResourceReferenceArgsDict(TypedDict):
-        """
-        Resource reference properties.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID.
-        """
-elif False:
-    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceReferenceArgsDict(TypedDict):
+    """
+    Resource reference properties.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class ResourceReferenceArgs:

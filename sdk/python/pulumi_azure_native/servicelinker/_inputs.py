@@ -68,28 +68,23 @@ __all__ = [
     'ValueSecretInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessKeyInfoBaseArgsDict(TypedDict):
-        """
-        The access key directly from target resource properties, which target service is Azure Resource, such as Microsoft.Storage
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'accessKey'.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessKeyPermissions']]]]]
-        """
-        Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
-        """
-elif False:
-    AccessKeyInfoBaseArgsDict: TypeAlias = Mapping[str, Any]
+class AccessKeyInfoBaseArgsDict(TypedDict):
+    """
+    The access key directly from target resource properties, which target service is Azure Resource, such as Microsoft.Storage
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'accessKey'.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessKeyPermissions']]]]]
+    """
+    Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
+    """
 
 @pulumi.input_type
 class AccessKeyInfoBaseArgs:
@@ -148,22 +143,19 @@ class AccessKeyInfoBaseArgs:
         pulumi.set(self, "permissions", value)
 
 
-if not MYPY:
-    class AzureKeyVaultPropertiesArgsDict(TypedDict):
-        """
-        The resource properties when type is Azure Key Vault
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The azure resource type.
-        Expected value is 'KeyVault'.
-        """
-        connect_as_kubernetes_csi_driver: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if connect via Kubernetes CSI Driver.
-        """
-elif False:
-    AzureKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AzureKeyVaultPropertiesArgsDict(TypedDict):
+    """
+    The resource properties when type is Azure Key Vault
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The azure resource type.
+    Expected value is 'KeyVault'.
+    """
+    connect_as_kubernetes_csi_driver: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if connect via Kubernetes CSI Driver.
+    """
 
 @pulumi.input_type
 class AzureKeyVaultPropertiesArgs:
@@ -206,26 +198,23 @@ class AzureKeyVaultPropertiesArgs:
         pulumi.set(self, "connect_as_kubernetes_csi_driver", value)
 
 
-if not MYPY:
-    class AzureResourceArgsDict(TypedDict):
-        """
-        The azure resource info when target service type is AzureResource
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The target service type.
-        Expected value is 'AzureResource'.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Id of azure resource.
-        """
-        resource_properties: NotRequired[pulumi.Input['AzureKeyVaultPropertiesArgsDict']]
-        """
-        The azure resource connection related properties.
-        """
-elif False:
-    AzureResourceArgsDict: TypeAlias = Mapping[str, Any]
+class AzureResourceArgsDict(TypedDict):
+    """
+    The azure resource info when target service type is AzureResource
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The target service type.
+    Expected value is 'AzureResource'.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Id of azure resource.
+    """
+    resource_properties: NotRequired[pulumi.Input['AzureKeyVaultPropertiesArgsDict']]
+    """
+    The azure resource connection related properties.
+    """
 
 @pulumi.input_type
 class AzureResourceArgs:
@@ -284,41 +273,38 @@ class AzureResourceArgs:
         pulumi.set(self, "resource_properties", value)
 
 
-if not MYPY:
-    class ConfigurationInfoArgsDict(TypedDict):
-        """
-        The configuration information, used to generate configurations or save to applications
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionType']]]
-        """
-        Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.
-        """
-        additional_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
-        """
-        additional_connection_string_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A dictionary of additional properties to be added in the end of connection string.
-        """
-        configuration_store: NotRequired[pulumi.Input['ConfigurationStoreArgsDict']]
-        """
-        An option to store configuration into different place
-        """
-        customized_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
-        """
-        dapr_properties: NotRequired[pulumi.Input['DaprPropertiesArgsDict']]
-        """
-        Indicates some additional properties for dapr client type
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-elif False:
-    ConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationInfoArgsDict(TypedDict):
+    """
+    The configuration information, used to generate configurations or save to applications
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionType']]]
+    """
+    Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.
+    """
+    additional_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
+    """
+    additional_connection_string_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A dictionary of additional properties to be added in the end of connection string.
+    """
+    configuration_store: NotRequired[pulumi.Input['ConfigurationStoreArgsDict']]
+    """
+    An option to store configuration into different place
+    """
+    customized_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
+    """
+    dapr_properties: NotRequired[pulumi.Input['DaprPropertiesArgsDict']]
+    """
+    Indicates some additional properties for dapr client type
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
 
 @pulumi.input_type
 class ConfigurationInfoArgs:
@@ -440,17 +426,14 @@ class ConfigurationInfoArgs:
         pulumi.set(self, "delete_or_update_behavior", value)
 
 
-if not MYPY:
-    class ConfigurationStoreArgsDict(TypedDict):
-        """
-        An option to store configuration into different place
-        """
-        app_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The app configuration id to store configuration
-        """
-elif False:
-    ConfigurationStoreArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationStoreArgsDict(TypedDict):
+    """
+    An option to store configuration into different place
+    """
+    app_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The app configuration id to store configuration
+    """
 
 @pulumi.input_type
 class ConfigurationStoreArgs:
@@ -476,22 +459,19 @@ class ConfigurationStoreArgs:
         pulumi.set(self, "app_configuration_id", value)
 
 
-if not MYPY:
-    class ConfluentBootstrapServerArgsDict(TypedDict):
-        """
-        The service properties when target service type is ConfluentBootstrapServer
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The target service type.
-        Expected value is 'ConfluentBootstrapServer'.
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint of service.
-        """
-elif False:
-    ConfluentBootstrapServerArgsDict: TypeAlias = Mapping[str, Any]
+class ConfluentBootstrapServerArgsDict(TypedDict):
+    """
+    The service properties when target service type is ConfluentBootstrapServer
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The target service type.
+    Expected value is 'ConfluentBootstrapServer'.
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint of service.
+    """
 
 @pulumi.input_type
 class ConfluentBootstrapServerArgs:
@@ -534,22 +514,19 @@ class ConfluentBootstrapServerArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class ConfluentSchemaRegistryArgsDict(TypedDict):
-        """
-        The service properties when target service type is ConfluentSchemaRegistry
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The target service type.
-        Expected value is 'ConfluentSchemaRegistry'.
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint of service.
-        """
-elif False:
-    ConfluentSchemaRegistryArgsDict: TypeAlias = Mapping[str, Any]
+class ConfluentSchemaRegistryArgsDict(TypedDict):
+    """
+    The service properties when target service type is ConfluentSchemaRegistry
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The target service type.
+    Expected value is 'ConfluentSchemaRegistry'.
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint of service.
+    """
 
 @pulumi.input_type
 class ConfluentSchemaRegistryArgs:
@@ -592,50 +569,47 @@ class ConfluentSchemaRegistryArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class CreateOrUpdateDryrunParametersArgsDict(TypedDict):
-        """
-        The dryrun parameters for creation or update a linker
-        """
-        action_name: pulumi.Input[_builtins.str]
-        """
-        The name of action for you dryrun job.
-        Expected value is 'createOrUpdate'.
-        """
-        auth_info: NotRequired[pulumi.Input[Union['AccessKeyInfoBaseArgsDict', 'EasyAuthMicrosoftEntraIDAuthInfoArgsDict', 'SecretAuthInfoArgsDict', 'ServicePrincipalCertificateAuthInfoArgsDict', 'ServicePrincipalSecretAuthInfoArgsDict', 'SystemAssignedIdentityAuthInfoArgsDict', 'UserAccountAuthInfoArgsDict', 'UserAssignedIdentityAuthInfoArgsDict']]]
-        """
-        The authentication type.
-        """
-        client_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClientType']]]
-        """
-        The application client type
-        """
-        configuration_info: NotRequired[pulumi.Input['ConfigurationInfoArgsDict']]
-        """
-        The connection information consumed by applications, including secrets, connection strings.
-        """
-        public_network_solution: NotRequired[pulumi.Input['PublicNetworkSolutionArgsDict']]
-        """
-        The network solution.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        connection scope in source service.
-        """
-        secret_store: NotRequired[pulumi.Input['SecretStoreArgsDict']]
-        """
-        An option to store secret value in secure place
-        """
-        target_service: NotRequired[pulumi.Input[Union['AzureResourceArgsDict', 'ConfluentBootstrapServerArgsDict', 'ConfluentSchemaRegistryArgsDict', 'SelfHostedServerArgsDict']]]
-        """
-        The target service properties
-        """
-        v_net_solution: NotRequired[pulumi.Input['VNetSolutionArgsDict']]
-        """
-        The VNet solution.
-        """
-elif False:
-    CreateOrUpdateDryrunParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CreateOrUpdateDryrunParametersArgsDict(TypedDict):
+    """
+    The dryrun parameters for creation or update a linker
+    """
+    action_name: pulumi.Input[_builtins.str]
+    """
+    The name of action for you dryrun job.
+    Expected value is 'createOrUpdate'.
+    """
+    auth_info: NotRequired[pulumi.Input[Union['AccessKeyInfoBaseArgsDict', 'EasyAuthMicrosoftEntraIDAuthInfoArgsDict', 'SecretAuthInfoArgsDict', 'ServicePrincipalCertificateAuthInfoArgsDict', 'ServicePrincipalSecretAuthInfoArgsDict', 'SystemAssignedIdentityAuthInfoArgsDict', 'UserAccountAuthInfoArgsDict', 'UserAssignedIdentityAuthInfoArgsDict']]]
+    """
+    The authentication type.
+    """
+    client_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClientType']]]
+    """
+    The application client type
+    """
+    configuration_info: NotRequired[pulumi.Input['ConfigurationInfoArgsDict']]
+    """
+    The connection information consumed by applications, including secrets, connection strings.
+    """
+    public_network_solution: NotRequired[pulumi.Input['PublicNetworkSolutionArgsDict']]
+    """
+    The network solution.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    connection scope in source service.
+    """
+    secret_store: NotRequired[pulumi.Input['SecretStoreArgsDict']]
+    """
+    An option to store secret value in secure place
+    """
+    target_service: NotRequired[pulumi.Input[Union['AzureResourceArgsDict', 'ConfluentBootstrapServerArgsDict', 'ConfluentSchemaRegistryArgsDict', 'SelfHostedServerArgsDict']]]
+    """
+    The target service properties
+    """
+    v_net_solution: NotRequired[pulumi.Input['VNetSolutionArgsDict']]
+    """
+    The VNet solution.
+    """
 
 @pulumi.input_type
 class CreateOrUpdateDryrunParametersArgs:
@@ -790,33 +764,30 @@ class CreateOrUpdateDryrunParametersArgs:
         pulumi.set(self, "v_net_solution", value)
 
 
-if not MYPY:
-    class DaprMetadataArgsDict(TypedDict):
-        """
-        The dapr component metadata.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the metadata, returned from configuration api
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Metadata property name.
-        """
-        required: NotRequired[pulumi.Input[Union[_builtins.str, 'DaprMetadataRequired']]]
-        """
-        The value indicating whether the metadata is required or not
-        """
-        secret_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret name where dapr could get value
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Metadata property value.
-        """
-elif False:
-    DaprMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class DaprMetadataArgsDict(TypedDict):
+    """
+    The dapr component metadata.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the metadata, returned from configuration api
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Metadata property name.
+    """
+    required: NotRequired[pulumi.Input[Union[_builtins.str, 'DaprMetadataRequired']]]
+    """
+    The value indicating whether the metadata is required or not
+    """
+    secret_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret name where dapr could get value
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Metadata property value.
+    """
 
 @pulumi.input_type
 class DaprMetadataArgs:
@@ -906,33 +877,30 @@ class DaprMetadataArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DaprPropertiesArgsDict(TypedDict):
-        """
-        Indicates some additional properties for dapr client type
-        """
-        component_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The dapr component type
-        """
-        metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgsDict']]]]
-        """
-        Additional dapr metadata
-        """
-        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The dapr component scopes
-        """
-        secret_store_component: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a secret store dapr to retrieve secret
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The dapr component version
-        """
-elif False:
-    DaprPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DaprPropertiesArgsDict(TypedDict):
+    """
+    Indicates some additional properties for dapr client type
+    """
+    component_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The dapr component type
+    """
+    metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgsDict']]]]
+    """
+    Additional dapr metadata
+    """
+    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The dapr component scopes
+    """
+    secret_store_component: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a secret store dapr to retrieve secret
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The dapr component version
+    """
 
 @pulumi.input_type
 class DaprPropertiesArgs:
@@ -1022,34 +990,31 @@ class DaprPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class EasyAuthMicrosoftEntraIDAuthInfoArgsDict(TypedDict):
-        """
-        The authentication info when authType is EasyAuth Microsoft Entra ID
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'easyAuthMicrosoftEntraID'.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Application clientId for EasyAuth Microsoft Entra ID.
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-        secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Application Secret for EasyAuth Microsoft Entra ID.
-        """
-elif False:
-    EasyAuthMicrosoftEntraIDAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+class EasyAuthMicrosoftEntraIDAuthInfoArgsDict(TypedDict):
+    """
+    The authentication info when authType is EasyAuth Microsoft Entra ID
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'easyAuthMicrosoftEntraID'.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application clientId for EasyAuth Microsoft Entra ID.
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
+    secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application Secret for EasyAuth Microsoft Entra ID.
+    """
 
 @pulumi.input_type
 class EasyAuthMicrosoftEntraIDAuthInfoArgs:
@@ -1140,25 +1105,22 @@ class EasyAuthMicrosoftEntraIDAuthInfoArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class FirewallRulesArgsDict(TypedDict):
-        """
-        Target service's firewall rules. to allow connections from source service.
-        """
-        azure_services: NotRequired[pulumi.Input[Union[_builtins.str, 'AllowType']]]
-        """
-        Allow Azure services to access the target service if true.
-        """
-        caller_client_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'AllowType']]]
-        """
-        Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
-        """
-        ip_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.
-        """
-elif False:
-    FirewallRulesArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallRulesArgsDict(TypedDict):
+    """
+    Target service's firewall rules. to allow connections from source service.
+    """
+    azure_services: NotRequired[pulumi.Input[Union[_builtins.str, 'AllowType']]]
+    """
+    Allow Azure services to access the target service if true.
+    """
+    caller_client_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'AllowType']]]
+    """
+    Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
+    """
+    ip_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.
+    """
 
 @pulumi.input_type
 class FirewallRulesArgs:
@@ -1216,26 +1178,23 @@ class FirewallRulesArgs:
         pulumi.set(self, "ip_ranges", value)
 
 
-if not MYPY:
-    class KeyVaultSecretReferenceSecretInfoArgsDict(TypedDict):
-        """
-        The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.
-        """
-        secret_type: pulumi.Input[_builtins.str]
-        """
-        The secret type.
-        Expected value is 'keyVaultSecretReference'.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Key Vault secret.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the Key Vault secret.
-        """
-elif False:
-    KeyVaultSecretReferenceSecretInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultSecretReferenceSecretInfoArgsDict(TypedDict):
+    """
+    The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.
+    """
+    secret_type: pulumi.Input[_builtins.str]
+    """
+    The secret type.
+    Expected value is 'keyVaultSecretReference'.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Key Vault secret.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the Key Vault secret.
+    """
 
 @pulumi.input_type
 class KeyVaultSecretReferenceSecretInfoArgs:
@@ -1294,22 +1253,19 @@ class KeyVaultSecretReferenceSecretInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class KeyVaultSecretUriSecretInfoArgsDict(TypedDict):
-        """
-        The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.
-        """
-        secret_type: pulumi.Input[_builtins.str]
-        """
-        The secret type.
-        Expected value is 'keyVaultSecretUri'.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI to the keyvault secret
-        """
-elif False:
-    KeyVaultSecretUriSecretInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultSecretUriSecretInfoArgsDict(TypedDict):
+    """
+    The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.
+    """
+    secret_type: pulumi.Input[_builtins.str]
+    """
+    The secret type.
+    Expected value is 'keyVaultSecretUri'.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI to the keyvault secret
+    """
 
 @pulumi.input_type
 class KeyVaultSecretUriSecretInfoArgs:
@@ -1352,25 +1308,22 @@ class KeyVaultSecretUriSecretInfoArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PublicNetworkSolutionArgsDict(TypedDict):
-        """
-        Indicates public network solution, include firewall rules
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionType']]]
-        """
-        Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation(such as firewall rules) when Linker is updating or deleting
-        """
-        firewall_rules: NotRequired[pulumi.Input['FirewallRulesArgsDict']]
-        """
-        Describe firewall rules of target service to make sure source application could connect to the target.
-        """
-elif False:
-    PublicNetworkSolutionArgsDict: TypeAlias = Mapping[str, Any]
+class PublicNetworkSolutionArgsDict(TypedDict):
+    """
+    Indicates public network solution, include firewall rules
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionType']]]
+    """
+    Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation(such as firewall rules) when Linker is updating or deleting
+    """
+    firewall_rules: NotRequired[pulumi.Input['FirewallRulesArgsDict']]
+    """
+    Describe firewall rules of target service to make sure source application could connect to the target.
+    """
 
 @pulumi.input_type
 class PublicNetworkSolutionArgs:
@@ -1428,30 +1381,27 @@ class PublicNetworkSolutionArgs:
         pulumi.set(self, "firewall_rules", value)
 
 
-if not MYPY:
-    class SecretAuthInfoArgsDict(TypedDict):
-        """
-        The authentication info when authType is secret
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'secret'.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username or account name for secret auth.
-        """
-        secret_info: NotRequired[pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgsDict', 'KeyVaultSecretUriSecretInfoArgsDict', 'ValueSecretInfoArgsDict']]]
-        """
-        Password or key vault secret for secret auth.
-        """
-elif False:
-    SecretAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SecretAuthInfoArgsDict(TypedDict):
+    """
+    The authentication info when authType is secret
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'secret'.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username or account name for secret auth.
+    """
+    secret_info: NotRequired[pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgsDict', 'KeyVaultSecretUriSecretInfoArgsDict', 'ValueSecretInfoArgsDict']]]
+    """
+    Password or key vault secret for secret auth.
+    """
 
 @pulumi.input_type
 class SecretAuthInfoArgs:
@@ -1526,21 +1476,18 @@ class SecretAuthInfoArgs:
         pulumi.set(self, "secret_info", value)
 
 
-if not MYPY:
-    class SecretStoreArgsDict(TypedDict):
-        """
-        An option to store secret value in secure place
-        """
-        key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key vault id to store secret
-        """
-        key_vault_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key vault secret name to store secret, only valid when storing one secret
-        """
-elif False:
-    SecretStoreArgsDict: TypeAlias = Mapping[str, Any]
+class SecretStoreArgsDict(TypedDict):
+    """
+    An option to store secret value in secure place
+    """
+    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key vault id to store secret
+    """
+    key_vault_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key vault secret name to store secret, only valid when storing one secret
+    """
 
 @pulumi.input_type
 class SecretStoreArgs:
@@ -1582,22 +1529,19 @@ class SecretStoreArgs:
         pulumi.set(self, "key_vault_secret_name", value)
 
 
-if not MYPY:
-    class SelfHostedServerArgsDict(TypedDict):
-        """
-        The service properties when target service type is SelfHostedServer
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The target service type.
-        Expected value is 'SelfHostedServer'.
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint of service.
-        """
-elif False:
-    SelfHostedServerArgsDict: TypeAlias = Mapping[str, Any]
+class SelfHostedServerArgsDict(TypedDict):
+    """
+    The service properties when target service type is SelfHostedServer
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The target service type.
+    Expected value is 'SelfHostedServer'.
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint of service.
+    """
 
 @pulumi.input_type
 class SelfHostedServerArgs:
@@ -1640,42 +1584,39 @@ class SelfHostedServerArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class ServicePrincipalCertificateAuthInfoArgsDict(TypedDict):
-        """
-        The authentication info when authType is servicePrincipal certificate
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'servicePrincipalCertificate'.
-        """
-        certificate: pulumi.Input[_builtins.str]
-        """
-        ServicePrincipal certificate for servicePrincipal auth.
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        Application clientId for servicePrincipal auth.
-        """
-        principal_id: pulumi.Input[_builtins.str]
-        """
-        Principal Id for servicePrincipal auth.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional, this value specifies the Azure roles to be assigned. Automatically 
-        """
-elif False:
-    ServicePrincipalCertificateAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePrincipalCertificateAuthInfoArgsDict(TypedDict):
+    """
+    The authentication info when authType is servicePrincipal certificate
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'servicePrincipalCertificate'.
+    """
+    certificate: pulumi.Input[_builtins.str]
+    """
+    ServicePrincipal certificate for servicePrincipal auth.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    Application clientId for servicePrincipal auth.
+    """
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    Principal Id for servicePrincipal auth.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional, this value specifies the Azure roles to be assigned. Automatically 
+    """
 
 @pulumi.input_type
 class ServicePrincipalCertificateAuthInfoArgs:
@@ -1795,46 +1736,43 @@ class ServicePrincipalCertificateAuthInfoArgs:
         pulumi.set(self, "roles", value)
 
 
-if not MYPY:
-    class ServicePrincipalSecretAuthInfoArgsDict(TypedDict):
-        """
-        The authentication info when authType is servicePrincipal secret
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'servicePrincipalSecret'.
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        ServicePrincipal application clientId for servicePrincipal auth.
-        """
-        principal_id: pulumi.Input[_builtins.str]
-        """
-        Principal Id for servicePrincipal auth.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        Secret for servicePrincipal auth.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional, this value specifies the Azure roles to be assigned. Automatically 
-        """
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username created in the database which is mapped to a user in AAD.
-        """
-elif False:
-    ServicePrincipalSecretAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePrincipalSecretAuthInfoArgsDict(TypedDict):
+    """
+    The authentication info when authType is servicePrincipal secret
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'servicePrincipalSecret'.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    ServicePrincipal application clientId for servicePrincipal auth.
+    """
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    Principal Id for servicePrincipal auth.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    Secret for servicePrincipal auth.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional, this value specifies the Azure roles to be assigned. Automatically 
+    """
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username created in the database which is mapped to a user in AAD.
+    """
 
 @pulumi.input_type
 class ServicePrincipalSecretAuthInfoArgs:
@@ -1970,34 +1908,31 @@ class ServicePrincipalSecretAuthInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class SystemAssignedIdentityAuthInfoArgsDict(TypedDict):
-        """
-        The authentication info when authType is systemAssignedIdentity
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'systemAssignedIdentity'.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional, this value specifies the Azure role to be assigned
-        """
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username created in the database which is mapped to a user in AAD.
-        """
-elif False:
-    SystemAssignedIdentityAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SystemAssignedIdentityAuthInfoArgsDict(TypedDict):
+    """
+    The authentication info when authType is systemAssignedIdentity
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'systemAssignedIdentity'.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional, this value specifies the Azure role to be assigned
+    """
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username created in the database which is mapped to a user in AAD.
+    """
 
 @pulumi.input_type
 class SystemAssignedIdentityAuthInfoArgs:
@@ -2088,38 +2023,35 @@ class SystemAssignedIdentityAuthInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class UserAccountAuthInfoArgsDict(TypedDict):
-        """
-        The authentication info when authType is user account
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'userAccount'.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Principal Id for user account.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional, this value specifies the Azure roles to be assigned. Automatically 
-        """
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username created in the database which is mapped to a user in AAD.
-        """
-elif False:
-    UserAccountAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+class UserAccountAuthInfoArgsDict(TypedDict):
+    """
+    The authentication info when authType is user account
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'userAccount'.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Principal Id for user account.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional, this value specifies the Azure roles to be assigned. Automatically 
+    """
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username created in the database which is mapped to a user in AAD.
+    """
 
 @pulumi.input_type
 class UserAccountAuthInfoArgs:
@@ -2226,42 +2158,39 @@ class UserAccountAuthInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class UserAssignedIdentityAuthInfoArgsDict(TypedDict):
-        """
-        The authentication info when authType is userAssignedIdentity
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type.
-        Expected value is 'userAssignedIdentity'.
-        """
-        auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
-        """
-        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client Id for userAssignedIdentity.
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional, this value specifies the Azure role to be assigned
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subscription id for userAssignedIdentity.
-        """
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username created in the database which is mapped to a user in AAD.
-        """
-elif False:
-    UserAssignedIdentityAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedIdentityAuthInfoArgsDict(TypedDict):
+    """
+    The authentication info when authType is userAssignedIdentity
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type.
+    Expected value is 'userAssignedIdentity'.
+    """
+    auth_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthMode']]]
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client Id for userAssignedIdentity.
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional, this value specifies the Azure role to be assigned
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subscription id for userAssignedIdentity.
+    """
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username created in the database which is mapped to a user in AAD.
+    """
 
 @pulumi.input_type
 class UserAssignedIdentityAuthInfoArgs:
@@ -2384,21 +2313,18 @@ class UserAssignedIdentityAuthInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class VNetSolutionArgsDict(TypedDict):
-        """
-        The VNet solution for linker
-        """
-        delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
-        """
-        Indicates whether to clean up previous operation when Linker is updating or deleting
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'VNetSolutionType']]]
-        """
-        Type of VNet solution.
-        """
-elif False:
-    VNetSolutionArgsDict: TypeAlias = Mapping[str, Any]
+class VNetSolutionArgsDict(TypedDict):
+    """
+    The VNet solution for linker
+    """
+    delete_or_update_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'DeleteOrUpdateBehavior']]]
+    """
+    Indicates whether to clean up previous operation when Linker is updating or deleting
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'VNetSolutionType']]]
+    """
+    Type of VNet solution.
+    """
 
 @pulumi.input_type
 class VNetSolutionArgs:
@@ -2440,22 +2366,19 @@ class VNetSolutionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ValueSecretInfoArgsDict(TypedDict):
-        """
-        The secret info when type is rawValue. It's for scenarios that user input the secret.
-        """
-        secret_type: pulumi.Input[_builtins.str]
-        """
-        The secret type.
-        Expected value is 'rawValue'.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The actual value of the secret.
-        """
-elif False:
-    ValueSecretInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ValueSecretInfoArgsDict(TypedDict):
+    """
+    The secret info when type is rawValue. It's for scenarios that user input the secret.
+    """
+    secret_type: pulumi.Input[_builtins.str]
+    """
+    The secret type.
+    Expected value is 'rawValue'.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The actual value of the secret.
+    """
 
 @pulumi.input_type
 class ValueSecretInfoArgs:

@@ -164,36 +164,31 @@ __all__ = [
     'VirtualNetworkRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AADAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        """
-        This connection type covers the AAD auth for any applicable Azure service
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'AAD'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    AADAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AADAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    """
+    This connection type covers the AAD auth for any applicable Azure service
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'AAD'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AADAuthTypeConnectionPropertiesArgs:
@@ -348,32 +343,29 @@ class AADAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class AccessKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'AccessKey'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionAccessKeyArgsDict']]
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    AccessKeyAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AccessKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'AccessKey'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionAccessKeyArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AccessKeyAuthTypeConnectionPropertiesArgs:
@@ -539,38 +531,35 @@ class AccessKeyAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class AccountKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        """
-        This connection type covers the account key connection for Azure storage
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'AccountKey'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionAccountKeyArgsDict']]
-        """
-        Account key object for connection credential.
-        """
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    AccountKeyAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AccountKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    """
+    This connection type covers the account key connection for Azure storage
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'AccountKey'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionAccountKeyArgsDict']]
+    """
+    Account key object for connection credential.
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AccountKeyAuthTypeConnectionPropertiesArgs:
@@ -741,61 +730,58 @@ class AccountKeyAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class AccountPropertiesArgsDict(TypedDict):
-        """
-        Properties of Cognitive Services account.
-        """
-        allowed_fqdn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        aml_workspace: NotRequired[pulumi.Input['UserOwnedAmlWorkspaceArgsDict']]
-        """
-        The user owned AML workspace properties.
-        """
-        api_properties: NotRequired[pulumi.Input['ApiPropertiesArgsDict']]
-        """
-        The api properties for special APIs.
-        """
-        custom_sub_domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional subdomain name used for token-based authentication.
-        """
-        disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        dynamic_throttling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag to enable dynamic throttling.
-        """
-        encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
-        """
-        The encryption properties for this resource.
-        """
-        locations: NotRequired[pulumi.Input['MultiRegionSettingsArgsDict']]
-        """
-        The multiregion settings of Cognitive Services account.
-        """
-        migration_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource migration token.
-        """
-        network_acls: NotRequired[pulumi.Input['NetworkRuleSetArgsDict']]
-        """
-        A collection of rules governing the accessibility from specific network locations.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Whether or not public endpoint access is allowed for this account.
-        """
-        rai_monitor_config: NotRequired[pulumi.Input['RaiMonitorConfigArgsDict']]
-        """
-        Cognitive Services Rai Monitor Config.
-        """
-        restore: NotRequired[pulumi.Input[_builtins.bool]]
-        restrict_outbound_network_access: NotRequired[pulumi.Input[_builtins.bool]]
-        user_owned_storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgsDict']]]]
-        """
-        The storage accounts for this resource.
-        """
-elif False:
-    AccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AccountPropertiesArgsDict(TypedDict):
+    """
+    Properties of Cognitive Services account.
+    """
+    allowed_fqdn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aml_workspace: NotRequired[pulumi.Input['UserOwnedAmlWorkspaceArgsDict']]
+    """
+    The user owned AML workspace properties.
+    """
+    api_properties: NotRequired[pulumi.Input['ApiPropertiesArgsDict']]
+    """
+    The api properties for special APIs.
+    """
+    custom_sub_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional subdomain name used for token-based authentication.
+    """
+    disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_throttling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to enable dynamic throttling.
+    """
+    encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
+    """
+    The encryption properties for this resource.
+    """
+    locations: NotRequired[pulumi.Input['MultiRegionSettingsArgsDict']]
+    """
+    The multiregion settings of Cognitive Services account.
+    """
+    migration_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource migration token.
+    """
+    network_acls: NotRequired[pulumi.Input['NetworkRuleSetArgsDict']]
+    """
+    A collection of rules governing the accessibility from specific network locations.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Whether or not public endpoint access is allowed for this account.
+    """
+    rai_monitor_config: NotRequired[pulumi.Input['RaiMonitorConfigArgsDict']]
+    """
+    Cognitive Services Rai Monitor Config.
+    """
+    restore: NotRequired[pulumi.Input[_builtins.bool]]
+    restrict_outbound_network_access: NotRequired[pulumi.Input[_builtins.bool]]
+    user_owned_storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgsDict']]]]
+    """
+    The storage accounts for this resource.
+    """
 
 @pulumi.input_type
 class AccountPropertiesArgs:
@@ -1029,21 +1015,18 @@ class AccountPropertiesArgs:
         pulumi.set(self, "user_owned_storage", value)
 
 
-if not MYPY:
-    class AgentProtocolVersionArgsDict(TypedDict):
-        """
-        Type modeling the protocol and version used by an agent/exposed by a deployment.
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentProtocol']]]
-        """
-        The protocol used by the agent/exposed by a deployment.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the protocol.
-        """
-elif False:
-    AgentProtocolVersionArgsDict: TypeAlias = Mapping[str, Any]
+class AgentProtocolVersionArgsDict(TypedDict):
+    """
+    Type modeling the protocol and version used by an agent/exposed by a deployment.
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentProtocol']]]
+    """
+    The protocol used by the agent/exposed by a deployment.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the protocol.
+    """
 
 @pulumi.input_type
 class AgentProtocolVersionArgs:
@@ -1085,21 +1068,18 @@ class AgentProtocolVersionArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class AgentReferenceArgsDict(TypedDict):
-        """
-        Type modeling a reference to a version of an agent definition.
-        """
-        agent_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the agent's unique identifier within the organization (subscription).
-        """
-        agent_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the agent's name (unique within the project/app).
-        """
-elif False:
-    AgentReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class AgentReferenceArgsDict(TypedDict):
+    """
+    Type modeling a reference to a version of an agent definition.
+    """
+    agent_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the agent's unique identifier within the organization (subscription).
+    """
+    agent_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the agent's name (unique within the project/app).
+    """
 
 @pulumi.input_type
 class AgentReferenceArgs:
@@ -1141,49 +1121,46 @@ class AgentReferenceArgs:
         pulumi.set(self, "agent_name", value)
 
 
-if not MYPY:
-    class AgenticApplicationArgsDict(TypedDict):
-        """
-        Resource type representing an agentic application as a management construct.
-        """
-        agent_identity_blueprint: NotRequired[pulumi.Input['AssignedIdentityArgsDict']]
-        """
-        The EntraId Agentic Blueprint of the application.
-        """
-        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgsDict']]]]
-        """
-        The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
-        """
-        authorization_policy: NotRequired[pulumi.Input[Union['ChannelsBuiltInAuthorizationPolicyArgsDict', 'OrganizationSharedBuiltInAuthorizationPolicyArgsDict', 'RoleBasedBuiltInAuthorizationPolicyArgsDict']]]
-        """
-        Gets or sets the authorization policy associated with this agentic application instance.
-        """
-        base_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application's dedicated invocation endpoint.
-        """
-        default_instance_identity: NotRequired[pulumi.Input['AssignedIdentityArgsDict']]
-        """
-        The (default) agent instance identity of the application.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The asset description text.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of the application.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tag dictionary. Tags can be added, removed, and updated.
-        """
-        traffic_routing_policy: NotRequired[pulumi.Input['ApplicationTrafficRoutingPolicyArgsDict']]
-        """
-        Gets or sets the traffic routing policy for the application's deployments.
-        """
-elif False:
-    AgenticApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class AgenticApplicationArgsDict(TypedDict):
+    """
+    Resource type representing an agentic application as a management construct.
+    """
+    agent_identity_blueprint: NotRequired[pulumi.Input['AssignedIdentityArgsDict']]
+    """
+    The EntraId Agentic Blueprint of the application.
+    """
+    agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgsDict']]]]
+    """
+    The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+    """
+    authorization_policy: NotRequired[pulumi.Input[Union['ChannelsBuiltInAuthorizationPolicyArgsDict', 'OrganizationSharedBuiltInAuthorizationPolicyArgsDict', 'RoleBasedBuiltInAuthorizationPolicyArgsDict']]]
+    """
+    Gets or sets the authorization policy associated with this agentic application instance.
+    """
+    base_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application's dedicated invocation endpoint.
+    """
+    default_instance_identity: NotRequired[pulumi.Input['AssignedIdentityArgsDict']]
+    """
+    The (default) agent instance identity of the application.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The asset description text.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of the application.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tag dictionary. Tags can be added, removed, and updated.
+    """
+    traffic_routing_policy: NotRequired[pulumi.Input['ApplicationTrafficRoutingPolicyArgsDict']]
+    """
+    Gets or sets the traffic routing policy for the application's deployments.
+    """
 
 @pulumi.input_type
 class AgenticApplicationArgs:
@@ -1337,57 +1314,54 @@ class AgenticApplicationArgs:
         pulumi.set(self, "traffic_routing_policy", value)
 
 
-if not MYPY:
-    class ApiKeyAuthConnectionPropertiesArgsDict(TypedDict):
-        """
-        This connection type covers the generic ApiKey auth connection categories, for examples:
-        AzureOpenAI:
-            Category:= AzureOpenAI
-            AuthType:= ApiKey (as type discriminator)
-            Credentials:= {ApiKey} as .ApiKey
-            Target:= {ApiBase}
-                    
-        CognitiveService:
-            Category:= CognitiveService
-            AuthType:= ApiKey (as type discriminator)
-            Credentials:= {SubscriptionKey} as ApiKey
-            Target:= ServiceRegion={serviceRegion}
-                    
-        CognitiveSearch:
-            Category:= CognitiveSearch
-            AuthType:= ApiKey (as type discriminator)
-            Credentials:= {Key} as ApiKey
-            Target:= {Endpoint}
-                    
-        Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'ApiKey'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionApiKeyArgsDict']]
-        """
-        Api key object for connection credential.
-        """
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ApiKeyAuthConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiKeyAuthConnectionPropertiesArgsDict(TypedDict):
+    """
+    This connection type covers the generic ApiKey auth connection categories, for examples:
+    AzureOpenAI:
+        Category:= AzureOpenAI
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {ApiKey} as .ApiKey
+        Target:= {ApiBase}
+                
+    CognitiveService:
+        Category:= CognitiveService
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {SubscriptionKey} as ApiKey
+        Target:= ServiceRegion={serviceRegion}
+                
+    CognitiveSearch:
+        Category:= CognitiveSearch
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {Key} as ApiKey
+        Target:= {Endpoint}
+                
+    Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'ApiKey'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionApiKeyArgsDict']]
+    """
+    Api key object for connection credential.
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ApiKeyAuthConnectionPropertiesArgs:
@@ -1577,53 +1551,50 @@ class ApiKeyAuthConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class ApiPropertiesArgsDict(TypedDict):
-        """
-        The api properties for special APIs.
-        """
-        aad_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Metrics Advisor Only) The Azure AD Client Id (Application Id).
-        """
-        aad_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Metrics Advisor Only) The Azure AD Tenant Id.
-        """
-        event_hub_connection_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Personalization Only) The flag to enable statistics of Bing Search.
-        """
-        qna_azure_search_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
-        """
-        qna_azure_search_endpoint_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
-        """
-        qna_runtime_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (QnAMaker Only) The runtime endpoint of QnAMaker.
-        """
-        statistics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Bing Search Only) The flag to enable statistics of Bing Search.
-        """
-        storage_account_connection_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Personalization Only) The storage account connection string.
-        """
-        super_user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Metrics Advisor Only) The super user of Metrics Advisor.
-        """
-        website_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Metrics Advisor Only) The website name of Metrics Advisor.
-        """
-elif False:
-    ApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiPropertiesArgsDict(TypedDict):
+    """
+    The api properties for special APIs.
+    """
+    aad_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+    """
+    aad_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Metrics Advisor Only) The Azure AD Tenant Id.
+    """
+    event_hub_connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Personalization Only) The flag to enable statistics of Bing Search.
+    """
+    qna_azure_search_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+    """
+    qna_azure_search_endpoint_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
+    """
+    qna_runtime_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (QnAMaker Only) The runtime endpoint of QnAMaker.
+    """
+    statistics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Bing Search Only) The flag to enable statistics of Bing Search.
+    """
+    storage_account_connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Personalization Only) The storage account connection string.
+    """
+    super_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Metrics Advisor Only) The super user of Metrics Advisor.
+    """
+    website_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Metrics Advisor Only) The website name of Metrics Advisor.
+    """
 
 @pulumi.input_type
 class ApiPropertiesArgs:
@@ -1793,21 +1764,18 @@ class ApiPropertiesArgs:
         pulumi.set(self, "website_name", value)
 
 
-if not MYPY:
-    class ApplicationTrafficRoutingPolicyArgsDict(TypedDict):
-        """
-        Type representing an application traffic policy as a property of an agentic application.
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TrafficRoutingProtocol']]]
-        """
-        Methodology used to route traffic to the application's deployments.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficRoutingRuleArgsDict']]]]
-        """
-        Gets or sets the collection of traffic routing rules.
-        """
-elif False:
-    ApplicationTrafficRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationTrafficRoutingPolicyArgsDict(TypedDict):
+    """
+    Type representing an application traffic policy as a property of an agentic application.
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TrafficRoutingProtocol']]]
+    """
+    Methodology used to route traffic to the application's deployments.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficRoutingRuleArgsDict']]]]
+    """
+    Gets or sets the collection of traffic routing rules.
+    """
 
 @pulumi.input_type
 class ApplicationTrafficRoutingPolicyArgs:
@@ -1849,37 +1817,34 @@ class ApplicationTrafficRoutingPolicyArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class AssignedIdentityArgsDict(TypedDict):
-        """
-        Type representing an identity assignment
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        The client ID of the identity.
-        """
-        kind: pulumi.Input[Union[_builtins.str, 'IdentityKind']]
-        """
-        Specifies the kind of Entra identity described by this object.
-        """
-        principal_id: pulumi.Input[_builtins.str]
-        """
-        The principal ID of the identity.
-        """
-        tenant_id: pulumi.Input[_builtins.str]
-        """
-        The tenant ID of the identity.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'IdentityManagementType']]
-        """
-        Enumeration of identity types, from the perspective of management.
-        """
-        subject: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subject of this identity assignment.
-        """
-elif False:
-    AssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AssignedIdentityArgsDict(TypedDict):
+    """
+    Type representing an identity assignment
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID of the identity.
+    """
+    kind: pulumi.Input[Union[_builtins.str, 'IdentityKind']]
+    """
+    Specifies the kind of Entra identity described by this object.
+    """
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    The principal ID of the identity.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    The tenant ID of the identity.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'IdentityManagementType']]
+    """
+    Enumeration of identity types, from the perspective of management.
+    """
+    subject: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subject of this identity assignment.
+    """
 
 @pulumi.input_type
 class AssignedIdentityArgs:
@@ -1980,42 +1945,39 @@ class AssignedIdentityArgs:
         pulumi.set(self, "subject", value)
 
 
-if not MYPY:
-    class CapabilityHostArgsDict(TypedDict):
-        ai_services_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AI services connections.
-        """
-        capability_host_kind: NotRequired[pulumi.Input[Union[_builtins.str, 'CapabilityHostKind']]]
-        """
-        Kind of this capability host.
-        """
-        customer_subnet: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer subnet info to help set up this capability host.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The asset description text.
-        """
-        storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Storage connections.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tag dictionary. Tags can be added, removed, and updated.
-        """
-        thread_storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Thread storage connections.
-        """
-        vector_store_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of VectorStore connections.
-        """
-elif False:
-    CapabilityHostArgsDict: TypeAlias = Mapping[str, Any]
+class CapabilityHostArgsDict(TypedDict):
+    ai_services_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AI services connections.
+    """
+    capability_host_kind: NotRequired[pulumi.Input[Union[_builtins.str, 'CapabilityHostKind']]]
+    """
+    Kind of this capability host.
+    """
+    customer_subnet: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer subnet info to help set up this capability host.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The asset description text.
+    """
+    storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Storage connections.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tag dictionary. Tags can be added, removed, and updated.
+    """
+    thread_storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Thread storage connections.
+    """
+    vector_store_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of VectorStore connections.
+    """
 
 @pulumi.input_type
 class CapabilityHostArgs:
@@ -2154,18 +2116,15 @@ class CapabilityHostArgs:
         pulumi.set(self, "vector_store_connections", value)
 
 
-if not MYPY:
-    class ChannelsBuiltInAuthorizationPolicyArgsDict(TypedDict):
-        """
-        Represents a built-in authorization policy specific to Azure Bot Service/Channels authentication.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Authorization scheme type.
-        Expected value is 'Channels'.
-        """
-elif False:
-    ChannelsBuiltInAuthorizationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelsBuiltInAuthorizationPolicyArgsDict(TypedDict):
+    """
+    Represents a built-in authorization policy specific to Azure Bot Service/Channels authentication.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Authorization scheme type.
+    Expected value is 'Channels'.
+    """
 
 @pulumi.input_type
 class ChannelsBuiltInAuthorizationPolicyArgs:
@@ -2192,21 +2151,18 @@ class ChannelsBuiltInAuthorizationPolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CommitmentPeriodArgsDict(TypedDict):
-        """
-        Cognitive Services account commitment period.
-        """
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Commitment period commitment count.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Commitment period commitment tier.
-        """
-elif False:
-    CommitmentPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class CommitmentPeriodArgsDict(TypedDict):
+    """
+    Cognitive Services account commitment period.
+    """
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Commitment period commitment count.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Commitment period commitment tier.
+    """
 
 @pulumi.input_type
 class CommitmentPeriodArgs:
@@ -2248,37 +2204,34 @@ class CommitmentPeriodArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class CommitmentPlanPropertiesArgsDict(TypedDict):
-        """
-        Properties of Cognitive Services account commitment plan.
-        """
-        auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        AutoRenew commitment plan.
-        """
-        commitment_plan_guid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Commitment plan guid.
-        """
-        current: NotRequired[pulumi.Input['CommitmentPeriodArgsDict']]
-        """
-        Cognitive Services account commitment period.
-        """
-        hosting_model: NotRequired[pulumi.Input[Union[_builtins.str, 'HostingModel']]]
-        """
-        Account hosting model.
-        """
-        next: NotRequired[pulumi.Input['CommitmentPeriodArgsDict']]
-        """
-        Cognitive Services account commitment period.
-        """
-        plan_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Commitment plan type.
-        """
-elif False:
-    CommitmentPlanPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CommitmentPlanPropertiesArgsDict(TypedDict):
+    """
+    Properties of Cognitive Services account commitment plan.
+    """
+    auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    AutoRenew commitment plan.
+    """
+    commitment_plan_guid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Commitment plan guid.
+    """
+    current: NotRequired[pulumi.Input['CommitmentPeriodArgsDict']]
+    """
+    Cognitive Services account commitment period.
+    """
+    hosting_model: NotRequired[pulumi.Input[Union[_builtins.str, 'HostingModel']]]
+    """
+    Account hosting model.
+    """
+    next: NotRequired[pulumi.Input['CommitmentPeriodArgsDict']]
+    """
+    Cognitive Services account commitment period.
+    """
+    plan_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Commitment plan type.
+    """
 
 @pulumi.input_type
 class CommitmentPlanPropertiesArgs:
@@ -2384,12 +2337,9 @@ class CommitmentPlanPropertiesArgs:
         pulumi.set(self, "plan_type", value)
 
 
-if not MYPY:
-    class ConnectionAccessKeyArgsDict(TypedDict):
-        access_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        secret_access_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionAccessKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionAccessKeyArgsDict(TypedDict):
+    access_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    secret_access_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionAccessKeyArgs:
@@ -2420,14 +2370,11 @@ class ConnectionAccessKeyArgs:
         pulumi.set(self, "secret_access_key", value)
 
 
-if not MYPY:
-    class ConnectionAccountKeyArgsDict(TypedDict):
-        """
-        Account key object for connection credential.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionAccountKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionAccountKeyArgsDict(TypedDict):
+    """
+    Account key object for connection credential.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionAccountKeyArgs:
@@ -2449,14 +2396,11 @@ class ConnectionAccountKeyArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class ConnectionApiKeyArgsDict(TypedDict):
-        """
-        Api key object for connection credential.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionApiKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionApiKeyArgsDict(TypedDict):
+    """
+    Api key object for connection credential.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionApiKeyArgs:
@@ -2478,12 +2422,9 @@ class ConnectionApiKeyArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class ConnectionManagedIdentityArgsDict(TypedDict):
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionManagedIdentityArgsDict(TypedDict):
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionManagedIdentityArgs:
@@ -2514,42 +2455,39 @@ class ConnectionManagedIdentityArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class ConnectionOAuth2ArgsDict(TypedDict):
-        """
-        ClientId and ClientSecret are required. Other properties are optional
-        depending on each OAuth2 provider's implementation.
-        """
-        auth_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required by Concur connection category
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client id in the format of UUID
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        developer_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required by GoogleAdWords connection category
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
-        where user needs to get RefreshToken offline
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required by QuickBooks and Xero connection categories
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Concur, ServiceNow auth server AccessToken grant type is 'Password'
-        which requires UsernamePassword
-        """
-elif False:
-    ConnectionOAuth2ArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionOAuth2ArgsDict(TypedDict):
+    """
+    ClientId and ClientSecret are required. Other properties are optional
+    depending on each OAuth2 provider's implementation.
+    """
+    auth_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required by Concur connection category
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client id in the format of UUID
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    developer_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required by GoogleAdWords connection category
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
+    where user needs to get RefreshToken offline
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required by QuickBooks and Xero connection categories
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Concur, ServiceNow auth server AccessToken grant type is 'Password'
+    which requires UsernamePassword
+    """
 
 @pulumi.input_type
 class ConnectionOAuth2Args:
@@ -2684,11 +2622,8 @@ class ConnectionOAuth2Args:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectionPersonalAccessTokenArgsDict(TypedDict):
-        pat: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionPersonalAccessTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPersonalAccessTokenArgsDict(TypedDict):
+    pat: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionPersonalAccessTokenArgs:
@@ -2707,13 +2642,10 @@ class ConnectionPersonalAccessTokenArgs:
         pulumi.set(self, "pat", value)
 
 
-if not MYPY:
-    class ConnectionServicePrincipalArgsDict(TypedDict):
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionServicePrincipalArgsDict(TypedDict):
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionServicePrincipalArgs:
@@ -2756,11 +2688,8 @@ class ConnectionServicePrincipalArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ConnectionSharedAccessSignatureArgsDict(TypedDict):
-        sas: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionSharedAccessSignatureArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionSharedAccessSignatureArgsDict(TypedDict):
+    sas: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionSharedAccessSignatureArgs:
@@ -2779,16 +2708,13 @@ class ConnectionSharedAccessSignatureArgs:
         pulumi.set(self, "sas", value)
 
 
-if not MYPY:
-    class ConnectionUsernamePasswordArgsDict(TypedDict):
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        security_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionUsernamePasswordArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionUsernamePasswordArgsDict(TypedDict):
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    security_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionUsernamePasswordArgs:
@@ -2837,25 +2763,22 @@ class ConnectionUsernamePasswordArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class CustomBlocklistConfigArgsDict(TypedDict):
-        """
-        Gets or sets the source to which filter applies.
-        """
-        blocking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If blocking would occur.
-        """
-        blocklist_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of ContentFilter.
-        """
-        source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
-        """
-        Content source to apply the Content Filters.
-        """
-elif False:
-    CustomBlocklistConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CustomBlocklistConfigArgsDict(TypedDict):
+    """
+    Gets or sets the source to which filter applies.
+    """
+    blocking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If blocking would occur.
+    """
+    blocklist_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of ContentFilter.
+    """
+    source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
+    """
+    Content source to apply the Content Filters.
+    """
 
 @pulumi.input_type
 class CustomBlocklistConfigArgs:
@@ -2913,42 +2836,39 @@ class CustomBlocklistConfigArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class CustomKeysConnectionPropertiesArgsDict(TypedDict):
-        """
-        Category:= CustomKeys
-        AuthType:= CustomKeys (as type discriminator)
-        Credentials:= {CustomKeys} as CustomKeys
-        Target:= {any value}
-        Use Metadata property bag for ApiVersion and other metadata fields
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'CustomKeys'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['CustomKeysArgsDict']]
-        """
-        Custom Keys credential object
-        """
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    CustomKeysConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomKeysConnectionPropertiesArgsDict(TypedDict):
+    """
+    Category:= CustomKeys
+    AuthType:= CustomKeys (as type discriminator)
+    Credentials:= {CustomKeys} as CustomKeys
+    Target:= {any value}
+    Use Metadata property bag for ApiVersion and other metadata fields
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'CustomKeys'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['CustomKeysArgsDict']]
+    """
+    Custom Keys credential object
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class CustomKeysConnectionPropertiesArgs:
@@ -3123,14 +3043,11 @@ class CustomKeysConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class CustomKeysArgsDict(TypedDict):
-        """
-        Custom Keys credential object
-        """
-        keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-elif False:
-    CustomKeysArgsDict: TypeAlias = Mapping[str, Any]
+class CustomKeysArgsDict(TypedDict):
+    """
+    Custom Keys credential object
+    """
+    keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class CustomKeysArgs:
@@ -3152,25 +3069,22 @@ class CustomKeysArgs:
         pulumi.set(self, "keys", value)
 
 
-if not MYPY:
-    class CustomTopicConfigArgsDict(TypedDict):
-        """
-        Gets or sets the source to which filter applies.
-        """
-        blocking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If blocking would occur.
-        """
-        source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
-        """
-        Content source to apply the Content Filters.
-        """
-        topic_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of RAI topic.
-        """
-elif False:
-    CustomTopicConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CustomTopicConfigArgsDict(TypedDict):
+    """
+    Gets or sets the source to which filter applies.
+    """
+    blocking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If blocking would occur.
+    """
+    source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
+    """
+    Content source to apply the Content Filters.
+    """
+    topic_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of RAI topic.
+    """
 
 @pulumi.input_type
 class CustomTopicConfigArgs:
@@ -3228,21 +3142,18 @@ class CustomTopicConfigArgs:
         pulumi.set(self, "topic_name", value)
 
 
-if not MYPY:
-    class DeploymentCapacitySettingsArgsDict(TypedDict):
-        """
-        Internal use only.
-        """
-        designated_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The designated capacity.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority of this capacity setting.
-        """
-elif False:
-    DeploymentCapacitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentCapacitySettingsArgsDict(TypedDict):
+    """
+    Internal use only.
+    """
+    designated_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The designated capacity.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority of this capacity setting.
+    """
 
 @pulumi.input_type
 class DeploymentCapacitySettingsArgs:
@@ -3284,37 +3195,34 @@ class DeploymentCapacitySettingsArgs:
         pulumi.set(self, "priority", value)
 
 
-if not MYPY:
-    class DeploymentModelArgsDict(TypedDict):
-        """
-        Properties of Cognitive Services account deployment model.
-        """
-        format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Deployment model format.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Deployment model name.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Deployment model publisher.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. Deployment model source ARM resource ID.
-        """
-        source_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
-        """
-elif False:
-    DeploymentModelArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentModelArgsDict(TypedDict):
+    """
+    Properties of Cognitive Services account deployment model.
+    """
+    format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Deployment model format.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Deployment model name.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Deployment model publisher.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. Deployment model source ARM resource ID.
+    """
+    source_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+    """
 
 @pulumi.input_type
 class DeploymentModelArgs:
@@ -3420,41 +3328,38 @@ class DeploymentModelArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DeploymentPropertiesArgsDict(TypedDict):
-        """
-        Properties of Cognitive Services account deployment.
-        """
-        capacity_settings: NotRequired[pulumi.Input['DeploymentCapacitySettingsArgsDict']]
-        """
-        Internal use only.
-        """
-        current_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The current capacity.
-        """
-        model: NotRequired[pulumi.Input['DeploymentModelArgsDict']]
-        """
-        Properties of Cognitive Services account deployment model.
-        """
-        parent_deployment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of parent deployment.
-        """
-        rai_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of RAI policy.
-        """
-        scale_settings: NotRequired[pulumi.Input['DeploymentScaleSettingsArgsDict']]
-        """
-        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
-        """
-        version_upgrade_option: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentModelVersionUpgradeOption']]]
-        """
-        Deployment model version upgrade option.
-        """
-elif False:
-    DeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentPropertiesArgsDict(TypedDict):
+    """
+    Properties of Cognitive Services account deployment.
+    """
+    capacity_settings: NotRequired[pulumi.Input['DeploymentCapacitySettingsArgsDict']]
+    """
+    Internal use only.
+    """
+    current_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The current capacity.
+    """
+    model: NotRequired[pulumi.Input['DeploymentModelArgsDict']]
+    """
+    Properties of Cognitive Services account deployment model.
+    """
+    parent_deployment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of parent deployment.
+    """
+    rai_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of RAI policy.
+    """
+    scale_settings: NotRequired[pulumi.Input['DeploymentScaleSettingsArgsDict']]
+    """
+    Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
+    """
+    version_upgrade_option: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentModelVersionUpgradeOption']]]
+    """
+    Deployment model version upgrade option.
+    """
 
 @pulumi.input_type
 class DeploymentPropertiesArgs:
@@ -3576,21 +3481,18 @@ class DeploymentPropertiesArgs:
         pulumi.set(self, "version_upgrade_option", value)
 
 
-if not MYPY:
-    class DeploymentScaleSettingsArgsDict(TypedDict):
-        """
-        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Deployment capacity.
-        """
-        scale_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentScaleType']]]
-        """
-        Deployment scale type.
-        """
-elif False:
-    DeploymentScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentScaleSettingsArgsDict(TypedDict):
+    """
+    Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Deployment capacity.
+    """
+    scale_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentScaleType']]]
+    """
+    Deployment scale type.
+    """
 
 @pulumi.input_type
 class DeploymentScaleSettingsArgs:
@@ -3632,25 +3534,22 @@ class DeploymentScaleSettingsArgs:
         pulumi.set(self, "scale_type", value)
 
 
-if not MYPY:
-    class EncryptionScopePropertiesArgsDict(TypedDict):
-        """
-        Properties to EncryptionScope
-        """
-        key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
-        """
-        Enumerates the possible value of keySource for Encryption
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Properties of KeyVault
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionScopeState']]]
-        """
-        The encryptionScope state.
-        """
-elif False:
-    EncryptionScopePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionScopePropertiesArgsDict(TypedDict):
+    """
+    Properties to EncryptionScope
+    """
+    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
+    """
+    Enumerates the possible value of keySource for Encryption
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Properties of KeyVault
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionScopeState']]]
+    """
+    The encryptionScope state.
+    """
 
 @pulumi.input_type
 class EncryptionScopePropertiesArgs:
@@ -3710,21 +3609,18 @@ class EncryptionScopePropertiesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class EncryptionArgsDict(TypedDict):
-        """
-        Properties to configure Encryption
-        """
-        key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
-        """
-        Enumerates the possible value of keySource for Encryption
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Properties of KeyVault
-        """
-elif False:
-    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionArgsDict(TypedDict):
+    """
+    Properties to configure Encryption
+    """
+    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
+    """
+    Enumerates the possible value of keySource for Encryption
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Properties of KeyVault
+    """
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -3768,27 +3664,24 @@ class EncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class FqdnOutboundRuleArgsDict(TypedDict):
-        """
-        FQDN Outbound Rule for the managed network of a cognitive services account.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of a managed network Outbound Rule of a cognitive services account.
-        Expected value is 'FQDN'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]
-        """
-        Category of a managed network Outbound Rule of a cognitive services account.
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]
-        """
-        Type of a managed network Outbound Rule of a cognitive services account.
-        """
-elif False:
-    FqdnOutboundRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FqdnOutboundRuleArgsDict(TypedDict):
+    """
+    FQDN Outbound Rule for the managed network of a cognitive services account.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    Expected value is 'FQDN'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]
+    """
+    Category of a managed network Outbound Rule of a cognitive services account.
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    """
 
 @pulumi.input_type
 class FqdnOutboundRuleArgs:
@@ -3859,54 +3752,51 @@ class FqdnOutboundRuleArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class HostedAgentDeploymentArgsDict(TypedDict):
-        """
-        Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
-        """
-        deployment_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
-        Expected value is 'Hosted'.
-        """
-        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgsDict']]]]
-        """
-        Returns a flat list of agent:version deployed in this deployment.
-        """
-        deployment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the unique identifier of the deployment.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The asset description text.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the display name of the deployment.
-        """
-        max_replicas: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the maximum number of replicas for this hosted deployment.
-        """
-        min_replicas: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the minimum number of replicas for this hosted deployment.
-        """
-        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgsDict']]]]
-        """
-        Gets or sets the supported protocol types and versions exposed by this deployment.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentDeploymentState']]]
-        """
-        Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tag dictionary. Tags can be added, removed, and updated.
-        """
-elif False:
-    HostedAgentDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+class HostedAgentDeploymentArgsDict(TypedDict):
+    """
+    Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
+    """
+    deployment_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+    Expected value is 'Hosted'.
+    """
+    agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgsDict']]]]
+    """
+    Returns a flat list of agent:version deployed in this deployment.
+    """
+    deployment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the unique identifier of the deployment.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The asset description text.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the display name of the deployment.
+    """
+    max_replicas: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the maximum number of replicas for this hosted deployment.
+    """
+    min_replicas: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the minimum number of replicas for this hosted deployment.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgsDict']]]]
+    """
+    Gets or sets the supported protocol types and versions exposed by this deployment.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentDeploymentState']]]
+    """
+    Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tag dictionary. Tags can be added, removed, and updated.
+    """
 
 @pulumi.input_type
 class HostedAgentDeploymentArgs:
@@ -4077,21 +3967,18 @@ class HostedAgentDeploymentArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -4133,17 +4020,14 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class IpRuleArgsDict(TypedDict):
-        """
-        A rule governing the accessibility from a specific ip address or ip range.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
-        """
-elif False:
-    IpRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpRuleArgsDict(TypedDict):
+    """
+    A rule governing the accessibility from a specific ip address or ip range.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+    """
 
 @pulumi.input_type
 class IpRuleArgs:
@@ -4168,26 +4052,23 @@ class IpRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties to configure keyVault Properties
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Key from KeyVault
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of KeyVault
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the Key from KeyVault
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties to configure keyVault Properties
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Key from KeyVault
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of KeyVault
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the Key from KeyVault
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -4257,46 +4138,43 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
-if not MYPY:
-    class ManagedAgentDeploymentArgsDict(TypedDict):
-        """
-        Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
-        """
-        deployment_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
-        Expected value is 'Managed'.
-        """
-        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgsDict']]]]
-        """
-        Returns a flat list of agent:version deployed in this deployment.
-        """
-        deployment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the unique identifier of the deployment.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The asset description text.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the display name of the deployment.
-        """
-        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgsDict']]]]
-        """
-        Gets or sets the supported protocol types and versions exposed by this deployment.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentDeploymentState']]]
-        """
-        Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tag dictionary. Tags can be added, removed, and updated.
-        """
-elif False:
-    ManagedAgentDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedAgentDeploymentArgsDict(TypedDict):
+    """
+    Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
+    """
+    deployment_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+    Expected value is 'Managed'.
+    """
+    agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgsDict']]]]
+    """
+    Returns a flat list of agent:version deployed in this deployment.
+    """
+    deployment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the unique identifier of the deployment.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The asset description text.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the display name of the deployment.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgsDict']]]]
+    """
+    Gets or sets the supported protocol types and versions exposed by this deployment.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentDeploymentState']]]
+    """
+    Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tag dictionary. Tags can be added, removed, and updated.
+    """
 
 @pulumi.input_type
 class ManagedAgentDeploymentArgs:
@@ -4435,32 +4313,29 @@ class ManagedAgentDeploymentArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class ManagedIdentityAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'ManagedIdentity'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionManagedIdentityArgsDict']]
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ManagedIdentityAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'ManagedIdentity'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionManagedIdentityArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ManagedIdentityAuthTypeConnectionPropertiesArgs:
@@ -4626,18 +4501,15 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class MultiRegionSettingsArgsDict(TypedDict):
-        """
-        The multiregion settings Cognitive Services account.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegionSettingArgsDict']]]]
-        routing_method: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingMethods']]]
-        """
-        Multiregion routing methods.
-        """
-elif False:
-    MultiRegionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class MultiRegionSettingsArgsDict(TypedDict):
+    """
+    The multiregion settings Cognitive Services account.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegionSettingArgsDict']]]]
+    routing_method: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingMethods']]]
+    """
+    Multiregion routing methods.
+    """
 
 @pulumi.input_type
 class MultiRegionSettingsArgs:
@@ -4675,29 +4547,26 @@ class MultiRegionSettingsArgs:
         pulumi.set(self, "routing_method", value)
 
 
-if not MYPY:
-    class NetworkRuleSetArgsDict(TypedDict):
-        """
-        A set of rules governing the network accessibility.
-        """
-        bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'ByPassSelection']]]
-        """
-        Setting for trusted services.
-        """
-        default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]
-        """
-        The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        """
-        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
-        """
-        The list of IP address rules.
-        """
-        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
-        """
-        The list of virtual network rules.
-        """
-elif False:
-    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkRuleSetArgsDict(TypedDict):
+    """
+    A set of rules governing the network accessibility.
+    """
+    bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'ByPassSelection']]]
+    """
+    Setting for trusted services.
+    """
+    default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleAction']]]
+    """
+    The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+    """
+    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
+    """
+    The list of IP address rules.
+    """
+    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+    """
+    The list of virtual network rules.
+    """
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -4771,31 +4640,28 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
-if not MYPY:
-    class NoneAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'None'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    NoneAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NoneAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'None'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class NoneAuthTypeConnectionPropertiesArgs:
@@ -4949,36 +4815,33 @@ class NoneAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class OAuth2AuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'OAuth2'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionOAuth2ArgsDict']]
-        """
-        ClientId and ClientSecret are required. Other properties are optional
-        depending on each OAuth2 provider's implementation.
-        """
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    OAuth2AuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OAuth2AuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'OAuth2'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionOAuth2ArgsDict']]
+    """
+    ClientId and ClientSecret are required. Other properties are optional
+    depending on each OAuth2 provider's implementation.
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class OAuth2AuthTypeConnectionPropertiesArgs:
@@ -5150,18 +5013,15 @@ class OAuth2AuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class OrganizationSharedBuiltInAuthorizationPolicyArgsDict(TypedDict):
-        """
-        Built-in authorization policy scoped to organization/tenant.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Authorization scheme type.
-        Expected value is 'OrganizationScope'.
-        """
-elif False:
-    OrganizationSharedBuiltInAuthorizationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationSharedBuiltInAuthorizationPolicyArgsDict(TypedDict):
+    """
+    Built-in authorization policy scoped to organization/tenant.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Authorization scheme type.
+    Expected value is 'OrganizationScope'.
+    """
 
 @pulumi.input_type
 class OrganizationSharedBuiltInAuthorizationPolicyArgs:
@@ -5188,32 +5048,29 @@ class OrganizationSharedBuiltInAuthorizationPolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PATAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'PAT'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionPersonalAccessTokenArgsDict']]
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PATAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PATAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'PAT'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionPersonalAccessTokenArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PATAuthTypeConnectionPropertiesArgs:
@@ -5379,21 +5236,18 @@ class PATAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        Properties of the PrivateEndpointConnectProperties.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The private link resource group ids.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    Properties of the PrivateEndpointConnectProperties.
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The private link resource group ids.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -5434,25 +5288,22 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "group_ids", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -5510,26 +5361,23 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ProjectCapabilityHostArgsDict(TypedDict):
-        ai_services_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AI services connections.
-        """
-        storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of connection names from those available in the account or project to be used as a storage resource.
-        """
-        thread_storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of connection names from those available in the account or project to be used for Thread storage.
-        """
-        vector_store_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
-        """
-elif False:
-    ProjectCapabilityHostArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectCapabilityHostArgsDict(TypedDict):
+    ai_services_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AI services connections.
+    """
+    storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of connection names from those available in the account or project to be used as a storage resource.
+    """
+    thread_storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of connection names from those available in the account or project to be used for Thread storage.
+    """
+    vector_store_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+    """
 
 @pulumi.input_type
 class ProjectCapabilityHostArgs:
@@ -5602,21 +5450,18 @@ class ProjectCapabilityHostArgs:
         pulumi.set(self, "vector_store_connections", value)
 
 
-if not MYPY:
-    class ProjectPropertiesArgsDict(TypedDict):
-        """
-        Properties of Cognitive Services Project'.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the Cognitive Services Project.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of the Cognitive Services Project.
-        """
-elif False:
-    ProjectPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectPropertiesArgsDict(TypedDict):
+    """
+    Properties of Cognitive Services Project'.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the Cognitive Services Project.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of the Cognitive Services Project.
+    """
 
 @pulumi.input_type
 class ProjectPropertiesArgs:
@@ -5658,21 +5503,18 @@ class ProjectPropertiesArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class RaiBlocklistItemPropertiesArgsDict(TypedDict):
-        """
-        RAI Custom Blocklist Item properties.
-        """
-        is_regex: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the pattern is a regex pattern.
-        """
-        pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Pattern to match against.
-        """
-elif False:
-    RaiBlocklistItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RaiBlocklistItemPropertiesArgsDict(TypedDict):
+    """
+    RAI Custom Blocklist Item properties.
+    """
+    is_regex: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the pattern is a regex pattern.
+    """
+    pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Pattern to match against.
+    """
 
 @pulumi.input_type
 class RaiBlocklistItemPropertiesArgs:
@@ -5714,17 +5556,14 @@ class RaiBlocklistItemPropertiesArgs:
         pulumi.set(self, "pattern", value)
 
 
-if not MYPY:
-    class RaiBlocklistPropertiesArgsDict(TypedDict):
-        """
-        RAI Custom Blocklist properties.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the block list.
-        """
-elif False:
-    RaiBlocklistPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RaiBlocklistPropertiesArgsDict(TypedDict):
+    """
+    RAI Custom Blocklist properties.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the block list.
+    """
 
 @pulumi.input_type
 class RaiBlocklistPropertiesArgs:
@@ -5750,41 +5589,38 @@ class RaiBlocklistPropertiesArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class RaiExternalSafetyProviderSchemaPropertiesArgsDict(TypedDict):
-        """
-        RAI External SafetyProvider schema properties.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Key Vault URI that contains the api key for safety provider urls.
-        """
-        managed_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed identity to access the Key Vault.
-        """
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Safety provider mode sync/async.
-        """
-        provider_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the safety provider.
-        """
-        provider_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the safety provider.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the secret in Key Vault that contains the api key to access the webhook.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Webhook URL for the safety provider.
-        """
-elif False:
-    RaiExternalSafetyProviderSchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RaiExternalSafetyProviderSchemaPropertiesArgsDict(TypedDict):
+    """
+    RAI External SafetyProvider schema properties.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Key Vault URI that contains the api key for safety provider urls.
+    """
+    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed identity to access the Key Vault.
+    """
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Safety provider mode sync/async.
+    """
+    provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the safety provider.
+    """
+    provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the safety provider.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the secret in Key Vault that contains the api key to access the webhook.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Webhook URL for the safety provider.
+    """
 
 @pulumi.input_type
 class RaiExternalSafetyProviderSchemaPropertiesArgs:
@@ -5906,21 +5742,18 @@ class RaiExternalSafetyProviderSchemaPropertiesArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class RaiMonitorConfigArgsDict(TypedDict):
-        """
-        Cognitive Services Rai Monitor Config.
-        """
-        adx_storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage resource Id.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity client Id to access the storage.
-        """
-elif False:
-    RaiMonitorConfigArgsDict: TypeAlias = Mapping[str, Any]
+class RaiMonitorConfigArgsDict(TypedDict):
+    """
+    Cognitive Services Rai Monitor Config.
+    """
+    adx_storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage resource Id.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity client Id to access the storage.
+    """
 
 @pulumi.input_type
 class RaiMonitorConfigArgs:
@@ -5962,37 +5795,34 @@ class RaiMonitorConfigArgs:
         pulumi.set(self, "identity_client_id", value)
 
 
-if not MYPY:
-    class RaiPolicyContentFilterArgsDict(TypedDict):
-        """
-        Azure OpenAI Content Filter.
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiActionType']]]
-        """
-        The action types to apply to the content filters
-        """
-        blocking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If blocking would occur.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the ContentFilter is enabled.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of ContentFilter.
-        """
-        severity_threshold: NotRequired[pulumi.Input[Union[_builtins.str, 'ContentLevel']]]
-        """
-        Level at which content is filtered.
-        """
-        source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
-        """
-        Content source to apply the Content Filters.
-        """
-elif False:
-    RaiPolicyContentFilterArgsDict: TypeAlias = Mapping[str, Any]
+class RaiPolicyContentFilterArgsDict(TypedDict):
+    """
+    Azure OpenAI Content Filter.
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiActionType']]]
+    """
+    The action types to apply to the content filters
+    """
+    blocking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If blocking would occur.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the ContentFilter is enabled.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of ContentFilter.
+    """
+    severity_threshold: NotRequired[pulumi.Input[Union[_builtins.str, 'ContentLevel']]]
+    """
+    Level at which content is filtered.
+    """
+    source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
+    """
+    Content source to apply the Content Filters.
+    """
 
 @pulumi.input_type
 class RaiPolicyContentFilterArgs:
@@ -6098,37 +5928,34 @@ class RaiPolicyContentFilterArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class RaiPolicyPropertiesArgsDict(TypedDict):
-        """
-        Azure OpenAI Content Filters properties.
-        """
-        base_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of Rai policy.
-        """
-        content_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgsDict']]]]
-        """
-        The list of Content Filters.
-        """
-        custom_blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgsDict']]]]
-        """
-        The list of custom Blocklist.
-        """
-        custom_topics: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgsDict']]]]
-        """
-        The list of custom rai topics.
-        """
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyMode']]]
-        """
-        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
-        """
-        safety_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgsDict']]]]
-        """
-        The list of Safety Providers.
-        """
-elif False:
-    RaiPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RaiPolicyPropertiesArgsDict(TypedDict):
+    """
+    Azure OpenAI Content Filters properties.
+    """
+    base_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of Rai policy.
+    """
+    content_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgsDict']]]]
+    """
+    The list of Content Filters.
+    """
+    custom_blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgsDict']]]]
+    """
+    The list of custom Blocklist.
+    """
+    custom_topics: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgsDict']]]]
+    """
+    The list of custom rai topics.
+    """
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyMode']]]
+    """
+    Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
+    """
+    safety_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgsDict']]]]
+    """
+    The list of Safety Providers.
+    """
 
 @pulumi.input_type
 class RaiPolicyPropertiesArgs:
@@ -6234,17 +6061,14 @@ class RaiPolicyPropertiesArgs:
         pulumi.set(self, "safety_providers", value)
 
 
-if not MYPY:
-    class RaiToolLabelPropertiesAccountScopeArgsDict(TypedDict):
-        """
-        Account-level tool label definition.
-        """
-        label_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Dictionary of label key-value pairs for the account scope.
-        """
-elif False:
-    RaiToolLabelPropertiesAccountScopeArgsDict: TypeAlias = Mapping[str, Any]
+class RaiToolLabelPropertiesAccountScopeArgsDict(TypedDict):
+    """
+    Account-level tool label definition.
+    """
+    label_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Dictionary of label key-value pairs for the account scope.
+    """
 
 @pulumi.input_type
 class RaiToolLabelPropertiesAccountScopeArgs:
@@ -6270,18 +6094,15 @@ class RaiToolLabelPropertiesAccountScopeArgs:
         pulumi.set(self, "label_values", value)
 
 
-if not MYPY:
-    class RaiToolLabelPropertiesProjectScopesArgsDict(TypedDict):
-        label_values: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Dictionary of label key-value pairs for the project scope.
-        """
-        project: pulumi.Input[_builtins.str]
-        """
-        Project name to which this scope applies.
-        """
-elif False:
-    RaiToolLabelPropertiesProjectScopesArgsDict: TypeAlias = Mapping[str, Any]
+class RaiToolLabelPropertiesProjectScopesArgsDict(TypedDict):
+    label_values: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Dictionary of label key-value pairs for the project scope.
+    """
+    project: pulumi.Input[_builtins.str]
+    """
+    Project name to which this scope applies.
+    """
 
 @pulumi.input_type
 class RaiToolLabelPropertiesProjectScopesArgs:
@@ -6320,25 +6141,22 @@ class RaiToolLabelPropertiesProjectScopesArgs:
         pulumi.set(self, "project", value)
 
 
-if not MYPY:
-    class RaiToolLabelPropertiesArgsDict(TypedDict):
-        """
-        RAI Tool Label properties.
-        """
-        tool_connection_name: pulumi.Input[_builtins.str]
-        """
-        The unique tool connection name, e.g., 'Web_Search'.
-        """
-        account_scope: NotRequired[pulumi.Input['RaiToolLabelPropertiesAccountScopeArgsDict']]
-        """
-        Account-level tool label definition.
-        """
-        project_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgsDict']]]]
-        """
-        List of project-level tool label definitions.
-        """
-elif False:
-    RaiToolLabelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RaiToolLabelPropertiesArgsDict(TypedDict):
+    """
+    RAI Tool Label properties.
+    """
+    tool_connection_name: pulumi.Input[_builtins.str]
+    """
+    The unique tool connection name, e.g., 'Web_Search'.
+    """
+    account_scope: NotRequired[pulumi.Input['RaiToolLabelPropertiesAccountScopeArgsDict']]
+    """
+    Account-level tool label definition.
+    """
+    project_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgsDict']]]]
+    """
+    List of project-level tool label definitions.
+    """
 
 @pulumi.input_type
 class RaiToolLabelPropertiesArgs:
@@ -6395,45 +6213,42 @@ class RaiToolLabelPropertiesArgs:
         pulumi.set(self, "project_scopes", value)
 
 
-if not MYPY:
-    class RaiTopicPropertiesArgsDict(TypedDict):
-        """
-        RAI Custom Topic properties.
-        """
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Creation time of the custom topic.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the custom topic.
-        """
-        failed_reason: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Failed reason if the status is Failed.
-        """
-        last_modified_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last modified time of the custom topic.
-        """
-        sample_blob_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sample blob url for the custom topic.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the custom topic.
-        """
-        topic_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the custom topic.
-        """
-        topic_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the custom topic.
-        """
-elif False:
-    RaiTopicPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RaiTopicPropertiesArgsDict(TypedDict):
+    """
+    RAI Custom Topic properties.
+    """
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Creation time of the custom topic.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the custom topic.
+    """
+    failed_reason: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Failed reason if the status is Failed.
+    """
+    last_modified_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last modified time of the custom topic.
+    """
+    sample_blob_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sample blob url for the custom topic.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the custom topic.
+    """
+    topic_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the custom topic.
+    """
+    topic_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the custom topic.
+    """
 
 @pulumi.input_type
 class RaiTopicPropertiesArgs:
@@ -6571,25 +6386,22 @@ class RaiTopicPropertiesArgs:
         pulumi.set(self, "topic_name", value)
 
 
-if not MYPY:
-    class RegionSettingArgsDict(TypedDict):
-        """
-        The call rate limit Cognitive Services account.
-        """
-        customsubdomain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maps the region to the regional custom subdomain.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the region.
-        """
-        value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        A value for priority or weighted routing methods.
-        """
-elif False:
-    RegionSettingArgsDict: TypeAlias = Mapping[str, Any]
+class RegionSettingArgsDict(TypedDict):
+    """
+    The call rate limit Cognitive Services account.
+    """
+    customsubdomain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maps the region to the regional custom subdomain.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the region.
+    """
+    value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    A value for priority or weighted routing methods.
+    """
 
 @pulumi.input_type
 class RegionSettingArgs:
@@ -6647,18 +6459,15 @@ class RegionSettingArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RoleBasedBuiltInAuthorizationPolicyArgsDict(TypedDict):
-        """
-        Built-in role-based authorization policy.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Authorization scheme type.
-        Expected value is 'Default'.
-        """
-elif False:
-    RoleBasedBuiltInAuthorizationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RoleBasedBuiltInAuthorizationPolicyArgsDict(TypedDict):
+    """
+    Built-in role-based authorization policy.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Authorization scheme type.
+    Expected value is 'Default'.
+    """
 
 @pulumi.input_type
 class RoleBasedBuiltInAuthorizationPolicyArgs:
@@ -6685,32 +6494,29 @@ class RoleBasedBuiltInAuthorizationPolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SASAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'SAS'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionSharedAccessSignatureArgsDict']]
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    SASAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SASAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'SAS'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionSharedAccessSignatureArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class SASAuthTypeConnectionPropertiesArgs:
@@ -6876,25 +6682,22 @@ class SASAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class SafetyProviderConfigArgsDict(TypedDict):
-        """
-        Gets or sets the source to which safety providers applies.
-        """
-        blocking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If blocking would occur.
-        """
-        safety_provider_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of RAI Safety Provider.
-        """
-        source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
-        """
-        Content source to apply the Content Filters.
-        """
-elif False:
-    SafetyProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SafetyProviderConfigArgsDict(TypedDict):
+    """
+    Gets or sets the source to which safety providers applies.
+    """
+    blocking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If blocking would occur.
+    """
+    safety_provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of RAI Safety Provider.
+    """
+    source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
+    """
+    Content source to apply the Content Filters.
+    """
 
 @pulumi.input_type
 class SafetyProviderConfigArgs:
@@ -6952,32 +6755,29 @@ class SafetyProviderConfigArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class ServicePrincipalAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'ServicePrincipal'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionServicePrincipalArgsDict']]
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ServicePrincipalAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePrincipalAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'ServicePrincipal'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionServicePrincipalArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ServicePrincipalAuthTypeConnectionPropertiesArgs:
@@ -7143,33 +6943,30 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Ex - P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -7258,29 +7055,26 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class TrafficRoutingRuleArgsDict(TypedDict):
-        """
-        Represents a rule for routing traffic to a specific deployment.
-        """
-        deployment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the deployment to which traffic is routed by this rule.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A user-provided description for this traffic routing rule.
-        """
-        rule_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of this traffic routing rule.
-        """
-        traffic_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the percentage of traffic allocated to this instance.
-        """
-elif False:
-    TrafficRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficRoutingRuleArgsDict(TypedDict):
+    """
+    Represents a rule for routing traffic to a specific deployment.
+    """
+    deployment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the deployment to which traffic is routed by this rule.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A user-provided description for this traffic routing rule.
+    """
+    rule_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of this traffic routing rule.
+    """
+    traffic_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the percentage of traffic allocated to this instance.
+    """
 
 @pulumi.input_type
 class TrafficRoutingRuleArgs:
@@ -7354,21 +7148,18 @@ class TrafficRoutingRuleArgs:
         pulumi.set(self, "traffic_percentage", value)
 
 
-if not MYPY:
-    class UserOwnedAmlWorkspaceArgsDict(TypedDict):
-        """
-        The user owned AML workspace for Cognitive Services account.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identity Client id of a AML workspace resource.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Full resource id of a AML workspace resource.
-        """
-elif False:
-    UserOwnedAmlWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+class UserOwnedAmlWorkspaceArgsDict(TypedDict):
+    """
+    The user owned AML workspace for Cognitive Services account.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity Client id of a AML workspace resource.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full resource id of a AML workspace resource.
+    """
 
 @pulumi.input_type
 class UserOwnedAmlWorkspaceArgs:
@@ -7410,18 +7201,15 @@ class UserOwnedAmlWorkspaceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class UserOwnedStorageArgsDict(TypedDict):
-        """
-        The user owned storage for Cognitive Services account.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Full resource id of a Microsoft.Storage resource.
-        """
-elif False:
-    UserOwnedStorageArgsDict: TypeAlias = Mapping[str, Any]
+class UserOwnedStorageArgsDict(TypedDict):
+    """
+    The user owned storage for Cognitive Services account.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full resource id of a Microsoft.Storage resource.
+    """
 
 @pulumi.input_type
 class UserOwnedStorageArgs:
@@ -7459,32 +7247,29 @@ class UserOwnedStorageArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class UsernamePasswordAuthTypeConnectionPropertiesArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type of the connection target
-        Expected value is 'UsernamePassword'.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
-        """
-        Category of the connection
-        """
-        credentials: NotRequired[pulumi.Input['ConnectionUsernamePasswordArgsDict']]
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Store user metadata for this connection
-        """
-        pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
-        pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
-        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    UsernamePasswordAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class UsernamePasswordAuthTypeConnectionPropertiesArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type of the connection target
+    Expected value is 'UsernamePassword'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]
+    """
+    Category of the connection
+    """
+    credentials: NotRequired[pulumi.Input['ConnectionUsernamePasswordArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Store user metadata for this connection
+    """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class UsernamePasswordAuthTypeConnectionPropertiesArgs:
@@ -7650,25 +7435,22 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
-if not MYPY:
-    class VersionedAgentReferenceArgsDict(TypedDict):
-        """
-        Type modeling a reference to a version of an agent definition.
-        """
-        agent_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the agent's unique identifier within the organization (subscription).
-        """
-        agent_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the agent's name (unique within the project/app).
-        """
-        agent_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the agent's version (unique for each agent lineage).
-        """
-elif False:
-    VersionedAgentReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class VersionedAgentReferenceArgsDict(TypedDict):
+    """
+    Type modeling a reference to a version of an agent definition.
+    """
+    agent_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the agent's unique identifier within the organization (subscription).
+    """
+    agent_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the agent's name (unique within the project/app).
+    """
+    agent_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the agent's version (unique for each agent lineage).
+    """
 
 @pulumi.input_type
 class VersionedAgentReferenceArgs:
@@ -7726,25 +7508,22 @@ class VersionedAgentReferenceArgs:
         pulumi.set(self, "agent_version", value)
 
 
-if not MYPY:
-    class VirtualNetworkRuleArgsDict(TypedDict):
-        """
-        A rule governing the accessibility from a specific virtual network.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
-        """
-        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Ignore missing vnet service endpoint or not.
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the state of virtual network rule.
-        """
-elif False:
-    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkRuleArgsDict(TypedDict):
+    """
+    A rule governing the accessibility from a specific virtual network.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+    """
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Ignore missing vnet service endpoint or not.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the state of virtual network rule.
+    """
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

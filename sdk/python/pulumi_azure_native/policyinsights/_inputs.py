@@ -24,23 +24,18 @@ __all__ = [
     'RemediationPropertiesFailureThresholdArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AttestationEvidenceArgsDict(TypedDict):
-        """
-        A piece of evidence supporting the compliance state set in the attestation.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description for this piece of evidence.
-        """
-        source_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI location of the evidence.
-        """
-elif False:
-    AttestationEvidenceArgsDict: TypeAlias = Mapping[str, Any]
+class AttestationEvidenceArgsDict(TypedDict):
+    """
+    A piece of evidence supporting the compliance state set in the attestation.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description for this piece of evidence.
+    """
+    source_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI location of the evidence.
+    """
 
 @pulumi.input_type
 class AttestationEvidenceArgs:
@@ -82,21 +77,18 @@ class AttestationEvidenceArgs:
         pulumi.set(self, "source_uri", value)
 
 
-if not MYPY:
-    class RemediationFiltersArgsDict(TypedDict):
-        """
-        The filters that will be applied to determine which resources to remediate.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource locations that will be remediated.
-        """
-        resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
-        """
-elif False:
-    RemediationFiltersArgsDict: TypeAlias = Mapping[str, Any]
+class RemediationFiltersArgsDict(TypedDict):
+    """
+    The filters that will be applied to determine which resources to remediate.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource locations that will be remediated.
+    """
+    resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
+    """
 
 @pulumi.input_type
 class RemediationFiltersArgs:
@@ -138,17 +130,14 @@ class RemediationFiltersArgs:
         pulumi.set(self, "resource_ids", value)
 
 
-if not MYPY:
-    class RemediationPropertiesFailureThresholdArgsDict(TypedDict):
-        """
-        The remediation failure threshold settings
-        """
-        percentage: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
-        """
-elif False:
-    RemediationPropertiesFailureThresholdArgsDict: TypeAlias = Mapping[str, Any]
+class RemediationPropertiesFailureThresholdArgsDict(TypedDict):
+    """
+    The remediation failure threshold settings
+    """
+    percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+    """
 
 @pulumi.input_type
 class RemediationPropertiesFailureThresholdArgs:

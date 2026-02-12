@@ -21,19 +21,14 @@ __all__ = [
     'ConfigurationProfilePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationProfileAssignmentPropertiesArgsDict(TypedDict):
-        """
-        Automanage configuration profile assignment properties.
-        """
-        configuration_profile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Automanage configurationProfile ARM Resource URI.
-        """
-elif False:
-    ConfigurationProfileAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfileAssignmentPropertiesArgsDict(TypedDict):
+    """
+    Automanage configuration profile assignment properties.
+    """
+    configuration_profile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Automanage configurationProfile ARM Resource URI.
+    """
 
 @pulumi.input_type
 class ConfigurationProfileAssignmentPropertiesArgs:
@@ -59,17 +54,14 @@ class ConfigurationProfileAssignmentPropertiesArgs:
         pulumi.set(self, "configuration_profile", value)
 
 
-if not MYPY:
-    class ConfigurationProfilePropertiesArgsDict(TypedDict):
-        """
-        Automanage configuration profile properties.
-        """
-        configuration: NotRequired[Any]
-        """
-        configuration dictionary of the configuration profile.
-        """
-elif False:
-    ConfigurationProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfilePropertiesArgsDict(TypedDict):
+    """
+    Automanage configuration profile properties.
+    """
+    configuration: NotRequired[Any]
+    """
+    configuration dictionary of the configuration profile.
+    """
 
 @pulumi.input_type
 class ConfigurationProfilePropertiesArgs:

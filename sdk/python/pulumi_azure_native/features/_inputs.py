@@ -20,28 +20,23 @@ __all__ = [
     'SubscriptionFeatureRegistrationPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SubscriptionFeatureRegistrationPropertiesArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The feature description.
-        """
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key-value pairs for meta data.
-        """
-        should_feature_display_in_portal: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether feature should be displayed in Portal.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionFeatureRegistrationState']]]
-        """
-        The state.
-        """
-elif False:
-    SubscriptionFeatureRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionFeatureRegistrationPropertiesArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The feature description.
+    """
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key-value pairs for meta data.
+    """
+    should_feature_display_in_portal: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether feature should be displayed in Portal.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionFeatureRegistrationState']]]
+    """
+    The state.
+    """
 
 @pulumi.input_type
 class SubscriptionFeatureRegistrationPropertiesArgs:

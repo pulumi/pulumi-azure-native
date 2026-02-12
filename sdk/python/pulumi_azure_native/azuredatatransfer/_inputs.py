@@ -58,19 +58,14 @@ __all__ = [
     'XmlFilterRulesetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AntivirusRulesetArgsDict(TypedDict):
-        """
-        Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
-        """
-        av_solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]
-        """
-        Optional. The list of antiviruses to be used as a scanning solution for replicating data.
-        """
-elif False:
-    AntivirusRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class AntivirusRulesetArgsDict(TypedDict):
+    """
+    Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
+    """
+    av_solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AntivirusSolutions']]]]]
+    """
+    Optional. The list of antiviruses to be used as a scanning solution for replicating data.
+    """
 
 @pulumi.input_type
 class AntivirusRulesetArgs:
@@ -96,29 +91,26 @@ class AntivirusRulesetArgs:
         pulumi.set(self, "av_solutions", value)
 
 
-if not MYPY:
-    class ArchiveRulesetArgsDict(TypedDict):
-        """
-        Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
-        """
-        maximum_compression_ratio_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
-        """
-        maximum_depth_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
-        """
-        maximum_expansion_size_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
-        """
-        minimum_size_for_expansion: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
-        """
-elif False:
-    ArchiveRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class ArchiveRulesetArgsDict(TypedDict):
+    """
+    Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
+    """
+    maximum_compression_ratio_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
+    """
+    maximum_depth_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
+    """
+    maximum_expansion_size_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
+    """
+    minimum_size_for_expansion: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
+    """
 
 @pulumi.input_type
 class ArchiveRulesetArgs:
@@ -194,61 +186,58 @@ class ArchiveRulesetArgs:
         pulumi.set(self, "minimum_size_for_expansion", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesArgsDict(TypedDict):
-        """
-        Properties of connection
-        """
-        pipeline: pulumi.Input[_builtins.str]
-        """
-        Pipeline to use to transfer data
-        """
-        direction: NotRequired[pulumi.Input[Union[_builtins.str, 'Direction']]]
-        """
-        Direction of data movement
-        """
-        flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]
-        """
-        The flow types being requested for this connection
-        """
-        justification: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Justification for the connection request
-        """
-        pin: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        PIN to link requests together
-        """
-        policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The policies for this connection
-        """
-        primary_contact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The primary contact for this connection request
-        """
-        remote_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subscription ID to link cloud subscriptions together
-        """
-        requirement_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Requirement ID of the connection
-        """
-        schema_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The schema URIs for this connection
-        """
-        schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaArgsDict']]]]
-        """
-        The schemas for this connection
-        """
-        secondary_contacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The secondary contacts for this connection request
-        """
-elif False:
-    ConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesArgsDict(TypedDict):
+    """
+    Properties of connection
+    """
+    pipeline: pulumi.Input[_builtins.str]
+    """
+    Pipeline to use to transfer data
+    """
+    direction: NotRequired[pulumi.Input[Union[_builtins.str, 'Direction']]]
+    """
+    Direction of data movement
+    """
+    flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]
+    """
+    The flow types being requested for this connection
+    """
+    justification: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Justification for the connection request
+    """
+    pin: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    PIN to link requests together
+    """
+    policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The policies for this connection
+    """
+    primary_contact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The primary contact for this connection request
+    """
+    remote_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subscription ID to link cloud subscriptions together
+    """
+    requirement_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Requirement ID of the connection
+    """
+    schema_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The schema URIs for this connection
+    """
+    schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaArgsDict']]]]
+    """
+    The schemas for this connection
+    """
+    secondary_contacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The secondary contacts for this connection request
+    """
 
 @pulumi.input_type
 class ConnectionPropertiesArgs:
@@ -449,21 +438,18 @@ class ConnectionPropertiesArgs:
         pulumi.set(self, "secondary_contacts", value)
 
 
-if not MYPY:
-    class DataSizeRulesetArgsDict(TypedDict):
-        """
-        Defines rules that enforce minimum and maximum file size limits for data replication.
-        """
-        maximum: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
-        """
-        minimum: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
-        """
-elif False:
-    DataSizeRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class DataSizeRulesetArgsDict(TypedDict):
+    """
+    Defines rules that enforce minimum and maximum file size limits for data replication.
+    """
+    maximum: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
+    """
+    minimum: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
+    """
 
 @pulumi.input_type
 class DataSizeRulesetArgs:
@@ -507,29 +493,26 @@ class DataSizeRulesetArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class FlowProfilePropertiesArgsDict(TypedDict):
-        """
-        Defines the full set of properties for a FlowProfile resource.
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        A user-defined description of the FlowProfile.
-        """
-        replication_scenario: pulumi.Input[Union[_builtins.str, 'DataClassType']]
-        """
-        The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
-        """
-        status: pulumi.Input[Union[_builtins.str, 'FlowProfileStatus']]
-        """
-        The operational status of the FlowProfile.
-        """
-        rulesets: NotRequired[pulumi.Input['FlowProfileRulesetsArgsDict']]
-        """
-        A set of configurable rulesets applied to this FlowProfile.
-        """
-elif False:
-    FlowProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowProfilePropertiesArgsDict(TypedDict):
+    """
+    Defines the full set of properties for a FlowProfile resource.
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    A user-defined description of the FlowProfile.
+    """
+    replication_scenario: pulumi.Input[Union[_builtins.str, 'DataClassType']]
+    """
+    The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+    """
+    status: pulumi.Input[Union[_builtins.str, 'FlowProfileStatus']]
+    """
+    The operational status of the FlowProfile.
+    """
+    rulesets: NotRequired[pulumi.Input['FlowProfileRulesetsArgsDict']]
+    """
+    A set of configurable rulesets applied to this FlowProfile.
+    """
 
 @pulumi.input_type
 class FlowProfilePropertiesArgs:
@@ -600,37 +583,34 @@ class FlowProfilePropertiesArgs:
         pulumi.set(self, "rulesets", value)
 
 
-if not MYPY:
-    class FlowProfileRulesetsArgsDict(TypedDict):
-        """
-        The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
-        """
-        antivirus: NotRequired[pulumi.Input['AntivirusRulesetArgsDict']]
-        """
-        Antivirus scanning rules for replicated data.
-        """
-        archives: NotRequired[pulumi.Input['ArchiveRulesetArgsDict']]
-        """
-        Rules for handling archive files during replication.
-        """
-        data_size: NotRequired[pulumi.Input['DataSizeRulesetArgsDict']]
-        """
-        Rules that enforce minimum and maximum data size limits.
-        """
-        mime_filters: NotRequired[pulumi.Input['MimeFilterRulesetArgsDict']]
-        """
-        Rules for filtering files based on MIME types.
-        """
-        text_matching: NotRequired[pulumi.Input['TextMatchingRulesetArgsDict']]
-        """
-        Rules for detecting and blocking specific text patterns.
-        """
-        xml_filters: NotRequired[pulumi.Input['XmlFilterRulesetArgsDict']]
-        """
-        Rules for filtering XML content using XSD schemas.
-        """
-elif False:
-    FlowProfileRulesetsArgsDict: TypeAlias = Mapping[str, Any]
+class FlowProfileRulesetsArgsDict(TypedDict):
+    """
+    The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
+    """
+    antivirus: NotRequired[pulumi.Input['AntivirusRulesetArgsDict']]
+    """
+    Antivirus scanning rules for replicated data.
+    """
+    archives: NotRequired[pulumi.Input['ArchiveRulesetArgsDict']]
+    """
+    Rules for handling archive files during replication.
+    """
+    data_size: NotRequired[pulumi.Input['DataSizeRulesetArgsDict']]
+    """
+    Rules that enforce minimum and maximum data size limits.
+    """
+    mime_filters: NotRequired[pulumi.Input['MimeFilterRulesetArgsDict']]
+    """
+    Rules for filtering files based on MIME types.
+    """
+    text_matching: NotRequired[pulumi.Input['TextMatchingRulesetArgsDict']]
+    """
+    Rules for detecting and blocking specific text patterns.
+    """
+    xml_filters: NotRequired[pulumi.Input['XmlFilterRulesetArgsDict']]
+    """
+    Rules for filtering XML content using XSD schemas.
+    """
 
 @pulumi.input_type
 class FlowProfileRulesetsArgs:
@@ -736,93 +716,90 @@ class FlowProfileRulesetsArgs:
         pulumi.set(self, "xml_filters", value)
 
 
-if not MYPY:
-    class FlowPropertiesArgsDict(TypedDict):
-        """
-        Properties of flow
-        """
-        connection: NotRequired[pulumi.Input['SelectedResourceArgsDict']]
-        """
-        The connection associated with this flow
-        """
-        customer_managed_key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI to the customer managed key for this flow
-        """
-        data_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataType']]]
-        """
-        Transfer Storage Blobs or Tables
-        """
-        destination_endpoint_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
-        """
-        The destination endpoint ports of the stream
-        """
-        destination_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The destination endpoints of the stream
-        """
-        flow_type: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowType']]]
-        """
-        The flow type for this flow
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AME, PME, or TORUS only! AKV Chain Containing SAS Token
-        """
-        messaging_options: NotRequired[pulumi.Input['MessagingOptionsArgsDict']]
-        """
-        The messaging options for this flow
-        """
-        passphrase: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The passphrase used for SRT streams
-        """
-        policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The policies for this flow
-        """
-        schema: NotRequired[pulumi.Input['SchemaArgsDict']]
-        """
-        The selected schema for this flow
-        """
-        service_bus_queue_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service Bus Queue ID
-        """
-        source_addresses: NotRequired[pulumi.Input['StreamSourceAddressesArgsDict']]
-        """
-        The source IP address and CIDR ranges of the stream
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowStatus']]]
-        """
-        Status of the current flow
-        """
-        storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage Account ID
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage Account
-        """
-        storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage Container Name
-        """
-        stream_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The flow stream identifier
-        """
-        stream_latency: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The latency of the stream in milliseconds
-        """
-        stream_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'StreamProtocol']]]
-        """
-        The protocol of the stream
-        """
-elif False:
-    FlowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPropertiesArgsDict(TypedDict):
+    """
+    Properties of flow
+    """
+    connection: NotRequired[pulumi.Input['SelectedResourceArgsDict']]
+    """
+    The connection associated with this flow
+    """
+    customer_managed_key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI to the customer managed key for this flow
+    """
+    data_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataType']]]
+    """
+    Transfer Storage Blobs or Tables
+    """
+    destination_endpoint_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    """
+    The destination endpoint ports of the stream
+    """
+    destination_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination endpoints of the stream
+    """
+    flow_type: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowType']]]
+    """
+    The flow type for this flow
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AME, PME, or TORUS only! AKV Chain Containing SAS Token
+    """
+    messaging_options: NotRequired[pulumi.Input['MessagingOptionsArgsDict']]
+    """
+    The messaging options for this flow
+    """
+    passphrase: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The passphrase used for SRT streams
+    """
+    policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The policies for this flow
+    """
+    schema: NotRequired[pulumi.Input['SchemaArgsDict']]
+    """
+    The selected schema for this flow
+    """
+    service_bus_queue_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Service Bus Queue ID
+    """
+    source_addresses: NotRequired[pulumi.Input['StreamSourceAddressesArgsDict']]
+    """
+    The source IP address and CIDR ranges of the stream
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowStatus']]]
+    """
+    Status of the current flow
+    """
+    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage Account ID
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage Account
+    """
+    storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage Container Name
+    """
+    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The flow stream identifier
+    """
+    stream_latency: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The latency of the stream in milliseconds
+    """
+    stream_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'StreamProtocol']]]
+    """
+    The protocol of the stream
+    """
 
 @pulumi.input_type
 class FlowPropertiesArgs:
@@ -1152,21 +1129,18 @@ class FlowPropertiesArgs:
         pulumi.set(self, "stream_protocol", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -1207,17 +1181,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class MessagingOptionsArgsDict(TypedDict):
-        """
-        The option associated with messaging flows.
-        """
-        billing_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowBillingTier']]]
-        """
-        Billing tier for this messaging flow
-        """
-elif False:
-    MessagingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class MessagingOptionsArgsDict(TypedDict):
+    """
+    The option associated with messaging flows.
+    """
+    billing_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'FlowBillingTier']]]
+    """
+    Billing tier for this messaging flow
+    """
 
 @pulumi.input_type
 class MessagingOptionsArgs:
@@ -1243,21 +1214,18 @@ class MessagingOptionsArgs:
         pulumi.set(self, "billing_tier", value)
 
 
-if not MYPY:
-    class MimeFilterRulesetArgsDict(TypedDict):
-        """
-        Rules for filtering files based on Media types (f.k.a MIME types).
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgsDict']]]]
-        """
-        Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'FilterType']]]
-        """
-        Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
-        """
-elif False:
-    MimeFilterRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class MimeFilterRulesetArgsDict(TypedDict):
+    """
+    Rules for filtering files based on Media types (f.k.a MIME types).
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgsDict']]]]
+    """
+    Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'FilterType']]]
+    """
+    Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+    """
 
 @pulumi.input_type
 class MimeFilterRulesetArgs:
@@ -1299,21 +1267,18 @@ class MimeFilterRulesetArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class MimeTypeFilterArgsDict(TypedDict):
-        """
-        Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
-        """
-        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
-        """
-        media: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
-        """
-elif False:
-    MimeTypeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class MimeTypeFilterArgsDict(TypedDict):
+    """
+    Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
+    """
+    extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
+    """
+    media: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
+    """
 
 @pulumi.input_type
 class MimeTypeFilterArgs:
@@ -1355,33 +1320,30 @@ class MimeTypeFilterArgs:
         pulumi.set(self, "media", value)
 
 
-if not MYPY:
-    class PipelinePropertiesArgsDict(TypedDict):
-        """
-        Properties of pipeline
-        """
-        remote_cloud: pulumi.Input[_builtins.str]
-        """
-        Remote cloud of the data to be transferred or received
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name of this pipeline
-        """
-        flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]
-        """
-        The flow types allowed for this pipeline
-        """
-        policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The policies for this pipeline
-        """
-        subscribers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberArgsDict']]]]
-        """
-        Subscribers of this resource
-        """
-elif False:
-    PipelinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PipelinePropertiesArgsDict(TypedDict):
+    """
+    Properties of pipeline
+    """
+    remote_cloud: pulumi.Input[_builtins.str]
+    """
+    Remote cloud of the data to be transferred or received
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name of this pipeline
+    """
+    flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FlowType']]]]]
+    """
+    The flow types allowed for this pipeline
+    """
+    policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The policies for this pipeline
+    """
+    subscribers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberArgsDict']]]]
+    """
+    Subscribers of this resource
+    """
 
 @pulumi.input_type
 class PipelinePropertiesArgs:
@@ -1470,33 +1432,30 @@ class PipelinePropertiesArgs:
         pulumi.set(self, "subscribers", value)
 
 
-if not MYPY:
-    class PlanArgsDict(TypedDict):
-        """
-        Plan for the resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A user defined name of the 3rd Party Artifact that is being procured.
-        """
-        product: pulumi.Input[_builtins.str]
-        """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-        """
-        promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the desired product/artifact.
-        """
-elif False:
-    PlanArgsDict: TypeAlias = Mapping[str, Any]
+class PlanArgsDict(TypedDict):
+    """
+    Plan for the resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A user defined name of the 3rd Party Artifact that is being procured.
+    """
+    product: pulumi.Input[_builtins.str]
+    """
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the desired product/artifact.
+    """
 
 @pulumi.input_type
 class PlanArgs:
@@ -1583,45 +1542,42 @@ class PlanArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SchemaArgsDict(TypedDict):
-        """
-        The schema object.
-        """
-        connection_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connection ID associated with this schema
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Content of the schema
-        """
-        direction: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaDirection']]]
-        """
-        The direction of the schema.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID associated with this schema
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the schema
-        """
-        schema_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaType']]]
-        """
-        The Schema Type
-        """
-        schema_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri containing SAS token for the zipped schema
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaStatus']]]
-        """
-        Status of the schema
-        """
-elif False:
-    SchemaArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaArgsDict(TypedDict):
+    """
+    The schema object.
+    """
+    connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connection ID associated with this schema
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Content of the schema
+    """
+    direction: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaDirection']]]
+    """
+    The direction of the schema.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID associated with this schema
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the schema
+    """
+    schema_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaType']]]
+    """
+    The Schema Type
+    """
+    schema_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri containing SAS token for the zipped schema
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'SchemaStatus']]]
+    """
+    Status of the schema
+    """
 
 @pulumi.input_type
 class SchemaArgs:
@@ -1759,29 +1715,26 @@ class SchemaArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SelectedResourceArgsDict(TypedDict):
-        """
-        A resource selected from ARM
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Id of the connection
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the connection
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the connection
-        """
-        subscription_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the subscription with the connection
-        """
-elif False:
-    SelectedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class SelectedResourceArgsDict(TypedDict):
+    """
+    A resource selected from ARM
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Id of the connection
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of the connection
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the connection
+    """
+    subscription_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the subscription with the connection
+    """
 
 @pulumi.input_type
 class SelectedResourceArgs:
@@ -1854,17 +1807,14 @@ class SelectedResourceArgs:
         pulumi.set(self, "subscription_name", value)
 
 
-if not MYPY:
-    class StreamSourceAddressesArgsDict(TypedDict):
-        """
-        The source IP address and CIDR ranges of the stream
-        """
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A source IP address or CIDR range
-        """
-elif False:
-    StreamSourceAddressesArgsDict: TypeAlias = Mapping[str, Any]
+class StreamSourceAddressesArgsDict(TypedDict):
+    """
+    The source IP address and CIDR ranges of the stream
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A source IP address or CIDR range
+    """
 
 @pulumi.input_type
 class StreamSourceAddressesArgs:
@@ -1890,18 +1840,15 @@ class StreamSourceAddressesArgs:
         pulumi.set(self, "source_addresses", value)
 
 
-if not MYPY:
-    class SubscriberArgsDict(TypedDict):
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the subscriber
-        """
-        notifications: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Number specifying what notifications to receive
-        """
-elif False:
-    SubscriberArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriberArgsDict(TypedDict):
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email of the subscriber
+    """
+    notifications: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Number specifying what notifications to receive
+    """
 
 @pulumi.input_type
 class SubscriberArgs:
@@ -1942,17 +1889,14 @@ class SubscriberArgs:
         pulumi.set(self, "notifications", value)
 
 
-if not MYPY:
-    class TextMatchingRulesetArgsDict(TypedDict):
-        """
-        Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
-        """
-        deny: NotRequired[pulumi.Input[Sequence[pulumi.Input['TextMatchArgsDict']]]]
-        """
-        A list of text patterns to block, each with matching rules and case sensitivity options.
-        """
-elif False:
-    TextMatchingRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class TextMatchingRulesetArgsDict(TypedDict):
+    """
+    Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+    """
+    deny: NotRequired[pulumi.Input[Sequence[pulumi.Input['TextMatchArgsDict']]]]
+    """
+    A list of text patterns to block, each with matching rules and case sensitivity options.
+    """
 
 @pulumi.input_type
 class TextMatchingRulesetArgs:
@@ -1978,25 +1922,22 @@ class TextMatchingRulesetArgs:
         pulumi.set(self, "deny", value)
 
 
-if not MYPY:
-    class TextMatchArgsDict(TypedDict):
-        """
-        Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
-        """
-        case_sensitivity: pulumi.Input[Union[_builtins.str, 'Casing']]
-        """
-        Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
-        """
-        match_type: pulumi.Input[Union[_builtins.str, 'MatchType']]
-        """
-        Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
-        """
-        text: pulumi.Input[_builtins.str]
-        """
-        The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
-        """
-elif False:
-    TextMatchArgsDict: TypeAlias = Mapping[str, Any]
+class TextMatchArgsDict(TypedDict):
+    """
+    Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
+    """
+    case_sensitivity: pulumi.Input[Union[_builtins.str, 'Casing']]
+    """
+    Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+    """
+    match_type: pulumi.Input[Union[_builtins.str, 'MatchType']]
+    """
+    Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+    """
+    text: pulumi.Input[_builtins.str]
+    """
+    The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
+    """
 
 @pulumi.input_type
 class TextMatchArgs:
@@ -2055,25 +1996,22 @@ class TextMatchArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class XmlFilterRulesetArgsDict(TypedDict):
-        """
-        Rules for filtering XML content using XSD schemas.
-        """
-        default_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default XML namespace used for schema validation.
-        """
-        reference: NotRequired[pulumi.Input[Union[_builtins.str, 'XmlReferenceType']]]
-        """
-        Defines the method for referencing the xml schema.
-        """
-        schema: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The inline XSD schema to be used for validation.
-        """
-elif False:
-    XmlFilterRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class XmlFilterRulesetArgsDict(TypedDict):
+    """
+    Rules for filtering XML content using XSD schemas.
+    """
+    default_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default XML namespace used for schema validation.
+    """
+    reference: NotRequired[pulumi.Input[Union[_builtins.str, 'XmlReferenceType']]]
+    """
+    Defines the method for referencing the xml schema.
+    """
+    schema: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The inline XSD schema to be used for validation.
+    """
 
 @pulumi.input_type
 class XmlFilterRulesetArgs:

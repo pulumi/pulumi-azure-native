@@ -102,23 +102,18 @@ __all__ = [
     'WorkspaceRepositoryConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AutoPausePropertiesArgsDict(TypedDict):
-        """
-        Auto-pausing properties of a Big Data pool powered by Apache Spark
-        """
-        delay_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of minutes of idle time before the Big Data pool is automatically paused.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether auto-pausing is enabled for the Big Data pool.
-        """
-elif False:
-    AutoPausePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AutoPausePropertiesArgsDict(TypedDict):
+    """
+    Auto-pausing properties of a Big Data pool powered by Apache Spark
+    """
+    delay_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of minutes of idle time before the Big Data pool is automatically paused.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether auto-pausing is enabled for the Big Data pool.
+    """
 
 @pulumi.input_type
 class AutoPausePropertiesArgs:
@@ -160,25 +155,22 @@ class AutoPausePropertiesArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class AutoScalePropertiesArgsDict(TypedDict):
-        """
-        Auto-scaling properties of a Big Data pool powered by Apache Spark
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether automatic scaling is enabled for the Big Data pool.
-        """
-        max_node_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of nodes the Big Data pool can support.
-        """
-        min_node_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of nodes the Big Data pool can support.
-        """
-elif False:
-    AutoScalePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AutoScalePropertiesArgsDict(TypedDict):
+    """
+    Auto-scaling properties of a Big Data pool powered by Apache Spark
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether automatic scaling is enabled for the Big Data pool.
+    """
+    max_node_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of nodes the Big Data pool can support.
+    """
+    min_node_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of nodes the Big Data pool can support.
+    """
 
 @pulumi.input_type
 class AutoScalePropertiesArgs:
@@ -236,25 +228,22 @@ class AutoScalePropertiesArgs:
         pulumi.set(self, "min_node_count", value)
 
 
-if not MYPY:
-    class AzureSkuArgsDict(TypedDict):
-        """
-        Azure SKU definition.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        SKU name.
-        """
-        size: pulumi.Input[Union[_builtins.str, 'SkuSize']]
-        """
-        SKU size.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of instances of the cluster.
-        """
-elif False:
-    AzureSkuArgsDict: TypeAlias = Mapping[str, Any]
+class AzureSkuArgsDict(TypedDict):
+    """
+    Azure SKU definition.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    SKU name.
+    """
+    size: pulumi.Input[Union[_builtins.str, 'SkuSize']]
+    """
+    SKU size.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of instances of the cluster.
+    """
 
 @pulumi.input_type
 class AzureSkuArgs:
@@ -310,30 +299,27 @@ class AzureSkuArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class CmdkeySetupArgsDict(TypedDict):
-        """
-        The custom setup of running cmdkey commands.
-        """
-        password: pulumi.Input['SecureStringArgsDict']
-        """
-        The password of data source access.
-        """
-        target_name: Any
-        """
-        The server name of data source access.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of custom setup.
-        Expected value is 'CmdkeySetup'.
-        """
-        user_name: Any
-        """
-        The user name of data source access.
-        """
-elif False:
-    CmdkeySetupArgsDict: TypeAlias = Mapping[str, Any]
+class CmdkeySetupArgsDict(TypedDict):
+    """
+    The custom setup of running cmdkey commands.
+    """
+    password: pulumi.Input['SecureStringArgsDict']
+    """
+    The password of data source access.
+    """
+    target_name: Any
+    """
+    The server name of data source access.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of custom setup.
+    Expected value is 'CmdkeySetup'.
+    """
+    user_name: Any
+    """
+    The user name of data source access.
+    """
 
 @pulumi.input_type
 class CmdkeySetupArgs:
@@ -405,26 +391,23 @@ class CmdkeySetupArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class ComponentSetupArgsDict(TypedDict):
-        """
-        The custom setup of installing 3rd party components.
-        """
-        component_name: pulumi.Input[_builtins.str]
-        """
-        The name of the 3rd party component.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of custom setup.
-        Expected value is 'ComponentSetup'.
-        """
-        license_key: NotRequired[pulumi.Input['SecureStringArgsDict']]
-        """
-        The license key to activate the component.
-        """
-elif False:
-    ComponentSetupArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentSetupArgsDict(TypedDict):
+    """
+    The custom setup of installing 3rd party components.
+    """
+    component_name: pulumi.Input[_builtins.str]
+    """
+    The name of the 3rd party component.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of custom setup.
+    Expected value is 'ComponentSetup'.
+    """
+    license_key: NotRequired[pulumi.Input['SecureStringArgsDict']]
+    """
+    The license key to activate the component.
+    """
 
 @pulumi.input_type
 class ComponentSetupArgs:
@@ -482,17 +465,14 @@ class ComponentSetupArgs:
         pulumi.set(self, "license_key", value)
 
 
-if not MYPY:
-    class CspWorkspaceAdminPropertiesArgsDict(TypedDict):
-        """
-        Initial workspace AAD admin properties for a CSP subscription
-        """
-        initial_workspace_admin_object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AAD object ID of initial workspace admin
-        """
-elif False:
-    CspWorkspaceAdminPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CspWorkspaceAdminPropertiesArgsDict(TypedDict):
+    """
+    Initial workspace AAD admin properties for a CSP subscription
+    """
+    initial_workspace_admin_object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AAD object ID of initial workspace admin
+    """
 
 @pulumi.input_type
 class CspWorkspaceAdminPropertiesArgs:
@@ -518,21 +498,18 @@ class CspWorkspaceAdminPropertiesArgs:
         pulumi.set(self, "initial_workspace_admin_object_id", value)
 
 
-if not MYPY:
-    class CustomerManagedKeyDetailsArgsDict(TypedDict):
-        """
-        Details of the customer managed key associated with the workspace
-        """
-        kek_identity: NotRequired[pulumi.Input['KekIdentityPropertiesArgsDict']]
-        """
-        Key encryption key
-        """
-        key: NotRequired[pulumi.Input['WorkspaceKeyDetailsArgsDict']]
-        """
-        The key object of the workspace
-        """
-elif False:
-    CustomerManagedKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedKeyDetailsArgsDict(TypedDict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    kek_identity: NotRequired[pulumi.Input['KekIdentityPropertiesArgsDict']]
+    """
+    Key encryption key
+    """
+    key: NotRequired[pulumi.Input['WorkspaceKeyDetailsArgsDict']]
+    """
+    The key object of the workspace
+    """
 
 @pulumi.input_type
 class CustomerManagedKeyDetailsArgs:
@@ -574,29 +551,26 @@ class CustomerManagedKeyDetailsArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class DataLakeStorageAccountDetailsArgsDict(TypedDict):
-        """
-        Details of the data lake storage account associated with the workspace
-        """
-        account_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account URL
-        """
-        create_managed_private_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Create managed private endpoint to this storage account or not
-        """
-        filesystem: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Filesystem name
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM resource Id of this storage account
-        """
-elif False:
-    DataLakeStorageAccountDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeStorageAccountDetailsArgsDict(TypedDict):
+    """
+    Details of the data lake storage account associated with the workspace
+    """
+    account_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account URL
+    """
+    create_managed_private_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Create managed private endpoint to this storage account or not
+    """
+    filesystem: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Filesystem name
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM resource Id of this storage account
+    """
 
 @pulumi.input_type
 class DataLakeStorageAccountDetailsArgs:
@@ -670,25 +644,22 @@ class DataLakeStorageAccountDetailsArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class DynamicExecutorAllocationArgsDict(TypedDict):
-        """
-        Dynamic Executor Allocation Properties
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Dynamic Executor Allocation is enabled or not.
-        """
-        max_executors: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of executors alloted
-        """
-        min_executors: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of executors alloted
-        """
-elif False:
-    DynamicExecutorAllocationArgsDict: TypeAlias = Mapping[str, Any]
+class DynamicExecutorAllocationArgsDict(TypedDict):
+    """
+    Dynamic Executor Allocation Properties
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Dynamic Executor Allocation is enabled or not.
+    """
+    max_executors: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of executors alloted
+    """
+    min_executors: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of executors alloted
+    """
 
 @pulumi.input_type
 class DynamicExecutorAllocationArgs:
@@ -746,17 +717,14 @@ class DynamicExecutorAllocationArgs:
         pulumi.set(self, "min_executors", value)
 
 
-if not MYPY:
-    class EncryptionDetailsArgsDict(TypedDict):
-        """
-        Details of the encryption associated with the workspace
-        """
-        cmk: NotRequired[pulumi.Input['CustomerManagedKeyDetailsArgsDict']]
-        """
-        Customer Managed Key Details
-        """
-elif False:
-    EncryptionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionDetailsArgsDict(TypedDict):
+    """
+    Details of the encryption associated with the workspace
+    """
+    cmk: NotRequired[pulumi.Input['CustomerManagedKeyDetailsArgsDict']]
+    """
+    Customer Managed Key Details
+    """
 
 @pulumi.input_type
 class EncryptionDetailsArgs:
@@ -782,21 +750,18 @@ class EncryptionDetailsArgs:
         pulumi.set(self, "cmk", value)
 
 
-if not MYPY:
-    class EntityReferenceArgsDict(TypedDict):
-        """
-        The entity reference.
-        """
-        reference_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of this referenced entity.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]
-        """
-        The type of this referenced entity.
-        """
-elif False:
-    EntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class EntityReferenceArgsDict(TypedDict):
+    """
+    The entity reference.
+    """
+    reference_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of this referenced entity.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEntityReferenceType']]]
+    """
+    The type of this referenced entity.
+    """
 
 @pulumi.input_type
 class EntityReferenceArgs:
@@ -838,26 +803,23 @@ class EntityReferenceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class EnvironmentVariableSetupArgsDict(TypedDict):
-        """
-        The custom setup of setting environment variable.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of custom setup.
-        Expected value is 'EnvironmentVariableSetup'.
-        """
-        variable_name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable.
-        """
-        variable_value: pulumi.Input[_builtins.str]
-        """
-        The value of the environment variable.
-        """
-elif False:
-    EnvironmentVariableSetupArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentVariableSetupArgsDict(TypedDict):
+    """
+    The custom setup of setting environment variable.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of custom setup.
+    Expected value is 'EnvironmentVariableSetup'.
+    """
+    variable_name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable.
+    """
+    variable_value: pulumi.Input[_builtins.str]
+    """
+    The value of the environment variable.
+    """
 
 @pulumi.input_type
 class EnvironmentVariableSetupArgs:
@@ -914,37 +876,34 @@ class EnvironmentVariableSetupArgs:
         pulumi.set(self, "variable_value", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeComputePropertiesArgsDict(TypedDict):
-        """
-        The compute resource properties for managed integration runtime.
-        """
-        data_flow_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgsDict']]
-        """
-        Data flow properties for managed integration runtime.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-        """
-        max_parallel_executions_per_node: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum parallel executions count per node for managed integration runtime.
-        """
-        node_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The node size requirement to managed integration runtime.
-        """
-        number_of_nodes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The required number of nodes for managed integration runtime.
-        """
-        v_net_properties: NotRequired[pulumi.Input['IntegrationRuntimeVNetPropertiesArgsDict']]
-        """
-        VNet properties for managed integration runtime.
-        """
-elif False:
-    IntegrationRuntimeComputePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeComputePropertiesArgsDict(TypedDict):
+    """
+    The compute resource properties for managed integration runtime.
+    """
+    data_flow_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgsDict']]
+    """
+    Data flow properties for managed integration runtime.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
+    """
+    max_parallel_executions_per_node: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum parallel executions count per node for managed integration runtime.
+    """
+    node_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The node size requirement to managed integration runtime.
+    """
+    number_of_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The required number of nodes for managed integration runtime.
+    """
+    v_net_properties: NotRequired[pulumi.Input['IntegrationRuntimeVNetPropertiesArgsDict']]
+    """
+    VNet properties for managed integration runtime.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeComputePropertiesArgs:
@@ -1050,21 +1009,18 @@ class IntegrationRuntimeComputePropertiesArgs:
         pulumi.set(self, "v_net_properties", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeCustomSetupScriptPropertiesArgsDict(TypedDict):
-        """
-        Custom setup script properties for a managed dedicated integration runtime.
-        """
-        blob_container_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the Azure blob container that contains the custom setup script.
-        """
-        sas_token: NotRequired[pulumi.Input['SecureStringArgsDict']]
-        """
-        The SAS token of the Azure blob container.
-        """
-elif False:
-    IntegrationRuntimeCustomSetupScriptPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeCustomSetupScriptPropertiesArgsDict(TypedDict):
+    """
+    Custom setup script properties for a managed dedicated integration runtime.
+    """
+    blob_container_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the Azure blob container that contains the custom setup script.
+    """
+    sas_token: NotRequired[pulumi.Input['SecureStringArgsDict']]
+    """
+    The SAS token of the Azure blob container.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
@@ -1106,17 +1062,14 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
         pulumi.set(self, "sas_token", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeCustomerVirtualNetworkArgsDict(TypedDict):
-        """
-        The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of subnet to which Azure-SSIS integration runtime will join.
-        """
-elif False:
-    IntegrationRuntimeCustomerVirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeCustomerVirtualNetworkArgsDict(TypedDict):
+    """
+    The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of subnet to which Azure-SSIS integration runtime will join.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeCustomerVirtualNetworkArgs:
@@ -1142,25 +1095,22 @@ class IntegrationRuntimeCustomerVirtualNetworkArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeDataFlowPropertiesArgsDict(TypedDict):
-        """
-        Data flow properties for managed integration runtime.
-        """
-        compute_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']]]
-        """
-        Compute type of the cluster which will execute data flow job.
-        """
-        core_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
-        """
-        time_to_live: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time to live (in minutes) setting of the cluster which will execute data flow job.
-        """
-elif False:
-    IntegrationRuntimeDataFlowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeDataFlowPropertiesArgsDict(TypedDict):
+    """
+    Data flow properties for managed integration runtime.
+    """
+    compute_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']]]
+    """
+    Compute type of the cluster which will execute data flow job.
+    """
+    core_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+    """
+    time_to_live: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time to live (in minutes) setting of the cluster which will execute data flow job.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeDataFlowPropertiesArgs:
@@ -1218,25 +1168,22 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
         pulumi.set(self, "time_to_live", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeDataProxyPropertiesArgsDict(TypedDict):
-        """
-        Data proxy properties for a managed dedicated integration runtime.
-        """
-        connect_via: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
-        """
-        The self-hosted integration runtime reference.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to contain the staged data in the Blob storage.
-        """
-        staging_linked_service: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
-        """
-        The staging linked service reference.
-        """
-elif False:
-    IntegrationRuntimeDataProxyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeDataProxyPropertiesArgsDict(TypedDict):
+    """
+    Data proxy properties for a managed dedicated integration runtime.
+    """
+    connect_via: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
+    """
+    The self-hosted integration runtime reference.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to contain the staged data in the Blob storage.
+    """
+    staging_linked_service: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
+    """
+    The staging linked service reference.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeDataProxyPropertiesArgs:
@@ -1294,29 +1241,26 @@ class IntegrationRuntimeDataProxyPropertiesArgs:
         pulumi.set(self, "staging_linked_service", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
-        """
-        Catalog information for managed dedicated integration runtime.
-        """
-        catalog_admin_password: NotRequired[pulumi.Input['SecureStringArgsDict']]
-        """
-        The password of the administrator user account of the catalog database.
-        """
-        catalog_admin_user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The administrator user name of catalog database.
-        """
-        catalog_pricing_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]
-        """
-        The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
-        """
-        catalog_server_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The catalog database server URL.
-        """
-elif False:
-    IntegrationRuntimeSsisCatalogInfoArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
+    """
+    Catalog information for managed dedicated integration runtime.
+    """
+    catalog_admin_password: NotRequired[pulumi.Input['SecureStringArgsDict']]
+    """
+    The password of the administrator user account of the catalog database.
+    """
+    catalog_admin_user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The administrator user name of catalog database.
+    """
+    catalog_pricing_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeSsisCatalogPricingTier']]]
+    """
+    The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+    """
+    catalog_server_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The catalog database server URL.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeSsisCatalogInfoArgs:
@@ -1390,37 +1334,34 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
         pulumi.set(self, "catalog_server_endpoint", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeSsisPropertiesArgsDict(TypedDict):
-        """
-        SSIS properties for managed integration runtime.
-        """
-        catalog_info: NotRequired[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgsDict']]
-        """
-        Catalog information for managed dedicated integration runtime.
-        """
-        custom_setup_script_properties: NotRequired[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgsDict']]
-        """
-        Custom setup script properties for a managed dedicated integration runtime.
-        """
-        data_proxy_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgsDict']]
-        """
-        Data proxy properties for a managed dedicated integration runtime.
-        """
-        edition: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEdition']]]
-        """
-        The edition for the SSIS Integration Runtime
-        """
-        express_custom_setup_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgsDict', 'ComponentSetupArgsDict', 'EnvironmentVariableSetupArgsDict']]]]]
-        """
-        Custom setup without script properties for a SSIS integration runtime.
-        """
-        license_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]
-        """
-        License type for bringing your own license scenario.
-        """
-elif False:
-    IntegrationRuntimeSsisPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeSsisPropertiesArgsDict(TypedDict):
+    """
+    SSIS properties for managed integration runtime.
+    """
+    catalog_info: NotRequired[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgsDict']]
+    """
+    Catalog information for managed dedicated integration runtime.
+    """
+    custom_setup_script_properties: NotRequired[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgsDict']]
+    """
+    Custom setup script properties for a managed dedicated integration runtime.
+    """
+    data_proxy_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgsDict']]
+    """
+    Data proxy properties for a managed dedicated integration runtime.
+    """
+    edition: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeEdition']]]
+    """
+    The edition for the SSIS Integration Runtime
+    """
+    express_custom_setup_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgsDict', 'ComponentSetupArgsDict', 'EnvironmentVariableSetupArgsDict']]]]]
+    """
+    Custom setup without script properties for a SSIS integration runtime.
+    """
+    license_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeLicenseType']]]
+    """
+    License type for bringing your own license scenario.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeSsisPropertiesArgs:
@@ -1526,29 +1467,26 @@ class IntegrationRuntimeSsisPropertiesArgs:
         pulumi.set(self, "license_type", value)
 
 
-if not MYPY:
-    class IntegrationRuntimeVNetPropertiesArgsDict(TypedDict):
-        """
-        VNet properties for managed integration runtime.
-        """
-        public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Resource IDs of the public IP addresses that this integration runtime will use.
-        """
-        subnet: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the subnet this integration runtime will join.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
-        """
-        v_net_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the VNet that this integration runtime will join.
-        """
-elif False:
-    IntegrationRuntimeVNetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationRuntimeVNetPropertiesArgsDict(TypedDict):
+    """
+    VNet properties for managed integration runtime.
+    """
+    public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Resource IDs of the public IP addresses that this integration runtime will use.
+    """
+    subnet: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the subnet this integration runtime will join.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+    """
+    v_net_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the VNet that this integration runtime will join.
+    """
 
 @pulumi.input_type
 class IntegrationRuntimeVNetPropertiesArgs:
@@ -1622,21 +1560,18 @@ class IntegrationRuntimeVNetPropertiesArgs:
         pulumi.set(self, "v_net_id", value)
 
 
-if not MYPY:
-    class KekIdentityPropertiesArgsDict(TypedDict):
-        """
-        Key encryption key properties
-        """
-        use_system_assigned_identity: NotRequired[Any]
-        """
-        Boolean specifying whether to use system assigned identity or not
-        """
-        user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User assigned identity resource Id
-        """
-elif False:
-    KekIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KekIdentityPropertiesArgsDict(TypedDict):
+    """
+    Key encryption key properties
+    """
+    use_system_assigned_identity: NotRequired[Any]
+    """
+    Boolean specifying whether to use system assigned identity or not
+    """
+    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User assigned identity resource Id
+    """
 
 @pulumi.input_type
 class KekIdentityPropertiesArgs:
@@ -1678,29 +1613,26 @@ class KekIdentityPropertiesArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
-if not MYPY:
-    class LibraryInfoArgsDict(TypedDict):
-        """
-        Library/package information of a Big Data pool powered by Apache Spark
-        """
-        container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage blob container name.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the library.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage blob path of library.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the library.
-        """
-elif False:
-    LibraryInfoArgsDict: TypeAlias = Mapping[str, Any]
+class LibraryInfoArgsDict(TypedDict):
+    """
+    Library/package information of a Big Data pool powered by Apache Spark
+    """
+    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage blob container name.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the library.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage blob path of library.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the library.
+    """
 
 @pulumi.input_type
 class LibraryInfoArgs:
@@ -1774,21 +1706,18 @@ class LibraryInfoArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class LibraryRequirementsArgsDict(TypedDict):
-        """
-        Library requirements for a Big Data pool powered by Apache Spark
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The library requirements.
-        """
-        filename: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The filename of the library requirements file.
-        """
-elif False:
-    LibraryRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+class LibraryRequirementsArgsDict(TypedDict):
+    """
+    Library requirements for a Big Data pool powered by Apache Spark
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The library requirements.
+    """
+    filename: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The filename of the library requirements file.
+    """
 
 @pulumi.input_type
 class LibraryRequirementsArgs:
@@ -1830,22 +1759,19 @@ class LibraryRequirementsArgs:
         pulumi.set(self, "filename", value)
 
 
-if not MYPY:
-    class LinkedIntegrationRuntimeKeyAuthorizationArgsDict(TypedDict):
-        """
-        The key authorization type integration runtime.
-        """
-        authorization_type: pulumi.Input[_builtins.str]
-        """
-        The authorization type for integration runtime sharing.
-        Expected value is 'Key'.
-        """
-        key: pulumi.Input['SecureStringArgsDict']
-        """
-        The key used for authorization.
-        """
-elif False:
-    LinkedIntegrationRuntimeKeyAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class LinkedIntegrationRuntimeKeyAuthorizationArgsDict(TypedDict):
+    """
+    The key authorization type integration runtime.
+    """
+    authorization_type: pulumi.Input[_builtins.str]
+    """
+    The authorization type for integration runtime sharing.
+    Expected value is 'Key'.
+    """
+    key: pulumi.Input['SecureStringArgsDict']
+    """
+    The key used for authorization.
+    """
 
 @pulumi.input_type
 class LinkedIntegrationRuntimeKeyAuthorizationArgs:
@@ -1887,22 +1813,19 @@ class LinkedIntegrationRuntimeKeyAuthorizationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class LinkedIntegrationRuntimeRbacAuthorizationArgsDict(TypedDict):
-        """
-        The role based access control (RBAC) authorization type integration runtime.
-        """
-        authorization_type: pulumi.Input[_builtins.str]
-        """
-        The authorization type for integration runtime sharing.
-        Expected value is 'RBAC'.
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource identifier of the integration runtime to be shared.
-        """
-elif False:
-    LinkedIntegrationRuntimeRbacAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class LinkedIntegrationRuntimeRbacAuthorizationArgsDict(TypedDict):
+    """
+    The role based access control (RBAC) authorization type integration runtime.
+    """
+    authorization_type: pulumi.Input[_builtins.str]
+    """
+    The authorization type for integration runtime sharing.
+    Expected value is 'RBAC'.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource identifier of the integration runtime to be shared.
+    """
 
 @pulumi.input_type
 class LinkedIntegrationRuntimeRbacAuthorizationArgs:
@@ -1944,21 +1867,18 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class ManagedIdentityArgsDict(TypedDict):
-        """
-        The workspace managed identity
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The type of managed identity for the workspace
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The user assigned managed identities.
-        """
-elif False:
-    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityArgsDict(TypedDict):
+    """
+    The workspace managed identity
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The type of managed identity for the workspace
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The user assigned managed identities.
+    """
 
 @pulumi.input_type
 class ManagedIdentityArgs:
@@ -2000,42 +1920,39 @@ class ManagedIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ManagedIntegrationRuntimeArgsDict(TypedDict):
-        """
-        Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of integration runtime.
-        Expected value is 'Managed'.
-        """
-        compute_properties: NotRequired[pulumi.Input['IntegrationRuntimeComputePropertiesArgsDict']]
-        """
-        The compute resource for managed integration runtime.
-        """
-        customer_virtual_network: NotRequired[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgsDict']]
-        """
-        The name of virtual network to which Azure-SSIS integration runtime will join
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Integration runtime description.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the managed virtual network.
-        """
-        reference_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reference name of the managed virtual network
-        """
-        ssis_properties: NotRequired[pulumi.Input['IntegrationRuntimeSsisPropertiesArgsDict']]
-        """
-        SSIS properties for managed integration runtime.
-        """
-elif False:
-    ManagedIntegrationRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIntegrationRuntimeArgsDict(TypedDict):
+    """
+    Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of integration runtime.
+    Expected value is 'Managed'.
+    """
+    compute_properties: NotRequired[pulumi.Input['IntegrationRuntimeComputePropertiesArgsDict']]
+    """
+    The compute resource for managed integration runtime.
+    """
+    customer_virtual_network: NotRequired[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgsDict']]
+    """
+    The name of virtual network to which Azure-SSIS integration runtime will join
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Integration runtime description.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the managed virtual network.
+    """
+    reference_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference name of the managed virtual network
+    """
+    ssis_properties: NotRequired[pulumi.Input['IntegrationRuntimeSsisPropertiesArgsDict']]
+    """
+    SSIS properties for managed integration runtime.
+    """
 
 @pulumi.input_type
 class ManagedIntegrationRuntimeArgs:
@@ -2158,25 +2075,22 @@ class ManagedIntegrationRuntimeArgs:
         pulumi.set(self, "ssis_properties", value)
 
 
-if not MYPY:
-    class ManagedVirtualNetworkSettingsArgsDict(TypedDict):
-        """
-        Managed Virtual Network Settings
-        """
-        allowed_aad_tenant_ids_for_linking: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed Aad Tenant Ids For Linking
-        """
-        linked_access_check_on_target_resource: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Linked Access Check On Target Resource
-        """
-        prevent_data_exfiltration: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Prevent Data Exfiltration
-        """
-elif False:
-    ManagedVirtualNetworkSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedVirtualNetworkSettingsArgsDict(TypedDict):
+    """
+    Managed Virtual Network Settings
+    """
+    allowed_aad_tenant_ids_for_linking: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed Aad Tenant Ids For Linking
+    """
+    linked_access_check_on_target_resource: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Linked Access Check On Target Resource
+    """
+    prevent_data_exfiltration: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Prevent Data Exfiltration
+    """
 
 @pulumi.input_type
 class ManagedVirtualNetworkSettingsArgs:
@@ -2234,29 +2148,26 @@ class ManagedVirtualNetworkSettingsArgs:
         pulumi.set(self, "prevent_data_exfiltration", value)
 
 
-if not MYPY:
-    class OptimizedAutoscaleArgsDict(TypedDict):
-        """
-        A class that contains the optimized auto scale definition.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        A boolean value that indicate if the optimized autoscale feature is enabled or not.
-        """
-        maximum: pulumi.Input[_builtins.int]
-        """
-        Maximum allowed instances count.
-        """
-        minimum: pulumi.Input[_builtins.int]
-        """
-        Minimum allowed instances count.
-        """
-        version: pulumi.Input[_builtins.int]
-        """
-        The version of the template defined, for instance 1.
-        """
-elif False:
-    OptimizedAutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+class OptimizedAutoscaleArgsDict(TypedDict):
+    """
+    A class that contains the optimized auto scale definition.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    A boolean value that indicate if the optimized autoscale feature is enabled or not.
+    """
+    maximum: pulumi.Input[_builtins.int]
+    """
+    Maximum allowed instances count.
+    """
+    minimum: pulumi.Input[_builtins.int]
+    """
+    Minimum allowed instances count.
+    """
+    version: pulumi.Input[_builtins.int]
+    """
+    The version of the template defined, for instance 1.
+    """
 
 @pulumi.input_type
 class OptimizedAutoscaleArgs:
@@ -2326,17 +2237,14 @@ class OptimizedAutoscaleArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        A private endpoint connection
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
-        """
-        Connection state of the private endpoint connection.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    A private endpoint connection
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    """
+    Connection state of the private endpoint connection.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -2362,21 +2270,18 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        Connection state details of the private endpoint
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private link service connection description.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    Connection state details of the private endpoint
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private link service connection description.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private link service connection status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -2418,17 +2323,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PurviewConfigurationArgsDict(TypedDict):
-        """
-        Purview Configuration
-        """
-        purview_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Purview Resource ID
-        """
-elif False:
-    PurviewConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PurviewConfigurationArgsDict(TypedDict):
+    """
+    Purview Configuration
+    """
+    purview_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Purview Resource ID
+    """
 
 @pulumi.input_type
 class PurviewConfigurationArgs:
@@ -2454,22 +2356,19 @@ class PurviewConfigurationArgs:
         pulumi.set(self, "purview_resource_id", value)
 
 
-if not MYPY:
-    class SecureStringArgsDict(TypedDict):
-        """
-        Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the secret.
-        Expected value is 'SecureString'.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of secure string.
-        """
-elif False:
-    SecureStringArgsDict: TypeAlias = Mapping[str, Any]
+class SecureStringArgsDict(TypedDict):
+    """
+    Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the secret.
+    Expected value is 'SecureString'.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of secure string.
+    """
 
 @pulumi.input_type
 class SecureStringArgs:
@@ -2511,26 +2410,23 @@ class SecureStringArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SelfHostedIntegrationRuntimeArgsDict(TypedDict):
-        """
-        Self-hosted integration runtime.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of integration runtime.
-        Expected value is 'SelfHosted'.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Integration runtime description.
-        """
-        linked_info: NotRequired[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgsDict', 'LinkedIntegrationRuntimeRbacAuthorizationArgsDict']]]
-        """
-        Linked integration runtime type from data factory
-        """
-elif False:
-    SelfHostedIntegrationRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+class SelfHostedIntegrationRuntimeArgsDict(TypedDict):
+    """
+    Self-hosted integration runtime.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of integration runtime.
+    Expected value is 'SelfHosted'.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Integration runtime description.
+    """
+    linked_info: NotRequired[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgsDict', 'LinkedIntegrationRuntimeRbacAuthorizationArgsDict']]]
+    """
+    Linked integration runtime type from data factory
+    """
 
 @pulumi.input_type
 class SelfHostedIntegrationRuntimeArgs:
@@ -2589,25 +2485,22 @@ class SelfHostedIntegrationRuntimeArgs:
         pulumi.set(self, "linked_info", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        SQL pool SKU
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU name
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service tier
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    SQL pool SKU
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU name
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service tier
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -2665,25 +2558,22 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SparkConfigPropertiesArgsDict(TypedDict):
-        """
-        SparkConfig Properties for a Big Data pool powered by Apache Spark
-        """
-        configuration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]]
-        """
-        The type of the spark config properties file.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The spark config properties.
-        """
-        filename: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The filename of the spark config properties file.
-        """
-elif False:
-    SparkConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SparkConfigPropertiesArgsDict(TypedDict):
+    """
+    SparkConfig Properties for a Big Data pool powered by Apache Spark
+    """
+    configuration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]]
+    """
+    The type of the spark config properties file.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The spark config properties.
+    """
+    filename: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The filename of the spark config properties file.
+    """
 
 @pulumi.input_type
 class SparkConfigPropertiesArgs:
@@ -2741,17 +2631,14 @@ class SparkConfigPropertiesArgs:
         pulumi.set(self, "filename", value)
 
 
-if not MYPY:
-    class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgsDict(TypedDict):
-        """
-        Properties for an Sql pool vulnerability assessment rule baseline's result.
-        """
-        result: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The rule baseline result
-        """
-elif False:
-    SqlPoolVulnerabilityAssessmentRuleBaselineItemArgsDict: TypeAlias = Mapping[str, Any]
+class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgsDict(TypedDict):
+    """
+    Properties for an Sql pool vulnerability assessment rule baseline's result.
+    """
+    result: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The rule baseline result
+    """
 
 @pulumi.input_type
 class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs:
@@ -2776,37 +2663,34 @@ class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs:
         pulumi.set(self, "result", value)
 
 
-if not MYPY:
-    class TableLevelSharingPropertiesArgsDict(TypedDict):
-        """
-        Tables that will be included and excluded in the follower database
-        """
-        external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of external tables exclude from the follower database
-        """
-        external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of external tables to include in the follower database
-        """
-        materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of materialized views exclude from the follower database
-        """
-        materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of materialized views to include in the follower database
-        """
-        tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of tables to exclude from the follower database
-        """
-        tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of tables to include in the follower database
-        """
-elif False:
-    TableLevelSharingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TableLevelSharingPropertiesArgsDict(TypedDict):
+    """
+    Tables that will be included and excluded in the follower database
+    """
+    external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of external tables exclude from the follower database
+    """
+    external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of external tables to include in the follower database
+    """
+    materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of materialized views exclude from the follower database
+    """
+    materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of materialized views to include in the follower database
+    """
+    tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of tables to exclude from the follower database
+    """
+    tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of tables to include in the follower database
+    """
 
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:
@@ -2912,17 +2796,14 @@ class TableLevelSharingPropertiesArgs:
         pulumi.set(self, "tables_to_include", value)
 
 
-if not MYPY:
-    class VirtualNetworkProfileArgsDict(TypedDict):
-        """
-        Virtual Network Profile
-        """
-        compute_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet ID used for computes in workspace
-        """
-elif False:
-    VirtualNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkProfileArgsDict(TypedDict):
+    """
+    Virtual Network Profile
+    """
+    compute_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet ID used for computes in workspace
+    """
 
 @pulumi.input_type
 class VirtualNetworkProfileArgs:
@@ -2948,25 +2829,22 @@ class VirtualNetworkProfileArgs:
         pulumi.set(self, "compute_subnet_id", value)
 
 
-if not MYPY:
-    class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
-        """
-        Properties of a Vulnerability Assessment recurring scans.
-        """
-        email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        """
-        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies an array of e-mail addresses to which the scan notification is sent.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Recurring scans state.
-        """
-elif False:
-    VulnerabilityAssessmentRecurringScansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
+    """
+    Properties of a Vulnerability Assessment recurring scans.
+    """
+    email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies that the schedule scan notification will be is sent to the subscription administrators.
+    """
+    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies an array of e-mail addresses to which the scan notification is sent.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Recurring scans state.
+    """
 
 @pulumi.input_type
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
@@ -3026,21 +2904,18 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class WorkspaceKeyDetailsArgsDict(TypedDict):
-        """
-        Details of the customer managed key associated with the workspace
-        """
-        key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Workspace Key sub-resource key vault url
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Workspace Key sub-resource name
-        """
-elif False:
-    WorkspaceKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceKeyDetailsArgsDict(TypedDict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Workspace Key sub-resource key vault url
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Workspace Key sub-resource name
+    """
 
 @pulumi.input_type
 class WorkspaceKeyDetailsArgs:
@@ -3082,49 +2957,46 @@ class WorkspaceKeyDetailsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WorkspaceRepositoryConfigurationArgsDict(TypedDict):
-        """
-        Git integration settings
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account name
-        """
-        collaboration_branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Collaboration branch
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GitHub Enterprise host name. For example: `https://github.mydomain.com`
-        """
-        last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The last commit ID
-        """
-        project_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        VSTS project name
-        """
-        repository_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Repository name
-        """
-        root_folder: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Root folder to use in the repository
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The VSTS tenant ID
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
-        """
-elif False:
-    WorkspaceRepositoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceRepositoryConfigurationArgsDict(TypedDict):
+    """
+    Git integration settings
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account name
+    """
+    collaboration_branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Collaboration branch
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GitHub Enterprise host name. For example: `https://github.mydomain.com`
+    """
+    last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The last commit ID
+    """
+    project_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    VSTS project name
+    """
+    repository_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Repository name
+    """
+    root_folder: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Root folder to use in the repository
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The VSTS tenant ID
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+    """
 
 @pulumi.input_type
 class WorkspaceRepositoryConfigurationArgs:

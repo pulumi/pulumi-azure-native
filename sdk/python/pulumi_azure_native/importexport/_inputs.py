@@ -36,31 +36,26 @@ __all__ = [
     'ShippingInformationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DeliveryPackageInformationArgsDict(TypedDict):
-        """
-        Contains information about the delivery package being shipped by the customer to the Microsoft data center.
-        """
-        carrier_name: pulumi.Input[_builtins.str]
-        """
-        The name of the carrier that is used to ship the import or export drives.
-        """
-        tracking_number: pulumi.Input[_builtins.str]
-        """
-        The tracking number of the package.
-        """
-        drive_count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of drives included in the package.
-        """
-        ship_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date when the package is shipped.
-        """
-elif False:
-    DeliveryPackageInformationArgsDict: TypeAlias = Mapping[str, Any]
+class DeliveryPackageInformationArgsDict(TypedDict):
+    """
+    Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+    """
+    carrier_name: pulumi.Input[_builtins.str]
+    """
+    The name of the carrier that is used to ship the import or export drives.
+    """
+    tracking_number: pulumi.Input[_builtins.str]
+    """
+    The tracking number of the package.
+    """
+    drive_count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of drives included in the package.
+    """
+    ship_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date when the package is shipped.
+    """
 
 @pulumi.input_type
 class DeliveryPackageInformationArgs:
@@ -132,61 +127,58 @@ class DeliveryPackageInformationArgs:
         pulumi.set(self, "ship_date", value)
 
 
-if not MYPY:
-    class DriveStatusArgsDict(TypedDict):
-        """
-        Provides information about the drive's status
-        """
-        bit_locker_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The BitLocker key used to encrypt the drive.
-        """
-        bytes_succeeded: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Bytes successfully transferred for the drive.
-        """
-        copy_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
-        """
-        drive_header_hash: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The drive header hash value.
-        """
-        drive_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The drive's hardware serial number, without spaces.
-        """
-        error_log_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A URI that points to the blob containing the error log for the data transfer operation.
-        """
-        manifest_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relative path of the manifest file on the drive. 
-        """
-        manifest_hash: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Base16-encoded MD5 hash of the manifest file on the drive.
-        """
-        manifest_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A URI that points to the blob containing the drive manifest file. 
-        """
-        percent_complete: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Percentage completed for the drive. 
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'DriveState']]]
-        """
-        The drive's current state. 
-        """
-        verbose_log_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A URI that points to the blob containing the verbose log for the data transfer operation. 
-        """
-elif False:
-    DriveStatusArgsDict: TypeAlias = Mapping[str, Any]
+class DriveStatusArgsDict(TypedDict):
+    """
+    Provides information about the drive's status
+    """
+    bit_locker_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The BitLocker key used to encrypt the drive.
+    """
+    bytes_succeeded: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Bytes successfully transferred for the drive.
+    """
+    copy_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
+    """
+    drive_header_hash: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The drive header hash value.
+    """
+    drive_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The drive's hardware serial number, without spaces.
+    """
+    error_log_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A URI that points to the blob containing the error log for the data transfer operation.
+    """
+    manifest_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relative path of the manifest file on the drive. 
+    """
+    manifest_hash: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Base16-encoded MD5 hash of the manifest file on the drive.
+    """
+    manifest_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A URI that points to the blob containing the drive manifest file. 
+    """
+    percent_complete: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Percentage completed for the drive. 
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'DriveState']]]
+    """
+    The drive's current state. 
+    """
+    verbose_log_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A URI that points to the blob containing the verbose log for the data transfer operation. 
+    """
 
 @pulumi.input_type
 class DriveStatusArgs:
@@ -390,25 +382,22 @@ class DriveStatusArgs:
         pulumi.set(self, "verbose_log_uri", value)
 
 
-if not MYPY:
-    class EncryptionKeyDetailsArgsDict(TypedDict):
-        """
-        Specifies the encryption key properties
-        """
-        kek_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKekType']]]
-        """
-        The type of kek encryption key
-        """
-        kek_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the url for kek encryption key. 
-        """
-        kek_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the keyvault resource id for kek encryption key. 
-        """
-elif False:
-    EncryptionKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionKeyDetailsArgsDict(TypedDict):
+    """
+    Specifies the encryption key properties
+    """
+    kek_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKekType']]]
+    """
+    The type of kek encryption key
+    """
+    kek_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the url for kek encryption key. 
+    """
+    kek_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the keyvault resource id for kek encryption key. 
+    """
 
 @pulumi.input_type
 class EncryptionKeyDetailsArgs:
@@ -468,25 +457,22 @@ class EncryptionKeyDetailsArgs:
         pulumi.set(self, "kek_vault_resource_id", value)
 
 
-if not MYPY:
-    class ExportArgsDict(TypedDict):
-        """
-        A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
-        """
-        blob_list_blob_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
-        """
-        blob_path: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A collection of blob-path strings.
-        """
-        blob_path_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A collection of blob-prefix strings.
-        """
-elif False:
-    ExportArgsDict: TypeAlias = Mapping[str, Any]
+class ExportArgsDict(TypedDict):
+    """
+    A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
+    """
+    blob_list_blob_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
+    """
+    blob_path: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A collection of blob-path strings.
+    """
+    blob_path_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A collection of blob-prefix strings.
+    """
 
 @pulumi.input_type
 class ExportArgs:
@@ -544,85 +530,82 @@ class ExportArgs:
         pulumi.set(self, "blob_path_prefix", value)
 
 
-if not MYPY:
-    class JobDetailsArgsDict(TypedDict):
-        """
-        Specifies the job properties
-        """
-        backup_drive_manifest: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
-        """
-        cancel_requested: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether a request has been submitted to cancel the job.
-        """
-        delivery_package: NotRequired[pulumi.Input['DeliveryPackageInformationArgsDict']]
-        """
-        Contains information about the package being shipped by the customer to the Microsoft data center. 
-        """
-        diagnostics_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-        """
-        drive_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DriveStatusArgsDict']]]]
-        """
-        List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
-        """
-        encryption_key: NotRequired[pulumi.Input['EncryptionKeyDetailsArgsDict']]
-        """
-        Contains information about the encryption key.
-        """
-        export: NotRequired[pulumi.Input['ExportArgsDict']]
-        """
-        A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
-        """
-        incomplete_blob_list_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
-        """
-        job_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of job
-        """
-        log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-        """
-        percent_complete: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Overall percentage completed for the job.
-        """
-        provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the provisioning state of the job.
-        """
-        return_address: NotRequired[pulumi.Input['ReturnAddressArgsDict']]
-        """
-        Specifies the return address information for the job. 
-        """
-        return_package: NotRequired[pulumi.Input['PackageInformationArgsDict']]
-        """
-        Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
-        """
-        return_shipping: NotRequired[pulumi.Input['ReturnShippingArgsDict']]
-        """
-        Specifies the return carrier and customer's account with the carrier. 
-        """
-        shipping_information: NotRequired[pulumi.Input['ShippingInformationArgsDict']]
-        """
-        Contains information about the Microsoft datacenter to which the drives should be shipped. 
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Current state of the job.
-        """
-        storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource identifier of the storage account where data will be imported to or exported from.
-        """
-elif False:
-    JobDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class JobDetailsArgsDict(TypedDict):
+    """
+    Specifies the job properties
+    """
+    backup_drive_manifest: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
+    """
+    cancel_requested: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether a request has been submitted to cancel the job.
+    """
+    delivery_package: NotRequired[pulumi.Input['DeliveryPackageInformationArgsDict']]
+    """
+    Contains information about the package being shipped by the customer to the Microsoft data center. 
+    """
+    diagnostics_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
+    """
+    drive_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DriveStatusArgsDict']]]]
+    """
+    List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
+    """
+    encryption_key: NotRequired[pulumi.Input['EncryptionKeyDetailsArgsDict']]
+    """
+    Contains information about the encryption key.
+    """
+    export: NotRequired[pulumi.Input['ExportArgsDict']]
+    """
+    A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
+    """
+    incomplete_blob_list_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
+    """
+    job_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of job
+    """
+    log_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default value is Error. Indicates whether error logging or verbose logging will be enabled.
+    """
+    percent_complete: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Overall percentage completed for the job.
+    """
+    provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the provisioning state of the job.
+    """
+    return_address: NotRequired[pulumi.Input['ReturnAddressArgsDict']]
+    """
+    Specifies the return address information for the job. 
+    """
+    return_package: NotRequired[pulumi.Input['PackageInformationArgsDict']]
+    """
+    Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
+    """
+    return_shipping: NotRequired[pulumi.Input['ReturnShippingArgsDict']]
+    """
+    Specifies the return carrier and customer's account with the carrier. 
+    """
+    shipping_information: NotRequired[pulumi.Input['ShippingInformationArgsDict']]
+    """
+    Contains information about the Microsoft datacenter to which the drives should be shipped. 
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Current state of the job.
+    """
+    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource identifier of the storage account where data will be imported to or exported from.
+    """
 
 @pulumi.input_type
 class JobDetailsArgs:
@@ -926,29 +909,26 @@ class JobDetailsArgs:
         pulumi.set(self, "storage_account_id", value)
 
 
-if not MYPY:
-    class PackageInformationArgsDict(TypedDict):
-        """
-        Contains information about the package being shipped by the customer to the Microsoft data center.
-        """
-        carrier_name: pulumi.Input[_builtins.str]
-        """
-        The name of the carrier that is used to ship the import or export drives.
-        """
-        drive_count: pulumi.Input[_builtins.float]
-        """
-        The number of drives included in the package.
-        """
-        ship_date: pulumi.Input[_builtins.str]
-        """
-        The date when the package is shipped.
-        """
-        tracking_number: pulumi.Input[_builtins.str]
-        """
-        The tracking number of the package.
-        """
-elif False:
-    PackageInformationArgsDict: TypeAlias = Mapping[str, Any]
+class PackageInformationArgsDict(TypedDict):
+    """
+    Contains information about the package being shipped by the customer to the Microsoft data center.
+    """
+    carrier_name: pulumi.Input[_builtins.str]
+    """
+    The name of the carrier that is used to ship the import or export drives.
+    """
+    drive_count: pulumi.Input[_builtins.float]
+    """
+    The number of drives included in the package.
+    """
+    ship_date: pulumi.Input[_builtins.str]
+    """
+    The date when the package is shipped.
+    """
+    tracking_number: pulumi.Input[_builtins.str]
+    """
+    The tracking number of the package.
+    """
 
 @pulumi.input_type
 class PackageInformationArgs:
@@ -1018,49 +998,46 @@ class PackageInformationArgs:
         pulumi.set(self, "tracking_number", value)
 
 
-if not MYPY:
-    class ReturnAddressArgsDict(TypedDict):
-        """
-        Specifies the return address information for the job.
-        """
-        city: pulumi.Input[_builtins.str]
-        """
-        The city name to use when returning the drives.
-        """
-        country_or_region: pulumi.Input[_builtins.str]
-        """
-        The country or region to use when returning the drives. 
-        """
-        email: pulumi.Input[_builtins.str]
-        """
-        Email address of the recipient of the returned drives.
-        """
-        phone: pulumi.Input[_builtins.str]
-        """
-        Phone number of the recipient of the returned drives.
-        """
-        postal_code: pulumi.Input[_builtins.str]
-        """
-        The postal code to use when returning the drives.
-        """
-        recipient_name: pulumi.Input[_builtins.str]
-        """
-        The name of the recipient who will receive the hard drives when they are returned. 
-        """
-        street_address1: pulumi.Input[_builtins.str]
-        """
-        The first line of the street address to use when returning the drives. 
-        """
-        state_or_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province to use when returning the drives.
-        """
-        street_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of the street address to use when returning the drives. 
-        """
-elif False:
-    ReturnAddressArgsDict: TypeAlias = Mapping[str, Any]
+class ReturnAddressArgsDict(TypedDict):
+    """
+    Specifies the return address information for the job.
+    """
+    city: pulumi.Input[_builtins.str]
+    """
+    The city name to use when returning the drives.
+    """
+    country_or_region: pulumi.Input[_builtins.str]
+    """
+    The country or region to use when returning the drives. 
+    """
+    email: pulumi.Input[_builtins.str]
+    """
+    Email address of the recipient of the returned drives.
+    """
+    phone: pulumi.Input[_builtins.str]
+    """
+    Phone number of the recipient of the returned drives.
+    """
+    postal_code: pulumi.Input[_builtins.str]
+    """
+    The postal code to use when returning the drives.
+    """
+    recipient_name: pulumi.Input[_builtins.str]
+    """
+    The name of the recipient who will receive the hard drives when they are returned. 
+    """
+    street_address1: pulumi.Input[_builtins.str]
+    """
+    The first line of the street address to use when returning the drives. 
+    """
+    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province to use when returning the drives.
+    """
+    street_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The second line of the street address to use when returning the drives. 
+    """
 
 @pulumi.input_type
 class ReturnAddressArgs:
@@ -1207,21 +1184,18 @@ class ReturnAddressArgs:
         pulumi.set(self, "street_address2", value)
 
 
-if not MYPY:
-    class ReturnShippingArgsDict(TypedDict):
-        """
-        Specifies the return carrier and customer's account with the carrier.
-        """
-        carrier_account_number: pulumi.Input[_builtins.str]
-        """
-        The customer's account number with the carrier.
-        """
-        carrier_name: pulumi.Input[_builtins.str]
-        """
-        The carrier's name.
-        """
-elif False:
-    ReturnShippingArgsDict: TypeAlias = Mapping[str, Any]
+class ReturnShippingArgsDict(TypedDict):
+    """
+    Specifies the return carrier and customer's account with the carrier.
+    """
+    carrier_account_number: pulumi.Input[_builtins.str]
+    """
+    The customer's account number with the carrier.
+    """
+    carrier_name: pulumi.Input[_builtins.str]
+    """
+    The carrier's name.
+    """
 
 @pulumi.input_type
 class ReturnShippingArgs:
@@ -1261,45 +1235,42 @@ class ReturnShippingArgs:
         pulumi.set(self, "carrier_name", value)
 
 
-if not MYPY:
-    class ShippingInformationArgsDict(TypedDict):
-        """
-        Contains information about the Microsoft datacenter to which the drives should be shipped.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city name to use when returning the drives.
-        """
-        country_or_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country or region to use when returning the drives. 
-        """
-        phone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone number of the recipient of the returned drives.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code to use when returning the drives.
-        """
-        recipient_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the recipient who will receive the hard drives when they are returned. 
-        """
-        state_or_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province to use when returning the drives.
-        """
-        street_address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of the street address to use when returning the drives. 
-        """
-        street_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of the street address to use when returning the drives. 
-        """
-elif False:
-    ShippingInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ShippingInformationArgsDict(TypedDict):
+    """
+    Contains information about the Microsoft datacenter to which the drives should be shipped.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city name to use when returning the drives.
+    """
+    country_or_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country or region to use when returning the drives. 
+    """
+    phone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone number of the recipient of the returned drives.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The postal code to use when returning the drives.
+    """
+    recipient_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the recipient who will receive the hard drives when they are returned. 
+    """
+    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province to use when returning the drives.
+    """
+    street_address1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The first line of the street address to use when returning the drives. 
+    """
+    street_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The second line of the street address to use when returning the drives. 
+    """
 
 @pulumi.input_type
 class ShippingInformationArgs:

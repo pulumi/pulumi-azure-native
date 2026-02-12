@@ -24,31 +24,26 @@ __all__ = [
     'TargetDirectoryRequestPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PutAliasRequestAdditionalPropertiesArgsDict(TypedDict):
-        """
-        Put subscription additional properties.
-        """
-        management_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Management group Id for the subscription.
-        """
-        subscription_owner_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Owner Id of the subscription
-        """
-        subscription_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant Id of the subscription
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tags for the subscription
-        """
-elif False:
-    PutAliasRequestAdditionalPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PutAliasRequestAdditionalPropertiesArgsDict(TypedDict):
+    """
+    Put subscription additional properties.
+    """
+    management_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Management group Id for the subscription.
+    """
+    subscription_owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Owner Id of the subscription
+    """
+    subscription_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant Id of the subscription
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tags for the subscription
+    """
 
 @pulumi.input_type
 class PutAliasRequestAdditionalPropertiesArgs:
@@ -122,40 +117,37 @@ class PutAliasRequestAdditionalPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class PutAliasRequestPropertiesArgsDict(TypedDict):
-        """
-        Put subscription properties.
-        """
-        additional_properties: NotRequired[pulumi.Input['PutAliasRequestAdditionalPropertiesArgsDict']]
-        """
-        Put alias request additional properties.
-        """
-        billing_scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Billing scope of the subscription.
-        For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
-        For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
-        For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The friendly name of the subscription.
-        """
-        reseller_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reseller Id
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter can be used to create alias for existing subscription Id
-        """
-        workload: NotRequired[pulumi.Input[Union[_builtins.str, 'Workload']]]
-        """
-        The workload type of the subscription. It can be either Production or DevTest.
-        """
-elif False:
-    PutAliasRequestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PutAliasRequestPropertiesArgsDict(TypedDict):
+    """
+    Put subscription properties.
+    """
+    additional_properties: NotRequired[pulumi.Input['PutAliasRequestAdditionalPropertiesArgsDict']]
+    """
+    Put alias request additional properties.
+    """
+    billing_scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Billing scope of the subscription.
+    For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
+    For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
+    For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The friendly name of the subscription.
+    """
+    reseller_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reseller Id
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter can be used to create alias for existing subscription Id
+    """
+    workload: NotRequired[pulumi.Input[Union[_builtins.str, 'Workload']]]
+    """
+    The workload type of the subscription. It can be either Production or DevTest.
+    """
 
 @pulumi.input_type
 class PutAliasRequestPropertiesArgs:
@@ -267,21 +259,18 @@ class PutAliasRequestPropertiesArgs:
         pulumi.set(self, "workload", value)
 
 
-if not MYPY:
-    class TargetDirectoryRequestPropertiesArgsDict(TypedDict):
-        """
-        Properties of subscription Request for Changed Target Directory.
-        """
-        destination_owner_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination OwnerId, can be object id or email address
-        """
-        destination_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination Tenant id where subscription needs to be accepted
-        """
-elif False:
-    TargetDirectoryRequestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TargetDirectoryRequestPropertiesArgsDict(TypedDict):
+    """
+    Properties of subscription Request for Changed Target Directory.
+    """
+    destination_owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination OwnerId, can be object id or email address
+    """
+    destination_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination Tenant id where subscription needs to be accepted
+    """
 
 @pulumi.input_type
 class TargetDirectoryRequestPropertiesArgs:

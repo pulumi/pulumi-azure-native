@@ -26,23 +26,18 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AclArgsDict(TypedDict):
-        """
-        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        """
-        initiator_iqn: pulumi.Input[_builtins.str]
-        """
-        iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
-        """
-        mapped_luns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of LUN names mapped to the ACL.
-        """
-elif False:
-    AclArgsDict: TypeAlias = Mapping[str, Any]
+class AclArgsDict(TypedDict):
+    """
+    Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+    """
+    initiator_iqn: pulumi.Input[_builtins.str]
+    """
+    iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
+    """
+    mapped_luns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of LUN names mapped to the ACL.
+    """
 
 @pulumi.input_type
 class AclArgs:
@@ -82,17 +77,14 @@ class AclArgs:
         pulumi.set(self, "mapped_luns", value)
 
 
-if not MYPY:
-    class DiskArgsDict(TypedDict):
-        """
-        Azure Managed Disk to attach to the Disk Pool.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Unique Azure Resource ID of the Managed Disk.
-        """
-elif False:
-    DiskArgsDict: TypeAlias = Mapping[str, Any]
+class DiskArgsDict(TypedDict):
+    """
+    Azure Managed Disk to attach to the Disk Pool.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Unique Azure Resource ID of the Managed Disk.
+    """
 
 @pulumi.input_type
 class DiskArgs:
@@ -117,21 +109,18 @@ class DiskArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class IscsiLunArgsDict(TypedDict):
-        """
-        LUN to expose the Azure Managed Disk.
-        """
-        managed_disk_azure_resource_id: pulumi.Input[_builtins.str]
-        """
-        Azure Resource ID of the Managed Disk.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        User defined name for iSCSI LUN; example: "lun0"
-        """
-elif False:
-    IscsiLunArgsDict: TypeAlias = Mapping[str, Any]
+class IscsiLunArgsDict(TypedDict):
+    """
+    LUN to expose the Azure Managed Disk.
+    """
+    managed_disk_azure_resource_id: pulumi.Input[_builtins.str]
+    """
+    Azure Resource ID of the Managed Disk.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    User defined name for iSCSI LUN; example: "lun0"
+    """
 
 @pulumi.input_type
 class IscsiLunArgs:
@@ -171,21 +160,18 @@ class IscsiLunArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Sku for ARM resource
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Sku name
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sku tier
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Sku for ARM resource
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Sku name
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sku tier
+    """
 
 @pulumi.input_type
 class SkuArgs:

@@ -40,19 +40,14 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataPlaneAadOrApiKeyAuthOptionArgsDict(TypedDict):
-        """
-        Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
-        """
-        aad_auth_failure_mode: NotRequired[pulumi.Input['AadAuthFailureMode']]
-        """
-        Describes what response the data plane API of a search service would send for requests that failed authentication.
-        """
-elif False:
-    DataPlaneAadOrApiKeyAuthOptionArgsDict: TypeAlias = Mapping[str, Any]
+class DataPlaneAadOrApiKeyAuthOptionArgsDict(TypedDict):
+    """
+    Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
+    """
+    aad_auth_failure_mode: NotRequired[pulumi.Input['AadAuthFailureMode']]
+    """
+    Describes what response the data plane API of a search service would send for requests that failed authentication.
+    """
 
 @pulumi.input_type
 class DataPlaneAadOrApiKeyAuthOptionArgs:
@@ -78,21 +73,18 @@ class DataPlaneAadOrApiKeyAuthOptionArgs:
         pulumi.set(self, "aad_auth_failure_mode", value)
 
 
-if not MYPY:
-    class DataPlaneAuthOptionsArgsDict(TypedDict):
-        """
-        Defines the options for how the search service authenticates a data plane request. This cannot be set if 'disableLocalAuth' is set to true.
-        """
-        aad_or_api_key: NotRequired[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgsDict']]
-        """
-        Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
-        """
-        api_key_only: NotRequired[Any]
-        """
-        Indicates that only the API key can be used for authentication.
-        """
-elif False:
-    DataPlaneAuthOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DataPlaneAuthOptionsArgsDict(TypedDict):
+    """
+    Defines the options for how the search service authenticates a data plane request. This cannot be set if 'disableLocalAuth' is set to true.
+    """
+    aad_or_api_key: NotRequired[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgsDict']]
+    """
+    Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
+    """
+    api_key_only: NotRequired[Any]
+    """
+    Indicates that only the API key can be used for authentication.
+    """
 
 @pulumi.input_type
 class DataPlaneAuthOptionsArgs:
@@ -134,17 +126,14 @@ class DataPlaneAuthOptionsArgs:
         pulumi.set(self, "api_key_only", value)
 
 
-if not MYPY:
-    class EncryptionWithCmkArgsDict(TypedDict):
-        """
-        Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
-        """
-        enforcement: NotRequired[pulumi.Input['SearchEncryptionWithCmk']]
-        """
-        Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
-        """
-elif False:
-    EncryptionWithCmkArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionWithCmkArgsDict(TypedDict):
+    """
+    Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
+    """
+    enforcement: NotRequired[pulumi.Input['SearchEncryptionWithCmk']]
+    """
+    Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
+    """
 
 @pulumi.input_type
 class EncryptionWithCmkArgs:
@@ -170,21 +159,18 @@ class EncryptionWithCmkArgs:
         pulumi.set(self, "enforcement", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Details about the search service identity. A null value indicates that the search service has no identity assigned.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
-        """
-        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Details about the search service identity. A null value indicates that the search service has no identity assigned.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
+    """
+    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -225,17 +211,14 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class IpRuleArgsDict(TypedDict):
-        """
-        The IP restriction rule of the Azure AI Search service.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
-        """
-elif False:
-    IpRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpRuleArgsDict(TypedDict):
+    """
+    The IP restriction rule of the Azure AI Search service.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+    """
 
 @pulumi.input_type
 class IpRuleArgs:
@@ -261,21 +244,18 @@ class IpRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class NetworkRuleSetArgsDict(TypedDict):
-        """
-        Network specific rules that determine how the Azure AI Search service may be reached.
-        """
-        bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'SearchBypass']]]
-        """
-        Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
-        """
-        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
-        """
-        A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
-        """
-elif False:
-    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkRuleSetArgsDict(TypedDict):
+    """
+    Network specific rules that determine how the Azure AI Search service may be reached.
+    """
+    bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'SearchBypass']]]
+    """
+    Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
+    """
+    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
+    """
+    A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+    """
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -317,17 +297,14 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "ip_rules", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict(TypedDict):
-        """
-        The private endpoint resource from Microsoft.Network provider.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the private endpoint resource from Microsoft.Network provider.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict(TypedDict):
+    """
+    The private endpoint resource from Microsoft.Network provider.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the private endpoint resource from Microsoft.Network provider.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
@@ -353,25 +330,22 @@ class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of any extra actions that may be required.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description for the private link service connection state.
-        """
-        status: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStatus']]
-        """
-        Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of any extra actions that may be required.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description for the private link service connection state.
+    """
+    status: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStatus']]
+    """
+    Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
@@ -431,29 +405,26 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        Describes the properties of an existing private endpoint connection to the search service.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The group ID of the Azure resource for which the private link service is for.
-        """
-        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict']]
-        """
-        The private endpoint resource from Microsoft.Network provider.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]
-        """
-        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]
-        """
-        The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    Describes the properties of an existing private endpoint connection to the search service.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The group ID of the Azure resource for which the private link service is for.
+    """
+    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict']]
+    """
+    The private endpoint resource from Microsoft.Network provider.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]
+    """
+    Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionProvisioningState']]]
+    """
+    The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -527,37 +498,34 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-if not MYPY:
-    class SharedPrivateLinkResourcePropertiesArgsDict(TypedDict):
-        """
-        Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The group ID from the provider of resource the shared private link resource is for.
-        """
-        private_link_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the resource the shared private link resource is for.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]
-        """
-        The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
-        """
-        request_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message for requesting approval of the shared private link resource.
-        """
-        resource_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]
-        """
-        Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
-        """
-elif False:
-    SharedPrivateLinkResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SharedPrivateLinkResourcePropertiesArgsDict(TypedDict):
+    """
+    Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The group ID from the provider of resource the shared private link resource is for.
+    """
+    private_link_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the resource the shared private link resource is for.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceProvisioningState']]]
+    """
+    The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
+    """
+    request_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message for requesting approval of the shared private link resource.
+    """
+    resource_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'SharedPrivateLinkResourceStatus']]]
+    """
+    Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
+    """
 
 @pulumi.input_type
 class SharedPrivateLinkResourcePropertiesArgs:
@@ -663,17 +631,14 @@ class SharedPrivateLinkResourcePropertiesArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Defines the SKU of a search service, which determines billing rate and capacity limits.
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
-        """
-        The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Defines the SKU of a search service, which determines billing rate and capacity limits.
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
+    """
+    The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+    """
 
 @pulumi.input_type
 class SkuArgs:

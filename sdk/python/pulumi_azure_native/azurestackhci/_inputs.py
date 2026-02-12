@@ -296,27 +296,22 @@ __all__ = [
     'WebProxyConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdapterPropertyOverridesArgsDict(TypedDict):
-        """
-        The AdapterPropertyOverrides of a cluster.
-        """
-        jumbo_packet: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        network_direct: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        network_direct_technology: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
-        """
-elif False:
-    AdapterPropertyOverridesArgsDict: TypeAlias = Mapping[str, Any]
+class AdapterPropertyOverridesArgsDict(TypedDict):
+    """
+    The AdapterPropertyOverrides of a cluster.
+    """
+    jumbo_packet: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
+    network_direct: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
+    network_direct_technology: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
+    """
 
 @pulumi.input_type
 class AdapterPropertyOverridesArgs:
@@ -374,21 +369,18 @@ class AdapterPropertyOverridesArgs:
         pulumi.set(self, "network_direct_technology", value)
 
 
-if not MYPY:
-    class ArcConnectivityPropertiesArgsDict(TypedDict):
-        """
-        Connectivity related configuration required by arc server.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True indicates ARC connectivity is enabled
-        """
-        service_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgsDict']]]]
-        """
-        Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
-        """
-elif False:
-    ArcConnectivityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ArcConnectivityPropertiesArgsDict(TypedDict):
+    """
+    Connectivity related configuration required by arc server.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True indicates ARC connectivity is enabled
+    """
+    service_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgsDict']]]]
+    """
+    Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
+    """
 
 @pulumi.input_type
 class ArcConnectivityPropertiesArgs:
@@ -430,25 +422,22 @@ class ArcConnectivityPropertiesArgs:
         pulumi.set(self, "service_configurations", value)
 
 
-if not MYPY:
-    class BackendAddressPoolPropertiesArgsDict(TypedDict):
-        """
-        Backend address pool for the load balancer.
-        """
-        load_balancer_backend_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgsDict']]]]
-        """
-        List of backend addresses for the backend pool
-        """
-        logical_network: NotRequired[pulumi.Input['LogicalNetworkArmReferenceArgsDict']]
-        """
-        Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
-        """
-        virtual_network: NotRequired[pulumi.Input['VirtualNetworkArmReferenceArgsDict']]
-        """
-        Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
-        """
-elif False:
-    BackendAddressPoolPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BackendAddressPoolPropertiesArgsDict(TypedDict):
+    """
+    Backend address pool for the load balancer.
+    """
+    load_balancer_backend_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgsDict']]]]
+    """
+    List of backend addresses for the backend pool
+    """
+    logical_network: NotRequired[pulumi.Input['LogicalNetworkArmReferenceArgsDict']]
+    """
+    Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+    """
+    virtual_network: NotRequired[pulumi.Input['VirtualNetworkArmReferenceArgsDict']]
+    """
+    Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+    """
 
 @pulumi.input_type
 class BackendAddressPoolPropertiesArgs:
@@ -506,21 +495,18 @@ class BackendAddressPoolPropertiesArgs:
         pulumi.set(self, "virtual_network", value)
 
 
-if not MYPY:
-    class BackendAddressPoolArgsDict(TypedDict):
-        """
-        Backend address pool for the load balancer.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the backend pool.
-        """
-        properties: pulumi.Input['BackendAddressPoolPropertiesArgsDict']
-        """
-        properties for the backend pool
-        """
-elif False:
-    BackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+class BackendAddressPoolArgsDict(TypedDict):
+    """
+    Backend address pool for the load balancer.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the backend pool.
+    """
+    properties: pulumi.Input['BackendAddressPoolPropertiesArgsDict']
+    """
+    properties for the backend pool
+    """
 
 @pulumi.input_type
 class BackendAddressPoolArgs:
@@ -560,21 +546,18 @@ class BackendAddressPoolArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class ClusterDesiredPropertiesArgsDict(TypedDict):
-        """
-        Desired properties of the cluster.
-        """
-        diagnostic_level: NotRequired[pulumi.Input[Union[_builtins.str, 'DiagnosticLevel']]]
-        """
-        Desired level of diagnostic data emitted by the cluster.
-        """
-        windows_server_subscription: NotRequired[pulumi.Input[Union[_builtins.str, 'WindowsServerSubscription']]]
-        """
-        Desired state of Windows Server Subscription.
-        """
-elif False:
-    ClusterDesiredPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterDesiredPropertiesArgsDict(TypedDict):
+    """
+    Desired properties of the cluster.
+    """
+    diagnostic_level: NotRequired[pulumi.Input[Union[_builtins.str, 'DiagnosticLevel']]]
+    """
+    Desired level of diagnostic data emitted by the cluster.
+    """
+    windows_server_subscription: NotRequired[pulumi.Input[Union[_builtins.str, 'WindowsServerSubscription']]]
+    """
+    Desired state of Windows Server Subscription.
+    """
 
 @pulumi.input_type
 class ClusterDesiredPropertiesArgs:
@@ -616,33 +599,30 @@ class ClusterDesiredPropertiesArgs:
         pulumi.set(self, "windows_server_subscription", value)
 
 
-if not MYPY:
-    class DeploymentClusterArgsDict(TypedDict):
-        """
-        AzureStackHCI Cluster deployment properties.
-        """
-        azure_service_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For Azure blob service endpoint type, select either Default or Custom domain. If you selected **Custom domain, enter the domain for the blob service in this format core.windows.net.
-        """
-        cloud_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the Azure Storage account name for cloud witness for your Azure Stack HCI cluster.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cluster name provided when preparing Active Directory.
-        """
-        witness_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the fileshare path for the local witness for your Azure Stack HCI cluster.
-        """
-        witness_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
-        """
-elif False:
-    DeploymentClusterArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentClusterArgsDict(TypedDict):
+    """
+    AzureStackHCI Cluster deployment properties.
+    """
+    azure_service_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For Azure blob service endpoint type, select either Default or Custom domain. If you selected **Custom domain, enter the domain for the blob service in this format core.windows.net.
+    """
+    cloud_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the Azure Storage account name for cloud witness for your Azure Stack HCI cluster.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cluster name provided when preparing Active Directory.
+    """
+    witness_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the fileshare path for the local witness for your Azure Stack HCI cluster.
+    """
+    witness_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
+    """
 
 @pulumi.input_type
 class DeploymentClusterArgs:
@@ -732,21 +712,18 @@ class DeploymentClusterArgs:
         pulumi.set(self, "witness_type", value)
 
 
-if not MYPY:
-    class DeploymentConfigurationArgsDict(TypedDict):
-        """
-        Deployment Configuration
-        """
-        scale_units: pulumi.Input[Sequence[pulumi.Input['ScaleUnitsArgsDict']]]
-        """
-        Scale units will contains list of deployment data
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        deployment template version 
-        """
-elif False:
-    DeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigurationArgsDict(TypedDict):
+    """
+    Deployment Configuration
+    """
+    scale_units: pulumi.Input[Sequence[pulumi.Input['ScaleUnitsArgsDict']]]
+    """
+    Scale units will contains list of deployment data
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    deployment template version 
+    """
 
 @pulumi.input_type
 class DeploymentConfigurationArgs:
@@ -787,69 +764,66 @@ class DeploymentConfigurationArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DeploymentDataArgsDict(TypedDict):
-        """
-        The Deployment data of AzureStackHCI Cluster.
-        """
-        adou_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the Active Directory Organizational Unit container object prepared for the deployment. 
-        """
-        cluster: NotRequired[pulumi.Input['DeploymentClusterArgsDict']]
-        """
-        Observability config to deploy AzureStackHCI Cluster.
-        """
-        domain_fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        FQDN to deploy cluster
-        """
-        host_network: NotRequired[pulumi.Input['HostNetworkArgsDict']]
-        """
-        HostNetwork config to deploy AzureStackHCI Cluster.
-        """
-        infrastructure_network: NotRequired[pulumi.Input[Sequence[pulumi.Input['InfrastructureNetworkArgsDict']]]]
-        """
-        InfrastructureNetwork config to deploy AzureStackHCI Cluster.
-        """
-        naming_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        naming prefix to deploy cluster.
-        """
-        observability: NotRequired[pulumi.Input['ObservabilityArgsDict']]
-        """
-        Observability config to deploy AzureStackHCI Cluster.
-        """
-        optional_services: NotRequired[pulumi.Input['OptionalServicesArgsDict']]
-        """
-        OptionalServices config to deploy AzureStackHCI Cluster.
-        """
-        physical_nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PhysicalNodesArgsDict']]]]
-        """
-        list of physical nodes config to deploy AzureStackHCI Cluster.
-        """
-        sdn_integration: NotRequired[pulumi.Input['SdnIntegrationArgsDict']]
-        """
-        SDN Integration config to deploy AzureStackHCI Cluster.
-        """
-        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['EceDeploymentSecretsArgsDict']]]]
-        """
-        secrets used for cloud deployment.
-        """
-        secrets_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure keyvault endpoint. This property is deprecated from 2023-12-01-preview. Please use secrets property instead.
-        """
-        security_settings: NotRequired[pulumi.Input['DeploymentSecuritySettingsArgsDict']]
-        """
-        SecuritySettings to deploy AzureStackHCI Cluster.
-        """
-        storage: NotRequired[pulumi.Input['StorageArgsDict']]
-        """
-        Storage config to deploy AzureStackHCI Cluster.
-        """
-elif False:
-    DeploymentDataArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentDataArgsDict(TypedDict):
+    """
+    The Deployment data of AzureStackHCI Cluster.
+    """
+    adou_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the Active Directory Organizational Unit container object prepared for the deployment. 
+    """
+    cluster: NotRequired[pulumi.Input['DeploymentClusterArgsDict']]
+    """
+    Observability config to deploy AzureStackHCI Cluster.
+    """
+    domain_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    FQDN to deploy cluster
+    """
+    host_network: NotRequired[pulumi.Input['HostNetworkArgsDict']]
+    """
+    HostNetwork config to deploy AzureStackHCI Cluster.
+    """
+    infrastructure_network: NotRequired[pulumi.Input[Sequence[pulumi.Input['InfrastructureNetworkArgsDict']]]]
+    """
+    InfrastructureNetwork config to deploy AzureStackHCI Cluster.
+    """
+    naming_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    naming prefix to deploy cluster.
+    """
+    observability: NotRequired[pulumi.Input['ObservabilityArgsDict']]
+    """
+    Observability config to deploy AzureStackHCI Cluster.
+    """
+    optional_services: NotRequired[pulumi.Input['OptionalServicesArgsDict']]
+    """
+    OptionalServices config to deploy AzureStackHCI Cluster.
+    """
+    physical_nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PhysicalNodesArgsDict']]]]
+    """
+    list of physical nodes config to deploy AzureStackHCI Cluster.
+    """
+    sdn_integration: NotRequired[pulumi.Input['SdnIntegrationArgsDict']]
+    """
+    SDN Integration config to deploy AzureStackHCI Cluster.
+    """
+    secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['EceDeploymentSecretsArgsDict']]]]
+    """
+    secrets used for cloud deployment.
+    """
+    secrets_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure keyvault endpoint. This property is deprecated from 2023-12-01-preview. Please use secrets property instead.
+    """
+    security_settings: NotRequired[pulumi.Input['DeploymentSecuritySettingsArgsDict']]
+    """
+    SecuritySettings to deploy AzureStackHCI Cluster.
+    """
+    storage: NotRequired[pulumi.Input['StorageArgsDict']]
+    """
+    Storage config to deploy AzureStackHCI Cluster.
+    """
 
 @pulumi.input_type
 class DeploymentDataArgs:
@@ -1083,53 +1057,50 @@ class DeploymentDataArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class DeploymentSecuritySettingsArgsDict(TypedDict):
-        """
-        The SecuritySettings of AzureStackHCI Cluster.
-        """
-        bitlocker_boot_volume: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
-        """
-        bitlocker_data_volumes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes.
-        """
-        credential_guard_enforced: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, Credential Guard is enabled.
-        """
-        drift_control_enforced: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, the security baseline is re-applied regularly.
-        """
-        drtm_protection: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        By default, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent.
-        """
-        hvci_protection: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        By default, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster.
-        """
-        side_channel_mitigation_enforced: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, all the side channel mitigations are enabled
-        """
-        smb_cluster_encryption: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, cluster east-west traffic is encrypted.
-        """
-        smb_signing_enforced: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, the SMB default instance requires sign in for the client and server services.
-        """
-        wdac_enforced: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        WDAC is enabled by default and limits the applications and the code that you can run on your Azure Stack HCI cluster.
-        """
-elif False:
-    DeploymentSecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentSecuritySettingsArgsDict(TypedDict):
+    """
+    The SecuritySettings of AzureStackHCI Cluster.
+    """
+    bitlocker_boot_volume: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
+    """
+    bitlocker_data_volumes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes.
+    """
+    credential_guard_enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, Credential Guard is enabled.
+    """
+    drift_control_enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, the security baseline is re-applied regularly.
+    """
+    drtm_protection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    By default, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent.
+    """
+    hvci_protection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    By default, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster.
+    """
+    side_channel_mitigation_enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, all the side channel mitigations are enabled
+    """
+    smb_cluster_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, cluster east-west traffic is encrypted.
+    """
+    smb_signing_enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, the SMB default instance requires sign in for the client and server services.
+    """
+    wdac_enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    WDAC is enabled by default and limits the applications and the code that you can run on your Azure Stack HCI cluster.
+    """
 
 @pulumi.input_type
 class DeploymentSecuritySettingsArgs:
@@ -1319,21 +1290,18 @@ class DeploymentSecuritySettingsArgs:
         pulumi.set(self, "wdac_enforced", value)
 
 
-if not MYPY:
-    class DeviceConfigurationArgsDict(TypedDict):
-        """
-        The device Configuration for edge device.
-        """
-        device_metadata: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Device metadata details.
-        """
-        nic_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['NicDetailArgsDict']]]]
-        """
-        NIC Details of device
-        """
-elif False:
-    DeviceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceConfigurationArgsDict(TypedDict):
+    """
+    The device Configuration for edge device.
+    """
+    device_metadata: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Device metadata details.
+    """
+    nic_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['NicDetailArgsDict']]]]
+    """
+    NIC Details of device
+    """
 
 @pulumi.input_type
 class DeviceConfigurationArgs:
@@ -1375,26 +1343,23 @@ class DeviceConfigurationArgs:
         pulumi.set(self, "nic_details", value)
 
 
-if not MYPY:
-    class DownloadOsJobPropertiesArgsDict(TypedDict):
-        """
-        Represents the properties of Download Os job.
-        """
-        download_request: pulumi.Input['DownloadRequestArgsDict']
-        """
-        Download OS request.
-        """
-        job_type: pulumi.Input[_builtins.str]
-        """
-        Job Type supported.
-        Expected value is 'DownloadOs'.
-        """
-        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
-        """
-        Deployment mode to trigger job.
-        """
-elif False:
-    DownloadOsJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DownloadOsJobPropertiesArgsDict(TypedDict):
+    """
+    Represents the properties of Download Os job.
+    """
+    download_request: pulumi.Input['DownloadRequestArgsDict']
+    """
+    Download OS request.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    Job Type supported.
+    Expected value is 'DownloadOs'.
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
 
 @pulumi.input_type
 class DownloadOsJobPropertiesArgs:
@@ -1452,41 +1417,38 @@ class DownloadOsJobPropertiesArgs:
         pulumi.set(self, "deployment_mode", value)
 
 
-if not MYPY:
-    class DownloadOsProfileArgsDict(TypedDict):
-        """
-        Operating system profile.
-        """
-        gpg_pub_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GPG Public Key used for package verification
-        """
-        image_hash: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Hash of the OS package downloaded
-        """
-        os_image_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the operating system image.
-        """
-        os_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the operating system.
-        """
-        os_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the operating system.
-        """
-        os_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the operating system.
-        """
-        vsr_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Validated Solution Recipe version to be used for the job
-        """
-elif False:
-    DownloadOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class DownloadOsProfileArgsDict(TypedDict):
+    """
+    Operating system profile.
+    """
+    gpg_pub_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GPG Public Key used for package verification
+    """
+    image_hash: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Hash of the OS package downloaded
+    """
+    os_image_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of the operating system image.
+    """
+    os_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the operating system.
+    """
+    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the operating system.
+    """
+    os_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the operating system.
+    """
+    vsr_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Validated Solution Recipe version to be used for the job
+    """
 
 @pulumi.input_type
 class DownloadOsProfileArgs:
@@ -1608,21 +1570,18 @@ class DownloadOsProfileArgs:
         pulumi.set(self, "vsr_version", value)
 
 
-if not MYPY:
-    class DownloadRequestArgsDict(TypedDict):
-        """
-        Download Request properties
-        """
-        os_profile: pulumi.Input['DownloadOsProfileArgsDict']
-        """
-        Operating system profile.
-        """
-        target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]
-        """
-        Target operating system to support polymorphic resource.
-        """
-elif False:
-    DownloadRequestArgsDict: TypeAlias = Mapping[str, Any]
+class DownloadRequestArgsDict(TypedDict):
+    """
+    Download Request properties
+    """
+    os_profile: pulumi.Input['DownloadOsProfileArgsDict']
+    """
+    Operating system profile.
+    """
+    target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]
+    """
+    Target operating system to support polymorphic resource.
+    """
 
 @pulumi.input_type
 class DownloadRequestArgs:
@@ -1662,25 +1621,22 @@ class DownloadRequestArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class EceDeploymentSecretsArgsDict(TypedDict):
-        """
-        Protected parameters list stored in keyvault.
-        """
-        ece_secret_name: NotRequired[pulumi.Input[Union[_builtins.str, 'EceSecrets']]]
-        """
-        Secret name expected for Enterprise Cloud Engine (ECE) deployment.
-        """
-        secret_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret URI stored in keyvault.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret name stored in keyvault.
-        """
-elif False:
-    EceDeploymentSecretsArgsDict: TypeAlias = Mapping[str, Any]
+class EceDeploymentSecretsArgsDict(TypedDict):
+    """
+    Protected parameters list stored in keyvault.
+    """
+    ece_secret_name: NotRequired[pulumi.Input[Union[_builtins.str, 'EceSecrets']]]
+    """
+    Secret name expected for Enterprise Cloud Engine (ECE) deployment.
+    """
+    secret_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret URI stored in keyvault.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret name stored in keyvault.
+    """
 
 @pulumi.input_type
 class EceDeploymentSecretsArgs:
@@ -1738,30 +1694,27 @@ class EceDeploymentSecretsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class EdgeMachineCollectLogJobPropertiesArgsDict(TypedDict):
-        """
-        Properties for pausing a server in the cluster.
-        """
-        from_date: pulumi.Input[_builtins.str]
-        """
-        From date for log collection.
-        """
-        job_type: pulumi.Input[_builtins.str]
-        """
-        Job Type supported.
-        Expected value is 'CollectLog'.
-        """
-        to_date: pulumi.Input[_builtins.str]
-        """
-        To date for log collection.
-        """
-        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
-        """
-        Deployment mode to trigger job.
-        """
-elif False:
-    EdgeMachineCollectLogJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EdgeMachineCollectLogJobPropertiesArgsDict(TypedDict):
+    """
+    Properties for pausing a server in the cluster.
+    """
+    from_date: pulumi.Input[_builtins.str]
+    """
+    From date for log collection.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    Job Type supported.
+    Expected value is 'CollectLog'.
+    """
+    to_date: pulumi.Input[_builtins.str]
+    """
+    To date for log collection.
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
 
 @pulumi.input_type
 class EdgeMachineCollectLogJobPropertiesArgs:
@@ -1834,41 +1787,38 @@ class EdgeMachineCollectLogJobPropertiesArgs:
         pulumi.set(self, "deployment_mode", value)
 
 
-if not MYPY:
-    class EdgeMachinePropertiesArgsDict(TypedDict):
-        """
-        Properties for edge machine.
-        """
-        arc_gateway_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Link to Arc Gateway ARM resource Id
-        """
-        arc_machine_resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property to create arc machine in custom resource group.
-        """
-        arc_machine_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Arc machine instance resource id.
-        """
-        edge_machine_kind: NotRequired[pulumi.Input[Union[_builtins.str, 'EdgeMachineKind']]]
-        """
-        Edge Machine type.
-        """
-        ownership_voucher_details: NotRequired[pulumi.Input['OwnershipVoucherDetailsArgsDict']]
-        """
-        Ownership voucher details for provisioned machine.
-        """
-        provisioning_details: NotRequired[pulumi.Input['ProvisioningDetailsArgsDict']]
-        """
-        Details for device provisioning.
-        """
-        site_details: NotRequired[pulumi.Input['SiteDetailsArgsDict']]
-        """
-        Service fetches common configuration from site.
-        """
-elif False:
-    EdgeMachinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EdgeMachinePropertiesArgsDict(TypedDict):
+    """
+    Properties for edge machine.
+    """
+    arc_gateway_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Link to Arc Gateway ARM resource Id
+    """
+    arc_machine_resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property to create arc machine in custom resource group.
+    """
+    arc_machine_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arc machine instance resource id.
+    """
+    edge_machine_kind: NotRequired[pulumi.Input[Union[_builtins.str, 'EdgeMachineKind']]]
+    """
+    Edge Machine type.
+    """
+    ownership_voucher_details: NotRequired[pulumi.Input['OwnershipVoucherDetailsArgsDict']]
+    """
+    Ownership voucher details for provisioned machine.
+    """
+    provisioning_details: NotRequired[pulumi.Input['ProvisioningDetailsArgsDict']]
+    """
+    Details for device provisioning.
+    """
+    site_details: NotRequired[pulumi.Input['SiteDetailsArgsDict']]
+    """
+    Service fetches common configuration from site.
+    """
 
 @pulumi.input_type
 class EdgeMachinePropertiesArgs:
@@ -1990,34 +1940,31 @@ class EdgeMachinePropertiesArgs:
         pulumi.set(self, "site_details", value)
 
 
-if not MYPY:
-    class EdgeMachineRemoteSupportJobPropertiesArgsDict(TypedDict):
-        """
-        Properties for adding a server in the cluster.
-        """
-        access_level: pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']]
-        """
-        Remote support access level.
-        """
-        expiration_timestamp: pulumi.Input[_builtins.str]
-        """
-        Remote support expiration timestamp.
-        """
-        job_type: pulumi.Input[_builtins.str]
-        """
-        Job Type supported.
-        Expected value is 'RemoteSupport'.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'RemoteSupportType']]
-        """
-        Remote support type.
-        """
-        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
-        """
-        Deployment mode to trigger job.
-        """
-elif False:
-    EdgeMachineRemoteSupportJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EdgeMachineRemoteSupportJobPropertiesArgsDict(TypedDict):
+    """
+    Properties for adding a server in the cluster.
+    """
+    access_level: pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']]
+    """
+    Remote support access level.
+    """
+    expiration_timestamp: pulumi.Input[_builtins.str]
+    """
+    Remote support expiration timestamp.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    Job Type supported.
+    Expected value is 'RemoteSupport'.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'RemoteSupportType']]
+    """
+    Remote support type.
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
 
 @pulumi.input_type
 class EdgeMachineRemoteSupportJobPropertiesArgs:
@@ -2105,21 +2052,18 @@ class EdgeMachineRemoteSupportJobPropertiesArgs:
         pulumi.set(self, "deployment_mode", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        The complex type of the extended location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the extended location.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
-        """
-        The type of the extended location.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    The complex type of the extended location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the extended location.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
+    """
+    The type of the extended location.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -2161,29 +2105,26 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FrontendIPConfigurationPropertiesArgsDict(TypedDict):
-        """
-        FrontendIP Configuration object for a load balancer.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
-        """
-        private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
-        """
-        privateIPAllocationMethod - set to Static for requesting a specific IP
-        """
-        public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]
-        """
-        Public IP 
-        """
-        subnet: NotRequired[pulumi.Input['VirtualNetworkSubnetArmReferenceArgsDict']]
-        """
-        subnet - the subnet from which to allocate the private IP
-        """
-elif False:
-    FrontendIPConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FrontendIPConfigurationPropertiesArgsDict(TypedDict):
+    """
+    FrontendIP Configuration object for a load balancer.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+    """
+    private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
+    """
+    privateIPAllocationMethod - set to Static for requesting a specific IP
+    """
+    public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]
+    """
+    Public IP 
+    """
+    subnet: NotRequired[pulumi.Input['VirtualNetworkSubnetArmReferenceArgsDict']]
+    """
+    subnet - the subnet from which to allocate the private IP
+    """
 
 @pulumi.input_type
 class FrontendIPConfigurationPropertiesArgs:
@@ -2257,21 +2198,18 @@ class FrontendIPConfigurationPropertiesArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class FrontendIPConfigurationArgsDict(TypedDict):
-        """
-        FrontendIP Configuration object for a load balancer.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name for the frontend IP configuration.
-        """
-        properties: pulumi.Input['FrontendIPConfigurationPropertiesArgsDict']
-        """
-        properties for this frontendIPConfiguration
-        """
-elif False:
-    FrontendIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FrontendIPConfigurationArgsDict(TypedDict):
+    """
+    FrontendIP Configuration object for a load balancer.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name for the frontend IP configuration.
+    """
+    properties: pulumi.Input['FrontendIPConfigurationPropertiesArgsDict']
+    """
+    properties for this frontendIPConfiguration
+    """
 
 @pulumi.input_type
 class FrontendIPConfigurationArgs:
@@ -2311,25 +2249,22 @@ class FrontendIPConfigurationArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class GalleryImageIdentifierArgsDict(TypedDict):
-        """
-        This is the gallery image definition identifier.
-        """
-        offer: pulumi.Input[_builtins.str]
-        """
-        The name of the gallery image definition offer.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The name of the gallery image definition publisher.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The name of the gallery image definition SKU.
-        """
-elif False:
-    GalleryImageIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class GalleryImageIdentifierArgsDict(TypedDict):
+    """
+    This is the gallery image definition identifier.
+    """
+    offer: pulumi.Input[_builtins.str]
+    """
+    The name of the gallery image definition offer.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The name of the gallery image definition publisher.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The name of the gallery image definition SKU.
+    """
 
 @pulumi.input_type
 class GalleryImageIdentifierArgs:
@@ -2384,17 +2319,14 @@ class GalleryImageIdentifierArgs:
         pulumi.set(self, "sku", value)
 
 
-if not MYPY:
-    class GalleryImageVersionArgsDict(TypedDict):
-        """
-        Specifies information about the gallery image version that you want to create or update.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is the version of the gallery image.
-        """
-elif False:
-    GalleryImageVersionArgsDict: TypeAlias = Mapping[str, Any]
+class GalleryImageVersionArgsDict(TypedDict):
+    """
+    Specifies information about the gallery image version that you want to create or update.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is the version of the gallery image.
+    """
 
 @pulumi.input_type
 class GalleryImageVersionArgs:
@@ -2420,21 +2352,18 @@ class GalleryImageVersionArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GuestCredentialArgsDict(TypedDict):
-        """
-        Username / Password Credentials to connect to guest.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password to connect with the guest.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username to connect with the guest.
-        """
-elif False:
-    GuestCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class GuestCredentialArgsDict(TypedDict):
+    """
+    Username / Password Credentials to connect to guest.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password to connect with the guest.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username to connect with the guest.
+    """
 
 @pulumi.input_type
 class GuestCredentialArgs:
@@ -2476,30 +2405,27 @@ class GuestCredentialArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class HciCollectLogJobPropertiesArgsDict(TypedDict):
-        """
-        Represents the properties of an HCI Collect Log job.
-        """
-        from_date: pulumi.Input[_builtins.str]
-        """
-        From date for log collection.
-        """
-        job_type: pulumi.Input[_builtins.str]
-        """
-        Job Type supported.
-        Expected value is 'CollectLog'.
-        """
-        to_date: pulumi.Input[_builtins.str]
-        """
-        To date for log collection.
-        """
-        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
-        """
-        Deployment mode to trigger job.
-        """
-elif False:
-    HciCollectLogJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HciCollectLogJobPropertiesArgsDict(TypedDict):
+    """
+    Represents the properties of an HCI Collect Log job.
+    """
+    from_date: pulumi.Input[_builtins.str]
+    """
+    From date for log collection.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    Job Type supported.
+    Expected value is 'CollectLog'.
+    """
+    to_date: pulumi.Input[_builtins.str]
+    """
+    To date for log collection.
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
 
 @pulumi.input_type
 class HciCollectLogJobPropertiesArgs:
@@ -2572,17 +2498,14 @@ class HciCollectLogJobPropertiesArgs:
         pulumi.set(self, "deployment_mode", value)
 
 
-if not MYPY:
-    class HciEdgeDevicePropertiesArgsDict(TypedDict):
-        """
-        properties for Arc-enabled edge device with HCI OS.
-        """
-        device_configuration: NotRequired[pulumi.Input['DeviceConfigurationArgsDict']]
-        """
-        Device Configuration
-        """
-elif False:
-    HciEdgeDevicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HciEdgeDevicePropertiesArgsDict(TypedDict):
+    """
+    properties for Arc-enabled edge device with HCI OS.
+    """
+    device_configuration: NotRequired[pulumi.Input['DeviceConfigurationArgsDict']]
+    """
+    Device Configuration
+    """
 
 @pulumi.input_type
 class HciEdgeDevicePropertiesArgs:
@@ -2608,34 +2531,31 @@ class HciEdgeDevicePropertiesArgs:
         pulumi.set(self, "device_configuration", value)
 
 
-if not MYPY:
-    class HciRemoteSupportJobPropertiesArgsDict(TypedDict):
-        """
-        Represents the properties of a remote support job for HCI.
-        """
-        access_level: pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']]
-        """
-        Remote support access level.
-        """
-        expiration_timestamp: pulumi.Input[_builtins.str]
-        """
-        Remote support expiration timestamp.
-        """
-        job_type: pulumi.Input[_builtins.str]
-        """
-        Job Type supported.
-        Expected value is 'RemoteSupport'.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'RemoteSupportType']]
-        """
-        Remote support type.
-        """
-        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
-        """
-        Deployment mode to trigger job.
-        """
-elif False:
-    HciRemoteSupportJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HciRemoteSupportJobPropertiesArgsDict(TypedDict):
+    """
+    Represents the properties of a remote support job for HCI.
+    """
+    access_level: pulumi.Input[Union[_builtins.str, 'RemoteSupportAccessLevel']]
+    """
+    Remote support access level.
+    """
+    expiration_timestamp: pulumi.Input[_builtins.str]
+    """
+    Remote support expiration timestamp.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    Job Type supported.
+    Expected value is 'RemoteSupport'.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'RemoteSupportType']]
+    """
+    Remote support type.
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
 
 @pulumi.input_type
 class HciRemoteSupportJobPropertiesArgs:
@@ -2723,29 +2643,26 @@ class HciRemoteSupportJobPropertiesArgs:
         pulumi.set(self, "deployment_mode", value)
 
 
-if not MYPY:
-    class HostNetworkArgsDict(TypedDict):
-        """
-        The HostNetwork of a cluster.
-        """
-        enable_storage_auto_ip: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
-        """
-        intents: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntentsArgsDict']]]]
-        """
-        The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
-        """
-        storage_connectivity_switchless: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Defines how the storage adapters between nodes are connected either switch or switch less..
-        """
-        storage_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageNetworksArgsDict']]]]
-        """
-        List of StorageNetworks config to deploy AzureStackHCI Cluster.
-        """
-elif False:
-    HostNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class HostNetworkArgsDict(TypedDict):
+    """
+    The HostNetwork of a cluster.
+    """
+    enable_storage_auto_ip: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
+    """
+    intents: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntentsArgsDict']]]]
+    """
+    The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
+    """
+    storage_connectivity_switchless: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Defines how the storage adapters between nodes are connected either switch or switch less..
+    """
+    storage_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageNetworksArgsDict']]]]
+    """
+    List of StorageNetworks config to deploy AzureStackHCI Cluster.
+    """
 
 @pulumi.input_type
 class HostNetworkArgs:
@@ -2823,29 +2740,26 @@ class HostNetworkArgs:
         pulumi.set(self, "storage_networks", value)
 
 
-if not MYPY:
-    class HttpProxyConfigurationArgsDict(TypedDict):
-        """
-        HTTP Proxy configuration for the VM.
-        """
-        http_proxy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTP proxy server endpoint to use.
-        """
-        https_proxy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTPS proxy server endpoint to use.
-        """
-        no_proxy: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The endpoints that should not go through proxy.
-        """
-        trusted_ca: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Alternative CA cert to use for connecting to proxy servers.
-        """
-elif False:
-    HttpProxyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class HttpProxyConfigurationArgsDict(TypedDict):
+    """
+    HTTP Proxy configuration for the VM.
+    """
+    http_proxy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTP proxy server endpoint to use.
+    """
+    https_proxy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTPS proxy server endpoint to use.
+    """
+    no_proxy: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The endpoints that should not go through proxy.
+    """
+    trusted_ca: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Alternative CA cert to use for connecting to proxy servers.
+    """
 
 @pulumi.input_type
 class HttpProxyConfigurationArgs:
@@ -2919,17 +2833,14 @@ class HttpProxyConfigurationArgs:
         pulumi.set(self, "trusted_ca", value)
 
 
-if not MYPY:
-    class IPConfigurationArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID of an IPConfiguration resource
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID of an IPConfiguration resource
-        """
-elif False:
-    IPConfigurationArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class IPConfigurationArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID of an IPConfiguration resource
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID of an IPConfiguration resource
+    """
 
 @pulumi.input_type
 class IPConfigurationArmReferenceArgs:
@@ -2955,21 +2866,18 @@ class IPConfigurationArmReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class IPConfigurationPropertiesArgsDict(TypedDict):
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        PrivateIPAddress - Private IP address of the IP configuration.
-        """
-        subnet: NotRequired[pulumi.Input['LogicalNetworkArmReferenceArgsDict']]
-        """
-        Subnet - Name of Subnet bound to the IP configuration.
-        """
-elif False:
-    IPConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IPConfigurationPropertiesArgsDict(TypedDict):
+    """
+    InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    PrivateIPAddress - Private IP address of the IP configuration.
+    """
+    subnet: NotRequired[pulumi.Input['LogicalNetworkArmReferenceArgsDict']]
+    """
+    Subnet - Name of Subnet bound to the IP configuration.
+    """
 
 @pulumi.input_type
 class IPConfigurationPropertiesArgs:
@@ -3011,21 +2919,18 @@ class IPConfigurationPropertiesArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class IPConfigurationArgsDict(TypedDict):
-        """
-        InterfaceIPConfiguration IPConfiguration in a network interface.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        properties: NotRequired[pulumi.Input['IPConfigurationPropertiesArgsDict']]
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-elif False:
-    IPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IPConfigurationArgsDict(TypedDict):
+    """
+    InterfaceIPConfiguration IPConfiguration in a network interface.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+    """
+    properties: NotRequired[pulumi.Input['IPConfigurationPropertiesArgsDict']]
+    """
+    InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
+    """
 
 @pulumi.input_type
 class IPConfigurationArgs:
@@ -3067,29 +2972,26 @@ class IPConfigurationArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class IPPoolArgsDict(TypedDict):
-        """
-        Describes IPPool
-        """
-        end: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        End of the IP address pool
-        """
-        ip_pool_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPPoolTypeEnum']]]
-        """
-        Type of the IP Pool [vm, vippool]
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the IP-Pool
-        """
-        start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start of the IP address pool
-        """
-elif False:
-    IPPoolArgsDict: TypeAlias = Mapping[str, Any]
+class IPPoolArgsDict(TypedDict):
+    """
+    Describes IPPool
+    """
+    end: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End of the IP address pool
+    """
+    ip_pool_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPPoolTypeEnum']]]
+    """
+    Type of the IP Pool [vm, vippool]
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the IP-Pool
+    """
+    start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start of the IP address pool
+    """
 
 @pulumi.input_type
 class IPPoolArgs:
@@ -3163,17 +3065,14 @@ class IPPoolArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -3199,17 +3098,14 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ImageArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Gallery Image.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for an image resource used by the virtual machine instance.
-        """
-elif False:
-    ImageArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Gallery Image.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for an image resource used by the virtual machine instance.
+    """
 
 @pulumi.input_type
 class ImageArmReferenceArgs:
@@ -3235,33 +3131,30 @@ class ImageArmReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class InboundNATRulePropertiesArgsDict(TypedDict):
-        """
-        Inbound nat rule properties
-        """
-        backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgsDict']
-        """
-        IP configuration for the target backend.
-        """
-        backend_port: pulumi.Input[_builtins.int]
-        """
-        backend Port for the inbound rule
-        """
-        frontend_port: pulumi.Input[_builtins.int]
-        """
-        Frontend Port for the inbound rule
-        """
-        protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]
-        """
-        Protocol for the NAT rule
-        """
-        public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgsDict']
-        """
-        Public IP Address for this NAT rule
-        """
-elif False:
-    InboundNATRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InboundNATRulePropertiesArgsDict(TypedDict):
+    """
+    Inbound nat rule properties
+    """
+    backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgsDict']
+    """
+    IP configuration for the target backend.
+    """
+    backend_port: pulumi.Input[_builtins.int]
+    """
+    backend Port for the inbound rule
+    """
+    frontend_port: pulumi.Input[_builtins.int]
+    """
+    Frontend Port for the inbound rule
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]
+    """
+    Protocol for the NAT rule
+    """
+    public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgsDict']
+    """
+    Public IP Address for this NAT rule
+    """
 
 @pulumi.input_type
 class InboundNATRulePropertiesArgs:
@@ -3346,21 +3239,18 @@ class InboundNATRulePropertiesArgs:
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class InboundNATRuleArgsDict(TypedDict):
-        """
-        Inbound nat rule properties
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the inbound nat rule
-        """
-        properties: pulumi.Input['InboundNATRulePropertiesArgsDict']
-        """
-        properties of the inbound nat rule
-        """
-elif False:
-    InboundNATRuleArgsDict: TypeAlias = Mapping[str, Any]
+class InboundNATRuleArgsDict(TypedDict):
+    """
+    Inbound nat rule properties
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the inbound nat rule
+    """
+    properties: pulumi.Input['InboundNATRulePropertiesArgsDict']
+    """
+    properties of the inbound nat rule
+    """
 
 @pulumi.input_type
 class InboundNATRuleArgs:
@@ -3400,33 +3290,30 @@ class InboundNATRuleArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class InfrastructureNetworkArgsDict(TypedDict):
-        """
-        The InfrastructureNetwork of a AzureStackHCI Cluster.
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        IPv4 address of the DNS servers in your environment.
-        """
-        gateway: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default gateway that should be used for the provided IP address space.
-        """
-        ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpPoolsArgsDict']]]]
-        """
-        Range of IP addresses from which addresses are allocated for nodes within a subnet.
-        """
-        subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet mask that matches the provided IP address space.
-        """
-        use_dhcp: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows customers to use DHCP for Hosts and Cluster IPs. If not declared, the deployment will default to static IPs. When true, GW and DNS servers are not required
-        """
-elif False:
-    InfrastructureNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class InfrastructureNetworkArgsDict(TypedDict):
+    """
+    The InfrastructureNetwork of a AzureStackHCI Cluster.
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    IPv4 address of the DNS servers in your environment.
+    """
+    gateway: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default gateway that should be used for the provided IP address space.
+    """
+    ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpPoolsArgsDict']]]]
+    """
+    Range of IP addresses from which addresses are allocated for nodes within a subnet.
+    """
+    subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet mask that matches the provided IP address space.
+    """
+    use_dhcp: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows customers to use DHCP for Hosts and Cluster IPs. If not declared, the deployment will default to static IPs. When true, GW and DNS servers are not required
+    """
 
 @pulumi.input_type
 class InfrastructureNetworkArgs:
@@ -3516,49 +3403,46 @@ class InfrastructureNetworkArgs:
         pulumi.set(self, "use_dhcp", value)
 
 
-if not MYPY:
-    class IntentsArgsDict(TypedDict):
-        """
-        The Intents of a cluster.
-        """
-        adapter: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of network interfaces used for the network intent.
-        """
-        adapter_property_overrides: NotRequired[pulumi.Input['AdapterPropertyOverridesArgsDict']]
-        """
-        Set Adapter PropertyOverrides for cluster.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the network intent you wish to create.
-        """
-        override_adapter_property: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        override_qos_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        override_virtual_switch_configuration: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        qos_policy_overrides: NotRequired[pulumi.Input['QosPolicyOverridesArgsDict']]
-        """
-        Set QoS PolicyOverrides for cluster.
-        """
-        traffic_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
-        """
-        virtual_switch_configuration_overrides: NotRequired[pulumi.Input['VirtualSwitchConfigurationOverridesArgsDict']]
-        """
-        Set virtualSwitch ConfigurationOverrides for cluster.
-        """
-elif False:
-    IntentsArgsDict: TypeAlias = Mapping[str, Any]
+class IntentsArgsDict(TypedDict):
+    """
+    The Intents of a cluster.
+    """
+    adapter: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of network interfaces used for the network intent.
+    """
+    adapter_property_overrides: NotRequired[pulumi.Input['AdapterPropertyOverridesArgsDict']]
+    """
+    Set Adapter PropertyOverrides for cluster.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the network intent you wish to create.
+    """
+    override_adapter_property: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
+    override_qos_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
+    override_virtual_switch_configuration: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
+    qos_policy_overrides: NotRequired[pulumi.Input['QosPolicyOverridesArgsDict']]
+    """
+    Set QoS PolicyOverrides for cluster.
+    """
+    traffic_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
+    """
+    virtual_switch_configuration_overrides: NotRequired[pulumi.Input['VirtualSwitchConfigurationOverridesArgsDict']]
+    """
+    Set virtualSwitch ConfigurationOverrides for cluster.
+    """
 
 @pulumi.input_type
 class IntentsArgs:
@@ -3718,17 +3602,14 @@ class IntentsArgs:
         pulumi.set(self, "virtual_switch_configuration_overrides", value)
 
 
-if not MYPY:
-    class InterfaceDNSSettingsArgsDict(TypedDict):
-        """
-        DNS Settings of the interface
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of DNS server IP Addresses for the interface
-        """
-elif False:
-    InterfaceDNSSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class InterfaceDNSSettingsArgsDict(TypedDict):
+    """
+    DNS Settings of the interface
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of DNS server IP Addresses for the interface
+    """
 
 @pulumi.input_type
 class InterfaceDNSSettingsArgs:
@@ -3754,21 +3635,18 @@ class InterfaceDNSSettingsArgs:
         pulumi.set(self, "dns_servers", value)
 
 
-if not MYPY:
-    class IpAddressRangeArgsDict(TypedDict):
-        """
-        IP address range configuration.
-        """
-        end_ip: pulumi.Input[_builtins.str]
-        """
-        End IP address.
-        """
-        start_ip: pulumi.Input[_builtins.str]
-        """
-        Start IP address.
-        """
-elif False:
-    IpAddressRangeArgsDict: TypeAlias = Mapping[str, Any]
+class IpAddressRangeArgsDict(TypedDict):
+    """
+    IP address range configuration.
+    """
+    end_ip: pulumi.Input[_builtins.str]
+    """
+    End IP address.
+    """
+    start_ip: pulumi.Input[_builtins.str]
+    """
+    Start IP address.
+    """
 
 @pulumi.input_type
 class IpAddressRangeArgs:
@@ -3808,21 +3686,18 @@ class IpAddressRangeArgs:
         pulumi.set(self, "start_ip", value)
 
 
-if not MYPY:
-    class IpPoolsArgsDict(TypedDict):
-        """
-        The dnsServers of a device.
-        """
-        ending_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
-        """
-        starting_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
-        """
-elif False:
-    IpPoolsArgsDict: TypeAlias = Mapping[str, Any]
+class IpPoolsArgsDict(TypedDict):
+    """
+    The dnsServers of a device.
+    """
+    ending_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+    """
+    starting_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+    """
 
 @pulumi.input_type
 class IpPoolsArgs:
@@ -3864,17 +3739,14 @@ class IpPoolsArgs:
         pulumi.set(self, "starting_address", value)
 
 
-if not MYPY:
-    class LoadBalancerBackendAddressPoolReferenceArgsDict(TypedDict):
-        """
-        Reference to a LoadBalancer backend address pool reference
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the backend address pool
-        """
-elif False:
-    LoadBalancerBackendAddressPoolReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerBackendAddressPoolReferenceArgsDict(TypedDict):
+    """
+    Reference to a LoadBalancer backend address pool reference
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the backend address pool
+    """
 
 @pulumi.input_type
 class LoadBalancerBackendAddressPoolReferenceArgs:
@@ -3899,21 +3771,18 @@ class LoadBalancerBackendAddressPoolReferenceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class LoadBalancerBackendAddressPropertiesArgsDict(TypedDict):
-        """
-        LoadBalancer Backend Address properties
-        """
-        admin_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]
-        """
-        admin state - if set to false, the address is removed from the pool
-        """
-        network_interface_ip_configuration: NotRequired[pulumi.Input['IPConfigurationArmReferenceArgsDict']]
-        """
-        Nic Based backend-ip association
-        """
-elif False:
-    LoadBalancerBackendAddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerBackendAddressPropertiesArgsDict(TypedDict):
+    """
+    LoadBalancer Backend Address properties
+    """
+    admin_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]
+    """
+    admin state - if set to false, the address is removed from the pool
+    """
+    network_interface_ip_configuration: NotRequired[pulumi.Input['IPConfigurationArmReferenceArgsDict']]
+    """
+    Nic Based backend-ip association
+    """
 
 @pulumi.input_type
 class LoadBalancerBackendAddressPropertiesArgs:
@@ -3955,21 +3824,18 @@ class LoadBalancerBackendAddressPropertiesArgs:
         pulumi.set(self, "network_interface_ip_configuration", value)
 
 
-if not MYPY:
-    class LoadBalancerBackendAddressArgsDict(TypedDict):
-        """
-        LoadBalancer Backend Address
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the backend address
-        """
-        properties: pulumi.Input['LoadBalancerBackendAddressPropertiesArgsDict']
-        """
-        backend address properties
-        """
-elif False:
-    LoadBalancerBackendAddressArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerBackendAddressArgsDict(TypedDict):
+    """
+    LoadBalancer Backend Address
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the backend address
+    """
+    properties: pulumi.Input['LoadBalancerBackendAddressPropertiesArgsDict']
+    """
+    backend address properties
+    """
 
 @pulumi.input_type
 class LoadBalancerBackendAddressArgs:
@@ -4009,17 +3875,14 @@ class LoadBalancerBackendAddressArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class LoadBalancerFrontendIPConfigurationReferenceArgsDict(TypedDict):
-        """
-        Reference to a LoadBalancer Frontend IPConfiguration
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the frontnedIPConfiguration
-        """
-elif False:
-    LoadBalancerFrontendIPConfigurationReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerFrontendIPConfigurationReferenceArgsDict(TypedDict):
+    """
+    Reference to a LoadBalancer Frontend IPConfiguration
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the frontnedIPConfiguration
+    """
 
 @pulumi.input_type
 class LoadBalancerFrontendIPConfigurationReferenceArgs:
@@ -4044,17 +3907,14 @@ class LoadBalancerFrontendIPConfigurationReferenceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class LoadBalancerProbeReferenceArgsDict(TypedDict):
-        """
-        Reference to a LoadBalancer health probe
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the health probe
-        """
-elif False:
-    LoadBalancerProbeReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerProbeReferenceArgsDict(TypedDict):
+    """
+    Reference to a LoadBalancer health probe
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the health probe
+    """
 
 @pulumi.input_type
 class LoadBalancerProbeReferenceArgs:
@@ -4079,29 +3939,26 @@ class LoadBalancerProbeReferenceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class LoadBalancerPropertiesArgsDict(TypedDict):
-        """
-        Load Balancer resource properties
-        """
-        frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgsDict']]]
-        """
-        Frontend IPs for the loadbalancer.
-        """
-        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgsDict']]]]
-        """
-        backendAddressPools for the loadbalancer
-        """
-        load_balancing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgsDict']]]]
-        """
-        load balancer rules
-        """
-        probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProbeArgsDict']]]]
-        """
-        load balancer health probes
-        """
-elif False:
-    LoadBalancerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerPropertiesArgsDict(TypedDict):
+    """
+    Load Balancer resource properties
+    """
+    frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgsDict']]]
+    """
+    Frontend IPs for the loadbalancer.
+    """
+    backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgsDict']]]]
+    """
+    backendAddressPools for the loadbalancer
+    """
+    load_balancing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgsDict']]]]
+    """
+    load balancer rules
+    """
+    probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProbeArgsDict']]]]
+    """
+    load balancer health probes
+    """
 
 @pulumi.input_type
 class LoadBalancerPropertiesArgs:
@@ -4174,45 +4031,42 @@ class LoadBalancerPropertiesArgs:
         pulumi.set(self, "probes", value)
 
 
-if not MYPY:
-    class LoadBalancerRulePropertiesArgsDict(TypedDict):
-        """
-        Properties for LoadBalancerRules
-        """
-        backend_address_pool: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgsDict']
-        """
-        arm reference to backend pool being used by ths pool
-        """
-        backend_port: pulumi.Input[_builtins.int]
-        """
-        backendPort to forward connections
-        """
-        frontend_ip_configuration: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgsDict']
-        """
-        arm reference to frontend IP being used by this LB
-        """
-        frontend_port: pulumi.Input[_builtins.int]
-        """
-        Frontend port to accept connections
-        """
-        protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]
-        """
-        IP Protocol that the rule must load-balance
-        """
-        idle_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time for which connections are preserved before being torn down.
-        """
-        load_distribution: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]
-        """
-        SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
-        """
-        probe: NotRequired[pulumi.Input['LoadBalancerProbeReferenceArgsDict']]
-        """
-        Reference for the health probe for this connection
-        """
-elif False:
-    LoadBalancerRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerRulePropertiesArgsDict(TypedDict):
+    """
+    Properties for LoadBalancerRules
+    """
+    backend_address_pool: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgsDict']
+    """
+    arm reference to backend pool being used by ths pool
+    """
+    backend_port: pulumi.Input[_builtins.int]
+    """
+    backendPort to forward connections
+    """
+    frontend_ip_configuration: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgsDict']
+    """
+    arm reference to frontend IP being used by this LB
+    """
+    frontend_port: pulumi.Input[_builtins.int]
+    """
+    Frontend port to accept connections
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]
+    """
+    IP Protocol that the rule must load-balance
+    """
+    idle_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time for which connections are preserved before being torn down.
+    """
+    load_distribution: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]
+    """
+    SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+    """
+    probe: NotRequired[pulumi.Input['LoadBalancerProbeReferenceArgsDict']]
+    """
+    Reference for the health probe for this connection
+    """
 
 @pulumi.input_type
 class LoadBalancerRulePropertiesArgs:
@@ -4347,21 +4201,18 @@ class LoadBalancerRulePropertiesArgs:
         pulumi.set(self, "probe", value)
 
 
-if not MYPY:
-    class LoadBalancerRuleArgsDict(TypedDict):
-        """
-        LoadBalancer Rules
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the load balancer rule
-        """
-        properties: pulumi.Input['LoadBalancerRulePropertiesArgsDict']
-        """
-        load balancer rule properties
-        """
-elif False:
-    LoadBalancerRuleArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerRuleArgsDict(TypedDict):
+    """
+    LoadBalancer Rules
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the load balancer rule
+    """
+    properties: pulumi.Input['LoadBalancerRulePropertiesArgsDict']
+    """
+    load balancer rule properties
+    """
 
 @pulumi.input_type
 class LoadBalancerRuleArgs:
@@ -4401,17 +4252,14 @@ class LoadBalancerRuleArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class LogicalNetworkArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Logical Network.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Logical Network.
-        """
-elif False:
-    LogicalNetworkArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class LogicalNetworkArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Logical Network.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Logical Network.
+    """
 
 @pulumi.input_type
 class LogicalNetworkArmReferenceArgs:
@@ -4437,17 +4285,14 @@ class LogicalNetworkArmReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class LogicalNetworkPropertiesDhcpOptionsArgsDict(TypedDict):
-        """
-        DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of DNS servers IP addresses.
-        """
-elif False:
-    LogicalNetworkPropertiesDhcpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LogicalNetworkPropertiesDhcpOptionsArgsDict(TypedDict):
+    """
+    DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of DNS servers IP addresses.
+    """
 
 @pulumi.input_type
 class LogicalNetworkPropertiesDhcpOptionsArgs:
@@ -4473,21 +4318,18 @@ class LogicalNetworkPropertiesDhcpOptionsArgs:
         pulumi.set(self, "dns_servers", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -4528,17 +4370,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class NatGatewayArmReferenceArgsDict(TypedDict):
-        """
-        The ARM ID for a Network Security Group.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARM ID for a Network Security Group.
-        """
-elif False:
-    NatGatewayArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class NatGatewayArmReferenceArgsDict(TypedDict):
+    """
+    The ARM ID for a Network Security Group.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM ID for a Network Security Group.
+    """
 
 @pulumi.input_type
 class NatGatewayArmReferenceArgs:
@@ -4564,21 +4403,18 @@ class NatGatewayArmReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class NatGatewayPropertiesArgsDict(TypedDict):
-        """
-        Nat Gateway resource properties
-        """
-        inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgsDict']]]]
-        """
-        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
-        """
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]]]
-        """
-        List of public ip addresses that the gateway can use for NAT.
-        """
-elif False:
-    NatGatewayPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NatGatewayPropertiesArgsDict(TypedDict):
+    """
+    Nat Gateway resource properties
+    """
+    inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgsDict']]]]
+    """
+    List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+    """
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]]]
+    """
+    List of public ip addresses that the gateway can use for NAT.
+    """
 
 @pulumi.input_type
 class NatGatewayPropertiesArgs:
@@ -4620,49 +4456,46 @@ class NatGatewayPropertiesArgs:
         pulumi.set(self, "public_ip_addresses", value)
 
 
-if not MYPY:
-    class NetworkAdapterArgsDict(TypedDict):
-        """
-        Network adapter configuration.
-        """
-        ip_assignment_type: pulumi.Input[Union[_builtins.str, 'IpAssignmentType']]
-        """
-        Type of IP assignment.
-        """
-        adapter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Adapter Name.
-        """
-        dns_address_array: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of DNS addresses.
-        """
-        gateway: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gateway id.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP address.
-        """
-        ip_address_range: NotRequired[pulumi.Input['IpAddressRangeArgsDict']]
-        """
-        IP address range.
-        """
-        mac_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        MAC address.
-        """
-        subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet mask.
-        """
-        vlan_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        VLAN ID for the network setup.
-        """
-elif False:
-    NetworkAdapterArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkAdapterArgsDict(TypedDict):
+    """
+    Network adapter configuration.
+    """
+    ip_assignment_type: pulumi.Input[Union[_builtins.str, 'IpAssignmentType']]
+    """
+    Type of IP assignment.
+    """
+    adapter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Adapter Name.
+    """
+    dns_address_array: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of DNS addresses.
+    """
+    gateway: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gateway id.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP address.
+    """
+    ip_address_range: NotRequired[pulumi.Input['IpAddressRangeArgsDict']]
+    """
+    IP address range.
+    """
+    mac_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    MAC address.
+    """
+    subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet mask.
+    """
+    vlan_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    VLAN ID for the network setup.
+    """
 
 @pulumi.input_type
 class NetworkAdapterArgs:
@@ -4815,17 +4648,14 @@ class NetworkAdapterArgs:
         pulumi.set(self, "vlan_id", value)
 
 
-if not MYPY:
-    class NetworkConfigurationArgsDict(TypedDict):
-        """
-        Network configuration.
-        """
-        network_adapters: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkAdapterArgsDict']]]]
-        """
-        List of network adapters.
-        """
-elif False:
-    NetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConfigurationArgsDict(TypedDict):
+    """
+    Network configuration.
+    """
+    network_adapters: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkAdapterArgsDict']]]]
+    """
+    List of network adapters.
+    """
 
 @pulumi.input_type
 class NetworkConfigurationArgs:
@@ -4851,25 +4681,22 @@ class NetworkConfigurationArgs:
         pulumi.set(self, "network_adapters", value)
 
 
-if not MYPY:
-    class NetworkControllerArgsDict(TypedDict):
-        """
-        network controller config for SDN Integration to deploy AzureStackHCI Cluster.
-        """
-        mac_address_pool_start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        macAddressPoolStart of network controller used for SDN Integration.
-        """
-        mac_address_pool_stop: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        macAddressPoolStop of network controller used for SDN Integration.
-        """
-        network_virtualization_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        NetworkVirtualizationEnabled of network controller used for SDN Integration.
-        """
-elif False:
-    NetworkControllerArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkControllerArgsDict(TypedDict):
+    """
+    network controller config for SDN Integration to deploy AzureStackHCI Cluster.
+    """
+    mac_address_pool_start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    macAddressPoolStart of network controller used for SDN Integration.
+    """
+    mac_address_pool_stop: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    macAddressPoolStop of network controller used for SDN Integration.
+    """
+    network_virtualization_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    NetworkVirtualizationEnabled of network controller used for SDN Integration.
+    """
 
 @pulumi.input_type
 class NetworkControllerArgs:
@@ -4927,17 +4754,14 @@ class NetworkControllerArgs:
         pulumi.set(self, "network_virtualization_enabled", value)
 
 
-if not MYPY:
-    class NetworkInterfaceArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Network Interface.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Network Interface.
-        """
-elif False:
-    NetworkInterfaceArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Network Interface.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Network Interface.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceArmReferenceArgs:
@@ -4963,17 +4787,14 @@ class NetworkInterfaceArmReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkSecurityGroupArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Network Security Group.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Network Security Group.
-        """
-elif False:
-    NetworkSecurityGroupArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkSecurityGroupArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Network Security Group.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Network Security Group.
+    """
 
 @pulumi.input_type
 class NetworkSecurityGroupArmReferenceArgs:
@@ -4999,49 +4820,46 @@ class NetworkSecurityGroupArmReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NicDetailArgsDict(TypedDict):
-        """
-        The NIC Detail of a device.
-        """
-        adapter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Adapter Name of NIC
-        """
-        component_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Component Id of NIC
-        """
-        default_gateway: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default Gateway of NIC
-        """
-        default_isolation_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default Isolation of Management NIC
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        DNS Servers for NIC
-        """
-        driver_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Driver Version of NIC
-        """
-        interface_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Interface Description of NIC
-        """
-        ip4_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet Mask of NIC
-        """
-        subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet Mask of NIC
-        """
-elif False:
-    NicDetailArgsDict: TypeAlias = Mapping[str, Any]
+class NicDetailArgsDict(TypedDict):
+    """
+    The NIC Detail of a device.
+    """
+    adapter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Adapter Name of NIC
+    """
+    component_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Component Id of NIC
+    """
+    default_gateway: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default Gateway of NIC
+    """
+    default_isolation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default Isolation of Management NIC
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    DNS Servers for NIC
+    """
+    driver_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Driver Version of NIC
+    """
+    interface_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Interface Description of NIC
+    """
+    ip4_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet Mask of NIC
+    """
+    subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet Mask of NIC
+    """
 
 @pulumi.input_type
 class NicDetailArgs:
@@ -5195,25 +5013,22 @@ class NicDetailArgs:
         pulumi.set(self, "subnet_mask", value)
 
 
-if not MYPY:
-    class ObservabilityArgsDict(TypedDict):
-        """
-        The Observability of AzureStackHCI Cluster.
-        """
-        episodic_data_upload: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, collects log data to facilitate quicker issue resolution.
-        """
-        eu_location: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Location of your cluster. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to false results in all data sent to Microsoft to be stored outside of the EU.
-        """
-        streaming_data_client: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables telemetry data to be sent to Microsoft
-        """
-elif False:
-    ObservabilityArgsDict: TypeAlias = Mapping[str, Any]
+class ObservabilityArgsDict(TypedDict):
+    """
+    The Observability of AzureStackHCI Cluster.
+    """
+    episodic_data_upload: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, collects log data to facilitate quicker issue resolution.
+    """
+    eu_location: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Location of your cluster. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to false results in all data sent to Microsoft to be stored outside of the EU.
+    """
+    streaming_data_client: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables telemetry data to be sent to Microsoft
+    """
 
 @pulumi.input_type
 class ObservabilityArgs:
@@ -5277,33 +5092,30 @@ class ObservabilityArgs:
         pulumi.set(self, "streaming_data_client", value)
 
 
-if not MYPY:
-    class OnboardingConfigurationArgsDict(TypedDict):
-        """
-        Onboarding configuration.
-        """
-        arc_virtual_machine_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Arc virtual machine ID.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the resource.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant ID of the resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'OnboardingResourceType']]]
-        """
-        Type of the onboarding resource to support polymorphic resource.
-        """
-elif False:
-    OnboardingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OnboardingConfigurationArgsDict(TypedDict):
+    """
+    Onboarding configuration.
+    """
+    arc_virtual_machine_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Arc virtual machine ID.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of the resource.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant ID of the resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'OnboardingResourceType']]]
+    """
+    Type of the onboarding resource to support polymorphic resource.
+    """
 
 @pulumi.input_type
 class OnboardingConfigurationArgs:
@@ -5393,17 +5205,14 @@ class OnboardingConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class OptionalServicesArgsDict(TypedDict):
-        """
-        The OptionalServices of AzureStackHCI Cluster.
-        """
-        custom_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of custom location.
-        """
-elif False:
-    OptionalServicesArgsDict: TypeAlias = Mapping[str, Any]
+class OptionalServicesArgsDict(TypedDict):
+    """
+    The OptionalServices of AzureStackHCI Cluster.
+    """
+    custom_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of custom location.
+    """
 
 @pulumi.input_type
 class OptionalServicesArgs:
@@ -5429,45 +5238,42 @@ class OptionalServicesArgs:
         pulumi.set(self, "custom_location", value)
 
 
-if not MYPY:
-    class OsProvisionProfileArgsDict(TypedDict):
-        """
-        Operating system profile.
-        """
-        gpg_pub_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GPG Public Key used for package verification
-        """
-        image_hash: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Hash of the OS package downloaded
-        """
-        operation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSOperationType']]]
-        """
-        Operation sub type of OS Provisioning
-        """
-        os_image_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the operating system image.
-        """
-        os_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the operating system.
-        """
-        os_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the operating system.
-        """
-        os_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the operating system.
-        """
-        vsr_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Validated Solution Recipe version to be used for the job
-        """
-elif False:
-    OsProvisionProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OsProvisionProfileArgsDict(TypedDict):
+    """
+    Operating system profile.
+    """
+    gpg_pub_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GPG Public Key used for package verification
+    """
+    image_hash: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Hash of the OS package downloaded
+    """
+    operation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSOperationType']]]
+    """
+    Operation sub type of OS Provisioning
+    """
+    os_image_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of the operating system image.
+    """
+    os_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the operating system.
+    """
+    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the operating system.
+    """
+    os_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the operating system.
+    """
+    vsr_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Validated Solution Recipe version to be used for the job
+    """
 
 @pulumi.input_type
 class OsProvisionProfileArgs:
@@ -5607,21 +5413,18 @@ class OsProvisionProfileArgs:
         pulumi.set(self, "vsr_version", value)
 
 
-if not MYPY:
-    class OwnershipVoucherDetailsArgsDict(TypedDict):
-        """
-        Details for ownership voucher.
-        """
-        owner_key_type: pulumi.Input[Union[_builtins.str, 'OwnerKeyType']]
-        """
-        Owner key type
-        """
-        ownership_voucher: pulumi.Input[_builtins.str]
-        """
-        Ownership voucher in base64 encoded format
-        """
-elif False:
-    OwnershipVoucherDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class OwnershipVoucherDetailsArgsDict(TypedDict):
+    """
+    Details for ownership voucher.
+    """
+    owner_key_type: pulumi.Input[Union[_builtins.str, 'OwnerKeyType']]
+    """
+    Owner key type
+    """
+    ownership_voucher: pulumi.Input[_builtins.str]
+    """
+    Ownership voucher in base64 encoded format
+    """
 
 @pulumi.input_type
 class OwnershipVoucherDetailsArgs:
@@ -5661,21 +5464,18 @@ class OwnershipVoucherDetailsArgs:
         pulumi.set(self, "ownership_voucher", value)
 
 
-if not MYPY:
-    class PhysicalNodesArgsDict(TypedDict):
-        """
-        The PhysicalNodes of a cluster.
-        """
-        ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address assigned to each physical server on your Azure Stack HCI cluster.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NETBIOS name of each physical server on your Azure Stack HCI cluster.
-        """
-elif False:
-    PhysicalNodesArgsDict: TypeAlias = Mapping[str, Any]
+class PhysicalNodesArgsDict(TypedDict):
+    """
+    The PhysicalNodes of a cluster.
+    """
+    ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address assigned to each physical server on your Azure Stack HCI cluster.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NETBIOS name of each physical server on your Azure Stack HCI cluster.
+    """
 
 @pulumi.input_type
 class PhysicalNodesArgs:
@@ -5717,33 +5517,30 @@ class PhysicalNodesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ProbePropertiesArgsDict(TypedDict):
-        """
-        properties for LoadBalancer health probes
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Port on the backend address to probe
-        """
-        protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]
-        """
-        Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
-        """
-        interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Probe interval in seconds (5-300) default 15
-        """
-        number_of_probes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        number of consecutive probe failures before marking unhealthy (1-20) default 2
-        """
-        request_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For http probes, specify the request path e.g. /health
-        """
-elif False:
-    ProbePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProbePropertiesArgsDict(TypedDict):
+    """
+    properties for LoadBalancer health probes
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Port on the backend address to probe
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]
+    """
+    Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+    """
+    interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Probe interval in seconds (5-300) default 15
+    """
+    number_of_probes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    number of consecutive probe failures before marking unhealthy (1-20) default 2
+    """
+    request_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For http probes, specify the request path e.g. /health
+    """
 
 @pulumi.input_type
 class ProbePropertiesArgs:
@@ -5835,21 +5632,18 @@ class ProbePropertiesArgs:
         pulumi.set(self, "request_path", value)
 
 
-if not MYPY:
-    class ProbeArgsDict(TypedDict):
-        """
-        Load balancer health probes
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of the load balancer health probe
-        """
-        properties: pulumi.Input['ProbePropertiesArgsDict']
-        """
-        load balancer rule properties
-        """
-elif False:
-    ProbeArgsDict: TypeAlias = Mapping[str, Any]
+class ProbeArgsDict(TypedDict):
+    """
+    Load balancer health probes
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of the load balancer health probe
+    """
+    properties: pulumi.Input['ProbePropertiesArgsDict']
+    """
+    load balancer rule properties
+    """
 
 @pulumi.input_type
 class ProbeArgs:
@@ -5889,26 +5683,23 @@ class ProbeArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class ProvisionOsJobPropertiesArgsDict(TypedDict):
-        """
-        Represents the properties of an Azure Linux restricted operating environment Provision Os job.
-        """
-        job_type: pulumi.Input[_builtins.str]
-        """
-        Job Type supported.
-        Expected value is 'ProvisionOs'.
-        """
-        provisioning_request: pulumi.Input['ProvisioningRequestArgsDict']
-        """
-        Os Provisioning request.
-        """
-        deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
-        """
-        Deployment mode to trigger job.
-        """
-elif False:
-    ProvisionOsJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProvisionOsJobPropertiesArgsDict(TypedDict):
+    """
+    Represents the properties of an Azure Linux restricted operating environment Provision Os job.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    Job Type supported.
+    Expected value is 'ProvisionOs'.
+    """
+    provisioning_request: pulumi.Input['ProvisioningRequestArgsDict']
+    """
+    Os Provisioning request.
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
 
 @pulumi.input_type
 class ProvisionOsJobPropertiesArgs:
@@ -5966,21 +5757,18 @@ class ProvisionOsJobPropertiesArgs:
         pulumi.set(self, "deployment_mode", value)
 
 
-if not MYPY:
-    class ProvisioningDetailsArgsDict(TypedDict):
-        """
-        Details for device provisioning.
-        """
-        os_profile: pulumi.Input['OsProvisionProfileArgsDict']
-        """
-        Operating system profile.
-        """
-        user_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgsDict']]]]
-        """
-        User configuration.
-        """
-elif False:
-    ProvisioningDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ProvisioningDetailsArgsDict(TypedDict):
+    """
+    Details for device provisioning.
+    """
+    os_profile: pulumi.Input['OsProvisionProfileArgsDict']
+    """
+    Operating system profile.
+    """
+    user_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgsDict']]]]
+    """
+    User configuration.
+    """
 
 @pulumi.input_type
 class ProvisioningDetailsArgs:
@@ -6021,37 +5809,34 @@ class ProvisioningDetailsArgs:
         pulumi.set(self, "user_details", value)
 
 
-if not MYPY:
-    class ProvisioningRequestArgsDict(TypedDict):
-        """
-        Represents a provisioning request.
-        """
-        os_profile: pulumi.Input['OsProvisionProfileArgsDict']
-        """
-        Operating system profile.
-        """
-        target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]
-        """
-        Target operating system to support polymorphic resource.
-        """
-        custom_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base64 encoded custom configuration for CAPI to use
-        """
-        device_configuration: NotRequired[pulumi.Input['TargetDeviceConfigurationArgsDict']]
-        """
-        Device configuration.
-        """
-        onboarding_configuration: NotRequired[pulumi.Input['OnboardingConfigurationArgsDict']]
-        """
-        Onboarding configuration.
-        """
-        user_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgsDict']]]]
-        """
-        User configuration.
-        """
-elif False:
-    ProvisioningRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ProvisioningRequestArgsDict(TypedDict):
+    """
+    Represents a provisioning request.
+    """
+    os_profile: pulumi.Input['OsProvisionProfileArgsDict']
+    """
+    Operating system profile.
+    """
+    target: pulumi.Input[Union[_builtins.str, 'ProvisioningOsType']]
+    """
+    Target operating system to support polymorphic resource.
+    """
+    custom_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base64 encoded custom configuration for CAPI to use
+    """
+    device_configuration: NotRequired[pulumi.Input['TargetDeviceConfigurationArgsDict']]
+    """
+    Device configuration.
+    """
+    onboarding_configuration: NotRequired[pulumi.Input['OnboardingConfigurationArgsDict']]
+    """
+    Onboarding configuration.
+    """
+    user_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserDetailsArgsDict']]]]
+    """
+    User configuration.
+    """
 
 @pulumi.input_type
 class ProvisioningRequestArgs:
@@ -6155,17 +5940,14 @@ class ProvisioningRequestArgs:
         pulumi.set(self, "user_details", value)
 
 
-if not MYPY:
-    class PublicIPAddressArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID of a Public IP resource
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID of a Public IP resource
-        """
-elif False:
-    PublicIPAddressArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class PublicIPAddressArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID of a Public IP resource
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID of a Public IP resource
+    """
 
 @pulumi.input_type
 class PublicIPAddressArmReferenceArgs:
@@ -6191,25 +5973,22 @@ class PublicIPAddressArmReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class PublicIPAddressPropertiesArgsDict(TypedDict):
-        """
-        Public IP Properties resource.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
-        """
-        ip_allocation_scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
-        """
-        public_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]
-        """
-        Whether the public IP is v4 or v6. Defaults to IPv4
-        """
-elif False:
-    PublicIPAddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PublicIPAddressPropertiesArgsDict(TypedDict):
+    """
+    Public IP Properties resource.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+    """
+    ip_allocation_scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+    """
+    public_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]
+    """
+    Whether the public IP is v4 or v6. Defaults to IPv4
+    """
 
 @pulumi.input_type
 class PublicIPAddressPropertiesArgs:
@@ -6267,25 +6046,22 @@ class PublicIPAddressPropertiesArgs:
         pulumi.set(self, "public_ip_address_version", value)
 
 
-if not MYPY:
-    class QosPolicyOverridesArgsDict(TypedDict):
-        """
-        The QoSPolicyOverrides of a cluster.
-        """
-        bandwidth_percentage_smb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        priority_value8021_action_cluster: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        priority_value8021_action_smb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-elif False:
-    QosPolicyOverridesArgsDict: TypeAlias = Mapping[str, Any]
+class QosPolicyOverridesArgsDict(TypedDict):
+    """
+    The QoSPolicyOverrides of a cluster.
+    """
+    bandwidth_percentage_smb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
+    priority_value8021_action_cluster: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
+    priority_value8021_action_smb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+    """
 
 @pulumi.input_type
 class QosPolicyOverridesArgs:
@@ -6343,17 +6119,14 @@ class QosPolicyOverridesArgs:
         pulumi.set(self, "priority_value8021_action_smb", value)
 
 
-if not MYPY:
-    class RouteTableArgsDict(TypedDict):
-        """
-        Route table resource.
-        """
-        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteArgsDict']]]]
-        """
-        Collection of routes contained within a route table.
-        """
-elif False:
-    RouteTableArgsDict: TypeAlias = Mapping[str, Any]
+class RouteTableArgsDict(TypedDict):
+    """
+    Route table resource.
+    """
+    routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteArgsDict']]]]
+    """
+    Collection of routes contained within a route table.
+    """
 
 @pulumi.input_type
 class RouteTableArgs:
@@ -6379,25 +6152,22 @@ class RouteTableArgs:
         pulumi.set(self, "routes", value)
 
 
-if not MYPY:
-    class RouteArgsDict(TypedDict):
-        """
-        Route - Route resource.
-        """
-        address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination CIDR to which the route applies.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name - name of the subnet
-        """
-        next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-        """
-elif False:
-    RouteArgsDict: TypeAlias = Mapping[str, Any]
+class RouteArgsDict(TypedDict):
+    """
+    Route - Route resource.
+    """
+    address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination CIDR to which the route applies.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name - name of the subnet
+    """
+    next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+    """
 
 @pulumi.input_type
 class RouteArgs:
@@ -6455,25 +6225,22 @@ class RouteArgs:
         pulumi.set(self, "next_hop_ip_address", value)
 
 
-if not MYPY:
-    class SbeCredentialsArgsDict(TypedDict):
-        """
-        secrets used for solution builder extension (SBE) partner extensibility.
-        """
-        ece_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        secret name expected for Enterprise Cloud Engine (ECE).
-        """
-        secret_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        secret URI stored in keyvault.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        secret name stored in keyvault.
-        """
-elif False:
-    SbeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SbeCredentialsArgsDict(TypedDict):
+    """
+    secrets used for solution builder extension (SBE) partner extensibility.
+    """
+    ece_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    secret name expected for Enterprise Cloud Engine (ECE).
+    """
+    secret_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    secret URI stored in keyvault.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    secret name stored in keyvault.
+    """
 
 @pulumi.input_type
 class SbeCredentialsArgs:
@@ -6531,33 +6298,30 @@ class SbeCredentialsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class SbeDeploymentInfoArgsDict(TypedDict):
-        """
-        Solution builder extension (SBE) package and manifest information for the solution builder extension staged for AzureStackHCI cluster deployment.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SBE family name.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SBE manifest publisher.
-        """
-        sbe_manifest_creation_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SBE Manifest Creation Date.
-        """
-        sbe_manifest_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SBE Manifest Source.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SBE package version.
-        """
-elif False:
-    SbeDeploymentInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SbeDeploymentInfoArgsDict(TypedDict):
+    """
+    Solution builder extension (SBE) package and manifest information for the solution builder extension staged for AzureStackHCI cluster deployment.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SBE family name.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SBE manifest publisher.
+    """
+    sbe_manifest_creation_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SBE Manifest Creation Date.
+    """
+    sbe_manifest_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SBE Manifest Source.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SBE package version.
+    """
 
 @pulumi.input_type
 class SbeDeploymentInfoArgs:
@@ -6647,25 +6411,22 @@ class SbeDeploymentInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SbePartnerInfoArgsDict(TypedDict):
-        """
-        The solution builder extension (SBE) partner deployment info for cluster.
-        """
-        credential_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['SbeCredentialsArgsDict']]]]
-        """
-        SBE credentials list for AzureStackHCI cluster deployment.
-        """
-        partner_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['SbePartnerPropertiesArgsDict']]]]
-        """
-        List of SBE partner properties for AzureStackHCI cluster deployment.
-        """
-        sbe_deployment_info: NotRequired[pulumi.Input['SbeDeploymentInfoArgsDict']]
-        """
-        SBE package and manifest information for the solution Builder Extension staged for AzureStackHCI cluster deployment.
-        """
-elif False:
-    SbePartnerInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SbePartnerInfoArgsDict(TypedDict):
+    """
+    The solution builder extension (SBE) partner deployment info for cluster.
+    """
+    credential_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['SbeCredentialsArgsDict']]]]
+    """
+    SBE credentials list for AzureStackHCI cluster deployment.
+    """
+    partner_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['SbePartnerPropertiesArgsDict']]]]
+    """
+    List of SBE partner properties for AzureStackHCI cluster deployment.
+    """
+    sbe_deployment_info: NotRequired[pulumi.Input['SbeDeploymentInfoArgsDict']]
+    """
+    SBE package and manifest information for the solution Builder Extension staged for AzureStackHCI cluster deployment.
+    """
 
 @pulumi.input_type
 class SbePartnerInfoArgs:
@@ -6723,21 +6484,18 @@ class SbePartnerInfoArgs:
         pulumi.set(self, "sbe_deployment_info", value)
 
 
-if not MYPY:
-    class SbePartnerPropertiesArgsDict(TypedDict):
-        """
-        Solution builder extension (SBE) partner properties object.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SBE partner property name.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SBE partner property value.
-        """
-elif False:
-    SbePartnerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SbePartnerPropertiesArgsDict(TypedDict):
+    """
+    Solution builder extension (SBE) partner properties object.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SBE partner property name.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SBE partner property value.
+    """
 
 @pulumi.input_type
 class SbePartnerPropertiesArgs:
@@ -6779,21 +6537,18 @@ class SbePartnerPropertiesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ScaleUnitsArgsDict(TypedDict):
-        """
-        Scale units will contains list of deployment data
-        """
-        deployment_data: pulumi.Input['DeploymentDataArgsDict']
-        """
-        Deployment Data to deploy AzureStackHCI Cluster.
-        """
-        sbe_partner_info: NotRequired[pulumi.Input['SbePartnerInfoArgsDict']]
-        """
-        Solution builder extension (SBE) partner properties
-        """
-elif False:
-    ScaleUnitsArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleUnitsArgsDict(TypedDict):
+    """
+    Scale units will contains list of deployment data
+    """
+    deployment_data: pulumi.Input['DeploymentDataArgsDict']
+    """
+    Deployment Data to deploy AzureStackHCI Cluster.
+    """
+    sbe_partner_info: NotRequired[pulumi.Input['SbePartnerInfoArgsDict']]
+    """
+    Solution builder extension (SBE) partner properties
+    """
 
 @pulumi.input_type
 class ScaleUnitsArgs:
@@ -6834,17 +6589,14 @@ class ScaleUnitsArgs:
         pulumi.set(self, "sbe_partner_info", value)
 
 
-if not MYPY:
-    class SdnIntegrationArgsDict(TypedDict):
-        """
-        SDN Integration config to deploy AzureStackHCI Cluster.
-        """
-        network_controller: NotRequired[pulumi.Input['NetworkControllerArgsDict']]
-        """
-        network controller config for SDN Integration to deploy AzureStackHCI Cluster.
-        """
-elif False:
-    SdnIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class SdnIntegrationArgsDict(TypedDict):
+    """
+    SDN Integration config to deploy AzureStackHCI Cluster.
+    """
+    network_controller: NotRequired[pulumi.Input['NetworkControllerArgsDict']]
+    """
+    network controller config for SDN Integration to deploy AzureStackHCI Cluster.
+    """
 
 @pulumi.input_type
 class SdnIntegrationArgs:
@@ -6870,21 +6622,18 @@ class SdnIntegrationArgs:
         pulumi.set(self, "network_controller", value)
 
 
-if not MYPY:
-    class ServiceConfigurationArgsDict(TypedDict):
-        """
-        Service configuration details
-        """
-        port: pulumi.Input[_builtins.float]
-        """
-        The port on which service is enabled.
-        """
-        service_name: pulumi.Input[Union[_builtins.str, 'ServiceName']]
-        """
-        Name of the service.
-        """
-elif False:
-    ServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceConfigurationArgsDict(TypedDict):
+    """
+    Service configuration details
+    """
+    port: pulumi.Input[_builtins.float]
+    """
+    The port on which service is enabled.
+    """
+    service_name: pulumi.Input[Union[_builtins.str, 'ServiceName']]
+    """
+    Name of the service.
+    """
 
 @pulumi.input_type
 class ServiceConfigurationArgs:
@@ -6924,21 +6673,18 @@ class ServiceConfigurationArgs:
         pulumi.set(self, "service_name", value)
 
 
-if not MYPY:
-    class SiteDetailsArgsDict(TypedDict):
-        """
-        Site Details consists of common configurations.
-        """
-        site_resource_id: pulumi.Input[_builtins.str]
-        """
-        Site resource Id to be set during Edge Machine resource creation.
-        """
-        device_configuration: NotRequired[pulumi.Input['TargetDeviceConfigurationArgsDict']]
-        """
-        Edge Device configuration received from site common configuration.
-        """
-elif False:
-    SiteDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class SiteDetailsArgsDict(TypedDict):
+    """
+    Site Details consists of common configurations.
+    """
+    site_resource_id: pulumi.Input[_builtins.str]
+    """
+    Site resource Id to be set during Edge Machine resource creation.
+    """
+    device_configuration: NotRequired[pulumi.Input['TargetDeviceConfigurationArgsDict']]
+    """
+    Edge Device configuration received from site common configuration.
+    """
 
 @pulumi.input_type
 class SiteDetailsArgs:
@@ -6979,17 +6725,14 @@ class SiteDetailsArgs:
         pulumi.set(self, "device_configuration", value)
 
 
-if not MYPY:
-    class SoftwareAssurancePropertiesArgsDict(TypedDict):
-        """
-        Software Assurance properties of the cluster.
-        """
-        software_assurance_intent: NotRequired[pulumi.Input[Union[_builtins.str, 'SoftwareAssuranceIntent']]]
-        """
-        Customer Intent for Software Assurance Benefit.
-        """
-elif False:
-    SoftwareAssurancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SoftwareAssurancePropertiesArgsDict(TypedDict):
+    """
+    Software Assurance properties of the cluster.
+    """
+    software_assurance_intent: NotRequired[pulumi.Input[Union[_builtins.str, 'SoftwareAssuranceIntent']]]
+    """
+    Customer Intent for Software Assurance Benefit.
+    """
 
 @pulumi.input_type
 class SoftwareAssurancePropertiesArgs:
@@ -7015,17 +6758,14 @@ class SoftwareAssurancePropertiesArgs:
         pulumi.set(self, "software_assurance_intent", value)
 
 
-if not MYPY:
-    class SshConfigurationArgsDict(TypedDict):
-        """
-        SSH configuration for Linux based VMs running on Azure
-        """
-        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
-        """
-        The list of SSH public keys used to authenticate with linux based VMs.
-        """
-elif False:
-    SshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SshConfigurationArgsDict(TypedDict):
+    """
+    SSH configuration for Linux based VMs running on Azure
+    """
+    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+    """
+    The list of SSH public keys used to authenticate with linux based VMs.
+    """
 
 @pulumi.input_type
 class SshConfigurationArgs:
@@ -7051,21 +6791,18 @@ class SshConfigurationArgs:
         pulumi.set(self, "public_keys", value)
 
 
-if not MYPY:
-    class SshPublicKeyArgsDict(TypedDict):
-        """
-        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
-        """
-        key_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-elif False:
-    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SshPublicKeyArgsDict(TypedDict):
+    """
+    Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+    """
+    key_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+    """
 
 @pulumi.input_type
 class SshPublicKeyArgs:
@@ -7107,49 +6844,46 @@ class SshPublicKeyArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class StepArgsDict(TypedDict):
-        """
-        Progress representation of the update run steps.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        More detailed description of the step.
-        """
-        end_time_utc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When the step reached a terminal state.
-        """
-        error_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Error message, specified if the step is in a failed state.
-        """
-        expected_execution_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
-        """
-        last_updated_time_utc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Completion time of this step or the last completed sub-step.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the step.
-        """
-        start_time_utc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When the step started, or empty if it has not started executing.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
-        """
-        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepArgsDict']]]]
-        """
-        Recursive model for child steps of this step.
-        """
-elif False:
-    StepArgsDict: TypeAlias = Mapping[str, Any]
+class StepArgsDict(TypedDict):
+    """
+    Progress representation of the update run steps.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    More detailed description of the step.
+    """
+    end_time_utc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When the step reached a terminal state.
+    """
+    error_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Error message, specified if the step is in a failed state.
+    """
+    expected_execution_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+    """
+    last_updated_time_utc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Completion time of this step or the last completed sub-step.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the step.
+    """
+    start_time_utc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When the step started, or empty if it has not started executing.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
+    """
+    steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepArgsDict']]]]
+    """
+    Recursive model for child steps of this step.
+    """
 
 @pulumi.input_type
 class StepArgs:
@@ -7303,25 +7037,22 @@ class StepArgs:
         pulumi.set(self, "steps", value)
 
 
-if not MYPY:
-    class StorageAdapterIPInfoArgsDict(TypedDict):
-        """
-        The StorageAdapter physical nodes of a cluster.
-        """
-        ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
-        """
-        physical_node: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        storage adapter physical node name.
-        """
-        subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
-        """
-elif False:
-    StorageAdapterIPInfoArgsDict: TypeAlias = Mapping[str, Any]
+class StorageAdapterIPInfoArgsDict(TypedDict):
+    """
+    The StorageAdapter physical nodes of a cluster.
+    """
+    ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+    """
+    physical_node: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    storage adapter physical node name.
+    """
+    subnet_mask: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+    """
 
 @pulumi.input_type
 class StorageAdapterIPInfoArgs:
@@ -7379,17 +7110,14 @@ class StorageAdapterIPInfoArgs:
         pulumi.set(self, "subnet_mask", value)
 
 
-if not MYPY:
-    class StorageConfigurationArgsDict(TypedDict):
-        """
-        Storage configuration.
-        """
-        partition_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Partition size.
-        """
-elif False:
-    StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageConfigurationArgsDict(TypedDict):
+    """
+    Storage configuration.
+    """
+    partition_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Partition size.
+    """
 
 @pulumi.input_type
 class StorageConfigurationArgs:
@@ -7415,29 +7143,26 @@ class StorageConfigurationArgs:
         pulumi.set(self, "partition_size", value)
 
 
-if not MYPY:
-    class StorageNetworksArgsDict(TypedDict):
-        """
-        The StorageNetworks of a cluster.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the storage network.
-        """
-        network_adapter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the storage network adapter.
-        """
-        storage_adapter_ip_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAdapterIPInfoArgsDict']]]]
-        """
-        List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
-        """
-        vlan_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
-        """
-elif False:
-    StorageNetworksArgsDict: TypeAlias = Mapping[str, Any]
+class StorageNetworksArgsDict(TypedDict):
+    """
+    The StorageNetworks of a cluster.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the storage network.
+    """
+    network_adapter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the storage network adapter.
+    """
+    storage_adapter_ip_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAdapterIPInfoArgsDict']]]]
+    """
+    List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
+    """
+    vlan_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+    """
 
 @pulumi.input_type
 class StorageNetworksArgs:
@@ -7511,17 +7236,14 @@ class StorageNetworksArgs:
         pulumi.set(self, "vlan_id", value)
 
 
-if not MYPY:
-    class StorageArgsDict(TypedDict):
-        """
-        The Storage config of AzureStackHCI Cluster.
-        """
-        configuration_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        By default, this mode is set to Express and your storage is configured as per best practices based on the number of nodes in the cluster. Allowed values are 'Express','InfraOnly', 'KeepStorage'
-        """
-elif False:
-    StorageArgsDict: TypeAlias = Mapping[str, Any]
+class StorageArgsDict(TypedDict):
+    """
+    The Storage config of AzureStackHCI Cluster.
+    """
+    configuration_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    By default, this mode is set to Express and your storage is configured as per best practices based on the number of nodes in the cluster. Allowed values are 'Express','InfraOnly', 'KeepStorage'
+    """
 
 @pulumi.input_type
 class StorageArgs:
@@ -7549,17 +7271,14 @@ class StorageArgs:
         pulumi.set(self, "configuration_mode", value)
 
 
-if not MYPY:
-    class SubnetIpConfigurationReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Network Interface.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Network Interface.
-        """
-elif False:
-    SubnetIpConfigurationReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetIpConfigurationReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Network Interface.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Network Interface.
+    """
 
 @pulumi.input_type
 class SubnetIpConfigurationReferenceArgs:
@@ -7585,49 +7304,46 @@ class SubnetIpConfigurationReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SubnetArgsDict(TypedDict):
-        """
-        Properties of the subnet.
-        """
-        address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address prefix for the subnet: Cidr for this subnet - IPv4, IPv6.
-        """
-        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of address prefixes for the subnet.
-        """
-        ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
-        """
-        IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
-        """
-        ip_configuration_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetIpConfigurationReferenceArgsDict']]]]
-        """
-        IPConfigurationReferences - list of IPConfigurationReferences
-        """
-        ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPPoolArgsDict']]]]
-        """
-        network associated pool of IP Addresses
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        network_security_group: NotRequired[pulumi.Input['NetworkSecurityGroupArmReferenceArgsDict']]
-        """
-        NetworkSecurityGroup - Network Security Group attached to the logical network.
-        """
-        route_table: NotRequired[pulumi.Input['RouteTableArgsDict']]
-        """
-        Route table resource.
-        """
-        vlan: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Vlan to use for the subnet
-        """
-elif False:
-    SubnetArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetArgsDict(TypedDict):
+    """
+    Properties of the subnet.
+    """
+    address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address prefix for the subnet: Cidr for this subnet - IPv4, IPv6.
+    """
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of address prefixes for the subnet.
+    """
+    ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
+    """
+    IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
+    """
+    ip_configuration_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetIpConfigurationReferenceArgsDict']]]]
+    """
+    IPConfigurationReferences - list of IPConfigurationReferences
+    """
+    ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPPoolArgsDict']]]]
+    """
+    network associated pool of IP Addresses
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+    """
+    network_security_group: NotRequired[pulumi.Input['NetworkSecurityGroupArmReferenceArgsDict']]
+    """
+    NetworkSecurityGroup - Network Security Group attached to the logical network.
+    """
+    route_table: NotRequired[pulumi.Input['RouteTableArgsDict']]
+    """
+    Route table resource.
+    """
+    vlan: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Vlan to use for the subnet
+    """
 
 @pulumi.input_type
 class SubnetArgs:
@@ -7781,33 +7497,30 @@ class SubnetArgs:
         pulumi.set(self, "vlan", value)
 
 
-if not MYPY:
-    class TargetDeviceConfigurationArgsDict(TypedDict):
-        """
-        Device configuration.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Hostname of the device.
-        """
-        network: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
-        """
-        Network configuration.
-        """
-        storage: NotRequired[pulumi.Input['StorageConfigurationArgsDict']]
-        """
-        Storage configuration.
-        """
-        time: NotRequired[pulumi.Input['TimeConfigurationArgsDict']]
-        """
-        Time configuration.
-        """
-        web_proxy: NotRequired[pulumi.Input['WebProxyConfigurationArgsDict']]
-        """
-        Web proxy configuration.
-        """
-elif False:
-    TargetDeviceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TargetDeviceConfigurationArgsDict(TypedDict):
+    """
+    Device configuration.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Hostname of the device.
+    """
+    network: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
+    """
+    Network configuration.
+    """
+    storage: NotRequired[pulumi.Input['StorageConfigurationArgsDict']]
+    """
+    Storage configuration.
+    """
+    time: NotRequired[pulumi.Input['TimeConfigurationArgsDict']]
+    """
+    Time configuration.
+    """
+    web_proxy: NotRequired[pulumi.Input['WebProxyConfigurationArgsDict']]
+    """
+    Web proxy configuration.
+    """
 
 @pulumi.input_type
 class TargetDeviceConfigurationArgs:
@@ -7897,25 +7610,22 @@ class TargetDeviceConfigurationArgs:
         pulumi.set(self, "web_proxy", value)
 
 
-if not MYPY:
-    class TimeConfigurationArgsDict(TypedDict):
-        """
-        Time configuration.
-        """
-        primary_time_server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Primary NTP server.
-        """
-        secondary_time_server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary NTP server.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time zone.
-        """
-elif False:
-    TimeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TimeConfigurationArgsDict(TypedDict):
+    """
+    Time configuration.
+    """
+    primary_time_server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Primary NTP server.
+    """
+    secondary_time_server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary NTP server.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time zone.
+    """
 
 @pulumi.input_type
 class TimeConfigurationArgs:
@@ -7973,25 +7683,22 @@ class TimeConfigurationArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class UpdatePrerequisiteArgsDict(TypedDict):
-        """
-        If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
-        """
-        package_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly name of the prerequisite.
-        """
-        update_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Updatable component type.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the prerequisite.
-        """
-elif False:
-    UpdatePrerequisiteArgsDict: TypeAlias = Mapping[str, Any]
+class UpdatePrerequisiteArgsDict(TypedDict):
+    """
+    If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
+    """
+    package_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly name of the prerequisite.
+    """
+    update_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Updatable component type.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the prerequisite.
+    """
 
 @pulumi.input_type
 class UpdatePrerequisiteArgs:
@@ -8049,29 +7756,26 @@ class UpdatePrerequisiteArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class UserDetailsArgsDict(TypedDict):
-        """
-        User configuration.
-        """
-        secret_type: pulumi.Input[Union[_builtins.str, 'SecretType']]
-        """
-        Type of the secret used for authentication.
-        """
-        user_name: pulumi.Input[_builtins.str]
-        """
-        Name of the user.
-        """
-        secret_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the secret used for authentication.
-        """
-        ssh_pub_key: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        SSH Public Key for the user.
-        """
-elif False:
-    UserDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class UserDetailsArgsDict(TypedDict):
+    """
+    User configuration.
+    """
+    secret_type: pulumi.Input[Union[_builtins.str, 'SecretType']]
+    """
+    Type of the secret used for authentication.
+    """
+    user_name: pulumi.Input[_builtins.str]
+    """
+    Name of the user.
+    """
+    secret_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of the secret used for authentication.
+    """
+    ssh_pub_key: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    SSH Public Key for the user.
+    """
 
 @pulumi.input_type
 class UserDetailsArgs:
@@ -8143,17 +7847,14 @@ class UserDetailsArgs:
         pulumi.set(self, "ssh_pub_key", value)
 
 
-if not MYPY:
-    class VMDiskSecurityProfileArgsDict(TypedDict):
-        """
-        Specifies the security profile settings for the managed disk. NOTE: It can only be set for Confidential VMs
-        """
-        security_encryption_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityEncryptionType']]]
-        """
-        Specifies the EncryptionType of the managed disk. It is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob. NOTE: It can be set for only Confidential VMs.
-        """
-elif False:
-    VMDiskSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VMDiskSecurityProfileArgsDict(TypedDict):
+    """
+    Specifies the security profile settings for the managed disk. NOTE: It can only be set for Confidential VMs
+    """
+    security_encryption_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityEncryptionType']]]
+    """
+    Specifies the EncryptionType of the managed disk. It is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob. NOTE: It can be set for only Confidential VMs.
+    """
 
 @pulumi.input_type
 class VMDiskSecurityProfileArgs:
@@ -8179,17 +7880,14 @@ class VMDiskSecurityProfileArgs:
         pulumi.set(self, "security_encryption_type", value)
 
 
-if not MYPY:
-    class VirtualHardDiskArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Virtual Hard Disk.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Virtual Hard Disk.
-        """
-elif False:
-    VirtualHardDiskArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualHardDiskArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Virtual Hard Disk.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Virtual Hard Disk.
+    """
 
 @pulumi.input_type
 class VirtualHardDiskArmReferenceArgs:
@@ -8215,17 +7913,14 @@ class VirtualHardDiskArmReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class VirtualMachineInstanceManagedDiskParametersArgsDict(TypedDict):
-        """
-        The parameters of a managed disk.
-        """
-        security_profile: NotRequired[pulumi.Input['VMDiskSecurityProfileArgsDict']]
-        """
-        Specifies the security profile for the managed disk.
-        """
-elif False:
-    VirtualMachineInstanceManagedDiskParametersArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstanceManagedDiskParametersArgsDict(TypedDict):
+    """
+    The parameters of a managed disk.
+    """
+    security_profile: NotRequired[pulumi.Input['VMDiskSecurityProfileArgsDict']]
+    """
+    Specifies the security profile for the managed disk.
+    """
 
 @pulumi.input_type
 class VirtualMachineInstanceManagedDiskParametersArgs:
@@ -8251,25 +7946,22 @@ class VirtualMachineInstanceManagedDiskParametersArgs:
         pulumi.set(self, "security_profile", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgsDict(TypedDict):
-        """
-        Dynamic memory config
-        """
-        maximum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum memory in MB
-        """
-        minimum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum memory in MB
-        """
-        target_memory_buffer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the amount of extra memory that should be reserved for a virtual machine instance at runtime, as a percentage of the total memory that the virtual machine instance is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
-        """
-elif False:
-    VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgsDict(TypedDict):
+    """
+    Dynamic memory config
+    """
+    maximum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum memory in MB
+    """
+    minimum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum memory in MB
+    """
+    target_memory_buffer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the amount of extra memory that should be reserved for a virtual machine instance at runtime, as a percentage of the total memory that the virtual machine instance is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgs:
@@ -8327,25 +8019,22 @@ class VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgs:
         pulumi.set(self, "target_memory_buffer", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgsDict(TypedDict):
-        """
-        GPU properties - describes the GPU configuration.
-        """
-        assignment_type: pulumi.Input[Union[_builtins.str, 'GpuAssignmentTypeEnum']]
-        """
-        GPU assignment type
-        """
-        gpu_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the GPU
-        """
-        partition_size_mb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Size of gpu partition in MB for GPU-P
-        """
-elif False:
-    VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgsDict(TypedDict):
+    """
+    GPU properties - describes the GPU configuration.
+    """
+    assignment_type: pulumi.Input[Union[_builtins.str, 'GpuAssignmentTypeEnum']]
+    """
+    GPU assignment type
+    """
+    gpu_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the GPU
+    """
+    partition_size_mb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Size of gpu partition in MB for GPU-P
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgs:
@@ -8402,33 +8091,30 @@ class VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgs:
         pulumi.set(self, "partition_size_mb", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesHardwareProfileArgsDict(TypedDict):
-        """
-        HardwareProfile - Specifies the hardware settings for the virtual machine instance.
-        """
-        dynamic_memory_config: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgsDict']]
-        """
-        Dynamic memory config
-        """
-        memory_mb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        RAM in MB for the virtual machine instance
-        """
-        processors: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        number of processors for the virtual machine instance
-        """
-        virtual_machine_gpus: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgsDict']]]]
-        """
-        virtualMachineGPUs - list of gpus to be attached to the virtual machine instance
-        """
-        vm_size: NotRequired[pulumi.Input[Union[_builtins.str, 'VmSizeEnum']]]
-        """
-        Enum of VM Sizes
-        """
-elif False:
-    VirtualMachineInstancePropertiesHardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesHardwareProfileArgsDict(TypedDict):
+    """
+    HardwareProfile - Specifies the hardware settings for the virtual machine instance.
+    """
+    dynamic_memory_config: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgsDict']]
+    """
+    Dynamic memory config
+    """
+    memory_mb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    RAM in MB for the virtual machine instance
+    """
+    processors: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    number of processors for the virtual machine instance
+    """
+    virtual_machine_gpus: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgsDict']]]]
+    """
+    virtualMachineGPUs - list of gpus to be attached to the virtual machine instance
+    """
+    vm_size: NotRequired[pulumi.Input[Union[_builtins.str, 'VmSizeEnum']]]
+    """
+    Enum of VM Sizes
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesHardwareProfileArgs:
@@ -8520,17 +8206,14 @@ class VirtualMachineInstancePropertiesHardwareProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesNetworkProfileArgsDict(TypedDict):
-        """
-        NetworkProfile - describes the network configuration the virtual machine instance
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArmReferenceArgsDict']]]]
-        """
-        NetworkInterfaces - list of network interfaces to be attached to the virtual machine instance
-        """
-elif False:
-    VirtualMachineInstancePropertiesNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesNetworkProfileArgsDict(TypedDict):
+    """
+    NetworkProfile - describes the network configuration the virtual machine instance
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArmReferenceArgsDict']]]]
+    """
+    NetworkInterfaces - list of network interfaces to be attached to the virtual machine instance
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesNetworkProfileArgs:
@@ -8556,29 +8239,26 @@ class VirtualMachineInstancePropertiesNetworkProfileArgs:
         pulumi.set(self, "network_interfaces", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgsDict(TypedDict):
-        """
-        LinuxConfiguration - linux specific configuration values for the virtual machine instance
-        """
-        disable_password_authentication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        DisablePasswordAuthentication - whether password authentication should be disabled
-        """
-        provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
-        """
-        provision_vm_config_agent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
-        """
-        ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
-        """
-        Specifies the ssh key configuration for a Linux OS.
-        """
-elif False:
-    VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgsDict(TypedDict):
+    """
+    LinuxConfiguration - linux specific configuration values for the virtual machine instance
+    """
+    disable_password_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    DisablePasswordAuthentication - whether password authentication should be disabled
+    """
+    provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
+    """
+    provision_vm_config_agent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
+    """
+    ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+    """
+    Specifies the ssh key configuration for a Linux OS.
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgs:
@@ -8656,33 +8336,30 @@ class VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgs:
         pulumi.set(self, "ssh", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgsDict(TypedDict):
-        """
-        Windows Configuration for the virtual machine instance
-        """
-        enable_automatic_updates: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to EnableAutomaticUpdates on the machine
-        """
-        provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
-        """
-        provision_vm_config_agent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
-        """
-        ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
-        """
-        Specifies the ssh key configuration for Windows OS.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        TimeZone for the virtual machine instance
-        """
-elif False:
-    VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgsDict(TypedDict):
+    """
+    Windows Configuration for the virtual machine instance
+    """
+    enable_automatic_updates: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to EnableAutomaticUpdates on the machine
+    """
+    provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
+    """
+    provision_vm_config_agent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
+    """
+    ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+    """
+    Specifies the ssh key configuration for Windows OS.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    TimeZone for the virtual machine instance
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgs:
@@ -8776,33 +8453,30 @@ class VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesOsProfileArgsDict(TypedDict):
-        """
-        OsProfile - describes the configuration of the operating system and sets login data
-        """
-        admin_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AdminPassword - admin password
-        """
-        admin_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AdminUsername - admin username
-        """
-        computer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ComputerName - name of the compute
-        """
-        linux_configuration: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgsDict']]
-        """
-        LinuxConfiguration - linux specific configuration values for the virtual machine instance
-        """
-        windows_configuration: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgsDict']]
-        """
-        Windows Configuration for the virtual machine instance
-        """
-elif False:
-    VirtualMachineInstancePropertiesOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesOsProfileArgsDict(TypedDict):
+    """
+    OsProfile - describes the configuration of the operating system and sets login data
+    """
+    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AdminPassword - admin password
+    """
+    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AdminUsername - admin username
+    """
+    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ComputerName - name of the compute
+    """
+    linux_configuration: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgsDict']]
+    """
+    LinuxConfiguration - linux specific configuration values for the virtual machine instance
+    """
+    windows_configuration: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgsDict']]
+    """
+    Windows Configuration for the virtual machine instance
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesOsProfileArgs:
@@ -8892,17 +8566,14 @@ class VirtualMachineInstancePropertiesOsProfileArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgsDict(TypedDict):
-        """
-        Uefi settings - Specifies whether secure boot should be enabled on the virtual machine instance.
-        """
-        secure_boot_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether secure boot should be enabled on the virtual machine instance.
-        """
-elif False:
-    VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgsDict(TypedDict):
+    """
+    Uefi settings - Specifies whether secure boot should be enabled on the virtual machine instance.
+    """
+    secure_boot_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether secure boot should be enabled on the virtual machine instance.
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgs:
@@ -8930,25 +8601,22 @@ class VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgs:
         pulumi.set(self, "secure_boot_enabled", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesSecurityProfileArgsDict(TypedDict):
-        """
-        SecurityProfile - Specifies the security settings for the virtual machine instance.
-        """
-        enable_tpm: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable TPM flag
-        """
-        security_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityTypes']]]
-        """
-        Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
-        """
-        uefi_settings: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgsDict']]
-        """
-        Uefi settings of the virtual machine instance
-        """
-elif False:
-    VirtualMachineInstancePropertiesSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesSecurityProfileArgsDict(TypedDict):
+    """
+    SecurityProfile - Specifies the security settings for the virtual machine instance.
+    """
+    enable_tpm: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable TPM flag
+    """
+    security_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SecurityTypes']]]
+    """
+    Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
+    """
+    uefi_settings: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgsDict']]
+    """
+    Uefi settings of the virtual machine instance
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesSecurityProfileArgs:
@@ -9008,25 +8676,22 @@ class VirtualMachineInstancePropertiesSecurityProfileArgs:
         pulumi.set(self, "uefi_settings", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesStorageProfileOsDiskArgsDict(TypedDict):
-        """
-        VHD to attach as OS disk
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Virtual Hard Disk.
-        """
-        managed_disk: NotRequired[pulumi.Input['VirtualMachineInstanceManagedDiskParametersArgsDict']]
-        """
-        The managed disk parameters.
-        """
-        os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]]
-        """
-        This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
-        """
-elif False:
-    VirtualMachineInstancePropertiesStorageProfileOsDiskArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesStorageProfileOsDiskArgsDict(TypedDict):
+    """
+    VHD to attach as OS disk
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Virtual Hard Disk.
+    """
+    managed_disk: NotRequired[pulumi.Input['VirtualMachineInstanceManagedDiskParametersArgsDict']]
+    """
+    The managed disk parameters.
+    """
+    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]]
+    """
+    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesStorageProfileOsDiskArgs:
@@ -9084,29 +8749,26 @@ class VirtualMachineInstancePropertiesStorageProfileOsDiskArgs:
         pulumi.set(self, "os_type", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesStorageProfileArgsDict(TypedDict):
-        """
-        StorageProfile - contains information about the disks and storage information for the virtual machine instance
-        """
-        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHardDiskArmReferenceArgsDict']]]]
-        """
-        adds data disks to the virtual machine instance
-        """
-        image_reference: NotRequired[pulumi.Input['ImageArmReferenceArgsDict']]
-        """
-        Which Image to use for the virtual machine instance
-        """
-        os_disk: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesStorageProfileOsDiskArgsDict']]
-        """
-        VHD to attach as OS disk
-        """
-        vm_config_storage_path_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the storage container that hosts the VM configuration file
-        """
-elif False:
-    VirtualMachineInstancePropertiesStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesStorageProfileArgsDict(TypedDict):
+    """
+    StorageProfile - contains information about the disks and storage information for the virtual machine instance
+    """
+    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHardDiskArmReferenceArgsDict']]]]
+    """
+    adds data disks to the virtual machine instance
+    """
+    image_reference: NotRequired[pulumi.Input['ImageArmReferenceArgsDict']]
+    """
+    Which Image to use for the virtual machine instance
+    """
+    os_disk: NotRequired[pulumi.Input['VirtualMachineInstancePropertiesStorageProfileOsDiskArgsDict']]
+    """
+    VHD to attach as OS disk
+    """
+    vm_config_storage_path_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the storage container that hosts the VM configuration file
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesStorageProfileArgs:
@@ -9180,14 +8842,11 @@ class VirtualMachineInstancePropertiesStorageProfileArgs:
         pulumi.set(self, "vm_config_storage_path_id", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesDataDisksArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of the data disk
-        """
-elif False:
-    VirtualMachinePropertiesDataDisksArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesDataDisksArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of the data disk
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesDataDisksArgs:
@@ -9212,16 +8871,13 @@ class VirtualMachinePropertiesDataDisksArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesDynamicMemoryConfigArgsDict(TypedDict):
-        maximum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
-        minimum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
-        target_memory_buffer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the amount of extra memory that should be reserved for a virtual machine at runtime, as a percentage of the total memory that the virtual machine is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
-        """
-elif False:
-    VirtualMachinePropertiesDynamicMemoryConfigArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesDynamicMemoryConfigArgsDict(TypedDict):
+    maximum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
+    minimum_memory_mb: NotRequired[pulumi.Input[_builtins.float]]
+    target_memory_buffer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the amount of extra memory that should be reserved for a virtual machine at runtime, as a percentage of the total memory that the virtual machine is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesDynamicMemoryConfigArgs:
@@ -9270,23 +8926,20 @@ class VirtualMachinePropertiesDynamicMemoryConfigArgs:
         pulumi.set(self, "target_memory_buffer", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesHardwareProfileArgsDict(TypedDict):
-        """
-        HardwareProfile - Specifies the hardware settings for the virtual machine.
-        """
-        dynamic_memory_config: NotRequired[pulumi.Input['VirtualMachinePropertiesDynamicMemoryConfigArgsDict']]
-        memory_mb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        RAM in MB for the virtual machine
-        """
-        processors: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        number of processors for the virtual machine
-        """
-        vm_size: NotRequired[pulumi.Input[Union[_builtins.str, 'VmSizeEnum']]]
-elif False:
-    VirtualMachinePropertiesHardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesHardwareProfileArgsDict(TypedDict):
+    """
+    HardwareProfile - Specifies the hardware settings for the virtual machine.
+    """
+    dynamic_memory_config: NotRequired[pulumi.Input['VirtualMachinePropertiesDynamicMemoryConfigArgsDict']]
+    memory_mb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    RAM in MB for the virtual machine
+    """
+    processors: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    number of processors for the virtual machine
+    """
+    vm_size: NotRequired[pulumi.Input[Union[_builtins.str, 'VmSizeEnum']]]
 
 @pulumi.input_type
 class VirtualMachinePropertiesHardwareProfileArgs:
@@ -9354,17 +9007,14 @@ class VirtualMachinePropertiesHardwareProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesImageReferenceArgsDict(TypedDict):
-        """
-        Which Image to use for the virtual machine
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of the image
-        """
-elif False:
-    VirtualMachinePropertiesImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesImageReferenceArgsDict(TypedDict):
+    """
+    Which Image to use for the virtual machine
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of the image
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesImageReferenceArgs:
@@ -9390,25 +9040,22 @@ class VirtualMachinePropertiesImageReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesLinuxConfigurationArgsDict(TypedDict):
-        """
-        LinuxConfiguration - linux specific configuration values for the virtual machine
-        """
-        disable_password_authentication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        DisablePasswordAuthentication - whether password authentication should be disabled
-        """
-        provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
-        """
-        ssh: NotRequired[pulumi.Input['VirtualMachinePropertiesSshArgsDict']]
-        """
-        SSH - contains settings related to ssh configuration
-        """
-elif False:
-    VirtualMachinePropertiesLinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesLinuxConfigurationArgsDict(TypedDict):
+    """
+    LinuxConfiguration - linux specific configuration values for the virtual machine
+    """
+    disable_password_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    DisablePasswordAuthentication - whether password authentication should be disabled
+    """
+    provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
+    """
+    ssh: NotRequired[pulumi.Input['VirtualMachinePropertiesSshArgsDict']]
+    """
+    SSH - contains settings related to ssh configuration
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesLinuxConfigurationArgs:
@@ -9466,14 +9113,11 @@ class VirtualMachinePropertiesLinuxConfigurationArgs:
         pulumi.set(self, "ssh", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesNetworkInterfacesArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID - Resource Id of the network interface
-        """
-elif False:
-    VirtualMachinePropertiesNetworkInterfacesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesNetworkInterfacesArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID - Resource Id of the network interface
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesNetworkInterfacesArgs:
@@ -9498,17 +9142,14 @@ class VirtualMachinePropertiesNetworkInterfacesArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesNetworkProfileArgsDict(TypedDict):
-        """
-        NetworkProfile - describes the network configuration the virtual machine
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgsDict']]]]
-        """
-        NetworkInterfaces - list of network interfaces to be attached to the virtual machine
-        """
-elif False:
-    VirtualMachinePropertiesNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesNetworkProfileArgsDict(TypedDict):
+    """
+    NetworkProfile - describes the network configuration the virtual machine
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgsDict']]]]
+    """
+    NetworkInterfaces - list of network interfaces to be attached to the virtual machine
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesNetworkProfileArgs:
@@ -9534,17 +9175,14 @@ class VirtualMachinePropertiesNetworkProfileArgs:
         pulumi.set(self, "network_interfaces", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesOsDiskArgsDict(TypedDict):
-        """
-        VHD to attach as OS disk
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of the OS disk
-        """
-elif False:
-    VirtualMachinePropertiesOsDiskArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesOsDiskArgsDict(TypedDict):
+    """
+    VHD to attach as OS disk
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of the OS disk
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesOsDiskArgs:
@@ -9570,37 +9208,34 @@ class VirtualMachinePropertiesOsDiskArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesOsProfileArgsDict(TypedDict):
-        """
-        OsProfile - describes the configuration of the operating system and sets login data
-        """
-        admin_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AdminPassword - admin password
-        """
-        admin_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AdminUsername - admin username
-        """
-        computer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ComputerName - name of the compute
-        """
-        linux_configuration: NotRequired[pulumi.Input['VirtualMachinePropertiesLinuxConfigurationArgsDict']]
-        """
-        LinuxConfiguration - linux specific configuration values for the virtual machine
-        """
-        os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OsTypeEnum']]]
-        """
-        OsType - string specifying whether the OS is Linux or Windows
-        """
-        windows_configuration: NotRequired[pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgsDict']]
-        """
-        Windows Configuration for the virtual machine 
-        """
-elif False:
-    VirtualMachinePropertiesOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesOsProfileArgsDict(TypedDict):
+    """
+    OsProfile - describes the configuration of the operating system and sets login data
+    """
+    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AdminPassword - admin password
+    """
+    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AdminUsername - admin username
+    """
+    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ComputerName - name of the compute
+    """
+    linux_configuration: NotRequired[pulumi.Input['VirtualMachinePropertiesLinuxConfigurationArgsDict']]
+    """
+    LinuxConfiguration - linux specific configuration values for the virtual machine
+    """
+    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OsTypeEnum']]]
+    """
+    OsType - string specifying whether the OS is Linux or Windows
+    """
+    windows_configuration: NotRequired[pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgsDict']]
+    """
+    Windows Configuration for the virtual machine 
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesOsProfileArgs:
@@ -9706,18 +9341,15 @@ class VirtualMachinePropertiesOsProfileArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesPublicKeysPublicKeysArgsDict(TypedDict):
-        key_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-elif False:
-    VirtualMachinePropertiesPublicKeysPublicKeysArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesPublicKeysPublicKeysArgsDict(TypedDict):
+    key_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesPublicKeysPublicKeysArgs:
@@ -9758,18 +9390,15 @@ class VirtualMachinePropertiesPublicKeysPublicKeysArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesPublicKeysArgsDict(TypedDict):
-        key_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-elif False:
-    VirtualMachinePropertiesPublicKeysArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesPublicKeysArgsDict(TypedDict):
+    key_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesPublicKeysArgs:
@@ -9810,15 +9439,12 @@ class VirtualMachinePropertiesPublicKeysArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesSecurityProfileArgsDict(TypedDict):
-        """
-        SecurityProfile - Specifies the security settings for the virtual machine.
-        """
-        enable_tpm: NotRequired[pulumi.Input[_builtins.bool]]
-        uefi_settings: NotRequired[pulumi.Input['VirtualMachinePropertiesUefiSettingsArgsDict']]
-elif False:
-    VirtualMachinePropertiesSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesSecurityProfileArgsDict(TypedDict):
+    """
+    SecurityProfile - Specifies the security settings for the virtual machine.
+    """
+    enable_tpm: NotRequired[pulumi.Input[_builtins.bool]]
+    uefi_settings: NotRequired[pulumi.Input['VirtualMachinePropertiesUefiSettingsArgsDict']]
 
 @pulumi.input_type
 class VirtualMachinePropertiesSecurityProfileArgs:
@@ -9854,17 +9480,14 @@ class VirtualMachinePropertiesSecurityProfileArgs:
         pulumi.set(self, "uefi_settings", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesSshSshArgsDict(TypedDict):
-        """
-        SSH Configuration
-        """
-        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgsDict']]]]
-        """
-        PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-        """
-elif False:
-    VirtualMachinePropertiesSshSshArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesSshSshArgsDict(TypedDict):
+    """
+    SSH Configuration
+    """
+    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgsDict']]]]
+    """
+    PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesSshSshArgs:
@@ -9890,17 +9513,14 @@ class VirtualMachinePropertiesSshSshArgs:
         pulumi.set(self, "public_keys", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesSshArgsDict(TypedDict):
-        """
-        SSH - contains settings related to ssh configuration
-        """
-        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgsDict']]]]
-        """
-        PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-        """
-elif False:
-    VirtualMachinePropertiesSshArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesSshArgsDict(TypedDict):
+    """
+    SSH - contains settings related to ssh configuration
+    """
+    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgsDict']]]]
+    """
+    PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesSshArgs:
@@ -9926,29 +9546,26 @@ class VirtualMachinePropertiesSshArgs:
         pulumi.set(self, "public_keys", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesStorageProfileArgsDict(TypedDict):
-        """
-        StorageProfile - contains information about the disks and storage information for the virtual machine
-        """
-        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesDataDisksArgsDict']]]]
-        """
-        adds data disks to the virtual machine
-        """
-        image_reference: NotRequired[pulumi.Input['VirtualMachinePropertiesImageReferenceArgsDict']]
-        """
-        Which Image to use for the virtual machine
-        """
-        os_disk: NotRequired[pulumi.Input['VirtualMachinePropertiesOsDiskArgsDict']]
-        """
-        VHD to attach as OS disk
-        """
-        vm_config_storage_path_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the storage container that hosts the VM configuration file
-        """
-elif False:
-    VirtualMachinePropertiesStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesStorageProfileArgsDict(TypedDict):
+    """
+    StorageProfile - contains information about the disks and storage information for the virtual machine
+    """
+    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesDataDisksArgsDict']]]]
+    """
+    adds data disks to the virtual machine
+    """
+    image_reference: NotRequired[pulumi.Input['VirtualMachinePropertiesImageReferenceArgsDict']]
+    """
+    Which Image to use for the virtual machine
+    """
+    os_disk: NotRequired[pulumi.Input['VirtualMachinePropertiesOsDiskArgsDict']]
+    """
+    VHD to attach as OS disk
+    """
+    vm_config_storage_path_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the storage container that hosts the VM configuration file
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesStorageProfileArgs:
@@ -10022,14 +9639,11 @@ class VirtualMachinePropertiesStorageProfileArgs:
         pulumi.set(self, "vm_config_storage_path_id", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesUefiSettingsArgsDict(TypedDict):
-        secure_boot_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether secure boot should be enabled on the virtual machine.
-        """
-elif False:
-    VirtualMachinePropertiesUefiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesUefiSettingsArgsDict(TypedDict):
+    secure_boot_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether secure boot should be enabled on the virtual machine.
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesUefiSettingsArgs:
@@ -10056,29 +9670,26 @@ class VirtualMachinePropertiesUefiSettingsArgs:
         pulumi.set(self, "secure_boot_enabled", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesWindowsConfigurationArgsDict(TypedDict):
-        """
-        Windows Configuration for the virtual machine 
-        """
-        enable_automatic_updates: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to EnableAutomaticUpdates on the machine
-        """
-        provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
-        """
-        ssh: NotRequired[pulumi.Input['VirtualMachinePropertiesSshSshArgsDict']]
-        """
-        SSH Configuration
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        TimeZone for the virtual machine
-        """
-elif False:
-    VirtualMachinePropertiesWindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesWindowsConfigurationArgsDict(TypedDict):
+    """
+    Windows Configuration for the virtual machine 
+    """
+    enable_automatic_updates: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to EnableAutomaticUpdates on the machine
+    """
+    provision_vm_agent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
+    """
+    ssh: NotRequired[pulumi.Input['VirtualMachinePropertiesSshSshArgsDict']]
+    """
+    SSH Configuration
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    TimeZone for the virtual machine
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesWindowsConfigurationArgs:
@@ -10152,17 +9763,14 @@ class VirtualMachinePropertiesWindowsConfigurationArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class VirtualNetworkArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Virtual Network
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Virtual Network.
-        """
-elif False:
-    VirtualNetworkArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Virtual Network
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Virtual Network.
+    """
 
 @pulumi.input_type
 class VirtualNetworkArmReferenceArgs:
@@ -10188,17 +9796,14 @@ class VirtualNetworkArmReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class VirtualNetworkPropertiesDhcpOptionsArgsDict(TypedDict):
-        """
-        DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of DNS servers IP addresses.
-        """
-elif False:
-    VirtualNetworkPropertiesDhcpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkPropertiesDhcpOptionsArgsDict(TypedDict):
+    """
+    DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of DNS servers IP addresses.
+    """
 
 @pulumi.input_type
 class VirtualNetworkPropertiesDhcpOptionsArgs:
@@ -10224,17 +9829,14 @@ class VirtualNetworkPropertiesDhcpOptionsArgs:
         pulumi.set(self, "dns_servers", value)
 
 
-if not MYPY:
-    class VirtualNetworkPropertiesIpConfigurationReferencesArgsDict(TypedDict):
-        """
-        IPConfigurationReference - Describes a IPConfiguration under the virtual network
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPConfigurationID
-        """
-elif False:
-    VirtualNetworkPropertiesIpConfigurationReferencesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkPropertiesIpConfigurationReferencesArgsDict(TypedDict):
+    """
+    IPConfigurationReference - Describes a IPConfiguration under the virtual network
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPConfigurationID
+    """
 
 @pulumi.input_type
 class VirtualNetworkPropertiesIpConfigurationReferencesArgs:
@@ -10260,29 +9862,26 @@ class VirtualNetworkPropertiesIpConfigurationReferencesArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class VirtualNetworkPropertiesRouteTableArgsDict(TypedDict):
-        """
-        RouteTable for the subnet
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Etag - Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name - READ-ONLY; Resource name.
-        """
-        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgsDict']]]]
-        """
-        Routes - Collection of routes contained within a route table.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type - READ-ONLY; Resource type.
-        """
-elif False:
-    VirtualNetworkPropertiesRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkPropertiesRouteTableArgsDict(TypedDict):
+    """
+    RouteTable for the subnet
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Etag - Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name - READ-ONLY; Resource name.
+    """
+    routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgsDict']]]]
+    """
+    Routes - Collection of routes contained within a route table.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type - READ-ONLY; Resource type.
+    """
 
 @pulumi.input_type
 class VirtualNetworkPropertiesRouteTableArgs:
@@ -10356,25 +9955,22 @@ class VirtualNetworkPropertiesRouteTableArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class VirtualNetworkPropertiesRoutesArgsDict(TypedDict):
-        """
-        Route is associated with a subnet.
-        """
-        address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AddressPrefix - The destination CIDR to which the route applies.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name - name of the subnet
-        """
-        next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NextHopIPAddress - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-        """
-elif False:
-    VirtualNetworkPropertiesRoutesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkPropertiesRoutesArgsDict(TypedDict):
+    """
+    Route is associated with a subnet.
+    """
+    address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AddressPrefix - The destination CIDR to which the route applies.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name - name of the subnet
+    """
+    next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NextHopIPAddress - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+    """
 
 @pulumi.input_type
 class VirtualNetworkPropertiesRoutesArgs:
@@ -10432,41 +10028,38 @@ class VirtualNetworkPropertiesRoutesArgs:
         pulumi.set(self, "next_hop_ip_address", value)
 
 
-if not MYPY:
-    class VirtualNetworkPropertiesSubnetsArgsDict(TypedDict):
-        """
-        Subnet subnet in a virtual network resource.
-        """
-        address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cidr for this subnet - IPv4, IPv6
-        """
-        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        AddressPrefixes - List of address prefixes for the subnet.
-        """
-        ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
-        """
-        IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
-        """
-        ip_configuration_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesIpConfigurationReferencesArgsDict']]]]
-        """
-        IPConfigurationReferences - list of IPConfigurationReferences
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        route_table: NotRequired[pulumi.Input['VirtualNetworkPropertiesRouteTableArgsDict']]
-        """
-        RouteTable for the subnet
-        """
-        vlan: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Vlan to use for the subnet
-        """
-elif False:
-    VirtualNetworkPropertiesSubnetsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkPropertiesSubnetsArgsDict(TypedDict):
+    """
+    Subnet subnet in a virtual network resource.
+    """
+    address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cidr for this subnet - IPv4, IPv6
+    """
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    AddressPrefixes - List of address prefixes for the subnet.
+    """
+    ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
+    """
+    IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
+    """
+    ip_configuration_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesIpConfigurationReferencesArgsDict']]]]
+    """
+    IPConfigurationReferences - list of IPConfigurationReferences
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+    """
+    route_table: NotRequired[pulumi.Input['VirtualNetworkPropertiesRouteTableArgsDict']]
+    """
+    RouteTable for the subnet
+    """
+    vlan: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Vlan to use for the subnet
+    """
 
 @pulumi.input_type
 class VirtualNetworkPropertiesSubnetsArgs:
@@ -10588,17 +10181,14 @@ class VirtualNetworkPropertiesSubnetsArgs:
         pulumi.set(self, "vlan", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetArmReferenceArgsDict(TypedDict):
-        """
-        The Azure Resource ID for a Virtual Network subnet
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource ID for a Virtual Network subnet.
-        """
-elif False:
-    VirtualNetworkSubnetArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkSubnetArmReferenceArgsDict(TypedDict):
+    """
+    The Azure Resource ID for a Virtual Network subnet
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource ID for a Virtual Network subnet.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetArmReferenceArgs:
@@ -10624,29 +10214,26 @@ class VirtualNetworkSubnetArmReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetPropertiesArgsDict(TypedDict):
-        """
-        VirtualNetwork subnet resource
-        """
-        address_prefix: pulumi.Input[_builtins.str]
-        """
-        Subnet CIDR
-        """
-        nat_gateway: NotRequired[pulumi.Input['NatGatewayArmReferenceArgsDict']]
-        """
-        Nat Gateway attached to the subnet for non-vnet traffic.
-        """
-        network_security_group: NotRequired[pulumi.Input['NetworkSecurityGroupArmReferenceArgsDict']]
-        """
-        Network Security Group attached to the subnet.
-        """
-        route_table: NotRequired[pulumi.Input['RouteTableArgsDict']]
-        """
-        RouteTable defining custom routes for the subnet.
-        """
-elif False:
-    VirtualNetworkSubnetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkSubnetPropertiesArgsDict(TypedDict):
+    """
+    VirtualNetwork subnet resource
+    """
+    address_prefix: pulumi.Input[_builtins.str]
+    """
+    Subnet CIDR
+    """
+    nat_gateway: NotRequired[pulumi.Input['NatGatewayArmReferenceArgsDict']]
+    """
+    Nat Gateway attached to the subnet for non-vnet traffic.
+    """
+    network_security_group: NotRequired[pulumi.Input['NetworkSecurityGroupArmReferenceArgsDict']]
+    """
+    Network Security Group attached to the subnet.
+    """
+    route_table: NotRequired[pulumi.Input['RouteTableArgsDict']]
+    """
+    RouteTable defining custom routes for the subnet.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetPropertiesArgs:
@@ -10719,21 +10306,18 @@ class VirtualNetworkSubnetPropertiesArgs:
         pulumi.set(self, "route_table", value)
 
 
-if not MYPY:
-    class VirtualSwitchConfigurationOverridesArgsDict(TypedDict):
-        """
-        The VirtualSwitchConfigurationOverrides of a cluster.
-        """
-        enable_iov: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable IoV for Virtual Switch
-        """
-        load_balancing_algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Load Balancing Algorithm for Virtual Switch
-        """
-elif False:
-    VirtualSwitchConfigurationOverridesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualSwitchConfigurationOverridesArgsDict(TypedDict):
+    """
+    The VirtualSwitchConfigurationOverrides of a cluster.
+    """
+    enable_iov: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable IoV for Virtual Switch
+    """
+    load_balancing_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Load Balancing Algorithm for Virtual Switch
+    """
 
 @pulumi.input_type
 class VirtualSwitchConfigurationOverridesArgs:
@@ -10775,25 +10359,22 @@ class VirtualSwitchConfigurationOverridesArgs:
         pulumi.set(self, "load_balancing_algorithm", value)
 
 
-if not MYPY:
-    class WebProxyConfigurationArgsDict(TypedDict):
-        """
-        Web proxy configuration.
-        """
-        bypass_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Bypass list for the web proxy.
-        """
-        connection_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connection URI of the web proxy.
-        """
-        port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Port of the web proxy.
-        """
-elif False:
-    WebProxyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WebProxyConfigurationArgsDict(TypedDict):
+    """
+    Web proxy configuration.
+    """
+    bypass_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Bypass list for the web proxy.
+    """
+    connection_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connection URI of the web proxy.
+    """
+    port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Port of the web proxy.
+    """
 
 @pulumi.input_type
 class WebProxyConfigurationArgs:

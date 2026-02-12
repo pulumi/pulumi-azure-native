@@ -90,31 +90,26 @@ __all__ = [
     'VaultModelPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzStackHCIClusterPropertiesArgsDict(TypedDict):
-        """
-        AzStackHCI cluster properties.
-        """
-        cluster_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the AzStackHCICluster FQDN name.
-        """
-        resource_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the AzStackHCICluster resource name.
-        """
-        storage_account_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Storage account name.
-        """
-        storage_containers: pulumi.Input[Sequence[pulumi.Input['StorageContainerPropertiesArgsDict']]]
-        """
-        Gets or sets the list of AzStackHCICluster Storage Container.
-        """
-elif False:
-    AzStackHCIClusterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AzStackHCIClusterPropertiesArgsDict(TypedDict):
+    """
+    AzStackHCI cluster properties.
+    """
+    cluster_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the AzStackHCICluster FQDN name.
+    """
+    resource_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the AzStackHCICluster resource name.
+    """
+    storage_account_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Storage account name.
+    """
+    storage_containers: pulumi.Input[Sequence[pulumi.Input['StorageContainerPropertiesArgsDict']]]
+    """
+    Gets or sets the list of AzStackHCICluster Storage Container.
+    """
 
 @pulumi.input_type
 class AzStackHCIClusterPropertiesArgs:
@@ -184,30 +179,27 @@ class AzStackHCIClusterPropertiesArgs:
         pulumi.set(self, "storage_containers", value)
 
 
-if not MYPY:
-    class AzStackHCIFabricModelCustomPropertiesArgsDict(TypedDict):
-        """
-        AzStackHCI fabric model custom properties.
-        """
-        az_stack_hci_site_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the AzStackHCI site.
-        """
-        cluster: pulumi.Input['AzStackHCIClusterPropertiesArgsDict']
-        """
-        AzStackHCI cluster properties.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'AzStackHCI'.
-        """
-        migration_solution_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Migration solution ARM Id.
-        """
-elif False:
-    AzStackHCIFabricModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AzStackHCIFabricModelCustomPropertiesArgsDict(TypedDict):
+    """
+    AzStackHCI fabric model custom properties.
+    """
+    az_stack_hci_site_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the AzStackHCI site.
+    """
+    cluster: pulumi.Input['AzStackHCIClusterPropertiesArgsDict']
+    """
+    AzStackHCI cluster properties.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'AzStackHCI'.
+    """
+    migration_solution_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Migration solution ARM Id.
+    """
 
 @pulumi.input_type
 class AzStackHCIFabricModelCustomPropertiesArgs:
@@ -279,33 +271,30 @@ class AzStackHCIFabricModelCustomPropertiesArgs:
         pulumi.set(self, "migration_solution_id", value)
 
 
-if not MYPY:
-    class ConnectionDetailsArgsDict(TypedDict):
-        """
-        Private endpoint connection details at member level.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets group id.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets id.
-        """
-        link_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets link identifier.
-        """
-        member_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets member name.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets private IP address.
-        """
-elif False:
-    ConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionDetailsArgsDict(TypedDict):
+    """
+    Private endpoint connection details at member level.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets group id.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets id.
+    """
+    link_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets link identifier.
+    """
+    member_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets member name.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets private IP address.
+    """
 
 @pulumi.input_type
 class ConnectionDetailsArgs:
@@ -395,33 +384,30 @@ class ConnectionDetailsArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-if not MYPY:
-    class DraModelPropertiesArgsDict(TypedDict):
-        """
-        Dra model properties.
-        """
-        authentication_identity: pulumi.Input['IdentityModelArgsDict']
-        """
-        Identity model.
-        """
-        custom_properties: pulumi.Input['VMwareDraModelCustomPropertiesArgsDict']
-        """
-        Dra model custom properties.
-        """
-        machine_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the machine Id where Dra is running.
-        """
-        machine_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the machine name where Dra is running.
-        """
-        resource_access_identity: pulumi.Input['IdentityModelArgsDict']
-        """
-        Identity model.
-        """
-elif False:
-    DraModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DraModelPropertiesArgsDict(TypedDict):
+    """
+    Dra model properties.
+    """
+    authentication_identity: pulumi.Input['IdentityModelArgsDict']
+    """
+    Identity model.
+    """
+    custom_properties: pulumi.Input['VMwareDraModelCustomPropertiesArgsDict']
+    """
+    Dra model custom properties.
+    """
+    machine_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the machine Id where Dra is running.
+    """
+    machine_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the machine name where Dra is running.
+    """
+    resource_access_identity: pulumi.Input['IdentityModelArgsDict']
+    """
+    Identity model.
+    """
 
 @pulumi.input_type
 class DraModelPropertiesArgs:
@@ -506,33 +492,30 @@ class DraModelPropertiesArgs:
         pulumi.set(self, "resource_access_identity", value)
 
 
-if not MYPY:
-    class FabricAgentModelPropertiesArgsDict(TypedDict):
-        """
-        Fabric agent model properties.
-        """
-        authentication_identity: pulumi.Input['IdentityModelArgsDict']
-        """
-        Identity model.
-        """
-        custom_properties: pulumi.Input['VMwareFabricAgentModelCustomPropertiesArgsDict']
-        """
-        Fabric agent model custom properties.
-        """
-        machine_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the machine Id where fabric agent is running.
-        """
-        machine_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the machine name where fabric agent is running.
-        """
-        resource_access_identity: pulumi.Input['IdentityModelArgsDict']
-        """
-        Identity model.
-        """
-elif False:
-    FabricAgentModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FabricAgentModelPropertiesArgsDict(TypedDict):
+    """
+    Fabric agent model properties.
+    """
+    authentication_identity: pulumi.Input['IdentityModelArgsDict']
+    """
+    Identity model.
+    """
+    custom_properties: pulumi.Input['VMwareFabricAgentModelCustomPropertiesArgsDict']
+    """
+    Fabric agent model custom properties.
+    """
+    machine_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the machine Id where fabric agent is running.
+    """
+    machine_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the machine name where fabric agent is running.
+    """
+    resource_access_identity: pulumi.Input['IdentityModelArgsDict']
+    """
+    Identity model.
+    """
 
 @pulumi.input_type
 class FabricAgentModelPropertiesArgs:
@@ -617,17 +600,14 @@ class FabricAgentModelPropertiesArgs:
         pulumi.set(self, "resource_access_identity", value)
 
 
-if not MYPY:
-    class FabricModelPropertiesArgsDict(TypedDict):
-        """
-        Fabric model properties.
-        """
-        custom_properties: pulumi.Input[Union['AzStackHCIFabricModelCustomPropertiesArgsDict', 'HyperVMigrateFabricModelCustomPropertiesArgsDict', 'VMwareMigrateFabricModelCustomPropertiesArgsDict']]
-        """
-        Fabric model custom properties.
-        """
-elif False:
-    FabricModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FabricModelPropertiesArgsDict(TypedDict):
+    """
+    Fabric model properties.
+    """
+    custom_properties: pulumi.Input[Union['AzStackHCIFabricModelCustomPropertiesArgsDict', 'HyperVMigrateFabricModelCustomPropertiesArgsDict', 'VMwareMigrateFabricModelCustomPropertiesArgsDict']]
+    """
+    Fabric model custom properties.
+    """
 
 @pulumi.input_type
 class FabricModelPropertiesArgs:
@@ -652,37 +632,34 @@ class FabricModelPropertiesArgs:
         pulumi.set(self, "custom_properties", value)
 
 
-if not MYPY:
-    class GroupConnectivityInformationArgsDict(TypedDict):
-        """
-        Represents of a connection's group information.
-        """
-        customer_visible_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets customer visible FQDNs.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets group id.
-        """
-        internal_fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets Internal Fqdn.
-        """
-        member_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets member name.
-        """
-        private_link_service_arm_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the private link service arm region.
-        """
-        redirect_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the redirect map id.
-        """
-elif False:
-    GroupConnectivityInformationArgsDict: TypeAlias = Mapping[str, Any]
+class GroupConnectivityInformationArgsDict(TypedDict):
+    """
+    Represents of a connection's group information.
+    """
+    customer_visible_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets customer visible FQDNs.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets group id.
+    """
+    internal_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets Internal Fqdn.
+    """
+    member_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets member name.
+    """
+    private_link_service_arm_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the private link service arm region.
+    """
+    redirect_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the redirect map id.
+    """
 
 @pulumi.input_type
 class GroupConnectivityInformationArgs:
@@ -788,26 +765,23 @@ class GroupConnectivityInformationArgs:
         pulumi.set(self, "redirect_map_id", value)
 
 
-if not MYPY:
-    class HyperVMigrateFabricModelCustomPropertiesArgsDict(TypedDict):
-        """
-        HyperV migrate fabric model custom properties.
-        """
-        hyper_v_site_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the HyperV site.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'HyperVMigrate'.
-        """
-        migration_solution_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the migration solution ARM Id.
-        """
-elif False:
-    HyperVMigrateFabricModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HyperVMigrateFabricModelCustomPropertiesArgsDict(TypedDict):
+    """
+    HyperV migrate fabric model custom properties.
+    """
+    hyper_v_site_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the HyperV site.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'HyperVMigrate'.
+    """
+    migration_solution_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the migration solution ARM Id.
+    """
 
 @pulumi.input_type
 class HyperVMigrateFabricModelCustomPropertiesArgs:
@@ -864,38 +838,35 @@ class HyperVMigrateFabricModelCustomPropertiesArgs:
         pulumi.set(self, "migration_solution_id", value)
 
 
-if not MYPY:
-    class HyperVToAzStackHCIDiskInputArgsDict(TypedDict):
-        """
-        HyperVToAzStack disk input.
-        """
-        disk_file_format: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the type of the virtual hard disk, vhd or vhdx.
-        """
-        disk_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the disk Id.
-        """
-        disk_size_gb: pulumi.Input[_builtins.float]
-        """
-        Gets or sets the disk size in GB.
-        """
-        is_os_disk: pulumi.Input[_builtins.bool]
-        """
-        Gets or sets a value indicating whether disk is os disk.
-        """
-        is_dynamic: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
-        disk.
-        """
-        storage_container_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target storage account ARM Id.
-        """
-elif False:
-    HyperVToAzStackHCIDiskInputArgsDict: TypeAlias = Mapping[str, Any]
+class HyperVToAzStackHCIDiskInputArgsDict(TypedDict):
+    """
+    HyperVToAzStack disk input.
+    """
+    disk_file_format: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the type of the virtual hard disk, vhd or vhdx.
+    """
+    disk_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the disk Id.
+    """
+    disk_size_gb: pulumi.Input[_builtins.float]
+    """
+    Gets or sets the disk size in GB.
+    """
+    is_os_disk: pulumi.Input[_builtins.bool]
+    """
+    Gets or sets a value indicating whether disk is os disk.
+    """
+    is_dynamic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
+    disk.
+    """
+    storage_container_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target storage account ARM Id.
+    """
 
 @pulumi.input_type
 class HyperVToAzStackHCIDiskInputArgs:
@@ -999,29 +970,26 @@ class HyperVToAzStackHCIDiskInputArgs:
         pulumi.set(self, "storage_container_id", value)
 
 
-if not MYPY:
-    class HyperVToAzStackHCINicInputArgsDict(TypedDict):
-        """
-        HyperVToAzStackHCI NIC properties.
-        """
-        nic_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the NIC Id.
-        """
-        selection_type_for_failover: pulumi.Input[Union[_builtins.str, 'VMNicSelection']]
-        """
-        Gets or sets the selection type of the NIC.
-        """
-        target_network_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target network Id within AzStackHCI Cluster.
-        """
-        test_network_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target test network Id within AzStackHCI Cluster.
-        """
-elif False:
-    HyperVToAzStackHCINicInputArgsDict: TypeAlias = Mapping[str, Any]
+class HyperVToAzStackHCINicInputArgsDict(TypedDict):
+    """
+    HyperVToAzStackHCI NIC properties.
+    """
+    nic_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the NIC Id.
+    """
+    selection_type_for_failover: pulumi.Input[Union[_builtins.str, 'VMNicSelection']]
+    """
+    Gets or sets the selection type of the NIC.
+    """
+    target_network_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target network Id within AzStackHCI Cluster.
+    """
+    test_network_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target test network Id within AzStackHCI Cluster.
+    """
 
 @pulumi.input_type
 class HyperVToAzStackHCINicInputArgs:
@@ -1091,31 +1059,28 @@ class HyperVToAzStackHCINicInputArgs:
         pulumi.set(self, "test_network_id", value)
 
 
-if not MYPY:
-    class HyperVToAzStackHCIPolicyModelCustomPropertiesArgsDict(TypedDict):
-        """
-        HyperV To AzStackHCI Policy model custom properties.
-        """
-        app_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Gets or sets the app consistent snapshot frequency (in minutes).
-        """
-        crash_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Gets or sets the crash consistent snapshot frequency (in minutes).
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'HyperVToAzStackHCI'.
-        """
-        recovery_point_history_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Gets or sets the duration in minutes until which the recovery points need to be
-        stored.
-        """
-elif False:
-    HyperVToAzStackHCIPolicyModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HyperVToAzStackHCIPolicyModelCustomPropertiesArgsDict(TypedDict):
+    """
+    HyperV To AzStackHCI Policy model custom properties.
+    """
+    app_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Gets or sets the app consistent snapshot frequency (in minutes).
+    """
+    crash_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Gets or sets the crash consistent snapshot frequency (in minutes).
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'HyperVToAzStackHCI'.
+    """
+    recovery_point_history_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Gets or sets the duration in minutes until which the recovery points need to be
+    stored.
+    """
 
 @pulumi.input_type
 class HyperVToAzStackHCIPolicyModelCustomPropertiesArgs:
@@ -1189,94 +1154,91 @@ class HyperVToAzStackHCIPolicyModelCustomPropertiesArgs:
         pulumi.set(self, "recovery_point_history_in_minutes", value)
 
 
-if not MYPY:
-    class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgsDict(TypedDict):
-        """
-        HyperV to AzStackHCI Protected item model custom properties.
-        """
-        custom_location_region: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the location of Azure Arc HCI custom location resource.
-        """
-        disks_to_include: pulumi.Input[Sequence[pulumi.Input['HyperVToAzStackHCIDiskInputArgsDict']]]
-        """
-        Gets or sets the list of disks to replicate.
-        """
-        fabric_discovery_machine_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the discovered machine.
-        """
-        hyper_v_generation: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the hypervisor generation of the virtual machine.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'HyperVToAzStackHCI'.
-        """
-        nics_to_include: pulumi.Input[Sequence[pulumi.Input['HyperVToAzStackHCINicInputArgsDict']]]
-        """
-        Gets or sets the list of VM NIC to replicate.
-        """
-        run_as_account_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Run As account Id.
-        """
-        source_dra_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the source DRA name.
-        """
-        storage_container_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target storage container ARM Id.
-        """
-        target_arc_cluster_custom_location_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Target Arc Cluster Custom Location ARM Id.
-        """
-        target_dra_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target DRA name.
-        """
-        target_hci_cluster_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Target HCI Cluster ARM Id.
-        """
-        target_resource_group_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target resource group ARM Id.
-        """
-        dynamic_memory_config: NotRequired[pulumi.Input['ProtectedItemDynamicMemoryConfigArgsDict']]
-        """
-        Protected item dynamic memory config.
-        """
-        is_dynamic_ram: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a value indicating whether memory is dynamical.
-        """
-        target_cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the target CPU cores.
-        """
-        target_memory_in_mega_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the target memory in mega-bytes.
-        """
-        target_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target network Id within AzStackHCI Cluster.
-        """
-        target_vm_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target VM display name.
-        """
-        test_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target test network Id within AzStackHCI Cluster.
-        """
-elif False:
-    HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgsDict(TypedDict):
+    """
+    HyperV to AzStackHCI Protected item model custom properties.
+    """
+    custom_location_region: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the location of Azure Arc HCI custom location resource.
+    """
+    disks_to_include: pulumi.Input[Sequence[pulumi.Input['HyperVToAzStackHCIDiskInputArgsDict']]]
+    """
+    Gets or sets the list of disks to replicate.
+    """
+    fabric_discovery_machine_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the discovered machine.
+    """
+    hyper_v_generation: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the hypervisor generation of the virtual machine.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'HyperVToAzStackHCI'.
+    """
+    nics_to_include: pulumi.Input[Sequence[pulumi.Input['HyperVToAzStackHCINicInputArgsDict']]]
+    """
+    Gets or sets the list of VM NIC to replicate.
+    """
+    run_as_account_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Run As account Id.
+    """
+    source_dra_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the source DRA name.
+    """
+    storage_container_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target storage container ARM Id.
+    """
+    target_arc_cluster_custom_location_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Target Arc Cluster Custom Location ARM Id.
+    """
+    target_dra_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target DRA name.
+    """
+    target_hci_cluster_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Target HCI Cluster ARM Id.
+    """
+    target_resource_group_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target resource group ARM Id.
+    """
+    dynamic_memory_config: NotRequired[pulumi.Input['ProtectedItemDynamicMemoryConfigArgsDict']]
+    """
+    Protected item dynamic memory config.
+    """
+    is_dynamic_ram: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a value indicating whether memory is dynamical.
+    """
+    target_cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the target CPU cores.
+    """
+    target_memory_in_mega_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the target memory in mega-bytes.
+    """
+    target_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target network Id within AzStackHCI Cluster.
+    """
+    target_vm_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target VM display name.
+    """
+    test_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target test network Id within AzStackHCI Cluster.
+    """
 
 @pulumi.input_type
 class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgs:
@@ -1595,34 +1557,31 @@ class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgs:
         pulumi.set(self, "test_network_id", value)
 
 
-if not MYPY:
-    class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict(TypedDict):
-        """
-        HyperV to AzStackHCI Replication extension model custom properties.
-        """
-        az_stack_hci_fabric_arm_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the target AzStackHCI fabric.
-        """
-        hyper_v_fabric_arm_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the source HyperV fabric.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'HyperVToAzStackHCI'.
-        """
-        storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the storage account Id.
-        """
-        storage_account_sas_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Sas Secret of storage account.
-        """
-elif False:
-    HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict(TypedDict):
+    """
+    HyperV to AzStackHCI Replication extension model custom properties.
+    """
+    az_stack_hci_fabric_arm_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the target AzStackHCI fabric.
+    """
+    hyper_v_fabric_arm_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the source HyperV fabric.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'HyperVToAzStackHCI'.
+    """
+    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the storage account Id.
+    """
+    storage_account_sas_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Sas Secret of storage account.
+    """
 
 @pulumi.input_type
 class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
@@ -1711,33 +1670,30 @@ class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
         pulumi.set(self, "storage_account_sas_secret_name", value)
 
 
-if not MYPY:
-    class IdentityModelArgsDict(TypedDict):
-        """
-        Identity model.
-        """
-        aad_authority: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the authority of the SPN with which fabric agent communicates to service.
-        """
-        application_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
-        """
-        audience: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the audience of the SPN with which fabric agent communicates to service.
-        """
-        object_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the object Id of the SPN with which fabric agent communicates to service.
-        """
-        tenant_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
-        """
-elif False:
-    IdentityModelArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityModelArgsDict(TypedDict):
+    """
+    Identity model.
+    """
+    aad_authority: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the authority of the SPN with which fabric agent communicates to service.
+    """
+    application_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
+    """
+    audience: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the audience of the SPN with which fabric agent communicates to service.
+    """
+    object_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the object Id of the SPN with which fabric agent communicates to service.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
+    """
 
 @pulumi.input_type
 class IdentityModelArgs:
@@ -1822,17 +1778,14 @@ class IdentityModelArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class PolicyModelPropertiesArgsDict(TypedDict):
-        """
-        Policy model properties.
-        """
-        custom_properties: pulumi.Input[Union['HyperVToAzStackHCIPolicyModelCustomPropertiesArgsDict', 'VMwareToAzStackHCIPolicyModelCustomPropertiesArgsDict']]
-        """
-        Policy model custom properties.
-        """
-elif False:
-    PolicyModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyModelPropertiesArgsDict(TypedDict):
+    """
+    Policy model properties.
+    """
+    custom_properties: pulumi.Input[Union['HyperVToAzStackHCIPolicyModelCustomPropertiesArgsDict', 'VMwareToAzStackHCIPolicyModelCustomPropertiesArgsDict']]
+    """
+    Policy model custom properties.
+    """
 
 @pulumi.input_type
 class PolicyModelPropertiesArgs:
@@ -1857,17 +1810,14 @@ class PolicyModelPropertiesArgs:
         pulumi.set(self, "custom_properties", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionProxyPropertiesArgsDict(TypedDict):
-        """
-        Represents private endpoint connection proxy request.
-        """
-        remote_private_endpoint: NotRequired[pulumi.Input['RemotePrivateEndpointArgsDict']]
-        """
-        Represent remote private endpoint information for the private endpoint connection proxy.
-        """
-elif False:
-    PrivateEndpointConnectionProxyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionProxyPropertiesArgsDict(TypedDict):
+    """
+    Represents private endpoint connection proxy request.
+    """
+    remote_private_endpoint: NotRequired[pulumi.Input['RemotePrivateEndpointArgsDict']]
+    """
+    Represent remote private endpoint information for the private endpoint connection proxy.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionProxyPropertiesArgs:
@@ -1893,21 +1843,18 @@ class PrivateEndpointConnectionProxyPropertiesArgs:
         pulumi.set(self, "remote_private_endpoint", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionResponsePropertiesArgsDict(TypedDict):
-        """
-        Represents Private endpoint connection response properties.
-        """
-        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
-        """
-        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
-        """
-        Represents Private link service connection state.
-        """
-elif False:
-    PrivateEndpointConnectionResponsePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionResponsePropertiesArgsDict(TypedDict):
+    """
+    Represents Private endpoint connection response properties.
+    """
+    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+    """
+    Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    """
+    Represents Private link service connection state.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionResponsePropertiesArgs:
@@ -1949,17 +1896,14 @@ class PrivateEndpointConnectionResponsePropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the id.
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the id.
+    """
 
 @pulumi.input_type
 class PrivateEndpointArgs:
@@ -1985,25 +1929,22 @@ class PrivateEndpointArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        Represents Private link service connection state.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets actions required.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets description.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]
-        """
-        Gets or sets the status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    Represents Private link service connection state.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets actions required.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets description.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]
+    """
+    Gets or sets the status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -2061,25 +2002,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionArgsDict(TypedDict):
-        """
-        Represents of an NRP private link service connection.
-        """
-        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets group ids.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets private link service connection name.
-        """
-        request_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the request message for the private link service connection.
-        """
-elif False:
-    PrivateLinkServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionArgsDict(TypedDict):
+    """
+    Represents of an NRP private link service connection.
+    """
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets group ids.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets private link service connection name.
+    """
+    request_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the request message for the private link service connection.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionArgs:
@@ -2137,29 +2075,26 @@ class PrivateLinkServiceConnectionArgs:
         pulumi.set(self, "request_message", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceProxyArgsDict(TypedDict):
-        """
-        Represents NRP private link service proxy.
-        """
-        group_connectivity_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgsDict']]]]
-        """
-        Gets or sets group connectivity information.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets private link service proxy id.
-        """
-        remote_private_endpoint_connection: NotRequired[pulumi.Input['RemotePrivateEndpointConnectionArgsDict']]
-        """
-        Represent remote private endpoint connection.
-        """
-        remote_private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
-        """
-        Represents Private link service connection state.
-        """
-elif False:
-    PrivateLinkServiceProxyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceProxyArgsDict(TypedDict):
+    """
+    Represents NRP private link service proxy.
+    """
+    group_connectivity_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgsDict']]]]
+    """
+    Gets or sets group connectivity information.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets private link service proxy id.
+    """
+    remote_private_endpoint_connection: NotRequired[pulumi.Input['RemotePrivateEndpointConnectionArgsDict']]
+    """
+    Represent remote private endpoint connection.
+    """
+    remote_private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    """
+    Represents Private link service connection state.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceProxyArgs:
@@ -2233,25 +2168,22 @@ class PrivateLinkServiceProxyArgs:
         pulumi.set(self, "remote_private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class ProtectedItemDynamicMemoryConfigArgsDict(TypedDict):
-        """
-        Protected item dynamic memory config.
-        """
-        maximum_memory_in_mega_bytes: pulumi.Input[_builtins.float]
-        """
-        Gets or sets maximum memory in MB.
-        """
-        minimum_memory_in_mega_bytes: pulumi.Input[_builtins.float]
-        """
-        Gets or sets minimum memory in MB.
-        """
-        target_memory_buffer_percentage: pulumi.Input[_builtins.int]
-        """
-        Gets or sets target memory buffer in %.
-        """
-elif False:
-    ProtectedItemDynamicMemoryConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ProtectedItemDynamicMemoryConfigArgsDict(TypedDict):
+    """
+    Protected item dynamic memory config.
+    """
+    maximum_memory_in_mega_bytes: pulumi.Input[_builtins.float]
+    """
+    Gets or sets maximum memory in MB.
+    """
+    minimum_memory_in_mega_bytes: pulumi.Input[_builtins.float]
+    """
+    Gets or sets minimum memory in MB.
+    """
+    target_memory_buffer_percentage: pulumi.Input[_builtins.int]
+    """
+    Gets or sets target memory buffer in %.
+    """
 
 @pulumi.input_type
 class ProtectedItemDynamicMemoryConfigArgs:
@@ -2306,25 +2238,22 @@ class ProtectedItemDynamicMemoryConfigArgs:
         pulumi.set(self, "target_memory_buffer_percentage", value)
 
 
-if not MYPY:
-    class ProtectedItemModelPropertiesArgsDict(TypedDict):
-        """
-        Protected item model properties.
-        """
-        custom_properties: pulumi.Input[Union['HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgsDict', 'VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgsDict']]
-        """
-        Protected item model custom properties.
-        """
-        policy_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the policy name.
-        """
-        replication_extension_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the replication extension name.
-        """
-elif False:
-    ProtectedItemModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProtectedItemModelPropertiesArgsDict(TypedDict):
+    """
+    Protected item model properties.
+    """
+    custom_properties: pulumi.Input[Union['HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgsDict', 'VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgsDict']]
+    """
+    Protected item model custom properties.
+    """
+    policy_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the policy name.
+    """
+    replication_extension_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the replication extension name.
+    """
 
 @pulumi.input_type
 class ProtectedItemModelPropertiesArgs:
@@ -2379,17 +2308,14 @@ class ProtectedItemModelPropertiesArgs:
         pulumi.set(self, "replication_extension_name", value)
 
 
-if not MYPY:
-    class RemotePrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        Represent remote private endpoint connection.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the remote private endpoint connection id.
-        """
-elif False:
-    RemotePrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class RemotePrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    Represent remote private endpoint connection.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the remote private endpoint connection id.
+    """
 
 @pulumi.input_type
 class RemotePrivateEndpointConnectionArgs:
@@ -2415,33 +2341,30 @@ class RemotePrivateEndpointConnectionArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class RemotePrivateEndpointArgsDict(TypedDict):
-        """
-        Represent remote private endpoint information for the private endpoint connection proxy.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets private link service proxy id.
-        """
-        connection_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionDetailsArgsDict']]]]
-        """
-        Gets or sets the list of Connection Details. This is the connection details for private endpoint.
-        """
-        manual_private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
-        """
-        Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
-        """
-        private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
-        """
-        Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
-        """
-        private_link_service_proxies: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgsDict']]]]
-        """
-        Gets or sets the list of private link service proxies.
-        """
-elif False:
-    RemotePrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class RemotePrivateEndpointArgsDict(TypedDict):
+    """
+    Represent remote private endpoint information for the private endpoint connection proxy.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets private link service proxy id.
+    """
+    connection_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionDetailsArgsDict']]]]
+    """
+    Gets or sets the list of Connection Details. This is the connection details for private endpoint.
+    """
+    manual_private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
+    """
+    Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
+    """
+    private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
+    """
+    Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
+    """
+    private_link_service_proxies: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgsDict']]]]
+    """
+    Gets or sets the list of private link service proxies.
+    """
 
 @pulumi.input_type
 class RemotePrivateEndpointArgs:
@@ -2530,17 +2453,14 @@ class RemotePrivateEndpointArgs:
         pulumi.set(self, "private_link_service_proxies", value)
 
 
-if not MYPY:
-    class ReplicationExtensionModelPropertiesArgsDict(TypedDict):
-        """
-        Replication extension model properties.
-        """
-        custom_properties: pulumi.Input[Union['HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict', 'VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict']]
-        """
-        Replication extension model custom properties.
-        """
-elif False:
-    ReplicationExtensionModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationExtensionModelPropertiesArgsDict(TypedDict):
+    """
+    Replication extension model properties.
+    """
+    custom_properties: pulumi.Input[Union['HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict', 'VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict']]
+    """
+    Replication extension model custom properties.
+    """
 
 @pulumi.input_type
 class ReplicationExtensionModelPropertiesArgs:
@@ -2565,21 +2485,18 @@ class ReplicationExtensionModelPropertiesArgs:
         pulumi.set(self, "custom_properties", value)
 
 
-if not MYPY:
-    class StorageContainerPropertiesArgsDict(TypedDict):
-        """
-        Storage container properties.
-        """
-        cluster_shared_volume_path: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ClusterSharedVolumePath.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Name.
-        """
-elif False:
-    StorageContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StorageContainerPropertiesArgsDict(TypedDict):
+    """
+    Storage container properties.
+    """
+    cluster_shared_volume_path: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ClusterSharedVolumePath.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Name.
+    """
 
 @pulumi.input_type
 class StorageContainerPropertiesArgs:
@@ -2619,26 +2536,23 @@ class StorageContainerPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class VMwareDraModelCustomPropertiesArgsDict(TypedDict):
-        """
-        VMware DRA model custom properties.
-        """
-        bios_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the BIOS Id of the DRA machine.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'VMware'.
-        """
-        mars_authentication_identity: pulumi.Input['IdentityModelArgsDict']
-        """
-        Identity model.
-        """
-elif False:
-    VMwareDraModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareDraModelCustomPropertiesArgsDict(TypedDict):
+    """
+    VMware DRA model custom properties.
+    """
+    bios_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the BIOS Id of the DRA machine.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'VMware'.
+    """
+    mars_authentication_identity: pulumi.Input['IdentityModelArgsDict']
+    """
+    Identity model.
+    """
 
 @pulumi.input_type
 class VMwareDraModelCustomPropertiesArgs:
@@ -2695,26 +2609,23 @@ class VMwareDraModelCustomPropertiesArgs:
         pulumi.set(self, "mars_authentication_identity", value)
 
 
-if not MYPY:
-    class VMwareFabricAgentModelCustomPropertiesArgsDict(TypedDict):
-        """
-        VMware fabric agent model custom properties.
-        """
-        bios_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the BIOS Id of the fabric agent machine.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Discriminator property for FabricAgentModelCustomProperties.
-        Expected value is 'VMware'.
-        """
-        mars_authentication_identity: pulumi.Input['IdentityModelArgsDict']
-        """
-        Identity model.
-        """
-elif False:
-    VMwareFabricAgentModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareFabricAgentModelCustomPropertiesArgsDict(TypedDict):
+    """
+    VMware fabric agent model custom properties.
+    """
+    bios_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the BIOS Id of the fabric agent machine.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Discriminator property for FabricAgentModelCustomProperties.
+    Expected value is 'VMware'.
+    """
+    mars_authentication_identity: pulumi.Input['IdentityModelArgsDict']
+    """
+    Identity model.
+    """
 
 @pulumi.input_type
 class VMwareFabricAgentModelCustomPropertiesArgs:
@@ -2771,26 +2682,23 @@ class VMwareFabricAgentModelCustomPropertiesArgs:
         pulumi.set(self, "mars_authentication_identity", value)
 
 
-if not MYPY:
-    class VMwareMigrateFabricModelCustomPropertiesArgsDict(TypedDict):
-        """
-        VMware migrate fabric model custom properties.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'VMwareMigrate'.
-        """
-        migration_solution_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the migration solution.
-        """
-        vmware_site_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the VMware site.
-        """
-elif False:
-    VMwareMigrateFabricModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareMigrateFabricModelCustomPropertiesArgsDict(TypedDict):
+    """
+    VMware migrate fabric model custom properties.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'VMwareMigrate'.
+    """
+    migration_solution_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the migration solution.
+    """
+    vmware_site_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the VMware site.
+    """
 
 @pulumi.input_type
 class VMwareMigrateFabricModelCustomPropertiesArgs:
@@ -2847,38 +2755,35 @@ class VMwareMigrateFabricModelCustomPropertiesArgs:
         pulumi.set(self, "vmware_site_id", value)
 
 
-if not MYPY:
-    class VMwareToAzStackHCIDiskInputArgsDict(TypedDict):
-        """
-        VMwareToAzStack disk input.
-        """
-        disk_file_format: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the type of the virtual hard disk, vhd or vhdx.
-        """
-        disk_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the disk Id.
-        """
-        disk_size_gb: pulumi.Input[_builtins.float]
-        """
-        Gets or sets the disk size in GB.
-        """
-        is_os_disk: pulumi.Input[_builtins.bool]
-        """
-        Gets or sets a value indicating whether disk is os disk.
-        """
-        is_dynamic: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
-        disk.
-        """
-        storage_container_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target storage account ARM Id.
-        """
-elif False:
-    VMwareToAzStackHCIDiskInputArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareToAzStackHCIDiskInputArgsDict(TypedDict):
+    """
+    VMwareToAzStack disk input.
+    """
+    disk_file_format: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the type of the virtual hard disk, vhd or vhdx.
+    """
+    disk_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the disk Id.
+    """
+    disk_size_gb: pulumi.Input[_builtins.float]
+    """
+    Gets or sets the disk size in GB.
+    """
+    is_os_disk: pulumi.Input[_builtins.bool]
+    """
+    Gets or sets a value indicating whether disk is os disk.
+    """
+    is_dynamic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
+    disk.
+    """
+    storage_container_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target storage account ARM Id.
+    """
 
 @pulumi.input_type
 class VMwareToAzStackHCIDiskInputArgs:
@@ -2982,33 +2887,30 @@ class VMwareToAzStackHCIDiskInputArgs:
         pulumi.set(self, "storage_container_id", value)
 
 
-if not MYPY:
-    class VMwareToAzStackHCINicInputArgsDict(TypedDict):
-        """
-        VMwareToAzStackHCI NIC properties.
-        """
-        label: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the NIC label.
-        """
-        nic_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the NIC Id.
-        """
-        selection_type_for_failover: pulumi.Input[Union[_builtins.str, 'VMNicSelection']]
-        """
-        Gets or sets the selection type of the NIC.
-        """
-        target_network_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target network Id within AzStackHCI Cluster.
-        """
-        test_network_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target test network Id within AzStackHCI Cluster.
-        """
-elif False:
-    VMwareToAzStackHCINicInputArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareToAzStackHCINicInputArgsDict(TypedDict):
+    """
+    VMwareToAzStackHCI NIC properties.
+    """
+    label: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the NIC label.
+    """
+    nic_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the NIC Id.
+    """
+    selection_type_for_failover: pulumi.Input[Union[_builtins.str, 'VMNicSelection']]
+    """
+    Gets or sets the selection type of the NIC.
+    """
+    target_network_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target network Id within AzStackHCI Cluster.
+    """
+    test_network_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target test network Id within AzStackHCI Cluster.
+    """
 
 @pulumi.input_type
 class VMwareToAzStackHCINicInputArgs:
@@ -3093,31 +2995,28 @@ class VMwareToAzStackHCINicInputArgs:
         pulumi.set(self, "test_network_id", value)
 
 
-if not MYPY:
-    class VMwareToAzStackHCIPolicyModelCustomPropertiesArgsDict(TypedDict):
-        """
-        VMware To AzStackHCI Policy model custom properties.
-        """
-        app_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Gets or sets the app consistent snapshot frequency (in minutes).
-        """
-        crash_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Gets or sets the crash consistent snapshot frequency (in minutes).
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'VMwareToAzStackHCI'.
-        """
-        recovery_point_history_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Gets or sets the duration in minutes until which the recovery points need to be
-        stored.
-        """
-elif False:
-    VMwareToAzStackHCIPolicyModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareToAzStackHCIPolicyModelCustomPropertiesArgsDict(TypedDict):
+    """
+    VMware To AzStackHCI Policy model custom properties.
+    """
+    app_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Gets or sets the app consistent snapshot frequency (in minutes).
+    """
+    crash_consistent_frequency_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Gets or sets the crash consistent snapshot frequency (in minutes).
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'VMwareToAzStackHCI'.
+    """
+    recovery_point_history_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Gets or sets the duration in minutes until which the recovery points need to be
+    stored.
+    """
 
 @pulumi.input_type
 class VMwareToAzStackHCIPolicyModelCustomPropertiesArgs:
@@ -3191,98 +3090,95 @@ class VMwareToAzStackHCIPolicyModelCustomPropertiesArgs:
         pulumi.set(self, "recovery_point_history_in_minutes", value)
 
 
-if not MYPY:
-    class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgsDict(TypedDict):
-        """
-        VMware to AzStackHCI Protected item model custom properties.
-        """
-        custom_location_region: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the location of Azure Arc HCI custom location resource.
-        """
-        disks_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareToAzStackHCIDiskInputArgsDict']]]
-        """
-        Gets or sets the list of disks to replicate.
-        """
-        fabric_discovery_machine_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the discovered machine.
-        """
-        hyper_v_generation: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the hypervisor generation of the virtual machine possible values are 1,2.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'VMwareToAzStackHCI'.
-        """
-        nics_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareToAzStackHCINicInputArgsDict']]]
-        """
-        Gets or sets the list of VM NIC to replicate.
-        """
-        run_as_account_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the run as account Id.
-        """
-        source_dra_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the source DRA name.
-        """
-        storage_container_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target storage container ARM Id.
-        """
-        target_arc_cluster_custom_location_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Target Arc Cluster Custom Location ARM Id.
-        """
-        target_dra_name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target DRA name.
-        """
-        target_hci_cluster_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Target HCI Cluster ARM Id.
-        """
-        target_resource_group_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the target resource group ARM Id.
-        """
-        dynamic_memory_config: NotRequired[pulumi.Input['ProtectedItemDynamicMemoryConfigArgsDict']]
-        """
-        Protected item dynamic memory config.
-        """
-        is_dynamic_ram: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a value indicating whether memory is dynamical.
-        """
-        perform_auto_resync: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets or sets a value indicating whether auto resync is to be done.
-        """
-        target_cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the target CPU cores.
-        """
-        target_memory_in_mega_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the target memory in mega-bytes.
-        """
-        target_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target network Id within AzStackHCI Cluster.
-        """
-        target_vm_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target VM display name.
-        """
-        test_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target test network Id within AzStackHCI Cluster.
-        """
-elif False:
-    VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgsDict(TypedDict):
+    """
+    VMware to AzStackHCI Protected item model custom properties.
+    """
+    custom_location_region: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the location of Azure Arc HCI custom location resource.
+    """
+    disks_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareToAzStackHCIDiskInputArgsDict']]]
+    """
+    Gets or sets the list of disks to replicate.
+    """
+    fabric_discovery_machine_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the discovered machine.
+    """
+    hyper_v_generation: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the hypervisor generation of the virtual machine possible values are 1,2.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'VMwareToAzStackHCI'.
+    """
+    nics_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareToAzStackHCINicInputArgsDict']]]
+    """
+    Gets or sets the list of VM NIC to replicate.
+    """
+    run_as_account_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the run as account Id.
+    """
+    source_dra_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the source DRA name.
+    """
+    storage_container_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target storage container ARM Id.
+    """
+    target_arc_cluster_custom_location_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Target Arc Cluster Custom Location ARM Id.
+    """
+    target_dra_name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target DRA name.
+    """
+    target_hci_cluster_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Target HCI Cluster ARM Id.
+    """
+    target_resource_group_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the target resource group ARM Id.
+    """
+    dynamic_memory_config: NotRequired[pulumi.Input['ProtectedItemDynamicMemoryConfigArgsDict']]
+    """
+    Protected item dynamic memory config.
+    """
+    is_dynamic_ram: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a value indicating whether memory is dynamical.
+    """
+    perform_auto_resync: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets or sets a value indicating whether auto resync is to be done.
+    """
+    target_cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the target CPU cores.
+    """
+    target_memory_in_mega_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the target memory in mega-bytes.
+    """
+    target_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target network Id within AzStackHCI Cluster.
+    """
+    target_vm_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target VM display name.
+    """
+    test_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target test network Id within AzStackHCI Cluster.
+    """
 
 @pulumi.input_type
 class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgs:
@@ -3617,34 +3513,31 @@ class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgs:
         pulumi.set(self, "test_network_id", value)
 
 
-if not MYPY:
-    class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict(TypedDict):
-        """
-        VMware to AzStackHCI Replication extension model custom properties.
-        """
-        az_stack_hci_fabric_arm_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the target AzStackHCI fabric.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the instance type.
-        Expected value is 'VMwareToAzStackHCI'.
-        """
-        vmware_fabric_arm_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ARM Id of the source VMware fabric.
-        """
-        storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the storage account Id.
-        """
-        storage_account_sas_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Sas Secret of storage account.
-        """
-elif False:
-    VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict(TypedDict):
+    """
+    VMware to AzStackHCI Replication extension model custom properties.
+    """
+    az_stack_hci_fabric_arm_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the target AzStackHCI fabric.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the instance type.
+    Expected value is 'VMwareToAzStackHCI'.
+    """
+    vmware_fabric_arm_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ARM Id of the source VMware fabric.
+    """
+    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the storage account Id.
+    """
+    storage_account_sas_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Sas Secret of storage account.
+    """
 
 @pulumi.input_type
 class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
@@ -3733,17 +3626,14 @@ class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
         pulumi.set(self, "storage_account_sas_secret_name", value)
 
 
-if not MYPY:
-    class VaultModelPropertiesArgsDict(TypedDict):
-        """
-        Vault properties.
-        """
-        vault_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationVaultType']]]
-        """
-        Gets or sets the type of vault.
-        """
-elif False:
-    VaultModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VaultModelPropertiesArgsDict(TypedDict):
+    """
+    Vault properties.
+    """
+    vault_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationVaultType']]]
+    """
+    Gets or sets the type of vault.
+    """
 
 @pulumi.input_type
 class VaultModelPropertiesArgs:

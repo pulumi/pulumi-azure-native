@@ -19,23 +19,18 @@ __all__ = [
     'DocumentProcessorPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DocumentProcessorPropertiesArgsDict(TypedDict):
-        """
-        Document processor properties
-        """
-        spo_tenant_id: pulumi.Input[_builtins.str]
-        """
-        The ID (GUID) of an SharePoint Online (SPO) tenant associated with this document processor resource
-        """
-        spo_tenant_url: pulumi.Input[_builtins.str]
-        """
-        The URL of an SharePoint Online (SPO) tenant associated with this document processor resource
-        """
-elif False:
-    DocumentProcessorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DocumentProcessorPropertiesArgsDict(TypedDict):
+    """
+    Document processor properties
+    """
+    spo_tenant_id: pulumi.Input[_builtins.str]
+    """
+    The ID (GUID) of an SharePoint Online (SPO) tenant associated with this document processor resource
+    """
+    spo_tenant_url: pulumi.Input[_builtins.str]
+    """
+    The URL of an SharePoint Online (SPO) tenant associated with this document processor resource
+    """
 
 @pulumi.input_type
 class DocumentProcessorPropertiesArgs:

@@ -54,31 +54,26 @@ __all__ = [
     'VirtualMachinePropertiesAvailabilitySetsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CheckpointArgsDict(TypedDict):
-        """
-        Defines the resource properties.
-        """
-        checkpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets ID of the checkpoint.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets description of the checkpoint.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets name of the checkpoint.
-        """
-        parent_checkpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets ID of parent of the checkpoint.
-        """
-elif False:
-    CheckpointArgsDict: TypeAlias = Mapping[str, Any]
+class CheckpointArgsDict(TypedDict):
+    """
+    Defines the resource properties.
+    """
+    checkpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets ID of the checkpoint.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets description of the checkpoint.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets name of the checkpoint.
+    """
+    parent_checkpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets ID of parent of the checkpoint.
+    """
 
 @pulumi.input_type
 class CheckpointArgs:
@@ -152,21 +147,18 @@ class CheckpointArgs:
         pulumi.set(self, "parent_checkpoint_id", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        The extended location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended location name.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended location type.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    The extended location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended location name.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended location type.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -208,17 +200,14 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GuestAgentProfileArgsDict(TypedDict):
-        """
-        Defines the resource properties.
-        """
-        client_public_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Public Key provided by the client for enabling guest management.
-        """
-elif False:
-    GuestAgentProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GuestAgentProfileArgsDict(TypedDict):
+    """
+    Defines the resource properties.
+    """
+    client_public_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Public Key provided by the client for enabling guest management.
+    """
 
 @pulumi.input_type
 class GuestAgentProfileArgs:
@@ -244,21 +233,18 @@ class GuestAgentProfileArgs:
         pulumi.set(self, "client_public_key", value)
 
 
-if not MYPY:
-    class GuestCredentialArgsDict(TypedDict):
-        """
-        Username / Password Credentials to connect to guest.
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the password to connect with the guest.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        Gets or sets username to connect with the guest.
-        """
-elif False:
-    GuestCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class GuestCredentialArgsDict(TypedDict):
+    """
+    Username / Password Credentials to connect to guest.
+    """
+    password: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the password to connect with the guest.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    Gets or sets username to connect with the guest.
+    """
 
 @pulumi.input_type
 class GuestCredentialArgs:
@@ -298,41 +284,38 @@ class GuestCredentialArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class HardwareProfileArgsDict(TypedDict):
-        """
-        Defines the resource properties.
-        """
-        cpu_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the number of vCPUs for the vm.
-        """
-        dynamic_memory_enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'DynamicMemoryEnabled']]]
-        """
-        Gets or sets a value indicating whether to enable dynamic memory or not.
-        """
-        dynamic_memory_max_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the max dynamic memory for the vm.
-        """
-        dynamic_memory_min_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the min dynamic memory for the vm.
-        """
-        is_highly_available: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets highly available property.
-        """
-        limit_cpu_for_migration: NotRequired[pulumi.Input[Union[_builtins.str, 'LimitCpuForMigration']]]
-        """
-        Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
-        """
-        memory_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        MemoryMB is the size of a virtual machine's memory, in MB.
-        """
-elif False:
-    HardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+class HardwareProfileArgsDict(TypedDict):
+    """
+    Defines the resource properties.
+    """
+    cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the number of vCPUs for the vm.
+    """
+    dynamic_memory_enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'DynamicMemoryEnabled']]]
+    """
+    Gets or sets a value indicating whether to enable dynamic memory or not.
+    """
+    dynamic_memory_max_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the max dynamic memory for the vm.
+    """
+    dynamic_memory_min_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the min dynamic memory for the vm.
+    """
+    is_highly_available: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets highly available property.
+    """
+    limit_cpu_for_migration: NotRequired[pulumi.Input[Union[_builtins.str, 'LimitCpuForMigration']]]
+    """
+    Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
+    """
+    memory_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    MemoryMB is the size of a virtual machine's memory, in MB.
+    """
 
 @pulumi.input_type
 class HardwareProfileArgs:
@@ -454,17 +437,14 @@ class HardwareProfileArgs:
         pulumi.set(self, "memory_mb", value)
 
 
-if not MYPY:
-    class HttpProxyConfigurationArgsDict(TypedDict):
-        """
-        HTTP Proxy configuration for the VM.
-        """
-        https_proxy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets httpsProxy url.
-        """
-elif False:
-    HttpProxyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class HttpProxyConfigurationArgsDict(TypedDict):
+    """
+    HTTP Proxy configuration for the VM.
+    """
+    https_proxy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets httpsProxy url.
+    """
 
 @pulumi.input_type
 class HttpProxyConfigurationArgs:
@@ -490,17 +470,14 @@ class HttpProxyConfigurationArgs:
         pulumi.set(self, "https_proxy", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Managed service identity.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
-        """
-        The type of managed service identity.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Managed service identity.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
+    """
+    The type of managed service identity.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -525,53 +502,50 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class InfrastructureProfileArgsDict(TypedDict):
-        """
-        Specifies the vmmServer infrastructure specific settings for the virtual machine instance.
-        """
-        bios_guid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the bios guid for the vm.
-        """
-        checkpoint_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of checkpoint supported for the vm.
-        """
-        checkpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['CheckpointArgsDict']]]]
-        """
-        Checkpoints in the vm.
-        """
-        cloud_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Id of the cloud resource to use for deploying the vm.
-        """
-        generation: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the generation for the vm.
-        """
-        inventory_item_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the inventory Item ID for the resource.
-        """
-        template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Id of the template resource to use for deploying the vm.
-        """
-        uuid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique ID of the virtual machine.
-        """
-        vm_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        VMName is the name of VM on the SCVMM server.
-        """
-        vmm_server_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Id of the vmmServer resource in which this resource resides.
-        """
-elif False:
-    InfrastructureProfileArgsDict: TypeAlias = Mapping[str, Any]
+class InfrastructureProfileArgsDict(TypedDict):
+    """
+    Specifies the vmmServer infrastructure specific settings for the virtual machine instance.
+    """
+    bios_guid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the bios guid for the vm.
+    """
+    checkpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of checkpoint supported for the vm.
+    """
+    checkpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['CheckpointArgsDict']]]]
+    """
+    Checkpoints in the vm.
+    """
+    cloud_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Id of the cloud resource to use for deploying the vm.
+    """
+    generation: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the generation for the vm.
+    """
+    inventory_item_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the inventory Item ID for the resource.
+    """
+    template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Id of the template resource to use for deploying the vm.
+    """
+    uuid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique ID of the virtual machine.
+    """
+    vm_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    VMName is the name of VM on the SCVMM server.
+    """
+    vmm_server_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Id of the vmmServer resource in which this resource resides.
+    """
 
 @pulumi.input_type
 class InfrastructureProfileArgs:
@@ -741,41 +715,38 @@ class InfrastructureProfileArgs:
         pulumi.set(self, "vmm_server_id", value)
 
 
-if not MYPY:
-    class NetworkInterfacesArgsDict(TypedDict):
-        """
-        Network Interface model
-        """
-        ipv4_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationMethod']]]
-        """
-        Gets or sets the ipv4 address type.
-        """
-        ipv6_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationMethod']]]
-        """
-        Gets or sets the ipv6 address type.
-        """
-        mac_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the nic MAC address.
-        """
-        mac_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationMethod']]]
-        """
-        Gets or sets the mac address type.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the network interface.
-        """
-        nic_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the nic id.
-        """
-        virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the ARM Id of the Microsoft.ScVmm/virtualNetwork resource to connect the nic.
-        """
-elif False:
-    NetworkInterfacesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfacesArgsDict(TypedDict):
+    """
+    Network Interface model
+    """
+    ipv4_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationMethod']]]
+    """
+    Gets or sets the ipv4 address type.
+    """
+    ipv6_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationMethod']]]
+    """
+    Gets or sets the ipv6 address type.
+    """
+    mac_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the nic MAC address.
+    """
+    mac_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationMethod']]]
+    """
+    Gets or sets the mac address type.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the network interface.
+    """
+    nic_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the nic id.
+    """
+    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the ARM Id of the Microsoft.ScVmm/virtualNetwork resource to connect the nic.
+    """
 
 @pulumi.input_type
 class NetworkInterfacesArgs:
@@ -897,17 +868,14 @@ class NetworkInterfacesArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
-if not MYPY:
-    class NetworkProfileArgsDict(TypedDict):
-        """
-        Defines the resource properties.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfacesArgsDict']]]]
-        """
-        Gets or sets the list of network interfaces associated with the virtual machine.
-        """
-elif False:
-    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkProfileArgsDict(TypedDict):
+    """
+    Defines the resource properties.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfacesArgsDict']]]]
+    """
+    Gets or sets the list of network interfaces associated with the virtual machine.
+    """
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -933,21 +901,18 @@ class NetworkProfileArgs:
         pulumi.set(self, "network_interfaces", value)
 
 
-if not MYPY:
-    class OsProfileForVMInstanceArgsDict(TypedDict):
-        """
-        Defines the resource properties.
-        """
-        admin_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Admin password of the virtual machine.
-        """
-        computer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets computer name.
-        """
-elif False:
-    OsProfileForVMInstanceArgsDict: TypeAlias = Mapping[str, Any]
+class OsProfileForVMInstanceArgsDict(TypedDict):
+    """
+    Defines the resource properties.
+    """
+    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Admin password of the virtual machine.
+    """
+    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets computer name.
+    """
 
 @pulumi.input_type
 class OsProfileForVMInstanceArgs:
@@ -989,21 +954,18 @@ class OsProfileForVMInstanceArgs:
         pulumi.set(self, "computer_name", value)
 
 
-if not MYPY:
-    class OsProfileArgsDict(TypedDict):
-        """
-        Defines the resource properties.
-        """
-        admin_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Admin password of the virtual machine.
-        """
-        computer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets computer name.
-        """
-elif False:
-    OsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OsProfileArgsDict(TypedDict):
+    """
+    Defines the resource properties.
+    """
+    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Admin password of the virtual machine.
+    """
+    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets computer name.
+    """
 
 @pulumi.input_type
 class OsProfileArgs:
@@ -1045,17 +1007,14 @@ class OsProfileArgs:
         pulumi.set(self, "computer_name", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        Defines the resource properties.
-        """
-        disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgsDict']]]]
-        """
-        Gets or sets the list of virtual disks associated with the virtual machine.
-        """
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    Defines the resource properties.
+    """
+    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgsDict']]]]
+    """
+    Gets or sets the list of virtual disks associated with the virtual machine.
+    """
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -1081,21 +1040,18 @@ class StorageProfileArgs:
         pulumi.set(self, "disks", value)
 
 
-if not MYPY:
-    class StorageQoSPolicyDetailsArgsDict(TypedDict):
-        """
-        The StorageQoSPolicyDetails definition.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the QoS policy.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the policy.
-        """
-elif False:
-    StorageQoSPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageQoSPolicyDetailsArgsDict(TypedDict):
+    """
+    The StorageQoSPolicyDetails definition.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the QoS policy.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the policy.
+    """
 
 @pulumi.input_type
 class StorageQoSPolicyDetailsArgs:
@@ -1137,21 +1093,18 @@ class StorageQoSPolicyDetailsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class VMMServerPropertiesCredentialsArgsDict(TypedDict):
-        """
-        Credentials to connect to VMMServer.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Credentials to use to connect to VMMServer.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username to use to connect to VMMServer.
-        """
-elif False:
-    VMMServerPropertiesCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class VMMServerPropertiesCredentialsArgsDict(TypedDict):
+    """
+    Credentials to connect to VMMServer.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Credentials to use to connect to VMMServer.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username to use to connect to VMMServer.
+    """
 
 @pulumi.input_type
 class VMMServerPropertiesCredentialsArgs:
@@ -1193,53 +1146,50 @@ class VMMServerPropertiesCredentialsArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class VirtualDiskArgsDict(TypedDict):
-        """
-        Virtual disk model
-        """
-        bus: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the disk bus.
-        """
-        bus_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the disk bus type.
-        """
-        create_diff_disk: NotRequired[pulumi.Input[Union[_builtins.str, 'CreateDiffDisk']]]
-        """
-        Gets or sets a value indicating diff disk.
-        """
-        disk_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the disk id.
-        """
-        disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the disk total size.
-        """
-        lun: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the disk lun.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the disk.
-        """
-        storage_qo_s_policy: NotRequired[pulumi.Input['StorageQoSPolicyDetailsArgsDict']]
-        """
-        The QoS policy for the disk.
-        """
-        template_disk_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the disk id in the template.
-        """
-        vhd_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the disk vhd type.
-        """
-elif False:
-    VirtualDiskArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualDiskArgsDict(TypedDict):
+    """
+    Virtual disk model
+    """
+    bus: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the disk bus.
+    """
+    bus_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the disk bus type.
+    """
+    create_diff_disk: NotRequired[pulumi.Input[Union[_builtins.str, 'CreateDiffDisk']]]
+    """
+    Gets or sets a value indicating diff disk.
+    """
+    disk_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the disk id.
+    """
+    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the disk total size.
+    """
+    lun: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the disk lun.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the disk.
+    """
+    storage_qo_s_policy: NotRequired[pulumi.Input['StorageQoSPolicyDetailsArgsDict']]
+    """
+    The QoS policy for the disk.
+    """
+    template_disk_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the disk id in the template.
+    """
+    vhd_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the disk vhd type.
+    """
 
 @pulumi.input_type
 class VirtualDiskArgs:
@@ -1409,21 +1359,18 @@ class VirtualDiskArgs:
         pulumi.set(self, "vhd_type", value)
 
 
-if not MYPY:
-    class VirtualMachineInstancePropertiesAvailabilitySetsArgsDict(TypedDict):
-        """
-        Availability Set model
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the availability set.
-        """
-elif False:
-    VirtualMachineInstancePropertiesAvailabilitySetsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineInstancePropertiesAvailabilitySetsArgsDict(TypedDict):
+    """
+    Availability Set model
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the availability set.
+    """
 
 @pulumi.input_type
 class VirtualMachineInstancePropertiesAvailabilitySetsArgs:
@@ -1465,21 +1412,18 @@ class VirtualMachineInstancePropertiesAvailabilitySetsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class VirtualMachinePropertiesAvailabilitySetsArgsDict(TypedDict):
-        """
-        Availability Set model
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the availability set.
-        """
-elif False:
-    VirtualMachinePropertiesAvailabilitySetsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachinePropertiesAvailabilitySetsArgsDict(TypedDict):
+    """
+    Availability Set model
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the availability set.
+    """
 
 @pulumi.input_type
 class VirtualMachinePropertiesAvailabilitySetsArgs:

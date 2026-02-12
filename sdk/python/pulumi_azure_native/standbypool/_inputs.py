@@ -28,23 +28,18 @@ __all__ = [
     'SubnetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ContainerGroupProfileArgsDict(TypedDict):
-        """
-        Details of the ContainerGroupProfile.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Specifies container group profile id of standby container groups.
-        """
-        revision: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies revision of container group profile.
-        """
-elif False:
-    ContainerGroupProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupProfileArgsDict(TypedDict):
+    """
+    Details of the ContainerGroupProfile.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Specifies container group profile id of standby container groups.
+    """
+    revision: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies revision of container group profile.
+    """
 
 @pulumi.input_type
 class ContainerGroupProfileArgs:
@@ -85,21 +80,18 @@ class ContainerGroupProfileArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class ContainerGroupPropertiesArgsDict(TypedDict):
-        """
-        Details of the ContainerGroupProperties.
-        """
-        container_group_profile: pulumi.Input['ContainerGroupProfileArgsDict']
-        """
-        Specifies container group profile of standby container groups.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetArgsDict']]]]
-        """
-        Specifies subnet Ids for container group.
-        """
-elif False:
-    ContainerGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupPropertiesArgsDict(TypedDict):
+    """
+    Details of the ContainerGroupProperties.
+    """
+    container_group_profile: pulumi.Input['ContainerGroupProfileArgsDict']
+    """
+    Specifies container group profile of standby container groups.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetArgsDict']]]]
+    """
+    Specifies subnet Ids for container group.
+    """
 
 @pulumi.input_type
 class ContainerGroupPropertiesArgs:
@@ -140,21 +132,18 @@ class ContainerGroupPropertiesArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class StandbyContainerGroupPoolElasticityProfileArgsDict(TypedDict):
-        """
-        Specifies the elasticity profile of the standby container group pools.
-        """
-        max_ready_capacity: pulumi.Input[_builtins.float]
-        """
-        Specifies maximum number of standby container groups in the standby pool.
-        """
-        refill_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'RefillPolicy']]]
-        """
-        Specifies refill policy of the pool.
-        """
-elif False:
-    StandbyContainerGroupPoolElasticityProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StandbyContainerGroupPoolElasticityProfileArgsDict(TypedDict):
+    """
+    Specifies the elasticity profile of the standby container group pools.
+    """
+    max_ready_capacity: pulumi.Input[_builtins.float]
+    """
+    Specifies maximum number of standby container groups in the standby pool.
+    """
+    refill_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'RefillPolicy']]]
+    """
+    Specifies refill policy of the pool.
+    """
 
 @pulumi.input_type
 class StandbyContainerGroupPoolElasticityProfileArgs:
@@ -195,21 +184,18 @@ class StandbyContainerGroupPoolElasticityProfileArgs:
         pulumi.set(self, "refill_policy", value)
 
 
-if not MYPY:
-    class StandbyVirtualMachinePoolElasticityProfileArgsDict(TypedDict):
-        """
-        Details of the elasticity profile.
-        """
-        max_ready_capacity: pulumi.Input[_builtins.float]
-        """
-        Specifies the maximum number of virtual machines in the standby virtual machine pool.
-        """
-        min_ready_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
-        """
-elif False:
-    StandbyVirtualMachinePoolElasticityProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StandbyVirtualMachinePoolElasticityProfileArgsDict(TypedDict):
+    """
+    Details of the elasticity profile.
+    """
+    max_ready_capacity: pulumi.Input[_builtins.float]
+    """
+    Specifies the maximum number of virtual machines in the standby virtual machine pool.
+    """
+    min_ready_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
+    """
 
 @pulumi.input_type
 class StandbyVirtualMachinePoolElasticityProfileArgs:
@@ -250,17 +236,14 @@ class StandbyVirtualMachinePoolElasticityProfileArgs:
         pulumi.set(self, "min_ready_capacity", value)
 
 
-if not MYPY:
-    class SubnetArgsDict(TypedDict):
-        """
-        Subnet of container group
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Specifies ARM resource id of the subnet.
-        """
-elif False:
-    SubnetArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetArgsDict(TypedDict):
+    """
+    Subnet of container group
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Specifies ARM resource id of the subnet.
+    """
 
 @pulumi.input_type
 class SubnetArgs:

@@ -66,19 +66,14 @@ __all__ = [
     'WsfcDomainProfileArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AADAuthenticationSettingsArgsDict(TypedDict):
-        """
-        Enable AAD authentication for SQL VM.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
-        """
-elif False:
-    AADAuthenticationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AADAuthenticationSettingsArgsDict(TypedDict):
+    """
+    Enable AAD authentication for SQL VM.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
+    """
 
 @pulumi.input_type
 class AADAuthenticationSettingsArgs:
@@ -104,17 +99,14 @@ class AADAuthenticationSettingsArgs:
         pulumi.set(self, "client_id", value)
 
 
-if not MYPY:
-    class AdditionalFeaturesServerConfigurationsArgsDict(TypedDict):
-        """
-        Additional SQL Server feature settings.
-        """
-        is_r_services_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable R services (SQL 2016 onwards).
-        """
-elif False:
-    AdditionalFeaturesServerConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class AdditionalFeaturesServerConfigurationsArgsDict(TypedDict):
+    """
+    Additional SQL Server feature settings.
+    """
+    is_r_services_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable R services (SQL 2016 onwards).
+    """
 
 @pulumi.input_type
 class AdditionalFeaturesServerConfigurationsArgs:
@@ -140,17 +132,14 @@ class AdditionalFeaturesServerConfigurationsArgs:
         pulumi.set(self, "is_r_services_enabled", value)
 
 
-if not MYPY:
-    class AgConfigurationArgsDict(TypedDict):
-        """
-        Availability group configuration.
-        """
-        replicas: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgReplicaArgsDict']]]]
-        """
-        Replica configurations.
-        """
-elif False:
-    AgConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AgConfigurationArgsDict(TypedDict):
+    """
+    Availability group configuration.
+    """
+    replicas: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgReplicaArgsDict']]]]
+    """
+    Replica configurations.
+    """
 
 @pulumi.input_type
 class AgConfigurationArgs:
@@ -176,33 +165,30 @@ class AgConfigurationArgs:
         pulumi.set(self, "replicas", value)
 
 
-if not MYPY:
-    class AgReplicaArgsDict(TypedDict):
-        """
-        Availability group replica configuration.
-        """
-        commit: NotRequired[pulumi.Input[Union[_builtins.str, 'Commit']]]
-        """
-        Replica commit mode in availability group.
-        """
-        failover: NotRequired[pulumi.Input[Union[_builtins.str, 'Failover']]]
-        """
-        Replica failover mode in availability group.
-        """
-        readable_secondary: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadableSecondary']]]
-        """
-        Replica readable secondary mode in availability group.
-        """
-        role: NotRequired[pulumi.Input[Union[_builtins.str, 'Role']]]
-        """
-        Replica Role in availability group.
-        """
-        sql_virtual_machine_instance_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sql VirtualMachine Instance Id.
-        """
-elif False:
-    AgReplicaArgsDict: TypeAlias = Mapping[str, Any]
+class AgReplicaArgsDict(TypedDict):
+    """
+    Availability group replica configuration.
+    """
+    commit: NotRequired[pulumi.Input[Union[_builtins.str, 'Commit']]]
+    """
+    Replica commit mode in availability group.
+    """
+    failover: NotRequired[pulumi.Input[Union[_builtins.str, 'Failover']]]
+    """
+    Replica failover mode in availability group.
+    """
+    readable_secondary: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadableSecondary']]]
+    """
+    Replica readable secondary mode in availability group.
+    """
+    role: NotRequired[pulumi.Input[Union[_builtins.str, 'Role']]]
+    """
+    Replica Role in availability group.
+    """
+    sql_virtual_machine_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sql VirtualMachine Instance Id.
+    """
 
 @pulumi.input_type
 class AgReplicaArgs:
@@ -292,25 +278,22 @@ class AgReplicaArgs:
         pulumi.set(self, "sql_virtual_machine_instance_id", value)
 
 
-if not MYPY:
-    class AssessmentSettingsArgsDict(TypedDict):
-        """
-        Configure SQL best practices Assessment for databases in your SQL virtual machine.
-        """
-        enable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable SQL best practices Assessment feature on SQL virtual machine.
-        """
-        run_immediately: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Run SQL best practices Assessment immediately on SQL virtual machine.
-        """
-        schedule: NotRequired[pulumi.Input['ScheduleArgsDict']]
-        """
-        Schedule for SQL best practices Assessment.
-        """
-elif False:
-    AssessmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AssessmentSettingsArgsDict(TypedDict):
+    """
+    Configure SQL best practices Assessment for databases in your SQL virtual machine.
+    """
+    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable SQL best practices Assessment feature on SQL virtual machine.
+    """
+    run_immediately: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Run SQL best practices Assessment immediately on SQL virtual machine.
+    """
+    schedule: NotRequired[pulumi.Input['ScheduleArgsDict']]
+    """
+    Schedule for SQL best practices Assessment.
+    """
 
 @pulumi.input_type
 class AssessmentSettingsArgs:
@@ -368,69 +351,66 @@ class AssessmentSettingsArgs:
         pulumi.set(self, "schedule", value)
 
 
-if not MYPY:
-    class AutoBackupSettingsArgsDict(TypedDict):
-        """
-        Configure backups for databases in your SQL virtual machine.
-        """
-        backup_schedule_type: NotRequired[pulumi.Input[Union[_builtins.str, 'BackupScheduleType']]]
-        """
-        Backup schedule type.
-        """
-        backup_system_dbs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include or exclude system databases from auto backup.
-        """
-        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AutoBackupDaysOfWeek']]]]]
-        """
-        Days of the week for the backups when FullBackupFrequency is set to Weekly.
-        """
-        enable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable autobackup on SQL virtual machine.
-        """
-        enable_encryption: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable encryption for backup on SQL virtual machine.
-        """
-        full_backup_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'FullBackupFrequencyType']]]
-        """
-        Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
-        """
-        full_backup_start_time: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Start time of a given day during which full backups can take place. 0-23 hours.
-        """
-        full_backup_window_hours: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration of the time window of a given day during which full backups can take place. 1-23 hours.
-        """
-        log_backup_frequency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Frequency of log backups. 5-60 minutes.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for encryption on backup.
-        """
-        retention_period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Retention period of backup: 1-90 days.
-        """
-        storage_access_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage account key where backup will be taken to.
-        """
-        storage_account_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage account url where backup will be taken to.
-        """
-        storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage container name where backup will be taken to.
-        """
-elif False:
-    AutoBackupSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AutoBackupSettingsArgsDict(TypedDict):
+    """
+    Configure backups for databases in your SQL virtual machine.
+    """
+    backup_schedule_type: NotRequired[pulumi.Input[Union[_builtins.str, 'BackupScheduleType']]]
+    """
+    Backup schedule type.
+    """
+    backup_system_dbs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include or exclude system databases from auto backup.
+    """
+    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AutoBackupDaysOfWeek']]]]]
+    """
+    Days of the week for the backups when FullBackupFrequency is set to Weekly.
+    """
+    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable autobackup on SQL virtual machine.
+    """
+    enable_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable encryption for backup on SQL virtual machine.
+    """
+    full_backup_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'FullBackupFrequencyType']]]
+    """
+    Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
+    """
+    full_backup_start_time: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Start time of a given day during which full backups can take place. 0-23 hours.
+    """
+    full_backup_window_hours: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration of the time window of a given day during which full backups can take place. 1-23 hours.
+    """
+    log_backup_frequency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Frequency of log backups. 5-60 minutes.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for encryption on backup.
+    """
+    retention_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Retention period of backup: 1-90 days.
+    """
+    storage_access_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage account key where backup will be taken to.
+    """
+    storage_account_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage account url where backup will be taken to.
+    """
+    storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage container name where backup will be taken to.
+    """
 
 @pulumi.input_type
 class AutoBackupSettingsArgs:
@@ -664,33 +644,30 @@ class AutoBackupSettingsArgs:
         pulumi.set(self, "storage_container_name", value)
 
 
-if not MYPY:
-    class AutoPatchingSettingsArgsDict(TypedDict):
-        """
-        Set a patching window during which Windows and SQL patches will be applied.
-        """
-        additional_vm_patch: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalVmPatch']]]
-        """
-        Additional Patch to be enable or enabled on the SQL Virtual Machine.
-        """
-        day_of_week: NotRequired[pulumi.Input['DayOfWeek']]
-        """
-        Day of week to apply the patch on.
-        """
-        enable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable autopatching on SQL virtual machine.
-        """
-        maintenance_window_duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration of patching.
-        """
-        maintenance_window_starting_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Hour of the day when patching is initiated. Local VM time.
-        """
-elif False:
-    AutoPatchingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AutoPatchingSettingsArgsDict(TypedDict):
+    """
+    Set a patching window during which Windows and SQL patches will be applied.
+    """
+    additional_vm_patch: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalVmPatch']]]
+    """
+    Additional Patch to be enable or enabled on the SQL Virtual Machine.
+    """
+    day_of_week: NotRequired[pulumi.Input['DayOfWeek']]
+    """
+    Day of week to apply the patch on.
+    """
+    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable autopatching on SQL virtual machine.
+    """
+    maintenance_window_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration of patching.
+    """
+    maintenance_window_starting_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Hour of the day when patching is initiated. Local VM time.
+    """
 
 @pulumi.input_type
 class AutoPatchingSettingsArgs:
@@ -782,33 +759,30 @@ class AutoPatchingSettingsArgs:
         pulumi.set(self, "maintenance_window_starting_hour", value)
 
 
-if not MYPY:
-    class KeyVaultCredentialSettingsArgsDict(TypedDict):
-        """
-        Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
-        """
-        azure_key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Key Vault url.
-        """
-        credential_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Credential name.
-        """
-        enable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable key vault credential setting.
-        """
-        service_principal_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service principal name to access key vault.
-        """
-        service_principal_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service principal name secret to access key vault.
-        """
-elif False:
-    KeyVaultCredentialSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultCredentialSettingsArgsDict(TypedDict):
+    """
+    Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
+    """
+    azure_key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Key Vault url.
+    """
+    credential_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Credential name.
+    """
+    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable key vault credential setting.
+    """
+    service_principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Service principal name to access key vault.
+    """
+    service_principal_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Service principal name secret to access key vault.
+    """
 
 @pulumi.input_type
 class KeyVaultCredentialSettingsArgs:
@@ -898,33 +872,30 @@ class KeyVaultCredentialSettingsArgs:
         pulumi.set(self, "service_principal_secret", value)
 
 
-if not MYPY:
-    class LoadBalancerConfigurationArgsDict(TypedDict):
-        """
-        A load balancer configuration for an availability group listener.
-        """
-        load_balancer_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of the load balancer.
-        """
-        private_ip_address: NotRequired[pulumi.Input['PrivateIPAddressArgsDict']]
-        """
-        Private IP address.
-        """
-        probe_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Probe port.
-        """
-        public_ip_address_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of the public IP.
-        """
-        sql_virtual_machine_instances: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
-        """
-elif False:
-    LoadBalancerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerConfigurationArgsDict(TypedDict):
+    """
+    A load balancer configuration for an availability group listener.
+    """
+    load_balancer_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of the load balancer.
+    """
+    private_ip_address: NotRequired[pulumi.Input['PrivateIPAddressArgsDict']]
+    """
+    Private IP address.
+    """
+    probe_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Probe port.
+    """
+    public_ip_address_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of the public IP.
+    """
+    sql_virtual_machine_instances: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
+    """
 
 @pulumi.input_type
 class LoadBalancerConfigurationArgs:
@@ -1014,21 +985,18 @@ class LoadBalancerConfigurationArgs:
         pulumi.set(self, "sql_virtual_machine_instances", value)
 
 
-if not MYPY:
-    class MultiSubnetIpConfigurationArgsDict(TypedDict):
-        """
-        Multi subnet ip configuration for an availability group listener.
-        """
-        private_ip_address: pulumi.Input['PrivateIPAddressArgsDict']
-        """
-        Private IP address.
-        """
-        sql_virtual_machine_instance: pulumi.Input[_builtins.str]
-        """
-        SQL virtual machine instance resource id that are enrolled into the availability group listener.
-        """
-elif False:
-    MultiSubnetIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MultiSubnetIpConfigurationArgsDict(TypedDict):
+    """
+    Multi subnet ip configuration for an availability group listener.
+    """
+    private_ip_address: pulumi.Input['PrivateIPAddressArgsDict']
+    """
+    Private IP address.
+    """
+    sql_virtual_machine_instance: pulumi.Input[_builtins.str]
+    """
+    SQL virtual machine instance resource id that are enrolled into the availability group listener.
+    """
 
 @pulumi.input_type
 class MultiSubnetIpConfigurationArgs:
@@ -1068,21 +1036,18 @@ class MultiSubnetIpConfigurationArgs:
         pulumi.set(self, "sql_virtual_machine_instance", value)
 
 
-if not MYPY:
-    class PrivateIPAddressArgsDict(TypedDict):
-        """
-        A private IP address bound to the availability group listener.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private IP address bound to the availability group listener.
-        """
-        subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet used to include private IP.
-        """
-elif False:
-    PrivateIPAddressArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateIPAddressArgsDict(TypedDict):
+    """
+    A private IP address bound to the availability group listener.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private IP address bound to the availability group listener.
+    """
+    subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet used to include private IP.
+    """
 
 @pulumi.input_type
 class PrivateIPAddressArgs:
@@ -1124,17 +1089,14 @@ class PrivateIPAddressArgs:
         pulumi.set(self, "subnet_resource_id", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        Azure Active Directory identity configuration for a resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        """
-        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -1160,41 +1122,38 @@ class ResourceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SQLInstanceSettingsArgsDict(TypedDict):
-        """
-        Set the server/instance-level settings for SQL Server.
-        """
-        collation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL Server Collation.
-        """
-        is_ifi_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        SQL Server IFI.
-        """
-        is_lpim_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        SQL Server LPIM.
-        """
-        is_optimize_for_ad_hoc_workloads_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        SQL Server Optimize for Adhoc workloads.
-        """
-        max_dop: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server MAXDOP.
-        """
-        max_server_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server maximum memory.
-        """
-        min_server_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server minimum memory.
-        """
-elif False:
-    SQLInstanceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SQLInstanceSettingsArgsDict(TypedDict):
+    """
+    Set the server/instance-level settings for SQL Server.
+    """
+    collation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL Server Collation.
+    """
+    is_ifi_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    SQL Server IFI.
+    """
+    is_lpim_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    SQL Server LPIM.
+    """
+    is_optimize_for_ad_hoc_workloads_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    SQL Server Optimize for Adhoc workloads.
+    """
+    max_dop: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server MAXDOP.
+    """
+    max_server_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server maximum memory.
+    """
+    min_server_memory_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server minimum memory.
+    """
 
 @pulumi.input_type
 class SQLInstanceSettingsArgs:
@@ -1316,25 +1275,22 @@ class SQLInstanceSettingsArgs:
         pulumi.set(self, "min_server_memory_mb", value)
 
 
-if not MYPY:
-    class SQLStorageSettingsArgsDict(TypedDict):
-        """
-        Set disk storage settings for SQL Server.
-        """
-        default_file_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL Server default file path
-        """
-        luns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Logical Unit Numbers for the disks.
-        """
-        use_storage_pool: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Use storage pool to build a drive if true or not provided
-        """
-elif False:
-    SQLStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SQLStorageSettingsArgsDict(TypedDict):
+    """
+    Set disk storage settings for SQL Server.
+    """
+    default_file_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL Server default file path
+    """
+    luns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Logical Unit Numbers for the disks.
+    """
+    use_storage_pool: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Use storage pool to build a drive if true or not provided
+    """
 
 @pulumi.input_type
 class SQLStorageSettingsArgs:
@@ -1392,53 +1348,50 @@ class SQLStorageSettingsArgs:
         pulumi.set(self, "use_storage_pool", value)
 
 
-if not MYPY:
-    class SQLTempDbSettingsArgsDict(TypedDict):
-        """
-        Set tempDb storage settings for SQL Server.
-        """
-        data_file_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server tempdb data file count
-        """
-        data_file_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server tempdb data file size
-        """
-        data_growth: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server tempdb data file autoGrowth size
-        """
-        default_file_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL Server default file path
-        """
-        log_file_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server tempdb log file size
-        """
-        log_growth: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server tempdb log file autoGrowth size
-        """
-        luns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Logical Unit Numbers for the disks.
-        """
-        persist_folder: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        SQL Server tempdb persist folder choice
-        """
-        persist_folder_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL Server tempdb persist folder location
-        """
-        use_storage_pool: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Use storage pool to build a drive if true or not provided
-        """
-elif False:
-    SQLTempDbSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SQLTempDbSettingsArgsDict(TypedDict):
+    """
+    Set tempDb storage settings for SQL Server.
+    """
+    data_file_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server tempdb data file count
+    """
+    data_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server tempdb data file size
+    """
+    data_growth: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server tempdb data file autoGrowth size
+    """
+    default_file_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL Server default file path
+    """
+    log_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server tempdb log file size
+    """
+    log_growth: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server tempdb log file autoGrowth size
+    """
+    luns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Logical Unit Numbers for the disks.
+    """
+    persist_folder: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    SQL Server tempdb persist folder choice
+    """
+    persist_folder_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL Server tempdb persist folder location
+    """
+    use_storage_pool: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Use storage pool to build a drive if true or not provided
+    """
 
 @pulumi.input_type
 class SQLTempDbSettingsArgs:
@@ -1608,33 +1561,30 @@ class SQLTempDbSettingsArgs:
         pulumi.set(self, "use_storage_pool", value)
 
 
-if not MYPY:
-    class ScheduleArgsDict(TypedDict):
-        """
-        Set assessment schedule for SQL Server.
-        """
-        day_of_week: NotRequired[pulumi.Input['AssessmentDayOfWeek']]
-        """
-        Day of the week to run assessment.
-        """
-        enable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable assessment schedule on SQL virtual machine.
-        """
-        monthly_occurrence: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time of the day in HH:mm format. Eg. 17:30
-        """
-        weekly_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of weeks to schedule between 2 assessment runs. Takes value from 1-6
-        """
-elif False:
-    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleArgsDict(TypedDict):
+    """
+    Set assessment schedule for SQL Server.
+    """
+    day_of_week: NotRequired[pulumi.Input['AssessmentDayOfWeek']]
+    """
+    Day of the week to run assessment.
+    """
+    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable assessment schedule on SQL virtual machine.
+    """
+    monthly_occurrence: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time of the day in HH:mm format. Eg. 17:30
+    """
+    weekly_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of weeks to schedule between 2 assessment runs. Takes value from 1-6
+    """
 
 @pulumi.input_type
 class ScheduleArgs:
@@ -1724,37 +1674,34 @@ class ScheduleArgs:
         pulumi.set(self, "weekly_interval", value)
 
 
-if not MYPY:
-    class ServerConfigurationsManagementSettingsArgsDict(TypedDict):
-        """
-        Set the connectivity, storage and workload settings.
-        """
-        additional_features_server_configurations: NotRequired[pulumi.Input['AdditionalFeaturesServerConfigurationsArgsDict']]
-        """
-        Additional SQL feature settings.
-        """
-        azure_ad_authentication_settings: NotRequired[pulumi.Input['AADAuthenticationSettingsArgsDict']]
-        """
-        Azure AD authentication Settings.
-        """
-        sql_connectivity_update_settings: NotRequired[pulumi.Input['SqlConnectivityUpdateSettingsArgsDict']]
-        """
-        SQL connectivity type settings.
-        """
-        sql_instance_settings: NotRequired[pulumi.Input['SQLInstanceSettingsArgsDict']]
-        """
-        SQL Instance settings.
-        """
-        sql_storage_update_settings: NotRequired[pulumi.Input['SqlStorageUpdateSettingsArgsDict']]
-        """
-        SQL storage update settings.
-        """
-        sql_workload_type_update_settings: NotRequired[pulumi.Input['SqlWorkloadTypeUpdateSettingsArgsDict']]
-        """
-        SQL workload type settings.
-        """
-elif False:
-    ServerConfigurationsManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ServerConfigurationsManagementSettingsArgsDict(TypedDict):
+    """
+    Set the connectivity, storage and workload settings.
+    """
+    additional_features_server_configurations: NotRequired[pulumi.Input['AdditionalFeaturesServerConfigurationsArgsDict']]
+    """
+    Additional SQL feature settings.
+    """
+    azure_ad_authentication_settings: NotRequired[pulumi.Input['AADAuthenticationSettingsArgsDict']]
+    """
+    Azure AD authentication Settings.
+    """
+    sql_connectivity_update_settings: NotRequired[pulumi.Input['SqlConnectivityUpdateSettingsArgsDict']]
+    """
+    SQL connectivity type settings.
+    """
+    sql_instance_settings: NotRequired[pulumi.Input['SQLInstanceSettingsArgsDict']]
+    """
+    SQL Instance settings.
+    """
+    sql_storage_update_settings: NotRequired[pulumi.Input['SqlStorageUpdateSettingsArgsDict']]
+    """
+    SQL storage update settings.
+    """
+    sql_workload_type_update_settings: NotRequired[pulumi.Input['SqlWorkloadTypeUpdateSettingsArgsDict']]
+    """
+    SQL workload type settings.
+    """
 
 @pulumi.input_type
 class ServerConfigurationsManagementSettingsArgs:
@@ -1860,29 +1807,26 @@ class ServerConfigurationsManagementSettingsArgs:
         pulumi.set(self, "sql_workload_type_update_settings", value)
 
 
-if not MYPY:
-    class SqlConnectivityUpdateSettingsArgsDict(TypedDict):
-        """
-        Set the access level and network port settings for SQL Server.
-        """
-        connectivity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectivityType']]]
-        """
-        SQL Server connectivity option.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        SQL Server port.
-        """
-        sql_auth_update_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL Server sysadmin login password.
-        """
-        sql_auth_update_user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL Server sysadmin login to create.
-        """
-elif False:
-    SqlConnectivityUpdateSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SqlConnectivityUpdateSettingsArgsDict(TypedDict):
+    """
+    Set the access level and network port settings for SQL Server.
+    """
+    connectivity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectivityType']]]
+    """
+    SQL Server connectivity option.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    SQL Server port.
+    """
+    sql_auth_update_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL Server sysadmin login password.
+    """
+    sql_auth_update_user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL Server sysadmin login to create.
+    """
 
 @pulumi.input_type
 class SqlConnectivityUpdateSettingsArgs:
@@ -1956,25 +1900,22 @@ class SqlConnectivityUpdateSettingsArgs:
         pulumi.set(self, "sql_auth_update_user_name", value)
 
 
-if not MYPY:
-    class SqlStorageUpdateSettingsArgsDict(TypedDict):
-        """
-        Set disk storage settings for SQL Server.
-        """
-        disk_configuration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskConfigurationType']]]
-        """
-        Disk configuration to apply to SQL Server.
-        """
-        disk_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Virtual machine disk count.
-        """
-        starting_device_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Device id of the first disk to be updated.
-        """
-elif False:
-    SqlStorageUpdateSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SqlStorageUpdateSettingsArgsDict(TypedDict):
+    """
+    Set disk storage settings for SQL Server.
+    """
+    disk_configuration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskConfigurationType']]]
+    """
+    Disk configuration to apply to SQL Server.
+    """
+    disk_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Virtual machine disk count.
+    """
+    starting_device_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Device id of the first disk to be updated.
+    """
 
 @pulumi.input_type
 class SqlStorageUpdateSettingsArgs:
@@ -2032,17 +1973,14 @@ class SqlStorageUpdateSettingsArgs:
         pulumi.set(self, "starting_device_id", value)
 
 
-if not MYPY:
-    class SqlWorkloadTypeUpdateSettingsArgsDict(TypedDict):
-        """
-        Set workload type to optimize storage for SQL Server.
-        """
-        sql_workload_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SqlWorkloadType']]]
-        """
-        SQL Server workload type.
-        """
-elif False:
-    SqlWorkloadTypeUpdateSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SqlWorkloadTypeUpdateSettingsArgsDict(TypedDict):
+    """
+    Set workload type to optimize storage for SQL Server.
+    """
+    sql_workload_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SqlWorkloadType']]]
+    """
+    SQL Server workload type.
+    """
 
 @pulumi.input_type
 class SqlWorkloadTypeUpdateSettingsArgs:
@@ -2068,41 +2006,38 @@ class SqlWorkloadTypeUpdateSettingsArgs:
         pulumi.set(self, "sql_workload_type", value)
 
 
-if not MYPY:
-    class StorageConfigurationSettingsArgsDict(TypedDict):
-        """
-        Storage Configurations for SQL Data, Log and TempDb.
-        """
-        disk_configuration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskConfigurationType']]]
-        """
-        Disk configuration to apply to SQL Server.
-        """
-        enable_storage_config_blade: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable SQL IaaS Agent storage configuration blade in Azure Portal.
-        """
-        sql_data_settings: NotRequired[pulumi.Input['SQLStorageSettingsArgsDict']]
-        """
-        SQL Server Data Storage Settings.
-        """
-        sql_log_settings: NotRequired[pulumi.Input['SQLStorageSettingsArgsDict']]
-        """
-        SQL Server Log Storage Settings.
-        """
-        sql_system_db_on_data_disk: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        SQL Server SystemDb Storage on DataPool if true.
-        """
-        sql_temp_db_settings: NotRequired[pulumi.Input['SQLTempDbSettingsArgsDict']]
-        """
-        SQL Server TempDb Storage Settings.
-        """
-        storage_workload_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageWorkloadType']]]
-        """
-        Storage workload type.
-        """
-elif False:
-    StorageConfigurationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageConfigurationSettingsArgsDict(TypedDict):
+    """
+    Storage Configurations for SQL Data, Log and TempDb.
+    """
+    disk_configuration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskConfigurationType']]]
+    """
+    Disk configuration to apply to SQL Server.
+    """
+    enable_storage_config_blade: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable SQL IaaS Agent storage configuration blade in Azure Portal.
+    """
+    sql_data_settings: NotRequired[pulumi.Input['SQLStorageSettingsArgsDict']]
+    """
+    SQL Server Data Storage Settings.
+    """
+    sql_log_settings: NotRequired[pulumi.Input['SQLStorageSettingsArgsDict']]
+    """
+    SQL Server Log Storage Settings.
+    """
+    sql_system_db_on_data_disk: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    SQL Server SystemDb Storage on DataPool if true.
+    """
+    sql_temp_db_settings: NotRequired[pulumi.Input['SQLTempDbSettingsArgsDict']]
+    """
+    SQL Server TempDb Storage Settings.
+    """
+    storage_workload_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageWorkloadType']]]
+    """
+    Storage workload type.
+    """
 
 @pulumi.input_type
 class StorageConfigurationSettingsArgs:
@@ -2226,21 +2161,18 @@ class StorageConfigurationSettingsArgs:
         pulumi.set(self, "storage_workload_type", value)
 
 
-if not MYPY:
-    class VirtualMachineIdentityArgsDict(TypedDict):
-        """
-        Virtual Machine Identity details used for Sql IaaS extension configurations.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource Id of the identity. Only required when UserAssigned identity is selected.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'VmIdentityType']]]
-        """
-        Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
-        """
-elif False:
-    VirtualMachineIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineIdentityArgsDict(TypedDict):
+    """
+    Virtual Machine Identity details used for Sql IaaS extension configurations.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource Id of the identity. Only required when UserAssigned identity is selected.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'VmIdentityType']]]
+    """
+    Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
+    """
 
 @pulumi.input_type
 class VirtualMachineIdentityArgs:
@@ -2282,25 +2214,22 @@ class VirtualMachineIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WsfcDomainCredentialsArgsDict(TypedDict):
-        """
-        Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
-        """
-        cluster_bootstrap_account_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cluster bootstrap account password.
-        """
-        cluster_operator_account_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cluster operator account password.
-        """
-        sql_service_account_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL service account password.
-        """
-elif False:
-    WsfcDomainCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class WsfcDomainCredentialsArgsDict(TypedDict):
+    """
+    Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+    """
+    cluster_bootstrap_account_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cluster bootstrap account password.
+    """
+    cluster_operator_account_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cluster operator account password.
+    """
+    sql_service_account_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL service account password.
+    """
 
 @pulumi.input_type
 class WsfcDomainCredentialsArgs:
@@ -2358,53 +2287,50 @@ class WsfcDomainCredentialsArgs:
         pulumi.set(self, "sql_service_account_password", value)
 
 
-if not MYPY:
-    class WsfcDomainProfileArgsDict(TypedDict):
-        """
-        Active Directory account details to operate Windows Server Failover Cluster.
-        """
-        cluster_bootstrap_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
-        """
-        cluster_operator_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
-        """
-        cluster_subnet_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterSubnetType']]]
-        """
-        Cluster subnet type.
-        """
-        domain_fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified name of the domain.
-        """
-        file_share_witness_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional path for fileshare witness.
-        """
-        is_sql_service_account_gmsa: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag to check if SQL service account is GMSA.
-        """
-        ou_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Organizational Unit path in which the nodes and cluster will be present.
-        """
-        sql_service_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
-        """
-        storage_account_primary_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Primary key of the witness storage account.
-        """
-        storage_account_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified ARM resource id of the witness storage account.
-        """
-elif False:
-    WsfcDomainProfileArgsDict: TypeAlias = Mapping[str, Any]
+class WsfcDomainProfileArgsDict(TypedDict):
+    """
+    Active Directory account details to operate Windows Server Failover Cluster.
+    """
+    cluster_bootstrap_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
+    """
+    cluster_operator_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
+    """
+    cluster_subnet_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterSubnetType']]]
+    """
+    Cluster subnet type.
+    """
+    domain_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified name of the domain.
+    """
+    file_share_witness_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional path for fileshare witness.
+    """
+    is_sql_service_account_gmsa: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to check if SQL service account is GMSA.
+    """
+    ou_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Organizational Unit path in which the nodes and cluster will be present.
+    """
+    sql_service_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
+    """
+    storage_account_primary_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Primary key of the witness storage account.
+    """
+    storage_account_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified ARM resource id of the witness storage account.
+    """
 
 @pulumi.input_type
 class WsfcDomainProfileArgs:

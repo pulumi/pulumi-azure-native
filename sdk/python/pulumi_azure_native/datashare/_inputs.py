@@ -22,19 +22,14 @@ __all__ = [
     'TableLevelSharingPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity of resource
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
-        """
-        Identity Type
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity of resource
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    """
+    Identity Type
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -60,37 +55,34 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TableLevelSharingPropertiesArgsDict(TypedDict):
-        """
-        Table level sharing properties dto for kusto data set properties
-        """
-        external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        External tables to be excluded in the data set
-        """
-        external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        External tables to be included in the data set
-        """
-        materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Materialized views to be excluded in the data set
-        """
-        materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Materialized views to be included in the data set
-        """
-        tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Tables to be excluded in the data set
-        """
-        tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Tables to be included in the data set
-        """
-elif False:
-    TableLevelSharingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TableLevelSharingPropertiesArgsDict(TypedDict):
+    """
+    Table level sharing properties dto for kusto data set properties
+    """
+    external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    External tables to be excluded in the data set
+    """
+    external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    External tables to be included in the data set
+    """
+    materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Materialized views to be excluded in the data set
+    """
+    materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Materialized views to be included in the data set
+    """
+    tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Tables to be excluded in the data set
+    """
+    tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Tables to be included in the data set
+    """
 
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:

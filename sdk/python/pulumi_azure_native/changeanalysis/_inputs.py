@@ -26,27 +26,22 @@ __all__ = [
     'ResourceIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureMonitorWorkspacePropertiesArgsDict(TypedDict):
-        """
-        Configuration properties of an Azure Monitor workspace that receives change notifications.
-        """
-        include_change_details: NotRequired[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]]
-        """
-        The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
-        """
-        workspace_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
-        """
-        workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
-        """
-elif False:
-    AzureMonitorWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorWorkspacePropertiesArgsDict(TypedDict):
+    """
+    Configuration properties of an Azure Monitor workspace that receives change notifications.
+    """
+    include_change_details: NotRequired[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]]
+    """
+    The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+    """
+    workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+    """
+    workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+    """
 
 @pulumi.input_type
 class AzureMonitorWorkspacePropertiesArgs:
@@ -104,17 +99,14 @@ class AzureMonitorWorkspacePropertiesArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
-if not MYPY:
-    class ConfigurationProfileResourcePropertiesArgsDict(TypedDict):
-        """
-        The properties of a configuration profile.
-        """
-        notifications: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
-        """
-        Settings of change notification configuration for a subscription.
-        """
-elif False:
-    ConfigurationProfileResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfileResourcePropertiesArgsDict(TypedDict):
+    """
+    The properties of a configuration profile.
+    """
+    notifications: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
+    """
+    Settings of change notification configuration for a subscription.
+    """
 
 @pulumi.input_type
 class ConfigurationProfileResourcePropertiesArgs:
@@ -140,21 +132,18 @@ class ConfigurationProfileResourcePropertiesArgs:
         pulumi.set(self, "notifications", value)
 
 
-if not MYPY:
-    class NotificationSettingsArgsDict(TypedDict):
-        """
-        Settings of change notification configuration for a subscription.
-        """
-        activation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationsState']]]
-        """
-        The state of notifications feature.
-        """
-        azure_monitor_workspace_properties: NotRequired[pulumi.Input['AzureMonitorWorkspacePropertiesArgsDict']]
-        """
-        Configuration properties of an Azure Monitor workspace that receives change notifications.
-        """
-elif False:
-    NotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationSettingsArgsDict(TypedDict):
+    """
+    Settings of change notification configuration for a subscription.
+    """
+    activation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationsState']]]
+    """
+    The state of notifications feature.
+    """
+    azure_monitor_workspace_properties: NotRequired[pulumi.Input['AzureMonitorWorkspacePropertiesArgsDict']]
+    """
+    Configuration properties of an Azure Monitor workspace that receives change notifications.
+    """
 
 @pulumi.input_type
 class NotificationSettingsArgs:
@@ -196,17 +185,14 @@ class NotificationSettingsArgs:
         pulumi.set(self, "azure_monitor_workspace_properties", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        The identity block returned by ARM resource that supports managed identity.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
-        """
-        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    The identity block returned by ARM resource that supports managed identity.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:

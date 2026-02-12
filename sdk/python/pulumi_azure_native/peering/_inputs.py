@@ -36,51 +36,46 @@ __all__ = [
     'SubResourceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BgpSessionArgsDict(TypedDict):
-        """
-        The properties that define a BGP session.
-        """
-        max_prefixes_advertised_v4: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of prefixes advertised over the IPv4 session.
-        """
-        max_prefixes_advertised_v6: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of prefixes advertised over the IPv6 session.
-        """
-        md5_authentication_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MD5 authentication key of the session.
-        """
-        microsoft_session_i_pv4_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 session address on Microsoft's end.
-        """
-        microsoft_session_i_pv6_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 session address on Microsoft's end.
-        """
-        peer_session_i_pv4_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 session address on peer's end.
-        """
-        peer_session_i_pv6_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 session address on peer's end.
-        """
-        session_prefix_v4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 prefix that contains both ends' IPv4 addresses.
-        """
-        session_prefix_v6: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 prefix that contains both ends' IPv6 addresses.
-        """
-elif False:
-    BgpSessionArgsDict: TypeAlias = Mapping[str, Any]
+class BgpSessionArgsDict(TypedDict):
+    """
+    The properties that define a BGP session.
+    """
+    max_prefixes_advertised_v4: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of prefixes advertised over the IPv4 session.
+    """
+    max_prefixes_advertised_v6: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of prefixes advertised over the IPv6 session.
+    """
+    md5_authentication_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MD5 authentication key of the session.
+    """
+    microsoft_session_i_pv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 session address on Microsoft's end.
+    """
+    microsoft_session_i_pv6_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 session address on Microsoft's end.
+    """
+    peer_session_i_pv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 session address on peer's end.
+    """
+    peer_session_i_pv6_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 session address on peer's end.
+    """
+    session_prefix_v4: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 prefix that contains both ends' IPv4 addresses.
+    """
+    session_prefix_v6: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 prefix that contains both ends' IPv6 addresses.
+    """
 
 @pulumi.input_type
 class BgpSessionArgs:
@@ -234,25 +229,22 @@ class BgpSessionArgs:
         pulumi.set(self, "session_prefix_v6", value)
 
 
-if not MYPY:
-    class ContactDetailArgsDict(TypedDict):
-        """
-        The contact detail class.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The e-mail address of the contact.
-        """
-        phone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact.
-        """
-        role: NotRequired[pulumi.Input[Union[_builtins.str, 'Role']]]
-        """
-        The role of the contact.
-        """
-elif False:
-    ContactDetailArgsDict: TypeAlias = Mapping[str, Any]
+class ContactDetailArgsDict(TypedDict):
+    """
+    The contact detail class.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The e-mail address of the contact.
+    """
+    phone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact.
+    """
+    role: NotRequired[pulumi.Input[Union[_builtins.str, 'Role']]]
+    """
+    The role of the contact.
+    """
 
 @pulumi.input_type
 class ContactDetailArgs:
@@ -310,37 +302,34 @@ class ContactDetailArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class DirectConnectionArgsDict(TypedDict):
-        """
-        The properties that define a direct connection.
-        """
-        bandwidth_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The bandwidth of the connection.
-        """
-        bgp_session: NotRequired[pulumi.Input['BgpSessionArgsDict']]
-        """
-        The BGP session associated with the connection.
-        """
-        connection_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier (GUID) for the connection.
-        """
-        peering_db_facility_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The PeeringDB.com ID of the facility at which the connection has to be set up.
-        """
-        session_address_provider: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionAddressProvider']]]
-        """
-        The field indicating if Microsoft provides session ip addresses.
-        """
-        use_for_peering_service: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag that indicates whether or not the connection is used for peering service.
-        """
-elif False:
-    DirectConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class DirectConnectionArgsDict(TypedDict):
+    """
+    The properties that define a direct connection.
+    """
+    bandwidth_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The bandwidth of the connection.
+    """
+    bgp_session: NotRequired[pulumi.Input['BgpSessionArgsDict']]
+    """
+    The BGP session associated with the connection.
+    """
+    connection_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier (GUID) for the connection.
+    """
+    peering_db_facility_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The PeeringDB.com ID of the facility at which the connection has to be set up.
+    """
+    session_address_provider: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionAddressProvider']]]
+    """
+    The field indicating if Microsoft provides session ip addresses.
+    """
+    use_for_peering_service: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag that indicates whether or not the connection is used for peering service.
+    """
 
 @pulumi.input_type
 class DirectConnectionArgs:
@@ -446,25 +435,22 @@ class DirectConnectionArgs:
         pulumi.set(self, "use_for_peering_service", value)
 
 
-if not MYPY:
-    class ExchangeConnectionArgsDict(TypedDict):
-        """
-        The properties that define an exchange connection.
-        """
-        bgp_session: NotRequired[pulumi.Input['BgpSessionArgsDict']]
-        """
-        The BGP session associated with the connection.
-        """
-        connection_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier (GUID) for the connection.
-        """
-        peering_db_facility_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The PeeringDB.com ID of the facility at which the connection has to be set up.
-        """
-elif False:
-    ExchangeConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class ExchangeConnectionArgsDict(TypedDict):
+    """
+    The properties that define an exchange connection.
+    """
+    bgp_session: NotRequired[pulumi.Input['BgpSessionArgsDict']]
+    """
+    The BGP session associated with the connection.
+    """
+    connection_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier (GUID) for the connection.
+    """
+    peering_db_facility_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The PeeringDB.com ID of the facility at which the connection has to be set up.
+    """
 
 @pulumi.input_type
 class ExchangeConnectionArgs:
@@ -522,25 +508,22 @@ class ExchangeConnectionArgs:
         pulumi.set(self, "peering_db_facility_id", value)
 
 
-if not MYPY:
-    class PeeringPropertiesDirectArgsDict(TypedDict):
-        """
-        The properties that define a direct peering.
-        """
-        connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgsDict']]]]
-        """
-        The set of connections that constitute a direct peering.
-        """
-        direct_peering_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DirectPeeringType']]]
-        """
-        The type of direct peering.
-        """
-        peer_asn: NotRequired[pulumi.Input['SubResourceArgsDict']]
-        """
-        The reference of the peer ASN.
-        """
-elif False:
-    PeeringPropertiesDirectArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringPropertiesDirectArgsDict(TypedDict):
+    """
+    The properties that define a direct peering.
+    """
+    connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgsDict']]]]
+    """
+    The set of connections that constitute a direct peering.
+    """
+    direct_peering_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DirectPeeringType']]]
+    """
+    The type of direct peering.
+    """
+    peer_asn: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The reference of the peer ASN.
+    """
 
 @pulumi.input_type
 class PeeringPropertiesDirectArgs:
@@ -598,21 +581,18 @@ class PeeringPropertiesDirectArgs:
         pulumi.set(self, "peer_asn", value)
 
 
-if not MYPY:
-    class PeeringPropertiesExchangeArgsDict(TypedDict):
-        """
-        The properties that define an exchange peering.
-        """
-        connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgsDict']]]]
-        """
-        The set of connections that constitute an exchange peering.
-        """
-        peer_asn: NotRequired[pulumi.Input['SubResourceArgsDict']]
-        """
-        The reference of the peer ASN.
-        """
-elif False:
-    PeeringPropertiesExchangeArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringPropertiesExchangeArgsDict(TypedDict):
+    """
+    The properties that define an exchange peering.
+    """
+    connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgsDict']]]]
+    """
+    The set of connections that constitute an exchange peering.
+    """
+    peer_asn: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The reference of the peer ASN.
+    """
 
 @pulumi.input_type
 class PeeringPropertiesExchangeArgs:
@@ -654,17 +634,14 @@ class PeeringPropertiesExchangeArgs:
         pulumi.set(self, "peer_asn", value)
 
 
-if not MYPY:
-    class PeeringServiceSkuArgsDict(TypedDict):
-        """
-        The SKU that defines the type of the peering service.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the peering service SKU.
-        """
-elif False:
-    PeeringServiceSkuArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringServiceSkuArgsDict(TypedDict):
+    """
+    The SKU that defines the type of the peering service.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the peering service SKU.
+    """
 
 @pulumi.input_type
 class PeeringServiceSkuArgs:
@@ -690,17 +667,14 @@ class PeeringServiceSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PeeringSkuArgsDict(TypedDict):
-        """
-        The SKU that defines the tier and kind of the peering.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the peering SKU.
-        """
-elif False:
-    PeeringSkuArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringSkuArgsDict(TypedDict):
+    """
+    The SKU that defines the tier and kind of the peering.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the peering SKU.
+    """
 
 @pulumi.input_type
 class PeeringSkuArgs:
@@ -726,20 +700,17 @@ class PeeringSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SubResourceArgsDict(TypedDict):
-        """
-        The sub resource.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
-        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
-        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
-        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
-        """
-elif False:
-    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+class SubResourceArgsDict(TypedDict):
+    """
+    The sub resource.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+    An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+    A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+    Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+    """
 
 @pulumi.input_type
 class SubResourceArgs:

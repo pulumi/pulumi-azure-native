@@ -22,27 +22,22 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EnterpriseKnowledgeGraphPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the EnterpriseKnowledgeGraph.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the EnterpriseKnowledgeGraph
-        """
-        metadata: NotRequired[Any]
-        """
-        Specifies the metadata  of the resource.
-        """
-        provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state of EnterpriseKnowledgeGraph provisioning
-        """
-elif False:
-    EnterpriseKnowledgeGraphPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EnterpriseKnowledgeGraphPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the EnterpriseKnowledgeGraph.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the EnterpriseKnowledgeGraph
+    """
+    metadata: NotRequired[Any]
+    """
+    Specifies the metadata  of the resource.
+    """
+    provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state of EnterpriseKnowledgeGraph provisioning
+    """
 
 @pulumi.input_type
 class EnterpriseKnowledgeGraphPropertiesArgs:
@@ -100,17 +95,14 @@ class EnterpriseKnowledgeGraphPropertiesArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The SKU of the EnterpriseKnowledgeGraph service account.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        The sku name
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The SKU of the EnterpriseKnowledgeGraph service account.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    The sku name
+    """
 
 @pulumi.input_type
 class SkuArgs:

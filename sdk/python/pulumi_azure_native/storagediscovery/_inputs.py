@@ -22,31 +22,26 @@ __all__ = [
     'StorageDiscoveryWorkspacePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StorageDiscoveryScopeArgsDict(TypedDict):
-        """
-        Storage Discovery Scope. This had added validations
-        """
-        display_name: pulumi.Input[_builtins.str]
-        """
-        Display name of the collection
-        """
-        resource_types: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageDiscoveryResourceType']]]]
-        """
-        Resource types for the collection
-        """
-        tag_keys_only: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The storage account tags keys to filter
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Resource tags.
-        """
-elif False:
-    StorageDiscoveryScopeArgsDict: TypeAlias = Mapping[str, Any]
+class StorageDiscoveryScopeArgsDict(TypedDict):
+    """
+    Storage Discovery Scope. This had added validations
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    Display name of the collection
+    """
+    resource_types: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageDiscoveryResourceType']]]]
+    """
+    Resource types for the collection
+    """
+    tag_keys_only: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The storage account tags keys to filter
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
 
 @pulumi.input_type
 class StorageDiscoveryScopeArgs:
@@ -118,29 +113,26 @@ class StorageDiscoveryScopeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class StorageDiscoveryWorkspacePropertiesArgsDict(TypedDict):
-        """
-        Storage Discovery Workspace Properties
-        """
-        scopes: pulumi.Input[Sequence[pulumi.Input['StorageDiscoveryScopeArgsDict']]]
-        """
-        The scopes of the storage discovery workspace.
-        """
-        workspace_roots: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The view level storage discovery data estate
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the storage discovery workspace
-        """
-        sku: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageDiscoverySku']]]
-        """
-        The storage discovery sku
-        """
-elif False:
-    StorageDiscoveryWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StorageDiscoveryWorkspacePropertiesArgsDict(TypedDict):
+    """
+    Storage Discovery Workspace Properties
+    """
+    scopes: pulumi.Input[Sequence[pulumi.Input['StorageDiscoveryScopeArgsDict']]]
+    """
+    The scopes of the storage discovery workspace.
+    """
+    workspace_roots: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The view level storage discovery data estate
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the storage discovery workspace
+    """
+    sku: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageDiscoverySku']]]
+    """
+    The storage discovery sku
+    """
 
 @pulumi.input_type
 class StorageDiscoveryWorkspacePropertiesArgs:

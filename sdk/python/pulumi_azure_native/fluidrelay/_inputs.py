@@ -28,23 +28,18 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgsDict(TypedDict):
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        identity_type: NotRequired[pulumi.Input['CmkIdentityType']]
-        """
-        Values can be SystemAssigned or UserAssigned
-        """
-        user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
-        """
-elif False:
-    CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgsDict(TypedDict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    identity_type: NotRequired[pulumi.Input['CmkIdentityType']]
+    """
+    Values can be SystemAssigned or UserAssigned
+    """
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
+    """
 
 @pulumi.input_type
 class CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs:
@@ -86,21 +81,18 @@ class CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs:
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
-if not MYPY:
-    class CustomerManagedKeyEncryptionPropertiesArgsDict(TypedDict):
-        """
-        All Customer-managed key encryption properties for the resource.
-        """
-        key_encryption_key_identity: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgsDict']]
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        key encryption key Url, with or without a version. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek. Key auto rotation is enabled by providing a key uri without version. Otherwise, customer is responsible for rotating the key. The keyEncryptionKeyIdentity(either SystemAssigned or UserAssigned) should have permission to access this key url.
-        """
-elif False:
-    CustomerManagedKeyEncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedKeyEncryptionPropertiesArgsDict(TypedDict):
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
+    key_encryption_key_identity: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgsDict']]
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    key encryption key Url, with or without a version. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek. Key auto rotation is enabled by providing a key uri without version. Otherwise, customer is responsible for rotating the key. The keyEncryptionKeyIdentity(either SystemAssigned or UserAssigned) should have permission to access this key url.
+    """
 
 @pulumi.input_type
 class CustomerManagedKeyEncryptionPropertiesArgs:
@@ -142,17 +134,14 @@ class CustomerManagedKeyEncryptionPropertiesArgs:
         pulumi.set(self, "key_encryption_key_url", value)
 
 
-if not MYPY:
-    class EncryptionPropertiesArgsDict(TypedDict):
-        """
-        All encryption configuration for a resource.
-        """
-        customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionPropertiesArgsDict']]
-        """
-        All Customer-managed key encryption properties for the resource.
-        """
-elif False:
-    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPropertiesArgsDict(TypedDict):
+    """
+    All encryption configuration for a resource.
+    """
+    customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionPropertiesArgsDict']]
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -178,21 +167,18 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "customer_managed_key_encryption", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -234,25 +220,22 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

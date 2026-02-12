@@ -46,31 +46,26 @@ __all__ = [
     'TimeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AgentUpdatePropertiesArgsDict(TypedDict):
-        """
-        The session host configuration for updating agent, monitoring agent, and stack component.
-        """
-        maintenance_window_time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
-        """
-        maintenance_windows: NotRequired[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgsDict']]]]
-        """
-        List of maintenance windows. Maintenance windows are 2 hours long.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostComponentUpdateType']]]
-        """
-        The type of maintenance for session host components.
-        """
-        use_session_host_local_time: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use localTime of the virtual machine.
-        """
-elif False:
-    AgentUpdatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgentUpdatePropertiesArgsDict(TypedDict):
+    """
+    The session host configuration for updating agent, monitoring agent, and stack component.
+    """
+    maintenance_window_time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+    """
+    maintenance_windows: NotRequired[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgsDict']]]]
+    """
+    List of maintenance windows. Maintenance windows are 2 hours long.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostComponentUpdateType']]]
+    """
+    The type of maintenance for session host components.
+    """
+    use_session_host_local_time: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use localTime of the virtual machine.
+    """
 
 @pulumi.input_type
 class AgentUpdatePropertiesArgs:
@@ -144,77 +139,74 @@ class AgentUpdatePropertiesArgs:
         pulumi.set(self, "use_session_host_local_time", value)
 
 
-if not MYPY:
-    class AppAttachPackageInfoPropertiesArgsDict(TypedDict):
-        """
-        Schema for Import Package Information properties.
-        """
-        certificate_expiry: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date certificate expires, found in the appxmanifest.xml. 
-        """
-        certificate_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate name found in the appxmanifest.xml. 
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User friendly Name to be displayed in the portal. 
-        """
-        image_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        VHD/CIM image path on Network Share.
-        """
-        is_active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Make this version of the package the active one across the hostpool. 
-        """
-        is_package_timestamped: NotRequired[pulumi.Input[Union[_builtins.str, 'PackageTimestamped']]]
-        """
-        Is package timestamped so it can ignore the certificate expiry date
-        """
-        is_regular_registration: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies how to register Package in feed.
-        """
-        last_updated: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date Package was last updated, found in the appxmanifest.xml. 
-        """
-        package_alias: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Alias of App Attach Package. Assigned at import time
-        """
-        package_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgsDict']]]]
-        """
-        List of package applications. 
-        """
-        package_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgsDict']]]]
-        """
-        List of package dependencies. 
-        """
-        package_family_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
-        """
-        package_full_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Package Full Name from appxmanifest.xml. 
-        """
-        package_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Package Name from appxmanifest.xml. 
-        """
-        package_relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Relative Path to the package inside the image. 
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Package version found in the appxmanifest.xml. 
-        """
-elif False:
-    AppAttachPackageInfoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AppAttachPackageInfoPropertiesArgsDict(TypedDict):
+    """
+    Schema for Import Package Information properties.
+    """
+    certificate_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date certificate expires, found in the appxmanifest.xml. 
+    """
+    certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Certificate name found in the appxmanifest.xml. 
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User friendly Name to be displayed in the portal. 
+    """
+    image_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    VHD/CIM image path on Network Share.
+    """
+    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Make this version of the package the active one across the hostpool. 
+    """
+    is_package_timestamped: NotRequired[pulumi.Input[Union[_builtins.str, 'PackageTimestamped']]]
+    """
+    Is package timestamped so it can ignore the certificate expiry date
+    """
+    is_regular_registration: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies how to register Package in feed.
+    """
+    last_updated: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date Package was last updated, found in the appxmanifest.xml. 
+    """
+    package_alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Alias of App Attach Package. Assigned at import time
+    """
+    package_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgsDict']]]]
+    """
+    List of package applications. 
+    """
+    package_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgsDict']]]]
+    """
+    List of package dependencies. 
+    """
+    package_family_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+    """
+    package_full_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Package Full Name from appxmanifest.xml. 
+    """
+    package_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Package Name from appxmanifest.xml. 
+    """
+    package_relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Relative Path to the package inside the image. 
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Package version found in the appxmanifest.xml. 
+    """
 
 @pulumi.input_type
 class AppAttachPackageInfoPropertiesArgs:
@@ -480,29 +472,26 @@ class AppAttachPackageInfoPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class AppAttachPackagePropertiesArgsDict(TypedDict):
-        """
-        Schema for App Attach Package properties.
-        """
-        fail_health_check_on_staging_failure: NotRequired[pulumi.Input[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]
-        """
-        Parameter indicating how the health check should behave if this package fails staging
-        """
-        host_pool_references: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Hostpool resource Ids.
-        """
-        image: NotRequired[pulumi.Input['AppAttachPackageInfoPropertiesArgsDict']]
-        """
-        Detailed properties for App Attach Package
-        """
-        key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL path to certificate name located in keyVault
-        """
-elif False:
-    AppAttachPackagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AppAttachPackagePropertiesArgsDict(TypedDict):
+    """
+    Schema for App Attach Package properties.
+    """
+    fail_health_check_on_staging_failure: NotRequired[pulumi.Input[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]
+    """
+    Parameter indicating how the health check should behave if this package fails staging
+    """
+    host_pool_references: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Hostpool resource Ids.
+    """
+    image: NotRequired[pulumi.Input['AppAttachPackageInfoPropertiesArgsDict']]
+    """
+    Detailed properties for App Attach Package
+    """
+    key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL path to certificate name located in keyVault
+    """
 
 @pulumi.input_type
 class AppAttachPackagePropertiesArgs:
@@ -576,21 +565,18 @@ class AppAttachPackagePropertiesArgs:
         pulumi.set(self, "key_vault_url", value)
 
 
-if not MYPY:
-    class MaintenanceWindowPropertiesArgsDict(TypedDict):
-        """
-        Maintenance window starting hour and day of week.
-        """
-        day_of_week: NotRequired[pulumi.Input['DayOfWeek']]
-        """
-        Day of the week.
-        """
-        hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The update start hour of the day. (0 - 23)
-        """
-elif False:
-    MaintenanceWindowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowPropertiesArgsDict(TypedDict):
+    """
+    Maintenance window starting hour and day of week.
+    """
+    day_of_week: NotRequired[pulumi.Input['DayOfWeek']]
+    """
+    Day of the week.
+    """
+    hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The update start hour of the day. (0 - 23)
+    """
 
 @pulumi.input_type
 class MaintenanceWindowPropertiesArgs:
@@ -632,41 +618,38 @@ class MaintenanceWindowPropertiesArgs:
         pulumi.set(self, "hour", value)
 
 
-if not MYPY:
-    class MsixPackageApplicationsArgsDict(TypedDict):
-        """
-        Schema for MSIX Package Application properties.
-        """
-        app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Package Application Id, found in appxmanifest.xml.
-        """
-        app_user_model_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of Package Application.
-        """
-        friendly_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User friendly name.
-        """
-        icon_image_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User friendly name.
-        """
-        raw_icon: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the icon a 64 bit string as a byte array.
-        """
-        raw_png: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the icon a 64 bit string as a byte array.
-        """
-elif False:
-    MsixPackageApplicationsArgsDict: TypeAlias = Mapping[str, Any]
+class MsixPackageApplicationsArgsDict(TypedDict):
+    """
+    Schema for MSIX Package Application properties.
+    """
+    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Package Application Id, found in appxmanifest.xml.
+    """
+    app_user_model_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of Package Application.
+    """
+    friendly_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User friendly name.
+    """
+    icon_image_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User friendly name.
+    """
+    raw_icon: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the icon a 64 bit string as a byte array.
+    """
+    raw_png: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the icon a 64 bit string as a byte array.
+    """
 
 @pulumi.input_type
 class MsixPackageApplicationsArgs:
@@ -788,25 +771,22 @@ class MsixPackageApplicationsArgs:
         pulumi.set(self, "raw_png", value)
 
 
-if not MYPY:
-    class MsixPackageDependenciesArgsDict(TypedDict):
-        """
-        Schema for MSIX Package Dependencies properties.
-        """
-        dependency_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of package dependency.
-        """
-        min_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dependency version required.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of dependency publisher.
-        """
-elif False:
-    MsixPackageDependenciesArgsDict: TypeAlias = Mapping[str, Any]
+class MsixPackageDependenciesArgsDict(TypedDict):
+    """
+    Schema for MSIX Package Dependencies properties.
+    """
+    dependency_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of package dependency.
+    """
+    min_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dependency version required.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of dependency publisher.
+    """
 
 @pulumi.input_type
 class MsixPackageDependenciesArgs:
@@ -864,25 +844,22 @@ class MsixPackageDependenciesArgs:
         pulumi.set(self, "publisher", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -940,25 +917,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RegistrationInfoArgsDict(TypedDict):
-        """
-        Represents a RegistrationInfo definition.
-        """
-        expiration_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Expiration time of registration token.
-        """
-        registration_token_operation: NotRequired[pulumi.Input[Union[_builtins.str, 'RegistrationTokenOperation']]]
-        """
-        The type of resetting the token.
-        """
-        token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The registration token base64 encoded string.
-        """
-elif False:
-    RegistrationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class RegistrationInfoArgsDict(TypedDict):
+    """
+    Represents a RegistrationInfo definition.
+    """
+    expiration_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expiration time of registration token.
+    """
+    registration_token_operation: NotRequired[pulumi.Input[Union[_builtins.str, 'RegistrationTokenOperation']]]
+    """
+    The type of resetting the token.
+    """
+    token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The registration token base64 encoded string.
+    """
 
 @pulumi.input_type
 class RegistrationInfoArgs:
@@ -1016,14 +990,11 @@ class RegistrationInfoArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ResourceModelWithAllowedPropertySetIdentityArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-elif False:
-    ResourceModelWithAllowedPropertySetIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceModelWithAllowedPropertySetIdentityArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class ResourceModelWithAllowedPropertySetIdentityArgs:
@@ -1048,30 +1019,27 @@ class ResourceModelWithAllowedPropertySetIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceModelWithAllowedPropertySetPlanArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A user defined name of the 3rd Party Artifact that is being procured.
-        """
-        product: pulumi.Input[_builtins.str]
-        """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
-        """
-        promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the desired product/artifact.
-        """
-elif False:
-    ResourceModelWithAllowedPropertySetPlanArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceModelWithAllowedPropertySetPlanArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A user defined name of the 3rd Party Artifact that is being procured.
+    """
+    product: pulumi.Input[_builtins.str]
+    """
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the desired product/artifact.
+    """
 
 @pulumi.input_type
 class ResourceModelWithAllowedPropertySetPlanArgs:
@@ -1157,30 +1125,27 @@ class ResourceModelWithAllowedPropertySetPlanArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ResourceModelWithAllowedPropertySetSkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. E.g. P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    ResourceModelWithAllowedPropertySetSkuArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceModelWithAllowedPropertySetSkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. E.g. P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class ResourceModelWithAllowedPropertySetSkuArgs:
@@ -1268,21 +1233,18 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class ScalingHostPoolReferenceArgsDict(TypedDict):
-        """
-        Scaling plan reference to hostpool.
-        """
-        host_pool_arm_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Arm path of referenced hostpool.
-        """
-        scaling_plan_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the scaling plan enabled for this hostpool.
-        """
-elif False:
-    ScalingHostPoolReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ScalingHostPoolReferenceArgsDict(TypedDict):
+    """
+    Scaling plan reference to hostpool.
+    """
+    host_pool_arm_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arm path of referenced hostpool.
+    """
+    scaling_plan_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the scaling plan enabled for this hostpool.
+    """
 
 @pulumi.input_type
 class ScalingHostPoolReferenceArgs:
@@ -1324,85 +1286,82 @@ class ScalingHostPoolReferenceArgs:
         pulumi.set(self, "scaling_plan_enabled", value)
 
 
-if not MYPY:
-    class ScalingScheduleArgsDict(TypedDict):
-        """
-        A ScalingPlanPooledSchedule.
-        """
-        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of days of the week on which this schedule is active.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the ScalingPlanPooledSchedule.
-        """
-        off_peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
-        """
-        Load balancing algorithm for off-peak period.
-        """
-        off_peak_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
-        """
-        Starting time for off-peak period.
-        """
-        peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
-        """
-        Load balancing algorithm for peak period.
-        """
-        peak_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
-        """
-        Starting time for peak period.
-        """
-        ramp_down_capacity_threshold_pct: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Capacity threshold for ramp down period.
-        """
-        ramp_down_force_logoff_users: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should users be logged off forcefully from hosts.
-        """
-        ramp_down_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
-        """
-        Load balancing algorithm for ramp down period.
-        """
-        ramp_down_minimum_hosts_pct: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum host percentage for ramp down period.
-        """
-        ramp_down_notification_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Notification message for users during ramp down period.
-        """
-        ramp_down_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
-        """
-        Starting time for ramp down period.
-        """
-        ramp_down_stop_hosts_when: NotRequired[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]]
-        """
-        Specifies when to stop hosts during ramp down period.
-        """
-        ramp_down_wait_time_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of minutes to wait to stop hosts during ramp down period.
-        """
-        ramp_up_capacity_threshold_pct: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Capacity threshold for ramp up period.
-        """
-        ramp_up_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
-        """
-        Load balancing algorithm for ramp up period.
-        """
-        ramp_up_minimum_hosts_pct: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum host percentage for ramp up period.
-        """
-        ramp_up_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
-        """
-        Starting time for ramp up period.
-        """
-elif False:
-    ScalingScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ScalingScheduleArgsDict(TypedDict):
+    """
+    A ScalingPlanPooledSchedule.
+    """
+    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of days of the week on which this schedule is active.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the ScalingPlanPooledSchedule.
+    """
+    off_peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    """
+    Load balancing algorithm for off-peak period.
+    """
+    off_peak_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    """
+    Starting time for off-peak period.
+    """
+    peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    """
+    Load balancing algorithm for peak period.
+    """
+    peak_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    """
+    Starting time for peak period.
+    """
+    ramp_down_capacity_threshold_pct: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Capacity threshold for ramp down period.
+    """
+    ramp_down_force_logoff_users: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should users be logged off forcefully from hosts.
+    """
+    ramp_down_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    """
+    Load balancing algorithm for ramp down period.
+    """
+    ramp_down_minimum_hosts_pct: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum host percentage for ramp down period.
+    """
+    ramp_down_notification_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Notification message for users during ramp down period.
+    """
+    ramp_down_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    """
+    Starting time for ramp down period.
+    """
+    ramp_down_stop_hosts_when: NotRequired[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]]
+    """
+    Specifies when to stop hosts during ramp down period.
+    """
+    ramp_down_wait_time_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of minutes to wait to stop hosts during ramp down period.
+    """
+    ramp_up_capacity_threshold_pct: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Capacity threshold for ramp up period.
+    """
+    ramp_up_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    """
+    Load balancing algorithm for ramp up period.
+    """
+    ramp_up_minimum_hosts_pct: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum host percentage for ramp up period.
+    """
+    ramp_up_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    """
+    Starting time for ramp up period.
+    """
 
 @pulumi.input_type
 class ScalingScheduleArgs:
@@ -1700,21 +1659,18 @@ class ScalingScheduleArgs:
         pulumi.set(self, "ramp_up_start_time", value)
 
 
-if not MYPY:
-    class TimeArgsDict(TypedDict):
-        """
-        The time for a scaling action to occur.
-        """
-        hour: pulumi.Input[_builtins.int]
-        """
-        The hour.
-        """
-        minute: pulumi.Input[_builtins.int]
-        """
-        The minute.
-        """
-elif False:
-    TimeArgsDict: TypeAlias = Mapping[str, Any]
+class TimeArgsDict(TypedDict):
+    """
+    The time for a scaling action to occur.
+    """
+    hour: pulumi.Input[_builtins.int]
+    """
+    The hour.
+    """
+    minute: pulumi.Input[_builtins.int]
+    """
+    The minute.
+    """
 
 @pulumi.input_type
 class TimeArgs:

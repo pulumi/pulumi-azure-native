@@ -70,23 +70,18 @@ __all__ = [
     'UserIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdminCredentialsArgsDict(TypedDict):
-        """
-        Credentials of administrator users for source and target servers.
-        """
-        source_server_password: pulumi.Input[_builtins.str]
-        """
-        Password for the user of the source server.
-        """
-        target_server_password: pulumi.Input[_builtins.str]
-        """
-        Password for the user of the target server.
-        """
-elif False:
-    AdminCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class AdminCredentialsArgsDict(TypedDict):
+    """
+    Credentials of administrator users for source and target servers.
+    """
+    source_server_password: pulumi.Input[_builtins.str]
+    """
+    Password for the user of the source server.
+    """
+    target_server_password: pulumi.Input[_builtins.str]
+    """
+    Password for the user of the target server.
+    """
 
 @pulumi.input_type
 class AdminCredentialsArgs:
@@ -126,25 +121,22 @@ class AdminCredentialsArgs:
         pulumi.set(self, "target_server_password", value)
 
 
-if not MYPY:
-    class AuthConfigArgsDict(TypedDict):
-        """
-        Authentication configuration properties of a server.
-        """
-        active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]
-        """
-        Indicates if the server supports Microsoft Entra authentication.
-        """
-        password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]
-        """
-        Indicates if the server supports password based authentication.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the tenant of the delegated resource.
-        """
-elif False:
-    AuthConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AuthConfigArgsDict(TypedDict):
+    """
+    Authentication configuration properties of a server.
+    """
+    active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]
+    """
+    Indicates if the server supports Microsoft Entra authentication.
+    """
+    password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]
+    """
+    Indicates if the server supports password based authentication.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the tenant of the delegated resource.
+    """
 
 @pulumi.input_type
 class AuthConfigArgs:
@@ -206,21 +198,18 @@ class AuthConfigArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class BackupArgsDict(TypedDict):
-        """
-        Backup properties of a server.
-        """
-        backup_retention_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Backup retention days for the server.
-        """
-        geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]
-        """
-        Indicates if the server is configured to create geographically redundant backups.
-        """
-elif False:
-    BackupArgsDict: TypeAlias = Mapping[str, Any]
+class BackupArgsDict(TypedDict):
+    """
+    Backup properties of a server.
+    """
+    backup_retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Backup retention days for the server.
+    """
+    geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]
+    """
+    Indicates if the server is configured to create geographically redundant backups.
+    """
 
 @pulumi.input_type
 class BackupArgs:
@@ -266,21 +255,18 @@ class BackupArgs:
         pulumi.set(self, "geo_redundant_backup", value)
 
 
-if not MYPY:
-    class ClusterArgsDict(TypedDict):
-        """
-        Cluster properties of a server.
-        """
-        cluster_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of nodes assigned to the elastic cluster.
-        """
-        default_database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default database name for the elastic cluster.
-        """
-elif False:
-    ClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterArgsDict(TypedDict):
+    """
+    Cluster properties of a server.
+    """
+    cluster_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of nodes assigned to the elastic cluster.
+    """
+    default_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default database name for the elastic cluster.
+    """
 
 @pulumi.input_type
 class ClusterArgs:
@@ -324,33 +310,30 @@ class ClusterArgs:
         pulumi.set(self, "default_database_name", value)
 
 
-if not MYPY:
-    class DataEncryptionArgsDict(TypedDict):
-        """
-        Data encryption properties of a server.
-        """
-        geo_backup_key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
-        """
-        geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
-        """
-        primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
-        """
-        primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]
-        """
-        Data encryption type used by a server.
-        """
-elif False:
-    DataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class DataEncryptionArgsDict(TypedDict):
+    """
+    Data encryption properties of a server.
+    """
+    geo_backup_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+    """
+    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+    """
+    primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
+    """
+    primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]
+    """
+    Data encryption type used by a server.
+    """
 
 @pulumi.input_type
 class DataEncryptionArgs:
@@ -440,21 +423,18 @@ class DataEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class HighAvailabilityArgsDict(TypedDict):
-        """
-        High availability properties of a server.
-        """
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]
-        """
-        High availability mode for a server.
-        """
-        standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
-        """
-elif False:
-    HighAvailabilityArgsDict: TypeAlias = Mapping[str, Any]
+class HighAvailabilityArgsDict(TypedDict):
+    """
+    High availability properties of a server.
+    """
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PostgreSqlFlexibleServerHighAvailabilityMode']]]
+    """
+    High availability mode for a server.
+    """
+    standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
+    """
 
 @pulumi.input_type
 class HighAvailabilityArgs:
@@ -500,18 +480,15 @@ class HighAvailabilityArgs:
         pulumi.set(self, "standby_availability_zone", value)
 
 
-if not MYPY:
-    class IdentityPropertiesArgsDict(TypedDict):
-        """
-        Describes the identity of the cluster.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPropertiesArgsDict(TypedDict):
+    """
+    Describes the identity of the cluster.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class IdentityPropertiesArgs:
@@ -549,29 +526,26 @@ class IdentityPropertiesArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class MaintenanceWindowArgsDict(TypedDict):
-        """
-        Maintenance window properties of a server.
-        """
-        custom_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether custom window is enabled or disabled.
-        """
-        day_of_week: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Day of the week to be used for maintenance window.
-        """
-        start_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Start hour to be used for maintenance window.
-        """
-        start_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Start minute to be used for maintenance window.
-        """
-elif False:
-    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowArgsDict(TypedDict):
+    """
+    Maintenance window properties of a server.
+    """
+    custom_window: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether custom window is enabled or disabled.
+    """
+    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Day of the week to be used for maintenance window.
+    """
+    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Start hour to be used for maintenance window.
+    """
+    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Start minute to be used for maintenance window.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -653,25 +627,22 @@ class MaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
-if not MYPY:
-    class MigrationSecretParametersArgsDict(TypedDict):
-        """
-        Migration secret parameters.
-        """
-        admin_credentials: pulumi.Input['AdminCredentialsArgsDict']
-        """
-        Credentials of administrator users for source and target servers.
-        """
-        source_server_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the user for the source server. This user doesn't need to be an administrator.
-        """
-        target_server_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the user for the target server. This user doesn't need to be an administrator.
-        """
-elif False:
-    MigrationSecretParametersArgsDict: TypeAlias = Mapping[str, Any]
+class MigrationSecretParametersArgsDict(TypedDict):
+    """
+    Migration secret parameters.
+    """
+    admin_credentials: pulumi.Input['AdminCredentialsArgsDict']
+    """
+    Credentials of administrator users for source and target servers.
+    """
+    source_server_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the user for the source server. This user doesn't need to be an administrator.
+    """
+    target_server_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the user for the target server. This user doesn't need to be an administrator.
+    """
 
 @pulumi.input_type
 class MigrationSecretParametersArgs:
@@ -728,25 +699,22 @@ class MigrationSecretParametersArgs:
         pulumi.set(self, "target_server_username", value)
 
 
-if not MYPY:
-    class NetworkArgsDict(TypedDict):
-        """
-        Network properties of a server.
-        """
-        delegated_subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
-        """
-        private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]
-        """
-        Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
-        """
-elif False:
-    NetworkArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkArgsDict(TypedDict):
+    """
+    Network properties of a server.
+    """
+    delegated_subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
+    """
+    private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]
+    """
+    Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
+    """
 
 @pulumi.input_type
 class NetworkArgs:
@@ -804,25 +772,22 @@ class NetworkArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -880,25 +845,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ReplicaArgsDict(TypedDict):
-        """
-        Replica properties of a server.
-        """
-        promote_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]]
-        """
-        Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
-        """
-        promote_option: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]
-        """
-        Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
-        """
-        role: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]
-        """
-        Role of the server in a replication set.
-        """
-elif False:
-    ReplicaArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicaArgsDict(TypedDict):
+    """
+    Replica properties of a server.
+    """
+    promote_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]]
+    """
+    Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
+    """
+    promote_option: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]
+    """
+    Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
+    """
+    role: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]
+    """
+    Role of the server in a replication set.
+    """
 
 @pulumi.input_type
 class ReplicaArgs:
@@ -956,17 +918,14 @@ class ReplicaArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        Azure Active Directory identity configuration for a resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerIdentityProperties']]]
-        """
-        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerIdentityProperties']]]
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -992,15 +951,12 @@ class ResourceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServerGroupClusterAuthConfigArgsDict(TypedDict):
-        """
-        Authentication configuration of a cluster.
-        """
-        active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuth']]]
-        password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordAuth']]]
-elif False:
-    ServerGroupClusterAuthConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ServerGroupClusterAuthConfigArgsDict(TypedDict):
+    """
+    Authentication configuration of a cluster.
+    """
+    active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuth']]]
+    password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordAuth']]]
 
 @pulumi.input_type
 class ServerGroupClusterAuthConfigArgs:
@@ -1034,22 +990,19 @@ class ServerGroupClusterAuthConfigArgs:
         pulumi.set(self, "password_auth", value)
 
 
-if not MYPY:
-    class ServerGroupClusterDataEncryptionArgsDict(TypedDict):
-        """
-        The data encryption properties of a cluster.
-        """
-        primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI for the key in keyvault for data encryption of the primary server.
-        """
-        primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id for the User assigned identity to be used for data encryption of the primary server.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]
-elif False:
-    ServerGroupClusterDataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class ServerGroupClusterDataEncryptionArgsDict(TypedDict):
+    """
+    The data encryption properties of a cluster.
+    """
+    primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI for the key in keyvault for data encryption of the primary server.
+    """
+    primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id for the User assigned identity to be used for data encryption of the primary server.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]
 
 @pulumi.input_type
 class ServerGroupClusterDataEncryptionArgs:
@@ -1103,29 +1056,26 @@ class ServerGroupClusterDataEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServerGroupClusterMaintenanceWindowArgsDict(TypedDict):
-        """
-        Schedule settings for regular cluster updates.
-        """
-        custom_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether custom maintenance window is enabled or not.
-        """
-        day_of_week: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Preferred day of the week for maintenance window.
-        """
-        start_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Start hour within preferred day of the week for maintenance window.
-        """
-        start_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Start minute within the start hour for maintenance window.
-        """
-elif False:
-    ServerGroupClusterMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class ServerGroupClusterMaintenanceWindowArgsDict(TypedDict):
+    """
+    Schedule settings for regular cluster updates.
+    """
+    custom_window: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether custom maintenance window is enabled or not.
+    """
+    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Preferred day of the week for maintenance window.
+    """
+    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Start hour within preferred day of the week for maintenance window.
+    """
+    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Start minute within the start hour for maintenance window.
+    """
 
 @pulumi.input_type
 class ServerGroupClusterMaintenanceWindowArgs:
@@ -1199,50 +1149,47 @@ class ServerGroupClusterMaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
-if not MYPY:
-    class ServerPropertiesForDefaultCreateArgsDict(TypedDict):
-        """
-        The properties used to create a new server.
-        """
-        administrator_login: pulumi.Input[_builtins.str]
-        """
-        The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-        """
-        administrator_login_password: pulumi.Input[_builtins.str]
-        """
-        The password of the administrator login.
-        """
-        create_mode: pulumi.Input[_builtins.str]
-        """
-        The mode to create a new server.
-        Expected value is 'Default'.
-        """
-        infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
-        """
-        Status showing whether the server enabled infrastructure encryption.
-        """
-        minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
-        """
-        Enforce a minimal Tls version for the server.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
-        """
-        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
-        """
-        Enable ssl enforcement or not when connect to server.
-        """
-        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-        """
-        Storage profile of a server.
-        """
-        version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
-        """
-        Server version.
-        """
-elif False:
-    ServerPropertiesForDefaultCreateArgsDict: TypeAlias = Mapping[str, Any]
+class ServerPropertiesForDefaultCreateArgsDict(TypedDict):
+    """
+    The properties used to create a new server.
+    """
+    administrator_login: pulumi.Input[_builtins.str]
+    """
+    The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+    """
+    administrator_login_password: pulumi.Input[_builtins.str]
+    """
+    The password of the administrator login.
+    """
+    create_mode: pulumi.Input[_builtins.str]
+    """
+    The mode to create a new server.
+    Expected value is 'Default'.
+    """
+    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    """
+    Storage profile of a server.
+    """
+    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    """
+    Server version.
+    """
 
 @pulumi.input_type
 class ServerPropertiesForDefaultCreateArgs:
@@ -1395,46 +1342,43 @@ class ServerPropertiesForDefaultCreateArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ServerPropertiesForGeoRestoreArgsDict(TypedDict):
-        """
-        The properties used to create a new server by restoring to a different region from a geo replicated backup.
-        """
-        create_mode: pulumi.Input[_builtins.str]
-        """
-        The mode to create a new server.
-        Expected value is 'GeoRestore'.
-        """
-        source_server_id: pulumi.Input[_builtins.str]
-        """
-        The source server id to restore from.
-        """
-        infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
-        """
-        Status showing whether the server enabled infrastructure encryption.
-        """
-        minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
-        """
-        Enforce a minimal Tls version for the server.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
-        """
-        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
-        """
-        Enable ssl enforcement or not when connect to server.
-        """
-        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-        """
-        Storage profile of a server.
-        """
-        version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
-        """
-        Server version.
-        """
-elif False:
-    ServerPropertiesForGeoRestoreArgsDict: TypeAlias = Mapping[str, Any]
+class ServerPropertiesForGeoRestoreArgsDict(TypedDict):
+    """
+    The properties used to create a new server by restoring to a different region from a geo replicated backup.
+    """
+    create_mode: pulumi.Input[_builtins.str]
+    """
+    The mode to create a new server.
+    Expected value is 'GeoRestore'.
+    """
+    source_server_id: pulumi.Input[_builtins.str]
+    """
+    The source server id to restore from.
+    """
+    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    """
+    Storage profile of a server.
+    """
+    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    """
+    Server version.
+    """
 
 @pulumi.input_type
 class ServerPropertiesForGeoRestoreArgs:
@@ -1572,46 +1516,43 @@ class ServerPropertiesForGeoRestoreArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ServerPropertiesForReplicaArgsDict(TypedDict):
-        """
-        The properties to create a new replica.
-        """
-        create_mode: pulumi.Input[_builtins.str]
-        """
-        The mode to create a new server.
-        Expected value is 'Replica'.
-        """
-        source_server_id: pulumi.Input[_builtins.str]
-        """
-        The master server id to create replica from.
-        """
-        infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
-        """
-        Status showing whether the server enabled infrastructure encryption.
-        """
-        minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
-        """
-        Enforce a minimal Tls version for the server.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
-        """
-        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
-        """
-        Enable ssl enforcement or not when connect to server.
-        """
-        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-        """
-        Storage profile of a server.
-        """
-        version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
-        """
-        Server version.
-        """
-elif False:
-    ServerPropertiesForReplicaArgsDict: TypeAlias = Mapping[str, Any]
+class ServerPropertiesForReplicaArgsDict(TypedDict):
+    """
+    The properties to create a new replica.
+    """
+    create_mode: pulumi.Input[_builtins.str]
+    """
+    The mode to create a new server.
+    Expected value is 'Replica'.
+    """
+    source_server_id: pulumi.Input[_builtins.str]
+    """
+    The master server id to create replica from.
+    """
+    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    """
+    Storage profile of a server.
+    """
+    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    """
+    Server version.
+    """
 
 @pulumi.input_type
 class ServerPropertiesForReplicaArgs:
@@ -1749,50 +1690,47 @@ class ServerPropertiesForReplicaArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ServerPropertiesForRestoreArgsDict(TypedDict):
-        """
-        The properties used to create a new server by restoring from a backup.
-        """
-        create_mode: pulumi.Input[_builtins.str]
-        """
-        The mode to create a new server.
-        Expected value is 'PointInTimeRestore'.
-        """
-        restore_point_in_time: pulumi.Input[_builtins.str]
-        """
-        Restore point creation time (ISO8601 format), specifying the time to restore from.
-        """
-        source_server_id: pulumi.Input[_builtins.str]
-        """
-        The source server id to restore from.
-        """
-        infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
-        """
-        Status showing whether the server enabled infrastructure encryption.
-        """
-        minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
-        """
-        Enforce a minimal Tls version for the server.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
-        """
-        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
-        """
-        Enable ssl enforcement or not when connect to server.
-        """
-        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-        """
-        Storage profile of a server.
-        """
-        version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
-        """
-        Server version.
-        """
-elif False:
-    ServerPropertiesForRestoreArgsDict: TypeAlias = Mapping[str, Any]
+class ServerPropertiesForRestoreArgsDict(TypedDict):
+    """
+    The properties used to create a new server by restoring from a backup.
+    """
+    create_mode: pulumi.Input[_builtins.str]
+    """
+    The mode to create a new server.
+    Expected value is 'PointInTimeRestore'.
+    """
+    restore_point_in_time: pulumi.Input[_builtins.str]
+    """
+    Restore point creation time (ISO8601 format), specifying the time to restore from.
+    """
+    source_server_id: pulumi.Input[_builtins.str]
+    """
+    The source server id to restore from.
+    """
+    infrastructure_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'InfrastructureEncryption']]]
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    minimal_tls_version: NotRequired[pulumi.Input[Union[_builtins.str, 'MinimalTlsVersionEnum']]]
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessEnum']]]
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ssl_enforcement: NotRequired[pulumi.Input['SslEnforcementEnum']]
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    """
+    Storage profile of a server.
+    """
+    version: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerVersion']]]
+    """
+    Server version.
+    """
 
 @pulumi.input_type
 class ServerPropertiesForRestoreArgs:
@@ -1945,33 +1883,30 @@ class ServerPropertiesForRestoreArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SingleServerSkuArgsDict(TypedDict):
-        """
-        Billing information related properties of a server.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The scale up/out capacity, representing server's compute units.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The family of hardware.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The size code, to be interpreted by resource as appropriate.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerSkuTier']]]
-        """
-        The tier of the particular SKU, e.g. Basic.
-        """
-elif False:
-    SingleServerSkuArgsDict: TypeAlias = Mapping[str, Any]
+class SingleServerSkuArgsDict(TypedDict):
+    """
+    Billing information related properties of a server.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The scale up/out capacity, representing server's compute units.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The family of hardware.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The size code, to be interpreted by resource as appropriate.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleServerSkuTier']]]
+    """
+    The tier of the particular SKU, e.g. Basic.
+    """
 
 @pulumi.input_type
 class SingleServerSkuArgs:
@@ -2060,21 +1995,18 @@ class SingleServerSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Compute information of a server.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name by which is known a given compute size assigned to a server.
-        """
-        tier: pulumi.Input[Union[_builtins.str, 'SkuTier']]
-        """
-        Tier of the compute assigned to a server.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Compute information of a server.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name by which is known a given compute size assigned to a server.
+    """
+    tier: pulumi.Input[Union[_builtins.str, 'SkuTier']]
+    """
+    Tier of the compute assigned to a server.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -2114,29 +2046,26 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        Storage Profile properties of a server
-        """
-        backup_retention_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Backup retention days for the server.
-        """
-        geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']]]
-        """
-        Enable Geo-redundant or not for server backup.
-        """
-        storage_autogrow: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAutogrow']]]
-        """
-        Enable Storage Auto Grow.
-        """
-        storage_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Max storage allowed for a server.
-        """
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    Storage Profile properties of a server
+    """
+    backup_retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Backup retention days for the server.
+    """
+    geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackup']]]
+    """
+    Enable Geo-redundant or not for server backup.
+    """
+    storage_autogrow: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAutogrow']]]
+    """
+    Enable Storage Auto Grow.
+    """
+    storage_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Max storage allowed for a server.
+    """
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -2210,37 +2139,34 @@ class StorageProfileArgs:
         pulumi.set(self, "storage_mb", value)
 
 
-if not MYPY:
-    class StorageArgsDict(TypedDict):
-        """
-        Storage properties of a server.
-        """
-        auto_grow: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]]
-        """
-        Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
-        """
-        storage_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of storage assigned to a server.
-        """
-        throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]
-        """
-        Storage tier of a server.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
-        """
-        Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
-        """
-elif False:
-    StorageArgsDict: TypeAlias = Mapping[str, Any]
+class StorageArgsDict(TypedDict):
+    """
+    Storage properties of a server.
+    """
+    auto_grow: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]]
+    """
+    Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
+    """
+    storage_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of storage assigned to a server.
+    """
+    throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]
+    """
+    Storage tier of a server.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
+    """
+    Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
+    """
 
 @pulumi.input_type
 class StorageArgs:
@@ -2346,25 +2272,22 @@ class StorageArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class UserAssignedIdentityArgsDict(TypedDict):
-        """
-        Identities associated with a server.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
-        """
-        Types of identities associated with a server.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the object of the service principal associated to the user assigned managed identity.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]
-        """
-        Map of user assigned managed identities.
-        """
-elif False:
-    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedIdentityArgsDict(TypedDict):
+    """
+    Identities associated with a server.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
+    """
+    Types of identities associated with a server.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the object of the service principal associated to the user assigned managed identity.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]
+    """
+    Map of user assigned managed identities.
+    """
 
 @pulumi.input_type
 class UserAssignedIdentityArgs:
@@ -2421,21 +2344,18 @@ class UserAssignedIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class UserIdentityArgsDict(TypedDict):
-        """
-        User assigned managed identity associated with a server.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the client of the service principal associated to the user assigned managed identity.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the object of the service principal associated to the user assigned managed identity.
-        """
-elif False:
-    UserIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class UserIdentityArgsDict(TypedDict):
+    """
+    User assigned managed identity associated with a server.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the client of the service principal associated to the user assigned managed identity.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the object of the service principal associated to the user assigned managed identity.
+    """
 
 @pulumi.input_type
 class UserIdentityArgs:

@@ -168,23 +168,18 @@ __all__ = [
     'VolumeClaimSpecArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AuthorizationBasicRuleArgsDict(TypedDict):
-        """
-        BasicRules of AuthorizationConfig Polar rules are not supported
-        """
-        broker_resources: pulumi.Input[Sequence[pulumi.Input['ResourceInfoDefinitionArgsDict']]]
-        """
-        This subfield defines the broker resources that the Basic Rule is applied on.
-        """
-        principals: pulumi.Input['PrincipalDefinitionArgsDict']
-        """
-        This subfield defines the identities that represent the clients.
-        """
-elif False:
-    AuthorizationBasicRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizationBasicRuleArgsDict(TypedDict):
+    """
+    BasicRules of AuthorizationConfig Polar rules are not supported
+    """
+    broker_resources: pulumi.Input[Sequence[pulumi.Input['ResourceInfoDefinitionArgsDict']]]
+    """
+    This subfield defines the broker resources that the Basic Rule is applied on.
+    """
+    principals: pulumi.Input['PrincipalDefinitionArgsDict']
+    """
+    This subfield defines the identities that represent the clients.
+    """
 
 @pulumi.input_type
 class AuthorizationBasicRuleArgs:
@@ -224,21 +219,18 @@ class AuthorizationBasicRuleArgs:
         pulumi.set(self, "principals", value)
 
 
-if not MYPY:
-    class AuthorizationConfigArgsDict(TypedDict):
-        """
-        Broker AuthorizationConfig properties
-        """
-        enable_cache: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable caching of the authorization rules.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AuthorizationBasicRuleArgsDict']]]]
-        """
-        Authorization Rules to be used. If no rule is set, but Authorization Resource is used that would mean DenyAll.
-        """
-elif False:
-    AuthorizationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizationConfigArgsDict(TypedDict):
+    """
+    Broker AuthorizationConfig properties
+    """
+    enable_cache: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable caching of the authorization rules.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AuthorizationBasicRuleArgsDict']]]]
+    """
+    Authorization Rules to be used. If no rule is set, but Authorization Resource is used that would mean DenyAll.
+    """
 
 @pulumi.input_type
 class AuthorizationConfigArgs:
@@ -282,41 +274,38 @@ class AuthorizationConfigArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class AutomaticCertMethodArgsDict(TypedDict):
-        """
-        Automatic TLS server certificate management with cert-manager
-        """
-        issuer_ref: pulumi.Input['CertManagerIssuerRefArgsDict']
-        """
-        cert-manager issuerRef.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Lifetime of automatically-managed certificate.
-        """
-        private_key: NotRequired[pulumi.Input['CertManagerPrivateKeyArgsDict']]
-        """
-        Cert Manager private key.
-        """
-        renew_before: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When to begin renewing automatically-managed certificate.
-        """
-        san: NotRequired[pulumi.Input['SanForCertArgsDict']]
-        """
-        Additional SANs to include in the certificate.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret for storing server certificate. Any existing data will be overwritten.
-        """
-        secret_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate K8S namespace. Omit to use default namespace.
-        """
-elif False:
-    AutomaticCertMethodArgsDict: TypeAlias = Mapping[str, Any]
+class AutomaticCertMethodArgsDict(TypedDict):
+    """
+    Automatic TLS server certificate management with cert-manager
+    """
+    issuer_ref: pulumi.Input['CertManagerIssuerRefArgsDict']
+    """
+    cert-manager issuerRef.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Lifetime of automatically-managed certificate.
+    """
+    private_key: NotRequired[pulumi.Input['CertManagerPrivateKeyArgsDict']]
+    """
+    Cert Manager private key.
+    """
+    renew_before: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When to begin renewing automatically-managed certificate.
+    """
+    san: NotRequired[pulumi.Input['SanForCertArgsDict']]
+    """
+    Additional SANs to include in the certificate.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret for storing server certificate. Any existing data will be overwritten.
+    """
+    secret_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Certificate K8S namespace. Omit to use default namespace.
+    """
 
 @pulumi.input_type
 class AutomaticCertMethodArgs:
@@ -441,45 +430,42 @@ class AutomaticCertMethodArgs:
         pulumi.set(self, "secret_namespace", value)
 
 
-if not MYPY:
-    class BackendChainArgsDict(TypedDict):
-        """
-        Desired properties of the Frontend Instances of the DMQTT Broker
-        """
-        partitions: pulumi.Input[_builtins.int]
-        """
-        Partitions is desired number of physical backend chains of the given distributed MQTT broker.
-        """
-        redundancy_factor: pulumi.Input[_builtins.int]
-        """
-        Redundancy Factor is desired numbers of broker instances in one chain.
-        """
-        temporary_disk_transfer_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Defines whether disk transfer is enabled or not.
-        """
-        temporary_disk_transfer_high_watermark_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the percentage usage of buffer pool above which disk transfer will start.
-        """
-        temporary_disk_transfer_low_watermark_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the percentage usage of buffer pool below which disk transfer will stop.
-        """
-        temporary_max_backend_mem_usage_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the limits for memory usage percent of the backend instances of the MQTT broker.
-        """
-        temporary_resource_limits: NotRequired[pulumi.Input['TemporaryResourceLimitsConfigArgsDict']]
-        """
-        Defines the limits for resources of the backend instances of the MQTT broker.
-        """
-        workers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of logical backend workers per pod.
-        """
-elif False:
-    BackendChainArgsDict: TypeAlias = Mapping[str, Any]
+class BackendChainArgsDict(TypedDict):
+    """
+    Desired properties of the Frontend Instances of the DMQTT Broker
+    """
+    partitions: pulumi.Input[_builtins.int]
+    """
+    Partitions is desired number of physical backend chains of the given distributed MQTT broker.
+    """
+    redundancy_factor: pulumi.Input[_builtins.int]
+    """
+    Redundancy Factor is desired numbers of broker instances in one chain.
+    """
+    temporary_disk_transfer_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Defines whether disk transfer is enabled or not.
+    """
+    temporary_disk_transfer_high_watermark_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the percentage usage of buffer pool above which disk transfer will start.
+    """
+    temporary_disk_transfer_low_watermark_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the percentage usage of buffer pool below which disk transfer will stop.
+    """
+    temporary_max_backend_mem_usage_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the limits for memory usage percent of the backend instances of the MQTT broker.
+    """
+    temporary_resource_limits: NotRequired[pulumi.Input['TemporaryResourceLimitsConfigArgsDict']]
+    """
+    Defines the limits for resources of the backend instances of the MQTT broker.
+    """
+    workers: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of logical backend workers per pod.
+    """
 
 @pulumi.input_type
 class BackendChainArgs:
@@ -617,21 +603,18 @@ class BackendChainArgs:
         pulumi.set(self, "workers", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorCustomAuthX509ArgsDict(TypedDict):
-        """
-        X509 Custom Authentication properties. NOTE - Enum only authenticator type supported at a time.
-        """
-        key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
-        """
-        Keyvault X509 secret properties.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret where cert details are stored.
-        """
-elif False:
-    BrokerAuthenticatorCustomAuthX509ArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorCustomAuthX509ArgsDict(TypedDict):
+    """
+    X509 Custom Authentication properties. NOTE - Enum only authenticator type supported at a time.
+    """
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
+    """
+    Keyvault X509 secret properties.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret where cert details are stored.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorCustomAuthX509Args:
@@ -673,17 +656,14 @@ class BrokerAuthenticatorCustomAuthX509Args:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorCustomAuthArgsDict(TypedDict):
-        """
-        Custom Authentication properties
-        """
-        x509: pulumi.Input['BrokerAuthenticatorCustomAuthX509ArgsDict']
-        """
-        X509 Custom Auth type details.
-        """
-elif False:
-    BrokerAuthenticatorCustomAuthArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorCustomAuthArgsDict(TypedDict):
+    """
+    Custom Authentication properties
+    """
+    x509: pulumi.Input['BrokerAuthenticatorCustomAuthX509ArgsDict']
+    """
+    X509 Custom Auth type details.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorCustomAuthArgs:
@@ -708,29 +688,26 @@ class BrokerAuthenticatorCustomAuthArgs:
         pulumi.set(self, "x509", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorMethodCustomArgsDict(TypedDict):
-        """
-        Custom method for BrokerAuthentication
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        Endpoint to connect to.
-        """
-        auth: NotRequired[pulumi.Input['BrokerAuthenticatorCustomAuthArgsDict']]
-        """
-        Custom Broker Authentication Method.
-        """
-        ca_cert_config_map: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CA cert config map to use.
-        """
-        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Configuration Headers to use.
-        """
-elif False:
-    BrokerAuthenticatorMethodCustomArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorMethodCustomArgsDict(TypedDict):
+    """
+    Custom method for BrokerAuthentication
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    Endpoint to connect to.
+    """
+    auth: NotRequired[pulumi.Input['BrokerAuthenticatorCustomAuthArgsDict']]
+    """
+    Custom Broker Authentication Method.
+    """
+    ca_cert_config_map: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CA cert config map to use.
+    """
+    headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Configuration Headers to use.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorMethodCustomArgs:
@@ -803,17 +780,14 @@ class BrokerAuthenticatorMethodCustomArgs:
         pulumi.set(self, "headers", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorMethodSatArgsDict(TypedDict):
-        """
-        Service Account Token for BrokerAuthentication
-        """
-        audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of allowed audience.
-        """
-elif False:
-    BrokerAuthenticatorMethodSatArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorMethodSatArgsDict(TypedDict):
+    """
+    Service Account Token for BrokerAuthentication
+    """
+    audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of allowed audience.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorMethodSatArgs:
@@ -838,25 +812,22 @@ class BrokerAuthenticatorMethodSatArgs:
         pulumi.set(self, "audiences", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorMethodSvidArgsDict(TypedDict):
-        """
-        SVID for BrokerAuthentication
-        """
-        agent_socket_path: pulumi.Input[_builtins.str]
-        """
-        Mounted socket path for spiffe agent.
-        """
-        identity_max_retry: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum number of re-tries to fetch identity.
-        """
-        identity_wait_retry_ms: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum time to wait before fetching identity again.
-        """
-elif False:
-    BrokerAuthenticatorMethodSvidArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorMethodSvidArgsDict(TypedDict):
+    """
+    SVID for BrokerAuthentication
+    """
+    agent_socket_path: pulumi.Input[_builtins.str]
+    """
+    Mounted socket path for spiffe agent.
+    """
+    identity_max_retry: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum number of re-tries to fetch identity.
+    """
+    identity_wait_retry_ms: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum time to wait before fetching identity again.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorMethodSvidArgs:
@@ -917,21 +888,18 @@ class BrokerAuthenticatorMethodSvidArgs:
         pulumi.set(self, "identity_wait_retry_ms", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorMethodUsernamePasswordArgsDict(TypedDict):
-        """
-        UsernamePassword for BrokerAuthentication
-        """
-        key_vault: NotRequired[pulumi.Input['KeyVaultSecretPropertiesArgsDict']]
-        """
-        Keyvault username password secret properties.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret where username and password are stored.
-        """
-elif False:
-    BrokerAuthenticatorMethodUsernamePasswordArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorMethodUsernamePasswordArgsDict(TypedDict):
+    """
+    UsernamePassword for BrokerAuthentication
+    """
+    key_vault: NotRequired[pulumi.Input['KeyVaultSecretPropertiesArgsDict']]
+    """
+    Keyvault username password secret properties.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret where username and password are stored.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorMethodUsernamePasswordArgs:
@@ -973,21 +941,18 @@ class BrokerAuthenticatorMethodUsernamePasswordArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorMethodX509AttributesArgsDict(TypedDict):
-        """
-        BrokerAuthenticatorMethodX509Attributes properties. NOTE - Enum only type supported at a time.
-        """
-        key_vault: NotRequired[pulumi.Input['KeyVaultSecretPropertiesArgsDict']]
-        """
-        Keyvault x509 attributes secret properties.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret where x509 attributes are stored.
-        """
-elif False:
-    BrokerAuthenticatorMethodX509AttributesArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorMethodX509AttributesArgsDict(TypedDict):
+    """
+    BrokerAuthenticatorMethodX509Attributes properties. NOTE - Enum only type supported at a time.
+    """
+    key_vault: NotRequired[pulumi.Input['KeyVaultSecretPropertiesArgsDict']]
+    """
+    Keyvault x509 attributes secret properties.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret where x509 attributes are stored.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorMethodX509AttributesArgs:
@@ -1029,21 +994,18 @@ class BrokerAuthenticatorMethodX509AttributesArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorMethodX509ArgsDict(TypedDict):
-        """
-        X509 for BrokerAuthentication.
-        """
-        attributes: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509AttributesArgsDict']]
-        """
-        K8S Secret name to mount for username and password.
-        """
-        trusted_client_ca_cert_config_map: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trusted client ca cert config map.
-        """
-elif False:
-    BrokerAuthenticatorMethodX509ArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorMethodX509ArgsDict(TypedDict):
+    """
+    X509 for BrokerAuthentication.
+    """
+    attributes: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509AttributesArgsDict']]
+    """
+    K8S Secret name to mount for username and password.
+    """
+    trusted_client_ca_cert_config_map: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trusted client ca cert config map.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorMethodX509Args:
@@ -1087,33 +1049,30 @@ class BrokerAuthenticatorMethodX509Args:
         pulumi.set(self, "trusted_client_ca_cert_config_map", value)
 
 
-if not MYPY:
-    class BrokerAuthenticatorMethodsArgsDict(TypedDict):
-        """
-        Collection of different CrdAuthenticator methods of Broker Resource. NOTE Enum - Only one method is supported for each entry.
-        """
-        custom: NotRequired[pulumi.Input['BrokerAuthenticatorMethodCustomArgsDict']]
-        """
-        Custom Authentication Method.
-        """
-        sat: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSatArgsDict']]
-        """
-        Service Account Token Method.
-        """
-        svid: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSvidArgsDict']]
-        """
-        Service Account Token Method.
-        """
-        username_password: NotRequired[pulumi.Input['BrokerAuthenticatorMethodUsernamePasswordArgsDict']]
-        """
-        UsernamePassword Method.
-        """
-        x509: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509ArgsDict']]
-        """
-        X509 Method.
-        """
-elif False:
-    BrokerAuthenticatorMethodsArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerAuthenticatorMethodsArgsDict(TypedDict):
+    """
+    Collection of different CrdAuthenticator methods of Broker Resource. NOTE Enum - Only one method is supported for each entry.
+    """
+    custom: NotRequired[pulumi.Input['BrokerAuthenticatorMethodCustomArgsDict']]
+    """
+    Custom Authentication Method.
+    """
+    sat: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSatArgsDict']]
+    """
+    Service Account Token Method.
+    """
+    svid: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSvidArgsDict']]
+    """
+    Service Account Token Method.
+    """
+    username_password: NotRequired[pulumi.Input['BrokerAuthenticatorMethodUsernamePasswordArgsDict']]
+    """
+    UsernamePassword Method.
+    """
+    x509: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509ArgsDict']]
+    """
+    X509 Method.
+    """
 
 @pulumi.input_type
 class BrokerAuthenticatorMethodsArgs:
@@ -1203,69 +1162,66 @@ class BrokerAuthenticatorMethodsArgs:
         pulumi.set(self, "x509", value)
 
 
-if not MYPY:
-    class BrokerDiagnosticsArgsDict(TypedDict):
-        """
-        Diagnostics setting specific to Broker
-        """
-        diagnostic_service_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Diagnostic Service endpoint
-        """
-        enable_metrics: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Knob to enable/disable metrics. Default = true
-        """
-        enable_self_check: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable self check on Broker via Probe.
-        """
-        enable_self_tracing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable self tracing on the Broker so that every selfCheckFrequencySeconds a random message is traced even if it didn't have trace context.
-        """
-        enable_tracing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Knob to enable/disable entire tracing infrastructure.
-        """
-        log_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Format for the logs generated.
-        """
-        log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Log level for the Broker.
-        """
-        max_cell_map_lifetime: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum time for the CellMap to live.
-        """
-        metric_update_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Metric update frequency in seconds.
-        """
-        probe_image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Probe Image to run.
-        """
-        self_check_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Frequency for the self check to run.
-        """
-        self_check_timeout_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Time out period of the self check.
-        """
-        self_trace_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The frequency at which selfTrace should run.
-        """
-        span_channel_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of the spans generated by the Tracing.
-        """
-elif False:
-    BrokerDiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerDiagnosticsArgsDict(TypedDict):
+    """
+    Diagnostics setting specific to Broker
+    """
+    diagnostic_service_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Diagnostic Service endpoint
+    """
+    enable_metrics: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Knob to enable/disable metrics. Default = true
+    """
+    enable_self_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable self check on Broker via Probe.
+    """
+    enable_self_tracing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable self tracing on the Broker so that every selfCheckFrequencySeconds a random message is traced even if it didn't have trace context.
+    """
+    enable_tracing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Knob to enable/disable entire tracing infrastructure.
+    """
+    log_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Format for the logs generated.
+    """
+    log_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Log level for the Broker.
+    """
+    max_cell_map_lifetime: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum time for the CellMap to live.
+    """
+    metric_update_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Metric update frequency in seconds.
+    """
+    probe_image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Probe Image to run.
+    """
+    self_check_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Frequency for the self check to run.
+    """
+    self_check_timeout_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Time out period of the self check.
+    """
+    self_trace_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The frequency at which selfTrace should run.
+    """
+    span_channel_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of the spans generated by the Tracing.
+    """
 
 @pulumi.input_type
 class BrokerDiagnosticsArgs:
@@ -1525,21 +1481,18 @@ class BrokerDiagnosticsArgs:
         pulumi.set(self, "span_channel_capacity", value)
 
 
-if not MYPY:
-    class CardinalityArgsDict(TypedDict):
-        """
-        Cardinality properties
-        """
-        backend_chain: pulumi.Input['BackendChainArgsDict']
-        """
-        The backend broker desired properties
-        """
-        frontend: pulumi.Input['FrontendArgsDict']
-        """
-        The frontend broker desired properties
-        """
-elif False:
-    CardinalityArgsDict: TypeAlias = Mapping[str, Any]
+class CardinalityArgsDict(TypedDict):
+    """
+    Cardinality properties
+    """
+    backend_chain: pulumi.Input['BackendChainArgsDict']
+    """
+    The backend broker desired properties
+    """
+    frontend: pulumi.Input['FrontendArgsDict']
+    """
+    The frontend broker desired properties
+    """
 
 @pulumi.input_type
 class CardinalityArgs:
@@ -1579,25 +1532,22 @@ class CardinalityArgs:
         pulumi.set(self, "frontend", value)
 
 
-if not MYPY:
-    class CertManagerCertOptionsArgsDict(TypedDict):
-        """
-        Cert Manager CA Cert properties
-        """
-        duration: pulumi.Input[_builtins.str]
-        """
-        Duration of CA cert.
-        """
-        private_key: pulumi.Input['CertManagerPrivateKeyArgsDict']
-        """
-        Cert Manager private key.
-        """
-        renew_before: pulumi.Input[_builtins.str]
-        """
-        Renew before time of CA cert.
-        """
-elif False:
-    CertManagerCertOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerCertOptionsArgsDict(TypedDict):
+    """
+    Cert Manager CA Cert properties
+    """
+    duration: pulumi.Input[_builtins.str]
+    """
+    Duration of CA cert.
+    """
+    private_key: pulumi.Input['CertManagerPrivateKeyArgsDict']
+    """
+    Cert Manager private key.
+    """
+    renew_before: pulumi.Input[_builtins.str]
+    """
+    Renew before time of CA cert.
+    """
 
 @pulumi.input_type
 class CertManagerCertOptionsArgs:
@@ -1656,25 +1606,22 @@ class CertManagerCertOptionsArgs:
         pulumi.set(self, "renew_before", value)
 
 
-if not MYPY:
-    class CertManagerIssuerRefArgsDict(TypedDict):
-        """
-        Cert-Manager issuerRef properties
-        """
-        group: pulumi.Input[_builtins.str]
-        """
-        group of issuer.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        kind of issuer (Issuer or ClusterIssuer).
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        name of issuer.
-        """
-elif False:
-    CertManagerIssuerRefArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerIssuerRefArgsDict(TypedDict):
+    """
+    Cert-Manager issuerRef properties
+    """
+    group: pulumi.Input[_builtins.str]
+    """
+    group of issuer.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    kind of issuer (Issuer or ClusterIssuer).
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    name of issuer.
+    """
 
 @pulumi.input_type
 class CertManagerIssuerRefArgs:
@@ -1731,25 +1678,22 @@ class CertManagerIssuerRefArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CertManagerPrivateKeyArgsDict(TypedDict):
-        """
-        Cert Manager private key properties
-        """
-        algorithm: pulumi.Input[_builtins.str]
-        """
-        algorithm for private key.
-        """
-        rotation_policy: pulumi.Input[_builtins.str]
-        """
-        cert-manager rotationPolicy.
-        """
-        size: pulumi.Input[_builtins.int]
-        """
-        size of private key.
-        """
-elif False:
-    CertManagerPrivateKeyArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerPrivateKeyArgsDict(TypedDict):
+    """
+    Cert Manager private key properties
+    """
+    algorithm: pulumi.Input[_builtins.str]
+    """
+    algorithm for private key.
+    """
+    rotation_policy: pulumi.Input[_builtins.str]
+    """
+    cert-manager rotationPolicy.
+    """
+    size: pulumi.Input[_builtins.int]
+    """
+    size of private key.
+    """
 
 @pulumi.input_type
 class CertManagerPrivateKeyArgs:
@@ -1810,29 +1754,26 @@ class CertManagerPrivateKeyArgs:
         pulumi.set(self, "size", value)
 
 
-if not MYPY:
-    class ContainerImageArgsDict(TypedDict):
-        """
-        Defines the Docker image details
-        """
-        repository: pulumi.Input[_builtins.str]
-        """
-        The Docker image name.
-        """
-        tag: pulumi.Input[_builtins.str]
-        """
-        The Docker  image tag.
-        """
-        pull_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image pull policy.
-        """
-        pull_secrets: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image pull secrets.
-        """
-elif False:
-    ContainerImageArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerImageArgsDict(TypedDict):
+    """
+    Defines the Docker image details
+    """
+    repository: pulumi.Input[_builtins.str]
+    """
+    The Docker image name.
+    """
+    tag: pulumi.Input[_builtins.str]
+    """
+    The Docker  image tag.
+    """
+    pull_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image pull policy.
+    """
+    pull_secrets: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image pull secrets.
+    """
 
 @pulumi.input_type
 class ContainerImageArgs:
@@ -1904,41 +1845,38 @@ class ContainerImageArgs:
         pulumi.set(self, "pull_secrets", value)
 
 
-if not MYPY:
-    class DataLakeConnectorMapArgsDict(TypedDict):
-        """
-        DataLake connector map route properties
-        """
-        allowed_latency_secs: pulumi.Input[_builtins.int]
-        """
-        Allowed latency for transferring data.
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        Client Id to use.
-        """
-        max_messages_per_batch: pulumi.Input[_builtins.float]
-        """
-        Maximum messages to send per Batch.
-        """
-        message_payload_type: pulumi.Input[_builtins.str]
-        """
-        Message payload type.
-        """
-        mqtt_source_topic: pulumi.Input[_builtins.str]
-        """
-        Mqtt source topic.
-        """
-        table: pulumi.Input['DeltaTableArgsDict']
-        """
-        Delta table properties to use.
-        """
-        qos: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Quality of Service.
-        """
-elif False:
-    DataLakeConnectorMapArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeConnectorMapArgsDict(TypedDict):
+    """
+    DataLake connector map route properties
+    """
+    allowed_latency_secs: pulumi.Input[_builtins.int]
+    """
+    Allowed latency for transferring data.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    Client Id to use.
+    """
+    max_messages_per_batch: pulumi.Input[_builtins.float]
+    """
+    Maximum messages to send per Batch.
+    """
+    message_payload_type: pulumi.Input[_builtins.str]
+    """
+    Message payload type.
+    """
+    mqtt_source_topic: pulumi.Input[_builtins.str]
+    """
+    Mqtt source topic.
+    """
+    table: pulumi.Input['DeltaTableArgsDict']
+    """
+    Delta table properties to use.
+    """
+    qos: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Quality of Service.
+    """
 
 @pulumi.input_type
 class DataLakeConnectorMapArgs:
@@ -2056,17 +1994,14 @@ class DataLakeConnectorMapArgs:
         pulumi.set(self, "qos", value)
 
 
-if not MYPY:
-    class DataLakeFabricStorageAuthenticationArgsDict(TypedDict):
-        """
-        DataLake Fabric Storage authentication details.
-        """
-        system_assigned_managed_identity: pulumi.Input['ManagedIdentityAuthenticationArgsDict']
-        """
-        Configuration for managed identity authentication.
-        """
-elif False:
-    DataLakeFabricStorageAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeFabricStorageAuthenticationArgsDict(TypedDict):
+    """
+    DataLake Fabric Storage authentication details.
+    """
+    system_assigned_managed_identity: pulumi.Input['ManagedIdentityAuthenticationArgsDict']
+    """
+    Configuration for managed identity authentication.
+    """
 
 @pulumi.input_type
 class DataLakeFabricStorageAuthenticationArgs:
@@ -2091,33 +2026,30 @@ class DataLakeFabricStorageAuthenticationArgs:
         pulumi.set(self, "system_assigned_managed_identity", value)
 
 
-if not MYPY:
-    class DataLakeFabricStorageArgsDict(TypedDict):
-        """
-        DataLake Fabric Storage details.
-        """
-        authentication: pulumi.Input['DataLakeFabricStorageAuthenticationArgsDict']
-        """
-        DataLake fabric storage authentication details.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        DataLake fabric storage endpoint to use.
-        """
-        fabric_path: pulumi.Input[Union[_builtins.str, 'FabricPathType']]
-        """
-        Fabric path type to use.
-        """
-        guids: NotRequired[pulumi.Input['FabricGuidsArgsDict']]
-        """
-        Fabric one lake Guids.
-        """
-        names: NotRequired[pulumi.Input['FabricNamesArgsDict']]
-        """
-        Fabric one lake Names.
-        """
-elif False:
-    DataLakeFabricStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeFabricStorageArgsDict(TypedDict):
+    """
+    DataLake Fabric Storage details.
+    """
+    authentication: pulumi.Input['DataLakeFabricStorageAuthenticationArgsDict']
+    """
+    DataLake fabric storage authentication details.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    DataLake fabric storage endpoint to use.
+    """
+    fabric_path: pulumi.Input[Union[_builtins.str, 'FabricPathType']]
+    """
+    Fabric path type to use.
+    """
+    guids: NotRequired[pulumi.Input['FabricGuidsArgsDict']]
+    """
+    Fabric one lake Guids.
+    """
+    names: NotRequired[pulumi.Input['FabricNamesArgsDict']]
+    """
+    Fabric one lake Names.
+    """
 
 @pulumi.input_type
 class DataLakeFabricStorageArgs:
@@ -2204,17 +2136,14 @@ class DataLakeFabricStorageArgs:
         pulumi.set(self, "names", value)
 
 
-if not MYPY:
-    class DataLakeLocalStorageArgsDict(TypedDict):
-        """
-        DataLake Local Storage details.
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        Volume name to write to.
-        """
-elif False:
-    DataLakeLocalStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeLocalStorageArgsDict(TypedDict):
+    """
+    DataLake Local Storage details.
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    Volume name to write to.
+    """
 
 @pulumi.input_type
 class DataLakeLocalStorageArgs:
@@ -2239,21 +2168,18 @@ class DataLakeLocalStorageArgs:
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class DataLakeServiceStorageAuthenticationArgsDict(TypedDict):
-        """
-        DataLake Service Storage authentication details. NOTE - Enum only one method is supported.
-        """
-        access_token_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Access token secret name.
-        """
-        system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
-        """
-        Configuration for managed identity authentication.
-        """
-elif False:
-    DataLakeServiceStorageAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeServiceStorageAuthenticationArgsDict(TypedDict):
+    """
+    DataLake Service Storage authentication details. NOTE - Enum only one method is supported.
+    """
+    access_token_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Access token secret name.
+    """
+    system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
+    """
+    Configuration for managed identity authentication.
+    """
 
 @pulumi.input_type
 class DataLakeServiceStorageAuthenticationArgs:
@@ -2295,21 +2221,18 @@ class DataLakeServiceStorageAuthenticationArgs:
         pulumi.set(self, "system_assigned_managed_identity", value)
 
 
-if not MYPY:
-    class DataLakeServiceStorageArgsDict(TypedDict):
-        """
-        DataLake Service Storage details.
-        """
-        authentication: pulumi.Input['DataLakeServiceStorageAuthenticationArgsDict']
-        """
-        DataLake service storage authentication details. NOTE - Enum only one method is supported.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        DataLake service storage endpoint to use.
-        """
-elif False:
-    DataLakeServiceStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeServiceStorageArgsDict(TypedDict):
+    """
+    DataLake Service Storage details.
+    """
+    authentication: pulumi.Input['DataLakeServiceStorageAuthenticationArgsDict']
+    """
+    DataLake service storage authentication details. NOTE - Enum only one method is supported.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    DataLake service storage endpoint to use.
+    """
 
 @pulumi.input_type
 class DataLakeServiceStorageArgs:
@@ -2349,25 +2272,22 @@ class DataLakeServiceStorageArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class DataLakeTargetStorageArgsDict(TypedDict):
-        """
-        Target storage for the DataLake. NOTE - Enum only storage is supported at a time.
-        """
-        datalake_storage: NotRequired[pulumi.Input['DataLakeServiceStorageArgsDict']]
-        """
-        DataLake service storage details.
-        """
-        fabric_one_lake: NotRequired[pulumi.Input['DataLakeFabricStorageArgsDict']]
-        """
-        Fabric one lake storage details.
-        """
-        local_storage: NotRequired[pulumi.Input['DataLakeLocalStorageArgsDict']]
-        """
-        Local storage details.
-        """
-elif False:
-    DataLakeTargetStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeTargetStorageArgsDict(TypedDict):
+    """
+    Target storage for the DataLake. NOTE - Enum only storage is supported at a time.
+    """
+    datalake_storage: NotRequired[pulumi.Input['DataLakeServiceStorageArgsDict']]
+    """
+    DataLake service storage details.
+    """
+    fabric_one_lake: NotRequired[pulumi.Input['DataLakeFabricStorageArgsDict']]
+    """
+    Fabric one lake storage details.
+    """
+    local_storage: NotRequired[pulumi.Input['DataLakeLocalStorageArgsDict']]
+    """
+    Local storage details.
+    """
 
 @pulumi.input_type
 class DataLakeTargetStorageArgs:
@@ -2425,29 +2345,26 @@ class DataLakeTargetStorageArgs:
         pulumi.set(self, "local_storage", value)
 
 
-if not MYPY:
-    class DeltaTableSchemaArgsDict(TypedDict):
-        """
-        Delta table schema properties
-        """
-        format: pulumi.Input[Union[_builtins.str, 'DeltaTableFormatEnum']]
-        """
-        Delta table format supported.
-        """
-        mapping: pulumi.Input[_builtins.str]
-        """
-        Delta table schema mapping.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Delta table schema name.
-        """
-        optional: pulumi.Input[_builtins.bool]
-        """
-        Delta table schema optional.
-        """
-elif False:
-    DeltaTableSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class DeltaTableSchemaArgsDict(TypedDict):
+    """
+    Delta table schema properties
+    """
+    format: pulumi.Input[Union[_builtins.str, 'DeltaTableFormatEnum']]
+    """
+    Delta table format supported.
+    """
+    mapping: pulumi.Input[_builtins.str]
+    """
+    Delta table schema mapping.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Delta table schema name.
+    """
+    optional: pulumi.Input[_builtins.bool]
+    """
+    Delta table schema optional.
+    """
 
 @pulumi.input_type
 class DeltaTableSchemaArgs:
@@ -2517,25 +2434,22 @@ class DeltaTableSchemaArgs:
         pulumi.set(self, "optional", value)
 
 
-if not MYPY:
-    class DeltaTableArgsDict(TypedDict):
-        """
-        Delta table properties
-        """
-        schema: pulumi.Input[Sequence[pulumi.Input['DeltaTableSchemaArgsDict']]]
-        """
-        Schema list supported.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        Delta table name.
-        """
-        table_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Delta table path.
-        """
-elif False:
-    DeltaTableArgsDict: TypeAlias = Mapping[str, Any]
+class DeltaTableArgsDict(TypedDict):
+    """
+    Delta table properties
+    """
+    schema: pulumi.Input[Sequence[pulumi.Input['DeltaTableSchemaArgsDict']]]
+    """
+    Schema list supported.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    Delta table name.
+    """
+    table_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Delta table path.
+    """
 
 @pulumi.input_type
 class DeltaTableArgs:
@@ -2591,25 +2505,22 @@ class DeltaTableArgs:
         pulumi.set(self, "table_path", value)
 
 
-if not MYPY:
-    class DiskBackedMessageBufferSettingsArgsDict(TypedDict):
-        """
-        DiskBackedMessageBufferSettings properties
-        """
-        max_size: pulumi.Input[_builtins.str]
-        """
-        The max size of the message buffer on disk. If a PVC template is specified using one of ephemeralVolumeClaimSpec or persistentVolumeClaimSpec, then this size is used as the request and limit sizes of that template. If neither ephemeralVolumeClaimSpec nor persistentVolumeClaimSpec are specified, then an emptyDir volume is mounted with this size as its limit. See <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir> for details.
-        """
-        ephemeral_volume_claim_spec: NotRequired[pulumi.Input['VolumeClaimSpecArgsDict']]
-        """
-        Use the specified persistent volume claim template to mount a "generic ephemeral volume" for the message buffer. See <https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes> for details.
-        """
-        persistent_volume_claim_spec: NotRequired[pulumi.Input['VolumeClaimSpecArgsDict']]
-        """
-        Use the specified persistent volume claim template to mount a persistent volume for the message buffer.
-        """
-elif False:
-    DiskBackedMessageBufferSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DiskBackedMessageBufferSettingsArgsDict(TypedDict):
+    """
+    DiskBackedMessageBufferSettings properties
+    """
+    max_size: pulumi.Input[_builtins.str]
+    """
+    The max size of the message buffer on disk. If a PVC template is specified using one of ephemeralVolumeClaimSpec or persistentVolumeClaimSpec, then this size is used as the request and limit sizes of that template. If neither ephemeralVolumeClaimSpec nor persistentVolumeClaimSpec are specified, then an emptyDir volume is mounted with this size as its limit. See <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir> for details.
+    """
+    ephemeral_volume_claim_spec: NotRequired[pulumi.Input['VolumeClaimSpecArgsDict']]
+    """
+    Use the specified persistent volume claim template to mount a "generic ephemeral volume" for the message buffer. See <https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes> for details.
+    """
+    persistent_volume_claim_spec: NotRequired[pulumi.Input['VolumeClaimSpecArgsDict']]
+    """
+    Use the specified persistent volume claim template to mount a persistent volume for the message buffer.
+    """
 
 @pulumi.input_type
 class DiskBackedMessageBufferSettingsArgs:
@@ -2666,21 +2577,18 @@ class DiskBackedMessageBufferSettingsArgs:
         pulumi.set(self, "persistent_volume_claim_spec", value)
 
 
-if not MYPY:
-    class ExtendedLocationPropertyArgsDict(TypedDict):
-        """
-        ExtendedLocation properties
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extended location.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
-        """
-        Type of ExtendedLocation.
-        """
-elif False:
-    ExtendedLocationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationPropertyArgsDict(TypedDict):
+    """
+    ExtendedLocation properties
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extended location.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
+    """
+    Type of ExtendedLocation.
+    """
 
 @pulumi.input_type
 class ExtendedLocationPropertyArgs:
@@ -2720,21 +2628,18 @@ class ExtendedLocationPropertyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FabricGuidsArgsDict(TypedDict):
-        """
-        Fabric one lake guids.
-        """
-        lakehouse_guid: pulumi.Input[_builtins.str]
-        """
-        Fabric one lake house guid.
-        """
-        workspace_guid: pulumi.Input[_builtins.str]
-        """
-        Fabric one lake workspace guid.
-        """
-elif False:
-    FabricGuidsArgsDict: TypeAlias = Mapping[str, Any]
+class FabricGuidsArgsDict(TypedDict):
+    """
+    Fabric one lake guids.
+    """
+    lakehouse_guid: pulumi.Input[_builtins.str]
+    """
+    Fabric one lake house guid.
+    """
+    workspace_guid: pulumi.Input[_builtins.str]
+    """
+    Fabric one lake workspace guid.
+    """
 
 @pulumi.input_type
 class FabricGuidsArgs:
@@ -2774,21 +2679,18 @@ class FabricGuidsArgs:
         pulumi.set(self, "workspace_guid", value)
 
 
-if not MYPY:
-    class FabricNamesArgsDict(TypedDict):
-        """
-        Fabric one lake names.
-        """
-        lakehouse_name: pulumi.Input[_builtins.str]
-        """
-        Fabric one lake house name.
-        """
-        workspace_name: pulumi.Input[_builtins.str]
-        """
-        Fabric one lake workspace name.
-        """
-elif False:
-    FabricNamesArgsDict: TypeAlias = Mapping[str, Any]
+class FabricNamesArgsDict(TypedDict):
+    """
+    Fabric one lake names.
+    """
+    lakehouse_name: pulumi.Input[_builtins.str]
+    """
+    Fabric one lake house name.
+    """
+    workspace_name: pulumi.Input[_builtins.str]
+    """
+    Fabric one lake workspace name.
+    """
 
 @pulumi.input_type
 class FabricNamesArgs:
@@ -2828,25 +2730,22 @@ class FabricNamesArgs:
         pulumi.set(self, "workspace_name", value)
 
 
-if not MYPY:
-    class FrontendArgsDict(TypedDict):
-        """
-        Desired properties of the Frontend Instances of the DMQTT Broker
-        """
-        replicas: pulumi.Input[_builtins.int]
-        """
-        Replicas is desired number of frontend replicas of the given distributed MQTT broker.
-        """
-        temporary_resource_limits: NotRequired[pulumi.Input['TemporaryResourceLimitsConfigArgsDict']]
-        """
-        Defines the limits for resources of the frontend instances of the MQTT broker.
-        """
-        workers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of logical frontend workers per pod.
-        """
-elif False:
-    FrontendArgsDict: TypeAlias = Mapping[str, Any]
+class FrontendArgsDict(TypedDict):
+    """
+    Desired properties of the Frontend Instances of the DMQTT Broker
+    """
+    replicas: pulumi.Input[_builtins.int]
+    """
+    Replicas is desired number of frontend replicas of the given distributed MQTT broker.
+    """
+    temporary_resource_limits: NotRequired[pulumi.Input['TemporaryResourceLimitsConfigArgsDict']]
+    """
+    Defines the limits for resources of the frontend instances of the MQTT broker.
+    """
+    workers: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of logical frontend workers per pod.
+    """
 
 @pulumi.input_type
 class FrontendArgs:
@@ -2905,21 +2804,18 @@ class FrontendArgs:
         pulumi.set(self, "workers", value)
 
 
-if not MYPY:
-    class KafkaRemoteBrokerAuthenticationPropertiesArgsDict(TypedDict):
-        """
-        Kafka RemoteBrokerConnection Authentication methods
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        If authentication is enabled for Kafka remote broker.
-        """
-        auth_type: NotRequired[pulumi.Input['KafkaRemoteBrokerAuthenticationTypesArgsDict']]
-        """
-        The type of authentication to use for Kafka remote broker.
-        """
-elif False:
-    KafkaRemoteBrokerAuthenticationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaRemoteBrokerAuthenticationPropertiesArgsDict(TypedDict):
+    """
+    Kafka RemoteBrokerConnection Authentication methods
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    If authentication is enabled for Kafka remote broker.
+    """
+    auth_type: NotRequired[pulumi.Input['KafkaRemoteBrokerAuthenticationTypesArgsDict']]
+    """
+    The type of authentication to use for Kafka remote broker.
+    """
 
 @pulumi.input_type
 class KafkaRemoteBrokerAuthenticationPropertiesArgs:
@@ -2960,25 +2856,22 @@ class KafkaRemoteBrokerAuthenticationPropertiesArgs:
         pulumi.set(self, "auth_type", value)
 
 
-if not MYPY:
-    class KafkaRemoteBrokerAuthenticationTypesArgsDict(TypedDict):
-        """
-        Kafka RemoteBrokerConnection Authentication types. NOTE - Enum only one method is allowed to be passed.
-        """
-        sasl: NotRequired[pulumi.Input['SaslRemoteBrokerBasicAuthenticationArgsDict']]
-        """
-        Sasl remote broker authentication method.
-        """
-        system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
-        """
-        Managed identity remote broker authentication method.
-        """
-        x509: NotRequired[pulumi.Input['KafkaX509AuthenticationArgsDict']]
-        """
-        X509 remote broker authentication method.
-        """
-elif False:
-    KafkaRemoteBrokerAuthenticationTypesArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaRemoteBrokerAuthenticationTypesArgsDict(TypedDict):
+    """
+    Kafka RemoteBrokerConnection Authentication types. NOTE - Enum only one method is allowed to be passed.
+    """
+    sasl: NotRequired[pulumi.Input['SaslRemoteBrokerBasicAuthenticationArgsDict']]
+    """
+    Sasl remote broker authentication method.
+    """
+    system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
+    """
+    Managed identity remote broker authentication method.
+    """
+    x509: NotRequired[pulumi.Input['KafkaX509AuthenticationArgsDict']]
+    """
+    X509 remote broker authentication method.
+    """
 
 @pulumi.input_type
 class KafkaRemoteBrokerAuthenticationTypesArgs:
@@ -3036,25 +2929,22 @@ class KafkaRemoteBrokerAuthenticationTypesArgs:
         pulumi.set(self, "x509", value)
 
 
-if not MYPY:
-    class KafkaRemoteBrokerConnectionSpecArgsDict(TypedDict):
-        """
-        Kafka RemoteBrokerConnectionSpec details
-        """
-        authentication: pulumi.Input['KafkaRemoteBrokerAuthenticationPropertiesArgsDict']
-        """
-        The remote broker authentication methods.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint of remote broker to connect to.
-        """
-        tls: pulumi.Input['KafkaRemoteBrokerConnectionTlsArgsDict']
-        """
-        TLS details for Remote broker Connection.
-        """
-elif False:
-    KafkaRemoteBrokerConnectionSpecArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaRemoteBrokerConnectionSpecArgsDict(TypedDict):
+    """
+    Kafka RemoteBrokerConnectionSpec details
+    """
+    authentication: pulumi.Input['KafkaRemoteBrokerAuthenticationPropertiesArgsDict']
+    """
+    The remote broker authentication methods.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint of remote broker to connect to.
+    """
+    tls: pulumi.Input['KafkaRemoteBrokerConnectionTlsArgsDict']
+    """
+    TLS details for Remote broker Connection.
+    """
 
 @pulumi.input_type
 class KafkaRemoteBrokerConnectionSpecArgs:
@@ -3109,21 +2999,18 @@ class KafkaRemoteBrokerConnectionSpecArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class KafkaRemoteBrokerConnectionTlsArgsDict(TypedDict):
-        """
-        Kafka RemoteBrokerConnection TLS details
-        """
-        tls_enabled: pulumi.Input[_builtins.bool]
-        """
-        Tls Enabled on Remote Broker Connection.
-        """
-        trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trusted CA certificate name for Remote Broker.
-        """
-elif False:
-    KafkaRemoteBrokerConnectionTlsArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaRemoteBrokerConnectionTlsArgsDict(TypedDict):
+    """
+    Kafka RemoteBrokerConnection TLS details
+    """
+    tls_enabled: pulumi.Input[_builtins.bool]
+    """
+    Tls Enabled on Remote Broker Connection.
+    """
+    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trusted CA certificate name for Remote Broker.
+    """
 
 @pulumi.input_type
 class KafkaRemoteBrokerConnectionTlsArgs:
@@ -3164,21 +3051,18 @@ class KafkaRemoteBrokerConnectionTlsArgs:
         pulumi.set(self, "trusted_ca_certificate_config_map", value)
 
 
-if not MYPY:
-    class KafkaRoutesArgsDict(TypedDict):
-        """
-        Kafka Routes properties. NOTE - Enum only one method is allowed to be passed.
-        """
-        kafka_to_mqtt: NotRequired[pulumi.Input['KafkaToMqttRoutesArgsDict']]
-        """
-        Kafka to Mqtt route.
-        """
-        mqtt_to_kafka: NotRequired[pulumi.Input['MqttToKafkaRoutesArgsDict']]
-        """
-        Mqtt to Kafka route.
-        """
-elif False:
-    KafkaRoutesArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaRoutesArgsDict(TypedDict):
+    """
+    Kafka Routes properties. NOTE - Enum only one method is allowed to be passed.
+    """
+    kafka_to_mqtt: NotRequired[pulumi.Input['KafkaToMqttRoutesArgsDict']]
+    """
+    Kafka to Mqtt route.
+    """
+    mqtt_to_kafka: NotRequired[pulumi.Input['MqttToKafkaRoutesArgsDict']]
+    """
+    Mqtt to Kafka route.
+    """
 
 @pulumi.input_type
 class KafkaRoutesArgs:
@@ -3220,21 +3104,18 @@ class KafkaRoutesArgs:
         pulumi.set(self, "mqtt_to_kafka", value)
 
 
-if not MYPY:
-    class KafkaSharedSubscriptionPropertiesArgsDict(TypedDict):
-        """
-        Kafka Shared Subscription properties
-        """
-        group_minimum_share_number: pulumi.Input[_builtins.int]
-        """
-        The minimum number to use in a group for subscription.
-        """
-        group_name: pulumi.Input[_builtins.str]
-        """
-        The name of the shared subscription.
-        """
-elif False:
-    KafkaSharedSubscriptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaSharedSubscriptionPropertiesArgsDict(TypedDict):
+    """
+    Kafka Shared Subscription properties
+    """
+    group_minimum_share_number: pulumi.Input[_builtins.int]
+    """
+    The minimum number to use in a group for subscription.
+    """
+    group_name: pulumi.Input[_builtins.str]
+    """
+    The name of the shared subscription.
+    """
 
 @pulumi.input_type
 class KafkaSharedSubscriptionPropertiesArgs:
@@ -3274,33 +3155,30 @@ class KafkaSharedSubscriptionPropertiesArgs:
         pulumi.set(self, "group_name", value)
 
 
-if not MYPY:
-    class KafkaToMqttRoutesArgsDict(TypedDict):
-        """
-        Kafka to Mqtt route properties
-        """
-        kafka_topic: pulumi.Input[_builtins.str]
-        """
-        The kafka topic to pull from.
-        """
-        mqtt_topic: pulumi.Input[_builtins.str]
-        """
-        The mqtt topic to publish to.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the route.
-        """
-        consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The consumer group id to use.
-        """
-        qos: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The qos to use for mqtt.
-        """
-elif False:
-    KafkaToMqttRoutesArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaToMqttRoutesArgsDict(TypedDict):
+    """
+    Kafka to Mqtt route properties
+    """
+    kafka_topic: pulumi.Input[_builtins.str]
+    """
+    The kafka topic to pull from.
+    """
+    mqtt_topic: pulumi.Input[_builtins.str]
+    """
+    The mqtt topic to publish to.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the route.
+    """
+    consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The consumer group id to use.
+    """
+    qos: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The qos to use for mqtt.
+    """
 
 @pulumi.input_type
 class KafkaToMqttRoutesArgs:
@@ -3389,25 +3267,22 @@ class KafkaToMqttRoutesArgs:
         pulumi.set(self, "qos", value)
 
 
-if not MYPY:
-    class KafkaTokenKeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Kafka Token KeyVault properties.
-        """
-        vault: pulumi.Input['KeyVaultConnectionPropertiesArgsDict']
-        """
-        KeyVault properties.
-        """
-        vault_secret: pulumi.Input['KeyVaultSecretObjectArgsDict']
-        """
-        KeyVault secret details.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username to connect with.
-        """
-elif False:
-    KafkaTokenKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaTokenKeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Kafka Token KeyVault properties.
+    """
+    vault: pulumi.Input['KeyVaultConnectionPropertiesArgsDict']
+    """
+    KeyVault properties.
+    """
+    vault_secret: pulumi.Input['KeyVaultSecretObjectArgsDict']
+    """
+    KeyVault secret details.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username to connect with.
+    """
 
 @pulumi.input_type
 class KafkaTokenKeyVaultPropertiesArgs:
@@ -3463,29 +3338,26 @@ class KafkaTokenKeyVaultPropertiesArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class KafkaTopicMapBatchingArgsDict(TypedDict):
-        """
-        Kafka TopicMap Batching properties
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The setting to enable or disable batching.
-        """
-        latency_ms: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The latency of message batching.
-        """
-        max_bytes: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum bytes to send in a batch.
-        """
-        max_messages: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum messages to send in a batch.
-        """
-elif False:
-    KafkaTopicMapBatchingArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaTopicMapBatchingArgsDict(TypedDict):
+    """
+    Kafka TopicMap Batching properties
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The setting to enable or disable batching.
+    """
+    latency_ms: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The latency of message batching.
+    """
+    max_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum bytes to send in a batch.
+    """
+    max_messages: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum messages to send in a batch.
+    """
 
 @pulumi.input_type
 class KafkaTopicMapBatchingArgs:
@@ -3567,21 +3439,18 @@ class KafkaTopicMapBatchingArgs:
         pulumi.set(self, "max_messages", value)
 
 
-if not MYPY:
-    class KafkaX509AuthenticationArgsDict(TypedDict):
-        """
-        Kafka RemoteBrokerConnection X509 Authentication properties.
-        """
-        key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
-        """
-        Keyvault X509 secret properties.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret where cert details are stored.
-        """
-elif False:
-    KafkaX509AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaX509AuthenticationArgsDict(TypedDict):
+    """
+    Kafka RemoteBrokerConnection X509 Authentication properties.
+    """
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
+    """
+    Keyvault X509 secret properties.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret where cert details are stored.
+    """
 
 @pulumi.input_type
 class KafkaX509AuthenticationArgs:
@@ -3623,25 +3492,22 @@ class KafkaX509AuthenticationArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class KeyVaultCertificatePropertiesArgsDict(TypedDict):
-        """
-        KeyVault certificate properties
-        """
-        vault: pulumi.Input['KeyVaultConnectionPropertiesArgsDict']
-        """
-        KeyVault properties.
-        """
-        vault_cert: pulumi.Input['KeyVaultSecretObjectArgsDict']
-        """
-        KeyVault Cert secret details.
-        """
-        vault_ca_chain_secret: NotRequired[pulumi.Input['KeyVaultSecretObjectArgsDict']]
-        """
-        KeyVault CA chain secret details.
-        """
-elif False:
-    KeyVaultCertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultCertificatePropertiesArgsDict(TypedDict):
+    """
+    KeyVault certificate properties
+    """
+    vault: pulumi.Input['KeyVaultConnectionPropertiesArgsDict']
+    """
+    KeyVault properties.
+    """
+    vault_cert: pulumi.Input['KeyVaultSecretObjectArgsDict']
+    """
+    KeyVault Cert secret details.
+    """
+    vault_ca_chain_secret: NotRequired[pulumi.Input['KeyVaultSecretObjectArgsDict']]
+    """
+    KeyVault CA chain secret details.
+    """
 
 @pulumi.input_type
 class KeyVaultCertificatePropertiesArgs:
@@ -3697,25 +3563,22 @@ class KeyVaultCertificatePropertiesArgs:
         pulumi.set(self, "vault_ca_chain_secret", value)
 
 
-if not MYPY:
-    class KeyVaultConnectionPropertiesArgsDict(TypedDict):
-        """
-        KeyVault properties
-        """
-        credentials: pulumi.Input['KeyVaultCredentialsPropertiesArgsDict']
-        """
-        KeyVault credentials.
-        """
-        directory_id: pulumi.Input[_builtins.str]
-        """
-        KeyVault directoryId.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        KeyVault name.
-        """
-elif False:
-    KeyVaultConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultConnectionPropertiesArgsDict(TypedDict):
+    """
+    KeyVault properties
+    """
+    credentials: pulumi.Input['KeyVaultCredentialsPropertiesArgsDict']
+    """
+    KeyVault credentials.
+    """
+    directory_id: pulumi.Input[_builtins.str]
+    """
+    KeyVault directoryId.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    KeyVault name.
+    """
 
 @pulumi.input_type
 class KeyVaultConnectionPropertiesArgs:
@@ -3770,17 +3633,14 @@ class KeyVaultConnectionPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class KeyVaultCredentialsPropertiesArgsDict(TypedDict):
-        """
-        KeyVault credentials properties. NOTE - Future this will be ENUM.
-        """
-        service_principal_local_secret_name: pulumi.Input[_builtins.str]
-        """
-        KeyVault service principal local secret name.
-        """
-elif False:
-    KeyVaultCredentialsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultCredentialsPropertiesArgsDict(TypedDict):
+    """
+    KeyVault credentials properties. NOTE - Future this will be ENUM.
+    """
+    service_principal_local_secret_name: pulumi.Input[_builtins.str]
+    """
+    KeyVault service principal local secret name.
+    """
 
 @pulumi.input_type
 class KeyVaultCredentialsPropertiesArgs:
@@ -3805,21 +3665,18 @@ class KeyVaultCredentialsPropertiesArgs:
         pulumi.set(self, "service_principal_local_secret_name", value)
 
 
-if not MYPY:
-    class KeyVaultSecretObjectArgsDict(TypedDict):
-        """
-        KeyVault secret object properties
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        KeyVault secret name.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KeyVault secret version.
-        """
-elif False:
-    KeyVaultSecretObjectArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultSecretObjectArgsDict(TypedDict):
+    """
+    KeyVault secret object properties
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    KeyVault secret name.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KeyVault secret version.
+    """
 
 @pulumi.input_type
 class KeyVaultSecretObjectArgs:
@@ -3860,21 +3717,18 @@ class KeyVaultSecretObjectArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class KeyVaultSecretPropertiesArgsDict(TypedDict):
-        """
-        KeyVault secret properties
-        """
-        vault: pulumi.Input['KeyVaultConnectionPropertiesArgsDict']
-        """
-        KeyVault properties.
-        """
-        vault_secret: pulumi.Input['KeyVaultSecretObjectArgsDict']
-        """
-        KeyVault secret details.
-        """
-elif False:
-    KeyVaultSecretPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultSecretPropertiesArgsDict(TypedDict):
+    """
+    KeyVault secret properties
+    """
+    vault: pulumi.Input['KeyVaultConnectionPropertiesArgsDict']
+    """
+    KeyVault properties.
+    """
+    vault_secret: pulumi.Input['KeyVaultSecretObjectArgsDict']
+    """
+    KeyVault secret details.
+    """
 
 @pulumi.input_type
 class KeyVaultSecretPropertiesArgs:
@@ -3914,17 +3768,14 @@ class KeyVaultSecretPropertiesArgs:
         pulumi.set(self, "vault_secret", value)
 
 
-if not MYPY:
-    class LocalBrokerAuthenticationMethodsArgsDict(TypedDict):
-        """
-        Mqtt Local Broker Authentication details. Only one method at a time is supported. Default - kubernetes authentication
-        """
-        kubernetes: pulumi.Input['LocalBrokerKubernetesAuthenticationArgsDict']
-        """
-        Kubernetes local broker authentication method.
-        """
-elif False:
-    LocalBrokerAuthenticationMethodsArgsDict: TypeAlias = Mapping[str, Any]
+class LocalBrokerAuthenticationMethodsArgsDict(TypedDict):
+    """
+    Mqtt Local Broker Authentication details. Only one method at a time is supported. Default - kubernetes authentication
+    """
+    kubernetes: pulumi.Input['LocalBrokerKubernetesAuthenticationArgsDict']
+    """
+    Kubernetes local broker authentication method.
+    """
 
 @pulumi.input_type
 class LocalBrokerAuthenticationMethodsArgs:
@@ -3949,25 +3800,22 @@ class LocalBrokerAuthenticationMethodsArgs:
         pulumi.set(self, "kubernetes", value)
 
 
-if not MYPY:
-    class LocalBrokerConnectionSpecArgsDict(TypedDict):
-        """
-        Mqtt Local Broker ConnectionSpec details
-        """
-        authentication: NotRequired[pulumi.Input['LocalBrokerAuthenticationMethodsArgsDict']]
-        """
-        The authentication methods for LocalBroker connection. NOTE - Enum only one method at a time is supported.
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint of local broker to connect to.
-        """
-        tls: NotRequired[pulumi.Input['LocalBrokerConnectionTlsArgsDict']]
-        """
-        TLS details for Local broker Connection.
-        """
-elif False:
-    LocalBrokerConnectionSpecArgsDict: TypeAlias = Mapping[str, Any]
+class LocalBrokerConnectionSpecArgsDict(TypedDict):
+    """
+    Mqtt Local Broker ConnectionSpec details
+    """
+    authentication: NotRequired[pulumi.Input['LocalBrokerAuthenticationMethodsArgsDict']]
+    """
+    The authentication methods for LocalBroker connection. NOTE - Enum only one method at a time is supported.
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint of local broker to connect to.
+    """
+    tls: NotRequired[pulumi.Input['LocalBrokerConnectionTlsArgsDict']]
+    """
+    TLS details for Local broker Connection.
+    """
 
 @pulumi.input_type
 class LocalBrokerConnectionSpecArgs:
@@ -4027,21 +3875,18 @@ class LocalBrokerConnectionSpecArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class LocalBrokerConnectionTlsArgsDict(TypedDict):
-        """
-        Mqtt Local Broker Connection TLS details
-        """
-        tls_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Tls Enabled on Local Broker Connection.
-        """
-        trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trusted CA certificate config map name for Local Broker.
-        """
-elif False:
-    LocalBrokerConnectionTlsArgsDict: TypeAlias = Mapping[str, Any]
+class LocalBrokerConnectionTlsArgsDict(TypedDict):
+    """
+    Mqtt Local Broker Connection TLS details
+    """
+    tls_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Tls Enabled on Local Broker Connection.
+    """
+    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trusted CA certificate config map name for Local Broker.
+    """
 
 @pulumi.input_type
 class LocalBrokerConnectionTlsArgs:
@@ -4085,21 +3930,18 @@ class LocalBrokerConnectionTlsArgs:
         pulumi.set(self, "trusted_ca_certificate_config_map", value)
 
 
-if not MYPY:
-    class LocalBrokerKubernetesAuthenticationArgsDict(TypedDict):
-        """
-        Local Broker Kubernetes Authentication
-        """
-        secret_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret Path where SAT is mounted.
-        """
-        service_account_token_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Token name where SAT is mounted on secret path.
-        """
-elif False:
-    LocalBrokerKubernetesAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class LocalBrokerKubernetesAuthenticationArgsDict(TypedDict):
+    """
+    Local Broker Kubernetes Authentication
+    """
+    secret_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret Path where SAT is mounted.
+    """
+    service_account_token_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Token name where SAT is mounted on secret path.
+    """
 
 @pulumi.input_type
 class LocalBrokerKubernetesAuthenticationArgs:
@@ -4145,21 +3987,18 @@ class LocalBrokerKubernetesAuthenticationArgs:
         pulumi.set(self, "service_account_token_name", value)
 
 
-if not MYPY:
-    class ManagedIdentityAuthenticationArgsDict(TypedDict):
-        """
-        Managed identity authentication details.
-        """
-        audience: pulumi.Input[_builtins.str]
-        """
-        Token audience.
-        """
-        extension_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Arc Extension name.
-        """
-elif False:
-    ManagedIdentityAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityAuthenticationArgsDict(TypedDict):
+    """
+    Managed identity authentication details.
+    """
+    audience: pulumi.Input[_builtins.str]
+    """
+    Token audience.
+    """
+    extension_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arc Extension name.
+    """
 
 @pulumi.input_type
 class ManagedIdentityAuthenticationArgs:
@@ -4200,21 +4039,18 @@ class ManagedIdentityAuthenticationArgs:
         pulumi.set(self, "extension_name", value)
 
 
-if not MYPY:
-    class ManualCertMethodArgsDict(TypedDict):
-        """
-        Manual TLS server certificate management through a defined secret
-        """
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        secret containing TLS cert.
-        """
-        secret_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        namespace of secret; omit to use default namespace.
-        """
-elif False:
-    ManualCertMethodArgsDict: TypeAlias = Mapping[str, Any]
+class ManualCertMethodArgsDict(TypedDict):
+    """
+    Manual TLS server certificate management through a defined secret
+    """
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    secret containing TLS cert.
+    """
+    secret_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    namespace of secret; omit to use default namespace.
+    """
 
 @pulumi.input_type
 class ManualCertMethodArgs:
@@ -4255,21 +4091,18 @@ class ManualCertMethodArgs:
         pulumi.set(self, "secret_namespace", value)
 
 
-if not MYPY:
-    class MqttBridgeRemoteBrokerAuthenticationMethodsArgsDict(TypedDict):
-        """
-        MqttBridge RemoteBrokerConnection Authentication methods. NOTE - Enum only one is allowed to be passed.
-        """
-        system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
-        """
-        Managed identity remote broker authentication method.
-        """
-        x509: NotRequired[pulumi.Input['MqttBridgeRemoteBrokerX509AuthenticationArgsDict']]
-        """
-        X509 remote broker authentication method.
-        """
-elif False:
-    MqttBridgeRemoteBrokerAuthenticationMethodsArgsDict: TypeAlias = Mapping[str, Any]
+class MqttBridgeRemoteBrokerAuthenticationMethodsArgsDict(TypedDict):
+    """
+    MqttBridge RemoteBrokerConnection Authentication methods. NOTE - Enum only one is allowed to be passed.
+    """
+    system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
+    """
+    Managed identity remote broker authentication method.
+    """
+    x509: NotRequired[pulumi.Input['MqttBridgeRemoteBrokerX509AuthenticationArgsDict']]
+    """
+    X509 remote broker authentication method.
+    """
 
 @pulumi.input_type
 class MqttBridgeRemoteBrokerAuthenticationMethodsArgs:
@@ -4311,29 +4144,26 @@ class MqttBridgeRemoteBrokerAuthenticationMethodsArgs:
         pulumi.set(self, "x509", value)
 
 
-if not MYPY:
-    class MqttBridgeRemoteBrokerConnectionSpecArgsDict(TypedDict):
-        """
-        MqttBridge RemoteBrokerConnectionSpec details
-        """
-        authentication: pulumi.Input['MqttBridgeRemoteBrokerAuthenticationMethodsArgsDict']
-        """
-        The remote broker authentication methods. NOTE - Enum only one method is allowed to be passed.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint of remote broker to connect to.
-        """
-        tls: pulumi.Input['MqttBridgeRemoteBrokerConnectionTlsArgsDict']
-        """
-        TLS details for Remote broker Connection.
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]
-        """
-        Protocol for remote connection.
-        """
-elif False:
-    MqttBridgeRemoteBrokerConnectionSpecArgsDict: TypeAlias = Mapping[str, Any]
+class MqttBridgeRemoteBrokerConnectionSpecArgsDict(TypedDict):
+    """
+    MqttBridge RemoteBrokerConnectionSpec details
+    """
+    authentication: pulumi.Input['MqttBridgeRemoteBrokerAuthenticationMethodsArgsDict']
+    """
+    The remote broker authentication methods. NOTE - Enum only one method is allowed to be passed.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint of remote broker to connect to.
+    """
+    tls: pulumi.Input['MqttBridgeRemoteBrokerConnectionTlsArgsDict']
+    """
+    TLS details for Remote broker Connection.
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]
+    """
+    Protocol for remote connection.
+    """
 
 @pulumi.input_type
 class MqttBridgeRemoteBrokerConnectionSpecArgs:
@@ -4406,21 +4236,18 @@ class MqttBridgeRemoteBrokerConnectionSpecArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class MqttBridgeRemoteBrokerConnectionTlsArgsDict(TypedDict):
-        """
-        MqttBridge RemoteBrokerConnection TLS details
-        """
-        tls_enabled: pulumi.Input[_builtins.bool]
-        """
-        Tls Enabled on Remote Broker Connection.
-        """
-        trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trusted CA certificate name for Remote Broker.
-        """
-elif False:
-    MqttBridgeRemoteBrokerConnectionTlsArgsDict: TypeAlias = Mapping[str, Any]
+class MqttBridgeRemoteBrokerConnectionTlsArgsDict(TypedDict):
+    """
+    MqttBridge RemoteBrokerConnection TLS details
+    """
+    tls_enabled: pulumi.Input[_builtins.bool]
+    """
+    Tls Enabled on Remote Broker Connection.
+    """
+    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trusted CA certificate name for Remote Broker.
+    """
 
 @pulumi.input_type
 class MqttBridgeRemoteBrokerConnectionTlsArgs:
@@ -4461,21 +4288,18 @@ class MqttBridgeRemoteBrokerConnectionTlsArgs:
         pulumi.set(self, "trusted_ca_certificate_config_map", value)
 
 
-if not MYPY:
-    class MqttBridgeRemoteBrokerX509AuthenticationArgsDict(TypedDict):
-        """
-        MqttBridge RemoteBroker X509 Authentication properties.
-        """
-        key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
-        """
-        Keyvault X509 secret properties.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret where cert details are stored.
-        """
-elif False:
-    MqttBridgeRemoteBrokerX509AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class MqttBridgeRemoteBrokerX509AuthenticationArgsDict(TypedDict):
+    """
+    MqttBridge RemoteBroker X509 Authentication properties.
+    """
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
+    """
+    Keyvault X509 secret properties.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret where cert details are stored.
+    """
 
 @pulumi.input_type
 class MqttBridgeRemoteBrokerX509AuthenticationArgs:
@@ -4517,21 +4341,18 @@ class MqttBridgeRemoteBrokerX509AuthenticationArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class MqttBridgeRouteSharedSubscriptionArgsDict(TypedDict):
-        """
-        MqttBridgeRoute Shared subscription properties
-        """
-        group_minimum_share_number: pulumi.Input[_builtins.int]
-        """
-        The group shared subscription minimum share number.
-        """
-        group_name: pulumi.Input[_builtins.str]
-        """
-        The group name for Shared subscription.
-        """
-elif False:
-    MqttBridgeRouteSharedSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+class MqttBridgeRouteSharedSubscriptionArgsDict(TypedDict):
+    """
+    MqttBridgeRoute Shared subscription properties
+    """
+    group_minimum_share_number: pulumi.Input[_builtins.int]
+    """
+    The group shared subscription minimum share number.
+    """
+    group_name: pulumi.Input[_builtins.str]
+    """
+    The group name for Shared subscription.
+    """
 
 @pulumi.input_type
 class MqttBridgeRouteSharedSubscriptionArgs:
@@ -4571,37 +4392,34 @@ class MqttBridgeRouteSharedSubscriptionArgs:
         pulumi.set(self, "group_name", value)
 
 
-if not MYPY:
-    class MqttBridgeRoutesArgsDict(TypedDict):
-        """
-        MqttBridgeTopicMap route properties
-        """
-        direction: pulumi.Input[Union[_builtins.str, 'MqttBridgeRouteDirection']]
-        """
-        Direction of the route.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the route.
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        Source topic of the route.
-        """
-        qos: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Qos for MQTT connection.
-        """
-        shared_subscription: NotRequired[pulumi.Input['MqttBridgeRouteSharedSubscriptionArgsDict']]
-        """
-        Shared subscription topic details.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target topic of the route. Ignore if same as source
-        """
-elif False:
-    MqttBridgeRoutesArgsDict: TypeAlias = Mapping[str, Any]
+class MqttBridgeRoutesArgsDict(TypedDict):
+    """
+    MqttBridgeTopicMap route properties
+    """
+    direction: pulumi.Input[Union[_builtins.str, 'MqttBridgeRouteDirection']]
+    """
+    Direction of the route.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the route.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    Source topic of the route.
+    """
+    qos: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Qos for MQTT connection.
+    """
+    shared_subscription: NotRequired[pulumi.Input['MqttBridgeRouteSharedSubscriptionArgsDict']]
+    """
+    Shared subscription topic details.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Target topic of the route. Ignore if same as source
+    """
 
 @pulumi.input_type
 class MqttBridgeRoutesArgs:
@@ -4706,37 +4524,34 @@ class MqttBridgeRoutesArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class MqttToKafkaRoutesArgsDict(TypedDict):
-        """
-        Mqtt to Kafka route properties
-        """
-        kafka_acks: pulumi.Input[Union[_builtins.str, 'KafkaAcks']]
-        """
-        The kafka acks to use.
-        """
-        kafka_topic: pulumi.Input[_builtins.str]
-        """
-        The kafka topic to publish to.
-        """
-        mqtt_topic: pulumi.Input[_builtins.str]
-        """
-        The mqtt topic to pull from.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the route.
-        """
-        qos: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The qos to use for mqtt.
-        """
-        shared_subscription: NotRequired[pulumi.Input['KafkaSharedSubscriptionPropertiesArgsDict']]
-        """
-        The properties for shared subscription.
-        """
-elif False:
-    MqttToKafkaRoutesArgsDict: TypeAlias = Mapping[str, Any]
+class MqttToKafkaRoutesArgsDict(TypedDict):
+    """
+    Mqtt to Kafka route properties
+    """
+    kafka_acks: pulumi.Input[Union[_builtins.str, 'KafkaAcks']]
+    """
+    The kafka acks to use.
+    """
+    kafka_topic: pulumi.Input[_builtins.str]
+    """
+    The kafka topic to publish to.
+    """
+    mqtt_topic: pulumi.Input[_builtins.str]
+    """
+    The mqtt topic to pull from.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the route.
+    """
+    qos: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The qos to use for mqtt.
+    """
+    shared_subscription: NotRequired[pulumi.Input['KafkaSharedSubscriptionPropertiesArgsDict']]
+    """
+    The properties for shared subscription.
+    """
 
 @pulumi.input_type
 class MqttToKafkaRoutesArgs:
@@ -4840,29 +4655,26 @@ class MqttToKafkaRoutesArgs:
         pulumi.set(self, "shared_subscription", value)
 
 
-if not MYPY:
-    class NodeTolerationsArgsDict(TypedDict):
-        """
-        Defines the Node Tolerations details
-        """
-        effect: pulumi.Input[_builtins.str]
-        """
-        Toleration effect.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        Toleration key.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        Toleration operator like 'Exists', 'Equal' etc.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Toleration Value.
-        """
-elif False:
-    NodeTolerationsArgsDict: TypeAlias = Mapping[str, Any]
+class NodeTolerationsArgsDict(TypedDict):
+    """
+    Defines the Node Tolerations details
+    """
+    effect: pulumi.Input[_builtins.str]
+    """
+    Toleration effect.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    Toleration key.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Toleration operator like 'Exists', 'Equal' etc.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Toleration Value.
+    """
 
 @pulumi.input_type
 class NodeTolerationsArgs:
@@ -4932,25 +4744,22 @@ class NodeTolerationsArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PrincipalDefinitionArgsDict(TypedDict):
-        """
-        PrincipalDefinition properties of Basic Rule
-        """
-        attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]
-        """
-        A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
-        """
-        clientids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
-        """
-        usernames: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
-        """
-elif False:
-    PrincipalDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class PrincipalDefinitionArgsDict(TypedDict):
+    """
+    PrincipalDefinition properties of Basic Rule
+    """
+    attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]
+    """
+    A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
+    """
+    clientids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
+    """
+    usernames: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
+    """
 
 @pulumi.input_type
 class PrincipalDefinitionArgs:
@@ -5008,21 +4817,18 @@ class PrincipalDefinitionArgs:
         pulumi.set(self, "usernames", value)
 
 
-if not MYPY:
-    class ResourceInfoDefinitionArgsDict(TypedDict):
-        """
-        ResourceInfoDefinition properties of Basic Rule. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
-        """
-        method: pulumi.Input[Union[_builtins.str, 'ResourceInfoDefinitionMethods']]
-        """
-        The type of action that the clients can perform on the broker: Connect, Publish or Subscribe.
-        """
-        topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
-        """
-elif False:
-    ResourceInfoDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceInfoDefinitionArgsDict(TypedDict):
+    """
+    ResourceInfoDefinition properties of Basic Rule. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
+    """
+    method: pulumi.Input[Union[_builtins.str, 'ResourceInfoDefinitionMethods']]
+    """
+    The type of action that the clients can perform on the broker: Connect, Publish or Subscribe.
+    """
+    topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
+    """
 
 @pulumi.input_type
 class ResourceInfoDefinitionArgs:
@@ -5063,21 +4869,18 @@ class ResourceInfoDefinitionArgs:
         pulumi.set(self, "topics", value)
 
 
-if not MYPY:
-    class SanForCertArgsDict(TypedDict):
-        """
-        SANs for certificate.
-        """
-        dns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        DNS SANs.
-        """
-        ip: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        IP address SANs.
-        """
-elif False:
-    SanForCertArgsDict: TypeAlias = Mapping[str, Any]
+class SanForCertArgsDict(TypedDict):
+    """
+    SANs for certificate.
+    """
+    dns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    DNS SANs.
+    """
+    ip: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    IP address SANs.
+    """
 
 @pulumi.input_type
 class SanForCertArgs:
@@ -5117,21 +4920,18 @@ class SanForCertArgs:
         pulumi.set(self, "ip", value)
 
 
-if not MYPY:
-    class SaslRemoteBrokerBasicAuthenticationTokenArgsDict(TypedDict):
-        """
-        Kafka RemoteBrokerConnection Sasl Authentication token properties. NOTE - Enum only one method is allowed to be passed.
-        """
-        key_vault: NotRequired[pulumi.Input['KafkaTokenKeyVaultPropertiesArgsDict']]
-        """
-        Keyvault token keyvault secret properties.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret where cert details are stored.
-        """
-elif False:
-    SaslRemoteBrokerBasicAuthenticationTokenArgsDict: TypeAlias = Mapping[str, Any]
+class SaslRemoteBrokerBasicAuthenticationTokenArgsDict(TypedDict):
+    """
+    Kafka RemoteBrokerConnection Sasl Authentication token properties. NOTE - Enum only one method is allowed to be passed.
+    """
+    key_vault: NotRequired[pulumi.Input['KafkaTokenKeyVaultPropertiesArgsDict']]
+    """
+    Keyvault token keyvault secret properties.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret where cert details are stored.
+    """
 
 @pulumi.input_type
 class SaslRemoteBrokerBasicAuthenticationTokenArgs:
@@ -5173,21 +4973,18 @@ class SaslRemoteBrokerBasicAuthenticationTokenArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class SaslRemoteBrokerBasicAuthenticationArgsDict(TypedDict):
-        """
-        Kafka RemoteBrokerConnection Sasl Authentication properties.
-        """
-        sasl_type: pulumi.Input[Union[_builtins.str, 'KafkaSaslType']]
-        """
-        Sasl Mechanism for remote broker authentication.
-        """
-        token: pulumi.Input['SaslRemoteBrokerBasicAuthenticationTokenArgsDict']
-        """
-        Sasl token for remote broker authentication.
-        """
-elif False:
-    SaslRemoteBrokerBasicAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class SaslRemoteBrokerBasicAuthenticationArgsDict(TypedDict):
+    """
+    Kafka RemoteBrokerConnection Sasl Authentication properties.
+    """
+    sasl_type: pulumi.Input[Union[_builtins.str, 'KafkaSaslType']]
+    """
+    Sasl Mechanism for remote broker authentication.
+    """
+    token: pulumi.Input['SaslRemoteBrokerBasicAuthenticationTokenArgsDict']
+    """
+    Sasl token for remote broker authentication.
+    """
 
 @pulumi.input_type
 class SaslRemoteBrokerBasicAuthenticationArgs:
@@ -5227,41 +5024,38 @@ class SaslRemoteBrokerBasicAuthenticationArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class TemporaryResourceLimitsConfigArgsDict(TypedDict):
-        """
-        Internal knobs of Resource Limits for FE and BE
-        """
-        max_inflight_messages: pulumi.Input[_builtins.int]
-        """
-        Maximum number of messages a client can have inflight.
-        """
-        max_inflight_patches: pulumi.Input[_builtins.int]
-        """
-        Maximum number of patch inflight per node.
-        """
-        max_inflight_patches_per_client: pulumi.Input[_builtins.int]
-        """
-        Maximum number of patch a client can have in flight.
-        """
-        max_queued_messages: pulumi.Input[_builtins.float]
-        """
-        Maximum receive for external clients.
-        """
-        max_queued_qos0_messages: pulumi.Input[_builtins.float]
-        """
-        Maximum receive QoS0 for external clients.
-        """
-        max_session_expiry_secs: pulumi.Input[_builtins.float]
-        """
-        Maximum session expiry interval, in seconds.
-        """
-        max_message_expiry_secs: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum message expiry interval, in seconds.
-        """
-elif False:
-    TemporaryResourceLimitsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TemporaryResourceLimitsConfigArgsDict(TypedDict):
+    """
+    Internal knobs of Resource Limits for FE and BE
+    """
+    max_inflight_messages: pulumi.Input[_builtins.int]
+    """
+    Maximum number of messages a client can have inflight.
+    """
+    max_inflight_patches: pulumi.Input[_builtins.int]
+    """
+    Maximum number of patch inflight per node.
+    """
+    max_inflight_patches_per_client: pulumi.Input[_builtins.int]
+    """
+    Maximum number of patch a client can have in flight.
+    """
+    max_queued_messages: pulumi.Input[_builtins.float]
+    """
+    Maximum receive for external clients.
+    """
+    max_queued_qos0_messages: pulumi.Input[_builtins.float]
+    """
+    Maximum receive QoS0 for external clients.
+    """
+    max_session_expiry_secs: pulumi.Input[_builtins.float]
+    """
+    Maximum session expiry interval, in seconds.
+    """
+    max_message_expiry_secs: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum message expiry interval, in seconds.
+    """
 
 @pulumi.input_type
 class TemporaryResourceLimitsConfigArgs:
@@ -5377,25 +5171,22 @@ class TemporaryResourceLimitsConfigArgs:
         pulumi.set(self, "max_message_expiry_secs", value)
 
 
-if not MYPY:
-    class TlsCertMethodArgsDict(TypedDict):
-        """
-        Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
-        """
-        automatic: NotRequired[pulumi.Input['AutomaticCertMethodArgsDict']]
-        """
-        Option 1 - Automatic TLS server certificate management with cert-manager.
-        """
-        key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
-        """
-        Option 3 - TLS server certificate retrieved from Key Vault..
-        """
-        manual: NotRequired[pulumi.Input['ManualCertMethodArgsDict']]
-        """
-        Option 2 - Manual TLS server certificate management through a defined secret.
-        """
-elif False:
-    TlsCertMethodArgsDict: TypeAlias = Mapping[str, Any]
+class TlsCertMethodArgsDict(TypedDict):
+    """
+    Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
+    """
+    automatic: NotRequired[pulumi.Input['AutomaticCertMethodArgsDict']]
+    """
+    Option 1 - Automatic TLS server certificate management with cert-manager.
+    """
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
+    """
+    Option 3 - TLS server certificate retrieved from Key Vault..
+    """
+    manual: NotRequired[pulumi.Input['ManualCertMethodArgsDict']]
+    """
+    Option 2 - Manual TLS server certificate management through a defined secret.
+    """
 
 @pulumi.input_type
 class TlsCertMethodArgs:
@@ -5453,25 +5244,22 @@ class TlsCertMethodArgs:
         pulumi.set(self, "manual", value)
 
 
-if not MYPY:
-    class VolumeClaimDataSourceRefArgsDict(TypedDict):
-        """
-        VolumeClaimDataSourceRef properties
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Kind is the type of resource being referenced
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name is the name of resource being referenced
-        """
-        api_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
-        """
-elif False:
-    VolumeClaimDataSourceRefArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeClaimDataSourceRefArgsDict(TypedDict):
+    """
+    VolumeClaimDataSourceRef properties
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Kind is the type of resource being referenced
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name is the name of resource being referenced
+    """
+    api_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+    """
 
 @pulumi.input_type
 class VolumeClaimDataSourceRefArgs:
@@ -5527,25 +5315,22 @@ class VolumeClaimDataSourceRefArgs:
         pulumi.set(self, "api_group", value)
 
 
-if not MYPY:
-    class VolumeClaimDataSourceArgsDict(TypedDict):
-        """
-        VolumeClaimDataSource properties
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Kind is the type of resource being referenced
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name is the name of resource being referenced
-        """
-        api_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
-        """
-elif False:
-    VolumeClaimDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeClaimDataSourceArgsDict(TypedDict):
+    """
+    VolumeClaimDataSource properties
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Kind is the type of resource being referenced
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name is the name of resource being referenced
+    """
+    api_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+    """
 
 @pulumi.input_type
 class VolumeClaimDataSourceArgs:
@@ -5601,21 +5386,18 @@ class VolumeClaimDataSourceArgs:
         pulumi.set(self, "api_group", value)
 
 
-if not MYPY:
-    class VolumeClaimResourceRequirementsArgsDict(TypedDict):
-        """
-        VolumeClaimResourceRequirements properties
-        """
-        limits: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-        """
-        requests: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-        """
-elif False:
-    VolumeClaimResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeClaimResourceRequirementsArgsDict(TypedDict):
+    """
+    VolumeClaimResourceRequirements properties
+    """
+    limits: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+    """
+    requests: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+    """
 
 @pulumi.input_type
 class VolumeClaimResourceRequirementsArgs:
@@ -5657,25 +5439,22 @@ class VolumeClaimResourceRequirementsArgs:
         pulumi.set(self, "requests", value)
 
 
-if not MYPY:
-    class VolumeClaimSpecSelectorMatchExpressionsArgsDict(TypedDict):
-        """
-        VolumeClaimSpecSelectorMatchExpressions properties
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        key is the label key that the selector applies to.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-        """
-elif False:
-    VolumeClaimSpecSelectorMatchExpressionsArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeClaimSpecSelectorMatchExpressionsArgsDict(TypedDict):
+    """
+    VolumeClaimSpecSelectorMatchExpressions properties
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    key is the label key that the selector applies to.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+    """
 
 @pulumi.input_type
 class VolumeClaimSpecSelectorMatchExpressionsArgs:
@@ -5731,21 +5510,18 @@ class VolumeClaimSpecSelectorMatchExpressionsArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class VolumeClaimSpecSelectorArgsDict(TypedDict):
-        """
-        VolumeClaimSpecSelector properties
-        """
-        match_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgsDict']]]]
-        """
-        MatchExpressions is a list of label selector requirements. The requirements are ANDed.
-        """
-        match_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-        """
-elif False:
-    VolumeClaimSpecSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeClaimSpecSelectorArgsDict(TypedDict):
+    """
+    VolumeClaimSpecSelector properties
+    """
+    match_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgsDict']]]]
+    """
+    MatchExpressions is a list of label selector requirements. The requirements are ANDed.
+    """
+    match_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+    """
 
 @pulumi.input_type
 class VolumeClaimSpecSelectorArgs:
@@ -5787,45 +5563,42 @@ class VolumeClaimSpecSelectorArgs:
         pulumi.set(self, "match_labels", value)
 
 
-if not MYPY:
-    class VolumeClaimSpecArgsDict(TypedDict):
-        """
-        VolumeClaimSpec properties
-        """
-        access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
-        """
-        data_source: NotRequired[pulumi.Input['VolumeClaimDataSourceArgsDict']]
-        """
-        This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
-        """
-        data_source_ref: NotRequired[pulumi.Input['VolumeClaimDataSourceRefArgsDict']]
-        """
-        Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
-        """
-        resources: NotRequired[pulumi.Input['VolumeClaimResourceRequirementsArgsDict']]
-        """
-        Resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
-        """
-        selector: NotRequired[pulumi.Input['VolumeClaimSpecSelectorArgsDict']]
-        """
-        A label query over volumes to consider for binding.
-        """
-        storage_class_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
-        """
-        volume_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.
-        """
-        volume_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        VolumeName is the binding reference to the PersistentVolume backing this claim.
-        """
-elif False:
-    VolumeClaimSpecArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeClaimSpecArgsDict(TypedDict):
+    """
+    VolumeClaimSpec properties
+    """
+    access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+    """
+    data_source: NotRequired[pulumi.Input['VolumeClaimDataSourceArgsDict']]
+    """
+    This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+    """
+    data_source_ref: NotRequired[pulumi.Input['VolumeClaimDataSourceRefArgsDict']]
+    """
+    Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+    """
+    resources: NotRequired[pulumi.Input['VolumeClaimResourceRequirementsArgsDict']]
+    """
+    Resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+    """
+    selector: NotRequired[pulumi.Input['VolumeClaimSpecSelectorArgsDict']]
+    """
+    A label query over volumes to consider for binding.
+    """
+    storage_class_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+    """
+    volume_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.
+    """
+    volume_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    VolumeName is the binding reference to the PersistentVolume backing this claim.
+    """
 
 @pulumi.input_type
 class VolumeClaimSpecArgs:

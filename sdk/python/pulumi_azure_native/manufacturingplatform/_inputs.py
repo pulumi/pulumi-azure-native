@@ -34,19 +34,14 @@ __all__ = [
     'UserManagedOpenAIProfileArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CmkProfileArgsDict(TypedDict):
-        """
-        The properties related to CMK
-        """
-        key_uri: pulumi.Input[_builtins.str]
-        """
-        URI of Key in AKV
-        """
-elif False:
-    CmkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class CmkProfileArgsDict(TypedDict):
+    """
+    The properties related to CMK
+    """
+    key_uri: pulumi.Input[_builtins.str]
+    """
+    URI of Key in AKV
+    """
 
 @pulumi.input_type
 class CmkProfileArgs:
@@ -71,21 +66,18 @@ class CmkProfileArgs:
         pulumi.set(self, "key_uri", value)
 
 
-if not MYPY:
-    class DenyAssignmentExclusionArgsDict(TypedDict):
-        """
-        The properties related to Deny Assignment Exclusions
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Object Id of Identity
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of Identity
-        """
-elif False:
-    DenyAssignmentExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class DenyAssignmentExclusionArgsDict(TypedDict):
+    """
+    The properties related to Deny Assignment Exclusions
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Object Id of Identity
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of Identity
+    """
 
 @pulumi.input_type
 class DenyAssignmentExclusionArgs:
@@ -125,25 +117,22 @@ class DenyAssignmentExclusionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FabricProfileArgsDict(TypedDict):
-        """
-        The properties related to Fabric
-        """
-        key_uri: pulumi.Input[_builtins.str]
-        """
-        Azure Key Vault Uri
-        """
-        one_lake_path: pulumi.Input[_builtins.str]
-        """
-        One Lake Path
-        """
-        one_lake_uri: pulumi.Input[_builtins.str]
-        """
-        URI of One Lake
-        """
-elif False:
-    FabricProfileArgsDict: TypeAlias = Mapping[str, Any]
+class FabricProfileArgsDict(TypedDict):
+    """
+    The properties related to Fabric
+    """
+    key_uri: pulumi.Input[_builtins.str]
+    """
+    Azure Key Vault Uri
+    """
+    one_lake_path: pulumi.Input[_builtins.str]
+    """
+    One Lake Path
+    """
+    one_lake_uri: pulumi.Input[_builtins.str]
+    """
+    URI of One Lake
+    """
 
 @pulumi.input_type
 class FabricProfileArgs:
@@ -198,21 +187,18 @@ class FabricProfileArgs:
         pulumi.set(self, "one_lake_uri", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -253,61 +239,58 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class MdsResourcePropertiesArgsDict(TypedDict):
-        """
-        Details of the ManufacturingPlatform MdsResource.
-        """
-        aad_application_id: pulumi.Input[_builtins.str]
-        """
-        AAD Application Id.
-        """
-        aks_admin_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AKS Admin Group Id.
-        """
-        cmk_profile: NotRequired[pulumi.Input['CmkProfileArgsDict']]
-        """
-        Profile of CMK Settings.
-        """
-        deny_assignment_exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentExclusionArgsDict']]]]
-        """
-        Deny Assignments exclusion list.
-        """
-        enable_copilot: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable Copilot.
-        """
-        enable_diagnostic_settings: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable Diagnostic Settings.
-        """
-        fabric_profile: NotRequired[pulumi.Input['FabricProfileArgsDict']]
-        """
-        Profile of Fabric resources.
-        """
-        open_ai_profile: NotRequired[pulumi.Input['OpenAIProfileArgsDict']]
-        """
-        Profile of OpenAI Resource.
-        """
-        redundancy_state: NotRequired[pulumi.Input[Union[_builtins.str, 'RedundancyState']]]
-        """
-        Zone redundancy state for resources
-        """
-        resource_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
-        """
-        State of the resource
-        """
-        user_managed_open_ai_profile: NotRequired[pulumi.Input['UserManagedOpenAIProfileArgsDict']]
-        """
-        Profile of User Managed OpenAI Resource.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mds Resource Version.
-        """
-elif False:
-    MdsResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MdsResourcePropertiesArgsDict(TypedDict):
+    """
+    Details of the ManufacturingPlatform MdsResource.
+    """
+    aad_application_id: pulumi.Input[_builtins.str]
+    """
+    AAD Application Id.
+    """
+    aks_admin_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AKS Admin Group Id.
+    """
+    cmk_profile: NotRequired[pulumi.Input['CmkProfileArgsDict']]
+    """
+    Profile of CMK Settings.
+    """
+    deny_assignment_exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentExclusionArgsDict']]]]
+    """
+    Deny Assignments exclusion list.
+    """
+    enable_copilot: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable Copilot.
+    """
+    enable_diagnostic_settings: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable Diagnostic Settings.
+    """
+    fabric_profile: NotRequired[pulumi.Input['FabricProfileArgsDict']]
+    """
+    Profile of Fabric resources.
+    """
+    open_ai_profile: NotRequired[pulumi.Input['OpenAIProfileArgsDict']]
+    """
+    Profile of OpenAI Resource.
+    """
+    redundancy_state: NotRequired[pulumi.Input[Union[_builtins.str, 'RedundancyState']]]
+    """
+    Zone redundancy state for resources
+    """
+    resource_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    """
+    State of the resource
+    """
+    user_managed_open_ai_profile: NotRequired[pulumi.Input['UserManagedOpenAIProfileArgsDict']]
+    """
+    Profile of User Managed OpenAI Resource.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mds Resource Version.
+    """
 
 @pulumi.input_type
 class MdsResourcePropertiesArgs:
@@ -510,45 +493,42 @@ class MdsResourcePropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class OpenAIProfileArgsDict(TypedDict):
-        """
-        The properties related to OpenAI Resource
-        """
-        embedding_model_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Embedding Model Capacity
-        """
-        embedding_model_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Embedding Model Name
-        """
-        embedding_model_sku_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Embedding Model SKU Name
-        """
-        embedding_model_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Embedding Model Version
-        """
-        gpt_model_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        GPT Model Capacity
-        """
-        gpt_model_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GPT Model Name
-        """
-        gpt_model_sku_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GPT Model SKU Name
-        """
-        gpt_model_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GPT Model Version
-        """
-elif False:
-    OpenAIProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OpenAIProfileArgsDict(TypedDict):
+    """
+    The properties related to OpenAI Resource
+    """
+    embedding_model_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Embedding Model Capacity
+    """
+    embedding_model_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Embedding Model Name
+    """
+    embedding_model_sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Embedding Model SKU Name
+    """
+    embedding_model_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Embedding Model Version
+    """
+    gpt_model_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    GPT Model Capacity
+    """
+    gpt_model_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GPT Model Name
+    """
+    gpt_model_sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GPT Model SKU Name
+    """
+    gpt_model_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GPT Model Version
+    """
 
 @pulumi.input_type
 class OpenAIProfileArgs:
@@ -686,33 +666,30 @@ class OpenAIProfileArgs:
         pulumi.set(self, "gpt_model_version", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. E.g. P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. E.g. P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -801,25 +778,22 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class UserManagedOpenAIProfileArgsDict(TypedDict):
-        """
-        The properties related to User Managed OpenAI Resource
-        """
-        embedding_model_deployment_name: pulumi.Input[_builtins.str]
-        """
-        Embedding Model Deployment Name
-        """
-        gpt_model_deployment_name: pulumi.Input[_builtins.str]
-        """
-        GPT Model Deployment Name
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of OpenAI Resource
-        """
-elif False:
-    UserManagedOpenAIProfileArgsDict: TypeAlias = Mapping[str, Any]
+class UserManagedOpenAIProfileArgsDict(TypedDict):
+    """
+    The properties related to User Managed OpenAI Resource
+    """
+    embedding_model_deployment_name: pulumi.Input[_builtins.str]
+    """
+    Embedding Model Deployment Name
+    """
+    gpt_model_deployment_name: pulumi.Input[_builtins.str]
+    """
+    GPT Model Deployment Name
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of OpenAI Resource
+    """
 
 @pulumi.input_type
 class UserManagedOpenAIProfileArgs:

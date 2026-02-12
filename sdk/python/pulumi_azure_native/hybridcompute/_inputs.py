@@ -66,27 +66,22 @@ __all__ = [
     'VolumeLicenseDetailsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AgentUpgradeArgsDict(TypedDict):
-        """
-        The info w.r.t Agent Upgrade.
-        """
-        correlation_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The correlation ID passed in from RSM per upgrade.
-        """
-        desired_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the version info w.r.t AgentUpgrade for the machine.
-        """
-        enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if RSM should try to upgrade this machine
-        """
-elif False:
-    AgentUpgradeArgsDict: TypeAlias = Mapping[str, Any]
+class AgentUpgradeArgsDict(TypedDict):
+    """
+    The info w.r.t Agent Upgrade.
+    """
+    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The correlation ID passed in from RSM per upgrade.
+    """
+    desired_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the version info w.r.t AgentUpgrade for the machine.
+    """
+    enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if RSM should try to upgrade this machine
+    """
 
 @pulumi.input_type
 class AgentUpgradeArgs:
@@ -144,17 +139,14 @@ class AgentUpgradeArgs:
         pulumi.set(self, "enable_automatic_upgrade", value)
 
 
-if not MYPY:
-    class HybridComputePrivateLinkScopePropertiesArgsDict(TypedDict):
-        """
-        Properties that define a Azure Arc PrivateLinkScope resource.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
-        """
-        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        """
-elif False:
-    HybridComputePrivateLinkScopePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HybridComputePrivateLinkScopePropertiesArgsDict(TypedDict):
+    """
+    Properties that define a Azure Arc PrivateLinkScope resource.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
+    """
+    Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+    """
 
 @pulumi.input_type
 class HybridComputePrivateLinkScopePropertiesArgs:
@@ -180,17 +172,14 @@ class HybridComputePrivateLinkScopePropertiesArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -216,37 +205,34 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class LicenseDetailsArgsDict(TypedDict):
-        """
-        Describes the properties of a License.
-        """
-        edition: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseEdition']]]
-        """
-        Describes the edition of the license. The values are either Standard or Datacenter.
-        """
-        processors: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the number of processors.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseState']]]
-        """
-        Describes the state of the license.
-        """
-        target: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseTarget']]]
-        """
-        Describes the license target server.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseCoreType']]]
-        """
-        Describes the license core type (pCore or vCore).
-        """
-        volume_license_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgsDict']]]]
-        """
-        A list of volume license details.
-        """
-elif False:
-    LicenseDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseDetailsArgsDict(TypedDict):
+    """
+    Describes the properties of a License.
+    """
+    edition: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseEdition']]]
+    """
+    Describes the edition of the license. The values are either Standard or Datacenter.
+    """
+    processors: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the number of processors.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseState']]]
+    """
+    Describes the state of the license.
+    """
+    target: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseTarget']]]
+    """
+    Describes the license target server.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseCoreType']]]
+    """
+    Describes the license core type (pCore or vCore).
+    """
+    volume_license_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgsDict']]]]
+    """
+    A list of volume license details.
+    """
 
 @pulumi.input_type
 class LicenseDetailsArgs:
@@ -352,21 +338,18 @@ class LicenseDetailsArgs:
         pulumi.set(self, "volume_license_details", value)
 
 
-if not MYPY:
-    class LicenseProfileMachineInstanceViewEsuPropertiesArgsDict(TypedDict):
-        """
-        Properties for the Machine ESU profile.
-        """
-        assigned_license: NotRequired[pulumi.Input['LicenseArgsDict']]
-        """
-        The assigned license resource.
-        """
-        license_assignment_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']]]
-        """
-        Describes the license assignment state (Assigned or NotAssigned).
-        """
-elif False:
-    LicenseProfileMachineInstanceViewEsuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseProfileMachineInstanceViewEsuPropertiesArgsDict(TypedDict):
+    """
+    Properties for the Machine ESU profile.
+    """
+    assigned_license: NotRequired[pulumi.Input['LicenseArgsDict']]
+    """
+    The assigned license resource.
+    """
+    license_assignment_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']]]
+    """
+    Describes the license assignment state (Assigned or NotAssigned).
+    """
 
 @pulumi.input_type
 class LicenseProfileMachineInstanceViewEsuPropertiesArgs:
@@ -408,33 +391,30 @@ class LicenseProfileMachineInstanceViewEsuPropertiesArgs:
         pulumi.set(self, "license_assignment_state", value)
 
 
-if not MYPY:
-    class LicenseProfileMachineInstanceViewArgsDict(TypedDict):
-        """
-        License Profile Instance View in Machine Properties.
-        """
-        esu_profile: NotRequired[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgsDict']]
-        """
-        Properties for the Machine ESU profile.
-        """
-        product_features: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgsDict']]]]
-        """
-        The list of product features.
-        """
-        product_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]]
-        """
-        Indicates the product type of the license.
-        """
-        software_assurance_customer: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if this machine is licensed as part of a Software Assurance agreement.
-        """
-        subscription_status: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]
-        """
-        Indicates the subscription status of the product.
-        """
-elif False:
-    LicenseProfileMachineInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseProfileMachineInstanceViewArgsDict(TypedDict):
+    """
+    License Profile Instance View in Machine Properties.
+    """
+    esu_profile: NotRequired[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgsDict']]
+    """
+    Properties for the Machine ESU profile.
+    """
+    product_features: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgsDict']]]]
+    """
+    The list of product features.
+    """
+    product_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]]
+    """
+    Indicates the product type of the license.
+    """
+    software_assurance_customer: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if this machine is licensed as part of a Software Assurance agreement.
+    """
+    subscription_status: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]
+    """
+    Indicates the subscription status of the product.
+    """
 
 @pulumi.input_type
 class LicenseProfileMachineInstanceViewArgs:
@@ -524,33 +504,30 @@ class LicenseProfileMachineInstanceViewArgs:
         pulumi.set(self, "subscription_status", value)
 
 
-if not MYPY:
-    class LicenseArgsDict(TypedDict):
-        """
-        Describes a license in a hybrid machine.
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        The geo-location where the resource lives
-        """
-        license_details: NotRequired[pulumi.Input['LicenseDetailsArgsDict']]
-        """
-        Describes the properties of a License.
-        """
-        license_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseType']]]
-        """
-        The type of the license resource.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Resource tags.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the tenant id.
-        """
-elif False:
-    LicenseArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseArgsDict(TypedDict):
+    """
+    Describes a license in a hybrid machine.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    The geo-location where the resource lives
+    """
+    license_details: NotRequired[pulumi.Input['LicenseDetailsArgsDict']]
+    """
+    Describes the properties of a License.
+    """
+    license_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseType']]]
+    """
+    The type of the license resource.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Describes the tenant id.
+    """
 
 @pulumi.input_type
 class LicenseArgs:
@@ -639,29 +616,26 @@ class LicenseArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class LocationDataArgsDict(TypedDict):
-        """
-        Metadata pertaining to the geographic location of the resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A canonical name for the geographic or physical location.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city or locality where the resource is located.
-        """
-        country_or_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country or region where the resource is located
-        """
-        district: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The district, state, or province where the resource is located.
-        """
-elif False:
-    LocationDataArgsDict: TypeAlias = Mapping[str, Any]
+class LocationDataArgsDict(TypedDict):
+    """
+    Metadata pertaining to the geographic location of the resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A canonical name for the geographic or physical location.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city or locality where the resource is located.
+    """
+    country_or_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country or region where the resource is located
+    """
+    district: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The district, state, or province where the resource is located.
+    """
 
 @pulumi.input_type
 class LocationDataArgs:
@@ -734,33 +708,30 @@ class LocationDataArgs:
         pulumi.set(self, "district", value)
 
 
-if not MYPY:
-    class MachineExtensionInstanceViewStatusArgsDict(TypedDict):
-        """
-        Instance view status.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status code.
-        """
-        display_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The short localizable label for the status.
-        """
-        level: NotRequired[pulumi.Input[Union[_builtins.str, 'StatusLevelTypes']]]
-        """
-        The level code.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The detailed status message, including for alerts and error messages.
-        """
-        time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time of the status.
-        """
-elif False:
-    MachineExtensionInstanceViewStatusArgsDict: TypeAlias = Mapping[str, Any]
+class MachineExtensionInstanceViewStatusArgsDict(TypedDict):
+    """
+    Instance view status.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status code.
+    """
+    display_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The short localizable label for the status.
+    """
+    level: NotRequired[pulumi.Input[Union[_builtins.str, 'StatusLevelTypes']]]
+    """
+    The level code.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The detailed status message, including for alerts and error messages.
+    """
+    time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time of the status.
+    """
 
 @pulumi.input_type
 class MachineExtensionInstanceViewStatusArgs:
@@ -850,29 +821,26 @@ class MachineExtensionInstanceViewStatusArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class MachineExtensionInstanceViewArgsDict(TypedDict):
-        """
-        Describes the Machine Extension Instance View.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The machine extension name.
-        """
-        status: NotRequired[pulumi.Input['MachineExtensionInstanceViewStatusArgsDict']]
-        """
-        Instance view status.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        type_handler_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the version of the script handler.
-        """
-elif False:
-    MachineExtensionInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
+class MachineExtensionInstanceViewArgsDict(TypedDict):
+    """
+    Describes the Machine Extension Instance View.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The machine extension name.
+    """
+    status: NotRequired[pulumi.Input['MachineExtensionInstanceViewStatusArgsDict']]
+    """
+    Instance view status.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of the extension; an example is "CustomScriptExtension".
+    """
+    type_handler_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the version of the script handler.
+    """
 
 @pulumi.input_type
 class MachineExtensionInstanceViewArgs:
@@ -946,49 +914,46 @@ class MachineExtensionInstanceViewArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
-if not MYPY:
-    class MachineExtensionPropertiesArgsDict(TypedDict):
-        """
-        Describes the properties of a Machine Extension.
-        """
-        auto_upgrade_minor_version: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        """
-        enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
-        """
-        force_update_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        How the extension handler should be forced to update even if the extension configuration has not changed.
-        """
-        instance_view: NotRequired[pulumi.Input['MachineExtensionInstanceViewArgsDict']]
-        """
-        The machine extension instance view.
-        """
-        protected_settings: NotRequired[Any]
-        """
-        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the extension handler publisher.
-        """
-        settings: NotRequired[Any]
-        """
-        Json formatted public settings for the extension.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        type_handler_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the version of the script handler.
-        """
-elif False:
-    MachineExtensionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MachineExtensionPropertiesArgsDict(TypedDict):
+    """
+    Describes the properties of a Machine Extension.
+    """
+    auto_upgrade_minor_version: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+    """
+    enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+    """
+    force_update_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    How the extension handler should be forced to update even if the extension configuration has not changed.
+    """
+    instance_view: NotRequired[pulumi.Input['MachineExtensionInstanceViewArgsDict']]
+    """
+    The machine extension instance view.
+    """
+    protected_settings: NotRequired[Any]
+    """
+    The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the extension handler publisher.
+    """
+    settings: NotRequired[Any]
+    """
+    Json formatted public settings for the extension.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of the extension; an example is "CustomScriptExtension".
+    """
+    type_handler_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the version of the script handler.
+    """
 
 @pulumi.input_type
 class MachineExtensionPropertiesArgs:
@@ -1142,29 +1107,26 @@ class MachineExtensionPropertiesArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
-if not MYPY:
-    class MachineRunCommandScriptSourceArgsDict(TypedDict):
-        """
-        Describes the script sources for run command. Use only one of script, scriptUri, commandId.
-        """
-        command_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the commandId of predefined built-in script.
-        """
-        script: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the script content to be executed on the machine.
-        """
-        script_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
-        """
-        script_uri_managed_identity: NotRequired[pulumi.Input['RunCommandManagedIdentityArgsDict']]
-        """
-        User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
-        """
-elif False:
-    MachineRunCommandScriptSourceArgsDict: TypeAlias = Mapping[str, Any]
+class MachineRunCommandScriptSourceArgsDict(TypedDict):
+    """
+    Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+    """
+    command_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the commandId of predefined built-in script.
+    """
+    script: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the script content to be executed on the machine.
+    """
+    script_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+    """
+    script_uri_managed_identity: NotRequired[pulumi.Input['RunCommandManagedIdentityArgsDict']]
+    """
+    User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+    """
 
 @pulumi.input_type
 class MachineRunCommandScriptSourceArgs:
@@ -1238,25 +1200,22 @@ class MachineRunCommandScriptSourceArgs:
         pulumi.set(self, "script_uri_managed_identity", value)
 
 
-if not MYPY:
-    class OSProfileLinuxConfigurationArgsDict(TypedDict):
-        """
-        Specifies the linux configuration for update management.
-        """
-        assessment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]
-        """
-        Specifies the assessment mode.
-        """
-        enable_hotpatching: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-        """
-        patch_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]
-        """
-        Specifies the patch mode.
-        """
-elif False:
-    OSProfileLinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OSProfileLinuxConfigurationArgsDict(TypedDict):
+    """
+    Specifies the linux configuration for update management.
+    """
+    assessment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]
+    """
+    Specifies the assessment mode.
+    """
+    enable_hotpatching: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+    """
+    patch_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]
+    """
+    Specifies the patch mode.
+    """
 
 @pulumi.input_type
 class OSProfileLinuxConfigurationArgs:
@@ -1314,25 +1273,22 @@ class OSProfileLinuxConfigurationArgs:
         pulumi.set(self, "patch_mode", value)
 
 
-if not MYPY:
-    class OSProfileWindowsConfigurationArgsDict(TypedDict):
-        """
-        Specifies the windows configuration for update management.
-        """
-        assessment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]
-        """
-        Specifies the assessment mode.
-        """
-        enable_hotpatching: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-        """
-        patch_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]
-        """
-        Specifies the patch mode.
-        """
-elif False:
-    OSProfileWindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OSProfileWindowsConfigurationArgsDict(TypedDict):
+    """
+    Specifies the windows configuration for update management.
+    """
+    assessment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]
+    """
+    Specifies the assessment mode.
+    """
+    enable_hotpatching: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+    """
+    patch_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]
+    """
+    Specifies the patch mode.
+    """
 
 @pulumi.input_type
 class OSProfileWindowsConfigurationArgs:
@@ -1390,21 +1346,18 @@ class OSProfileWindowsConfigurationArgs:
         pulumi.set(self, "patch_mode", value)
 
 
-if not MYPY:
-    class OSProfileArgsDict(TypedDict):
-        """
-        Specifies the operating system settings for the hybrid machine.
-        """
-        linux_configuration: NotRequired[pulumi.Input['OSProfileLinuxConfigurationArgsDict']]
-        """
-        Specifies the linux configuration for update management.
-        """
-        windows_configuration: NotRequired[pulumi.Input['OSProfileWindowsConfigurationArgsDict']]
-        """
-        Specifies the windows configuration for update management.
-        """
-elif False:
-    OSProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OSProfileArgsDict(TypedDict):
+    """
+    Specifies the operating system settings for the hybrid machine.
+    """
+    linux_configuration: NotRequired[pulumi.Input['OSProfileLinuxConfigurationArgsDict']]
+    """
+    Specifies the linux configuration for update management.
+    """
+    windows_configuration: NotRequired[pulumi.Input['OSProfileWindowsConfigurationArgsDict']]
+    """
+    Specifies the windows configuration for update management.
+    """
 
 @pulumi.input_type
 class OSProfileArgs:
@@ -1446,21 +1399,18 @@ class OSProfileArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        Properties of a private endpoint connection.
-        """
-        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointPropertyArgsDict']]
-        """
-        Private endpoint which the connection belongs to.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgsDict']]
-        """
-        Connection state of the private endpoint connection.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    Properties of a private endpoint connection.
+    """
+    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointPropertyArgsDict']]
+    """
+    Private endpoint which the connection belongs to.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgsDict']]
+    """
+    Connection state of the private endpoint connection.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -1502,17 +1452,14 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateEndpointPropertyArgsDict(TypedDict):
-        """
-        Private endpoint which the connection belongs to.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of the private endpoint.
-        """
-elif False:
-    PrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointPropertyArgsDict(TypedDict):
+    """
+    Private endpoint which the connection belongs to.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of the private endpoint.
+    """
 
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
@@ -1538,21 +1485,18 @@ class PrivateEndpointPropertyArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
-        """
-        State of the private endpoint connection.
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        The private link service connection description.
-        """
-        status: pulumi.Input[_builtins.str]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+    """
+    State of the private endpoint connection.
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    The private link service connection description.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    The private link service connection status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:
@@ -1592,21 +1536,18 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ProductFeatureArgsDict(TypedDict):
-        """
-        Product Feature
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Product feature name.
-        """
-        subscription_status: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]
-        """
-        Indicates the current status of the product features.
-        """
-elif False:
-    ProductFeatureArgsDict: TypeAlias = Mapping[str, Any]
+class ProductFeatureArgsDict(TypedDict):
+    """
+    Product Feature
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Product feature name.
+    """
+    subscription_status: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]
+    """
+    Indicates the current status of the product features.
+    """
 
 @pulumi.input_type
 class ProductFeatureArgs:
@@ -1648,21 +1589,18 @@ class ProductFeatureArgs:
         pulumi.set(self, "subscription_status", value)
 
 
-if not MYPY:
-    class RunCommandInputParameterArgsDict(TypedDict):
-        """
-        Describes the properties of a run command parameter.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The run command parameter name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The run command parameter value.
-        """
-elif False:
-    RunCommandInputParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RunCommandInputParameterArgsDict(TypedDict):
+    """
+    Describes the properties of a run command parameter.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The run command parameter name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The run command parameter value.
+    """
 
 @pulumi.input_type
 class RunCommandInputParameterArgs:
@@ -1702,21 +1640,18 @@ class RunCommandInputParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RunCommandManagedIdentityArgsDict(TypedDict):
-        """
-         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
-        """
-        object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
-        """
-elif False:
-    RunCommandManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class RunCommandManagedIdentityArgsDict(TypedDict):
+    """
+     Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+    """
+    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+    """
 
 @pulumi.input_type
 class RunCommandManagedIdentityArgs:
@@ -1758,21 +1693,18 @@ class RunCommandManagedIdentityArgs:
         pulumi.set(self, "object_id", value)
 
 
-if not MYPY:
-    class ServiceStatusesArgsDict(TypedDict):
-        """
-        Reports the state and behavior of dependent services.
-        """
-        extension_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
-        """
-        The state of the extension service on the Arc-enabled machine.
-        """
-        guest_configuration_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
-        """
-        The state of the guest configuration service on the Arc-enabled machine.
-        """
-elif False:
-    ServiceStatusesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceStatusesArgsDict(TypedDict):
+    """
+    Reports the state and behavior of dependent services.
+    """
+    extension_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
+    """
+    The state of the extension service on the Arc-enabled machine.
+    """
+    guest_configuration_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
+    """
+    The state of the guest configuration service on the Arc-enabled machine.
+    """
 
 @pulumi.input_type
 class ServiceStatusesArgs:
@@ -1814,21 +1746,18 @@ class ServiceStatusesArgs:
         pulumi.set(self, "guest_configuration_service", value)
 
 
-if not MYPY:
-    class ServiceStatusArgsDict(TypedDict):
-        """
-        Describes the status and behavior of a service.
-        """
-        startup_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The behavior of the service when the Arc-enabled machine starts up.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The current status of the service.
-        """
-elif False:
-    ServiceStatusArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceStatusArgsDict(TypedDict):
+    """
+    Describes the status and behavior of a service.
+    """
+    startup_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The behavior of the service when the Arc-enabled machine starts up.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current status of the service.
+    """
 
 @pulumi.input_type
 class ServiceStatusArgs:
@@ -1870,18 +1799,15 @@ class ServiceStatusArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class VolumeLicenseDetailsArgsDict(TypedDict):
-        invoice_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The invoice id for the volume license.
-        """
-        program_year: NotRequired[pulumi.Input[Union[_builtins.str, 'ProgramYear']]]
-        """
-        Describes the program year the volume license is for.
-        """
-elif False:
-    VolumeLicenseDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeLicenseDetailsArgsDict(TypedDict):
+    invoice_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The invoice id for the volume license.
+    """
+    program_year: NotRequired[pulumi.Input[Union[_builtins.str, 'ProgramYear']]]
+    """
+    Describes the program year the volume license is for.
+    """
 
 @pulumi.input_type
 class VolumeLicenseDetailsArgs:

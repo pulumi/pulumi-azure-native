@@ -62,71 +62,66 @@ __all__ = [
     'UserObjectReceiverValueArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CommandArgsDict(TypedDict):
-        """
-        The command used in the test
-        """
-        action: pulumi.Input[Union[_builtins.str, 'Action']]
-        """
-        The action of the command.
-        """
-        content: pulumi.Input[_builtins.str]
-        """
-        The content of the command. The content depends on source type.
-        """
-        content_type: pulumi.Input[Union[_builtins.str, 'ContentType']]
-        """
-        The type of command content.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the command.
-        """
-        always_run: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to run the command even if a previous command is failed.
-        """
-        apply_update_before: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to apply update before the command.
-        """
-        enroll_intune_before: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enroll Intune before the command.
-        """
-        install1_p_app_before: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to install first party applications before running the command.
-        """
-        max_run_time: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the max run time of the command.
-        """
-        post_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the command is assigned to be executed after in-place upgrade.
-        """
-        pre_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the command is assigned to be executed before in-place upgrade.
-        """
-        restart_after: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to restart the VM after the command executed.
-        """
-        run_as_interactive: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to run the command in interactive mode.
-        """
-        run_elevated: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to run the command as administrator.
-        """
-elif False:
-    CommandArgsDict: TypeAlias = Mapping[str, Any]
+class CommandArgsDict(TypedDict):
+    """
+    The command used in the test
+    """
+    action: pulumi.Input[Union[_builtins.str, 'Action']]
+    """
+    The action of the command.
+    """
+    content: pulumi.Input[_builtins.str]
+    """
+    The content of the command. The content depends on source type.
+    """
+    content_type: pulumi.Input[Union[_builtins.str, 'ContentType']]
+    """
+    The type of command content.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the command.
+    """
+    always_run: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to run the command even if a previous command is failed.
+    """
+    apply_update_before: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to apply update before the command.
+    """
+    enroll_intune_before: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enroll Intune before the command.
+    """
+    install1_p_app_before: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to install first party applications before running the command.
+    """
+    max_run_time: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the max run time of the command.
+    """
+    post_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the command is assigned to be executed after in-place upgrade.
+    """
+    pre_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the command is assigned to be executed before in-place upgrade.
+    """
+    restart_after: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to restart the VM after the command executed.
+    """
+    run_as_interactive: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to run the command in interactive mode.
+    """
+    run_elevated: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to run the command as administrator.
+    """
 
 @pulumi.input_type
 class CommandArgs:
@@ -356,17 +351,14 @@ class CommandArgs:
         pulumi.set(self, "run_elevated", value)
 
 
-if not MYPY:
-    class DistributionGroupListReceiverValueArgsDict(TypedDict):
-        """
-        The user object receiver value.
-        """
-        distribution_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of distribution groups.
-        """
-elif False:
-    DistributionGroupListReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionGroupListReceiverValueArgsDict(TypedDict):
+    """
+    The user object receiver value.
+    """
+    distribution_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of distribution groups.
+    """
 
 @pulumi.input_type
 class DistributionGroupListReceiverValueArgs:
@@ -392,77 +384,74 @@ class DistributionGroupListReceiverValueArgs:
         pulumi.set(self, "distribution_groups", value)
 
 
-if not MYPY:
-    class DraftPackageIntuneAppMetadataItemArgsDict(TypedDict):
-        """
-        The Metadata of a single Intune App.
-        """
-        app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Intune app id.
-        """
-        app_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Intune app name.
-        """
-        create_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Creation date of the app.
-        """
-        dependency_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Ids of dependency apps.
-        """
-        dependent_app_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Count of dependency apps.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the app.
-        """
-        expected_exit_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Expected exit codes returned from Intune App.
-        """
-        install_command: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Install command.
-        """
-        last_processed: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        last processed time tickets.
-        """
-        minimum_supported_os: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Minimum supported OS. The OS version must be greater than this version to run this app.
-        """
-        owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Owner of the app.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Publisher of the app.
-        """
-        setup_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Setup file path.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'IntuneExtractStatus']]]
-        """
-        Extract status.
-        """
-        uninstall_command: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uninstall command.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Intune app version.
-        """
-elif False:
-    DraftPackageIntuneAppMetadataItemArgsDict: TypeAlias = Mapping[str, Any]
+class DraftPackageIntuneAppMetadataItemArgsDict(TypedDict):
+    """
+    The Metadata of a single Intune App.
+    """
+    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Intune app id.
+    """
+    app_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Intune app name.
+    """
+    create_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Creation date of the app.
+    """
+    dependency_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Ids of dependency apps.
+    """
+    dependent_app_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Count of dependency apps.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the app.
+    """
+    expected_exit_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Expected exit codes returned from Intune App.
+    """
+    install_command: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Install command.
+    """
+    last_processed: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    last processed time tickets.
+    """
+    minimum_supported_os: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Minimum supported OS. The OS version must be greater than this version to run this app.
+    """
+    owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Owner of the app.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Publisher of the app.
+    """
+    setup_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Setup file path.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'IntuneExtractStatus']]]
+    """
+    Extract status.
+    """
+    uninstall_command: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uninstall command.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Intune app version.
+    """
 
 @pulumi.input_type
 class DraftPackageIntuneAppMetadataItemArgs:
@@ -728,21 +717,18 @@ class DraftPackageIntuneAppMetadataItemArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DraftPackageIntuneAppMetadataArgsDict(TypedDict):
-        """
-        The metadata of Intune app(s) used for generation.
-        """
-        intune_app: NotRequired[pulumi.Input['DraftPackageIntuneAppMetadataItemArgsDict']]
-        """
-        The Metadata of the Intune App through intunewin file uploading.
-        """
-        intune_app_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgsDict']]]]
-        """
-        The Metadata of dependencies of the Intune App through intunewin file uploading.
-        """
-elif False:
-    DraftPackageIntuneAppMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class DraftPackageIntuneAppMetadataArgsDict(TypedDict):
+    """
+    The metadata of Intune app(s) used for generation.
+    """
+    intune_app: NotRequired[pulumi.Input['DraftPackageIntuneAppMetadataItemArgsDict']]
+    """
+    The Metadata of the Intune App through intunewin file uploading.
+    """
+    intune_app_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['DraftPackageIntuneAppMetadataItemArgsDict']]]]
+    """
+    The Metadata of dependencies of the Intune App through intunewin file uploading.
+    """
 
 @pulumi.input_type
 class DraftPackageIntuneAppMetadataArgs:
@@ -784,25 +770,22 @@ class DraftPackageIntuneAppMetadataArgs:
         pulumi.set(self, "intune_app_dependencies", value)
 
 
-if not MYPY:
-    class EnrolledIntuneAppArgsDict(TypedDict):
-        """
-        Metadata of the enrolled Intune app.
-        """
-        app_id: pulumi.Input[_builtins.str]
-        """
-        Intune app id.
-        """
-        app_name: pulumi.Input[_builtins.str]
-        """
-        Intune app name.
-        """
-        expected_installation_path: pulumi.Input[_builtins.str]
-        """
-        Intune app expected installation path.
-        """
-elif False:
-    EnrolledIntuneAppArgsDict: TypeAlias = Mapping[str, Any]
+class EnrolledIntuneAppArgsDict(TypedDict):
+    """
+    Metadata of the enrolled Intune app.
+    """
+    app_id: pulumi.Input[_builtins.str]
+    """
+    Intune app id.
+    """
+    app_name: pulumi.Input[_builtins.str]
+    """
+    Intune app name.
+    """
+    expected_installation_path: pulumi.Input[_builtins.str]
+    """
+    Intune app expected installation path.
+    """
 
 @pulumi.input_type
 class EnrolledIntuneAppArgs:
@@ -857,33 +840,30 @@ class EnrolledIntuneAppArgs:
         pulumi.set(self, "expected_installation_path", value)
 
 
-if not MYPY:
-    class FirstPartyAppDefinitionArgsDict(TypedDict):
-        """
-        Properties of the definition of a first party application of the Test Base package.
-        """
-        architecture: NotRequired[pulumi.Input[Union[_builtins.str, 'Architecture']]]
-        """
-        The architecture of a first party application of a Test Base Account.
-        """
-        channel: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The channel info of a first party application of a Test Base Account.
-        """
-        interop_execution_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InteropExecutionMode']]]
-        """
-        Specifies how the first party applications should be inter-operated with user's application.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The media name of a first party application of a Test Base Account.
-        """
-        ring: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ring info of a first party application of a Test Base Account.
-        """
-elif False:
-    FirstPartyAppDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class FirstPartyAppDefinitionArgsDict(TypedDict):
+    """
+    Properties of the definition of a first party application of the Test Base package.
+    """
+    architecture: NotRequired[pulumi.Input[Union[_builtins.str, 'Architecture']]]
+    """
+    The architecture of a first party application of a Test Base Account.
+    """
+    channel: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The channel info of a first party application of a Test Base Account.
+    """
+    interop_execution_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InteropExecutionMode']]]
+    """
+    Specifies how the first party applications should be inter-operated with user's application.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The media name of a first party application of a Test Base Account.
+    """
+    ring: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ring info of a first party application of a Test Base Account.
+    """
 
 @pulumi.input_type
 class FirstPartyAppDefinitionArgs:
@@ -975,21 +955,18 @@ class FirstPartyAppDefinitionArgs:
         pulumi.set(self, "ring", value)
 
 
-if not MYPY:
-    class GalleryAppDefinitionArgsDict(TypedDict):
-        """
-        Properties of the definition of a gallery application used in Test Base package.
-        """
-        sku_id: pulumi.Input[_builtins.str]
-        """
-        The SKU id of the gallery application.
-        """
-        is_consented: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the disclaimer of the gallery application is accepted.
-        """
-elif False:
-    GalleryAppDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class GalleryAppDefinitionArgsDict(TypedDict):
+    """
+    Properties of the definition of a gallery application used in Test Base package.
+    """
+    sku_id: pulumi.Input[_builtins.str]
+    """
+    The SKU id of the gallery application.
+    """
+    is_consented: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the disclaimer of the gallery application is accepted.
+    """
 
 @pulumi.input_type
 class GalleryAppDefinitionArgs:
@@ -1032,25 +1009,22 @@ class GalleryAppDefinitionArgs:
         pulumi.set(self, "is_consented", value)
 
 
-if not MYPY:
-    class HighlightedFileArgsDict(TypedDict):
-        """
-        The information of a highlighted file that user should pay attention to.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The path of the highlighted file.
-        """
-        sections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The name of sections to highlight.
-        """
-        visited: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A flag to save whether this file is viewed by user.
-        """
-elif False:
-    HighlightedFileArgsDict: TypeAlias = Mapping[str, Any]
+class HighlightedFileArgsDict(TypedDict):
+    """
+    The information of a highlighted file that user should pay attention to.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The path of the highlighted file.
+    """
+    sections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The name of sections to highlight.
+    """
+    visited: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag to save whether this file is viewed by user.
+    """
 
 @pulumi.input_type
 class HighlightedFileArgs:
@@ -1109,21 +1083,18 @@ class HighlightedFileArgs:
         pulumi.set(self, "visited", value)
 
 
-if not MYPY:
-    class InplaceUpgradeOSInfoArgsDict(TypedDict):
-        """
-        Specifies the baseline os and target os for in-place upgrade tests.
-        """
-        baseline_os: NotRequired[pulumi.Input['OsPropertiesArgsDict']]
-        """
-        Specifies the baseline os for in-place upgrade tests.
-        """
-        target_os: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the target os for in-place upgrade tests.
-        """
-elif False:
-    InplaceUpgradeOSInfoArgsDict: TypeAlias = Mapping[str, Any]
+class InplaceUpgradeOSInfoArgsDict(TypedDict):
+    """
+    Specifies the baseline os and target os for in-place upgrade tests.
+    """
+    baseline_os: NotRequired[pulumi.Input['OsPropertiesArgsDict']]
+    """
+    Specifies the baseline os for in-place upgrade tests.
+    """
+    target_os: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the target os for in-place upgrade tests.
+    """
 
 @pulumi.input_type
 class InplaceUpgradeOSInfoArgs:
@@ -1165,25 +1136,22 @@ class InplaceUpgradeOSInfoArgs:
         pulumi.set(self, "target_os", value)
 
 
-if not MYPY:
-    class IntuneEnrollmentMetadataArgsDict(TypedDict):
-        """
-        The metadata of Intune enrollment.
-        """
-        app_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnrolledIntuneAppArgsDict']]]]
-        """
-        The enrolled Intune apps.
-        """
-        credential_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the Intune enrollment credential.
-        """
-        expected_deployment_duration_in_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expected duration of Intune applications and policies deployment.
-        """
-elif False:
-    IntuneEnrollmentMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class IntuneEnrollmentMetadataArgsDict(TypedDict):
+    """
+    The metadata of Intune enrollment.
+    """
+    app_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnrolledIntuneAppArgsDict']]]]
+    """
+    The enrolled Intune apps.
+    """
+    credential_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the Intune enrollment credential.
+    """
+    expected_deployment_duration_in_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expected duration of Intune applications and policies deployment.
+    """
 
 @pulumi.input_type
 class IntuneEnrollmentMetadataArgs:
@@ -1241,21 +1209,18 @@ class IntuneEnrollmentMetadataArgs:
         pulumi.set(self, "expected_deployment_duration_in_minute", value)
 
 
-if not MYPY:
-    class NotificationEventReceiverArgsDict(TypedDict):
-        """
-        A notification event receivers.
-        """
-        receiver_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the notification event receiver.
-        """
-        receiver_value: NotRequired[pulumi.Input['NotificationReceiverValueArgsDict']]
-        """
-        The notification event receiver value.
-        """
-elif False:
-    NotificationEventReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationEventReceiverArgsDict(TypedDict):
+    """
+    A notification event receivers.
+    """
+    receiver_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the notification event receiver.
+    """
+    receiver_value: NotRequired[pulumi.Input['NotificationReceiverValueArgsDict']]
+    """
+    The notification event receiver value.
+    """
 
 @pulumi.input_type
 class NotificationEventReceiverArgs:
@@ -1297,25 +1262,22 @@ class NotificationEventReceiverArgs:
         pulumi.set(self, "receiver_value", value)
 
 
-if not MYPY:
-    class NotificationReceiverValueArgsDict(TypedDict):
-        """
-        A notification event receiver value.
-        """
-        distribution_group_list_receiver_value: NotRequired[pulumi.Input['DistributionGroupListReceiverValueArgsDict']]
-        """
-        The user object receiver value.
-        """
-        subscription_receiver_value: NotRequired[pulumi.Input['SubscriptionReceiverValueArgsDict']]
-        """
-        The user object receiver value.
-        """
-        user_object_receiver_value: NotRequired[pulumi.Input['UserObjectReceiverValueArgsDict']]
-        """
-        The user object receiver value.
-        """
-elif False:
-    NotificationReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationReceiverValueArgsDict(TypedDict):
+    """
+    A notification event receiver value.
+    """
+    distribution_group_list_receiver_value: NotRequired[pulumi.Input['DistributionGroupListReceiverValueArgsDict']]
+    """
+    The user object receiver value.
+    """
+    subscription_receiver_value: NotRequired[pulumi.Input['SubscriptionReceiverValueArgsDict']]
+    """
+    The user object receiver value.
+    """
+    user_object_receiver_value: NotRequired[pulumi.Input['UserObjectReceiverValueArgsDict']]
+    """
+    The user object receiver value.
+    """
 
 @pulumi.input_type
 class NotificationReceiverValueArgs:
@@ -1373,25 +1335,22 @@ class NotificationReceiverValueArgs:
         pulumi.set(self, "user_object_receiver_value", value)
 
 
-if not MYPY:
-    class OsPropertiesArgsDict(TypedDict):
-        """
-        The properties of an operating system.
-        """
-        custom_image_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the referenced Test Base Custom Image Id if available.
-        """
-        os_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the OS.
-        """
-        release_properties: NotRequired[pulumi.Input['ReleasePropertiesArgsDict']]
-        """
-        The properties of the OS release.
-        """
-elif False:
-    OsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OsPropertiesArgsDict(TypedDict):
+    """
+    The properties of an operating system.
+    """
+    custom_image_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the referenced Test Base Custom Image Id if available.
+    """
+    os_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the OS.
+    """
+    release_properties: NotRequired[pulumi.Input['ReleasePropertiesArgsDict']]
+    """
+    The properties of the OS release.
+    """
 
 @pulumi.input_type
 class OsPropertiesArgs:
@@ -1449,19 +1408,16 @@ class OsPropertiesArgs:
         pulumi.set(self, "release_properties", value)
 
 
-if not MYPY:
-    class PreReleaseAccessRequestSpecArgsDict(TypedDict):
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        company_website: NotRequired[pulumi.Input[_builtins.str]]
-        country_and_region: NotRequired[pulumi.Input[_builtins.str]]
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        engagements: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        state_or_province: NotRequired[pulumi.Input[_builtins.str]]
-        street_address: NotRequired[pulumi.Input[_builtins.str]]
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PreReleaseAccessRequestSpecArgsDict: TypeAlias = Mapping[str, Any]
+class PreReleaseAccessRequestSpecArgsDict(TypedDict):
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    company_website: NotRequired[pulumi.Input[_builtins.str]]
+    country_and_region: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    engagements: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Engagements']]]]]
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    street_address: NotRequired[pulumi.Input[_builtins.str]]
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PreReleaseAccessRequestSpecArgs:
@@ -1576,29 +1532,26 @@ class PreReleaseAccessRequestSpecArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class ReleasePropertiesArgsDict(TypedDict):
-        """
-        The properties of an operating system release.
-        """
-        build_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The build number of the OS release.
-        """
-        build_revision: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The build revision of the OS release.
-        """
-        release_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the OS release.
-        """
-        release_version_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The release version date of the OS release.
-        """
-elif False:
-    ReleasePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ReleasePropertiesArgsDict(TypedDict):
+    """
+    The properties of an operating system release.
+    """
+    build_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The build number of the OS release.
+    """
+    build_revision: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The build revision of the OS release.
+    """
+    release_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the OS release.
+    """
+    release_version_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The release version date of the OS release.
+    """
 
 @pulumi.input_type
 class ReleasePropertiesArgs:
@@ -1672,25 +1625,22 @@ class ReleasePropertiesArgs:
         pulumi.set(self, "release_version_date", value)
 
 
-if not MYPY:
-    class SubscriptionReceiverValueArgsDict(TypedDict):
-        """
-        The subscription role receiver value.
-        """
-        role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The role of the notification receiver.
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subscription id of the notification receiver.
-        """
-        subscription_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subscription name of the notification receiver.
-        """
-elif False:
-    SubscriptionReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionReceiverValueArgsDict(TypedDict):
+    """
+    The subscription role receiver value.
+    """
+    role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The role of the notification receiver.
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subscription id of the notification receiver.
+    """
+    subscription_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subscription name of the notification receiver.
+    """
 
 @pulumi.input_type
 class SubscriptionReceiverValueArgs:
@@ -1748,17 +1698,14 @@ class SubscriptionReceiverValueArgs:
         pulumi.set(self, "subscription_name", value)
 
 
-if not MYPY:
-    class SystemAssignedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (either system assigned, or none)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]
-        """
-        Type of managed service identity (either system assigned, or none).
-        """
-elif False:
-    SystemAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class SystemAssignedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (either system assigned, or none)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
 
 @pulumi.input_type
 class SystemAssignedServiceIdentityArgs:
@@ -1783,21 +1730,18 @@ class SystemAssignedServiceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TabStateArgsDict(TypedDict):
-        """
-        Specifies current state of tabs.
-        """
-        current_tab: NotRequired[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]
-        """
-        Current tab.
-        """
-        visited_tabs: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]
-        """
-        visited tabs.
-        """
-elif False:
-    TabStateArgsDict: TypeAlias = Mapping[str, Any]
+class TabStateArgsDict(TypedDict):
+    """
+    Specifies current state of tabs.
+    """
+    current_tab: NotRequired[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]
+    """
+    Current tab.
+    """
+    visited_tabs: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PackageStudioTabs']]]]]
+    """
+    visited tabs.
+    """
 
 @pulumi.input_type
 class TabStateArgs:
@@ -1839,33 +1783,30 @@ class TabStateArgs:
         pulumi.set(self, "visited_tabs", value)
 
 
-if not MYPY:
-    class TargetOSInfoArgsDict(TypedDict):
-        """
-        The information of the target OS to be tested.
-        """
-        os_update_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
-        """
-        baseline_oss: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the baseline OSs to be tested.
-        """
-        insider_channel_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Insider Channel Ids. Only used for feature update.
-        """
-        target_os_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the ids of the target OSs from Custom Images to be tested.
-        """
-        target_oss: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the target OSs to be tested.
-        """
-elif False:
-    TargetOSInfoArgsDict: TypeAlias = Mapping[str, Any]
+class TargetOSInfoArgsDict(TypedDict):
+    """
+    The information of the target OS to be tested.
+    """
+    os_update_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
+    """
+    baseline_oss: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the baseline OSs to be tested.
+    """
+    insider_channel_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Insider Channel Ids. Only used for feature update.
+    """
+    target_os_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the ids of the target OSs from Custom Images to be tested.
+    """
+    target_oss: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the target OSs to be tested.
+    """
 
 @pulumi.input_type
 class TargetOSInfoArgs:
@@ -1954,29 +1895,26 @@ class TargetOSInfoArgs:
         pulumi.set(self, "target_oss", value)
 
 
-if not MYPY:
-    class TestBaseAccountSKUArgsDict(TypedDict):
-        """
-        Describes a Test Base Account SKU.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. This is typically a letter + number code, such as B0 or S0.
-        """
-        tier: pulumi.Input[Union[_builtins.str, 'Tier']]
-        """
-        The tier of this particular SKU.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The locations that the SKU is available.
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of resource the SKU applies to.
-        """
-elif False:
-    TestBaseAccountSKUArgsDict: TypeAlias = Mapping[str, Any]
+class TestBaseAccountSKUArgsDict(TypedDict):
+    """
+    Describes a Test Base Account SKU.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. This is typically a letter + number code, such as B0 or S0.
+    """
+    tier: pulumi.Input[Union[_builtins.str, 'Tier']]
+    """
+    The tier of this particular SKU.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The locations that the SKU is available.
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of resource the SKU applies to.
+    """
 
 @pulumi.input_type
 class TestBaseAccountSKUArgs:
@@ -2048,25 +1986,22 @@ class TestBaseAccountSKUArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class TestArgsDict(TypedDict):
-        """
-        The definition of a Test.
-        """
-        commands: pulumi.Input[Sequence[pulumi.Input['CommandArgsDict']]]
-        """
-        The commands used in the test.
-        """
-        test_type: pulumi.Input[Union[_builtins.str, 'TestType']]
-        """
-        The type of the test.
-        """
-        is_active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if this test is active.It doesn't schedule test for not active Test.
-        """
-elif False:
-    TestArgsDict: TypeAlias = Mapping[str, Any]
+class TestArgsDict(TypedDict):
+    """
+    The definition of a Test.
+    """
+    commands: pulumi.Input[Sequence[pulumi.Input['CommandArgsDict']]]
+    """
+    The commands used in the test.
+    """
+    test_type: pulumi.Input[Union[_builtins.str, 'TestType']]
+    """
+    The type of the test.
+    """
+    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if this test is active.It doesn't schedule test for not active Test.
+    """
 
 @pulumi.input_type
 class TestArgs:
@@ -2122,17 +2057,14 @@ class TestArgs:
         pulumi.set(self, "is_active", value)
 
 
-if not MYPY:
-    class UserObjectReceiverValueArgsDict(TypedDict):
-        """
-        The user object receiver value.
-        """
-        user_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        user object ids.
-        """
-elif False:
-    UserObjectReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
+class UserObjectReceiverValueArgsDict(TypedDict):
+    """
+    The user object receiver value.
+    """
+    user_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    user object ids.
+    """
 
 @pulumi.input_type
 class UserObjectReceiverValueArgs:

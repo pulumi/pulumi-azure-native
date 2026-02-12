@@ -36,19 +36,14 @@ __all__ = [
     'StoragePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureBareMetalStorageInstanceIdentityArgsDict(TypedDict):
-        """
-        Identity for Azure Bare Metal Storage Instance.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
-        """
-        The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
-        """
-elif False:
-    AzureBareMetalStorageInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AzureBareMetalStorageInstanceIdentityArgsDict(TypedDict):
+    """
+    Identity for Azure Bare Metal Storage Instance.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
+    """
+    The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+    """
 
 @pulumi.input_type
 class AzureBareMetalStorageInstanceIdentityArgs:
@@ -74,21 +69,18 @@ class AzureBareMetalStorageInstanceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DiskArgsDict(TypedDict):
-        """
-        Specifies the disk information fo the Azure Bare Metal Instance
-        """
-        disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the size of an empty data disk in gigabytes.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The disk name.
-        """
-elif False:
-    DiskArgsDict: TypeAlias = Mapping[str, Any]
+class DiskArgsDict(TypedDict):
+    """
+    Specifies the disk information fo the Azure Bare Metal Instance
+    """
+    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the size of an empty data disk in gigabytes.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The disk name.
+    """
 
 @pulumi.input_type
 class DiskArgs:
@@ -130,21 +122,18 @@ class DiskArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class HardwareProfileArgsDict(TypedDict):
-        """
-        Specifies the hardware settings for the Azure Bare Metal Instance.
-        """
-        azure_bare_metal_instance_size: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]
-        """
-        Specifies the Azure Bare Metal Instance SKU.
-        """
-        hardware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]
-        """
-        Name of the hardware type (vendor and/or their product name)
-        """
-elif False:
-    HardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+class HardwareProfileArgsDict(TypedDict):
+    """
+    Specifies the hardware settings for the Azure Bare Metal Instance.
+    """
+    azure_bare_metal_instance_size: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureBareMetalInstanceSizeNamesEnum']]]
+    """
+    Specifies the Azure Bare Metal Instance SKU.
+    """
+    hardware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureBareMetalHardwareTypeNamesEnum']]]
+    """
+    Name of the hardware type (vendor and/or their product name)
+    """
 
 @pulumi.input_type
 class HardwareProfileArgs:
@@ -186,17 +175,14 @@ class HardwareProfileArgs:
         pulumi.set(self, "hardware_type", value)
 
 
-if not MYPY:
-    class NetworkInterfaceArgsDict(TypedDict):
-        """
-        Specifies the network interfaces of a bare metal resource.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the IP address of the network interface.
-        """
-elif False:
-    NetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceArgsDict(TypedDict):
+    """
+    Specifies the network interfaces of a bare metal resource.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the IP address of the network interface.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceArgs:
@@ -222,21 +208,18 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "ip_address", value)
 
 
-if not MYPY:
-    class NetworkProfileArgsDict(TypedDict):
-        """
-        Specifies the network settings for the Azure Bare Metal Instance disks.
-        """
-        circuit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the circuit id for connecting to express route.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
-        """
-        Specifies the network interfaces for the Azure Bare Metal Instance.
-        """
-elif False:
-    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkProfileArgsDict(TypedDict):
+    """
+    Specifies the network settings for the Azure Bare Metal Instance disks.
+    """
+    circuit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the circuit id for connecting to express route.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+    """
+    Specifies the network interfaces for the Azure Bare Metal Instance.
+    """
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -278,29 +261,26 @@ class NetworkProfileArgs:
         pulumi.set(self, "network_interfaces", value)
 
 
-if not MYPY:
-    class OSProfileArgsDict(TypedDict):
-        """
-        Specifies the operating system settings for the Azure Bare Metal instance.
-        """
-        computer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the host OS name of the Azure Bare Metal instance.
-        """
-        os_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This property allows you to specify the type of the OS.
-        """
-        ssh_public_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the SSH public key used to access the operating system.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies version of operating system.
-        """
-elif False:
-    OSProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OSProfileArgsDict(TypedDict):
+    """
+    Specifies the operating system settings for the Azure Bare Metal instance.
+    """
+    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the host OS name of the Azure Bare Metal instance.
+    """
+    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This property allows you to specify the type of the OS.
+    """
+    ssh_public_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the SSH public key used to access the operating system.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies version of operating system.
+    """
 
 @pulumi.input_type
 class OSProfileArgs:
@@ -374,21 +354,18 @@ class OSProfileArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class StorageBillingPropertiesArgsDict(TypedDict):
-        """
-        Describes the billing related details of the AzureBareMetalStorageInstance.
-        """
-        azure_bare_metal_storage_instance_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the SKU type that is provisioned
-        """
-        billing_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the billing mode for the storage instance
-        """
-elif False:
-    StorageBillingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StorageBillingPropertiesArgsDict(TypedDict):
+    """
+    Describes the billing related details of the AzureBareMetalStorageInstance.
+    """
+    azure_bare_metal_storage_instance_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the SKU type that is provisioned
+    """
+    billing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the billing mode for the storage instance
+    """
 
 @pulumi.input_type
 class StorageBillingPropertiesArgs:
@@ -430,21 +407,18 @@ class StorageBillingPropertiesArgs:
         pulumi.set(self, "billing_mode", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        Specifies the storage settings for the Azure Bare Metal instance disks.
-        """
-        nfs_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Address to connect to storage.
-        """
-        os_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
-        """
-        Specifies information about the operating system disk used by bare metal instance.
-        """
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    Specifies the storage settings for the Azure Bare Metal instance disks.
+    """
+    nfs_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP Address to connect to storage.
+    """
+    os_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
+    """
+    Specifies information about the operating system disk used by bare metal instance.
+    """
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -486,41 +460,38 @@ class StorageProfileArgs:
         pulumi.set(self, "os_disks", value)
 
 
-if not MYPY:
-    class StoragePropertiesArgsDict(TypedDict):
-        """
-        described the storage properties of the azure bare metal storage instance
-        """
-        generation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the kind of storage instance
-        """
-        hardware_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the hardware type of the storage instance
-        """
-        offering_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the offering type for which the resource is getting provisioned
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
-        """
-        State of provisioning of the AzureBareMetalStorageInstance
-        """
-        storage_billing_properties: NotRequired[pulumi.Input['StorageBillingPropertiesArgsDict']]
-        """
-        the billing related information for the resource
-        """
-        storage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the storage protocol for which the resource is getting provisioned
-        """
-        workload_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the workload for which the resource is getting provisioned
-        """
-elif False:
-    StoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StoragePropertiesArgsDict(TypedDict):
+    """
+    described the storage properties of the azure bare metal storage instance
+    """
+    generation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the kind of storage instance
+    """
+    hardware_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the hardware type of the storage instance
+    """
+    offering_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the offering type for which the resource is getting provisioned
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    """
+    State of provisioning of the AzureBareMetalStorageInstance
+    """
+    storage_billing_properties: NotRequired[pulumi.Input['StorageBillingPropertiesArgsDict']]
+    """
+    the billing related information for the resource
+    """
+    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the storage protocol for which the resource is getting provisioned
+    """
+    workload_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the workload for which the resource is getting provisioned
+    """
 
 @pulumi.input_type
 class StoragePropertiesArgs:

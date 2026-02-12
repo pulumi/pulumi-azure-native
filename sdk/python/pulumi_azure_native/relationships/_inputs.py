@@ -21,23 +21,18 @@ __all__ = [
     'ServiceGroupMemberRelationshipPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DependencyOfRelationshipPropertiesArgsDict(TypedDict):
-        """
-        dependencyOf relationship properties.
-        """
-        target_id: pulumi.Input[_builtins.str]
-        """
-        The relationship target resource id.
-        """
-        target_tenant: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relationship target tenant id.
-        """
-elif False:
-    DependencyOfRelationshipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DependencyOfRelationshipPropertiesArgsDict(TypedDict):
+    """
+    dependencyOf relationship properties.
+    """
+    target_id: pulumi.Input[_builtins.str]
+    """
+    The relationship target resource id.
+    """
+    target_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relationship target tenant id.
+    """
 
 @pulumi.input_type
 class DependencyOfRelationshipPropertiesArgs:
@@ -78,21 +73,18 @@ class DependencyOfRelationshipPropertiesArgs:
         pulumi.set(self, "target_tenant", value)
 
 
-if not MYPY:
-    class ServiceGroupMemberRelationshipPropertiesArgsDict(TypedDict):
-        """
-        ServiceGroupMember relationship properties.
-        """
-        target_id: pulumi.Input[_builtins.str]
-        """
-        The relationship target resource id.
-        """
-        target_tenant: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relationship target tenant id.
-        """
-elif False:
-    ServiceGroupMemberRelationshipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceGroupMemberRelationshipPropertiesArgsDict(TypedDict):
+    """
+    ServiceGroupMember relationship properties.
+    """
+    target_id: pulumi.Input[_builtins.str]
+    """
+    The relationship target resource id.
+    """
+    target_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relationship target tenant id.
+    """
 
 @pulumi.input_type
 class ServiceGroupMemberRelationshipPropertiesArgs:

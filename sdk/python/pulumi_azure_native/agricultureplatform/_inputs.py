@@ -32,23 +32,18 @@ __all__ = [
     'SolutionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AgriServiceResourcePropertiesArgsDict(TypedDict):
-        """
-        Details of the Agriculture AgriDataManager.
-        """
-        data_connector_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataConnectorCredentialMapArgsDict']]]]
-        """
-        Data connector credentials of AgriService instance.
-        """
-        installed_solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstalledSolutionMapArgsDict']]]]
-        """
-        AgriService installed solutions.
-        """
-elif False:
-    AgriServiceResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgriServiceResourcePropertiesArgsDict(TypedDict):
+    """
+    Details of the Agriculture AgriDataManager.
+    """
+    data_connector_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataConnectorCredentialMapArgsDict']]]]
+    """
+    Data connector credentials of AgriService instance.
+    """
+    installed_solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstalledSolutionMapArgsDict']]]]
+    """
+    AgriService installed solutions.
+    """
 
 @pulumi.input_type
 class AgriServiceResourcePropertiesArgs:
@@ -90,21 +85,18 @@ class AgriServiceResourcePropertiesArgs:
         pulumi.set(self, "installed_solutions", value)
 
 
-if not MYPY:
-    class DataConnectorCredentialMapArgsDict(TypedDict):
-        """
-        Mapping of data connector credentials.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key representing the credential.
-        """
-        value: pulumi.Input['DataConnectorCredentialsArgsDict']
-        """
-        The data connector credential value.
-        """
-elif False:
-    DataConnectorCredentialMapArgsDict: TypeAlias = Mapping[str, Any]
+class DataConnectorCredentialMapArgsDict(TypedDict):
+    """
+    Mapping of data connector credentials.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key representing the credential.
+    """
+    value: pulumi.Input['DataConnectorCredentialsArgsDict']
+    """
+    The data connector credential value.
+    """
 
 @pulumi.input_type
 class DataConnectorCredentialMapArgs:
@@ -144,33 +136,30 @@ class DataConnectorCredentialMapArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DataConnectorCredentialsArgsDict(TypedDict):
-        """
-        The properties related to an AgriService data connector.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client Id associated with the provider, if type of credentials is OAuthClientCredentials.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the key vault key.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of the key vault
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the key vault key.
-        """
-        kind: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthCredentialsKind']]]
-        """
-        Type of credential.
-        """
-elif False:
-    DataConnectorCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class DataConnectorCredentialsArgsDict(TypedDict):
+    """
+    The properties related to an AgriService data connector.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client Id associated with the provider, if type of credentials is OAuthClientCredentials.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the key vault key.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of the key vault
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the key vault key.
+    """
+    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthCredentialsKind']]]
+    """
+    Type of credential.
+    """
 
 @pulumi.input_type
 class DataConnectorCredentialsArgs:
@@ -260,21 +249,18 @@ class DataConnectorCredentialsArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class InstalledSolutionMapArgsDict(TypedDict):
-        """
-        Mapping of installed solutions.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key representing the installed solution.
-        """
-        value: pulumi.Input['SolutionArgsDict']
-        """
-        The installed solution value.
-        """
-elif False:
-    InstalledSolutionMapArgsDict: TypeAlias = Mapping[str, Any]
+class InstalledSolutionMapArgsDict(TypedDict):
+    """
+    Mapping of installed solutions.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key representing the installed solution.
+    """
+    value: pulumi.Input['SolutionArgsDict']
+    """
+    The installed solution value.
+    """
 
 @pulumi.input_type
 class InstalledSolutionMapArgs:
@@ -314,21 +300,18 @@ class InstalledSolutionMapArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -369,33 +352,30 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. E.g. P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. E.g. P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -484,37 +464,34 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SolutionArgsDict(TypedDict):
-        """
-        Installed data manager for Agriculture solution detail.
-        """
-        application_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Application name of the solution.
-        """
-        market_place_publisher_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Marketplace publisher Id.
-        """
-        partner_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Partner Id.
-        """
-        plan_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plan Id.
-        """
-        saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Saas subscription Id.
-        """
-        saas_subscription_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Saas subscription name.
-        """
-elif False:
-    SolutionArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionArgsDict(TypedDict):
+    """
+    Installed data manager for Agriculture solution detail.
+    """
+    application_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application name of the solution.
+    """
+    market_place_publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Marketplace publisher Id.
+    """
+    partner_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Partner Id.
+    """
+    plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plan Id.
+    """
+    saas_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Saas subscription Id.
+    """
+    saas_subscription_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Saas subscription name.
+    """
 
 @pulumi.input_type
 class SolutionArgs:
