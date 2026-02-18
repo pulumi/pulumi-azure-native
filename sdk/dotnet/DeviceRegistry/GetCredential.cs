@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a Credential
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:deviceregistry:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a Credential
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:deviceregistry:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a Credential
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:deviceregistry:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());

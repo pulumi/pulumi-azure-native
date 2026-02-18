@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// A Credential Resource
     /// 
     /// Uses Azure REST API version 2025-11-01-preview.
+    /// 
+    /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Credential")]
     public partial class Credential : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20251101preview:Credential" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20260301preview:Credential" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

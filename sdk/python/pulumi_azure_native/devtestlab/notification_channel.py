@@ -39,10 +39,10 @@ class NotificationChannelArgs:
         :param pulumi.Input[_builtins.str] description: Description of notification.
         :param pulumi.Input[_builtins.str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         :param pulumi.Input[Sequence[pulumi.Input['EventArgs']]] events: The list of event for which this notification is enabled.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the NotificationChannel
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] name: The name of the notification channel.
         :param pulumi.Input[_builtins.str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] web_hook_url: The webhook URL to send notifications to.
         """
         pulumi.set(__self__, "lab_name", lab_name)
@@ -128,7 +128,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -140,7 +140,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the NotificationChannel
+        The name of the notification channel.
         """
         return pulumi.get(self, "name")
 
@@ -164,7 +164,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -213,11 +213,11 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]] events: The list of event for which this notification is enabled.
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the NotificationChannel
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] name: The name of the notification channel.
         :param pulumi.Input[_builtins.str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] web_hook_url: The webhook URL to send notifications to.
         """
         ...
@@ -282,6 +282,7 @@ class NotificationChannel(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_identifier"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab/v20160515:NotificationChannel"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:NotificationChannel")])
@@ -317,6 +318,7 @@ class NotificationChannel(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["notification_locale"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_identifier"] = None
@@ -367,7 +369,7 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -375,7 +377,7 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -396,10 +398,18 @@ class NotificationChannel(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -407,7 +417,7 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

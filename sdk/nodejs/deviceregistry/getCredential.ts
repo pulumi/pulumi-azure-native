@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a Credential
  *
  * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +74,8 @@ export interface GetCredentialResult {
  * Get a Credential
  *
  * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

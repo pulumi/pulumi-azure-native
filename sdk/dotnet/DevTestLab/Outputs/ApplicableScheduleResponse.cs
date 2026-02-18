@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
     public sealed class ApplicableScheduleResponse
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -33,15 +33,19 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -57,6 +61,8 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
             LabVmsStartup = labVmsStartup;
             Location = location;
             Name = name;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

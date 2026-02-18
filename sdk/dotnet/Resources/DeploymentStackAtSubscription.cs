@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Resources
         /// The error detail.
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ErrorDetailResponse?> Error { get; private set; } = null!;
+        public Output<Outputs.ErrorDetailResponse> Error { get; private set; } = null!;
 
         /// <summary>
         /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.

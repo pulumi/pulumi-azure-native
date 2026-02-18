@@ -43,7 +43,7 @@ class ServiceArgs:
                  upgrade_available: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']]] = None):
         """
         The set of arguments for constructing a Service resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DataPlaneAuthOptionsArgs'] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
         :param pulumi.Input[Union[_builtins.str, 'ComputeType']] compute_type: Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SearchDataExfiltrationProtection']]]] data_exfiltration_protections: A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
@@ -57,7 +57,7 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[_builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-        :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
         :param pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -113,7 +113,7 @@ class ServiceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -281,7 +281,7 @@ class ServiceArgs:
     @pulumi.getter(name="searchServiceName")
     def search_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        The name of the Azure AI Search service associated with the specified resource group.
         """
         return pulumi.get(self, "search_service_name")
 
@@ -386,8 +386,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[_builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
         :param pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.

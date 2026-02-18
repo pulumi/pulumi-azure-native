@@ -26,7 +26,13 @@ class AccountSkuName(_builtins.str, Enum):
     Gets or sets the sku name.
     """
     STANDARD = "Standard"
+    """
+    Standard
+    """
     FREE = "Free"
+    """
+    Free
+    """
 
 
 @pulumi.type_token("azure-native:purview:EventHubType")
@@ -35,7 +41,13 @@ class EventHubType(_builtins.str, Enum):
     The event hub type.
     """
     NOTIFICATION = "Notification"
+    """
+    Notification
+    """
     HOOK = "Hook"
+    """
+    Hook
+    """
 
 
 @pulumi.type_token("azure-native:purview:EventStreamingState")
@@ -44,7 +56,13 @@ class EventStreamingState(_builtins.str, Enum):
     The state of the event streaming service
     """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
 
 
 @pulumi.type_token("azure-native:purview:EventStreamingType")
@@ -53,8 +71,17 @@ class EventStreamingType(_builtins.str, Enum):
     The event streaming service type
     """
     NONE = "None"
+    """
+    None
+    """
     MANAGED = "Managed"
+    """
+    Managed
+    """
     AZURE = "Azure"
+    """
+    Azure
+    """
 
 
 @pulumi.type_token("azure-native:purview:KafkaConfigurationIdentityType")
@@ -63,8 +90,17 @@ class KafkaConfigurationIdentityType(_builtins.str, Enum):
     Identity Type.
     """
     NONE = "None"
+    """
+    None
+    """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     USER_ASSIGNED = "UserAssigned"
+    """
+    UserAssigned
+    """
 
 
 @pulumi.type_token("azure-native:purview:ManagedEventHubState")
@@ -73,8 +109,17 @@ class ManagedEventHubState(_builtins.str, Enum):
     Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
     """
     NOT_SPECIFIED = "NotSpecified"
+    """
+    NotSpecified
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
 
 
 @pulumi.type_token("azure-native:purview:ManagedIdentityType")
@@ -83,8 +128,17 @@ class ManagedIdentityType(_builtins.str, Enum):
     Identity Type
     """
     NONE = "None"
+    """
+    None
+    """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     USER_ASSIGNED = "UserAssigned"
+    """
+    UserAssigned
+    """
 
 
 @pulumi.type_token("azure-native:purview:PrivateEndpointConnectionStatus")
@@ -93,10 +147,25 @@ class PrivateEndpointConnectionStatus(_builtins.str, Enum):
     The status.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown
+    """
     PENDING = "Pending"
+    """
+    Pending
+    """
     APPROVED = "Approved"
+    """
+    Approved
+    """
     REJECTED = "Rejected"
+    """
+    Rejected
+    """
     DISCONNECTED = "Disconnected"
+    """
+    Disconnected
+    """
 
 
 @pulumi.type_token("azure-native:purview:PublicNetworkAccess")
@@ -105,8 +174,17 @@ class PublicNetworkAccess(_builtins.str, Enum):
     Gets or sets the public network access.
     """
     NOT_SPECIFIED = "NotSpecified"
+    """
+    NotSpecified
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
 
 
 @pulumi.type_token("azure-native:purview:TenantEndpointState")
@@ -115,5 +193,14 @@ class TenantEndpointState(_builtins.str, Enum):
     Gets or sets the state of tenant endpoint.
     """
     NOT_SPECIFIED = "NotSpecified"
+    """
+    NotSpecified
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """

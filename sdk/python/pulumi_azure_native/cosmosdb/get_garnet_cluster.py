@@ -87,7 +87,7 @@ class GetGarnetClusterResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.ClusterResourceResponseProperties':
+    def properties(self) -> 'outputs.GarnetClusterResourceResponseProperties':
         """
         Properties of a Garnet cache cluster.
         """

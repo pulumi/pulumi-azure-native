@@ -145,6 +145,11 @@ export const getSecuritySetting: typeof import("./getSecuritySetting").getSecuri
 export const getSecuritySettingOutput: typeof import("./getSecuritySetting").getSecuritySettingOutput = null as any;
 utilities.lazyLoad(exports, ["getSecuritySetting","getSecuritySettingOutput"], () => require("./getSecuritySetting"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
 export { GetStorageContainerArgs, GetStorageContainerResult, GetStorageContainerOutputArgs } from "./getStorageContainer";
 export const getStorageContainer: typeof import("./getStorageContainer").getStorageContainer = null as any;
 export const getStorageContainerOutput: typeof import("./getStorageContainer").getStorageContainerOutput = null as any;
@@ -260,6 +265,11 @@ export type SecuritySetting = import("./securitySetting").SecuritySetting;
 export const SecuritySetting: typeof import("./securitySetting").SecuritySetting = null as any;
 utilities.lazyLoad(exports, ["SecuritySetting"], () => require("./securitySetting"));
 
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
 export { StorageContainerArgs } from "./storageContainer";
 export type StorageContainer = import("./storageContainer").StorageContainer;
 export const StorageContainer: typeof import("./storageContainer").StorageContainer = null as any;
@@ -355,6 +365,8 @@ const _module = {
                 return new SecurityRule(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:SecuritySetting":
                 return new SecuritySetting(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:StorageContainer":
                 return new StorageContainer(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Update":

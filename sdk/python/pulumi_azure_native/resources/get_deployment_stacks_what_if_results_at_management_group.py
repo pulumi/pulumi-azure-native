@@ -144,7 +144,7 @@ def get_deployment_stacks_what_if_results_at_management_group(deployment_stacks_
 
 
     :param _builtins.str deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
-    :param _builtins.str management_group_id: The name of the management group. The name is case insensitive.
+    :param _builtins.str management_group_id: The management group ID.
     """
     __args__ = dict()
     __args__['deploymentStacksWhatIfResultName'] = deployment_stacks_what_if_result_name
@@ -171,7 +171,7 @@ def get_deployment_stacks_what_if_results_at_management_group_output(deployment_
 
 
     :param _builtins.str deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
-    :param _builtins.str management_group_id: The name of the management group. The name is case insensitive.
+    :param _builtins.str management_group_id: The management group ID.
     """
     __args__ = dict()
     __args__['deploymentStacksWhatIfResultName'] = deployment_stacks_what_if_result_name

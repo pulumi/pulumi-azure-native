@@ -332,13 +332,13 @@ namespace Pulumi.AzureNative.Search
         public Input<int>? ReplicaCount { get; set; }
 
         /// <summary>
-        /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://&lt;name&gt;.search.windows.net). You cannot change the service name after the service is created.
+        /// The name of the Azure AI Search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName")]
         public Input<string>? SearchServiceName { get; set; }

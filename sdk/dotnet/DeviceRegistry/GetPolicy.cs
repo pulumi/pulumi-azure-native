@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a Policy
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:deviceregistry:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a Policy
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:deviceregistry:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a Policy
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:deviceregistry:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
@@ -98,25 +104,21 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// The certificate configuration.
-        /// </summary>
-        public readonly Outputs.CertificateConfigurationResponse? Certificate;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The status of the last operation.
+        /// The RP-specific properties for this resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PolicyPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -134,15 +136,13 @@ namespace Pulumi.AzureNative.DeviceRegistry
         private GetPolicyResult(
             string azureApiVersion,
 
-            Outputs.CertificateConfigurationResponse? certificate,
-
             string id,
 
-            string location,
+            string? location,
 
             string name,
 
-            string provisioningState,
+            Outputs.PolicyPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -151,11 +151,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
             string type)
         {
             AzureApiVersion = azureApiVersion;
-            Certificate = certificate;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

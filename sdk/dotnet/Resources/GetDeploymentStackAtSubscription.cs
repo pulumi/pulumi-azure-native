@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The error detail.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse? Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
         /// </summary>
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.Resources
 
             string duration,
 
-            Outputs.ErrorDetailResponse? error,
+            Outputs.ErrorDetailResponse error,
 
             ImmutableArray<Outputs.ResourceReferenceExtendedResponse> failedResources,
 

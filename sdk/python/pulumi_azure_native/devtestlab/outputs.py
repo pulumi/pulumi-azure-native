@@ -55,6 +55,7 @@ __all__ = [
     'SubnetOverrideResponse',
     'SubnetResponse',
     'SubnetSharedPublicIpAddressConfigurationResponse',
+    'SystemDataResponse',
     'UserIdentityResponse',
     'UserSecretStoreResponse',
     'WeekDetailsResponse',
@@ -69,7 +70,9 @@ class ApplicableScheduleResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "labVmsShutdown":
+        if key == "systemData":
+            suggest = "system_data"
+        elif key == "labVmsShutdown":
             suggest = "lab_vms_shutdown"
         elif key == "labVmsStartup":
             suggest = "lab_vms_startup"
@@ -88,6 +91,7 @@ class ApplicableScheduleResponse(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  name: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  lab_vms_shutdown: Optional['outputs.ScheduleResponse'] = None,
                  lab_vms_startup: Optional['outputs.ScheduleResponse'] = None,
@@ -95,9 +99,10 @@ class ApplicableScheduleResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
-        :param _builtins.str id: The identifier of the resource.
-        :param _builtins.str name: The name of the resource.
-        :param _builtins.str type: The type of the resource.
+        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'ScheduleResponse' lab_vms_shutdown: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
         :param 'ScheduleResponse' lab_vms_startup: The auto-startup schedule, if one has been set at the lab or lab resource level.
         :param _builtins.str location: The location of the resource.
@@ -105,6 +110,7 @@ class ApplicableScheduleResponse(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if lab_vms_shutdown is not None:
             pulumi.set(__self__, "lab_vms_shutdown", lab_vms_shutdown)
@@ -119,7 +125,7 @@ class ApplicableScheduleResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -127,15 +133,23 @@ class ApplicableScheduleResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -2652,6 +2666,8 @@ class ScheduleResponse(dict):
             suggest = "created_date"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "uniqueIdentifier":
             suggest = "unique_identifier"
         elif key == "dailyRecurrence":
@@ -2685,6 +2701,7 @@ class ScheduleResponse(dict):
                  id: _builtins.str,
                  name: _builtins.str,
                  provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  unique_identifier: _builtins.str,
                  daily_recurrence: Optional['outputs.DayDetailsResponse'] = None,
@@ -2700,17 +2717,18 @@ class ScheduleResponse(dict):
         """
         A schedule.
         :param _builtins.str created_date: The creation date of the schedule.
-        :param _builtins.str id: The identifier of the resource.
-        :param _builtins.str name: The name of the resource.
+        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str name: The name of the resource
         :param _builtins.str provisioning_state: The provisioning status of the resource.
-        :param _builtins.str type: The type of the resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.str unique_identifier: The unique immutable identifier of a resource (Guid).
         :param 'DayDetailsResponse' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param 'HourDetailsResponse' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
-        :param _builtins.str location: The location of the resource.
+        :param _builtins.str location: The geo-location where the resource lives
         :param 'NotificationSettingsResponse' notification_settings: Notification settings.
         :param _builtins.str status: The status of the schedule (i.e. Enabled, Disabled)
-        :param Mapping[str, _builtins.str] tags: The tags of the resource.
+        :param Mapping[str, _builtins.str] tags: Resource tags.
         :param _builtins.str target_resource_id: The resource ID to which the schedule belongs
         :param _builtins.str task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param _builtins.str time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
@@ -2720,6 +2738,7 @@ class ScheduleResponse(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "unique_identifier", unique_identifier)
         if daily_recurrence is not None:
@@ -2757,7 +2776,7 @@ class ScheduleResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -2765,7 +2784,7 @@ class ScheduleResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -2778,10 +2797,18 @@ class ScheduleResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -2813,7 +2840,7 @@ class ScheduleResponse(dict):
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -2837,7 +2864,7 @@ class ScheduleResponse(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -3130,6 +3157,116 @@ class SubnetSharedPublicIpAddressConfigurationResponse(dict):
         Backend ports that virtual machines on this subnet are allowed to expose
         """
         return pulumi.get(self, "allowed_ports")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

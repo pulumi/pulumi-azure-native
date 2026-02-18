@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Standard
+        /// </summary>
         public static AccountSkuName Standard { get; } = new AccountSkuName("Standard");
+        /// <summary>
+        /// Free
+        /// </summary>
         public static AccountSkuName Free { get; } = new AccountSkuName("Free");
 
         public static bool operator ==(AccountSkuName left, AccountSkuName right) => left.Equals(right);
@@ -51,7 +57,13 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Notification
+        /// </summary>
         public static EventHubType Notification { get; } = new EventHubType("Notification");
+        /// <summary>
+        /// Hook
+        /// </summary>
         public static EventHubType Hook { get; } = new EventHubType("Hook");
 
         public static bool operator ==(EventHubType left, EventHubType right) => left.Equals(right);
@@ -82,7 +94,13 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static EventStreamingState Disabled { get; } = new EventStreamingState("Disabled");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static EventStreamingState Enabled { get; } = new EventStreamingState("Enabled");
 
         public static bool operator ==(EventStreamingState left, EventStreamingState right) => left.Equals(right);
@@ -113,8 +131,17 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None
+        /// </summary>
         public static EventStreamingType None { get; } = new EventStreamingType("None");
+        /// <summary>
+        /// Managed
+        /// </summary>
         public static EventStreamingType Managed { get; } = new EventStreamingType("Managed");
+        /// <summary>
+        /// Azure
+        /// </summary>
         public static EventStreamingType Azure { get; } = new EventStreamingType("Azure");
 
         public static bool operator ==(EventStreamingType left, EventStreamingType right) => left.Equals(right);
@@ -145,8 +172,17 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None
+        /// </summary>
         public static KafkaConfigurationIdentityType None { get; } = new KafkaConfigurationIdentityType("None");
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static KafkaConfigurationIdentityType SystemAssigned { get; } = new KafkaConfigurationIdentityType("SystemAssigned");
+        /// <summary>
+        /// UserAssigned
+        /// </summary>
         public static KafkaConfigurationIdentityType UserAssigned { get; } = new KafkaConfigurationIdentityType("UserAssigned");
 
         public static bool operator ==(KafkaConfigurationIdentityType left, KafkaConfigurationIdentityType right) => left.Equals(right);
@@ -177,8 +213,17 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NotSpecified
+        /// </summary>
         public static ManagedEventHubState NotSpecified { get; } = new ManagedEventHubState("NotSpecified");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static ManagedEventHubState Disabled { get; } = new ManagedEventHubState("Disabled");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static ManagedEventHubState Enabled { get; } = new ManagedEventHubState("Enabled");
 
         public static bool operator ==(ManagedEventHubState left, ManagedEventHubState right) => left.Equals(right);
@@ -209,8 +254,17 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None
+        /// </summary>
         public static ManagedIdentityType None { get; } = new ManagedIdentityType("None");
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static ManagedIdentityType SystemAssigned { get; } = new ManagedIdentityType("SystemAssigned");
+        /// <summary>
+        /// UserAssigned
+        /// </summary>
         public static ManagedIdentityType UserAssigned { get; } = new ManagedIdentityType("UserAssigned");
 
         public static bool operator ==(ManagedIdentityType left, ManagedIdentityType right) => left.Equals(right);
@@ -241,10 +295,25 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown
+        /// </summary>
         public static PrivateEndpointConnectionStatus Unknown { get; } = new PrivateEndpointConnectionStatus("Unknown");
+        /// <summary>
+        /// Pending
+        /// </summary>
         public static PrivateEndpointConnectionStatus Pending { get; } = new PrivateEndpointConnectionStatus("Pending");
+        /// <summary>
+        /// Approved
+        /// </summary>
         public static PrivateEndpointConnectionStatus Approved { get; } = new PrivateEndpointConnectionStatus("Approved");
+        /// <summary>
+        /// Rejected
+        /// </summary>
         public static PrivateEndpointConnectionStatus Rejected { get; } = new PrivateEndpointConnectionStatus("Rejected");
+        /// <summary>
+        /// Disconnected
+        /// </summary>
         public static PrivateEndpointConnectionStatus Disconnected { get; } = new PrivateEndpointConnectionStatus("Disconnected");
 
         public static bool operator ==(PrivateEndpointConnectionStatus left, PrivateEndpointConnectionStatus right) => left.Equals(right);
@@ -275,8 +344,17 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NotSpecified
+        /// </summary>
         public static PublicNetworkAccess NotSpecified { get; } = new PublicNetworkAccess("NotSpecified");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
@@ -307,8 +385,17 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NotSpecified
+        /// </summary>
         public static TenantEndpointState NotSpecified { get; } = new TenantEndpointState("NotSpecified");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static TenantEndpointState Disabled { get; } = new TenantEndpointState("Disabled");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static TenantEndpointState Enabled { get; } = new TenantEndpointState("Enabled");
 
         public static bool operator ==(TenantEndpointState left, TenantEndpointState right) => left.Equals(right);

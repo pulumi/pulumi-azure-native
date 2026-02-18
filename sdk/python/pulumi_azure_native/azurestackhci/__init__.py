@@ -35,6 +35,7 @@ from .get_network_security_group import *
 from .get_public_ip_address import *
 from .get_security_rule import *
 from .get_security_setting import *
+from .get_snapshot import *
 from .get_storage_container import *
 from .get_update import *
 from .get_update_run import *
@@ -58,6 +59,7 @@ from .network_security_group import *
 from .public_ip_address import *
 from .security_rule import *
 from .security_setting import *
+from .snapshot import *
 from .storage_container import *
 from .update import *
 from .update_run import *

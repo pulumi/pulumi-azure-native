@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetSitesByServiceGroupResult:
     """
-    Site as ARM Resource
+    Site as Extension Resource
     """
     def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -114,7 +114,7 @@ def get_sites_by_service_group(servicegroup_name: Optional[_builtins.str] = None
                                site_name: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesByServiceGroupResult:
     """
-    Get Site at SG scope
+    Get a Site
 
     Uses Azure REST API version 2025-03-01-preview.
 
@@ -141,7 +141,7 @@ def get_sites_by_service_group_output(servicegroup_name: Optional[pulumi.Input[_
                                       site_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesByServiceGroupResult]:
     """
-    Get Site at SG scope
+    Get a Site
 
     Uses Azure REST API version 2025-03-01-preview.
 

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The operation to get a natGateway.
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:azurestackhci:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The operation to get a natGateway.
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:azurestackhci:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The operation to get a natGateway.
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:azurestackhci:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());

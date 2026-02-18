@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Monitor
         /// List all resources in the issue - this method uses pagination to return all resources
         /// 
         /// Uses Azure REST API version 2025-05-03-preview.
+        /// 
+        /// Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListIssueResourcesResult> InvokeAsync(ListIssueResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIssueResourcesResult>("azure-native:monitor:listIssueResources", args ?? new ListIssueResourcesArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Monitor
         /// List all resources in the issue - this method uses pagination to return all resources
         /// 
         /// Uses Azure REST API version 2025-05-03-preview.
+        /// 
+        /// Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListIssueResourcesResult> Invoke(ListIssueResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIssueResourcesResult>("azure-native:monitor:listIssueResources", args ?? new ListIssueResourcesInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Monitor
         /// List all resources in the issue - this method uses pagination to return all resources
         /// 
         /// Uses Azure REST API version 2025-05-03-preview.
+        /// 
+        /// Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListIssueResourcesResult> Invoke(ListIssueResourcesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListIssueResourcesResult>("azure-native:monitor:listIssueResources", args ?? new ListIssueResourcesInvokeArgs(), options.WithDefaults());

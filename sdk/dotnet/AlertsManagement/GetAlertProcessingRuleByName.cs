@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.AlertsManagement
         public string AlertProcessingRuleName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name where the resource is created.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AlertsManagement
         public Input<string> AlertProcessingRuleName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name where the resource is created.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -92,15 +92,15 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -108,15 +108,15 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// </summary>
         public readonly Outputs.AlertProcessingRulePropertiesResponse Properties;
         /// <summary>
-        /// Alert processing rule system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

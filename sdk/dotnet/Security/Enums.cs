@@ -310,43 +310,6 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-    /// </summary>
-    [EnumType]
-    public readonly struct AutoProvision : IEquatable<AutoProvision>
-    {
-        private readonly string _value;
-
-        private AutoProvision(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Install missing Azure Arc agents on machines automatically
-        /// </summary>
-        public static AutoProvision On { get; } = new AutoProvision("On");
-        /// <summary>
-        /// Do not install Azure Arc agent on the machines automatically
-        /// </summary>
-        public static AutoProvision Off { get; } = new AutoProvision("Off");
-
-        public static bool operator ==(AutoProvision left, AutoProvision right) => left.Equals(right);
-        public static bool operator !=(AutoProvision left, AutoProvision right) => !left.Equals(right);
-
-        public static explicit operator string(AutoProvision value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AutoProvision other && Equals(other);
-        public bool Equals(AutoProvision other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The categories of resource that is at risk when the assessment is unhealthy
     /// </summary>
     [EnumType]

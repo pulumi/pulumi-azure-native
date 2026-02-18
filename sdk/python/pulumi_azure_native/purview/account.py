@@ -36,17 +36,17 @@ class AccountArgs:
                  tenant_endpoint_state: Optional[pulumi.Input[Union[_builtins.str, 'TenantEndpointState']]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_name: The name of the account.
         :param pulumi.Input['IdentityArgs'] identity: The Managed Identity of the resource
         :param pulumi.Input['IngestionStorageArgs'] ingestion_storage: Ingestion Storage Account Info
-        :param pulumi.Input[_builtins.str] location: Gets or sets the location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'ManagedEventHubState']] managed_event_hub_state: Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: Gets or sets the managed resource group name
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] managed_resources_public_network_access: Gets or sets the public network access for managed resources.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
         :param pulumi.Input['AccountSkuArgs'] sku: Gets or sets the Sku.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags on the azure resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'TenantEndpointState']] tenant_endpoint_state: Gets or sets the state of tenant endpoint.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -83,7 +83,7 @@ class AccountArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,7 +131,7 @@ class AccountArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Gets or sets the location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -203,7 +203,7 @@ class AccountArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Tags on the azure resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -255,14 +255,14 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_name: The name of the account.
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The Managed Identity of the resource
         :param pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']] ingestion_storage: Ingestion Storage Account Info
-        :param pulumi.Input[_builtins.str] location: Gets or sets the location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'ManagedEventHubState']] managed_event_hub_state: Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: Gets or sets the managed resource group name
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] managed_resources_public_network_access: Gets or sets the public network access for managed resources.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']] sku: Gets or sets the Sku.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags on the azure resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'TenantEndpointState']] tenant_endpoint_state: Gets or sets the state of tenant endpoint.
         """
         ...
@@ -404,7 +404,7 @@ class Account(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="accountStatus")
-    def account_status(self) -> pulumi.Output['outputs.AccountPropertiesResponseAccountStatus']:
+    def account_status(self) -> pulumi.Output['outputs.AccountPropertiesAccountStatusResponse']:
         """
         Gets or sets the status of the account.
         """
@@ -460,7 +460,7 @@ class Account(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output['outputs.AccountPropertiesResponseEndpoints']:
+    def endpoints(self) -> pulumi.Output['outputs.AccountPropertiesEndpointsResponse']:
         """
         The URIs that are the public endpoints of the account.
         """
@@ -494,7 +494,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets or sets the location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -516,7 +516,7 @@ class Account(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="managedResources")
-    def managed_resources(self) -> pulumi.Output['outputs.AccountPropertiesResponseManagedResources']:
+    def managed_resources(self) -> pulumi.Output['outputs.AccountPropertiesManagedResourcesResponse']:
         """
         Gets the resource identifiers of the managed resources.
         """
@@ -542,7 +542,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Gets or sets the name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -572,7 +572,7 @@ class Account(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.AccountResponseSku']]:
+    def sku(self) -> pulumi.Output[Optional['outputs.AccountSkuResponse']]:
         """
         Gets or sets the Sku.
         """
@@ -580,9 +580,9 @@ class Account(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.TrackedResourceResponseSystemData']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -590,7 +590,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Tags on the azure resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -606,7 +606,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Gets or sets the type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

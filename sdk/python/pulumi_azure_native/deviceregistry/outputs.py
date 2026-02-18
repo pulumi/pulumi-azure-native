@@ -78,6 +78,7 @@ __all__ = [
     'NamespaceMessageSchemaReferenceResponse',
     'NamespaceStreamResponse',
     'OutboundEndpointsResponse',
+    'PolicyPropertiesResponse',
     'StatusConfigResponse',
     'StatusErrorResponse',
     'StorageDestinationConfigurationResponse',
@@ -4002,6 +4003,57 @@ class OutboundEndpointsResponse(dict):
         Set of most recently removed endpoints.
         """
         return pulumi.get(self, "unassigned")
+
+
+@pulumi.output_type
+class PolicyPropertiesResponse(dict):
+    """
+    Details of the Credential Policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 certificate: Optional['outputs.CertificateConfigurationResponse'] = None):
+        """
+        Details of the Credential Policy.
+        :param _builtins.str provisioning_state: The status of the last operation.
+        :param 'CertificateConfigurationResponse' certificate: The certificate configuration.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.CertificateConfigurationResponse']:
+        """
+        The certificate configuration.
+        """
+        return pulumi.get(self, "certificate")
 
 
 @pulumi.output_type

@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Resources
         /// The error detail.
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ErrorDetailResponse?> Error { get; private set; } = null!;
+        public Output<Outputs.ErrorDetailResponse> Error { get; private set; } = null!;
 
         /// <summary>
         /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
@@ -257,7 +257,7 @@ namespace Pulumi.AzureNative.Resources
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the management group. The name is case insensitive.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;

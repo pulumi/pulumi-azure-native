@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a Policy
  *
  * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,25 +47,21 @@ export interface GetPolicyResult {
      */
     readonly azureApiVersion: string;
     /**
-     * The certificate configuration.
-     */
-    readonly certificate?: outputs.deviceregistry.CertificateConfigurationResponse;
-    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
      * The geo-location where the resource lives
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The status of the last operation.
+     * The RP-specific properties for this resource.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.deviceregistry.PolicyPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -81,6 +79,8 @@ export interface GetPolicyResult {
  * Get a Policy
  *
  * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

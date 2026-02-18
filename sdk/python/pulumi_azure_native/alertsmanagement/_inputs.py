@@ -352,7 +352,7 @@ if not MYPY:
         """
         description: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Description of alert processing rule.
+        Actions to be applied.Description of alert processing rule.
         """
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -379,7 +379,7 @@ class AlertProcessingRulePropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]] actions: Actions to be applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes on which alert processing rule will apply.
         :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] conditions: Conditions on which alerts will be filtered.
-        :param pulumi.Input[_builtins.str] description: Description of alert processing rule.
+        :param pulumi.Input[_builtins.str] description: Actions to be applied.Description of alert processing rule.
         :param pulumi.Input[_builtins.bool] enabled: Indicates if the given alert processing rule is enabled or disabled.
         :param pulumi.Input['ScheduleArgs'] schedule: Scheduling for alert processing rule.
         """
@@ -436,7 +436,7 @@ class AlertProcessingRulePropertiesArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Description of alert processing rule.
+        Actions to be applied.Description of alert processing rule.
         """
         return pulumi.get(self, "description")
 
@@ -726,16 +726,16 @@ if not MYPY:
         """
         Daily recurrence object.
         """
-        end_time: pulumi.Input[_builtins.str]
-        """
-        End time for recurrence.
-        """
         recurrence_type: pulumi.Input[_builtins.str]
         """
         Specifies when the recurrence should be applied.
         Expected value is 'Daily'.
         """
-        start_time: pulumi.Input[_builtins.str]
+        end_time: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        End time for recurrence.
+        """
+        start_time: NotRequired[pulumi.Input[_builtins.str]]
         """
         Start time for recurrence.
         """
@@ -745,31 +745,21 @@ elif False:
 @pulumi.input_type
 class DailyRecurrenceArgs:
     def __init__(__self__, *,
-                 end_time: pulumi.Input[_builtins.str],
                  recurrence_type: pulumi.Input[_builtins.str],
-                 start_time: pulumi.Input[_builtins.str]):
+                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Daily recurrence object.
-        :param pulumi.Input[_builtins.str] end_time: End time for recurrence.
         :param pulumi.Input[_builtins.str] recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Daily'.
+        :param pulumi.Input[_builtins.str] end_time: End time for recurrence.
         :param pulumi.Input[_builtins.str] start_time: Start time for recurrence.
         """
-        pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "recurrence_type", 'Daily')
-        pulumi.set(__self__, "start_time", start_time)
-
-    @_builtins.property
-    @pulumi.getter(name="endTime")
-    def end_time(self) -> pulumi.Input[_builtins.str]:
-        """
-        End time for recurrence.
-        """
-        return pulumi.get(self, "end_time")
-
-    @end_time.setter
-    def end_time(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "end_time", value)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
 
     @_builtins.property
     @pulumi.getter(name="recurrenceType")
@@ -785,15 +775,27 @@ class DailyRecurrenceArgs:
         pulumi.set(self, "recurrence_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End time for recurrence.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> pulumi.Input[_builtins.str]:
+    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: pulumi.Input[_builtins.str]):
+    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 

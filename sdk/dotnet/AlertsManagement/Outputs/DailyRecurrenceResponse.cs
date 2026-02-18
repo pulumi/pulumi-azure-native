@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
         /// <summary>
         /// End time for recurrence.
         /// </summary>
-        public readonly string EndTime;
+        public readonly string? EndTime;
         /// <summary>
         /// Specifies when the recurrence should be applied.
         /// Expected value is 'Daily'.
@@ -28,15 +28,15 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
         /// <summary>
         /// Start time for recurrence.
         /// </summary>
-        public readonly string StartTime;
+        public readonly string? StartTime;
 
         [OutputConstructor]
         private DailyRecurrenceResponse(
-            string endTime,
+            string? endTime,
 
             string recurrenceType,
 
-            string startTime)
+            string? startTime)
         {
             EndTime = endTime;
             RecurrenceType = recurrenceType;

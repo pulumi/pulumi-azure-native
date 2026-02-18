@@ -33,7 +33,7 @@ class CertificateProfileArgs:
                  profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateProfile resource.
-        :param pulumi.Input[_builtins.str] account_name: Trusted Signing account name.
+        :param pulumi.Input[_builtins.str] account_name: Artifact Signing account name.
         :param pulumi.Input[_builtins.str] identity_validation_id: Identity validation id used for the certificate subject name.
         :param pulumi.Input[Union[_builtins.str, 'ProfileType']] profile_type: Profile type of the certificate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -75,7 +75,7 @@ class CertificateProfileArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Trusted Signing account name.
+        Artifact Signing account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -218,7 +218,7 @@ class CertificateProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_name: Trusted Signing account name.
+        :param pulumi.Input[_builtins.str] account_name: Artifact Signing account name.
         :param pulumi.Input[_builtins.str] identity_validation_id: Identity validation id used for the certificate subject name.
         :param pulumi.Input[_builtins.bool] include_city: Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
         :param pulumi.Input[_builtins.bool] include_country: Whether to include C in the certificate subject name. Applicable only for private trust, private trust ci profile types

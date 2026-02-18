@@ -11,28 +11,49 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
     /// <summary>
-    /// Type modeling a reference to a version of an agent definition.
+    /// Agent Reference resource
     /// </summary>
     [OutputType]
     public sealed class AgentReferenceResponse
     {
         /// <summary>
-        /// Gets the agent's unique identifier within the organization (subscription).
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
-        public readonly string? AgentId;
+        public readonly string Id;
         /// <summary>
-        /// Gets the agent's name (unique within the project/app).
+        /// The name of the resource
         /// </summary>
-        public readonly string? AgentName;
+        public readonly string Name;
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.AgentReferencePropertiesResponse Properties;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private AgentReferenceResponse(
-            string? agentId,
+            string id,
 
-            string? agentName)
+            string name,
+
+            Outputs.AgentReferencePropertiesResponse properties,
+
+            Outputs.SystemDataResponse systemData,
+
+            string type)
         {
-            AgentId = agentId;
-            AgentName = agentName;
+            Id = id;
+            Name = name;
+            Properties = properties;
+            SystemData = systemData;
+            Type = type;
         }
     }
 }

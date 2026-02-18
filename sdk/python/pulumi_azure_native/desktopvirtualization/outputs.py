@@ -33,6 +33,8 @@ __all__ = [
     'ResourceModelWithAllowedPropertySetResponseSku',
     'ScalingHostPoolReferenceResponse',
     'ScalingScheduleResponse',
+    'SessionHostHealthCheckFailureDetailsResponse',
+    'SessionHostHealthCheckReportResponse',
     'SystemDataResponse',
     'TimeResponse',
 ]
@@ -1545,6 +1547,134 @@ class ScalingScheduleResponse(dict):
         Starting time for ramp up period.
         """
         return pulumi.get(self, "ramp_up_start_time")
+
+
+@pulumi.output_type
+class SessionHostHealthCheckFailureDetailsResponse(dict):
+    """
+    Contains details on the failure.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "lastHealthCheckDateTime":
+            suggest = "last_health_check_date_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionHostHealthCheckFailureDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionHostHealthCheckFailureDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionHostHealthCheckFailureDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: _builtins.int,
+                 last_health_check_date_time: _builtins.str,
+                 message: _builtins.str):
+        """
+        Contains details on the failure.
+        :param _builtins.int error_code: Error code corresponding for the failure.
+        :param _builtins.str last_health_check_date_time: The timestamp of the last update.
+        :param _builtins.str message: Failure message: hints on what is wrong and how to recover.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "last_health_check_date_time", last_health_check_date_time)
+        pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> _builtins.int:
+        """
+        Error code corresponding for the failure.
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="lastHealthCheckDateTime")
+    def last_health_check_date_time(self) -> _builtins.str:
+        """
+        The timestamp of the last update.
+        """
+        return pulumi.get(self, "last_health_check_date_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Failure message: hints on what is wrong and how to recover.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class SessionHostHealthCheckReportResponse(dict):
+    """
+    The report for session host information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalFailureDetails":
+            suggest = "additional_failure_details"
+        elif key == "healthCheckName":
+            suggest = "health_check_name"
+        elif key == "healthCheckResult":
+            suggest = "health_check_result"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionHostHealthCheckReportResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionHostHealthCheckReportResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionHostHealthCheckReportResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_failure_details: 'outputs.SessionHostHealthCheckFailureDetailsResponse',
+                 health_check_name: _builtins.str,
+                 health_check_result: _builtins.str):
+        """
+        The report for session host information.
+        :param 'SessionHostHealthCheckFailureDetailsResponse' additional_failure_details: Additional detailed information on the failure.
+        :param _builtins.str health_check_name: Represents the name of the health check operation performed.
+        :param _builtins.str health_check_result: Represents the Health state of the health check we performed.
+        """
+        pulumi.set(__self__, "additional_failure_details", additional_failure_details)
+        pulumi.set(__self__, "health_check_name", health_check_name)
+        pulumi.set(__self__, "health_check_result", health_check_result)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalFailureDetails")
+    def additional_failure_details(self) -> 'outputs.SessionHostHealthCheckFailureDetailsResponse':
+        """
+        Additional detailed information on the failure.
+        """
+        return pulumi.get(self, "additional_failure_details")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckName")
+    def health_check_name(self) -> _builtins.str:
+        """
+        Represents the name of the health check operation performed.
+        """
+        return pulumi.get(self, "health_check_name")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckResult")
+    def health_check_result(self) -> _builtins.str:
+        """
+        Represents the Health state of the health check we performed.
+        """
+        return pulumi.get(self, "health_check_result")
 
 
 @pulumi.output_type

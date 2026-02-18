@@ -25,7 +25,7 @@ export function getCertificateProfile(args: GetCertificateProfileArgs, opts?: pu
 
 export interface GetCertificateProfileArgs {
     /**
-     * Trusted Signing account name.
+     * Artifact Signing account name.
      */
     accountName: string;
     /**
@@ -121,7 +121,7 @@ export function getCertificateProfileOutput(args: GetCertificateProfileOutputArg
 
 export interface GetCertificateProfileOutputArgs {
     /**
-     * Trusted Signing account name.
+     * Artifact Signing account name.
      */
     accountName: pulumi.Input<string>;
     /**

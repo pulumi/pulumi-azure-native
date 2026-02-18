@@ -124,11 +124,11 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastKnownPowerState: pulumi.Output<string>;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -180,11 +180,15 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devtestlab.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -256,6 +260,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["lastKnownPowerState"] = undefined /*out*/;
             resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
             resourceInputs["virtualMachineCreationSource"] = undefined /*out*/;
@@ -295,6 +300,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["size"] = undefined /*out*/;
             resourceInputs["sshKey"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
@@ -365,11 +371,11 @@ export interface VirtualMachineArgs {
      */
     labVirtualNetworkId?: pulumi.Input<string>;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the LabVirtualMachine
+     * The name of the virtual machine.
      */
     name?: pulumi.Input<string>;
     /**
@@ -417,7 +423,7 @@ export interface VirtualMachineArgs {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

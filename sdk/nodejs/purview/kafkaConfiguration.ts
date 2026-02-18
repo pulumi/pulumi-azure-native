@@ -57,6 +57,9 @@ export class KafkaConfiguration extends pulumi.CustomResource {
      * Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
      */
     declare public readonly eventHubPartitionId: pulumi.Output<string | undefined>;
+    /**
+     * A type definition that refers the id to an Azure Resource Manager resource.
+     */
     declare public readonly eventHubResourceId: pulumi.Output<string | undefined>;
     /**
      * The event hub type.
@@ -71,15 +74,15 @@ export class KafkaConfiguration extends pulumi.CustomResource {
      */
     declare public readonly eventStreamingType: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets the name.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.purview.ProxyResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.purview.SystemDataResponse>;
     /**
-     * Gets or sets the type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -154,6 +157,9 @@ export interface KafkaConfigurationArgs {
      * Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
      */
     eventHubPartitionId?: pulumi.Input<string>;
+    /**
+     * A type definition that refers the id to an Azure Resource Manager resource.
+     */
     eventHubResourceId?: pulumi.Input<string>;
     /**
      * The event hub type.
@@ -168,11 +174,11 @@ export interface KafkaConfigurationArgs {
      */
     eventStreamingType?: pulumi.Input<string | enums.purview.EventStreamingType>;
     /**
-     * The kafka configuration name.
+     * Name of kafka configuration.
      */
     kafkaConfigurationName?: pulumi.Input<string>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

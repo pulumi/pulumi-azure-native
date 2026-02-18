@@ -83,19 +83,19 @@ if not MYPY:
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
         """
-        resources: pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]
+        resources: pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceMode']]
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource.
         """
-        management_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]
+        management_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource management group.
         """
-        resource_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]
+        resource_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource group.
         """
-        resources_without_delete_support: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]
+        resources_without_delete_support: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]
         """
         Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         """
@@ -105,16 +105,16 @@ elif False:
 @pulumi.input_type
 class ActionOnUnmanageArgs:
     def __init__(__self__, *,
-                 resources: pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']],
-                 management_groups: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]] = None,
-                 resource_groups: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]] = None,
-                 resources_without_delete_support: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]] = None):
+                 resources: pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceMode']],
+                 management_groups: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]] = None,
+                 resource_groups: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]] = None,
+                 resources_without_delete_support: Optional[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]] = None):
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
-        :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']] resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        :param pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceMode']] resources: Specifies an action for a newly unmanaged resource.
+        :param pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']] management_groups: Specifies an action for a newly unmanaged resource management group.
+        :param pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']] resource_groups: Specifies an action for a newly unmanaged resource group.
+        :param pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']] resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         """
         pulumi.set(__self__, "resources", resources)
         if management_groups is not None:
@@ -126,50 +126,50 @@ class ActionOnUnmanageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]:
+    def resources(self) -> pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceMode']]:
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]):
+    def resources(self, value: pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceMode']]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]:
+    def management_groups(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]:
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource management group.
         """
         return pulumi.get(self, "management_groups")
 
     @management_groups.setter
-    def management_groups(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]):
+    def management_groups(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionManagementGroupMode']]]):
         pulumi.set(self, "management_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]:
+    def resource_groups(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]:
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource group.
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]):
+    def resource_groups(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UnmanageActionResourceGroupMode']]]):
         pulumi.set(self, "resource_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcesWithoutDeleteSupport")
-    def resources_without_delete_support(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]:
+    def resources_without_delete_support(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]:
         """
         Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         """
         return pulumi.get(self, "resources_without_delete_support")
 
     @resources_without_delete_support.setter
-    def resources_without_delete_support(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]):
+    def resources_without_delete_support(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourcesWithoutDeleteSupportAction']]]):
         pulumi.set(self, "resources_without_delete_support", value)
 
 

@@ -102,6 +102,8 @@ __all__ = [
     'NamespaceStreamArgsDict',
     'OutboundEndpointsArgs',
     'OutboundEndpointsArgsDict',
+    'PolicyPropertiesArgs',
+    'PolicyPropertiesArgsDict',
     'StorageDestinationConfigurationArgs',
     'StorageDestinationConfigurationArgsDict',
     'StreamMqttDestinationArgs',
@@ -3961,6 +3963,42 @@ class OutboundEndpointsArgs:
     @unassigned.setter
     def unassigned(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]]):
         pulumi.set(self, "unassigned", value)
+
+
+if not MYPY:
+    class PolicyPropertiesArgsDict(TypedDict):
+        """
+        Details of the Credential Policy.
+        """
+        certificate: NotRequired[pulumi.Input['CertificateConfigurationArgsDict']]
+        """
+        The certificate configuration.
+        """
+elif False:
+    PolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate: Optional[pulumi.Input['CertificateConfigurationArgs']] = None):
+        """
+        Details of the Credential Policy.
+        :param pulumi.Input['CertificateConfigurationArgs'] certificate: The certificate configuration.
+        """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input['CertificateConfigurationArgs']]:
+        """
+        The certificate configuration.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input['CertificateConfigurationArgs']]):
+        pulumi.set(self, "certificate", value)
 
 
 if not MYPY:

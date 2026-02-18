@@ -154,6 +154,8 @@ def get_public_ip_address(public_ip_address_name: Optional[_builtins.str] = None
 
     Uses Azure REST API version 2025-09-01-preview.
 
+    Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str public_ip_address_name: Name of the public IP
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -181,6 +183,8 @@ def get_public_ip_address_output(public_ip_address_name: Optional[pulumi.Input[_
     The operation to get a virtual network.
 
     Uses Azure REST API version 2025-09-01-preview.
+
+    Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str public_ip_address_name: Name of the public IP

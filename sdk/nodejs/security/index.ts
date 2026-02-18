@@ -60,20 +60,10 @@ export type AzureServersSetting = import("./azureServersSetting").AzureServersSe
 export const AzureServersSetting: typeof import("./azureServersSetting").AzureServersSetting = null as any;
 utilities.lazyLoad(exports, ["AzureServersSetting"], () => require("./azureServersSetting"));
 
-export { ConnectorArgs } from "./connector";
-export type Connector = import("./connector").Connector;
-export const Connector: typeof import("./connector").Connector = null as any;
-utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
-
 export { CustomAssessmentAutomationArgs } from "./customAssessmentAutomation";
 export type CustomAssessmentAutomation = import("./customAssessmentAutomation").CustomAssessmentAutomation;
 export const CustomAssessmentAutomation: typeof import("./customAssessmentAutomation").CustomAssessmentAutomation = null as any;
 utilities.lazyLoad(exports, ["CustomAssessmentAutomation"], () => require("./customAssessmentAutomation"));
-
-export { CustomEntityStoreAssignmentArgs } from "./customEntityStoreAssignment";
-export type CustomEntityStoreAssignment = import("./customEntityStoreAssignment").CustomEntityStoreAssignment;
-export const CustomEntityStoreAssignment: typeof import("./customEntityStoreAssignment").CustomEntityStoreAssignment = null as any;
-utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
 
 export { CustomRecommendationArgs } from "./customRecommendation";
 export type CustomRecommendation = import("./customRecommendation").CustomRecommendation;
@@ -150,20 +140,10 @@ export const getAzureServersSetting: typeof import("./getAzureServersSetting").g
 export const getAzureServersSettingOutput: typeof import("./getAzureServersSetting").getAzureServersSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getAzureServersSetting","getAzureServersSettingOutput"], () => require("./getAzureServersSetting"));
 
-export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
-export const getConnector: typeof import("./getConnector").getConnector = null as any;
-export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
-utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
-
 export { GetCustomAssessmentAutomationArgs, GetCustomAssessmentAutomationResult, GetCustomAssessmentAutomationOutputArgs } from "./getCustomAssessmentAutomation";
 export const getCustomAssessmentAutomation: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomation = null as any;
 export const getCustomAssessmentAutomationOutput: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomAssessmentAutomation","getCustomAssessmentAutomationOutput"], () => require("./getCustomAssessmentAutomation"));
-
-export { GetCustomEntityStoreAssignmentArgs, GetCustomEntityStoreAssignmentResult, GetCustomEntityStoreAssignmentOutputArgs } from "./getCustomEntityStoreAssignment";
-export const getCustomEntityStoreAssignment: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignment = null as any;
-export const getCustomEntityStoreAssignmentOutput: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignmentOutput = null as any;
-utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
 
 export { GetCustomRecommendationArgs, GetCustomRecommendationResult, GetCustomRecommendationOutputArgs } from "./getCustomRecommendation";
 export const getCustomRecommendation: typeof import("./getCustomRecommendation").getCustomRecommendation = null as any;
@@ -405,12 +385,8 @@ const _module = {
                 return new Automation(name, <any>undefined, { urn })
             case "azure-native:security:AzureServersSetting":
                 return new AzureServersSetting(name, <any>undefined, { urn })
-            case "azure-native:security:Connector":
-                return new Connector(name, <any>undefined, { urn })
             case "azure-native:security:CustomAssessmentAutomation":
                 return new CustomAssessmentAutomation(name, <any>undefined, { urn })
-            case "azure-native:security:CustomEntityStoreAssignment":
-                return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
             case "azure-native:security:CustomRecommendation":
                 return new CustomRecommendation(name, <any>undefined, { urn })
             case "azure-native:security:DefenderForStorage":

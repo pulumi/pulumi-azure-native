@@ -115,22 +115,6 @@ export const AutoDiscovery = {
  */
 export type AutoDiscovery = (typeof AutoDiscovery)[keyof typeof AutoDiscovery];
 
-export const AutoProvision = {
-    /**
-     * Install missing Azure Arc agents on machines automatically
-     */
-    On: "On",
-    /**
-     * Do not install Azure Arc agent on the machines automatically
-     */
-    Off: "Off",
-} as const;
-
-/**
- * Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
- */
-export type AutoProvision = (typeof AutoProvision)[keyof typeof AutoProvision];
-
 export const Categories = {
     Compute: "Compute",
     Networking: "Networking",

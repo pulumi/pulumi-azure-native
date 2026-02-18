@@ -90,6 +90,8 @@ __all__ = [
     'FullTextPathArgsDict',
     'FullTextPolicyArgs',
     'FullTextPolicyArgsDict',
+    'GarnetClusterResourcePropertiesArgs',
+    'GarnetClusterResourcePropertiesArgsDict',
     'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs',
     'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict',
     'GraphResourceArgs',
@@ -1226,19 +1228,11 @@ class ClusterKeyArgs:
 if not MYPY:
     class ClusterResourcePropertiesArgsDict(TypedDict):
         """
-        Properties of a Garnet cache cluster.
-        """
-        allocation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationState']]]
-        """
-        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        Properties of a managed Cassandra cluster.
         """
         authentication_method: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]
         """
         Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
         """
         azure_connection_method: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureConnectionType']]]
         """
@@ -1260,10 +1254,6 @@ if not MYPY:
         """
         If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
         """
-        cluster_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterType']]]
-        """
-        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
-        """
         deallocated: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Whether the cluster and associated data centers has been deallocated.
@@ -1271,10 +1261,6 @@ if not MYPY:
         delegated_management_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-        """
-        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Extensions to be added or updated on cluster.
         """
         external_gossip_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateArgsDict']]]]
         """
@@ -1292,14 +1278,6 @@ if not MYPY:
         """
         Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
         """
-        node_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of nodes
-        """
-        node_sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
-        """
         prometheus_endpoint: NotRequired[pulumi.Input['SeedNodeArgsDict']]
         """
         Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
@@ -1316,17 +1294,9 @@ if not MYPY:
         """
         Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
-        replication_factor: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of copies of data maintained by the cluster
-        """
         restore_from_backup_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         """
 elif False:
     ClusterResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1334,65 +1304,45 @@ elif False:
 @pulumi.input_type
 class ClusterResourcePropertiesArgs:
     def __init__(__self__, *,
-                 allocation_state: Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]] = None,
                  authentication_method: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.bool]] = None,
                  azure_connection_method: Optional[pulumi.Input[Union[_builtins.str, 'AzureConnectionType']]] = None,
                  cassandra_audit_logging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  cassandra_version: Optional[pulumi.Input[_builtins.str]] = None,
                  client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
                  cluster_name_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_type: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]] = None,
                  deallocated: Optional[pulumi.Input[_builtins.bool]] = None,
                  delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_gossip_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
                  external_seed_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]]] = None,
                  hours_between_backups: Optional[pulumi.Input[_builtins.int]] = None,
                  initial_cassandra_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_sku: Optional[pulumi.Input[_builtins.str]] = None,
                  prometheus_endpoint: Optional[pulumi.Input['SeedNodeArgs']] = None,
                  provision_error: Optional[pulumi.Input['CassandraErrorArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ManagedCassandraProvisioningState']]] = None,
                  repair_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 restore_from_backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 restore_from_backup_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Properties of a Garnet cache cluster.
-        :param pulumi.Input[Union[_builtins.str, 'AllocationState']] allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        Properties of a managed Cassandra cluster.
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']] authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-        :param pulumi.Input[_builtins.bool] availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
         :param pulumi.Input[Union[_builtins.str, 'AzureConnectionType']] azure_connection_method: How to connect to the azure services needed for running the cluster
         :param pulumi.Input[_builtins.bool] cassandra_audit_logging_enabled: Whether Cassandra audit logging is enabled
         :param pulumi.Input[_builtins.str] cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
         :param pulumi.Input[_builtins.str] cluster_name_override: If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
-        :param pulumi.Input[Union[_builtins.str, 'ClusterType']] cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
         :param pulumi.Input[_builtins.bool] deallocated: Whether the cluster and associated data centers has been deallocated.
         :param pulumi.Input[_builtins.str] delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: Extensions to be added or updated on cluster.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
         :param pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
         :param pulumi.Input[_builtins.int] hours_between_backups: (Deprecated) Number of hours to wait between taking a backup of the cluster.
         :param pulumi.Input[_builtins.str] initial_cassandra_admin_password: Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-        :param pulumi.Input[_builtins.int] node_count: Number of nodes
-        :param pulumi.Input[_builtins.str] node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
         :param pulumi.Input['SeedNodeArgs'] prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         :param pulumi.Input['CassandraErrorArgs'] provision_error: Error related to resource provisioning.
         :param pulumi.Input[Union[_builtins.str, 'ManagedCassandraProvisioningState']] provisioning_state: The status of the resource at the time the operation was called.
         :param pulumi.Input[_builtins.bool] repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
-        :param pulumi.Input[_builtins.int] replication_factor: Number of copies of data maintained by the cluster
         :param pulumi.Input[_builtins.str] restore_from_backup_id: To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-        :param pulumi.Input[_builtins.str] subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         """
-        if allocation_state is not None:
-            pulumi.set(__self__, "allocation_state", allocation_state)
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
-        if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
         if azure_connection_method is not None:
             pulumi.set(__self__, "azure_connection_method", azure_connection_method)
         if cassandra_audit_logging_enabled is not None:
@@ -1403,14 +1353,10 @@ class ClusterResourcePropertiesArgs:
             pulumi.set(__self__, "client_certificates", client_certificates)
         if cluster_name_override is not None:
             pulumi.set(__self__, "cluster_name_override", cluster_name_override)
-        if cluster_type is not None:
-            pulumi.set(__self__, "cluster_type", cluster_type)
         if deallocated is not None:
             pulumi.set(__self__, "deallocated", deallocated)
         if delegated_management_subnet_id is not None:
             pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
-        if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
         if external_gossip_certificates is not None:
             pulumi.set(__self__, "external_gossip_certificates", external_gossip_certificates)
         if external_seed_nodes is not None:
@@ -1419,10 +1365,6 @@ class ClusterResourcePropertiesArgs:
             pulumi.set(__self__, "hours_between_backups", hours_between_backups)
         if initial_cassandra_admin_password is not None:
             pulumi.set(__self__, "initial_cassandra_admin_password", initial_cassandra_admin_password)
-        if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
-        if node_sku is not None:
-            pulumi.set(__self__, "node_sku", node_sku)
         if prometheus_endpoint is not None:
             pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
         if provision_error is not None:
@@ -1431,24 +1373,8 @@ class ClusterResourcePropertiesArgs:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if repair_enabled is not None:
             pulumi.set(__self__, "repair_enabled", repair_enabled)
-        if replication_factor is not None:
-            pulumi.set(__self__, "replication_factor", replication_factor)
         if restore_from_backup_id is not None:
             pulumi.set(__self__, "restore_from_backup_id", restore_from_backup_id)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @_builtins.property
-    @pulumi.getter(name="allocationState")
-    def allocation_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]]:
-        """
-        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
-        """
-        return pulumi.get(self, "allocation_state")
-
-    @allocation_state.setter
-    def allocation_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]]):
-        pulumi.set(self, "allocation_state", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
@@ -1461,18 +1387,6 @@ class ClusterResourcePropertiesArgs:
     @authentication_method.setter
     def authentication_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]):
         pulumi.set(self, "authentication_method", value)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="azureConnectionMethod")
@@ -1535,18 +1449,6 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "cluster_name_override", value)
 
     @_builtins.property
-    @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]:
-        """
-        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
-        """
-        return pulumi.get(self, "cluster_type")
-
-    @cluster_type.setter
-    def cluster_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]):
-        pulumi.set(self, "cluster_type", value)
-
-    @_builtins.property
     @pulumi.getter
     def deallocated(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1569,18 +1471,6 @@ class ClusterResourcePropertiesArgs:
     @delegated_management_subnet_id.setter
     def delegated_management_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "delegated_management_subnet_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Extensions to be added or updated on cluster.
-        """
-        return pulumi.get(self, "extensions")
-
-    @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="externalGossipCertificates")
@@ -1631,30 +1521,6 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "initial_cassandra_admin_password", value)
 
     @_builtins.property
-    @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of nodes
-        """
-        return pulumi.get(self, "node_count")
-
-    @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "node_count", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nodeSku")
-    def node_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
-        """
-        return pulumi.get(self, "node_sku")
-
-    @node_sku.setter
-    def node_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "node_sku", value)
-
-    @_builtins.property
     @pulumi.getter(name="prometheusEndpoint")
     def prometheus_endpoint(self) -> Optional[pulumi.Input['SeedNodeArgs']]:
         """
@@ -1703,18 +1569,6 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "repair_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="replicationFactor")
-    def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of copies of data maintained by the cluster
-        """
-        return pulumi.get(self, "replication_factor")
-
-    @replication_factor.setter
-    def replication_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "replication_factor", value)
-
-    @_builtins.property
     @pulumi.getter(name="restoreFromBackupId")
     def restore_from_backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1725,18 +1579,6 @@ class ClusterResourcePropertiesArgs:
     @restore_from_backup_id.setter
     def restore_from_backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "restore_from_backup_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "subnet_id", value)
 
 
 if not MYPY:
@@ -3157,6 +2999,182 @@ class FullTextPolicyArgs:
     @full_text_paths.setter
     def full_text_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FullTextPathArgs']]]]):
         pulumi.set(self, "full_text_paths", value)
+
+
+if not MYPY:
+    class GarnetClusterResourcePropertiesArgsDict(TypedDict):
+        """
+        Properties of a Garnet cache cluster.
+        """
+        allocation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationState']]]
+        """
+        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        """
+        availability_zone: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        """
+        cluster_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterType']]]
+        """
+        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        """
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Extensions to be added or updated on cluster.
+        """
+        node_count: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of nodes
+        """
+        node_sku: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        """
+        replication_factor: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of copies of data maintained by the cluster
+        """
+        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+elif False:
+    GarnetClusterResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GarnetClusterResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 allocation_state: Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]] = None,
+                 availability_zone: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cluster_type: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 node_sku: Optional[pulumi.Input[_builtins.str]] = None,
+                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Properties of a Garnet cache cluster.
+        :param pulumi.Input[Union[_builtins.str, 'AllocationState']] allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        :param pulumi.Input[_builtins.bool] availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        :param pulumi.Input[Union[_builtins.str, 'ClusterType']] cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: Extensions to be added or updated on cluster.
+        :param pulumi.Input[_builtins.int] node_count: Number of nodes
+        :param pulumi.Input[_builtins.str] node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        :param pulumi.Input[_builtins.int] replication_factor: Number of copies of data maintained by the cluster
+        :param pulumi.Input[_builtins.str] subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        if allocation_state is not None:
+            pulumi.set(__self__, "allocation_state", allocation_state)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if cluster_type is not None:
+            pulumi.set(__self__, "cluster_type", cluster_type)
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if node_sku is not None:
+            pulumi.set(__self__, "node_sku", node_sku)
+        if replication_factor is not None:
+            pulumi.set(__self__, "replication_factor", replication_factor)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationState")
+    def allocation_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]]:
+        """
+        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        """
+        return pulumi.get(self, "allocation_state")
+
+    @allocation_state.setter
+    def allocation_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AllocationState']]]):
+        pulumi.set(self, "allocation_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]:
+        """
+        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @cluster_type.setter
+    def cluster_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]):
+        pulumi.set(self, "cluster_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Extensions to be added or updated on cluster.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "extensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of nodes
+        """
+        return pulumi.get(self, "node_count")
+
+    @node_count.setter
+    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "node_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeSku")
+    def node_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        """
+        return pulumi.get(self, "node_sku")
+
+    @node_sku.setter
+    def node_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "node_sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationFactor")
+    def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of copies of data maintained by the cluster
+        """
+        return pulumi.get(self, "replication_factor")
+
+    @replication_factor.setter
+    def replication_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "replication_factor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 if not MYPY:

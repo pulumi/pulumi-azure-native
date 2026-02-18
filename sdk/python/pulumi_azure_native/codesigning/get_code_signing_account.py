@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetCodeSigningAccountResult:
     """
-    Trusted signing account resource.
+    Artifact signing account resource.
     """
     def __init__(__self__, account_uri=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
         if account_uri and not isinstance(account_uri, str):
@@ -63,7 +63,7 @@ class GetCodeSigningAccountResult:
     @pulumi.getter(name="accountUri")
     def account_uri(self) -> _builtins.str:
         """
-        The URI of the trusted signing account which is used during signing files.
+        The URI of the artifact signing account which is used during signing files.
         """
         return pulumi.get(self, "account_uri")
 
@@ -103,7 +103,7 @@ class GetCodeSigningAccountResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
-        Status of the current operation on trusted signing account.
+        Status of the current operation on artifact signing account.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -111,7 +111,7 @@ class GetCodeSigningAccountResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.AccountSkuResponse']:
         """
-        SKU of the trusted signing account.
+        SKU of the artifact signing account.
         """
         return pulumi.get(self, "sku")
 
@@ -162,14 +162,14 @@ def get_code_signing_account(account_name: Optional[_builtins.str] = None,
                              resource_group_name: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeSigningAccountResult:
     """
-    Get a trusted Signing Account.
+    Get an artifact Signing Account.
 
     Uses Azure REST API version 2024-09-30-preview.
 
     Other available API versions: 2024-02-05-preview, 2025-10-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: Trusted Signing account name.
+    :param _builtins.str account_name: Artifact Signing account name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -193,14 +193,14 @@ def get_code_signing_account_output(account_name: Optional[pulumi.Input[_builtin
                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningAccountResult]:
     """
-    Get a trusted Signing Account.
+    Get an artifact Signing Account.
 
     Uses Azure REST API version 2024-09-30-preview.
 
     Other available API versions: 2024-02-05-preview, 2025-10-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: Trusted Signing account name.
+    :param _builtins.str account_name: Artifact Signing account name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

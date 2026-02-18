@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Properties of a Garnet cache cluster.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterResourceResponsePropertiesV1> Properties { get; private set; } = null!;
+        public Output<Outputs.GarnetClusterResourceResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Properties of a Garnet cache cluster.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ClusterResourcePropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.GarnetClusterResourcePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

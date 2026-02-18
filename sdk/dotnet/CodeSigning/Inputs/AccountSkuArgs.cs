@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CodeSigning.Inputs
 {
 
     /// <summary>
-    /// SKU of the trusted signing account.
+    /// SKU of the artifact signing account.
     /// </summary>
     public sealed class AccountSkuArgs : global::Pulumi.ResourceArgs
     {

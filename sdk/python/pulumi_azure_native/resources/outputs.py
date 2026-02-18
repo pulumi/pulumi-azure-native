@@ -110,9 +110,9 @@ class ActionOnUnmanageResponse(dict):
                  resources_without_delete_support: Optional[_builtins.str] = None):
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
-        :param _builtins.str resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param _builtins.str resources: Specifies an action for a newly unmanaged resource.
+        :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource management group.
+        :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource group.
         :param _builtins.str resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         """
         pulumi.set(__self__, "resources", resources)
@@ -127,7 +127,7 @@ class ActionOnUnmanageResponse(dict):
     @pulumi.getter
     def resources(self) -> _builtins.str:
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource.
         """
         return pulumi.get(self, "resources")
 
@@ -135,7 +135,7 @@ class ActionOnUnmanageResponse(dict):
     @pulumi.getter(name="managementGroups")
     def management_groups(self) -> Optional[_builtins.str]:
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource management group.
         """
         return pulumi.get(self, "management_groups")
 
@@ -143,7 +143,7 @@ class ActionOnUnmanageResponse(dict):
     @pulumi.getter(name="resourceGroups")
     def resource_groups(self) -> Optional[_builtins.str]:
         """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        Specifies an action for a newly unmanaged resource group.
         """
         return pulumi.get(self, "resource_groups")
 
@@ -1996,12 +1996,12 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
                  deployment_stack_last_modified: _builtins.str,
                  deployment_stack_resource_id: _builtins.str,
                  diagnostics: Sequence['outputs.DeploymentStacksDiagnosticResponse'],
+                 error: 'outputs.ErrorDetailResponse',
                  provisioning_state: _builtins.str,
                  retention_interval: _builtins.str,
                  debug_setting: Optional['outputs.DeploymentStacksDebugSettingResponse'] = None,
                  deployment_scope: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
-                 error: Optional['outputs.ErrorDetailResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.DeploymentParameterResponse']] = None,
                  parameters_link: Optional['outputs.DeploymentStacksParametersLinkResponse'] = None,
                  validation_level: Optional[_builtins.str] = None):
@@ -2014,12 +2014,12 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
         :param _builtins.str deployment_stack_last_modified: The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
         :param _builtins.str deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
         :param Sequence['DeploymentStacksDiagnosticResponse'] diagnostics: List of resource diagnostics detected by What-If operation.
+        :param 'ErrorDetailResponse' error: The error detail.
         :param _builtins.str provisioning_state: State of the deployment stack.
         :param _builtins.str retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
         :param 'DeploymentStacksDebugSettingResponse' debug_setting: The debug setting of the deployment.
         :param _builtins.str deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
         :param _builtins.str description: Deployment stack description. Max length of 4096 characters.
-        :param 'ErrorDetailResponse' error: The error detail.
         :param Mapping[str, 'DeploymentParameterResponse'] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         :param 'DeploymentStacksParametersLinkResponse' parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         :param _builtins.str validation_level: The validation level of the deployment stack
@@ -2031,6 +2031,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
         pulumi.set(__self__, "deployment_stack_last_modified", deployment_stack_last_modified)
         pulumi.set(__self__, "deployment_stack_resource_id", deployment_stack_resource_id)
         pulumi.set(__self__, "diagnostics", diagnostics)
+        pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "retention_interval", retention_interval)
         if debug_setting is not None:
@@ -2039,8 +2040,6 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
             pulumi.set(__self__, "deployment_scope", deployment_scope)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if error is not None:
-            pulumi.set(__self__, "error", error)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if parameters_link is not None:
@@ -2105,6 +2104,14 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
         return pulumi.get(self, "diagnostics")
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The error detail.
+        """
+        return pulumi.get(self, "error")
+
+    @_builtins.property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
@@ -2143,14 +2150,6 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
         Deployment stack description. Max length of 4096 characters.
         """
         return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorDetailResponse']:
-        """
-        The error detail.
-        """
-        return pulumi.get(self, "error")
 
     @_builtins.property
     @pulumi.getter
@@ -3418,16 +3417,23 @@ class ResourceReferenceExtendedResponse(dict):
     The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
     """
     def __init__(__self__, *,
-                 id: _builtins.str,
-                 error: Optional['outputs.ErrorDetailResponse'] = None):
+                 error: 'outputs.ErrorDetailResponse',
+                 id: _builtins.str):
         """
         The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
-        :param _builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         :param 'ErrorDetailResponse' error: The error detail.
+        :param _builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         """
+        pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
-        if error is not None:
-            pulumi.set(__self__, "error", error)
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The error detail.
+        """
+        return pulumi.get(self, "error")
 
     @_builtins.property
     @pulumi.getter
@@ -3436,14 +3442,6 @@ class ResourceReferenceExtendedResponse(dict):
         The ARM Resource ID of a resource managed by the deployment stack.
         """
         return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorDetailResponse']:
-        """
-        The error detail.
-        """
-        return pulumi.get(self, "error")
 
 
 @pulumi.output_type

@@ -30,7 +30,7 @@ export interface ListFeatureAccountArgs {
      */
     features?: string[];
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -70,7 +70,7 @@ export interface ListFeatureAccountOutputArgs {
      */
     features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

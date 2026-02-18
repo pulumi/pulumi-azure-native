@@ -73,7 +73,7 @@ class GetAgentApplicationResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.AgenticApplicationResponse':
+    def properties(self) -> 'outputs.AgenticApplicationPropertiesResponse':
         """
         [Required] Additional attributes of the entity.
         """

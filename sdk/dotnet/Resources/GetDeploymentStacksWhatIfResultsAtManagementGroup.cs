@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Resources
         public string DeploymentStacksWhatIfResultName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the management group. The name is case insensitive.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public string ManagementGroupId { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Resources
         public Input<string> DeploymentStacksWhatIfResultName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the management group. The name is case insensitive.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;

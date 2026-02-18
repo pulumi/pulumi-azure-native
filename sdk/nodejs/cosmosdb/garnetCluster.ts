@@ -54,7 +54,7 @@ export class GarnetCluster extends pulumi.CustomResource {
     /**
      * Properties of a Garnet cache cluster.
      */
-    declare public readonly properties: pulumi.Output<outputs.cosmosdb.ClusterResourceResponsePropertiesV1>;
+    declare public readonly properties: pulumi.Output<outputs.cosmosdb.GarnetClusterResourceResponseProperties>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -122,7 +122,7 @@ export interface GarnetClusterArgs {
     /**
      * Properties of a Garnet cache cluster.
      */
-    properties?: pulumi.Input<inputs.cosmosdb.ClusterResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.cosmosdb.GarnetClusterResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

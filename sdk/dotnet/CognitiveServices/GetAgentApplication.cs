@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        public readonly Outputs.AgenticApplicationResponse Properties;
+        public readonly Outputs.AgenticApplicationPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             string name,
 
-            Outputs.AgenticApplicationResponse properties,
+            Outputs.AgenticApplicationPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

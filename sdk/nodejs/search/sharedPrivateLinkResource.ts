@@ -110,7 +110,7 @@ export interface SharedPrivateLinkResourceArgs {
      */
     properties?: pulumi.Input<inputs.search.SharedPrivateLinkResourcePropertiesArgs>;
     /**
-     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

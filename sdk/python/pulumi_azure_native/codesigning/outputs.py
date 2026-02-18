@@ -24,12 +24,12 @@ __all__ = [
 @pulumi.output_type
 class AccountSkuResponse(dict):
     """
-    SKU of the trusted signing account.
+    SKU of the artifact signing account.
     """
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        SKU of the trusted signing account.
+        SKU of the artifact signing account.
         :param _builtins.str name: Name of the SKU.
         """
         pulumi.set(__self__, "name", name)

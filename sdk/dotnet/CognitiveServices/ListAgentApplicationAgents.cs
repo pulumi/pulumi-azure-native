@@ -112,13 +112,13 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// An array of objects of type Agent Reference.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AgentReferenceResourceResponse> Value;
+        public readonly ImmutableArray<Outputs.AgentReferenceResponse> Value;
 
         [OutputConstructor]
         private ListAgentApplicationAgentsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.AgentReferenceResourceResponse> value)
+            ImmutableArray<Outputs.AgentReferenceResponse> value)
         {
             NextLink = nextLink;
             Value = value;

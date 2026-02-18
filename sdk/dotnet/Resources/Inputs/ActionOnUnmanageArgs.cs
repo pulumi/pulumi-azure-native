@@ -16,28 +16,28 @@ namespace Pulumi.AzureNative.Resources.Inputs
     public sealed class ActionOnUnmanageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        /// Specifies an action for a newly unmanaged resource management group.
         /// </summary>
         [Input("managementGroups")]
-        public InputUnion<string, Pulumi.AzureNative.Resources.DeploymentStacksDeleteDetachEnum>? ManagementGroups { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Resources.UnmanageActionManagementGroupMode>? ManagementGroups { get; set; }
 
         /// <summary>
-        /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        /// Specifies an action for a newly unmanaged resource group.
         /// </summary>
         [Input("resourceGroups")]
-        public InputUnion<string, Pulumi.AzureNative.Resources.DeploymentStacksDeleteDetachEnum>? ResourceGroups { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Resources.UnmanageActionResourceGroupMode>? ResourceGroups { get; set; }
 
         /// <summary>
-        /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        /// Specifies an action for a newly unmanaged resource.
         /// </summary>
         [Input("resources", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Resources.DeploymentStacksDeleteDetachEnum> Resources { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Resources.UnmanageActionResourceMode> Resources { get; set; } = null!;
 
         /// <summary>
         /// Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
         /// </summary>
         [Input("resourcesWithoutDeleteSupport")]
-        public InputUnion<string, Pulumi.AzureNative.Resources.DeploymentStacksResourcesWithoutDeleteSupportEnum>? ResourcesWithoutDeleteSupport { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Resources.ResourcesWithoutDeleteSupportAction>? ResourcesWithoutDeleteSupport { get; set; }
 
         public ActionOnUnmanageArgs()
         {

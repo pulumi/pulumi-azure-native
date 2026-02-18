@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get the details of the specified Cache
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCapacityPoolCacheResult> InvokeAsync(GetCapacityPoolCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityPoolCacheResult>("azure-native:netapp:getCapacityPoolCache", args ?? new GetCapacityPoolCacheArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get the details of the specified Cache
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCapacityPoolCacheResult> Invoke(GetCapacityPoolCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityPoolCacheResult>("azure-native:netapp:getCapacityPoolCache", args ?? new GetCapacityPoolCacheInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get the details of the specified Cache
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCapacityPoolCacheResult> Invoke(GetCapacityPoolCacheInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityPoolCacheResult>("azure-native:netapp:getCapacityPoolCache", args ?? new GetCapacityPoolCacheInvokeArgs(), options.WithDefaults());

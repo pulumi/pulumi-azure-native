@@ -120,7 +120,7 @@ export interface DeploymentStacksWhatIfResultsAtManagementGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the management group. The name is case insensitive.
+     * The management group ID.
      */
     managementGroupId: pulumi.Input<string>;
     /**

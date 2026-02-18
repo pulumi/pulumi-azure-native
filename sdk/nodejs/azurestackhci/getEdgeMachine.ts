@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get an edge machine.
  *
  * Uses Azure REST API version 2025-12-01-preview.
+ *
+ * Other available API versions: 2026-02-15-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getEdgeMachine(args: GetEdgeMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +78,8 @@ export interface GetEdgeMachineResult {
  * Get an edge machine.
  *
  * Uses Azure REST API version 2025-12-01-preview.
+ *
+ * Other available API versions: 2026-02-15-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getEdgeMachineOutput(args: GetEdgeMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEdgeMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

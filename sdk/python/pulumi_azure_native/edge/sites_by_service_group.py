@@ -84,7 +84,7 @@ class SitesByServiceGroup(pulumi.CustomResource):
                  site_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Site as ARM Resource
+        Site as Extension Resource
 
         Uses Azure REST API version 2025-03-01-preview.
 
@@ -103,7 +103,7 @@ class SitesByServiceGroup(pulumi.CustomResource):
                  args: SitesByServiceGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Site as ARM Resource
+        Site as Extension Resource
 
         Uses Azure REST API version 2025-03-01-preview.
 

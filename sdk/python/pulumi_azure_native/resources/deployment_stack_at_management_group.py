@@ -40,7 +40,7 @@ class DeploymentStackAtManagementGroupArgs:
         The set of arguments for constructing a DeploymentStackAtManagementGroup resource.
         :param pulumi.Input['ActionOnUnmanageArgs'] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param pulumi.Input['DenySettingsArgs'] deny_settings: Defines how resources deployed by the stack are locked.
-        :param pulumi.Input[_builtins.str] management_group_id: The name of the management group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] management_group_id: The management group ID.
         :param pulumi.Input[_builtins.bool] bypass_stack_out_of_sync_error: Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
         :param pulumi.Input['DeploymentStacksDebugSettingArgs'] debug_setting: The debug setting of the deployment.
         :param pulumi.Input[_builtins.str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
@@ -107,7 +107,7 @@ class DeploymentStackAtManagementGroupArgs:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the management group. The name is case insensitive.
+        The management group ID.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -286,7 +286,7 @@ class DeploymentStackAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] deployment_stack_name: Name of the deployment stack.
         :param pulumi.Input[_builtins.str] description: Deployment stack description. Max length of 4096 characters.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
-        :param pulumi.Input[_builtins.str] management_group_id: The name of the management group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] management_group_id: The management group ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -517,7 +517,7 @@ class DeploymentStackAtManagementGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> pulumi.Output[Optional['outputs.ErrorDetailResponse']]:
+    def error(self) -> pulumi.Output['outputs.ErrorDetailResponse']:
         """
         The error detail.
         """

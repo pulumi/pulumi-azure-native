@@ -28,7 +28,7 @@ class PrivateEndpointConnectionArgs:
                  properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Describes the properties of an existing private endpoint connection to the Azure AI Search service.
@@ -44,7 +44,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -111,7 +111,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
         :param pulumi.Input[Union['PrivateEndpointConnectionPropertiesArgs', 'PrivateEndpointConnectionPropertiesArgsDict']] properties: Describes the properties of an existing private endpoint connection to the Azure AI Search service.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
         """
         ...

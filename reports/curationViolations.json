@@ -100,6 +100,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "ComputeBulkActions",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "ComputeSchedule",
     "Detail": "expected tracking stable but found preview"
   },
@@ -190,10 +194,6 @@
   {
     "ModuleName": "DependencyMap",
     "Detail": "expected no additions but found some"
-  },
-  {
-    "ModuleName": "DesktopVirtualization",
-    "Detail": "expected additions but found none"
   },
   {
     "ModuleName": "DevCenter",

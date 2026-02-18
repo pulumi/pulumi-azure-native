@@ -119,6 +119,8 @@ def get_file_share_snapshot(name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-06-01-preview.
 
+    Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str name: The name of the FileShareSnapshot
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -146,6 +148,8 @@ def get_file_share_snapshot_output(name: Optional[pulumi.Input[_builtins.str]] =
     Get a FileShareSnapshot
 
     Uses Azure REST API version 2025-06-01-preview.
+
+    Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: The name of the FileShareSnapshot

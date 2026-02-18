@@ -3003,6 +3003,328 @@
     "Property": "jobType"
   },
   {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "LoadBalancer",
+    "ReferenceName": "BackendAddressPool",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "LoadBalancer",
+    "ReferenceName": "LoadBalancerBackendAddress",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "LoadBalancer",
+    "ReferenceName": "FrontendIPConfiguration",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "LoadBalancer",
+    "ReferenceName": "LoadBalancerRule",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "LoadBalancer",
+    "ReferenceName": "Probe",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "NatGateway",
+    "ReferenceName": "InboundNATRule",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "NetworkInterface",
+    "ReferenceName": "IPConfiguration",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "VirtualMachineInstancePropertiesOsProfile",
+    "Property": "adminPassword"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "ImageArmReference",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "ImageArmReference",
+    "Property": "imageReference"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "ClusterJob",
+    "ReferenceName": "HciJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "ClusterJob",
+    "ReferenceName": "HciJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "EdgeMachineProperties",
+    "Property": "arcGatewayResourceId"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "EdgeMachineProperties",
+    "Property": "arcMachineResourceGroupId"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "EdgeMachineKind",
+    "Property": "edgeMachineKind"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "OwnershipVoucherDetails",
+    "Property": "ownershipVoucherDetails"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "ProvisioningDetails",
+    "Property": "provisioningDetails"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "SiteDetails",
+    "Property": "siteDetails"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "ProvisioningOsType",
+    "Property": "target"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "OnboardingConfiguration",
+    "Property": "location"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "OnboardingResourceType",
+    "Property": "type"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "ProvisioningOsType",
+    "Property": "target"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260215preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "ClusterJob",
+    "ReferenceName": "HciJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "ClusterJob",
+    "ReferenceName": "HciJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "EdgeMachineProperties",
+    "Property": "arcGatewayResourceId"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "EdgeMachineProperties",
+    "Property": "arcMachineResourceGroupId"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "EdgeMachineKind",
+    "Property": "edgeMachineKind"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "OwnershipVoucherDetails",
+    "Property": "ownershipVoucherDetails"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "ProvisioningDetails",
+    "Property": "provisioningDetails"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachine",
+    "ReferenceName": "SiteDetails",
+    "Property": "siteDetails"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "ProvisioningOsType",
+    "Property": "target"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "OnboardingConfiguration",
+    "Property": "location"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "OnboardingResourceType",
+    "Property": "type"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "ProvisioningOsType",
+    "Property": "target"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20260301preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "EdgeMachineJob",
+    "ReferenceName": "EdgeMachineJobType",
+    "Property": "jobType"
+  },
+  {
     "VersionedModule": "billingbenefits",
     "Module": "BillingBenefits",
     "ResourceName": "Macc",
@@ -4602,7 +4924,7 @@
     "VersionedModule": "cosmosdb",
     "Module": "CosmosDB",
     "ResourceName": "GarnetCluster",
-    "ReferenceName": "ClusterResource",
+    "ReferenceName": "GarnetClusterResource",
     "Property": "subnetId"
   },
   {
@@ -6835,7 +7157,7 @@
     "VersionedModule": "cosmosdb/v20251101preview",
     "Module": "CosmosDB",
     "ResourceName": "GarnetCluster",
-    "ReferenceName": "ClusterResource",
+    "ReferenceName": "GarnetClusterResource",
     "Property": "subnetId"
   },
   {
@@ -8694,6 +9016,20 @@
     "Property": "keyType"
   },
   {
+    "VersionedModule": "deviceregistry/v20260301preview",
+    "Module": "DeviceRegistry",
+    "ResourceName": "Policy",
+    "ReferenceName": "BringYourOwnRoot",
+    "Property": "enabled"
+  },
+  {
+    "VersionedModule": "deviceregistry/v20260301preview",
+    "Module": "DeviceRegistry",
+    "ResourceName": "Policy",
+    "ReferenceName": "SupportedKeyType",
+    "Property": "keyType"
+  },
+  {
     "VersionedModule": "dnsresolver",
     "Module": "DnsResolver",
     "ResourceName": "InboundEndpoint",
@@ -8863,6 +9199,34 @@
   },
   {
     "VersionedModule": "fileshares/v20250601preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "Redundancy",
+    "Property": "redundancy"
+  },
+  {
+    "VersionedModule": "fileshares/v20250901preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "MediaTier",
+    "Property": "mediaTier"
+  },
+  {
+    "VersionedModule": "fileshares/v20250901preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "FileShareProperties",
+    "Property": "mountName"
+  },
+  {
+    "VersionedModule": "fileshares/v20250901preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "Protocol",
+    "Property": "protocol"
+  },
+  {
+    "VersionedModule": "fileshares/v20250901preview",
     "Module": "FileShares",
     "ResourceName": "FileShare",
     "ReferenceName": "Redundancy",
@@ -10004,6 +10368,55 @@
   },
   {
     "VersionedModule": "iotoperations/v20251001",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "VolumeClaimSpec",
+    "Property": "persistentVolumeClaimSpec"
+  },
+  {
+    "VersionedModule": "iotoperations/v20260301",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "AdvancedSettings",
+    "Property": "advanced"
+  },
+  {
+    "VersionedModule": "iotoperations/v20260301",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "Cardinality",
+    "Property": "cardinality"
+  },
+  {
+    "VersionedModule": "iotoperations/v20260301",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "DiskBackedMessageBuffer",
+    "Property": "diskBackedMessageBuffer"
+  },
+  {
+    "VersionedModule": "iotoperations/v20260301",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "GenerateResourceLimits",
+    "Property": "generateResourceLimits"
+  },
+  {
+    "VersionedModule": "iotoperations/v20260301",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerProperties",
+    "Property": "memoryProfile"
+  },
+  {
+    "VersionedModule": "iotoperations/v20260301",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerPersistence",
+    "Property": "maxSize"
+  },
+  {
+    "VersionedModule": "iotoperations/v20260301",
     "Module": "IoTOperations",
     "ResourceName": "Broker",
     "ReferenceName": "VolumeClaimSpec",
@@ -102333,6 +102746,3786 @@
     "Property": "displayName"
   },
   {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchDeployment",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "instanceCount"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchDeployment",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchDeployment",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "properties"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchDeployment",
+    "ReferenceName": "CodeConfiguration",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchDeployment",
+    "ReferenceName": "CodeConfiguration",
+    "Property": "scoringScript"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchEndpoint",
+    "ReferenceName": "EndpointAuthKeys",
+    "Property": "primaryKey"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchEndpoint",
+    "ReferenceName": "EndpointAuthKeys",
+    "Property": "secondaryKey"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "BatchEndpoint",
+    "ReferenceName": "EndpointAuthKeys",
+    "Property": "keys"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "CodeVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "ComponentVersion",
+    "ReferenceName": "ComponentVersionProperties",
+    "Property": "componentSpec"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "ComponentVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "computeLocation"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Compute",
+    "ReferenceName": "Compute",
+    "Property": "disableLocalAuth"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataContainer",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "MLTableData",
+    "Property": "referencedUris"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "DataVersionBaseProperties",
+    "Property": "dataUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "DataVersionBaseProperties",
+    "Property": "dataUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "DataVersionBaseProperties",
+    "Property": "dataUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "DataVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureBlobDatastore",
+    "Property": "accountName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureBlobDatastore",
+    "Property": "containerName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureBlobDatastore",
+    "Property": "endpoint"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureBlobDatastore",
+    "Property": "protocol"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureBlobDatastore",
+    "Property": "serviceDataAccessAuthIdentity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureDataLakeGen1Datastore",
+    "Property": "serviceDataAccessAuthIdentity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureDataLakeGen1Datastore",
+    "Property": "storeName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureDataLakeGen2Datastore",
+    "Property": "accountName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureDataLakeGen2Datastore",
+    "Property": "endpoint"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureDataLakeGen2Datastore",
+    "Property": "filesystem"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureDataLakeGen2Datastore",
+    "Property": "protocol"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureDataLakeGen2Datastore",
+    "Property": "serviceDataAccessAuthIdentity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureFileDatastore",
+    "Property": "accountName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureFileDatastore",
+    "Property": "endpoint"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureFileDatastore",
+    "Property": "fileShareName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureFileDatastore",
+    "Property": "protocol"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "AzureFileDatastore",
+    "Property": "serviceDataAccessAuthIdentity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "OneLakeArtifact",
+    "Property": "artifactName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "OneLakeArtifact",
+    "Property": "artifact"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "OneLakeDatastore",
+    "Property": "endpoint"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "OneLakeDatastore",
+    "Property": "oneLakeWorkspaceName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Datastore",
+    "ReferenceName": "OneLakeDatastore",
+    "Property": "serviceDataAccessAuthIdentity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "autoRebuild"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "BuildContext",
+    "Property": "contextUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "BuildContext",
+    "Property": "dockerfilePath"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "BuildContext",
+    "Property": "build"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "condaFile"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "image"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "InferenceContainerProperties",
+    "Property": "inferenceConfig"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "osType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "EnvironmentVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "FeaturesetVersion",
+    "ReferenceName": "NotificationSetting",
+    "Property": "emailOn"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "FeaturesetVersion",
+    "ReferenceName": "NotificationSetting",
+    "Property": "emails"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "FeaturesetVersion",
+    "ReferenceName": "Webhook",
+    "Property": "eventType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "FeaturesetVersion",
+    "ReferenceName": "WebhookType",
+    "Property": "webhookType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "FeaturesetVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "FeaturestoreEntityVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "AutoMLJob",
+    "Property": "environmentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "AutoMLJob",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CustomModelJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "MLFlowModelJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "MLTableJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TritonModelJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "UriFileJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "UriFolderJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "AutoMLJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "QueueSettings",
+    "Property": "jobTier"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "dockerArgs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "dockerArgsList"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "shmSize"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "instanceCount"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "properties"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "NCrossValidationsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "NCrossValidationsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "MLTableJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "ForecastHorizonMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "ForecastHorizonMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SeasonalityMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SeasonalityMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TargetLagsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TargetLagsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TargetRollingWindowSizeMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TargetRollingWindowSizeMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "MLFlowModelJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfigurationType",
+    "Property": "identityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "Azure.Core.uuid",
+    "Property": "clientId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "Azure.Core.uuid",
+    "Property": "objectId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "ManagedIdentity",
+    "Property": "resourceId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfigurationType",
+    "Property": "identityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfigurationType",
+    "Property": "identityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "NotificationSetting",
+    "Property": "emailOn"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "NotificationSetting",
+    "Property": "emails"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "Webhook",
+    "Property": "eventType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "WebhookType",
+    "Property": "webhookType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobService",
+    "Property": "endpoint"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobService",
+    "Property": "jobServiceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "NodesValueType",
+    "Property": "nodesValueType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobService",
+    "Property": "port"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CommandJob",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CommandJob",
+    "Property": "command"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "Mpi",
+    "Property": "processCountPerInstance"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "DistributionType",
+    "Property": "distributionType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "DistributionType",
+    "Property": "distributionType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TensorFlow",
+    "Property": "parameterServerCount"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TensorFlow",
+    "Property": "workerCount"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "DistributionType",
+    "Property": "distributionType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "DistributionConfiguration",
+    "Property": "distribution"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CommandJob",
+    "Property": "environmentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CommandJob",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CustomModelJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TritonModelJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "UriFileJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "UriFolderJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CommandJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CommandJobLimits",
+    "Property": "limits"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "CommandJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "PipelineJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "PipelineJob",
+    "Property": "jobs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "PipelineJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "PipelineJob",
+    "Property": "settings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "PipelineJob",
+    "Property": "sourceJobId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "archives"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "conf"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJobPythonEntry",
+    "Property": "file"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJobEntryType",
+    "Property": "sparkJobEntryType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJobScalaEntry",
+    "Property": "className"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJobEntryType",
+    "Property": "sparkJobEntryType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJobEntry",
+    "Property": "entry"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "environmentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "files"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "jars"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkJob",
+    "Property": "pyFiles"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkResourceConfiguration",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkResourceConfiguration",
+    "Property": "runtimeVersion"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SparkResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SweepJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SweepJobLimits",
+    "Property": "limits"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "SweepJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TrialComponent",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TrialComponent",
+    "Property": "command"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "DistributionConfiguration",
+    "Property": "distribution"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "TrialComponent",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "ModelVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "OnlineDeployment",
+    "ReferenceName": "OnlineDeploymentProperties",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "OnlineDeployment",
+    "ReferenceName": "CodeConfiguration",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "OnlineDeployment",
+    "ReferenceName": "CodeConfiguration",
+    "Property": "scoringScript"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "OnlineDeployment",
+    "ReferenceName": "OnlineDeploymentProperties",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "OnlineEndpoint",
+    "ReferenceName": "EndpointAuthKeys",
+    "Property": "primaryKey"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "OnlineEndpoint",
+    "ReferenceName": "EndpointAuthKeys",
+    "Property": "secondaryKey"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "OnlineEndpoint",
+    "ReferenceName": "EndpointAuthKeys",
+    "Property": "keys"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Registry",
+    "ReferenceName": "RegistryPrivateEndpointConnection",
+    "Property": "location"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryCodeVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryComponentVersion",
+    "ReferenceName": "ComponentVersionProperties",
+    "Property": "componentSpec"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryComponentVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataContainer",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "MLTableData",
+    "Property": "referencedUris"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "DataVersionBaseProperties",
+    "Property": "dataUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "DataVersionBaseProperties",
+    "Property": "dataUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "DataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "DataVersionBaseProperties",
+    "Property": "dataUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryDataVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "autoRebuild"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "BuildContext",
+    "Property": "contextUri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "BuildContext",
+    "Property": "dockerfilePath"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "BuildContext",
+    "Property": "build"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "condaFile"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "image"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "InferenceContainerProperties",
+    "Property": "inferenceConfig"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "EnvironmentVersionProperties",
+    "Property": "osType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryEnvironmentVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "RegistryModelVersion",
+    "ReferenceName": "AssetBase",
+    "Property": "isAnonymous"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorEmailNotificationSettings",
+    "Property": "emails"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorEmailNotificationSettings",
+    "Property": "emailNotificationSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorNotificationSettings",
+    "Property": "alertNotificationSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorComputeIdentityType",
+    "Property": "computeIdentityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorComputeIdentityType",
+    "Property": "computeIdentityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorComputeIdentityBase",
+    "Property": "computeIdentity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorServerlessSparkCompute",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorServerlessSparkCompute",
+    "Property": "runtimeVersion"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorComputeType",
+    "Property": "computeType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorComputeConfigurationBase",
+    "Property": "computeConfiguration"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringTarget",
+    "Property": "deploymentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringTarget",
+    "Property": "modelId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ModelTaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringTarget",
+    "Property": "monitoringTarget"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CustomMonitoringSignal",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "columns"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "dataContext"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataType",
+    "Property": "inputDataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "uri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "RollingInputData",
+    "Property": "preprocessingComponentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "RollingInputData",
+    "Property": "windowOffset"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "RollingInputData",
+    "Property": "windowSize"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "columns"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "dataContext"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataType",
+    "Property": "inputDataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "uri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "StaticInputData",
+    "Property": "preprocessingComponentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "StaticInputData",
+    "Property": "windowEnd"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "StaticInputData",
+    "Property": "windowStart"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "columns"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "dataContext"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataType",
+    "Property": "inputDataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "uri"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CustomMonitoringSignal",
+    "Property": "inputAssets"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CustomModelJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MLFlowModelJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MLTableJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TritonModelJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "UriFileJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "UriFolderJobInput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobInputType",
+    "Property": "jobInputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CustomMonitoringSignal",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CustomMetricThreshold",
+    "Property": "metric"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "value"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CustomMonitoringSignal",
+    "Property": "metricThresholds"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalBase",
+    "Property": "notificationTypes"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalType",
+    "Property": "signalType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DataDriftMonitoringSignal",
+    "Property": "featureDataTypeOverride"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureImportanceSettings",
+    "Property": "featureImportanceSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureFilterType",
+    "Property": "filterType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureSubset",
+    "Property": "features"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureFilterType",
+    "Property": "filterType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TopNFeaturesByAttribution",
+    "Property": "top"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureFilterType",
+    "Property": "filterType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureFilterBase",
+    "Property": "features"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CategoricalDataDriftMetric",
+    "Property": "metric"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureDataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureDataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DataDriftMonitoringSignal",
+    "Property": "metricThresholds"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "productionData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "referenceData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalBase",
+    "Property": "notificationTypes"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalType",
+    "Property": "signalType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DataQualityMonitoringSignal",
+    "Property": "featureDataTypeOverride"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureImportanceSettings",
+    "Property": "featureImportanceSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureFilterBase",
+    "Property": "features"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CategoricalDataQualityMetric",
+    "Property": "metric"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureDataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "NumericalDataQualityMetric",
+    "Property": "metric"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureDataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DataQualityMonitoringSignal",
+    "Property": "metricThresholds"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "productionData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "referenceData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalBase",
+    "Property": "notificationTypes"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalType",
+    "Property": "signalType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureAttributionDriftMonitoringSignal",
+    "Property": "featureDataTypeOverride"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureImportanceSettings",
+    "Property": "featureImportanceSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureAttributionMetric",
+    "Property": "metric"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureAttributionMetricThreshold",
+    "Property": "metricThreshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "FeatureAttributionDriftMonitoringSignal",
+    "Property": "productionData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "referenceData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalBase",
+    "Property": "notificationTypes"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalType",
+    "Property": "signalType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "PredictionDriftMonitoringSignal",
+    "Property": "featureDataTypeOverride"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CategoricalPredictionDriftMetric",
+    "Property": "metric"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureDataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "NumericalPredictionDriftMetric",
+    "Property": "metric"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringFeatureDataType",
+    "Property": "dataType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringThreshold",
+    "Property": "threshold"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "PredictionDriftMonitoringSignal",
+    "Property": "metricThresholds"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "productionData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringInputDataBase",
+    "Property": "referenceData"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalBase",
+    "Property": "notificationTypes"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitoringSignalType",
+    "Property": "signalType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorDefinition",
+    "Property": "signals"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MonitorDefinition",
+    "Property": "monitorDefinition"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "AutoMLJob",
+    "Property": "environmentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "AutoMLJob",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CustomModelJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MLFlowModelJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "MLTableJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TritonModelJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "UriFileJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "UriFolderJobOutput",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutput",
+    "Property": "description"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobOutputType",
+    "Property": "jobOutputType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "AutoMLJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "QueueSettings",
+    "Property": "jobTier"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "dockerArgs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "dockerArgsList"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "shmSize"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "instanceCount"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ResourceConfiguration",
+    "Property": "properties"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "NCrossValidationsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "NCrossValidationsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ForecastHorizonMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ForecastHorizonMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SeasonalityMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SeasonalityMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TargetLagsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TargetLagsMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TargetRollingWindowSizeMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TargetRollingWindowSizeMode",
+    "Property": "mode"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TaskType",
+    "Property": "taskType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfigurationType",
+    "Property": "identityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "Azure.Core.uuid",
+    "Property": "clientId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "Azure.Core.uuid",
+    "Property": "objectId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ManagedIdentity",
+    "Property": "resourceId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfigurationType",
+    "Property": "identityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfigurationType",
+    "Property": "identityType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "NotificationSetting",
+    "Property": "emailOn"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "NotificationSetting",
+    "Property": "emails"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "Webhook",
+    "Property": "eventType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "WebhookType",
+    "Property": "webhookType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobService",
+    "Property": "endpoint"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobService",
+    "Property": "jobServiceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "NodesValueType",
+    "Property": "nodesValueType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobService",
+    "Property": "port"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CommandJob",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CommandJob",
+    "Property": "command"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "Mpi",
+    "Property": "processCountPerInstance"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DistributionType",
+    "Property": "distributionType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DistributionType",
+    "Property": "distributionType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TensorFlow",
+    "Property": "parameterServerCount"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TensorFlow",
+    "Property": "workerCount"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DistributionType",
+    "Property": "distributionType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DistributionConfiguration",
+    "Property": "distribution"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CommandJob",
+    "Property": "environmentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CommandJob",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CommandJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CommandJobLimits",
+    "Property": "limits"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "CommandJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "PipelineJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "PipelineJob",
+    "Property": "jobs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "PipelineJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "PipelineJob",
+    "Property": "settings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "PipelineJob",
+    "Property": "sourceJobId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "archives"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "conf"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJobPythonEntry",
+    "Property": "file"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJobEntryType",
+    "Property": "sparkJobEntryType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJobScalaEntry",
+    "Property": "className"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJobEntryType",
+    "Property": "sparkJobEntryType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJobEntry",
+    "Property": "entry"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "environmentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "files"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "jars"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkJob",
+    "Property": "pyFiles"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkResourceConfiguration",
+    "Property": "instanceType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkResourceConfiguration",
+    "Property": "runtimeVersion"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SparkResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SweepJob",
+    "Property": "inputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SweepJobLimits",
+    "Property": "limits"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "SweepJob",
+    "Property": "outputs"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "QueueSettings",
+    "Property": "queueSettings"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TrialComponent",
+    "Property": "codeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TrialComponent",
+    "Property": "command"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "DistributionConfiguration",
+    "Property": "distribution"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "TrialComponent",
+    "Property": "environmentVariables"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "resources"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "componentId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "computeId"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "displayName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobBaseProperties",
+    "Property": "experimentName"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "IdentityConfiguration",
+    "Property": "identity"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "machinelearningservices/v20251201",
+    "Module": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "ScheduleProperties",
+    "Property": "displayName"
+  },
+  {
     "VersionedModule": "managednetworkfabric/v20240215preview",
     "Module": "ManagedNetworkFabric",
     "ResourceName": "L3IsolationDomain",
@@ -105841,6 +110034,363 @@
   },
   {
     "VersionedModule": "netapp/v20250901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "RemotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "ReplicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "AcceptGrowCapacityPoolForShortTermCloneSplit",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "avsDataStore"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "creationToken"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "RemotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "ReplicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "isLargeVolume"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "ldapEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "networkFeatures"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "securityStyle"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "volumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20251201",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "CacheProperties",
+    "Property": "cacheSubnetResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "EncryptionKeySource",
+    "Property": "encryptionKeySource"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "CacheProperties",
+    "Property": "filepath"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "GlobalFileLockingState",
+    "Property": "globalFileLocking"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "KerberosState",
+    "Property": "kerberos"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "LdapState",
+    "Property": "ldap"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "LdapServerType",
+    "Property": "ldapServerType"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "OriginClusterInformation",
+    "Property": "originClusterInformation"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolCache",
+    "ReferenceName": "CacheProperties",
+    "Property": "peeringSubnetResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "RemotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "ReplicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticBackup",
+    "ReferenceName": "ElasticBackupProperties",
+    "Property": "elasticSnapshotResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticBackup",
+    "ReferenceName": "ElasticBackupProperties",
+    "Property": "elasticVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticBackup",
+    "ReferenceName": "ElasticBackupProperties",
+    "Property": "snapshotUsage"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticCapacityPool",
+    "ReferenceName": "ElasticServiceLevel",
+    "Property": "serviceLevel"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticCapacityPool",
+    "ReferenceName": "ElasticCapacityPoolProperties",
+    "Property": "subnetResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticVolume",
+    "ReferenceName": "ElasticVolumeProperties",
+    "Property": "backupResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticVolume",
+    "ReferenceName": "ElasticVolumeProperties",
+    "Property": "filePath"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "ElasticVolume",
+    "ReferenceName": "ElasticVolumeProperties",
+    "Property": "snapshotResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "AcceptGrowCapacityPoolForShortTermCloneSplit",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "avsDataStore"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "creationToken"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "RemotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "ReplicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "isLargeVolume"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "LargeVolumeType",
+    "Property": "largeVolumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "ldapEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "LdapServerType",
+    "Property": "ldapServerType"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "networkFeatures"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "securityStyle"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "VolumeProperties",
+    "Property": "volumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20251215preview",
     "Module": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "VolumeGroupVolumeProperties",
@@ -112054,20 +116604,6 @@
     "ResourceName": "VirtualMachineInstance",
     "ReferenceName": "VirtualDisk",
     "Property": "templateDiskId"
-  },
-  {
-    "VersionedModule": "security",
-    "Module": "Security",
-    "ResourceName": "Connector",
-    "ReferenceName": "HybridComputeSettingsProperties",
-    "Property": "region"
-  },
-  {
-    "VersionedModule": "security/v20200101preview",
-    "Module": "Security",
-    "ResourceName": "Connector",
-    "ReferenceName": "HybridComputeSettingsProperties",
-    "Property": "region"
   },
   {
     "VersionedModule": "sqlvirtualmachine",

@@ -25,7 +25,7 @@ MYPY = False
 if not MYPY:
     class AccountSkuArgsDict(TypedDict):
         """
-        SKU of the trusted signing account.
+        SKU of the artifact signing account.
         """
         name: pulumi.Input[Union[_builtins.str, 'SkuName']]
         """
@@ -39,7 +39,7 @@ class AccountSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']]):
         """
-        SKU of the trusted signing account.
+        SKU of the artifact signing account.
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: Name of the SKU.
         """
         pulumi.set(__self__, "name", name)

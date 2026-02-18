@@ -18,11 +18,11 @@ from ._enums import *
 
 __all__ = [
     'AccountMergeInfoResponse',
-    'AccountPropertiesResponseAccountStatus',
-    'AccountPropertiesResponseEndpoints',
-    'AccountPropertiesResponseManagedResources',
-    'AccountResponseSku',
-    'AccountStatusResponseErrorDetails',
+    'AccountPropertiesAccountStatusResponse',
+    'AccountPropertiesEndpointsResponse',
+    'AccountPropertiesManagedResourcesResponse',
+    'AccountSkuResponse',
+    'AccountStatusErrorDetailsResponse',
     'CloudConnectorsResponse',
     'CredentialsResponse',
     'ErrorModelResponse',
@@ -31,8 +31,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'ProxyResourceResponseSystemData',
-    'TrackedResourceResponseSystemData',
+    'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
 
@@ -154,7 +153,7 @@ class AccountMergeInfoResponse(dict):
 
 
 @pulumi.output_type
-class AccountPropertiesResponseAccountStatus(dict):
+class AccountPropertiesAccountStatusResponse(dict):
     """
     Gets or sets the status of the account.
     """
@@ -167,23 +166,23 @@ class AccountPropertiesResponseAccountStatus(dict):
             suggest = "error_details"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AccountPropertiesResponseAccountStatus. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AccountPropertiesAccountStatusResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AccountPropertiesResponseAccountStatus.__key_warning(key)
+        AccountPropertiesAccountStatusResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AccountPropertiesResponseAccountStatus.__key_warning(key)
+        AccountPropertiesAccountStatusResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  account_provisioning_state: _builtins.str,
-                 error_details: 'outputs.AccountStatusResponseErrorDetails'):
+                 error_details: 'outputs.AccountStatusErrorDetailsResponse'):
         """
         Gets or sets the status of the account.
         :param _builtins.str account_provisioning_state: Gets the account status code.
-        :param 'AccountStatusResponseErrorDetails' error_details: Gets the account error details.
+        :param 'AccountStatusErrorDetailsResponse' error_details: Gets the account error details.
         """
         pulumi.set(__self__, "account_provisioning_state", account_provisioning_state)
         pulumi.set(__self__, "error_details", error_details)
@@ -198,7 +197,7 @@ class AccountPropertiesResponseAccountStatus(dict):
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> 'outputs.AccountStatusResponseErrorDetails':
+    def error_details(self) -> 'outputs.AccountStatusErrorDetailsResponse':
         """
         Gets the account error details.
         """
@@ -206,7 +205,7 @@ class AccountPropertiesResponseAccountStatus(dict):
 
 
 @pulumi.output_type
-class AccountPropertiesResponseEndpoints(dict):
+class AccountPropertiesEndpointsResponse(dict):
     """
     The URIs that are the public endpoints of the account.
     """
@@ -239,7 +238,7 @@ class AccountPropertiesResponseEndpoints(dict):
 
 
 @pulumi.output_type
-class AccountPropertiesResponseManagedResources(dict):
+class AccountPropertiesManagedResourcesResponse(dict):
     """
     Gets the resource identifiers of the managed resources.
     """
@@ -254,14 +253,14 @@ class AccountPropertiesResponseManagedResources(dict):
             suggest = "storage_account"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AccountPropertiesResponseManagedResources. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AccountPropertiesManagedResourcesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AccountPropertiesResponseManagedResources.__key_warning(key)
+        AccountPropertiesManagedResourcesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AccountPropertiesResponseManagedResources.__key_warning(key)
+        AccountPropertiesManagedResourcesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -304,15 +303,15 @@ class AccountPropertiesResponseManagedResources(dict):
 
 
 @pulumi.output_type
-class AccountResponseSku(dict):
+class AccountSkuResponse(dict):
     """
-    Gets or sets the Sku.
+    The Sku
     """
     def __init__(__self__, *,
                  capacity: Optional[_builtins.int] = None,
                  name: Optional[_builtins.str] = None):
         """
-        Gets or sets the Sku.
+        The Sku
         :param _builtins.int capacity: Gets or sets the sku capacity.
         :param _builtins.str name: Gets or sets the sku name.
         """
@@ -339,7 +338,7 @@ class AccountResponseSku(dict):
 
 
 @pulumi.output_type
-class AccountStatusResponseErrorDetails(dict):
+class AccountStatusErrorDetailsResponse(dict):
     """
     Gets the account error details.
     """
@@ -715,17 +714,17 @@ class PrivateEndpointConnectionResponse(dict):
                  id: _builtins.str,
                  name: _builtins.str,
                  provisioning_state: _builtins.str,
-                 system_data: 'outputs.ProxyResourceResponseSystemData',
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection class.
-        :param _builtins.str id: Gets or sets the identifier.
-        :param _builtins.str name: Gets or sets the name.
+        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str name: The name of the resource
         :param _builtins.str provisioning_state: The provisioning state.
-        :param 'ProxyResourceResponseSystemData' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param _builtins.str type: Gets or sets the type.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint information.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state.
         """
@@ -743,7 +742,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Gets or sets the identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -751,7 +750,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Gets or sets the name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -765,9 +764,9 @@ class PrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.ProxyResourceResponseSystemData':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -775,7 +774,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Gets or sets the type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -884,7 +883,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
-class ProxyResourceResponseSystemData(dict):
+class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
@@ -905,42 +904,48 @@ class ProxyResourceResponseSystemData(dict):
             suggest = "last_modified_by_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProxyResourceResponseSystemData. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ProxyResourceResponseSystemData.__key_warning(key)
+        SystemDataResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ProxyResourceResponseSystemData.__key_warning(key)
+        SystemDataResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 created_at: _builtins.str,
-                 created_by: _builtins.str,
-                 created_by_type: _builtins.str,
-                 last_modified_at: _builtins.str,
-                 last_modified_by: _builtins.str,
-                 last_modified_by_type: _builtins.str):
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The timestamp of the last modification the resource (UTC).
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
         :param _builtins.str last_modified_by: The identity that last modified the resource.
         :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "created_by_type", created_by_type)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> _builtins.str:
+    def created_at(self) -> Optional[_builtins.str]:
         """
         The timestamp of resource creation (UTC).
         """
@@ -948,7 +953,7 @@ class ProxyResourceResponseSystemData(dict):
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> _builtins.str:
+    def created_by(self) -> Optional[_builtins.str]:
         """
         The identity that created the resource.
         """
@@ -956,7 +961,7 @@ class ProxyResourceResponseSystemData(dict):
 
     @_builtins.property
     @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> _builtins.str:
+    def created_by_type(self) -> Optional[_builtins.str]:
         """
         The type of identity that created the resource.
         """
@@ -964,15 +969,15 @@ class ProxyResourceResponseSystemData(dict):
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> _builtins.str:
+    def last_modified_at(self) -> Optional[_builtins.str]:
         """
-        The timestamp of the last modification the resource (UTC).
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> _builtins.str:
+    def last_modified_by(self) -> Optional[_builtins.str]:
         """
         The identity that last modified the resource.
         """
@@ -980,111 +985,7 @@ class ProxyResourceResponseSystemData(dict):
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> _builtins.str:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class TrackedResourceResponseSystemData(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TrackedResourceResponseSystemData. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TrackedResourceResponseSystemData.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TrackedResourceResponseSystemData.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: _builtins.str,
-                 created_by: _builtins.str,
-                 created_by_type: _builtins.str,
-                 last_modified_at: _builtins.str,
-                 last_modified_by: _builtins.str,
-                 last_modified_by_type: _builtins.str):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param _builtins.str created_at: The timestamp of resource creation (UTC).
-        :param _builtins.str created_by: The identity that created the resource.
-        :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The timestamp of the last modification the resource (UTC).
-        :param _builtins.str last_modified_by: The identity that last modified the resource.
-        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "created_by_type", created_by_type)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @_builtins.property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> _builtins.str:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @_builtins.property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> _builtins.str:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @_builtins.property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> _builtins.str:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> _builtins.str:
-        """
-        The timestamp of the last modification the resource (UTC).
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> _builtins.str:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> _builtins.str:
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
         """
         The type of identity that last modified the resource.
         """

@@ -200,6 +200,9 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The visibility of the certificate.
+    /// </summary>
     [EnumType]
     public readonly struct CertificateVisibility : IEquatable<CertificateVisibility>
     {
@@ -264,7 +267,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public static ComputeNodeDeallocationOption TaskCompletion { get; } = new ComputeNodeDeallocationOption("TaskCompletion");
         /// <summary>
-        /// Deprecated, we encourage you to upload task data to Azure Storage in your task and use `TaskCompletion` instead. Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods have expired.
+        /// Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods have expired.
         /// </summary>
         public static ComputeNodeDeallocationOption RetainedData { get; } = new ComputeNodeDeallocationOption("RetainedData");
 
@@ -1134,7 +1137,13 @@ namespace Pulumi.AzureNative.Batch
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// EncryptionType of the managed disk is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob.
+        /// </summary>
         public static SecurityEncryptionTypes NonPersistedTPM { get; } = new SecurityEncryptionTypes("NonPersistedTPM");
+        /// <summary>
+        /// EncryptionType of the managed disk is set to VMGuestStateOnly for encryption of just the VMGuestState blob.
+        /// </summary>
         public static SecurityEncryptionTypes VMGuestStateOnly { get; } = new SecurityEncryptionTypes("VMGuestStateOnly");
 
         public static bool operator ==(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => left.Equals(right);

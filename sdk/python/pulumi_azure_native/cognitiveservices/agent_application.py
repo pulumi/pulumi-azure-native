@@ -24,14 +24,14 @@ class AgentApplicationArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input['AgenticApplicationArgs'],
+                 properties: pulumi.Input['AgenticApplicationPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentApplication resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
-        :param pulumi.Input['AgenticApplicationArgs'] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['AgenticApplicationPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] name: Name for the Agent Application.
         """
@@ -68,14 +68,14 @@ class AgentApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['AgenticApplicationArgs']:
+    def properties(self) -> pulumi.Input['AgenticApplicationPropertiesArgs']:
         """
         [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input['AgenticApplicationArgs']):
+    def properties(self, value: pulumi.Input['AgenticApplicationPropertiesArgs']):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
@@ -112,7 +112,7 @@ class AgentApplication(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AgenticApplicationArgs', 'AgenticApplicationArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['AgenticApplicationPropertiesArgs', 'AgenticApplicationPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -125,7 +125,7 @@ class AgentApplication(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] name: Name for the Agent Application.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
-        :param pulumi.Input[Union['AgenticApplicationArgs', 'AgenticApplicationArgsDict']] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union['AgenticApplicationPropertiesArgs', 'AgenticApplicationPropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -157,7 +157,7 @@ class AgentApplication(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AgenticApplicationArgs', 'AgenticApplicationArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['AgenticApplicationPropertiesArgs', 'AgenticApplicationPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -233,7 +233,7 @@ class AgentApplication(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.AgenticApplicationResponse']:
+    def properties(self) -> pulumi.Output['outputs.AgenticApplicationPropertiesResponse']:
         """
         [Required] Additional attributes of the entity.
         """

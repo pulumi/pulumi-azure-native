@@ -60,6 +60,7 @@ import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as community from "./community";
 import * as compute from "./compute";
+import * as computebulkactions from "./computebulkactions";
 import * as computelimit from "./computelimit";
 import * as computeschedule from "./computeschedule";
 import * as confidentialledger from "./confidentialledger";
@@ -315,6 +316,7 @@ export {
     communication,
     community,
     compute,
+    computebulkactions,
     computelimit,
     computeschedule,
     confidentialledger,

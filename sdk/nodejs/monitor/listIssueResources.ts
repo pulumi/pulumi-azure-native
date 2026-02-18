@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * List all resources in the issue - this method uses pagination to return all resources
  *
  * Uses Azure REST API version 2025-05-03-preview.
+ *
+ * Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listIssueResources(args: ListIssueResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListIssueResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +60,8 @@ export interface ListIssueResourcesResult {
  * List all resources in the issue - this method uses pagination to return all resources
  *
  * Uses Azure REST API version 2025-05-03-preview.
+ *
+ * Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listIssueResourcesOutput(args: ListIssueResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIssueResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

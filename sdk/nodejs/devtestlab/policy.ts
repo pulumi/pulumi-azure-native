@@ -68,7 +68,7 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -80,6 +80,10 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devtestlab.SystemDataResponse>;
+    /**
      * The tags of the resource.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -88,7 +92,7 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public readonly threshold: pulumi.Output<string | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -131,6 +135,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
@@ -144,6 +149,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["threshold"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -185,7 +191,7 @@ export interface PolicyArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Schedule
+     * The name of the Policy
      */
     name?: pulumi.Input<string>;
     /**

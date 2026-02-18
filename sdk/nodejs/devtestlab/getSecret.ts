@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -30,7 +33,7 @@ export interface GetSecretArgs {
      */
     labName: string;
     /**
-     * The name of the Secret
+     * The name of the secret.
      */
     name: string;
     /**
@@ -52,15 +55,15 @@ export interface GetSecretResult {
      */
     readonly azureApiVersion: string;
     /**
-     * The identifier of the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -68,11 +71,15 @@ export interface GetSecretResult {
      */
     readonly provisioningState: string;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.devtestlab.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -110,7 +117,7 @@ export interface GetSecretOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the Secret
+     * The name of the secret.
      */
     name: pulumi.Input<string>;
     /**

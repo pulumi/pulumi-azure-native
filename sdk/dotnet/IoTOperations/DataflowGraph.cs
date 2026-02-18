@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTOperations
     /// 
     /// Uses Azure REST API version 2025-07-01-preview.
     /// 
-    /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-10-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:DataflowGraph")]
     public partial class DataflowGraph : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.IoTOperations
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250701preview:DataflowGraph" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20251001:DataflowGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20260301:DataflowGraph" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

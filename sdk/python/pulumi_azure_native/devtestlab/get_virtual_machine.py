@@ -27,7 +27,7 @@ class GetVirtualMachineResult:
     """
     A virtual machine.
     """
-    def __init__(__self__, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, azure_api_version=None, compute_id=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, data_disk_parameters=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, id=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, last_known_power_state=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, plan_id=None, provisioning_state=None, schedule_parameters=None, size=None, ssh_key=None, storage_type=None, tags=None, type=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None):
+    def __init__(__self__, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, azure_api_version=None, compute_id=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, data_disk_parameters=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, id=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, last_known_power_state=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, plan_id=None, provisioning_state=None, schedule_parameters=None, size=None, ssh_key=None, storage_type=None, system_data=None, tags=None, type=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None):
         if allow_claim and not isinstance(allow_claim, bool):
             raise TypeError("Expected argument 'allow_claim' to be a bool")
         pulumi.set(__self__, "allow_claim", allow_claim)
@@ -136,6 +136,9 @@ class GetVirtualMachineResult:
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -292,7 +295,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -332,7 +335,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -340,7 +343,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -441,10 +444,18 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -452,7 +463,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -523,6 +534,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             size=self.size,
             ssh_key=self.ssh_key,
             storage_type=self.storage_type,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier,
@@ -543,7 +555,7 @@ def get_virtual_machine(expand: Optional[_builtins.str] = None,
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the LabVirtualMachine
+    :param _builtins.str name: The name of the virtual machine.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -591,6 +603,7 @@ def get_virtual_machine(expand: Optional[_builtins.str] = None,
         size=pulumi.get(__ret__, 'size'),
         ssh_key=pulumi.get(__ret__, 'ssh_key'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
@@ -609,7 +622,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[_builtins.
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the LabVirtualMachine
+    :param _builtins.str name: The name of the virtual machine.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -656,6 +669,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[_builtins.
         size=pulumi.get(__response__, 'size'),
         ssh_key=pulumi.get(__response__, 'ssh_key'),
         storage_type=pulumi.get(__response__, 'storage_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         unique_identifier=pulumi.get(__response__, 'unique_identifier'),

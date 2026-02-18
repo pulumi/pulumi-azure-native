@@ -178,6 +178,7 @@ AzureStackHCI:
         NetworkSecurityGroup: 2025-02-01-preview
         PublicIPAddress: 2025-09-01-preview
         SecurityRule: 2025-02-01-preview
+        Snapshot: 2026-02-01-preview
         StorageContainer: 2025-02-01-preview
         VirtualHardDisk: 2025-02-01-preview
         VirtualMachine: 2022-12-15-preview
@@ -291,6 +292,8 @@ Compute:
         VirtualMachineScaleSetVMRunCommand: "2024-11-01"
         getLogAnalyticExportRequestRateByInterval: "2024-11-01"
         getLogAnalyticExportThrottledRequests: "2024-11-01"
+ComputeBulkActions:
+    tracking: 2026-02-01-preview
 ComputeLimit:
     tracking: "2025-08-15"
 ComputeSchedule:
@@ -766,6 +769,9 @@ DependencyMap:
         getMapDependencyViewForAllMachines: 2025-07-01-preview
 DesktopVirtualization:
     tracking: "2024-04-03"
+    additions:
+        SessionHost: 2026-01-01-preview
+        listSessionHostSingleRegistrationTokens: 2026-01-01-preview
 DevCenter:
     tracking: "2024-02-01"
     additions:
@@ -1308,6 +1314,7 @@ Network:
         RouteFilterRule: "2024-05-01"
         RouteMap: "2024-05-01"
         RouteTable: "2024-05-01"
+        RoutingConfiguration: 2023-03-01-preview
         RoutingIntent: "2024-05-01"
         RoutingRule: "2024-05-01"
         RoutingRuleCollection: "2024-05-01"
@@ -1600,9 +1607,7 @@ Security:
         AssessmentsMetadataSubscription: 2019-01-01-preview
         Assignment: 2021-08-01-preview
         Automation: 2023-12-01-preview
-        Connector: 2020-01-01-preview
         CustomAssessmentAutomation: 2021-07-01-preview
-        CustomEntityStoreAssignment: 2021-07-01-preview
         CustomRecommendation: "2024-08-01"
         DefenderForStorage: 2024-10-01-preview
         DevOpsConfiguration: "2024-04-01"

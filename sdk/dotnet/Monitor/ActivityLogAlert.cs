@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Monitor
     /// An Activity Log Alert rule resource.
     /// 
     /// Uses Azure REST API version 2020-10-01.
+    /// 
+    /// Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:ActivityLogAlert")]
     public partial class ActivityLogAlert : global::Pulumi.CustomResource
@@ -109,6 +111,7 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20170401:ActivityLogAlert" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20201001:ActivityLogAlert" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20230101preview:ActivityLogAlert" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20260101:ActivityLogAlert" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

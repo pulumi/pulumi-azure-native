@@ -1324,72 +1324,72 @@ AppPlatform:
 ApplicationInsights:
     AnalyticsItem:
         ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/analyticsItems_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/analyticsItems_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item
         RpNamespace: Microsoft.Insights
     Component:
         ApiVersion: "2020-02-02"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2020-02-02/components_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2020-02-02/components_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}
         RpNamespace: Microsoft.Insights
     ComponentCurrentBillingFeature:
         ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentFeaturesAndPricing_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/componentFeaturesAndPricing_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures
         RpNamespace: Microsoft.Insights
     ComponentLinkedStorageAccount:
         ApiVersion: 2020-03-01-preview
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2020-03-01-preview/componentLinkedStorageAccounts_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/preview/2020-03-01-preview/componentLinkedStorageAccounts_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType}
         RpNamespace: Microsoft.Insights
     ExportConfiguration:
         ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentContinuousExport_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/componentContinuousExport_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId}
         RpNamespace: Microsoft.Insights
     Favorite:
         ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/favorites_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/favorites_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/favorites/{favoriteId}
         RpNamespace: Microsoft.Insights
     MyWorkbook:
         ApiVersion: "2021-03-08"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2021-03-08/myworkbooks_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2021-03-08/myworkbooks_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/myWorkbooks/{resourceName}
         RpNamespace: Microsoft.Insights
     ProactiveDetectionConfiguration:
         ApiVersion: 2018-05-01-preview
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2018-05-01-preview/componentProactiveDetection_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/preview/2018-05-01-preview/componentProactiveDetection_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId}
         RpNamespace: Microsoft.Insights
     WebTest:
         ApiVersion: "2022-06-15"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2022-06-15/webTests_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2022-06-15/webTests_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/webtests/{webTestName}
         RpNamespace: Microsoft.Insights
     Workbook:
         ApiVersion: "2023-06-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2023-06-01/workbooks_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2023-06-01/workbooks_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName}
         RpNamespace: Microsoft.Insights
     WorkbookTemplate:
         ApiVersion: "2020-11-20"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2020-11-20/workbookTemplates_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2020-11-20/workbookTemplates_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooktemplates/{resourceName}
         RpNamespace: Microsoft.Insights
     getLiveToken:
         ApiVersion: "2021-10-14"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2021-10-14/livetoken_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2021-10-14/livetoken_API.json
         ResourceUri: /{resourceUri}/providers/Microsoft.Insights/generatelivetoken
         RpNamespace: Microsoft.Insights
     getTestResultFile:
         ApiVersion: 2020-02-10-preview
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2020-02-10-preview/WebTestResults_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/preview/2020-02-10-preview/WebTestResults_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/webtests/{webTestName}/getTestResultFile
         RpNamespace: Microsoft.Insights
     listEASubscriptionListMigrationDatePost:
         ApiVersion: "2017-10-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2017-10-01/eaSubscriptionMigration_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2017-10-01/eaSubscriptionMigration_API.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/microsoft.insights/listMigrationdate
         RpNamespace: Microsoft.Insights
 Attestation:
@@ -1406,12 +1406,12 @@ Attestation:
 Authorization:
     AccessReviewHistoryDefinitionById:
         ApiVersion: 2021-12-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId}
         RpNamespace: Microsoft.Authorization
     AccessReviewScheduleDefinitionById:
         ApiVersion: 2021-12-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}
         RpNamespace: Microsoft.Authorization
     ManagementLockAtResourceGroupLevel:
@@ -1436,7 +1436,7 @@ Authorization:
         RpNamespace: Microsoft.Authorization
     PimRoleEligibilitySchedule:
         ApiVersion: "2020-10-01"
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/stable/2020-10-01/RoleEligibilityScheduleRequest.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/stable/2020-10-01/RoleEligibilityScheduleRequest.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName}
         RpNamespace: Microsoft.Authorization
     PolicyAssignment:
@@ -1501,32 +1501,32 @@ Authorization:
         RpNamespace: Microsoft.Authorization
     RoleAssignment:
         ApiVersion: "2022-04-01"
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/stable/2022-04-01/authorization-RoleAssignmentsCalls.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/stable/2022-04-01/authorization-RoleAssignmentsCalls.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}
         RpNamespace: Microsoft.Authorization
     RoleDefinition:
         ApiVersion: 2022-05-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2022-05-01-preview/authorization-RoleDefinitionsCalls.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2022-05-01-preview/authorization-RoleDefinitionsCalls.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}
         RpNamespace: Microsoft.Authorization
     RoleManagementPolicy:
         ApiVersion: 2024-09-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2024-09-01-preview/RoleManagementPolicy.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2024-09-01-preview/RoleManagementPolicy.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}
         RpNamespace: Microsoft.Authorization
     RoleManagementPolicyAssignment:
         ApiVersion: 2024-09-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2024-09-01-preview/RoleManagementPolicyAssignment.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2024-09-01-preview/RoleManagementPolicyAssignment.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName}
         RpNamespace: Microsoft.Authorization
     ScopeAccessReviewHistoryDefinitionById:
         ApiVersion: 2021-12-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId}
         RpNamespace: Microsoft.Authorization
     ScopeAccessReviewScheduleDefinitionById:
         ApiVersion: 2021-12-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}
         RpNamespace: Microsoft.Authorization
     Variable:
@@ -2682,6 +2682,11 @@ AzureStackHCI:
         SpecFilePath: specification/azurestackhci/resource-manager/Microsoft.AzureStackHCI/StackHCI/stable/2024-04-01/securitySettings.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/securitySettings/{securitySettingsName}
         RpNamespace: Microsoft.AzureStackHCI
+    Snapshot:
+        ApiVersion: 2026-02-01-preview
+        SpecFilePath: specification/azurestackhci/resource-manager/Microsoft.AzureStackHCI/StackHCIVM/preview/2026-02-01-preview/stackhcivm.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/snapshots/{snapshotName}
+        RpNamespace: Microsoft.AzureStackHCI
     StorageContainer:
         ApiVersion: 2025-02-01-preview
         SpecFilePath: specification/azurestackhci/resource-manager/Microsoft.AzureStackHCI/StackHCIVM/preview/2025-02-01-preview/stackhcivm.json
@@ -3648,6 +3653,12 @@ Compute:
         SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/logAnalytics/apiAccess/getThrottledRequests
         RpNamespace: Microsoft.Compute
+ComputeBulkActions:
+    BulkAction:
+        ApiVersion: 2026-02-01-preview
+        SpecFilePath: specification/computebulkactions/resource-manager/Microsoft.ComputeBulkActions/preview/2026-02-01-preview/computebulkactions.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeBulkActions/locations/{location}/launchBulkInstancesOperations/{name}
+        RpNamespace: Microsoft.ComputeBulkActions
 ComputeLimit:
     GuestSubscription:
         ApiVersion: "2025-08-15"
@@ -5566,6 +5577,11 @@ DesktopVirtualization:
         SpecFilePath: specification/desktopvirtualization/resource-manager/Microsoft.DesktopVirtualization/DesktopVirtualization/stable/2024-04-03/desktopvirtualization.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}/pooledSchedules/{scalingPlanScheduleName}
         RpNamespace: Microsoft.DesktopVirtualization
+    SessionHost:
+        ApiVersion: 2026-01-01-preview
+        SpecFilePath: specification/desktopvirtualization/resource-manager/Microsoft.DesktopVirtualization/DesktopVirtualization/preview/2026-01-01-preview/desktopvirtualization.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}
+        RpNamespace: Microsoft.DesktopVirtualization
     Workspace:
         ApiVersion: "2024-04-03"
         SpecFilePath: specification/desktopvirtualization/resource-manager/Microsoft.DesktopVirtualization/DesktopVirtualization/stable/2024-04-03/desktopvirtualization.json
@@ -5580,6 +5596,11 @@ DesktopVirtualization:
         ApiVersion: "2024-04-03"
         SpecFilePath: specification/desktopvirtualization/resource-manager/Microsoft.DesktopVirtualization/DesktopVirtualization/stable/2024-04-03/desktopvirtualization.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/listRegistrationTokens
+        RpNamespace: Microsoft.DesktopVirtualization
+    listSessionHostSingleRegistrationTokens:
+        ApiVersion: 2026-01-01-preview
+        SpecFilePath: specification/desktopvirtualization/resource-manager/Microsoft.DesktopVirtualization/DesktopVirtualization/preview/2026-01-01-preview/desktopvirtualization.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}/listSingleSessionHostRegistrationTokens
         RpNamespace: Microsoft.DesktopVirtualization
 DevCenter:
     AttachedNetworkByDevCenter:
@@ -9314,787 +9335,792 @@ NetApp:
 Network:
     AdminRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerSecurityAdminConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerSecurityAdminConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName}
         RpNamespace: Microsoft.Network
     AdminRuleCollection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerSecurityAdminConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerSecurityAdminConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}
         RpNamespace: Microsoft.Network
     ApplicationGateway:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/applicationGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/applicationGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}
         RpNamespace: Microsoft.Network
     ApplicationGatewayPrivateEndpointConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/applicationGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/applicationGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections/{connectionName}
         RpNamespace: Microsoft.Network
     ApplicationSecurityGroup:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/applicationSecurityGroup.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/applicationSecurityGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationSecurityGroups/{applicationSecurityGroupName}
         RpNamespace: Microsoft.Network
     AzureFirewall:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/azureFirewall.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/azureFirewall.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName}
         RpNamespace: Microsoft.Network
     BastionHost:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/bastionHost.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/bastionHost.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}
         RpNamespace: Microsoft.Network
     ConfigurationPolicyGroup:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}/configurationPolicyGroups/{configurationPolicyGroupName}
         RpNamespace: Microsoft.Network
     ConnectionMonitor:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkWatcher.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkWatcher.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors/{connectionMonitorName}
         RpNamespace: Microsoft.Network
     ConnectivityConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerConnectivityConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerConnectivityConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations/{configurationName}
         RpNamespace: Microsoft.Network
     CustomIPPrefix:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/customIpPrefix.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/customIpPrefix.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/customIpPrefixes/{customIpPrefixName}
         RpNamespace: Microsoft.Network
     DdosCustomPolicy:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ddosCustomPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ddosCustomPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ddosCustomPolicies/{ddosCustomPolicyName}
         RpNamespace: Microsoft.Network
     DdosProtectionPlan:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ddosProtectionPlan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ddosProtectionPlan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ddosProtectionPlans/{ddosProtectionPlanName}
         RpNamespace: Microsoft.Network
     DscpConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/dscpConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/dscpConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dscpConfigurations/{dscpConfigurationName}
         RpNamespace: Microsoft.Network
     ExpressRouteCircuit:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/expressRouteCircuit.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/expressRouteCircuit.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}
         RpNamespace: Microsoft.Network
     ExpressRouteCircuitAuthorization:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/expressRouteCircuit.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/expressRouteCircuit.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/authorizations/{authorizationName}
         RpNamespace: Microsoft.Network
     ExpressRouteCircuitConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/expressRouteCircuit.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/expressRouteCircuit.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/connections/{connectionName}
         RpNamespace: Microsoft.Network
     ExpressRouteCircuitPeering:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/expressRouteCircuit.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/expressRouteCircuit.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}
         RpNamespace: Microsoft.Network
     ExpressRouteConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}/expressRouteConnections/{connectionName}
         RpNamespace: Microsoft.Network
     ExpressRouteCrossConnectionPeering:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/expressRouteCrossConnection.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/expressRouteCrossConnection.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings/{peeringName}
         RpNamespace: Microsoft.Network
     ExpressRouteGateway:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}
         RpNamespace: Microsoft.Network
     ExpressRoutePort:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/expressRoutePort.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/expressRoutePort.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ExpressRoutePorts/{expressRoutePortName}
         RpNamespace: Microsoft.Network
     ExpressRoutePortAuthorization:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/expressRoutePort.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/expressRoutePort.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRoutePorts/{expressRoutePortName}/authorizations/{authorizationName}
         RpNamespace: Microsoft.Network
     FirewallPolicy:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/firewallPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/firewallPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}
         RpNamespace: Microsoft.Network
     FirewallPolicyDraft:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/firewallPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/firewallPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/firewallPolicyDrafts/default
         RpNamespace: Microsoft.Network
     FirewallPolicyRuleCollectionGroup:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/firewallPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/firewallPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups/{ruleCollectionGroupName}
         RpNamespace: Microsoft.Network
     FirewallPolicyRuleCollectionGroupDraft:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/firewallPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/firewallPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups/{ruleCollectionGroupName}/ruleCollectionGroupDrafts/default
         RpNamespace: Microsoft.Network
     FirewallPolicyRuleGroup:
         ApiVersion: "2020-04-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2020-04-01/firewallPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2020-04-01/firewallPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleGroups/{ruleGroupName}
         RpNamespace: Microsoft.Network
     FlowLog:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkWatcher.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkWatcher.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/flowLogs/{flowLogName}
         RpNamespace: Microsoft.Network
     HubRouteTable:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubRouteTables/{routeTableName}
         RpNamespace: Microsoft.Network
     HubVirtualNetworkConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubVirtualNetworkConnections/{connectionName}
         RpNamespace: Microsoft.Network
     InboundNatRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/loadBalancer.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/loadBalancer.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatRules/{inboundNatRuleName}
         RpNamespace: Microsoft.Network
     InterfaceEndpoint:
         ApiVersion: "2019-02-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2019-02-01/interfaceEndpoint.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2019-02-01/interfaceEndpoint.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/interfaceEndpoints/{interfaceEndpointName}
         RpNamespace: Microsoft.Network
     IpAllocation:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ipAllocation.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ipAllocation.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/IpAllocations/{ipAllocationName}
         RpNamespace: Microsoft.Network
     IpGroup:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ipGroups.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ipGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ipGroups/{ipGroupsName}
         RpNamespace: Microsoft.Network
     IpamPool:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ipAddressManager.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ipAddressManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName}
         RpNamespace: Microsoft.Network
     LoadBalancer:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/loadBalancer.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/loadBalancer.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}
         RpNamespace: Microsoft.Network
     LoadBalancerBackendAddressPool:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/loadBalancer.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/loadBalancer.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}
         RpNamespace: Microsoft.Network
     LocalNetworkGateway:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/localNetworkGateways/{localNetworkGatewayName}
         RpNamespace: Microsoft.Network
     ManagementGroupNetworkManagerConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerConnection.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerConnection.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Network/networkManagerConnections/{networkManagerConnectionName}
         RpNamespace: Microsoft.Network
     NatGateway:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/natGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/natGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/natGateways/{natGatewayName}
         RpNamespace: Microsoft.Network
     NatRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/natRules/{natRuleName}
         RpNamespace: Microsoft.Network
     NetworkGroup:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerGroup.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}
         RpNamespace: Microsoft.Network
     NetworkInterface:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkInterface.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkInterface.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}
         RpNamespace: Microsoft.Network
     NetworkInterfaceTapConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkInterface.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkInterface.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/tapConfigurations/{tapConfigurationName}
         RpNamespace: Microsoft.Network
     NetworkManager:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManager.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}
         RpNamespace: Microsoft.Network
     NetworkManagerRoutingConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerRoutingConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerRoutingConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/routingConfigurations/{configurationName}
         RpNamespace: Microsoft.Network
     NetworkProfile:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkProfile.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkProfile.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles/{networkProfileName}
         RpNamespace: Microsoft.Network
     NetworkSecurityGroup:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkSecurityGroup.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkSecurityGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}
         RpNamespace: Microsoft.Network
     NetworkSecurityPerimeter:
         ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}
         RpNamespace: Microsoft.Network
     NetworkSecurityPerimeterAccessRule:
         ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}/accessRules/{accessRuleName}
         RpNamespace: Microsoft.Network
     NetworkSecurityPerimeterAssociation:
         ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/resourceAssociations/{associationName}
         RpNamespace: Microsoft.Network
     NetworkSecurityPerimeterLink:
         ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/links/{linkName}
         RpNamespace: Microsoft.Network
     NetworkSecurityPerimeterLoggingConfiguration:
         ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/loggingConfigurations/{loggingConfigurationName}
         RpNamespace: Microsoft.Network
     NetworkSecurityPerimeterProfile:
         ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}
         RpNamespace: Microsoft.Network
     NetworkVirtualAppliance:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkVirtualAppliance.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkVirtualAppliance.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}
         RpNamespace: Microsoft.Network
     NetworkVirtualApplianceConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName}
         RpNamespace: Microsoft.Network
     NetworkWatcher:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkWatcher.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkWatcher.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}
         RpNamespace: Microsoft.Network
     NspAccessRule:
         ApiVersion: 2023-08-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}/accessRules/{accessRuleName}
         RpNamespace: Microsoft.Network
     NspAssociation:
         ApiVersion: 2023-08-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/resourceAssociations/{associationName}
         RpNamespace: Microsoft.Network
     NspLink:
         ApiVersion: 2023-08-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/links/{linkName}
         RpNamespace: Microsoft.Network
     NspProfile:
         ApiVersion: 2023-08-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2023-08-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}
         RpNamespace: Microsoft.Network
     P2sVpnGateway:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{gatewayName}
         RpNamespace: Microsoft.Network
     P2sVpnServerConfiguration:
         ApiVersion: "2019-07-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2019-07-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2019-07-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualWans/{virtualWanName}/p2sVpnServerConfigurations/{p2SVpnServerConfigurationName}
         RpNamespace: Microsoft.Network
     PacketCapture:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkWatcher.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkWatcher.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}
         RpNamespace: Microsoft.Network
     PrivateDnsZoneGroup:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/privateEndpoint.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/privateEndpoint.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups/{privateDnsZoneGroupName}
         RpNamespace: Microsoft.Network
     PrivateEndpoint:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/privateEndpoint.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/privateEndpoint.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}
         RpNamespace: Microsoft.Network
     PrivateLinkService:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/privateLinkService.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/privateLinkService.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}
         RpNamespace: Microsoft.Network
     PrivateLinkServicePrivateEndpointConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/privateLinkService.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/privateLinkService.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}/privateEndpointConnections/{peConnectionName}
         RpNamespace: Microsoft.Network
     PublicIPAddress:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/publicIpAddress.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/publicIpAddress.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIpAddressName}
         RpNamespace: Microsoft.Network
     PublicIPPrefix:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/publicIpPrefix.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/publicIpPrefix.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIpPrefixName}
         RpNamespace: Microsoft.Network
     ReachabilityAnalysisIntent:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkVerifier.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkVerifier.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}/reachabilityAnalysisIntents/{reachabilityAnalysisIntentName}
         RpNamespace: Microsoft.Network
     ReachabilityAnalysisRun:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkVerifier.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkVerifier.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}/reachabilityAnalysisRuns/{reachabilityAnalysisRunName}
         RpNamespace: Microsoft.Network
     Route:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/routeTable.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/routeTable.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}/routes/{routeName}
         RpNamespace: Microsoft.Network
     RouteFilter:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/routeFilter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/routeFilter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeFilters/{routeFilterName}
         RpNamespace: Microsoft.Network
     RouteFilterRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/routeFilter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/routeFilter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeFilters/{routeFilterName}/routeFilterRules/{ruleName}
         RpNamespace: Microsoft.Network
     RouteMap:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps/{routeMapName}
         RpNamespace: Microsoft.Network
     RouteTable:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/routeTable.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/routeTable.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}
+        RpNamespace: Microsoft.Network
+    RoutingConfiguration:
+        ApiVersion: 2023-03-01-preview
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2023-03-01-preview/networkManagerRoutingConfiguration.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/routingConfigurations/{configurationName}
         RpNamespace: Microsoft.Network
     RoutingIntent:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routingIntent/{routingIntentName}
         RpNamespace: Microsoft.Network
     RoutingRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerRoutingConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerRoutingConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/routingConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName}
         RpNamespace: Microsoft.Network
     RoutingRuleCollection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerRoutingConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerRoutingConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/routingConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}
         RpNamespace: Microsoft.Network
     ScopeConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerScopeConnection.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerScopeConnection.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/scopeConnections/{scopeConnectionName}
         RpNamespace: Microsoft.Network
     SecurityAdminConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerSecurityAdminConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerSecurityAdminConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}
         RpNamespace: Microsoft.Network
     SecurityPartnerProvider:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/securityPartnerProvider.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/securityPartnerProvider.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/securityPartnerProviders/{securityPartnerProviderName}
         RpNamespace: Microsoft.Network
     SecurityRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkSecurityGroup.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkSecurityGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}/securityRules/{securityRuleName}
         RpNamespace: Microsoft.Network
     SecurityUserConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerSecurityUserConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerSecurityUserConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}
         RpNamespace: Microsoft.Network
     SecurityUserRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerSecurityUserConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerSecurityUserConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName}
         RpNamespace: Microsoft.Network
     SecurityUserRuleCollection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerSecurityUserConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerSecurityUserConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}
         RpNamespace: Microsoft.Network
     ServiceEndpointPolicy:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/serviceEndpointPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/serviceEndpointPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceEndpointPolicies/{serviceEndpointPolicyName}
         RpNamespace: Microsoft.Network
     ServiceEndpointPolicyDefinition:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/serviceEndpointPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/serviceEndpointPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceEndpointPolicies/{serviceEndpointPolicyName}/serviceEndpointPolicyDefinitions/{serviceEndpointPolicyDefinitionName}
         RpNamespace: Microsoft.Network
     ServiceGateway:
         ApiVersion: "2025-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/serviceGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-05-01/serviceGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceGateways/{serviceGatewayName}
         RpNamespace: Microsoft.Network
     StaticCidr:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ipAddressManager.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ipAddressManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName}/staticCidrs/{staticCidrName}
         RpNamespace: Microsoft.Network
     StaticMember:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerGroup.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/staticMembers/{staticMemberName}
         RpNamespace: Microsoft.Network
     Subnet:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetwork.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetwork.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         RpNamespace: Microsoft.Network
     SubscriptionNetworkManagerConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerConnection.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerConnection.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Network/networkManagerConnections/{networkManagerConnectionName}
         RpNamespace: Microsoft.Network
     UserRule:
         ApiVersion: 2022-04-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2022-04-01-preview/networkManagerSecurityUserConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2022-04-01-preview/networkManagerSecurityUserConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName}
         RpNamespace: Microsoft.Network
     UserRuleCollection:
         ApiVersion: 2022-04-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2022-04-01-preview/networkManagerSecurityUserConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2022-04-01-preview/networkManagerSecurityUserConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}
         RpNamespace: Microsoft.Network
     VerifierWorkspace:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkVerifier.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkVerifier.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}
         RpNamespace: Microsoft.Network
     VirtualApplianceSite:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkVirtualAppliance.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkVirtualAppliance.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/virtualApplianceSites/{siteName}
         RpNamespace: Microsoft.Network
     VirtualHub:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}
         RpNamespace: Microsoft.Network
     VirtualHubBgpConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/bgpConnections/{connectionName}
         RpNamespace: Microsoft.Network
     VirtualHubIpConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/ipConfigurations/{ipConfigName}
         RpNamespace: Microsoft.Network
     VirtualHubRouteTableV2:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables/{routeTableName}
         RpNamespace: Microsoft.Network
     VirtualNetwork:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetwork.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetwork.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}
         RpNamespace: Microsoft.Network
     VirtualNetworkAppliance:
         ApiVersion: "2025-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/virtualNetworkAppliance.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-05-01/virtualNetworkAppliance.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkAppliances/{virtualNetworkApplianceName}
         RpNamespace: Microsoft.Network
     VirtualNetworkGateway:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}
         RpNamespace: Microsoft.Network
     VirtualNetworkGatewayConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName}
         RpNamespace: Microsoft.Network
     VirtualNetworkGatewayNatRule:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/natRules/{natRuleName}
         RpNamespace: Microsoft.Network
     VirtualNetworkPeering:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetwork.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetwork.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}
         RpNamespace: Microsoft.Network
     VirtualNetworkTap:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkTap.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkTap.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkTaps/{tapName}
         RpNamespace: Microsoft.Network
     VirtualRouter:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualRouter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualRouter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}
         RpNamespace: Microsoft.Network
     VirtualRouterPeering:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualRouter.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualRouter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}/peerings/{peeringName}
         RpNamespace: Microsoft.Network
     VirtualWan:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualWans/{VirtualWANName}
         RpNamespace: Microsoft.Network
     VpnConnection:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}
         RpNamespace: Microsoft.Network
     VpnGateway:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}
         RpNamespace: Microsoft.Network
     VpnServerConfiguration:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}
         RpNamespace: Microsoft.Network
     VpnSite:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnSites/{vpnSiteName}
         RpNamespace: Microsoft.Network
     WebApplicationFirewallPolicy:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/webapplicationfirewall.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/webapplicationfirewall.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/{policyName}
         RpNamespace: Microsoft.Network
     getActiveSessions:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/bastionHost.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/bastionHost.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/getActiveSessions
         RpNamespace: Microsoft.Network
     getApplicationGatewayBackendHealthOnDemand:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/applicationGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/applicationGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/getBackendHealthOnDemand
         RpNamespace: Microsoft.Network
     getBastionShareableLink:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/bastionHost.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/bastionHost.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/getShareableLinks
         RpNamespace: Microsoft.Network
     getIpamPoolUsage:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ipAddressManager.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ipAddressManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName}/getPoolUsage
         RpNamespace: Microsoft.Network
     getNetworkVirtualApplianceBootDiagnosticLogs:
         ApiVersion: "2024-07-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/networkVirtualAppliance.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-07-01/networkVirtualAppliance.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/getBootDiagnosticLogs
         RpNamespace: Microsoft.Network
     getP2sVpnGatewayP2sVpnConnectionHealth:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{gatewayName}/getP2sVpnConnectionHealth
         RpNamespace: Microsoft.Network
     getP2sVpnGatewayP2sVpnConnectionHealthDetailed:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{gatewayName}/getP2sVpnConnectionHealthDetailed
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayAdvertisedRoutes:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getAdvertisedRoutes
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayBgpPeerStatus:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getBgpPeerStatus
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayConnectionIkeSas:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName}/getikesas
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayFailoverAllTestDetails:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getFailoverAllTestsDetails
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayFailoverSingleTestDetails:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getFailoverSingleTestDetails
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayLearnedRoutes:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getLearnedRoutes
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayResiliencyInformation:
         ApiVersion: "2024-07-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-07-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getResiliencyInformation
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayRoutesInformation:
         ApiVersion: "2024-07-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-07-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getRoutesInformation
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayVpnProfilePackageUrl:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getvpnprofilepackageurl
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayVpnclientConnectionHealth:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getVpnClientConnectionHealth
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayVpnclientIpsecParameters:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getvpnclientipsecparameters
         RpNamespace: Microsoft.Network
     getVpnLinkConnectionIkeSas:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/getikesas
         RpNamespace: Microsoft.Network
     listActiveConnectivityConfiguration:
         ApiVersion: 2021-02-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2021-02-01-preview/networkManagerActiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2021-02-01-preview/networkManagerActiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveConnectivityConfigurations
         RpNamespace: Microsoft.Network
     listActiveConnectivityConfigurations:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerActiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerActiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveConnectivityConfigurations
         RpNamespace: Microsoft.Network
     listActiveSecurityAdminRule:
         ApiVersion: 2021-02-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2021-02-01-preview/networkManagerActiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2021-02-01-preview/networkManagerActiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveSecurityAdminRules
         RpNamespace: Microsoft.Network
     listActiveSecurityAdminRules:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerActiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerActiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveSecurityAdminRules
         RpNamespace: Microsoft.Network
     listActiveSecurityUserRule:
         ApiVersion: 2021-02-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2021-02-01-preview/networkManagerActiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2021-02-01-preview/networkManagerActiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveSecurityUserRules
         RpNamespace: Microsoft.Network
     listActiveSecurityUserRules:
         ApiVersion: 2022-04-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2022-04-01-preview/networkManagerActiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2022-04-01-preview/networkManagerActiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveSecurityUserRules
         RpNamespace: Microsoft.Network
     listEffectiveConnectivityConfiguration:
         ApiVersion: 2021-02-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2021-02-01-preview/networkManagerEffectiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2021-02-01-preview/networkManagerEffectiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listNetworkManagerEffectiveConnectivityConfigurations
         RpNamespace: Microsoft.Network
     listEffectiveVirtualNetworkByNetworkGroup:
         ApiVersion: 2021-02-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2021-02-01-preview/networkManagerGroup.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2021-02-01-preview/networkManagerGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/listEffectiveVirtualNetworks
         RpNamespace: Microsoft.Network
     listEffectiveVirtualNetworkByNetworkManager:
         ApiVersion: 2022-04-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2022-04-01-preview/networkManager.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2022-04-01-preview/networkManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listEffectiveVirtualNetworks
         RpNamespace: Microsoft.Network
     listFirewallPolicyIdpsSignature:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/firewallPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/firewallPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/listIdpsSignatures
         RpNamespace: Microsoft.Network
     listFirewallPolicyIdpsSignaturesFilterValue:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/firewallPolicy.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/firewallPolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/listIdpsFilterOptions
         RpNamespace: Microsoft.Network
     listIpamPoolAssociatedResources:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ipAddressManager.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ipAddressManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName}/listAssociatedResources
         RpNamespace: Microsoft.Network
     listListEffectiveVirtualNetworkByNetworkGroup:
         ApiVersion: 2022-04-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2022-04-01-preview/networkManagerGroup.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2022-04-01-preview/networkManagerGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/listEffectiveVirtualNetworks
         RpNamespace: Microsoft.Network
     listNetworkManagerDeploymentStatus:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManager.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listDeploymentStatus
         RpNamespace: Microsoft.Network
     listNetworkManagerEffectiveConnectivityConfigurations:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerEffectiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerEffectiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listNetworkManagerEffectiveConnectivityConfigurations
         RpNamespace: Microsoft.Network
     listNetworkManagerEffectiveSecurityAdminRule:
         ApiVersion: 2021-02-01-preview
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2021-02-01-preview/networkManagerEffectiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/preview/2021-02-01-preview/networkManagerEffectiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listNetworkManagerEffectiveSecurityAdminRules
         RpNamespace: Microsoft.Network
     listNetworkManagerEffectiveSecurityAdminRules:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/networkManagerEffectiveConfiguration.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkManagerEffectiveConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listNetworkManagerEffectiveSecurityAdminRules
         RpNamespace: Microsoft.Network
     listVirtualNetworkGatewayRadiusSecrets:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-10-01/virtualNetworkGateway.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-10-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/listRadiusSecrets
         RpNamespace: Microsoft.Network
     listVpnLinkConnectionDefaultSharedKey:
         ApiVersion: "2024-05-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/sharedKeys/default/listSharedKey
         RpNamespace: Microsoft.Network
     listVpnServerConfigurationRadiusSecrets:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-10-01/virtualWan.json
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-10-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}/listRadiusSecrets
         RpNamespace: Microsoft.Network
 NetworkCloud:
@@ -11177,7 +11203,7 @@ ResourceConnector:
 ResourceGraph:
     GraphQuery:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2024-04-01/graphquery.json
+        SpecFilePath: specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/ResourceGraph/stable/2024-04-01/graphquery.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceGraph/queries/{resourceName}
         RpNamespace: Microsoft.ResourceGraph
 ResourceHealth:
@@ -11421,197 +11447,187 @@ SecretSyncController:
 Security:
     APICollection:
         ApiVersion: 2022-11-20-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2022-11-20-preview/apiCollections.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-11-20-preview/apiCollections.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiCollectionId}
         RpNamespace: Microsoft.Security
     APICollectionByAzureApiManagementService:
         ApiVersion: "2023-11-15"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2023-11-15/apiCollections.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2023-11-15/apiCollections.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiId}
         RpNamespace: Microsoft.Security
     AdvancedThreatProtection:
         ApiVersion: "2019-01-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2019-01-01/advancedThreatProtectionSettings.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2019-01-01/advancedThreatProtectionSettings.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/advancedThreatProtectionSettings/{settingName}
         RpNamespace: Microsoft.Security
     AlertsSuppressionRule:
         ApiVersion: 2019-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2019-01-01-preview/alertsSuppressionRules.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2019-01-01-preview/alertsSuppressionRules.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/alertsSuppressionRules/{alertsSuppressionRuleName}
         RpNamespace: Microsoft.Security
     Application:
         ApiVersion: 2022-07-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2022-07-01-preview/applications.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-07-01-preview/applications.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/applications/{applicationId}
         RpNamespace: Microsoft.Security
     Assessment:
         ApiVersion: "2021-06-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2021-06-01/assessments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2021-06-01/assessments.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/assessments/{assessmentName}
         RpNamespace: Microsoft.Security
     AssessmentMetadataInSubscription:
         ApiVersion: "2021-06-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2021-06-01/assessmentMetadata.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2021-06-01/assessmentMetadata.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/assessmentMetadata/{assessmentMetadataName}
         RpNamespace: Microsoft.Security
     AssessmentsMetadataSubscription:
         ApiVersion: 2019-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2019-01-01-preview/assessmentMetadata.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2019-01-01-preview/assessmentMetadata.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/assessmentMetadata/{assessmentMetadataName}
         RpNamespace: Microsoft.Security
     Assignment:
         ApiVersion: 2021-08-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2021-08-01-preview/assignments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2021-08-01-preview/assignments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/assignments/{assignmentId}
         RpNamespace: Microsoft.Security
     Automation:
         ApiVersion: 2023-12-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2023-12-01-preview/automations.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-12-01-preview/automations.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/automations/{automationName}
-        RpNamespace: Microsoft.Security
-    Connector:
-        ApiVersion: 2020-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2020-01-01-preview/connectors.json
-        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/connectors/{connectorName}
         RpNamespace: Microsoft.Security
     CustomAssessmentAutomation:
         ApiVersion: 2021-07-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2021-07-01-preview/customAssessmentAutomation.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2021-07-01-preview/customAssessmentAutomation.json
         ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/customAssessmentAutomations/{customAssessmentAutomationName}
-        RpNamespace: Microsoft.Security
-    CustomEntityStoreAssignment:
-        ApiVersion: 2021-07-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2021-07-01-preview/customEntityStoreAssignment.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/customEntityStoreAssignments/{customEntityStoreAssignmentName}
         RpNamespace: Microsoft.Security
     CustomRecommendation:
         ApiVersion: "2024-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-08-01/customRecommedations.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/customRecommedations.json
         ResourceUri: /{scope}/providers/Microsoft.Security/customRecommendations/{customRecommendationName}
         RpNamespace: Microsoft.Security
     DefenderForStorage:
         ApiVersion: 2024-10-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2024-10-01-preview/defenderForStorageSettings.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2024-10-01-preview/defenderForStorageSettings.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/{settingName}
         RpNamespace: Microsoft.Security
     DevOpsConfiguration:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-04-01/securityConnectorsDevOps.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-04-01/securityConnectorsDevOps.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default
         RpNamespace: Microsoft.Security
     DeviceSecurityGroup:
         ApiVersion: "2019-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2019-08-01/deviceSecurityGroups.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2019-08-01/deviceSecurityGroups.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/deviceSecurityGroups/{deviceSecurityGroupName}
         RpNamespace: Microsoft.Security
     GovernanceAssignment:
         ApiVersion: 2022-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2022-01-01-preview/governanceAssignments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-01-01-preview/governanceAssignments.json
         ResourceUri: /{scope}/providers/Microsoft.Security/assessments/{assessmentName}/governanceAssignments/{assignmentKey}
         RpNamespace: Microsoft.Security
     GovernanceRule:
         ApiVersion: 2022-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2022-01-01-preview/governanceRules.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-01-01-preview/governanceRules.json
         ResourceUri: /{scope}/providers/Microsoft.Security/governanceRules/{ruleId}
         RpNamespace: Microsoft.Security
     IotSecuritySolution:
         ApiVersion: "2019-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2019-08-01/iotSecuritySolutions.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2019-08-01/iotSecuritySolutions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/iotSecuritySolutions/{solutionName}
         RpNamespace: Microsoft.Security
     JitNetworkAccessPolicy:
         ApiVersion: "2020-01-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2020-01-01/jitNetworkAccessPolicies.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2020-01-01/jitNetworkAccessPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/jitNetworkAccessPolicies/{jitNetworkAccessPolicyName}
         RpNamespace: Microsoft.Security
     Pricing:
         ApiVersion: "2024-01-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-01-01/pricings.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-01-01/pricings.json
         ResourceUri: /{scopeId}/providers/Microsoft.Security/pricings/{pricingName}
         RpNamespace: Microsoft.Security
     PrivateEndpointConnection:
         ApiVersion: 2025-09-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2025-09-01-preview/privateLinks.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2025-09-01-preview/privateLinks.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Security
     PrivateLink:
         ApiVersion: 2025-09-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2025-09-01-preview/privateLinks.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2025-09-01-preview/privateLinks.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName}
         RpNamespace: Microsoft.Security
     SecurityConnector:
         ApiVersion: 2024-08-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2024-08-01-preview/securityConnectors.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2024-08-01-preview/securityConnectors.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}
         RpNamespace: Microsoft.Security
     SecurityConnectorApplication:
         ApiVersion: 2022-07-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2022-07-01-preview/applications.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-07-01-preview/applications.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/providers/Microsoft.Security/applications/{applicationId}
         RpNamespace: Microsoft.Security
     SecurityContact:
         ApiVersion: 2023-12-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2023-12-01-preview/securityContacts.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-12-01-preview/securityContacts.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts/{securityContactName}
         RpNamespace: Microsoft.Security
     SecurityOperator:
         ApiVersion: 2023-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2023-01-01-preview/securityOperators.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-01-01-preview/securityOperators.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/{pricingName}/securityOperators/{securityOperatorName}
         RpNamespace: Microsoft.Security
     SecurityStandard:
         ApiVersion: "2024-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-08-01/securityStandards.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/securityStandards.json
         ResourceUri: /{scope}/providers/Microsoft.Security/securityStandards/{standardId}
         RpNamespace: Microsoft.Security
     ServerVulnerabilityAssessment:
         ApiVersion: "2020-01-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2020-01-01/serverVulnerabilityAssessments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2020-01-01/serverVulnerabilityAssessments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceNamespace}/{resourceType}/{resourceName}/providers/Microsoft.Security/serverVulnerabilityAssessments/{serverVulnerabilityAssessment}
         RpNamespace: Microsoft.Security
     ServerVulnerabilityAssessmentsSetting:
         ApiVersion: "2023-05-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2023-05-01/ServerVulnerabilityAssessmentsSettings.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2023-05-01/ServerVulnerabilityAssessmentsSettings.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/{settingKind}
         RpNamespace: Microsoft.Security
     SqlVulnerabilityAssessmentBaselineRule:
         ApiVersion: 2023-02-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2023-02-01-preview/sqlVulnerabilityAssessmentsBaselineRuleOperations.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-02-01-preview/sqlVulnerabilityAssessmentsBaselineRuleOperations.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/sqlVulnerabilityAssessments/default/baselineRules/{ruleId}
         RpNamespace: Microsoft.Security
     Standard:
         ApiVersion: 2021-08-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2021-08-01-preview/standards.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2021-08-01-preview/standards.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/standards/{standardId}
         RpNamespace: Microsoft.Security
     StandardAssignment:
         ApiVersion: "2024-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-08-01/standardAssignments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/standardAssignments.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/standardAssignments/{standardAssignmentName}
         RpNamespace: Microsoft.Security
     WorkspaceSetting:
         ApiVersion: 2017-08-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2017-08-01-preview/workspaceSettings.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2017-08-01-preview/workspaceSettings.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/workspaceSettings/{workspaceSettingName}
         RpNamespace: Microsoft.Security
     listAzureDevOpsOrgAvailable:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-04-01/securityConnectorsDevOps.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-04-01/securityConnectorsDevOps.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default/listAvailableAzureDevOpsOrgs
         RpNamespace: Microsoft.Security
     listGitHubOwnerAvailable:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-04-01/securityConnectorsDevOps.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-04-01/securityConnectorsDevOps.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default/listAvailableGitHubOwners
         RpNamespace: Microsoft.Security
     listGitLabGroupAvailable:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-04-01/securityConnectorsDevOps.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-04-01/securityConnectorsDevOps.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default/listAvailableGitLabGroups
         RpNamespace: Microsoft.Security
     listGitLabSubgroup:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-04-01/securityConnectorsDevOps.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-04-01/securityConnectorsDevOps.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default/gitLabGroups/{groupFQName}/listSubgroups
         RpNamespace: Microsoft.Security
 SecurityAndCompliance:
@@ -12199,347 +12215,347 @@ Sovereign:
 Sql:
     BackupLongTermRetentionPolicy:
         ApiVersion: 2017-03-01-preview
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/longTermRetention.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/preview/2017-03-01-preview/longTermRetention.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies/{policyName}
         RpNamespace: Microsoft.Sql
     BackupShortTermRetentionPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/BackupShortTermRetentionPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/BackupShortTermRetentionPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupShortTermRetentionPolicies/{policyName}
         RpNamespace: Microsoft.Sql
     DataMaskingPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/DataMaskingPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/DataMaskingPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/dataMaskingPolicies/{dataMaskingPolicyName}
         RpNamespace: Microsoft.Sql
     Database:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/Databases.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/Databases.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}
         RpNamespace: Microsoft.Sql
     DatabaseAdvisor:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/DatabaseAdvisors.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/DatabaseAdvisors.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/advisors/{advisorName}
         RpNamespace: Microsoft.Sql
     DatabaseBlobAuditingPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/BlobAuditing.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/BlobAuditing.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/auditingSettings/{blobAuditingPolicyName}
         RpNamespace: Microsoft.Sql
     DatabaseSecurityAlertPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/DatabaseSecurityAlertPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/DatabaseSecurityAlertPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/securityAlertPolicies/{securityAlertPolicyName}
         RpNamespace: Microsoft.Sql
     DatabaseSqlVulnerabilityAssessmentRuleBaseline:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/DatabaseSqlVulnerabilityAssessmentRuleBaselines.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/DatabaseSqlVulnerabilityAssessmentRuleBaselines.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/sqlVulnerabilityAssessments/{vulnerabilityAssessmentName}/baselines/{baselineName}/rules/{ruleId}
         RpNamespace: Microsoft.Sql
     DatabaseThreatDetectionPolicy:
         ApiVersion: "2014-04-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/databaseSecurityAlertPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/Legacy/stable/2014-04-01/databaseSecurityAlertPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/securityAlertPolicies/{securityAlertPolicyName}
         RpNamespace: Microsoft.Sql
     DatabaseVulnerabilityAssessment:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/DatabaseVulnerabilityAssessments.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/DatabaseVulnerabilityAssessments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/vulnerabilityAssessments/{vulnerabilityAssessmentName}
         RpNamespace: Microsoft.Sql
     DatabaseVulnerabilityAssessmentRuleBaseline:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/DatabaseVulnerabilityAssessmentRuleBaselines.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/DatabaseVulnerabilityAssessmentRuleBaselines.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/vulnerabilityAssessments/{vulnerabilityAssessmentName}/rules/{ruleId}/baselines/{baselineName}
         RpNamespace: Microsoft.Sql
     DisasterRecoveryConfiguration:
         ApiVersion: "2014-04-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/disasterRecoveryConfigurations.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/Legacy/stable/2014-04-01/disasterRecoveryConfigurations.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/disasterRecoveryConfiguration/{disasterRecoveryConfigurationName}
         RpNamespace: Microsoft.Sql
     DistributedAvailabilityGroup:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/DistributedAvailabilityGroups.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/DistributedAvailabilityGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName}
         RpNamespace: Microsoft.Sql
     ElasticPool:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ElasticPools.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ElasticPools.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}
         RpNamespace: Microsoft.Sql
     EncryptionProtector:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/EncryptionProtectors.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/EncryptionProtectors.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/encryptionProtector/{encryptionProtectorName}
         RpNamespace: Microsoft.Sql
     ExtendedDatabaseBlobAuditingPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/BlobAuditing.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/BlobAuditing.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/extendedAuditingSettings/{blobAuditingPolicyName}
         RpNamespace: Microsoft.Sql
     ExtendedServerBlobAuditingPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/BlobAuditing.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/BlobAuditing.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/extendedAuditingSettings/{blobAuditingPolicyName}
         RpNamespace: Microsoft.Sql
     FailoverGroup:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/FailoverGroups.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/FailoverGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/failoverGroups/{failoverGroupName}
         RpNamespace: Microsoft.Sql
     FirewallRule:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/FirewallRules.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/FirewallRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/firewallRules/{firewallRuleName}
         RpNamespace: Microsoft.Sql
     GeoBackupPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/GeoBackupPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/GeoBackupPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/geoBackupPolicies/{geoBackupPolicyName}
         RpNamespace: Microsoft.Sql
     IPv6FirewallRule:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/IPv6FirewallRules.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/IPv6FirewallRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/ipv6FirewallRules/{firewallRuleName}
         RpNamespace: Microsoft.Sql
     InstanceFailoverGroup:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/InstanceFailoverGroups.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/InstanceFailoverGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/locations/{locationName}/instanceFailoverGroups/{failoverGroupName}
         RpNamespace: Microsoft.Sql
     InstancePool:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/InstancePools.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/InstancePools.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/instancePools/{instancePoolName}
         RpNamespace: Microsoft.Sql
     Job:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/Jobs.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/Jobs.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/jobs/{jobName}
         RpNamespace: Microsoft.Sql
     JobAgent:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/JobAgents.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/JobAgents.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}
         RpNamespace: Microsoft.Sql
     JobCredential:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/JobCredentials.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/JobCredentials.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/credentials/{credentialName}
         RpNamespace: Microsoft.Sql
     JobPrivateEndpoint:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/JobPrivateEndpoints.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/JobPrivateEndpoints.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/privateEndpoints/{privateEndpointName}
         RpNamespace: Microsoft.Sql
     JobStep:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/JobSteps.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/JobSteps.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/jobs/{jobName}/steps/{stepName}
         RpNamespace: Microsoft.Sql
     JobTargetGroup:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/JobTargetGroups.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/JobTargetGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/targetGroups/{targetGroupName}
         RpNamespace: Microsoft.Sql
     LongTermRetentionPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/LongTermRetentionPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/LongTermRetentionPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies/{policyName}
         RpNamespace: Microsoft.Sql
     ManagedDatabase:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedDatabases.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedDatabases.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}
         RpNamespace: Microsoft.Sql
     ManagedDatabaseSensitivityLabel:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedDatabaseSensitivityLabels.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedDatabaseSensitivityLabels.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}/sensitivityLabels/{sensitivityLabelSource}
         RpNamespace: Microsoft.Sql
     ManagedDatabaseVulnerabilityAssessment:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedDatabaseVulnerabilityAssessments.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedDatabaseVulnerabilityAssessments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}/vulnerabilityAssessments/{vulnerabilityAssessmentName}
         RpNamespace: Microsoft.Sql
     ManagedDatabaseVulnerabilityAssessmentRuleBaseline:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedDatabaseVulnerabilityAssessmentRuleBaselines.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedDatabaseVulnerabilityAssessmentRuleBaselines.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}/vulnerabilityAssessments/{vulnerabilityAssessmentName}/rules/{ruleId}/baselines/{baselineName}
         RpNamespace: Microsoft.Sql
     ManagedInstance:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedInstances.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedInstances.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}
         RpNamespace: Microsoft.Sql
     ManagedInstanceAdministrator:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedInstanceAdministrators.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedInstanceAdministrators.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/administrators/{administratorName}
         RpNamespace: Microsoft.Sql
     ManagedInstanceAzureADOnlyAuthentication:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedInstanceAzureADOnlyAuthentications.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedInstanceAzureADOnlyAuthentications.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/azureADOnlyAuthentications/{authenticationName}
         RpNamespace: Microsoft.Sql
     ManagedInstanceKey:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedInstanceKeys.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedInstanceKeys.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/keys/{keyName}
         RpNamespace: Microsoft.Sql
     ManagedInstanceLongTermRetentionPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedInstanceLongTermRetentionPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedInstanceLongTermRetentionPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}/backupLongTermRetentionPolicies/{policyName}
         RpNamespace: Microsoft.Sql
     ManagedInstancePrivateEndpointConnection:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedInstancePrivateEndpointConnections.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedInstancePrivateEndpointConnections.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Sql
     ManagedInstanceVulnerabilityAssessment:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedInstanceVulnerabilityAssessments.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedInstanceVulnerabilityAssessments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/vulnerabilityAssessments/{vulnerabilityAssessmentName}
         RpNamespace: Microsoft.Sql
     ManagedServerDnsAlias:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ManagedServerDnsAliases.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ManagedServerDnsAliases.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/dnsAliases/{dnsAliasName}
         RpNamespace: Microsoft.Sql
     OutboundFirewallRule:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/OutboundFirewallRules.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/OutboundFirewallRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/outboundFirewallRules/{outboundRuleFqdn}
         RpNamespace: Microsoft.Sql
     PrivateEndpointConnection:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/PrivateEndpointConnections.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/PrivateEndpointConnections.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Sql
     ReplicationLink:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ReplicationLinks.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ReplicationLinks.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/replicationLinks/{linkId}
         RpNamespace: Microsoft.Sql
     SensitivityLabel:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/SensitivityLabels.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/SensitivityLabels.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}/sensitivityLabels/{sensitivityLabelSource}
         RpNamespace: Microsoft.Sql
     Server:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/Servers.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/Servers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}
         RpNamespace: Microsoft.Sql
     ServerAdvisor:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerAdvisors.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerAdvisors.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/advisors/{advisorName}
         RpNamespace: Microsoft.Sql
     ServerAzureADAdministrator:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerAzureADAdministrators.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerAzureADAdministrators.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/administrators/{administratorName}
         RpNamespace: Microsoft.Sql
     ServerAzureADOnlyAuthentication:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerAzureADOnlyAuthentications.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerAzureADOnlyAuthentications.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/azureADOnlyAuthentications/{authenticationName}
         RpNamespace: Microsoft.Sql
     ServerBlobAuditingPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/BlobAuditing.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/BlobAuditing.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/auditingSettings/{blobAuditingPolicyName}
         RpNamespace: Microsoft.Sql
     ServerCommunicationLink:
         ApiVersion: "2014-04-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/serverCommunicationLinks.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/Legacy/stable/2014-04-01/serverCommunicationLinks.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/communicationLinks/{communicationLinkName}
         RpNamespace: Microsoft.Sql
     ServerDnsAlias:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerDnsAliases.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerDnsAliases.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/dnsAliases/{dnsAliasName}
         RpNamespace: Microsoft.Sql
     ServerKey:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerKeys.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerKeys.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/keys/{keyName}
         RpNamespace: Microsoft.Sql
     ServerSecurityAlertPolicy:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerSecurityAlertPolicies.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerSecurityAlertPolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/securityAlertPolicies/{securityAlertPolicyName}
         RpNamespace: Microsoft.Sql
     ServerTrustCertificate:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerTrustCertificates.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerTrustCertificates.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/serverTrustCertificates/{certificateName}
         RpNamespace: Microsoft.Sql
     ServerTrustGroup:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerTrustGroups.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerTrustGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/locations/{locationName}/serverTrustGroups/{serverTrustGroupName}
         RpNamespace: Microsoft.Sql
     ServerVulnerabilityAssessment:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/ServerVulnerabilityAssessments.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ServerVulnerabilityAssessments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/vulnerabilityAssessments/{vulnerabilityAssessmentName}
         RpNamespace: Microsoft.Sql
     SqlVulnerabilityAssessmentRuleBaseline:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/SqlVulnerabilityAssessmentRuleBaseline.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/SqlVulnerabilityAssessmentRuleBaseline.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/sqlVulnerabilityAssessments/{vulnerabilityAssessmentName}/baselines/{baselineName}/rules/{ruleId}
         RpNamespace: Microsoft.Sql
     SqlVulnerabilityAssessmentsSetting:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/SqlVulnerabilityAssessmentsSettings.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/SqlVulnerabilityAssessmentsSettings.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/sqlVulnerabilityAssessments/{vulnerabilityAssessmentName}
         RpNamespace: Microsoft.Sql
     StartStopManagedInstanceSchedule:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/StartStopManagedInstanceSchedules.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/StartStopManagedInstanceSchedules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/startStopSchedules/{startStopScheduleName}
         RpNamespace: Microsoft.Sql
     SyncAgent:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/SyncAgents.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/SyncAgents.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/syncAgents/{syncAgentName}
         RpNamespace: Microsoft.Sql
     SyncGroup:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/SyncGroups.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/SyncGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/syncGroups/{syncGroupName}
         RpNamespace: Microsoft.Sql
     SyncMember:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/SyncMembers.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/SyncMembers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/syncGroups/{syncGroupName}/syncMembers/{syncMemberName}
         RpNamespace: Microsoft.Sql
     TransparentDataEncryption:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/TransparentDataEncryptions.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/TransparentDataEncryptions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{tdeName}
         RpNamespace: Microsoft.Sql
     VirtualCluster:
         ApiVersion: 2024-11-01-preview
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/preview/2024-11-01-preview/VirtualClusters.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/preview/2024-11-01-preview/VirtualClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/virtualClusters/{virtualClusterName}
         RpNamespace: Microsoft.Sql
     VirtualNetworkRule:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/VirtualNetworkRules.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/VirtualNetworkRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}
         RpNamespace: Microsoft.Sql
     WorkloadClassifier:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/WorkloadClassifiers.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/WorkloadClassifiers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/workloadGroups/{workloadGroupName}/workloadClassifiers/{workloadClassifierName}
         RpNamespace: Microsoft.Sql
     WorkloadGroup:
         ApiVersion: "2023-08-01"
-        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/WorkloadGroups.json
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/WorkloadGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/workloadGroups/{workloadGroupName}
         RpNamespace: Microsoft.Sql
 SqlVirtualMachine:

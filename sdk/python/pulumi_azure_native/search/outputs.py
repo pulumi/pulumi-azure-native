@@ -23,9 +23,9 @@ __all__ = [
     'IdentityResponse',
     'IpRuleResponse',
     'NetworkRuleSetResponse',
+    'PrivateEndpointConnectionPropertiesPrivateEndpointResponse',
+    'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse',
     'PrivateEndpointConnectionPropertiesResponse',
-    'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint',
-    'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState',
     'PrivateEndpointConnectionResponse',
     'QueryKeyResponse',
     'SharedPrivateLinkResourcePropertiesResponse',
@@ -333,89 +333,7 @@ class NetworkRuleSetResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionPropertiesResponse(dict):
-    """
-    Describes the properties of an existing private endpoint connection to the search service.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupId":
-            suggest = "group_id"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-        elif key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 group_id: Optional[_builtins.str] = None,
-                 private_endpoint: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateEndpoint'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None,
-                 provisioning_state: Optional[_builtins.str] = None):
-        """
-        Describes the properties of an existing private endpoint connection to the search service.
-        :param _builtins.str group_id: The group ID of the Azure resource for which the private link service is for.
-        :param 'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint' private_endpoint: The private endpoint resource from Microsoft.Network provider.
-        :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: Describes the current state of an existing Azure Private Link service connection to the private endpoint.
-        :param _builtins.str provisioning_state: The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
-        """
-        if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @_builtins.property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[_builtins.str]:
-        """
-        The group ID of the Azure resource for which the private link service is for.
-        """
-        return pulumi.get(self, "group_id")
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateEndpoint']:
-        """
-        The private endpoint resource from Microsoft.Network provider.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState']:
-        """
-        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[_builtins.str]:
-        """
-        The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-
-@pulumi.output_type
-class PrivateEndpointConnectionPropertiesResponsePrivateEndpoint(dict):
+class PrivateEndpointConnectionPropertiesPrivateEndpointResponse(dict):
     """
     The private endpoint resource from Microsoft.Network provider.
     """
@@ -438,7 +356,7 @@ class PrivateEndpointConnectionPropertiesResponsePrivateEndpoint(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
+class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse(dict):
     """
     Describes the current state of an existing Azure Private Link service connection to the private endpoint.
     """
@@ -449,14 +367,14 @@ class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionSta
             suggest = "actions_required"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState.__key_warning(key)
+        PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState.__key_warning(key)
+        PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -501,6 +419,88 @@ class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionSta
         Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Describes the properties of an existing private endpoint connection to the search service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: Optional[_builtins.str] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointConnectionPropertiesPrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse'] = None,
+                 provisioning_state: Optional[_builtins.str] = None):
+        """
+        Describes the properties of an existing private endpoint connection to the search service.
+        :param _builtins.str group_id: The group ID of the Azure resource for which the private link service is for.
+        :param 'PrivateEndpointConnectionPropertiesPrivateEndpointResponse' private_endpoint: The private endpoint resource from Microsoft.Network provider.
+        :param 'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+        :param _builtins.str provisioning_state: The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[_builtins.str]:
+        """
+        The group ID of the Azure resource for which the private link service is for.
+        """
+        return pulumi.get(self, "group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesPrivateEndpointResponse']:
+        """
+        The private endpoint resource from Microsoft.Network provider.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse']:
+        """
+        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[_builtins.str]:
+        """
+        The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

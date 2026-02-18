@@ -27,7 +27,7 @@ class GetNotificationChannelResult:
     """
     A notification.
     """
-    def __init__(__self__, azure_api_version=None, created_date=None, description=None, email_recipient=None, events=None, id=None, location=None, name=None, notification_locale=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, web_hook_url=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, description=None, email_recipient=None, events=None, id=None, location=None, name=None, notification_locale=None, provisioning_state=None, system_data=None, tags=None, type=None, unique_identifier=None, web_hook_url=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -58,6 +58,9 @@ class GetNotificationChannelResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -115,7 +118,7 @@ class GetNotificationChannelResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -123,7 +126,7 @@ class GetNotificationChannelResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -131,7 +134,7 @@ class GetNotificationChannelResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -152,10 +155,18 @@ class GetNotificationChannelResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -163,7 +174,7 @@ class GetNotificationChannelResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -200,6 +211,7 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
             name=self.name,
             notification_locale=self.notification_locale,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier,
@@ -219,7 +231,7 @@ def get_notification_channel(expand: Optional[_builtins.str] = None,
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=webHookUrl)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the NotificationChannel
+    :param _builtins.str name: The name of the notification channel.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -241,6 +253,7 @@ def get_notification_channel(expand: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         notification_locale=pulumi.get(__ret__, 'notification_locale'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
@@ -258,7 +271,7 @@ def get_notification_channel_output(expand: Optional[pulumi.Input[Optional[_buil
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=webHookUrl)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the NotificationChannel
+    :param _builtins.str name: The name of the notification channel.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -279,6 +292,7 @@ def get_notification_channel_output(expand: Optional[pulumi.Input[Optional[_buil
         name=pulumi.get(__response__, 'name'),
         notification_locale=pulumi.get(__response__, 'notification_locale'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         unique_identifier=pulumi.get(__response__, 'unique_identifier'),

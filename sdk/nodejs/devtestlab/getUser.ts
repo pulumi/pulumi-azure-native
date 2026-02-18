@@ -32,7 +32,7 @@ export interface GetUserArgs {
      */
     labName: string;
     /**
-     * The name of the User
+     * The name of the user profile.
      */
     name: string;
     /**
@@ -42,7 +42,7 @@ export interface GetUserArgs {
 }
 
 /**
- * Profile of a lab user.
+ * A user profile.
  */
 export interface GetUserResult {
     /**
@@ -54,7 +54,7 @@ export interface GetUserResult {
      */
     readonly createdDate: string;
     /**
-     * The identifier of the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -62,11 +62,11 @@ export interface GetUserResult {
      */
     readonly identity?: outputs.devtestlab.UserIdentityResponse;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -78,11 +78,15 @@ export interface GetUserResult {
      */
     readonly secretStore?: outputs.devtestlab.UserSecretStoreResponse;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.devtestlab.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -115,7 +119,7 @@ export interface GetUserOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the User
+     * The name of the user profile.
      */
     name: pulumi.Input<string>;
     /**

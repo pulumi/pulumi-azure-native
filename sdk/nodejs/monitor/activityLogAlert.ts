@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * An Activity Log Alert rule resource.
  *
  * Uses Azure REST API version 2020-10-01.
+ *
+ * Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**
@@ -128,7 +130,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170401:ActivityLogAlert" }, { type: "azure-native:insights/v20201001:ActivityLogAlert" }, { type: "azure-native:insights/v20230101preview:ActivityLogAlert" }, { type: "azure-native:insights:ActivityLogAlert" }, { type: "azure-native:monitor/v20170401:ActivityLogAlert" }, { type: "azure-native:monitor/v20201001:ActivityLogAlert" }, { type: "azure-native:monitor/v20230101preview:ActivityLogAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170401:ActivityLogAlert" }, { type: "azure-native:insights/v20201001:ActivityLogAlert" }, { type: "azure-native:insights/v20230101preview:ActivityLogAlert" }, { type: "azure-native:insights:ActivityLogAlert" }, { type: "azure-native:monitor/v20170401:ActivityLogAlert" }, { type: "azure-native:monitor/v20201001:ActivityLogAlert" }, { type: "azure-native:monitor/v20230101preview:ActivityLogAlert" }, { type: "azure-native:monitor/v20260101:ActivityLogAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActivityLogAlert.__pulumiType, name, resourceInputs, opts);
     }

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get the Elastic Backup Policy
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetElasticBackupPolicyResult> InvokeAsync(GetElasticBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticBackupPolicyResult>("azure-native:netapp:getElasticBackupPolicy", args ?? new GetElasticBackupPolicyArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get the Elastic Backup Policy
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetElasticBackupPolicyResult> Invoke(GetElasticBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticBackupPolicyResult>("azure-native:netapp:getElasticBackupPolicy", args ?? new GetElasticBackupPolicyInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get the Elastic Backup Policy
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetElasticBackupPolicyResult> Invoke(GetElasticBackupPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticBackupPolicyResult>("azure-native:netapp:getElasticBackupPolicy", args ?? new GetElasticBackupPolicyInvokeArgs(), options.WithDefaults());

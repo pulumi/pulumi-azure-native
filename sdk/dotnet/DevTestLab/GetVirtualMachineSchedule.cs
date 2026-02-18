@@ -134,15 +134,15 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly Outputs.HourDetailsResponse? HourlyRecurrence;
         /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -158,7 +158,11 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// The tags of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -174,7 +178,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? TimeZoneId;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -208,6 +212,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? targetResourceId,
@@ -232,6 +238,7 @@ namespace Pulumi.AzureNative.DevTestLab
             NotificationSettings = notificationSettings;
             ProvisioningState = provisioningState;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             TargetResourceId = targetResourceId;
             TaskType = taskType;

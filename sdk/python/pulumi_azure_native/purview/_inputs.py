@@ -35,7 +35,7 @@ MYPY = False
 if not MYPY:
     class AccountSkuArgsDict(TypedDict):
         """
-        Gets or sets the Sku.
+        The Sku
         """
         capacity: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -54,7 +54,7 @@ class AccountSkuArgs:
                  capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[Union[_builtins.str, 'AccountSkuName']]] = None):
         """
-        Gets or sets the Sku.
+        The Sku
         :param pulumi.Input[_builtins.int] capacity: Gets or sets the sku capacity.
         :param pulumi.Input[Union[_builtins.str, 'AccountSkuName']] name: Gets or sets the sku name.
         """

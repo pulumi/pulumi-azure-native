@@ -208,6 +208,12 @@
       "ResourceName": "Volume",
       "Version": "2023-10-01-preview",
       "IsPrevious": true
+    },
+    {
+      "ModuleName": "ResourceGraph",
+      "ResourceName": "GraphQuery",
+      "Version": "2020-04-01-preview",
+      "IsPrevious": true
     }
   ]
 }

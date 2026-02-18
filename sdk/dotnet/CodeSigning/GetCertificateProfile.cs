@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class GetCertificateProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Trusted Signing account name.
+        /// Artifact Signing account name.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class GetCertificateProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Trusted Signing account name.
+        /// Artifact Signing account name.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;

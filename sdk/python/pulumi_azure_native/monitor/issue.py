@@ -139,6 +139,8 @@ class Issue(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-03-preview.
 
+        Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
@@ -158,6 +160,8 @@ class Issue(pulumi.CustomResource):
         The Issue resource
 
         Uses Azure REST API version 2025-05-03-preview.
+
+        Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param IssueArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +207,7 @@ class Issue(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20250503preview:Issue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20250503preview:Issue"), pulumi.Alias(type_="azure-native:monitor/v20251003preview:Issue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Issue, __self__).__init__(
             'azure-native:monitor:Issue',

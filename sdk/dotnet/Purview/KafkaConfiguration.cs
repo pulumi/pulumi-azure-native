@@ -43,6 +43,9 @@ namespace Pulumi.AzureNative.Purview
         [Output("eventHubPartitionId")]
         public Output<string?> EventHubPartitionId { get; private set; } = null!;
 
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         [Output("eventHubResourceId")]
         public Output<string?> EventHubResourceId { get; private set; } = null!;
 
@@ -65,19 +68,19 @@ namespace Pulumi.AzureNative.Purview
         public Output<string?> EventStreamingType { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.ProxyResourceResponseSystemData> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -157,6 +160,9 @@ namespace Pulumi.AzureNative.Purview
         [Input("eventHubPartitionId")]
         public Input<string>? EventHubPartitionId { get; set; }
 
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         [Input("eventHubResourceId")]
         public Input<string>? EventHubResourceId { get; set; }
 
@@ -179,13 +185,13 @@ namespace Pulumi.AzureNative.Purview
         public InputUnion<string, Pulumi.AzureNative.Purview.EventStreamingType>? EventStreamingType { get; set; }
 
         /// <summary>
-        /// The kafka configuration name.
+        /// Name of kafka configuration.
         /// </summary>
         [Input("kafkaConfigurationName")]
         public Input<string>? KafkaConfigurationName { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

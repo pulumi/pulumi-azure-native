@@ -25,14 +25,14 @@ class GarnetClusterArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ClusterResourcePropertiesArgs']] = None,
+                 properties: Optional[pulumi.Input['GarnetClusterResourcePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GarnetCluster resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] cluster_name: Garnet cache cluster name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['ClusterResourcePropertiesArgs'] properties: Properties of a Garnet cache cluster.
+        :param pulumi.Input['GarnetClusterResourcePropertiesArgs'] properties: Properties of a Garnet cache cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -83,14 +83,14 @@ class GarnetClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ClusterResourcePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['GarnetClusterResourcePropertiesArgs']]:
         """
         Properties of a Garnet cache cluster.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ClusterResourcePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['GarnetClusterResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
@@ -114,7 +114,7 @@ class GarnetCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ClusterResourcePropertiesArgs', 'ClusterResourcePropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['GarnetClusterResourcePropertiesArgs', 'GarnetClusterResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -127,7 +127,7 @@ class GarnetCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Garnet cache cluster name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['ClusterResourcePropertiesArgs', 'ClusterResourcePropertiesArgsDict']] properties: Properties of a Garnet cache cluster.
+        :param pulumi.Input[Union['GarnetClusterResourcePropertiesArgs', 'GarnetClusterResourcePropertiesArgsDict']] properties: Properties of a Garnet cache cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -159,7 +159,7 @@ class GarnetCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ClusterResourcePropertiesArgs', 'ClusterResourcePropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['GarnetClusterResourcePropertiesArgs', 'GarnetClusterResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -241,7 +241,7 @@ class GarnetCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ClusterResourceResponsePropertiesV1']:
+    def properties(self) -> pulumi.Output['outputs.GarnetClusterResourceResponseProperties']:
         """
         Properties of a Garnet cache cluster.
         """

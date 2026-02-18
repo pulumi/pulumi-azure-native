@@ -42,7 +42,7 @@
     "Issue_FetchInvestigationResult": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/fetchInvestigationResult",
     "Issue_StartInvestigation": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/startInvestigation",
     "MigrateFromSmartDetection_StartMigration": "/subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/migrateFromSmartDetection",
-    "PreviewAlertRule": "/{resourceId}/providers/Microsoft.AlertsManagement/previewAlertRule",
+    "PreviewAlertRule": "/{resourceId}/providers/microsoft.AlertsManagement/previewAlertRule",
     "SmartGroups_ChangeState": "/subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/smartGroups/{smartGroupId}/changeState"
   },
   "AnalysisServices": {
@@ -304,10 +304,15 @@
     "Clusters_TriggerLogCollection": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/triggerLogCollection",
     "Clusters_UpdateSecretsLocations": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updateSecretsLocations",
     "Clusters_UploadCertificate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/uploadCertificate",
+    "DevicePools_ClaimDevices": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/devicePools/{devicePoolName}/claimDevices",
+    "DevicePools_ReleaseDevices": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/devicePools/{devicePoolName}/releaseDevices",
     "EdgeDevices_Validate": "/{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName}/validate",
     "Extensions_Upgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/arcSettings/{arcSettingName}/extensions/{extensionName}/upgrade",
     "OwnershipVouchers_Validate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/locations/{location}/validateOwnershipVouchers",
+    "UpdateSummariesOperationGroup_CheckHealth": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updateSummaries/default/checkHealth",
+    "UpdateSummariesOperationGroup_CheckUpdates": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updateSummaries/default/checkUpdates",
     "Updates_Post": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updates/{updateName}/apply",
+    "Updates_Prepare": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updates/{updateName}/prepare",
     "VirtualHardDisks_Upload": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualHardDisks/{virtualHardDiskName}/upload",
     "VirtualMachineInstances_Pause": "/{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/pause",
     "VirtualMachineInstances_Restart": "/{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/restart",
@@ -647,6 +652,16 @@
     "VirtualMachines_migrateToVMScaleSet": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/migrateToVirtualMachineScaleSet",
     "VirtualMachines_simulateEviction": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction"
   },
+  "ComputeBulkActions": {
+    "BulkActions_Cancel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeBulkActions/locations/{location}/launchBulkInstancesOperations/{name}/cancel",
+    "BulkActions_VirtualMachinesCancelOperations": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeBulkActions/locations/{location}/virtualMachinesCancelOperations",
+    "BulkActions_VirtualMachinesExecuteCreate": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeBulkActions/locations/{location}/virtualMachinesExecuteCreate",
+    "BulkActions_VirtualMachinesExecuteDeallocate": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeBulkActions/locations/{location}/virtualMachinesExecuteDeallocate",
+    "BulkActions_VirtualMachinesExecuteDelete": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeBulkActions/locations/{location}/virtualMachinesExecuteDelete",
+    "BulkActions_VirtualMachinesExecuteHibernate": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeBulkActions/locations/{location}/virtualMachinesExecuteHibernate",
+    "BulkActions_VirtualMachinesExecuteStart": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeBulkActions/locations/{location}/virtualMachinesExecuteStart",
+    "BulkActions_VirtualMachinesGetOperationStatus": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeBulkActions/locations/{location}/virtualMachinesGetOperationStatus"
+  },
   "ComputeSchedule": {
     "Occurrences_Cancel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeSchedule/scheduledActions/{scheduledActionName}/occurrences/{occurrenceId}/cancel",
     "Occurrences_Delay": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeSchedule/scheduledActions/{scheduledActionName}/occurrences/{occurrenceId}/delay",
@@ -724,12 +739,12 @@
     "Webhooks_Ping": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/webhooks/{webhookName}/ping"
   },
   "ContainerService": {
-    "AgentPools_AbortLatestOperation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/agentPools/{agentPoolName}/abort",
+    "AgentPools_AbortLatestOperation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/abort",
     "AgentPools_CompleteUpgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/completeUpgrade",
     "AgentPools_DeleteMachines": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/deleteMachines",
     "AgentPools_UpgradeNodeImageVersion": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeNodeImageVersion",
     "AutoUpgradeProfileOperations_GenerateUpdateRun": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}/generateUpdateRun",
-    "ManagedClusters_AbortLatestOperation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/abort",
+    "ManagedClusters_AbortLatestOperation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/abort",
     "ManagedClusters_RebalanceLoadBalancers": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/rebalanceLoadBalancers",
     "ManagedClusters_ResetAADProfile": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetAADProfile",
     "ManagedClusters_ResetServicePrincipalProfile": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetServicePrincipalProfile",
@@ -1186,7 +1201,11 @@
   },
   "DeviceRegistry": {
     "Credentials_Synchronize": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/synchronize",
-    "Namespaces_Migrate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/migrate"
+    "NamespaceAssets_ExecuteAction": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}/executeAction",
+    "NamespaceDevices_Revoke": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}/revoke",
+    "Namespaces_Migrate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/migrate",
+    "Policies_ActivateBringYourOwnRoot": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName}/activateBringYourOwnRoot",
+    "Policies_RevokeIssuer": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName}/revokeIssuer"
   },
   "DeviceUpdate": {
     "CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.DeviceUpdate/checknameavailability",
@@ -1727,6 +1746,7 @@
     "MigrateProjectsController_GetToolRegistrationDetails": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/registrationDetails",
     "MigrateProjectsController_RefreshSummary": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/refreshSummary",
     "MigrateProjectsController_RegisterTool": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/registerTool",
+    "MigrateProjects_GenerateWavePlan": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/generateWavePlan",
     "MigrateProjects_RefreshMigrateProjectSummary": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/refreshSummary",
     "MigrateProjects_RegisterTool": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/registerTool",
     "MoveCollections_BulkRemove": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/bulkRemove",
@@ -1784,9 +1804,12 @@
     "ActionGroups_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
     "CreateNotificationsAtTenantActionGroupResourceLevel": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}/createNotifications",
     "DataCollectionEndpoints_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
+    "Issue_AddInvestigationResult": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/addInvestigationResult",
     "Issue_AddOrUpdateAlerts": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/addOrUpdateAlerts",
     "Issue_AddOrUpdateResources": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/addOrUpdateResources",
+    "Issue_FetchBackgroundVisualization": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/fetchBackgroundVisualization",
     "Issue_FetchInvestigationResult": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/fetchInvestigationResult",
+    "Issue_SetBackgroundVisualization": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/setBackgroundVisualization",
     "Issue_StartInvestigation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/startInvestigation",
     "Metrics_ListAtSubscriptionScopePost": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/metrics",
     "ScheduledQueryRule_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile"
@@ -1807,6 +1830,7 @@
     "Buckets_GenerateCredentials": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName}/generateCredentials",
     "Buckets_RefreshCertificate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName}/refreshCertificate",
     "Caches_PoolChange": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/poolChange",
+    "Caches_ResetSmbPassword": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/resetSmbPassword",
     "CheckFilePathAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/checkFilePathAvailability",
     "CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/checkNameAvailability",
     "ElasticCapacityPools_ChangeZone": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName}/changeZone",
@@ -2301,6 +2325,8 @@
     "Event_fetchDetailsByTenantIdAndTrackingId": "/providers/Microsoft.ResourceHealth/events/{eventTrackingId}/fetchEventDetails"
   },
   "Resources": {
+    "Batch_InvokeAtResourceGroupScope": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/batch",
+    "Batch_InvokeAtSubscriptionScope": "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/batch",
     "Decompile_Bicep": "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/decompileBicep",
     "DeploymentStacksWhatIfResultsAtManagementGroup_WhatIf": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName}/whatIf",
     "DeploymentStacksWhatIfResultsAtResourceGroup_WhatIf": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName}/whatIf",

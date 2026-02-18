@@ -65,7 +65,7 @@ class GetAlertProcessingRuleByNameResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -73,7 +73,7 @@ class GetAlertProcessingRuleByNameResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -81,7 +81,7 @@ class GetAlertProcessingRuleByNameResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -97,7 +97,7 @@ class GetAlertProcessingRuleByNameResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Alert processing rule system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -105,7 +105,7 @@ class GetAlertProcessingRuleByNameResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -113,7 +113,7 @@ class GetAlertProcessingRuleByNameResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -146,7 +146,7 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[_buil
 
 
     :param _builtins.str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
-    :param _builtins.str resource_group_name: Resource group name where the resource is created.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['alertProcessingRuleName'] = alert_processing_rule_name
@@ -175,7 +175,7 @@ def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optiona
 
 
     :param _builtins.str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
-    :param _builtins.str resource_group_name: Resource group name where the resource is created.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['alertProcessingRuleName'] = alert_processing_rule_name

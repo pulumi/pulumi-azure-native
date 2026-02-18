@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Purview
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Purview
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Gets or sets the status of the account.
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseAccountStatus AccountStatus;
+        public readonly Outputs.AccountPropertiesAccountStatusResponse AccountStatus;
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -118,13 +118,13 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// The URIs that are the public endpoints of the account.
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseEndpoints Endpoints;
+        public readonly Outputs.AccountPropertiesEndpointsResponse Endpoints;
         /// <summary>
         /// Gets or sets the friendly name.
         /// </summary>
         public readonly string FriendlyName;
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly Outputs.IngestionStorageResponse? IngestionStorage;
         /// <summary>
-        /// Gets or sets the location.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Gets the resource identifiers of the managed resources.
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseManagedResources ManagedResources;
+        public readonly Outputs.AccountPropertiesManagedResourcesResponse ManagedResources;
         /// <summary>
         /// Gets or sets the public network access for managed resources.
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly Outputs.AccountMergeInfoResponse? MergeInfo;
         /// <summary>
-        /// Gets or sets the name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -178,13 +178,13 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Gets or sets the Sku.
         /// </summary>
-        public readonly Outputs.AccountResponseSku? Sku;
+        public readonly Outputs.AccountSkuResponse? Sku;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.TrackedResourceResponseSystemData SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Tags on the azure resource.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -192,13 +192,13 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string? TenantEndpointState;
         /// <summary>
-        /// Gets or sets the type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAccountResult(
-            Outputs.AccountPropertiesResponseAccountStatus accountStatus,
+            Outputs.AccountPropertiesAccountStatusResponse accountStatus,
 
             string azureApiVersion,
 
@@ -212,7 +212,7 @@ namespace Pulumi.AzureNative.Purview
 
             string defaultDomain,
 
-            Outputs.AccountPropertiesResponseEndpoints endpoints,
+            Outputs.AccountPropertiesEndpointsResponse endpoints,
 
             string friendlyName,
 
@@ -228,7 +228,7 @@ namespace Pulumi.AzureNative.Purview
 
             string? managedResourceGroupName,
 
-            Outputs.AccountPropertiesResponseManagedResources managedResources,
+            Outputs.AccountPropertiesManagedResourcesResponse managedResources,
 
             string? managedResourcesPublicNetworkAccess,
 
@@ -242,9 +242,9 @@ namespace Pulumi.AzureNative.Purview
 
             string? publicNetworkAccess,
 
-            Outputs.AccountResponseSku? sku,
+            Outputs.AccountSkuResponse? sku,
 
-            Outputs.TrackedResourceResponseSystemData systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

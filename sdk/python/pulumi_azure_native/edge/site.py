@@ -84,7 +84,7 @@ class Site(pulumi.CustomResource):
                  site_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Site as ARM Resource
+        Site as Extension Resource
 
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
 
@@ -103,7 +103,7 @@ class Site(pulumi.CustomResource):
                  args: SiteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Site as ARM Resource
+        Site as Extension Resource
 
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
 

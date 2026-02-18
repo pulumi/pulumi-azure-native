@@ -30,9 +30,9 @@ class CodeSigningAccountArgs:
         """
         The set of arguments for constructing a CodeSigningAccount resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] account_name: Trusted Signing account name.
+        :param pulumi.Input[_builtins.str] account_name: Artifact Signing account name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['AccountSkuArgs'] sku: SKU of the trusted signing account.
+        :param pulumi.Input['AccountSkuArgs'] sku: SKU of the artifact signing account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -61,7 +61,7 @@ class CodeSigningAccountArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Trusted Signing account name.
+        Artifact Signing account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -85,7 +85,7 @@ class CodeSigningAccountArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['AccountSkuArgs']]:
         """
-        SKU of the trusted signing account.
+        SKU of the artifact signing account.
         """
         return pulumi.get(self, "sku")
 
@@ -119,7 +119,7 @@ class CodeSigningAccount(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Trusted signing account resource.
+        Artifact signing account resource.
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
@@ -127,10 +127,10 @@ class CodeSigningAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_name: Trusted Signing account name.
+        :param pulumi.Input[_builtins.str] account_name: Artifact Signing account name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']] sku: SKU of the trusted signing account.
+        :param pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']] sku: SKU of the artifact signing account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -140,7 +140,7 @@ class CodeSigningAccount(pulumi.CustomResource):
                  args: CodeSigningAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Trusted signing account resource.
+        Artifact signing account resource.
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
@@ -227,7 +227,7 @@ class CodeSigningAccount(pulumi.CustomResource):
     @pulumi.getter(name="accountUri")
     def account_uri(self) -> pulumi.Output[_builtins.str]:
         """
-        The URI of the trusted signing account which is used during signing files.
+        The URI of the artifact signing account which is used during signing files.
         """
         return pulumi.get(self, "account_uri")
 
@@ -259,7 +259,7 @@ class CodeSigningAccount(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
-        Status of the current operation on trusted signing account.
+        Status of the current operation on artifact signing account.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -267,7 +267,7 @@ class CodeSigningAccount(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.AccountSkuResponse']]:
         """
-        SKU of the trusted signing account.
+        SKU of the artifact signing account.
         """
         return pulumi.get(self, "sku")
 

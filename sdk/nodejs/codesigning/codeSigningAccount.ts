@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Trusted signing account resource.
+ * Artifact signing account resource.
  *
  * Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
  *
@@ -42,7 +42,7 @@ export class CodeSigningAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The URI of the trusted signing account which is used during signing files.
+     * The URI of the artifact signing account which is used during signing files.
      */
     declare public /*out*/ readonly accountUri: pulumi.Output<string>;
     /**
@@ -58,11 +58,11 @@ export class CodeSigningAccount extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * Status of the current operation on trusted signing account.
+     * Status of the current operation on artifact signing account.
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
-     * SKU of the trusted signing account.
+     * SKU of the artifact signing account.
      */
     declare public readonly sku: pulumi.Output<outputs.codesigning.AccountSkuResponse | undefined>;
     /**
@@ -126,7 +126,7 @@ export class CodeSigningAccount extends pulumi.CustomResource {
  */
 export interface CodeSigningAccountArgs {
     /**
-     * Trusted Signing account name.
+     * Artifact Signing account name.
      */
     accountName?: pulumi.Input<string>;
     /**
@@ -138,7 +138,7 @@ export interface CodeSigningAccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU of the trusted signing account.
+     * SKU of the artifact signing account.
      */
     sku?: pulumi.Input<inputs.codesigning.AccountSkuArgs>;
     /**

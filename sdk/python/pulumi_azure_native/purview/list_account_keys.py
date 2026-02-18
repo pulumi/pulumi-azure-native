@@ -73,7 +73,7 @@ def list_account_keys(account_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str account_name: The name of the account.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -96,7 +96,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[_builtins.str]]
 
 
     :param _builtins.str account_name: The name of the account.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name

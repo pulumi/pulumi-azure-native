@@ -122,6 +122,8 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
@@ -140,6 +142,8 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
         The virtual network resource definition.
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkSubnetArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +187,7 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20250901preview:VirtualNetworkSubnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20250901preview:VirtualNetworkSubnet"), pulumi.Alias(type_="azure-native:azurestackhci/v20260201preview:VirtualNetworkSubnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkSubnet, __self__).__init__(
             'azure-native:azurestackhci:VirtualNetworkSubnet',

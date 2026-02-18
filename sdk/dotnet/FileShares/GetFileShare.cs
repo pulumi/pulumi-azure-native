@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.FileShares
         /// Get a FileShare
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:fileshares:getFileShare", args ?? new GetFileShareArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.FileShares
         /// Get a FileShare
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:fileshares:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.FileShares
         /// Get a FileShare
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:fileshares:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());

@@ -45,7 +45,7 @@ class ListAgentApplicationAgentsResult:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.AgentReferenceResourceResponse']]:
+    def value(self) -> Optional[Sequence['outputs.AgentReferenceResponse']]:
         """
         An array of objects of type Agent Reference.
         """

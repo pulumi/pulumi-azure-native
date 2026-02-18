@@ -10,14 +10,16 @@ __all__ = [
     'CleanupOptions',
     'DenySettingsMode',
     'DeploymentMode',
-    'DeploymentStacksDeleteDetachEnum',
-    'DeploymentStacksResourcesWithoutDeleteSupportEnum',
     'ExpressionEvaluationOptionsScopeType',
     'ExtendedLocationType',
     'ManagedServiceIdentityType',
     'OnErrorDeploymentType',
     'ResourceIdentityType',
+    'ResourcesWithoutDeleteSupportAction',
     'ScriptType',
+    'UnmanageActionManagementGroupMode',
+    'UnmanageActionResourceGroupMode',
+    'UnmanageActionResourceMode',
     'ValidationLevel',
 ]
 
@@ -58,36 +60,6 @@ class DeploymentMode(_builtins.str, Enum):
     """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
-
-
-@pulumi.type_token("azure-native:resources:DeploymentStacksDeleteDetachEnum")
-class DeploymentStacksDeleteDetachEnum(_builtins.str, Enum):
-    """
-    Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-    """
-    DELETE = "delete"
-    """
-    Delete the specified resources from Azure
-    """
-    DETACH = "detach"
-    """
-    Keep the specified resources in Azure
-    """
-
-
-@pulumi.type_token("azure-native:resources:DeploymentStacksResourcesWithoutDeleteSupportEnum")
-class DeploymentStacksResourcesWithoutDeleteSupportEnum(_builtins.str, Enum):
-    """
-    Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-    """
-    DETACH = "detach"
-    """
-    Detach the specified resources from the deployment stack and continue
-    """
-    FAIL = "fail"
-    """
-    Fail the deployment stack if resources cannot be deleted
-    """
 
 
 @pulumi.type_token("azure-native:resources:ExpressionEvaluationOptionsScopeType")
@@ -136,6 +108,21 @@ class ResourceIdentityType(_builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:resources:ResourcesWithoutDeleteSupportAction")
+class ResourcesWithoutDeleteSupportAction(_builtins.str, Enum):
+    """
+    Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+    """
+    DETACH = "detach"
+    """
+    Detach the specified resources from the deployment stack and continue.
+    """
+    FAIL = "fail"
+    """
+    Fail the deployment stack if resources cannot be deleted.
+    """
+
+
 @pulumi.type_token("azure-native:resources:ScriptType")
 class ScriptType(_builtins.str, Enum):
     """
@@ -143,6 +130,51 @@ class ScriptType(_builtins.str, Enum):
     """
     AZURE_POWER_SHELL = "AzurePowerShell"
     AZURE_CLI = "AzureCLI"
+
+
+@pulumi.type_token("azure-native:resources:UnmanageActionManagementGroupMode")
+class UnmanageActionManagementGroupMode(_builtins.str, Enum):
+    """
+    Specifies an action for a newly unmanaged resource management group.
+    """
+    DELETE = "delete"
+    """
+    Delete the management groups from Azure.
+    """
+    DETACH = "detach"
+    """
+    Keep the management groups in Azure.
+    """
+
+
+@pulumi.type_token("azure-native:resources:UnmanageActionResourceGroupMode")
+class UnmanageActionResourceGroupMode(_builtins.str, Enum):
+    """
+    Specifies an action for a newly unmanaged resource group.
+    """
+    DELETE = "delete"
+    """
+    Delete the resource groups from Azure.
+    """
+    DETACH = "detach"
+    """
+    Keep the resource groups in Azure.
+    """
+
+
+@pulumi.type_token("azure-native:resources:UnmanageActionResourceMode")
+class UnmanageActionResourceMode(_builtins.str, Enum):
+    """
+    Specifies an action for a newly unmanaged resource.
+    """
+    DELETE = "delete"
+    """
+    Delete the resources from Azure
+    """
+    DETACH = "detach"
+    """
+    Keep the resources in Azure
+    """
 
 
 @pulumi.type_token("azure-native:resources:ValidationLevel")

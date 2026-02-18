@@ -25,7 +25,7 @@ export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceA
 
 export interface GetSharedPrivateLinkResourceArgs {
     /**
-     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -85,7 +85,7 @@ export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkRes
 
 export interface GetSharedPrivateLinkResourceOutputArgs {
     /**
-     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

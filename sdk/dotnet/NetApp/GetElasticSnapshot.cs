@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a ElasticSnapshot
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetElasticSnapshotResult> InvokeAsync(GetElasticSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticSnapshotResult>("azure-native:netapp:getElasticSnapshot", args ?? new GetElasticSnapshotArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a ElasticSnapshot
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetElasticSnapshotResult> Invoke(GetElasticSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticSnapshotResult>("azure-native:netapp:getElasticSnapshot", args ?? new GetElasticSnapshotInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a ElasticSnapshot
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetElasticSnapshotResult> Invoke(GetElasticSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticSnapshotResult>("azure-native:netapp:getElasticSnapshot", args ?? new GetElasticSnapshotInvokeArgs(), options.WithDefaults());

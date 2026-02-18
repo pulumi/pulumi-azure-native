@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ExtendedProperties;
         /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string LoadBalancerId;
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly ImmutableArray<string> MandatoryArtifactsResourceIdsWindows;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -180,11 +180,15 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly Outputs.LabSupportPropertiesResponse? Support;
         /// <summary>
-        /// The tags of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -244,6 +248,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
             Outputs.LabSupportPropertiesResponse? support,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -275,6 +281,7 @@ namespace Pulumi.AzureNative.DevTestLab
             ProvisioningState = provisioningState;
             PublicIpId = publicIpId;
             Support = support;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UniqueIdentifier = uniqueIdentifier;

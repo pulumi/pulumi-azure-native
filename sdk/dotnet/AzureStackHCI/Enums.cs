@@ -216,6 +216,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// This enumerates the possible sources of a disk's creation
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskCreateOption : IEquatable<DiskCreateOption>
+    {
+        private readonly string _value;
+
+        private DiskCreateOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Create a disk by copying from a source resource
+        /// </summary>
+        public static DiskCreateOption Copy { get; } = new DiskCreateOption("Copy");
+        /// <summary>
+        /// Create an empty disk
+        /// </summary>
+        public static DiskCreateOption Empty { get; } = new DiskCreateOption("Empty");
+
+        public static bool operator ==(DiskCreateOption left, DiskCreateOption right) => left.Equals(right);
+        public static bool operator !=(DiskCreateOption left, DiskCreateOption right) => !left.Equals(right);
+
+        public static explicit operator string(DiskCreateOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskCreateOption other && Equals(other);
+        public bool Equals(DiskCreateOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The format of the actual VHD file [vhd, vhdx]
     /// </summary>
     [EnumType]

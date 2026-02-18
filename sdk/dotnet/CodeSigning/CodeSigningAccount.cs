@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CodeSigning
 {
     /// <summary>
-    /// Trusted signing account resource.
+    /// Artifact signing account resource.
     /// 
     /// Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
     /// 
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public partial class CodeSigningAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The URI of the trusted signing account which is used during signing files.
+        /// The URI of the artifact signing account which is used during signing files.
         /// </summary>
         [Output("accountUri")]
         public Output<string> AccountUri { get; private set; } = null!;
@@ -44,13 +44,13 @@ namespace Pulumi.AzureNative.CodeSigning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the current operation on trusted signing account.
+        /// Status of the current operation on artifact signing account.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// SKU of the trusted signing account.
+        /// SKU of the artifact signing account.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.AccountSkuResponse?> Sku { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class CodeSigningAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Trusted Signing account name.
+        /// Artifact Signing account name.
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.CodeSigning
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SKU of the trusted signing account.
+        /// SKU of the artifact signing account.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.AccountSkuArgs>? Sku { get; set; }

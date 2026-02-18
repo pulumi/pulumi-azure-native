@@ -41,7 +41,7 @@ class LabArgs:
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']] environment_permission: The access rights to be granted to the user when provisioning an environment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extended_properties: Extended properties of the lab used for experimental features
         :param pulumi.Input[Union[_builtins.str, 'StorageType']] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[_builtins.str] name: The name of the lab.
@@ -49,7 +49,7 @@ class LabArgs:
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input['LabSupportPropertiesArgs'] support: The properties of any lab support message associated with this lab
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if announcement is not None:
@@ -141,7 +141,7 @@ class LabArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -215,7 +215,7 @@ class LabArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -254,7 +254,7 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentPermission']] environment_permission: The access rights to be granted to the user when provisioning an environment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extended_properties: Extended properties of the lab used for experimental features
         :param pulumi.Input[Union[_builtins.str, 'StorageType']] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[_builtins.str] name: The name of the lab.
@@ -263,7 +263,7 @@ class Lab(pulumi.CustomResource):
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']] support: The properties of any lab support message associated with this lab
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -338,6 +338,7 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["premium_data_disk_storage_account"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["public_ip_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_identifier"] = None
             __props__.__dict__["vault_name"] = None
@@ -386,6 +387,7 @@ class Lab(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_id"] = None
         __props__.__dict__["support"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_identifier"] = None
@@ -477,7 +479,7 @@ class Lab(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -501,7 +503,7 @@ class Lab(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -556,10 +558,18 @@ class Lab(pulumi.CustomResource):
         return pulumi.get(self, "support")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -567,7 +577,7 @@ class Lab(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

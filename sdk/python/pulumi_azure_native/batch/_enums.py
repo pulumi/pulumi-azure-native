@@ -128,6 +128,9 @@ class CertificateStoreLocation(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:batch:CertificateVisibility")
 class CertificateVisibility(_builtins.str, Enum):
+    """
+    The visibility of the certificate.
+    """
     START_TASK = "StartTask"
     """
     The certificate should be visible to the user account under which the start task is run. Note that if AutoUser Scope is Pool for both the StartTask and a Task, this certificate will be visible to the Task as well.
@@ -161,7 +164,7 @@ class ComputeNodeDeallocationOption(_builtins.str, Enum):
     """
     RETAINED_DATA = "RetainedData"
     """
-    Deprecated, we encourage you to upload task data to Azure Storage in your task and use `TaskCompletion` instead. Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods have expired.
+    Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods have expired.
     """
 
 
@@ -525,7 +528,13 @@ class SecurityEncryptionTypes(_builtins.str, Enum):
     Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
     """
     NON_PERSISTED_TPM = "NonPersistedTPM"
+    """
+    EncryptionType of the managed disk is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob.
+    """
     VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
+    """
+    EncryptionType of the managed disk is set to VMGuestStateOnly for encryption of just the VMGuestState blob.
+    """
 
 
 @pulumi.type_token("azure-native:batch:SecurityTypes")

@@ -16,7 +16,6 @@ __all__ = [
     'AttestationComplianceState',
     'AuthenticationType',
     'AutoDiscovery',
-    'AutoProvision',
     'Categories',
     'CloudName',
     'DataSource',
@@ -173,21 +172,6 @@ class AutoDiscovery(_builtins.str, Enum):
     DISABLED = "Disabled"
     ENABLED = "Enabled"
     NOT_APPLICABLE = "NotApplicable"
-
-
-@pulumi.type_token("azure-native:security:AutoProvision")
-class AutoProvision(_builtins.str, Enum):
-    """
-    Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-    """
-    ON = "On"
-    """
-    Install missing Azure Arc agents on machines automatically
-    """
-    OFF = "Off"
-    """
-    Do not install Azure Arc agent on the machines automatically
-    """
 
 
 @pulumi.type_token("azure-native:security:Categories")

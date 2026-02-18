@@ -84,6 +84,22 @@ export const DiagnosticLevel = {
  */
 export type DiagnosticLevel = (typeof DiagnosticLevel)[keyof typeof DiagnosticLevel];
 
+export const DiskCreateOption = {
+    /**
+     * Create a disk by copying from a source resource
+     */
+    Copy: "Copy",
+    /**
+     * Create an empty disk
+     */
+    Empty: "Empty",
+} as const;
+
+/**
+ * This enumerates the possible sources of a disk's creation
+ */
+export type DiskCreateOption = (typeof DiskCreateOption)[keyof typeof DiskCreateOption];
+
 export const DiskFileFormat = {
     /**
      * VHDX file format

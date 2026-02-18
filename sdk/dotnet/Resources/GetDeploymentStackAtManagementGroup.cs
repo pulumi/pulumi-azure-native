@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Resources
         public string DeploymentStackName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the management group. The name is case insensitive.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public string ManagementGroupId { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Resources
         public Input<string> DeploymentStackName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the management group. The name is case insensitive.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The error detail.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse? Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.Resources
 
             string duration,
 
-            Outputs.ErrorDetailResponse? error,
+            Outputs.ErrorDetailResponse error,
 
             ImmutableArray<Outputs.ResourceReferenceExtendedResponse> failedResources,
 

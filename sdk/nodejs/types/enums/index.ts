@@ -46,6 +46,7 @@ import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as community from "./community";
 import * as compute from "./compute";
+import * as computebulkactions from "./computebulkactions";
 import * as computeschedule from "./computeschedule";
 import * as confidentialledger from "./confidentialledger";
 import * as confluent from "./confluent";
@@ -268,6 +269,7 @@ export {
     communication,
     community,
     compute,
+    computebulkactions,
     computeschedule,
     confidentialledger,
     confluent,

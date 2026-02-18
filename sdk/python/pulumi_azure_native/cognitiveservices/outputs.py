@@ -23,9 +23,9 @@ __all__ = [
     'AccountKeyAuthTypeConnectionPropertiesResponse',
     'AccountPropertiesResponse',
     'AgentProtocolVersionResponse',
-    'AgentReferenceResourceResponse',
+    'AgentReferencePropertiesResponse',
     'AgentReferenceResponse',
-    'AgenticApplicationResponse',
+    'AgenticApplicationPropertiesResponse',
     'ApiKeyAuthConnectionPropertiesResponse',
     'ApiPropertiesResponse',
     'ApplicationTrafficRoutingPolicyResponse',
@@ -1092,73 +1092,7 @@ class AgentProtocolVersionResponse(dict):
 
 
 @pulumi.output_type
-class AgentReferenceResourceResponse(dict):
-    """
-    Agent Reference resource
-    """
-    def __init__(__self__, *,
-                 id: _builtins.str,
-                 name: _builtins.str,
-                 properties: 'outputs.AgentReferenceResponse',
-                 system_data: 'outputs.SystemDataResponse',
-                 type: _builtins.str):
-        """
-        Agent Reference resource
-        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        :param _builtins.str name: The name of the resource
-        :param 'AgentReferenceResponse' properties: [Required] Additional attributes of the entity.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> 'outputs.AgentReferenceResponse':
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @_builtins.property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class AgentReferenceResponse(dict):
+class AgentReferencePropertiesResponse(dict):
     """
     Type modeling a reference to a version of an agent definition.
     """
@@ -1171,14 +1105,14 @@ class AgentReferenceResponse(dict):
             suggest = "agent_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgentReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AgentReferencePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AgentReferenceResponse.__key_warning(key)
+        AgentReferencePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AgentReferenceResponse.__key_warning(key)
+        AgentReferencePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1212,7 +1146,73 @@ class AgentReferenceResponse(dict):
 
 
 @pulumi.output_type
-class AgenticApplicationResponse(dict):
+class AgentReferenceResponse(dict):
+    """
+    Agent Reference resource
+    """
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 properties: 'outputs.AgentReferencePropertiesResponse',
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str):
+        """
+        Agent Reference resource
+        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str name: The name of the resource
+        :param 'AgentReferencePropertiesResponse' properties: [Required] Additional attributes of the entity.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.AgentReferencePropertiesResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AgenticApplicationPropertiesResponse(dict):
     """
     Resource type representing an agentic application as a management construct.
     """
@@ -1237,21 +1237,21 @@ class AgenticApplicationResponse(dict):
             suggest = "traffic_routing_policy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgenticApplicationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AgenticApplicationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AgenticApplicationResponse.__key_warning(key)
+        AgenticApplicationPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AgenticApplicationResponse.__key_warning(key)
+        AgenticApplicationPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  is_enabled: _builtins.bool,
                  provisioning_state: _builtins.str,
                  agent_identity_blueprint: Optional['outputs.AssignedIdentityResponse'] = None,
-                 agents: Optional[Sequence['outputs.AgentReferenceResponse']] = None,
+                 agents: Optional[Sequence['outputs.AgentReferencePropertiesResponse']] = None,
                  authorization_policy: Optional[Any] = None,
                  base_url: Optional[_builtins.str] = None,
                  default_instance_identity: Optional['outputs.AssignedIdentityResponse'] = None,
@@ -1264,7 +1264,7 @@ class AgenticApplicationResponse(dict):
         :param _builtins.bool is_enabled: Enabledstate of the application.
         :param _builtins.str provisioning_state: Provisioning state of the application.
         :param 'AssignedIdentityResponse' agent_identity_blueprint: The EntraId Agentic Blueprint of the application.
-        :param Sequence['AgentReferenceResponse'] agents: The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+        :param Sequence['AgentReferencePropertiesResponse'] agents: The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
         :param Union['ChannelsBuiltInAuthorizationPolicyResponse', 'OrganizationSharedBuiltInAuthorizationPolicyResponse', 'RoleBasedBuiltInAuthorizationPolicyResponse'] authorization_policy: Gets or sets the authorization policy associated with this agentic application instance.
         :param _builtins.str base_url: The application's dedicated invocation endpoint.
         :param 'AssignedIdentityResponse' default_instance_identity: The (default) agent instance identity of the application.
@@ -1320,7 +1320,7 @@ class AgenticApplicationResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def agents(self) -> Optional[Sequence['outputs.AgentReferenceResponse']]:
+    def agents(self) -> Optional[Sequence['outputs.AgentReferencePropertiesResponse']]:
         """
         The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
         """

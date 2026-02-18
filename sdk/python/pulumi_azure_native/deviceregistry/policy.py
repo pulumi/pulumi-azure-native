@@ -24,27 +24,27 @@ class PolicyArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 certificate: Optional[pulumi.Input['CertificateConfigurationArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['PolicyPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['CertificateConfigurationArgs'] certificate: The certificate configuration.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] policy_name: The name of the Policy tracked resource.
+        :param pulumi.Input['PolicyPropertiesArgs'] properties: The RP-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if policy_name is not None:
             pulumi.set(__self__, "policy_name", policy_name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -74,18 +74,6 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertificateConfigurationArgs']]:
-        """
-        The certificate configuration.
-        """
-        return pulumi.get(self, "certificate")
-
-    @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertificateConfigurationArgs']]):
-        pulumi.set(self, "certificate", value)
-
-    @_builtins.property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
@@ -110,6 +98,18 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['PolicyPropertiesArgs']]:
+        """
+        The RP-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['PolicyPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
@@ -127,10 +127,10 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['PolicyPropertiesArgs', 'PolicyPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -139,12 +139,14 @@ class Policy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
+        Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']] certificate: The certificate configuration.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] policy_name: The name of the Policy tracked resource.
+        :param pulumi.Input[Union['PolicyPropertiesArgs', 'PolicyPropertiesArgsDict']] properties: The RP-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -158,6 +160,8 @@ class Policy(pulumi.CustomResource):
         A Credential Policy
 
         Uses Azure REST API version 2025-11-01-preview.
+
+        Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
@@ -174,10 +178,10 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['PolicyPropertiesArgs', 'PolicyPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -189,22 +193,21 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
-            __props__.__dict__["certificate"] = certificate
             __props__.__dict__["location"] = location
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["policy_name"] = policy_name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20251101preview:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20251101preview:Policy"), pulumi.Alias(type_="azure-native:deviceregistry/v20260301preview:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-native:deviceregistry:Policy',
@@ -229,10 +232,9 @@ class Policy(pulumi.CustomResource):
         __props__ = PolicyArgs.__new__(PolicyArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["certificate"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -248,15 +250,7 @@ class Policy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> pulumi.Output[Optional['outputs.CertificateConfigurationResponse']]:
-        """
-        The certificate configuration.
-        """
-        return pulumi.get(self, "certificate")
-
-    @_builtins.property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[_builtins.str]:
+    def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
@@ -271,12 +265,12 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.PolicyPropertiesResponse']:
         """
-        The status of the last operation.
+        The RP-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

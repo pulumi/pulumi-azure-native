@@ -35,14 +35,15 @@ class KafkaConfigurationArgs:
         """
         The set of arguments for constructing a KafkaConfiguration resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the account.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] consumer_group: Consumer group for hook event hub.
         :param pulumi.Input['CredentialsArgs'] credentials: Credentials to access the event streaming service attached to the purview account.
         :param pulumi.Input[_builtins.str] event_hub_partition_id: Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
+        :param pulumi.Input[_builtins.str] event_hub_resource_id: A type definition that refers the id to an Azure Resource Manager resource.
         :param pulumi.Input[Union[_builtins.str, 'EventHubType']] event_hub_type: The event hub type.
         :param pulumi.Input[Union[_builtins.str, 'EventStreamingState']] event_streaming_state: The state of the event streaming service
         :param pulumi.Input[Union[_builtins.str, 'EventStreamingType']] event_streaming_type: The event streaming service type
-        :param pulumi.Input[_builtins.str] kafka_configuration_name: The kafka configuration name.
+        :param pulumi.Input[_builtins.str] kafka_configuration_name: Name of kafka configuration.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -83,7 +84,7 @@ class KafkaConfigurationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -130,6 +131,9 @@ class KafkaConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="eventHubResourceId")
     def event_hub_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "event_hub_resource_id")
 
     @event_hub_resource_id.setter
@@ -176,7 +180,7 @@ class KafkaConfigurationArgs:
     @pulumi.getter(name="kafkaConfigurationName")
     def kafka_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The kafka configuration name.
+        Name of kafka configuration.
         """
         return pulumi.get(self, "kafka_configuration_name")
 
@@ -215,11 +219,12 @@ class KafkaConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] consumer_group: Consumer group for hook event hub.
         :param pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']] credentials: Credentials to access the event streaming service attached to the purview account.
         :param pulumi.Input[_builtins.str] event_hub_partition_id: Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
+        :param pulumi.Input[_builtins.str] event_hub_resource_id: A type definition that refers the id to an Azure Resource Manager resource.
         :param pulumi.Input[Union[_builtins.str, 'EventHubType']] event_hub_type: The event hub type.
         :param pulumi.Input[Union[_builtins.str, 'EventStreamingState']] event_streaming_state: The state of the event streaming service
         :param pulumi.Input[Union[_builtins.str, 'EventStreamingType']] event_streaming_type: The event streaming service type
-        :param pulumi.Input[_builtins.str] kafka_configuration_name: The kafka configuration name.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] kafka_configuration_name: Name of kafka configuration.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -362,6 +367,9 @@ class KafkaConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="eventHubResourceId")
     def event_hub_resource_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "event_hub_resource_id")
 
     @_builtins.property
@@ -392,15 +400,15 @@ class KafkaConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Gets or sets the name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.ProxyResourceResponseSystemData']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -408,7 +416,7 @@ class KafkaConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Gets or sets the type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -20,6 +20,9 @@ class DestinationType(_builtins.str, Enum):
     Emission destination type.
     """
     AZURE_MONITOR = "AzureMonitor"
+    """
+    AzureMonitor
+    """
 
 
 @pulumi.type_token("azure-native:networkfunction:EmissionType")
@@ -28,6 +31,9 @@ class EmissionType(_builtins.str, Enum):
     Emission format type.
     """
     IPFIX = "IPFIX"
+    """
+    IPFIX
+    """
 
 
 @pulumi.type_token("azure-native:networkfunction:IngestionType")
@@ -36,6 +42,9 @@ class IngestionType(_builtins.str, Enum):
     The ingestion type.
     """
     IPFIX = "IPFIX"
+    """
+    IPFIX
+    """
 
 
 @pulumi.type_token("azure-native:networkfunction:SourceType")
@@ -44,3 +53,6 @@ class SourceType(_builtins.str, Enum):
     Ingestion source type.
     """
     RESOURCE = "Resource"
+    """
+    Resource
+    """

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetArtifactSourceResult',
@@ -26,7 +27,7 @@ class GetArtifactSourceResult:
     """
     Properties of an artifact source.
     """
-    def __init__(__self__, arm_template_folder_path=None, azure_api_version=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, id=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, tags=None, type=None, unique_identifier=None, uri=None):
+    def __init__(__self__, arm_template_folder_path=None, azure_api_version=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, id=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, system_data=None, tags=None, type=None, unique_identifier=None, uri=None):
         if arm_template_folder_path and not isinstance(arm_template_folder_path, str):
             raise TypeError("Expected argument 'arm_template_folder_path' to be a str")
         pulumi.set(__self__, "arm_template_folder_path", arm_template_folder_path)
@@ -66,6 +67,9 @@ class GetArtifactSourceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -131,7 +135,7 @@ class GetArtifactSourceResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -139,7 +143,7 @@ class GetArtifactSourceResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -147,7 +151,7 @@ class GetArtifactSourceResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -184,10 +188,18 @@ class GetArtifactSourceResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -195,7 +207,7 @@ class GetArtifactSourceResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -235,6 +247,7 @@ class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
             security_token=self.security_token,
             source_type=self.source_type,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier,
@@ -254,7 +267,7 @@ def get_artifact_source(expand: Optional[_builtins.str] = None,
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=displayName)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the ArtifactSource
+    :param _builtins.str name: The name of the artifact source.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -279,6 +292,7 @@ def get_artifact_source(expand: Optional[_builtins.str] = None,
         security_token=pulumi.get(__ret__, 'security_token'),
         source_type=pulumi.get(__ret__, 'source_type'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
@@ -296,7 +310,7 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[_builtins.
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=displayName)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the ArtifactSource
+    :param _builtins.str name: The name of the artifact source.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -320,6 +334,7 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[_builtins.
         security_token=pulumi.get(__response__, 'security_token'),
         source_type=pulumi.get(__response__, 'source_type'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         unique_identifier=pulumi.get(__response__, 'unique_identifier'),

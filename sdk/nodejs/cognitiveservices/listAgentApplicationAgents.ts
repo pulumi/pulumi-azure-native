@@ -52,7 +52,7 @@ export interface ListAgentApplicationAgentsResult {
     /**
      * An array of objects of type Agent Reference.
      */
-    readonly value?: outputs.cognitiveservices.AgentReferenceResourceResponse[];
+    readonly value?: outputs.cognitiveservices.AgentReferenceResponse[];
 }
 /**
  * A paginated list of Agent Reference entities.

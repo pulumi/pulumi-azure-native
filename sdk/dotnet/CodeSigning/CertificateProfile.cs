@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class CertificateProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Trusted Signing account name.
+        /// Artifact Signing account name.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;

@@ -27,7 +27,7 @@ class GetVirtualNetworkResult:
     """
     A virtual network.
     """
-    def __init__(__self__, allowed_subnets=None, azure_api_version=None, created_date=None, description=None, external_provider_resource_id=None, external_subnets=None, id=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, allowed_subnets=None, azure_api_version=None, created_date=None, description=None, external_provider_resource_id=None, external_subnets=None, id=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, system_data=None, tags=None, type=None, unique_identifier=None):
         if allowed_subnets and not isinstance(allowed_subnets, list):
             raise TypeError("Expected argument 'allowed_subnets' to be a list")
         pulumi.set(__self__, "allowed_subnets", allowed_subnets)
@@ -61,6 +61,9 @@ class GetVirtualNetworkResult:
         if subnet_overrides and not isinstance(subnet_overrides, list):
             raise TypeError("Expected argument 'subnet_overrides' to be a list")
         pulumi.set(__self__, "subnet_overrides", subnet_overrides)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -123,7 +126,7 @@ class GetVirtualNetworkResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -131,7 +134,7 @@ class GetVirtualNetworkResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -139,7 +142,7 @@ class GetVirtualNetworkResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -160,10 +163,18 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "subnet_overrides")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -171,7 +182,7 @@ class GetVirtualNetworkResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -201,6 +212,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             subnet_overrides=self.subnet_overrides,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier)
@@ -219,7 +231,7 @@ def get_virtual_network(expand: Optional[_builtins.str] = None,
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the VirtualNetwork
+    :param _builtins.str name: The name of the virtual network.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -242,6 +254,7 @@ def get_virtual_network(expand: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         subnet_overrides=pulumi.get(__ret__, 'subnet_overrides'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
@@ -258,7 +271,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[_builtins.
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the VirtualNetwork
+    :param _builtins.str name: The name of the virtual network.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -280,6 +293,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[_builtins.
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         subnet_overrides=pulumi.get(__response__, 'subnet_overrides'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         unique_identifier=pulumi.get(__response__, 'unique_identifier')))

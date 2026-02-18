@@ -119,7 +119,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +140,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ApplicationPackageArgs args: The arguments to use to populate this resource's properties.
@@ -192,7 +192,7 @@ class ApplicationPackage(pulumi.CustomResource):
             __props__.__dict__["storage_url_expiry"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20151201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170901:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20181201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20190401:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20190801:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200301:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200901:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20210101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20210601:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220601:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20221001:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20230501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20231101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20240201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20240701:ApplicationPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20151201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170901:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20181201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20190401:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20190801:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200301:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200901:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20210101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20210601:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220601:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20221001:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20230501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20231101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20240201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20240701:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20250601:ApplicationPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationPackage, __self__).__init__(
             'azure-native:batch:ApplicationPackage',

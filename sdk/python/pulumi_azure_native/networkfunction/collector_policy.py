@@ -32,7 +32,7 @@ class CollectorPolicyArgs:
         """
         The set of arguments for constructing a CollectorPolicy resource.
         :param pulumi.Input[_builtins.str] azure_traffic_collector_name: Azure Traffic Collector name
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] collector_policy_name: Collector Policy Name
         :param pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]] emission_policies: Emission policies.
         :param pulumi.Input['IngestionPolicyPropertiesFormatArgs'] ingestion_policy: Ingestion policies.
@@ -68,7 +68,7 @@ class CollectorPolicyArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -163,7 +163,7 @@ class CollectorPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]] emission_policies: Emission policies.
         :param pulumi.Input[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']] ingestion_policy: Ingestion policies.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -305,7 +305,7 @@ class CollectorPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -319,9 +319,9 @@ class CollectorPolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.TrackedResourceResponseSystemData']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -337,7 +337,7 @@ class CollectorPolicy(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

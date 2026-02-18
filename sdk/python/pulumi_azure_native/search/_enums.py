@@ -303,7 +303,7 @@ class SkuName(_builtins.str, Enum):
     """
     STANDARD3 = "standard3"
     """
-     The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
+    The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
     """
     STORAGE_OPTIMIZED_L1 = "storage_optimized_l1"
     """

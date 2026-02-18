@@ -66,7 +66,7 @@ def get_edge_action_version_code(edge_action_name: Optional[_builtins.str] = Non
                                  version: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEdgeActionVersionCodeResult:
     """
-    A long-running resource action.
+    Get the version code for the edge action version.
 
     Uses Azure REST API version 2025-09-01-preview.
 
@@ -92,7 +92,7 @@ def get_edge_action_version_code_output(edge_action_name: Optional[pulumi.Input[
                                         version: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEdgeActionVersionCodeResult]:
     """
-    A long-running resource action.
+    Get the version code for the edge action version.
 
     Uses Azure REST API version 2025-09-01-preview.
 

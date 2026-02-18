@@ -106,6 +106,8 @@ if typing.TYPE_CHECKING:
     community = __community
     import pulumi_azure_native.compute as __compute
     compute = __compute
+    import pulumi_azure_native.computebulkactions as __computebulkactions
+    computebulkactions = __computebulkactions
     import pulumi_azure_native.computelimit as __computelimit
     computelimit = __computelimit
     import pulumi_azure_native.computeschedule as __computeschedule
@@ -563,6 +565,7 @@ else:
     communication = _utilities.lazy_import('pulumi_azure_native.communication')
     community = _utilities.lazy_import('pulumi_azure_native.community')
     compute = _utilities.lazy_import('pulumi_azure_native.compute')
+    computebulkactions = _utilities.lazy_import('pulumi_azure_native.computebulkactions')
     computelimit = _utilities.lazy_import('pulumi_azure_native.computelimit')
     computeschedule = _utilities.lazy_import('pulumi_azure_native.computeschedule')
     confidentialledger = _utilities.lazy_import('pulumi_azure_native.confidentialledger')
@@ -1427,6 +1430,7 @@ _utilities.register(
    "azure-native:azurestackhci:PublicIPAddress": "PublicIPAddress",
    "azure-native:azurestackhci:SecurityRule": "SecurityRule",
    "azure-native:azurestackhci:SecuritySetting": "SecuritySetting",
+   "azure-native:azurestackhci:Snapshot": "Snapshot",
    "azure-native:azurestackhci:StorageContainer": "StorageContainer",
    "azure-native:azurestackhci:Update": "Update",
    "azure-native:azurestackhci:UpdateRun": "UpdateRun",
@@ -1697,6 +1701,14 @@ _utilities.register(
    "azure-native:compute:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
    "azure-native:compute:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
    "azure-native:compute:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "computebulkactions",
+  "fqn": "pulumi_azure_native.computebulkactions",
+  "classes": {
+   "azure-native:computebulkactions:BulkAction": "BulkAction"
   }
  },
  {
@@ -2285,6 +2297,7 @@ _utilities.register(
    "azure-native:desktopvirtualization:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization:ScalingPlanPersonalSchedule": "ScalingPlanPersonalSchedule",
    "azure-native:desktopvirtualization:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
+   "azure-native:desktopvirtualization:SessionHost": "SessionHost",
    "azure-native:desktopvirtualization:Workspace": "Workspace"
   }
  },
@@ -3508,6 +3521,7 @@ _utilities.register(
    "azure-native:network:RouteFilterRule": "RouteFilterRule",
    "azure-native:network:RouteMap": "RouteMap",
    "azure-native:network:RouteTable": "RouteTable",
+   "azure-native:network:RoutingConfiguration": "RoutingConfiguration",
    "azure-native:network:RoutingIntent": "RoutingIntent",
    "azure-native:network:RoutingRule": "RoutingRule",
    "azure-native:network:RoutingRuleCollection": "RoutingRuleCollection",
@@ -4060,9 +4074,7 @@ _utilities.register(
    "azure-native:security:Assignment": "Assignment",
    "azure-native:security:Automation": "Automation",
    "azure-native:security:AzureServersSetting": "AzureServersSetting",
-   "azure-native:security:Connector": "Connector",
    "azure-native:security:CustomAssessmentAutomation": "CustomAssessmentAutomation",
-   "azure-native:security:CustomEntityStoreAssignment": "CustomEntityStoreAssignment",
    "azure-native:security:CustomRecommendation": "CustomRecommendation",
    "azure-native:security:DefenderForStorage": "DefenderForStorage",
    "azure-native:security:DevOpsConfiguration": "DevOpsConfiguration",

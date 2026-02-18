@@ -38,9 +38,7 @@ __all__ = [
     'ClientEncryptionIncludedPathResponse',
     'ClientEncryptionPolicyResponse',
     'ClusterKeyResponse',
-    'ClusterResourceResponseEndPoints',
     'ClusterResourceResponseProperties',
-    'ClusterResourceResponsePropertiesV1',
     'ColumnResponse',
     'CompositePathResponse',
     'ComputedPropertyResponse',
@@ -66,6 +64,8 @@ __all__ = [
     'FullTextIndexPathResponse',
     'FullTextPathResponse',
     'FullTextPolicyResponse',
+    'GarnetClusterResourceResponseEndPoints',
+    'GarnetClusterResourceResponseProperties',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
     'GraphResourceGetPropertiesResponseOptions',
@@ -1281,54 +1281,6 @@ class ClusterKeyResponse(dict):
 
 
 @pulumi.output_type
-class ClusterResourceResponseEndPoints(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipAddress":
-            suggest = "ip_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterResourceResponseEndPoints. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterResourceResponseEndPoints.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterResourceResponseEndPoints.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ip_address: Optional[_builtins.str] = None,
-                 port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str ip_address: Ipv4 address of the endpoint
-        :param _builtins.int port: Port number
-        """
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-
-    @_builtins.property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[_builtins.str]:
-        """
-        Ipv4 address of the endpoint
-        """
-        return pulumi.get(self, "ip_address")
-
-    @_builtins.property
-    @pulumi.getter
-    def port(self) -> Optional[_builtins.int]:
-        """
-        Port number
-        """
-        return pulumi.get(self, "port")
-
-
-@pulumi.output_type
 class ClusterResourceResponseProperties(dict):
     """
     Properties of a managed Cassandra cluster.
@@ -1599,182 +1551,6 @@ class ClusterResourceResponseProperties(dict):
         Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
         return pulumi.get(self, "repair_enabled")
-
-
-@pulumi.output_type
-class ClusterResourceResponsePropertiesV1(dict):
-    """
-    Properties of a Garnet cache cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endPoints":
-            suggest = "end_points"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "allocationState":
-            suggest = "allocation_state"
-        elif key == "availabilityZone":
-            suggest = "availability_zone"
-        elif key == "clusterType":
-            suggest = "cluster_type"
-        elif key == "nodeCount":
-            suggest = "node_count"
-        elif key == "nodeSku":
-            suggest = "node_sku"
-        elif key == "provisionError":
-            suggest = "provision_error"
-        elif key == "replicationFactor":
-            suggest = "replication_factor"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterResourceResponsePropertiesV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterResourceResponsePropertiesV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterResourceResponsePropertiesV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 end_points: Sequence['outputs.ClusterResourceResponseEndPoints'],
-                 provisioning_state: _builtins.str,
-                 allocation_state: Optional[_builtins.str] = None,
-                 availability_zone: Optional[_builtins.bool] = None,
-                 cluster_type: Optional[_builtins.str] = None,
-                 extensions: Optional[Sequence[_builtins.str]] = None,
-                 node_count: Optional[_builtins.int] = None,
-                 node_sku: Optional[_builtins.str] = None,
-                 provision_error: Optional['outputs.ErrorDetailResponse'] = None,
-                 replication_factor: Optional[_builtins.int] = None,
-                 subnet_id: Optional[_builtins.str] = None):
-        """
-        Properties of a Garnet cache cluster.
-        :param Sequence['ClusterResourceResponseEndPoints'] end_points: endpoints for clients to connect to the cluster.
-        :param _builtins.str provisioning_state: The status of the resource at the time the operation was called.
-        :param _builtins.str allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
-        :param _builtins.bool availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
-        :param _builtins.str cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
-        :param Sequence[_builtins.str] extensions: Extensions to be added or updated on cluster.
-        :param _builtins.int node_count: Number of nodes
-        :param _builtins.str node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
-        :param 'ErrorDetailResponse' provision_error: Error related to resource provisioning.
-        :param _builtins.int replication_factor: Number of copies of data maintained by the cluster
-        :param _builtins.str subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-        """
-        pulumi.set(__self__, "end_points", end_points)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if allocation_state is not None:
-            pulumi.set(__self__, "allocation_state", allocation_state)
-        if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
-        if cluster_type is not None:
-            pulumi.set(__self__, "cluster_type", cluster_type)
-        if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
-        if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
-        if node_sku is not None:
-            pulumi.set(__self__, "node_sku", node_sku)
-        if provision_error is not None:
-            pulumi.set(__self__, "provision_error", provision_error)
-        if replication_factor is not None:
-            pulumi.set(__self__, "replication_factor", replication_factor)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @_builtins.property
-    @pulumi.getter(name="endPoints")
-    def end_points(self) -> Sequence['outputs.ClusterResourceResponseEndPoints']:
-        """
-        endpoints for clients to connect to the cluster.
-        """
-        return pulumi.get(self, "end_points")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The status of the resource at the time the operation was called.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="allocationState")
-    def allocation_state(self) -> Optional[_builtins.str]:
-        """
-        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
-        """
-        return pulumi.get(self, "allocation_state")
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[_builtins.bool]:
-        """
-        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @_builtins.property
-    @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> Optional[_builtins.str]:
-        """
-        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
-        """
-        return pulumi.get(self, "cluster_type")
-
-    @_builtins.property
-    @pulumi.getter
-    def extensions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Extensions to be added or updated on cluster.
-        """
-        return pulumi.get(self, "extensions")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[_builtins.int]:
-        """
-        Number of nodes
-        """
-        return pulumi.get(self, "node_count")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeSku")
-    def node_sku(self) -> Optional[_builtins.str]:
-        """
-        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
-        """
-        return pulumi.get(self, "node_sku")
-
-    @_builtins.property
-    @pulumi.getter(name="provisionError")
-    def provision_error(self) -> Optional['outputs.ErrorDetailResponse']:
-        """
-        Error related to resource provisioning.
-        """
-        return pulumi.get(self, "provision_error")
-
-    @_builtins.property
-    @pulumi.getter(name="replicationFactor")
-    def replication_factor(self) -> Optional[_builtins.int]:
-        """
-        Number of copies of data maintained by the cluster
-        """
-        return pulumi.get(self, "replication_factor")
-
-    @_builtins.property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[_builtins.str]:
-        """
-        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-        """
-        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -3304,6 +3080,230 @@ class FullTextPolicyResponse(dict):
         List of FullText Paths
         """
         return pulumi.get(self, "full_text_paths")
+
+
+@pulumi.output_type
+class GarnetClusterResourceResponseEndPoints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GarnetClusterResourceResponseEndPoints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GarnetClusterResourceResponseEndPoints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GarnetClusterResourceResponseEndPoints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: Optional[_builtins.str] = None,
+                 port: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str ip_address: Ipv4 address of the endpoint
+        :param _builtins.int port: Port number
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[_builtins.str]:
+        """
+        Ipv4 address of the endpoint
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.int]:
+        """
+        Port number
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GarnetClusterResourceResponseProperties(dict):
+    """
+    Properties of a Garnet cache cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endPoints":
+            suggest = "end_points"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allocationState":
+            suggest = "allocation_state"
+        elif key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "clusterType":
+            suggest = "cluster_type"
+        elif key == "nodeCount":
+            suggest = "node_count"
+        elif key == "nodeSku":
+            suggest = "node_sku"
+        elif key == "provisionError":
+            suggest = "provision_error"
+        elif key == "replicationFactor":
+            suggest = "replication_factor"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GarnetClusterResourceResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GarnetClusterResourceResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GarnetClusterResourceResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_points: Sequence['outputs.GarnetClusterResourceResponseEndPoints'],
+                 provisioning_state: _builtins.str,
+                 allocation_state: Optional[_builtins.str] = None,
+                 availability_zone: Optional[_builtins.bool] = None,
+                 cluster_type: Optional[_builtins.str] = None,
+                 extensions: Optional[Sequence[_builtins.str]] = None,
+                 node_count: Optional[_builtins.int] = None,
+                 node_sku: Optional[_builtins.str] = None,
+                 provision_error: Optional['outputs.ErrorDetailResponse'] = None,
+                 replication_factor: Optional[_builtins.int] = None,
+                 subnet_id: Optional[_builtins.str] = None):
+        """
+        Properties of a Garnet cache cluster.
+        :param Sequence['GarnetClusterResourceResponseEndPoints'] end_points: endpoints for clients to connect to the cluster.
+        :param _builtins.str provisioning_state: The status of the resource at the time the operation was called.
+        :param _builtins.str allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        :param _builtins.bool availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        :param _builtins.str cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        :param Sequence[_builtins.str] extensions: Extensions to be added or updated on cluster.
+        :param _builtins.int node_count: Number of nodes
+        :param _builtins.str node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        :param 'ErrorDetailResponse' provision_error: Error related to resource provisioning.
+        :param _builtins.int replication_factor: Number of copies of data maintained by the cluster
+        :param _builtins.str subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        pulumi.set(__self__, "end_points", end_points)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if allocation_state is not None:
+            pulumi.set(__self__, "allocation_state", allocation_state)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if cluster_type is not None:
+            pulumi.set(__self__, "cluster_type", cluster_type)
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if node_sku is not None:
+            pulumi.set(__self__, "node_sku", node_sku)
+        if provision_error is not None:
+            pulumi.set(__self__, "provision_error", provision_error)
+        if replication_factor is not None:
+            pulumi.set(__self__, "replication_factor", replication_factor)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="endPoints")
+    def end_points(self) -> Sequence['outputs.GarnetClusterResourceResponseEndPoints']:
+        """
+        endpoints for clients to connect to the cluster.
+        """
+        return pulumi.get(self, "end_points")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the resource at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="allocationState")
+    def allocation_state(self) -> Optional[_builtins.str]:
+        """
+        Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+        """
+        return pulumi.get(self, "allocation_state")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[_builtins.bool]:
+        """
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def extensions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Extensions to be added or updated on cluster.
+        """
+        return pulumi.get(self, "extensions")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[_builtins.int]:
+        """
+        Number of nodes
+        """
+        return pulumi.get(self, "node_count")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeSku")
+    def node_sku(self) -> Optional[_builtins.str]:
+        """
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        """
+        return pulumi.get(self, "node_sku")
+
+    @_builtins.property
+    @pulumi.getter(name="provisionError")
+    def provision_error(self) -> Optional['outputs.ErrorDetailResponse']:
+        """
+        Error related to resource provisioning.
+        """
+        return pulumi.get(self, "provision_error")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationFactor")
+    def replication_factor(self) -> Optional[_builtins.int]:
+        """
+        Number of copies of data maintained by the cluster
+        """
+        return pulumi.get(self, "replication_factor")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Migration Entity Group resource.
  *
  * Uses Azure REST API version 2025-03-30-preview.
+ *
+ * Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MigrationEntityGroup extends pulumi.CustomResource {
     /**
@@ -99,7 +101,7 @@ export class MigrationEntityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20250330preview:MigrationEntityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20250330preview:MigrationEntityGroup" }, { type: "azure-native:migrate/v20251201preview:MigrationEntityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrationEntityGroup.__pulumiType, name, resourceInputs, opts);
     }

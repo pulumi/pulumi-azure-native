@@ -131,6 +131,8 @@ def get_migration_entity_group(migration_entity_group_name: Optional[_builtins.s
 
     Uses Azure REST API version 2025-03-30-preview.
 
+    Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str migration_entity_group_name: Migration Entity Group ARM name
     :param _builtins.str project_name: Migrate Project Name
@@ -159,6 +161,8 @@ def get_migration_entity_group_output(migration_entity_group_name: Optional[pulu
     Get a MigrationEntityGroup
 
     Uses Azure REST API version 2025-03-30-preview.
+
+    Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str migration_entity_group_name: Migration Entity Group ARM name

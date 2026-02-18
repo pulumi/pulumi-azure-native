@@ -24,6 +24,7 @@ __all__ = [
     'ClusterDesiredPropertiesResponse',
     'ClusterNodeResponse',
     'ClusterReportedPropertiesResponse',
+    'CreationDataResponse',
     'DefaultExtensionDetailsResponse',
     'DeploymentClusterResponse',
     'DeploymentConfigurationResponse',
@@ -170,6 +171,9 @@ __all__ = [
     'SecurityComplianceStatusResponse',
     'ServiceConfigurationResponse',
     'SiteDetailsResponse',
+    'SnapshotPropertiesResponse',
+    'SnapshotStatusProvisioningStatusResponse',
+    'SnapshotStatusResponse',
     'SoftwareAssurancePropertiesResponse',
     'SshConfigurationResponse',
     'SshPublicKeyResponse',
@@ -898,6 +902,72 @@ class ClusterReportedPropertiesResponse(dict):
         Level of diagnostic data emitted by the cluster.
         """
         return pulumi.get(self, "diagnostic_level")
+
+
+@pulumi.output_type
+class CreationDataResponse(dict):
+    """
+    Data used when creating a disk or snapshot
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "sourceUniqueId":
+            suggest = "source_unique_id"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreationDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_option: _builtins.str,
+                 source_unique_id: _builtins.str,
+                 source_resource_id: Optional[_builtins.str] = None):
+        """
+        Data used when creating a disk or snapshot
+        :param _builtins.str create_option: This enumerates the possible sources of a disk's creation
+        :param _builtins.str source_unique_id: Unique ID of the source resource used for disk creation. Read-only and not required for disk creation.
+        :param _builtins.str source_resource_id: ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "source_unique_id", source_unique_id)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> _builtins.str:
+        """
+        This enumerates the possible sources of a disk's creation
+        """
+        return pulumi.get(self, "create_option")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceUniqueId")
+    def source_unique_id(self) -> _builtins.str:
+        """
+        Unique ID of the source resource used for disk creation. Read-only and not required for disk creation.
+        """
+        return pulumi.get(self, "source_unique_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[_builtins.str]:
+        """
+        ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        return pulumi.get(self, "source_resource_id")
 
 
 @pulumi.output_type
@@ -12381,6 +12451,228 @@ class SiteDetailsResponse(dict):
         Edge Device configuration received from site common configuration.
         """
         return pulumi.get(self, "device_configuration")
+
+
+@pulumi.output_type
+class SnapshotPropertiesResponse(dict):
+    """
+    Properties under the snapshot resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeBytes":
+            suggest = "disk_size_bytes"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "timeCreated":
+            suggest = "time_created"
+        elif key == "uniqueId":
+            suggest = "unique_id"
+        elif key == "creationData":
+            suggest = "creation_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_size_bytes: _builtins.float,
+                 provisioning_state: _builtins.str,
+                 status: 'outputs.SnapshotStatusResponse',
+                 time_created: _builtins.str,
+                 unique_id: _builtins.str,
+                 creation_data: Optional['outputs.CreationDataResponse'] = None):
+        """
+        Properties under the snapshot resource
+        :param _builtins.float disk_size_bytes: The size of the disk in bytes.
+        :param _builtins.str provisioning_state: Provisioning state of the snapshot.
+        :param 'SnapshotStatusResponse' status: The observed state of snapshots
+        :param _builtins.str time_created: The time when the snapshot was created.
+        :param _builtins.str unique_id: Unique identifier for the snapshot.
+        :param 'CreationDataResponse' creation_data: Data used when creating a snapshot
+        """
+        pulumi.set(__self__, "disk_size_bytes", disk_size_bytes)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time_created", time_created)
+        pulumi.set(__self__, "unique_id", unique_id)
+        if creation_data is not None:
+            pulumi.set(__self__, "creation_data", creation_data)
+
+    @_builtins.property
+    @pulumi.getter(name="diskSizeBytes")
+    def disk_size_bytes(self) -> _builtins.float:
+        """
+        The size of the disk in bytes.
+        """
+        return pulumi.get(self, "disk_size_bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the snapshot.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.SnapshotStatusResponse':
+        """
+        The observed state of snapshots
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> _builtins.str:
+        """
+        The time when the snapshot was created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> _builtins.str:
+        """
+        Unique identifier for the snapshot.
+        """
+        return pulumi.get(self, "unique_id")
+
+    @_builtins.property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> Optional['outputs.CreationDataResponse']:
+        """
+        Data used when creating a snapshot
+        """
+        return pulumi.get(self, "creation_data")
+
+
+@pulumi.output_type
+class SnapshotStatusProvisioningStatusResponse(dict):
+    """
+    Snapshot Status provisioning status
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotStatusProvisioningStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotStatusProvisioningStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotStatusProvisioningStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 operation_id: Optional[_builtins.str] = None):
+        """
+        Snapshot Status provisioning status
+        :param _builtins.str status: The status of the operation performed on the snapshot [Succeeded, Failed, InProgress]
+        :param _builtins.str operation_id: The ID of the operation performed on the snapshot
+        """
+        pulumi.set(__self__, "status", status)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the operation performed on the snapshot [Succeeded, Failed, InProgress]
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the operation performed on the snapshot
+        """
+        return pulumi.get(self, "operation_id")
+
+
+@pulumi.output_type
+class SnapshotStatusResponse(dict):
+    """
+    The observed state of snapshots
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[_builtins.str] = None,
+                 error_message: Optional[_builtins.str] = None,
+                 provisioning_status: Optional['outputs.SnapshotStatusProvisioningStatusResponse'] = None):
+        """
+        The observed state of snapshots
+        :param _builtins.str error_code: Snapshot provisioning error code
+        :param _builtins.str error_message: Descriptive error message
+        :param 'SnapshotStatusProvisioningStatusResponse' provisioning_status: Provisioning status of the snapshot
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[_builtins.str]:
+        """
+        Snapshot provisioning error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[_builtins.str]:
+        """
+        Descriptive error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.SnapshotStatusProvisioningStatusResponse']:
+        """
+        Provisioning status of the snapshot
+        """
+        return pulumi.get(self, "provisioning_status")
 
 
 @pulumi.output_type

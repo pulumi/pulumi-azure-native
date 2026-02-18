@@ -26,10 +26,10 @@ __all__ = [
     'AccountPropertiesArgsDict',
     'AgentProtocolVersionArgs',
     'AgentProtocolVersionArgsDict',
-    'AgentReferenceArgs',
-    'AgentReferenceArgsDict',
-    'AgenticApplicationArgs',
-    'AgenticApplicationArgsDict',
+    'AgentReferencePropertiesArgs',
+    'AgentReferencePropertiesArgsDict',
+    'AgenticApplicationPropertiesArgs',
+    'AgenticApplicationPropertiesArgsDict',
     'ApiKeyAuthConnectionPropertiesArgs',
     'ApiKeyAuthConnectionPropertiesArgsDict',
     'ApiPropertiesArgs',
@@ -1086,7 +1086,7 @@ class AgentProtocolVersionArgs:
 
 
 if not MYPY:
-    class AgentReferenceArgsDict(TypedDict):
+    class AgentReferencePropertiesArgsDict(TypedDict):
         """
         Type modeling a reference to a version of an agent definition.
         """
@@ -1099,10 +1099,10 @@ if not MYPY:
         Gets the agent's name (unique within the project/app).
         """
 elif False:
-    AgentReferenceArgsDict: TypeAlias = Mapping[str, Any]
+    AgentReferencePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class AgentReferenceArgs:
+class AgentReferencePropertiesArgs:
     def __init__(__self__, *,
                  agent_id: Optional[pulumi.Input[_builtins.str]] = None,
                  agent_name: Optional[pulumi.Input[_builtins.str]] = None):
@@ -1142,7 +1142,7 @@ class AgentReferenceArgs:
 
 
 if not MYPY:
-    class AgenticApplicationArgsDict(TypedDict):
+    class AgenticApplicationPropertiesArgsDict(TypedDict):
         """
         Resource type representing an agentic application as a management construct.
         """
@@ -1150,7 +1150,7 @@ if not MYPY:
         """
         The EntraId Agentic Blueprint of the application.
         """
-        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgsDict']]]]
+        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentReferencePropertiesArgsDict']]]]
         """
         The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
         """
@@ -1183,13 +1183,13 @@ if not MYPY:
         Gets or sets the traffic routing policy for the application's deployments.
         """
 elif False:
-    AgenticApplicationArgsDict: TypeAlias = Mapping[str, Any]
+    AgenticApplicationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class AgenticApplicationArgs:
+class AgenticApplicationPropertiesArgs:
     def __init__(__self__, *,
                  agent_identity_blueprint: Optional[pulumi.Input['AssignedIdentityArgs']] = None,
-                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]]] = None,
+                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferencePropertiesArgs']]]] = None,
                  authorization_policy: Optional[pulumi.Input[Union['ChannelsBuiltInAuthorizationPolicyArgs', 'OrganizationSharedBuiltInAuthorizationPolicyArgs', 'RoleBasedBuiltInAuthorizationPolicyArgs']]] = None,
                  base_url: Optional[pulumi.Input[_builtins.str]] = None,
                  default_instance_identity: Optional[pulumi.Input['AssignedIdentityArgs']] = None,
@@ -1200,7 +1200,7 @@ class AgenticApplicationArgs:
         """
         Resource type representing an agentic application as a management construct.
         :param pulumi.Input['AssignedIdentityArgs'] agent_identity_blueprint: The EntraId Agentic Blueprint of the application.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]] agents: The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentReferencePropertiesArgs']]] agents: The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
         :param pulumi.Input[Union['ChannelsBuiltInAuthorizationPolicyArgs', 'OrganizationSharedBuiltInAuthorizationPolicyArgs', 'RoleBasedBuiltInAuthorizationPolicyArgs']] authorization_policy: Gets or sets the authorization policy associated with this agentic application instance.
         :param pulumi.Input[_builtins.str] base_url: The application's dedicated invocation endpoint.
         :param pulumi.Input['AssignedIdentityArgs'] default_instance_identity: The (default) agent instance identity of the application.
@@ -1242,14 +1242,14 @@ class AgenticApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]]]:
+    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferencePropertiesArgs']]]]:
         """
         The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
         """
         return pulumi.get(self, "agents")
 
     @agents.setter
-    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]]]):
+    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferencePropertiesArgs']]]]):
         pulumi.set(self, "agents", value)
 
     @_builtins.property

@@ -22,7 +22,7 @@ __all__ = [
     'IngestionPolicyPropertiesFormatResponse',
     'IngestionSourcesPropertiesFormatResponse',
     'ResourceReferenceResponse',
-    'TrackedResourceResponseSystemData',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -250,7 +250,7 @@ class ResourceReferenceResponse(dict):
 
 
 @pulumi.output_type
-class TrackedResourceResponseSystemData(dict):
+class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
@@ -263,26 +263,29 @@ class TrackedResourceResponseSystemData(dict):
             suggest = "created_by"
         elif key == "createdByType":
             suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
         elif key == "lastModifiedBy":
             suggest = "last_modified_by"
         elif key == "lastModifiedByType":
             suggest = "last_modified_by_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TrackedResourceResponseSystemData. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TrackedResourceResponseSystemData.__key_warning(key)
+        SystemDataResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TrackedResourceResponseSystemData.__key_warning(key)
+        SystemDataResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  created_at: Optional[_builtins.str] = None,
                  created_by: Optional[_builtins.str] = None,
                  created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
                  last_modified_by: Optional[_builtins.str] = None,
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
@@ -290,6 +293,7 @@ class TrackedResourceResponseSystemData(dict):
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
         :param _builtins.str last_modified_by: The identity that last modified the resource.
         :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -299,6 +303,8 @@ class TrackedResourceResponseSystemData(dict):
             pulumi.set(__self__, "created_by", created_by)
         if created_by_type is not None:
             pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
         if last_modified_by is not None:
             pulumi.set(__self__, "last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
@@ -327,6 +333,14 @@ class TrackedResourceResponseSystemData(dict):
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")

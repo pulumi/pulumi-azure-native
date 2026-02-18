@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get file shares usage data.
  *
  * Uses Azure REST API version 2025-06-01-preview.
+ *
+ * Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFileShareUsageData(args: GetFileShareUsageDataArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareUsageDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +41,8 @@ export interface GetFileShareUsageDataResult {
  * Get file shares usage data.
  *
  * Uses Azure REST API version 2025-06-01-preview.
+ *
+ * Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFileShareUsageDataOutput(args: GetFileShareUsageDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileShareUsageDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -26,7 +26,7 @@ export interface GetDeploymentStacksWhatIfResultsAtManagementGroupArgs {
      */
     deploymentStacksWhatIfResultName: string;
     /**
-     * The name of the management group. The name is case insensitive.
+     * The management group ID.
      */
     managementGroupId: string;
 }
@@ -87,7 +87,7 @@ export interface GetDeploymentStacksWhatIfResultsAtManagementGroupOutputArgs {
      */
     deploymentStacksWhatIfResultName: pulumi.Input<string>;
     /**
-     * The name of the management group. The name is case insensitive.
+     * The management group ID.
      */
     managementGroupId: pulumi.Input<string>;
 }

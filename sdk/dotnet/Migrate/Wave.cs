@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Migrate
     /// Migration Wave resource.
     /// 
     /// Uses Azure REST API version 2025-03-30-preview.
+    /// 
+    /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Wave")]
     public partial class Wave : global::Pulumi.CustomResource
@@ -79,6 +81,7 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20250330preview:Wave" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20251201preview:Wave" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

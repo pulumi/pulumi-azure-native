@@ -29,7 +29,7 @@ class DeploymentStacksWhatIfResultsAtManagementGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStacksWhatIfResultsAtManagementGroup resource.
-        :param pulumi.Input[_builtins.str] management_group_id: The name of the management group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] management_group_id: The management group ID.
         :param pulumi.Input[_builtins.str] deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         :param pulumi.Input['DeploymentStacksWhatIfResultPropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -49,7 +49,7 @@ class DeploymentStacksWhatIfResultsAtManagementGroupArgs:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the management group. The name is case insensitive.
+        The management group ID.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -127,7 +127,7 @@ class DeploymentStacksWhatIfResultsAtManagementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
-        :param pulumi.Input[_builtins.str] management_group_id: The name of the management group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] management_group_id: The management group ID.
         :param pulumi.Input[Union['DeploymentStacksWhatIfResultPropertiesArgs', 'DeploymentStacksWhatIfResultPropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """

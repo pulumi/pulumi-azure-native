@@ -66,8 +66,8 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.bool] is_authentication_with_ssh_key: Indicates whether this virtual machine uses an SSH key for authentication.
         :param pulumi.Input[_builtins.str] lab_subnet_name: The lab subnet name of the virtual machine.
         :param pulumi.Input[_builtins.str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the LabVirtualMachine
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] name: The name of the virtual machine.
         :param pulumi.Input['NetworkInterfacePropertiesArgs'] network_interface: The network interface properties.
         :param pulumi.Input[_builtins.str] notes: The notes of the virtual machine.
         :param pulumi.Input[_builtins.str] owner_object_id: The object identifier of the owner of the virtual machine.
@@ -78,7 +78,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.str] size: The size of the virtual machine.
         :param pulumi.Input[_builtins.str] ssh_key: The SSH key of the virtual machine administrator.
         :param pulumi.Input[_builtins.str] storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] user_name: The user name of the virtual machine.
         """
         pulumi.set(__self__, "lab_name", lab_name)
@@ -316,7 +316,7 @@ class VirtualMachineArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -328,7 +328,7 @@ class VirtualMachineArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the LabVirtualMachine
+        The name of the virtual machine.
         """
         return pulumi.get(self, "name")
 
@@ -460,7 +460,7 @@ class VirtualMachineArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -536,8 +536,8 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[_builtins.str] lab_subnet_name: The lab subnet name of the virtual machine.
         :param pulumi.Input[_builtins.str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the LabVirtualMachine
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] name: The name of the virtual machine.
         :param pulumi.Input[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']] network_interface: The network interface properties.
         :param pulumi.Input[_builtins.str] notes: The notes of the virtual machine.
         :param pulumi.Input[_builtins.str] owner_object_id: The object identifier of the owner of the virtual machine.
@@ -549,7 +549,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] size: The size of the virtual machine.
         :param pulumi.Input[_builtins.str] ssh_key: The SSH key of the virtual machine administrator.
         :param pulumi.Input[_builtins.str] storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] user_name: The user name of the virtual machine.
         """
         ...
@@ -666,6 +666,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["last_known_power_state"] = None
             __props__.__dict__["os_type"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_identifier"] = None
             __props__.__dict__["virtual_machine_creation_source"] = None
@@ -728,6 +729,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["size"] = None
         __props__.__dict__["ssh_key"] = None
         __props__.__dict__["storage_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_identifier"] = None
@@ -907,7 +909,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -915,7 +917,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -1016,10 +1018,18 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -1027,7 +1037,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

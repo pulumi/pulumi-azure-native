@@ -104,7 +104,7 @@ class Workspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-10. In version 2.x of the Azure Native provider, it used API version 2023-02-08-preview.
 
-        Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +124,7 @@ class Workspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-10. In version 2.x of the Azure Native provider, it used API version 2023-02-08-preview.
 
-        Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -165,7 +165,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20230208preview:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20240110:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20250401preview:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20250802:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20230208preview:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20240110:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20250401preview:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20250802:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20251201preview:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:iotfirmwaredefense:Workspace',

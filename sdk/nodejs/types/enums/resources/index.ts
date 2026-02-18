@@ -43,38 +43,6 @@ export const DeploymentMode = {
  */
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
-export const DeploymentStacksDeleteDetachEnum = {
-    /**
-     * Delete the specified resources from Azure
-     */
-    Delete: "delete",
-    /**
-     * Keep the specified resources in Azure
-     */
-    Detach: "detach",
-} as const;
-
-/**
- * Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
- */
-export type DeploymentStacksDeleteDetachEnum = (typeof DeploymentStacksDeleteDetachEnum)[keyof typeof DeploymentStacksDeleteDetachEnum];
-
-export const DeploymentStacksResourcesWithoutDeleteSupportEnum = {
-    /**
-     * Detach the specified resources from the deployment stack and continue
-     */
-    Detach: "detach",
-    /**
-     * Fail the deployment stack if resources cannot be deleted
-     */
-    Fail: "fail",
-} as const;
-
-/**
- * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
- */
-export type DeploymentStacksResourcesWithoutDeleteSupportEnum = (typeof DeploymentStacksResourcesWithoutDeleteSupportEnum)[keyof typeof DeploymentStacksResourcesWithoutDeleteSupportEnum];
-
 export const ExpressionEvaluationOptionsScopeType = {
     NotSpecified: "NotSpecified",
     Outer: "Outer",
@@ -126,6 +94,22 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
+export const ResourcesWithoutDeleteSupportAction = {
+    /**
+     * Detach the specified resources from the deployment stack and continue.
+     */
+    Detach: "detach",
+    /**
+     * Fail the deployment stack if resources cannot be deleted.
+     */
+    Fail: "fail",
+} as const;
+
+/**
+ * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+ */
+export type ResourcesWithoutDeleteSupportAction = (typeof ResourcesWithoutDeleteSupportAction)[keyof typeof ResourcesWithoutDeleteSupportAction];
+
 export const ScriptType = {
     AzurePowerShell: "AzurePowerShell",
     AzureCLI: "AzureCLI",
@@ -135,6 +119,54 @@ export const ScriptType = {
  * Type of the script.
  */
 export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
+
+export const UnmanageActionManagementGroupMode = {
+    /**
+     * Delete the management groups from Azure.
+     */
+    Delete: "delete",
+    /**
+     * Keep the management groups in Azure.
+     */
+    Detach: "detach",
+} as const;
+
+/**
+ * Specifies an action for a newly unmanaged resource management group.
+ */
+export type UnmanageActionManagementGroupMode = (typeof UnmanageActionManagementGroupMode)[keyof typeof UnmanageActionManagementGroupMode];
+
+export const UnmanageActionResourceGroupMode = {
+    /**
+     * Delete the resource groups from Azure.
+     */
+    Delete: "delete",
+    /**
+     * Keep the resource groups in Azure.
+     */
+    Detach: "detach",
+} as const;
+
+/**
+ * Specifies an action for a newly unmanaged resource group.
+ */
+export type UnmanageActionResourceGroupMode = (typeof UnmanageActionResourceGroupMode)[keyof typeof UnmanageActionResourceGroupMode];
+
+export const UnmanageActionResourceMode = {
+    /**
+     * Delete the resources from Azure
+     */
+    Delete: "delete",
+    /**
+     * Keep the resources in Azure
+     */
+    Detach: "detach",
+} as const;
+
+/**
+ * Specifies an action for a newly unmanaged resource.
+ */
+export type UnmanageActionResourceMode = (typeof UnmanageActionResourceMode)[keyof typeof UnmanageActionResourceMode];
 
 export const ValidationLevel = {
     /**

@@ -3,6 +3,9 @@
 
 
 export const DestinationType = {
+    /**
+     * AzureMonitor
+     */
     AzureMonitor: "AzureMonitor",
 } as const;
 
@@ -12,6 +15,9 @@ export const DestinationType = {
 export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
 
 export const EmissionType = {
+    /**
+     * IPFIX
+     */
     IPFIX: "IPFIX",
 } as const;
 
@@ -21,6 +27,9 @@ export const EmissionType = {
 export type EmissionType = (typeof EmissionType)[keyof typeof EmissionType];
 
 export const IngestionType = {
+    /**
+     * IPFIX
+     */
     IPFIX: "IPFIX",
 } as const;
 
@@ -30,6 +39,9 @@ export const IngestionType = {
 export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
 
 export const SourceType = {
+    /**
+     * Resource
+     */
     Resource: "Resource",
 } as const;
 

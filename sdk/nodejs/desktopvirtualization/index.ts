@@ -75,6 +75,11 @@ export const getScalingPlanPooledSchedule: typeof import("./getScalingPlanPooled
 export const getScalingPlanPooledScheduleOutput: typeof import("./getScalingPlanPooledSchedule").getScalingPlanPooledScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getScalingPlanPooledSchedule","getScalingPlanPooledScheduleOutput"], () => require("./getScalingPlanPooledSchedule"));
 
+export { GetSessionHostArgs, GetSessionHostResult, GetSessionHostOutputArgs } from "./getSessionHost";
+export const getSessionHost: typeof import("./getSessionHost").getSessionHost = null as any;
+export const getSessionHostOutput: typeof import("./getSessionHost").getSessionHostOutput = null as any;
+utilities.lazyLoad(exports, ["getSessionHost","getSessionHostOutput"], () => require("./getSessionHost"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -89,6 +94,11 @@ export { ListHostPoolRegistrationTokensArgs, ListHostPoolRegistrationTokensResul
 export const listHostPoolRegistrationTokens: typeof import("./listHostPoolRegistrationTokens").listHostPoolRegistrationTokens = null as any;
 export const listHostPoolRegistrationTokensOutput: typeof import("./listHostPoolRegistrationTokens").listHostPoolRegistrationTokensOutput = null as any;
 utilities.lazyLoad(exports, ["listHostPoolRegistrationTokens","listHostPoolRegistrationTokensOutput"], () => require("./listHostPoolRegistrationTokens"));
+
+export { ListSessionHostSingleRegistrationTokensArgs, ListSessionHostSingleRegistrationTokensResult, ListSessionHostSingleRegistrationTokensOutputArgs } from "./listSessionHostSingleRegistrationTokens";
+export const listSessionHostSingleRegistrationTokens: typeof import("./listSessionHostSingleRegistrationTokens").listSessionHostSingleRegistrationTokens = null as any;
+export const listSessionHostSingleRegistrationTokensOutput: typeof import("./listSessionHostSingleRegistrationTokens").listSessionHostSingleRegistrationTokensOutput = null as any;
+utilities.lazyLoad(exports, ["listSessionHostSingleRegistrationTokens","listSessionHostSingleRegistrationTokensOutput"], () => require("./listSessionHostSingleRegistrationTokens"));
 
 export { MSIXPackageArgs } from "./msixpackage";
 export type MSIXPackage = import("./msixpackage").MSIXPackage;
@@ -119,6 +129,11 @@ export { ScalingPlanPooledScheduleArgs } from "./scalingPlanPooledSchedule";
 export type ScalingPlanPooledSchedule = import("./scalingPlanPooledSchedule").ScalingPlanPooledSchedule;
 export const ScalingPlanPooledSchedule: typeof import("./scalingPlanPooledSchedule").ScalingPlanPooledSchedule = null as any;
 utilities.lazyLoad(exports, ["ScalingPlanPooledSchedule"], () => require("./scalingPlanPooledSchedule"));
+
+export { SessionHostArgs } from "./sessionHost";
+export type SessionHost = import("./sessionHost").SessionHost;
+export const SessionHost: typeof import("./sessionHost").SessionHost = null as any;
+utilities.lazyLoad(exports, ["SessionHost"], () => require("./sessionHost"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
@@ -153,6 +168,8 @@ const _module = {
                 return new ScalingPlanPersonalSchedule(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ScalingPlanPooledSchedule":
                 return new ScalingPlanPooledSchedule(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization:SessionHost":
+                return new SessionHost(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

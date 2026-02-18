@@ -11,6 +11,9 @@
   "Cloudngfw": [
     "2025-05-23"
   ],
+  "ComputeBulkActions": [
+    "2026-02-01-preview"
+  ],
   "ContainerStorage": [
     "2023-07-01-preview"
   ],

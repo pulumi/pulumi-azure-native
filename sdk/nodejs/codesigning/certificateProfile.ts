@@ -166,7 +166,7 @@ export class CertificateProfile extends pulumi.CustomResource {
  */
 export interface CertificateProfileArgs {
     /**
-     * Trusted Signing account name.
+     * Artifact Signing account name.
      */
     accountName: pulumi.Input<string>;
     /**

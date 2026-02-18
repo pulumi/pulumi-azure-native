@@ -13,6 +13,7 @@ __all__ = [
     'DeploymentMode',
     'DeviceKind',
     'DiagnosticLevel',
+    'DiskCreateOption',
     'DiskFileFormat',
     'EceSecrets',
     'EdgeDeviceKind',
@@ -134,6 +135,21 @@ class DiagnosticLevel(_builtins.str, Enum):
     OFF = "Off"
     BASIC = "Basic"
     ENHANCED = "Enhanced"
+
+
+@pulumi.type_token("azure-native:azurestackhci:DiskCreateOption")
+class DiskCreateOption(_builtins.str, Enum):
+    """
+    This enumerates the possible sources of a disk's creation
+    """
+    COPY = "Copy"
+    """
+    Create a disk by copying from a source resource
+    """
+    EMPTY = "Empty"
+    """
+    Create an empty disk
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:DiskFileFormat")

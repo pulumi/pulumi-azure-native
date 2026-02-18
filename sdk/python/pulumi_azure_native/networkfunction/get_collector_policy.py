@@ -90,7 +90,7 @@ class GetCollectorPolicyResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -114,7 +114,7 @@ class GetCollectorPolicyResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -128,9 +128,9 @@ class GetCollectorPolicyResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.TrackedResourceResponseSystemData':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -146,7 +146,7 @@ class GetCollectorPolicyResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -182,7 +182,7 @@ def get_collector_policy(azure_traffic_collector_name: Optional[_builtins.str] =
 
     :param _builtins.str azure_traffic_collector_name: Azure Traffic Collector name
     :param _builtins.str collector_policy_name: Collector Policy Name
-    :param _builtins.str resource_group_name: The name of the resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['azureTrafficCollectorName'] = azure_traffic_collector_name
@@ -215,7 +215,7 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
 
     :param _builtins.str azure_traffic_collector_name: Azure Traffic Collector name
     :param _builtins.str collector_policy_name: Collector Policy Name
-    :param _builtins.str resource_group_name: The name of the resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['azureTrafficCollectorName'] = azure_traffic_collector_name

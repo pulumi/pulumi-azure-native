@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         /// <summary>
         /// End time for recurrence.
         /// </summary>
-        [Input("endTime", required: true)]
-        public Input<string> EndTime { get; set; } = null!;
+        [Input("endTime")]
+        public Input<string>? EndTime { get; set; }
 
         /// <summary>
         /// Specifies when the recurrence should be applied.
@@ -31,8 +31,8 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         /// <summary>
         /// Start time for recurrence.
         /// </summary>
-        [Input("startTime", required: true)]
-        public Input<string> StartTime { get; set; } = null!;
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
 
         public DailyRecurrenceArgs()
         {

@@ -26,6 +26,8 @@ __all__ = [
     'BackendAddressPoolArgsDict',
     'ClusterDesiredPropertiesArgs',
     'ClusterDesiredPropertiesArgsDict',
+    'CreationDataArgs',
+    'CreationDataArgsDict',
     'DeploymentClusterArgs',
     'DeploymentClusterArgsDict',
     'DeploymentConfigurationArgs',
@@ -184,6 +186,8 @@ __all__ = [
     'ServiceConfigurationArgsDict',
     'SiteDetailsArgs',
     'SiteDetailsArgsDict',
+    'SnapshotPropertiesArgs',
+    'SnapshotPropertiesArgsDict',
     'SoftwareAssurancePropertiesArgs',
     'SoftwareAssurancePropertiesArgsDict',
     'SshConfigurationArgs',
@@ -614,6 +618,61 @@ class ClusterDesiredPropertiesArgs:
     @windows_server_subscription.setter
     def windows_server_subscription(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WindowsServerSubscription']]]):
         pulumi.set(self, "windows_server_subscription", value)
+
+
+if not MYPY:
+    class CreationDataArgsDict(TypedDict):
+        """
+        Data used when creating a disk or snapshot
+        """
+        create_option: pulumi.Input[Union[_builtins.str, 'DiskCreateOption']]
+        """
+        This enumerates the possible sources of a disk's creation
+        """
+        source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+elif False:
+    CreationDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CreationDataArgs:
+    def __init__(__self__, *,
+                 create_option: pulumi.Input[Union[_builtins.str, 'DiskCreateOption']],
+                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Data used when creating a disk or snapshot
+        :param pulumi.Input[Union[_builtins.str, 'DiskCreateOption']] create_option: This enumerates the possible sources of a disk's creation
+        :param pulumi.Input[_builtins.str] source_resource_id: ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        pulumi.set(__self__, "create_option", create_option)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> pulumi.Input[Union[_builtins.str, 'DiskCreateOption']]:
+        """
+        This enumerates the possible sources of a disk's creation
+        """
+        return pulumi.get(self, "create_option")
+
+    @create_option.setter
+    def create_option(self, value: pulumi.Input[Union[_builtins.str, 'DiskCreateOption']]):
+        pulumi.set(self, "create_option", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_resource_id", value)
 
 
 if not MYPY:
@@ -6977,6 +7036,42 @@ class SiteDetailsArgs:
     @device_configuration.setter
     def device_configuration(self, value: Optional[pulumi.Input['TargetDeviceConfigurationArgs']]):
         pulumi.set(self, "device_configuration", value)
+
+
+if not MYPY:
+    class SnapshotPropertiesArgsDict(TypedDict):
+        """
+        Properties under the snapshot resource
+        """
+        creation_data: NotRequired[pulumi.Input['CreationDataArgsDict']]
+        """
+        Data used when creating a snapshot
+        """
+elif False:
+    SnapshotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SnapshotPropertiesArgs:
+    def __init__(__self__, *,
+                 creation_data: Optional[pulumi.Input['CreationDataArgs']] = None):
+        """
+        Properties under the snapshot resource
+        :param pulumi.Input['CreationDataArgs'] creation_data: Data used when creating a snapshot
+        """
+        if creation_data is not None:
+            pulumi.set(__self__, "creation_data", creation_data)
+
+    @_builtins.property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> Optional[pulumi.Input['CreationDataArgs']]:
+        """
+        Data used when creating a snapshot
+        """
+        return pulumi.get(self, "creation_data")
+
+    @creation_data.setter
+    def creation_data(self, value: Optional[pulumi.Input['CreationDataArgs']]):
+        pulumi.set(self, "creation_data", value)
 
 
 if not MYPY:

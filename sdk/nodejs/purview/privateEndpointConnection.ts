@@ -46,7 +46,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Gets or sets the name.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -62,11 +62,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.purview.ProxyResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.purview.SystemDataResponse>;
     /**
-     * Gets or sets the type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -134,7 +134,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     privateLinkServiceConnectionState?: pulumi.Input<inputs.purview.PrivateLinkServiceConnectionStateArgs>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

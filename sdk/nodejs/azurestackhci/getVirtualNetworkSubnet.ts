@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * The operation to get a virtual network subnet.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualNetworkSubnet(args: GetVirtualNetworkSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkSubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +75,8 @@ export interface GetVirtualNetworkSubnetResult {
  * The operation to get a virtual network subnet.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualNetworkSubnetOutput(args: GetVirtualNetworkSubnetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkSubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

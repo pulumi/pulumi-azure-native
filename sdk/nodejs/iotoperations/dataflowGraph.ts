@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-07-01-preview.
  *
- * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-10-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DataflowGraph extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class DataflowGraph extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20250701preview:DataflowGraph" }, { type: "azure-native:iotoperations/v20251001:DataflowGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20250701preview:DataflowGraph" }, { type: "azure-native:iotoperations/v20251001:DataflowGraph" }, { type: "azure-native:iotoperations/v20260301:DataflowGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataflowGraph.__pulumiType, name, resourceInputs, opts);
     }

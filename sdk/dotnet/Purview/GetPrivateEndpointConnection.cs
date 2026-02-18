@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Purview
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Purview
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets or sets the name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.ProxyResourceResponseSystemData SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Gets or sets the type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Purview
 
             string provisioningState,
 
-            Outputs.ProxyResourceResponseSystemData systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

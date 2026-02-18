@@ -28,7 +28,7 @@ export interface GetDeploymentStackAtManagementGroupArgs {
      */
     deploymentStackName: string;
     /**
-     * The name of the management group. The name is case insensitive.
+     * The management group ID.
      */
     managementGroupId: string;
 }
@@ -84,7 +84,7 @@ export interface GetDeploymentStackAtManagementGroupResult {
     /**
      * The error detail.
      */
-    readonly error?: outputs.resources.ErrorDetailResponse;
+    readonly error: outputs.resources.ErrorDetailResponse;
     /**
      * An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
      */
@@ -155,7 +155,7 @@ export interface GetDeploymentStackAtManagementGroupOutputArgs {
      */
     deploymentStackName: pulumi.Input<string>;
     /**
-     * The name of the management group. The name is case insensitive.
+     * The management group ID.
      */
     managementGroupId: pulumi.Input<string>;
 }

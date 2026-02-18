@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['DiskArgs', 'Disk']
@@ -45,11 +46,11 @@ class DiskArgs:
         :param pulumi.Input[_builtins.str] disk_uri: When backed by a blob, the URI of underlying blob.
         :param pulumi.Input[_builtins.str] host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
         :param pulumi.Input[_builtins.str] leased_by_lab_vm_id: The resource ID of the VM to which this disk is leased.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Disk
+        :param pulumi.Input[_builtins.str] name: The name of the disk.
         :param pulumi.Input[_builtins.str] storage_account_id: When backed by a blob, the storage account where the blob is.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "lab_name", lab_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -189,7 +190,7 @@ class DiskArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -213,7 +214,7 @@ class DiskArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Disk
+        The name of the disk.
         """
         return pulumi.get(self, "name")
 
@@ -237,7 +238,7 @@ class DiskArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -281,12 +282,12 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[_builtins.str] leased_by_lab_vm_id: The resource ID of the VM to which this disk is leased.
-        :param pulumi.Input[_builtins.str] location: The location of the resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Disk
+        :param pulumi.Input[_builtins.str] name: The name of the disk.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_account_id: When backed by a blob, the storage account where the blob is.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] user_name: The name of the user profile.
         """
         ...
@@ -361,6 +362,7 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_identifier"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab/v20160515:Disk"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Disk")])
@@ -400,6 +402,7 @@ class Disk(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["storage_account_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_identifier"] = None
@@ -473,7 +476,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -489,7 +492,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -510,10 +513,18 @@ class Disk(pulumi.CustomResource):
         return pulumi.get(self, "storage_account_id")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -521,7 +532,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
