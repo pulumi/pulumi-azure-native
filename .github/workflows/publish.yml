@@ -30,7 +30,7 @@ env:
 
 jobs:
   publish-provider:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: publish-provider
     permissions:
       id-token: write # For ESC secrets.
@@ -134,7 +134,7 @@ jobs:
           status: ${{ job.status }}
 
   publish-python-sdk:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: publish-python-sdk
     needs: publish-provider
     permissions:
@@ -188,7 +188,7 @@ jobs:
           status: ${{ job.status }}
 
   publish-dotnet-sdk:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: publish-dotnet-sdk
     needs: publish-provider
     permissions:
@@ -241,7 +241,7 @@ jobs:
           status: ${{ job.status }}
 
   publish-nodejs-sdk:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: publish-nodejs-sdk
     needs: publish-provider
     permissions:
@@ -293,7 +293,7 @@ jobs:
           status: ${{ job.status }}
 
   publish-java-sdk:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: publish-java-sdk
     needs: publish-provider
     env:
@@ -357,7 +357,7 @@ jobs:
           status: ${{ job.status }}
 
   publish-go-sdk:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: publish-go-sdk
     needs: publish-provider
     permissions:
