@@ -376,6 +376,9 @@ export const ManagedPERequirement = {
     NotApplicable: "NotApplicable",
 } as const;
 
+/**
+ * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+ */
 export type ManagedPERequirement = (typeof ManagedPERequirement)[keyof typeof ManagedPERequirement];
 
 export const ManagedPEStatus = {
@@ -384,6 +387,9 @@ export const ManagedPEStatus = {
     NotApplicable: "NotApplicable",
 } as const;
 
+/**
+ * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+ */
 export type ManagedPEStatus = (typeof ManagedPEStatus)[keyof typeof ManagedPEStatus];
 
 export const NetworkRuleAction = {
@@ -514,6 +520,16 @@ export const RuleType = {
  * Type of a managed network Outbound Rule of a cognitive services account.
  */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+export const ScenarioType = {
+    None: "none",
+    Agent: "agent",
+} as const;
+
+/**
+ * Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
+ */
+export type ScenarioType = (typeof ScenarioType)[keyof typeof ScenarioType];
 
 export const SkuTier = {
     Free: "Free",

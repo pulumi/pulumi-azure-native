@@ -38,6 +38,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         [Input("credentials")]
         public Input<Inputs.CustomKeysArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// Provides the error message if the connection fails
+        /// </summary>
         [Input("error")]
         public Input<string>? Error { get; set; }
 
@@ -59,9 +62,15 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
             set => _metadata = value;
         }
 
+        /// <summary>
+        /// Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        /// </summary>
         [Input("peRequirement")]
         public InputUnion<string, Pulumi.AzureNative.CognitiveServices.ManagedPERequirement>? PeRequirement { get; set; }
 
+        /// <summary>
+        /// Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        /// </summary>
         [Input("peStatus")]
         public InputUnion<string, Pulumi.AzureNative.CognitiveServices.ManagedPEStatus>? PeStatus { get; set; }
 
@@ -73,6 +82,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
             set => _sharedUserList = value;
         }
 
+        /// <summary>
+        /// The connection URL to be used.
+        /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 

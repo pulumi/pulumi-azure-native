@@ -24,6 +24,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         public readonly string? Category;
         public readonly string CreatedByWorkspaceArmId;
         public readonly Outputs.ConnectionAccessKeyResponse? Credentials;
+        /// <summary>
+        /// Provides the error message if the connection fails
+        /// </summary>
         public readonly string? Error;
         public readonly string? ExpiryTime;
         /// <summary>
@@ -35,9 +38,18 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// Store user metadata for this connection
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
+        /// <summary>
+        /// Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        /// </summary>
         public readonly string? PeRequirement;
+        /// <summary>
+        /// Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        /// </summary>
         public readonly string? PeStatus;
         public readonly ImmutableArray<string> SharedUserList;
+        /// <summary>
+        /// The connection URL to be used.
+        /// </summary>
         public readonly string? Target;
         public readonly bool? UseWorkspaceManagedIdentity;
 

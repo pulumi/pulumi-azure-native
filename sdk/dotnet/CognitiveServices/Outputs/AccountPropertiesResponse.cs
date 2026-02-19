@@ -20,15 +20,23 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// The abuse penalty.
         /// </summary>
         public readonly Outputs.AbusePenaltyResponse AbusePenalty;
+        /// <summary>
+        /// Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
+        /// </summary>
+        public readonly bool? AllowProjectManagement;
         public readonly ImmutableArray<string> AllowedFqdnList;
         /// <summary>
-        /// The user owned AML workspace properties.
+        /// The user owned AML account properties.
         /// </summary>
         public readonly Outputs.UserOwnedAmlWorkspaceResponse? AmlWorkspace;
         /// <summary>
         /// The api properties for special APIs.
         /// </summary>
         public readonly Outputs.ApiPropertiesResponse? ApiProperties;
+        /// <summary>
+        /// Specifies the projects, by project name, that are associated with this resource.
+        /// </summary>
+        public readonly ImmutableArray<string> AssociatedProjects;
         /// <summary>
         /// The call rate limit Cognitive Services account.
         /// </summary>
@@ -49,6 +57,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// Gets the date of cognitive services account creation.
         /// </summary>
         public readonly string DateCreated;
+        /// <summary>
+        /// Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
+        /// </summary>
+        public readonly string? DefaultProject;
         /// <summary>
         /// The deletion date, only available for deleted account.
         /// </summary>
@@ -87,6 +99,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// A collection of rules governing the accessibility from specific network locations.
         /// </summary>
         public readonly Outputs.NetworkRuleSetResponse? NetworkAcls;
+        public readonly ImmutableArray<Outputs.NetworkInjectionResponse> NetworkInjections;
         /// <summary>
         /// The private endpoint connection associated with the Cognitive Services account.
         /// </summary>
@@ -122,11 +135,15 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         private AccountPropertiesResponse(
             Outputs.AbusePenaltyResponse abusePenalty,
 
+            bool? allowProjectManagement,
+
             ImmutableArray<string> allowedFqdnList,
 
             Outputs.UserOwnedAmlWorkspaceResponse? amlWorkspace,
 
             Outputs.ApiPropertiesResponse? apiProperties,
+
+            ImmutableArray<string> associatedProjects,
 
             Outputs.CallRateLimitResponse callRateLimit,
 
@@ -137,6 +154,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             string? customSubDomainName,
 
             string dateCreated,
+
+            string? defaultProject,
 
             string deletionDate,
 
@@ -160,6 +179,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             Outputs.NetworkRuleSetResponse? networkAcls,
 
+            ImmutableArray<Outputs.NetworkInjectionResponse> networkInjections,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
@@ -179,14 +200,17 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             ImmutableArray<Outputs.UserOwnedStorageResponse> userOwnedStorage)
         {
             AbusePenalty = abusePenalty;
+            AllowProjectManagement = allowProjectManagement;
             AllowedFqdnList = allowedFqdnList;
             AmlWorkspace = amlWorkspace;
             ApiProperties = apiProperties;
+            AssociatedProjects = associatedProjects;
             CallRateLimit = callRateLimit;
             Capabilities = capabilities;
             CommitmentPlanAssociations = commitmentPlanAssociations;
             CustomSubDomainName = customSubDomainName;
             DateCreated = dateCreated;
+            DefaultProject = defaultProject;
             DeletionDate = deletionDate;
             DisableLocalAuth = disableLocalAuth;
             DynamicThrottlingEnabled = dynamicThrottlingEnabled;
@@ -198,6 +222,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             Locations = locations;
             MigrationToken = migrationToken;
             NetworkAcls = networkAcls;
+            NetworkInjections = networkInjections;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
