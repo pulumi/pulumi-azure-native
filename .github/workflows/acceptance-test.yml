@@ -23,7 +23,7 @@ on:
 
 jobs:
   comment-notification:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
       - name: Create URL to the run output
         id: vars

@@ -53,7 +53,7 @@ env:
 
 jobs:
   prerequisites:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: Build binaries and schema
     steps:
       - name: Checkout Repo
@@ -93,8 +93,7 @@ jobs:
 
   build_sdks:
     needs: [prerequisites,test_provider]
-    # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
-    runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
+    runs-on: pulumi-ubuntu-8core
     strategy:
       fail-fast: false
       matrix:
@@ -174,8 +173,7 @@ jobs:
 
   test_sdks:
     needs: build_sdks
-    # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
-    runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
+    runs-on: pulumi-ubuntu-8core
     environment: env-ci
     strategy:
       fail-fast: false
@@ -254,7 +252,7 @@ jobs:
 
   test_examples:
     needs: build_sdks
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: Test pulumi/examples
     continue-on-error: true
     strategy:
@@ -319,7 +317,7 @@ jobs:
             go test -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
   test_provider:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: Test Provider
     needs: prerequisites
     permissions:
@@ -399,7 +397,7 @@ jobs:
           CODECOV_TOKEN: ${{ steps.esc-secrets.outputs.CODECOV_TOKEN }}
 
   dist:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: Provider Dist
     needs: prerequisites
     permissions:

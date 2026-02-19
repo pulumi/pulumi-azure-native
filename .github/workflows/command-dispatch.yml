@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
       id-token: write # For ESC secrets.
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: command-dispatch-for-testing
     if: ${{ github.event.issue.pull_request }}
     steps:
