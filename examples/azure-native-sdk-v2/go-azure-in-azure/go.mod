@@ -3,13 +3,13 @@ module go-azure-in-azure
 go 1.23
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/authorization/v3 v3.10.1
-	github.com/pulumi/pulumi-azure-native-sdk/compute/v3 v3.10.1
-	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.11.0-alpha.1763062140
-	github.com/pulumi/pulumi-azure-native-sdk/network/v3 v3.11.0-alpha.1763062140
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.11.0-alpha.1763062140
-	github.com/pulumi/pulumi-command/sdk v1.1.3
-	github.com/pulumi/pulumi-tls/sdk/v5 v5.2.3
+	github.com/pulumi/pulumi-azure-native-sdk/authorization/v3 v3.13.0
+	github.com/pulumi/pulumi-azure-native-sdk/compute/v3 v3.13.0
+	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.13.0
+	github.com/pulumi/pulumi-azure-native-sdk/network/v3 v3.13.0
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.13.0
+	github.com/pulumi/pulumi-command/sdk v1.2.0
+	github.com/pulumi/pulumi-tls/sdk/v5 v5.3.0
 	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
@@ -77,8 +77,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.20.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.11.0 // indirect
+	github.com/pulumi/esc v0.22.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.13.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect

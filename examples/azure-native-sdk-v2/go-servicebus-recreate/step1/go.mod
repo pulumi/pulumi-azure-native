@@ -3,8 +3,8 @@ module go-servicebus-recreate
 go 1.22
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.11.0-alpha.1763062140
-	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.11.0-alpha.1763062140
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.13.0
+	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.13.0
 	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
@@ -65,8 +65,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.20.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.11.0 // indirect
+	github.com/pulumi/esc v0.22.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.13.0 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
