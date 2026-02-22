@@ -395,8 +395,8 @@ github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
 github.com/pulumi/esc v0.22.0 h1:Kbk0kIPsoIu6vnLgKtiE8AKRfl8B8bg6adiQuwJiBjA=
 github.com/pulumi/esc v0.22.0/go.mod h1:mkghIFn/TvN3XnP4jmCB4U5BG1I4UjGluARi39ckrCE=
-github.com/pulumi/examples/misc/test v0.0.0-20260221221427-345561fd752f h1:sMxQPlQQXvqFPPfFO9gQuzWJ3lAWxLd5l7YSA+mwbio=
-github.com/pulumi/examples/misc/test v0.0.0-20260221221427-345561fd752f/go.mod h1:UQAA86iTJpbZ2GYY7S2b1ZrMdGfIIIr8DkEn7pkr2/U=
+github.com/pulumi/examples/misc/test v0.0.0-20260222061840-f47c376c729b h1:BSyj6MsLUni1H+v0Kk/Izz/jh/2oJd0P85ku+jIGW0o=
+github.com/pulumi/examples/misc/test v0.0.0-20260222061840-f47c376c729b/go.mod h1:5oSkeLcvxbqPQR09cyChzTU8JkjtWhR2eSqjB/ix2lI=
 github.com/pulumi/providertest v0.6.0 h1:ZnefsbhkPE+BpKienHgb38P/6SEtXjjOXGGdMEUIOgk=
 github.com/pulumi/providertest v0.6.0/go.mod h1:OBpIGSQrw1FW9VNaHBtKCRxEoTISvx8JsxECmRqRgRQ=
 github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.13.0 h1:zLnAFfEiKhYg3up/tHICRD592oSsERAthP20JVCNhaY=
