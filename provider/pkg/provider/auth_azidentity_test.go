@@ -14,10 +14,12 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 )
 
 //go:embed test.pfx
@@ -270,17 +272,108 @@ func TestNewCredential(t *testing.T) {
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
 
-	t.Run("OIDC with wrong token file", func(t *testing.T) {
-		conf := &authConfiguration{
-			useOidc:           true,
-			oidcTokenFilePath: filepath.Join(t.TempDir(), "foo"),
-			clientId:          "client-id",
-			tenantId:          "tenant-id",
-			subscriptionId:    "subscription-id",
+	t.Run("OIDC token file is re-read on each GetToken call", func(t *testing.T) {
+		tokenFile := filepath.Join(t.TempDir(), "rotating.token")
+		require.NoError(t, os.WriteFile(tokenFile, []byte("first-token"), 0644))
+
+		// Mock Azure AD OIDC discovery so the SDK reaches the assertion callback
+		// instead of failing on tenant validation.
+		// Track the client_assertion values sent to the token endpoint.
+		var assertions []string
+		var tsURL string
+		ts := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Content-Type", "application/json")
+			if r.URL.Path == "/tenant-id/v2.0/.well-known/openid-configuration" {
+				w.Write([]byte(`{"issuer":"` + tsURL + `/tenant-id/v2.0","token_endpoint":"` + tsURL + `/tenant-id/oauth2/v2.0/token","authorization_endpoint":"` + tsURL + `/tenant-id/oauth2/v2.0/authorize"}`))
+				return
+			}
+			if r.URL.Path == "/tenant-id/oauth2/v2.0/token" && r.Method == http.MethodPost {
+				r.ParseForm()
+				assertions = append(assertions, r.FormValue("client_assertion"))
+				// Return an access token that expires immediately so the next call
+				// triggers a fresh token acquisition with the assertion callback.
+				w.Write([]byte(`{"access_token":"fake","token_type":"Bearer","expires_in":0}`))
+				return
+			}
+			w.WriteHeader(400)
+		}))
+		defer ts.Close()
+		tsURL = ts.URL
+
+		clientOpts := azcore.ClientOptions{
+			Cloud: azcloud.Configuration{
+				ActiveDirectoryAuthorityHost: ts.URL + "/",
+			},
+			Transport: ts.Client(),
 		}
-		_, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
+		conf := &authConfiguration{
+			useOidc:                  true,
+			oidcTokenFilePath:        tokenFile,
+			clientId:                 "client-id",
+			tenantId:                 "tenant-id",
+			subscriptionId:           "subscription-id",
+			disableInstanceDiscovery: true,
+		}
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, clientOpts)
+		require.NoError(t, err)
+
+		_, err = cred.GetToken(context.Background(), policy.TokenRequestOptions{
+			Scopes: []string{"https://management.azure.com/.default"},
+		})
+		require.NoError(t, err)
+		require.Len(t, assertions, 1)
+		require.Equal(t, "first-token", assertions[0])
+
+		require.NoError(t, os.WriteFile(tokenFile, []byte("second-token"), 0644))
+
+		_, err = cred.GetToken(context.Background(), policy.TokenRequestOptions{
+			Scopes: []string{"https://graph.microsoft.com/.default"},
+		})
+		require.NoError(t, err)
+		require.Len(t, assertions, 2)
+		require.Equal(t, "second-token", assertions[1])
+	})
+
+	t.Run("OIDC with wrong token file", func(t *testing.T) {
+		// Mock Azure AD OIDC discovery so the SDK reaches the assertion callback
+		// instead of failing on tenant validation.
+		var tsURL string
+		ts := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Content-Type", "application/json")
+			if r.URL.Path == "/tenant-id/v2.0/.well-known/openid-configuration" {
+				w.Write([]byte(`{"issuer":"` + tsURL + `/tenant-id/v2.0","token_endpoint":"` + tsURL + `/tenant-id/oauth2/v2.0/token","authorization_endpoint":"` + tsURL + `/tenant-id/oauth2/v2.0/authorize"}`))
+				return
+			}
+			w.WriteHeader(400)
+			w.Write([]byte(`{"error":"unexpected request"}`))
+		}))
+		defer ts.Close()
+		tsURL = ts.URL
+
+		clientOpts := azcore.ClientOptions{
+			Cloud: azcloud.Configuration{
+				ActiveDirectoryAuthorityHost: ts.URL + "/",
+			},
+			Transport: ts.Client(),
+		}
+		conf := &authConfiguration{
+			useOidc:                  true,
+			oidcTokenFilePath:        filepath.Join(t.TempDir(), "foo"),
+			clientId:                 "client-id",
+			tenantId:                 "tenant-id",
+			subscriptionId:           "subscription-id",
+			disableInstanceDiscovery: true,
+		}
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, clientOpts)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+
+		_, err = cred.GetToken(context.Background(), policy.TokenRequestOptions{
+			Scopes: []string{"https://management.azure.com/.default"},
+		})
 		require.Error(t, err)
-		require.ErrorIs(t, err, os.ErrNotExist)
+		require.ErrorContains(t, err, "failed to read OIDC token")
+		require.ErrorContains(t, err, "no such file or directory")
 	})
 
 	t.Run("OIDC with token exchange URL", func(t *testing.T) {
