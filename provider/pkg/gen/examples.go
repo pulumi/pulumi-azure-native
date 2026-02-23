@@ -21,10 +21,10 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
+	"github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
@@ -63,7 +63,7 @@ func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.A
 
 	// cache to speed up code generation
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
-	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{ 
+	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{
 		AllowDanglingReferences: true,
 	})
 	if err != nil {
