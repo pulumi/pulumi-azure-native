@@ -101,11 +101,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, extraUserAgent stri
 ) (AzureClient, error) {
 	// Hook our logging up to the azcore logger.
 	log.SetListener(func(event log.Event, msg string) {
-		// Retry logging is very verbose and the number of the retry attempt is already contained
-		// in the response event.
-		if event != log.EventRetryPolicy {
-			logging.V(9).Infof("[azcore] %v: %s", event, msg)
-		}
+		logging.V(9).Infof("[azcore] %v: %s", event, msg)
 	})
 
 	opts := initPipelineOpts(azureCloud, userOpts)

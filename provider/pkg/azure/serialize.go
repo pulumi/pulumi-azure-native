@@ -9,13 +9,17 @@ import (
 // Resource type patterns that require serialization due to exclusive lock constraints
 var (
 	// Web Apps require serialization due to limitations on handling hardware infrastructure in the AZ Core SDK.
-	webAppResourcePattern = "/providers/Microsoft.Web/sites/"
+	webAppResourcePattern         = "/providers/Microsoft.Web/sites/"
+	networkPrivateEndpointPattern = "/providers/Microsoft.Network/privateEndpoints/"
 )
 
-// needsSerialization returns true for any resource that needs to be serialized.
+// needsSerialization returns true for any resource that needs to be serialized
+// i.e. resource for which the operations need to be handled in a sequantial manner to avoid concurrency issues.
 func needsSerialization(resourceID string) bool {
 	switch {
 	case strings.Contains(resourceID, webAppResourcePattern):
+		return true
+	case strings.Contains(resourceID, networkPrivateEndpointPattern):
 		return true
 	default:
 		return false
@@ -36,6 +40,9 @@ func (c *azCoreClient) extractSerializationKeyForDelete(ctx context.Context, id,
 		}
 		// Fall back to resource group if we can't get App Service Plan ID
 		return extractResourceGroupFromID(id)
+	case strings.Contains(id, networkPrivateEndpointPattern):
+		// Network.PrivateEndPoint: extract private endpoint name from ID
+		return extractPrivateEndpointNameFromID(id)
 	default:
 		return ""
 	}
@@ -47,6 +54,8 @@ func extractSerializationKeyForPutOrPatch(id string, bodyProps map[string]any) s
 	case strings.Contains(id, webAppResourcePattern):
 		// Web Apps: extract App Service Plan ID from bodyProps
 		return extractAppServicePlanID(bodyProps)
+	case strings.Contains(id, networkPrivateEndpointPattern):
+		return extractPrivateEndpointNameFromID(id)
 	default:
 		return ""
 	}
@@ -62,6 +71,20 @@ func extractResourceGroupFromID(resourceID string) string {
 		}
 	}
 	return ""
+}
+
+// Extracts the name of the private endpoint from its resource ID which is of the form:
+// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}
+// returns {privateEndpointName} if the pattern matches, or falls back to resource group name if it doesn't.
+func extractPrivateEndpointNameFromID(resourceID string) string {
+	parts := strings.Split(resourceID, "/")
+	for i, part := range parts {
+		if part == "privateEndpoints" && i+1 < len(parts) {
+			return parts[i+1]
+		}
+	}
+
+	return extractResourceGroupFromID(resourceID)
 }
 
 // extractAppServicePlanID extracts the App Service Plan ID from a request body or resource properties.
