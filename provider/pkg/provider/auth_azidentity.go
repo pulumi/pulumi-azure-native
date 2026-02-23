@@ -250,14 +250,12 @@ func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOpti
 		return nil, fmt.Errorf(fmtErrorMessage, "Client ID")
 	}
 
-	// The generic client assertion that simply returns the token it was created with.
-	oidcTokenCredentialCallback := func(token string) (azcore.TokenCredential, error) {
+	// Creates a client assertion credential using the given assertion callback.
+	oidcTokenCredentialCallback := func(getAssertion func(context.Context) (string, error)) (azcore.TokenCredential, error) {
 		return azidentity.NewClientAssertionCredential(
 			authConf.tenantId,
 			authConf.clientId,
-			func(ctx context.Context) (string, error) {
-				return token, nil
-			},
+			getAssertion,
 			&azidentity.ClientAssertionCredentialOptions{
 				ClientOptions:            clientOpts,
 				DisableInstanceDiscovery: authConf.disableInstanceDiscovery,
@@ -265,27 +263,24 @@ func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOpti
 	}
 
 	if authConf.oidcToken != "" {
-		return oidcTokenCredentialCallback(authConf.oidcToken)
+		return oidcTokenCredentialCallback(func(_ context.Context) (string, error) {
+			return authConf.oidcToken, nil
+		})
 	}
 
 	if authConf.oidcTokenFilePath != "" {
-		token, err := os.ReadFile(authConf.oidcTokenFilePath)
-		if err != nil {
-			return nil, fmt.Errorf("failed to read OIDC token from %s: %w", authConf.oidcTokenFilePath, err)
-		}
-		return oidcTokenCredentialCallback(string(token))
+		return oidcTokenCredentialCallback(func(_ context.Context) (string, error) {
+			token, err := os.ReadFile(authConf.oidcTokenFilePath)
+			if err != nil {
+				return "", fmt.Errorf("failed to read OIDC token from %s: %w", authConf.oidcTokenFilePath, err)
+			}
+			return string(token), nil
+		})
 	}
 
 	// In this case, we need to obtain the OIDC token first from the configured endpoint.
 	if authConf.oidcTokenRequestUrl != "" && authConf.oidcTokenRequestToken != "" {
-		return azidentity.NewClientAssertionCredential(
-			authConf.tenantId,
-			authConf.clientId,
-			getOidcTokenExchangeAssertion(authConf),
-			&azidentity.ClientAssertionCredentialOptions{
-				ClientOptions:            clientOpts,
-				DisableInstanceDiscovery: authConf.disableInstanceDiscovery,
-			})
+		return oidcTokenCredentialCallback(getOidcTokenExchangeAssertion(authConf))
 	}
 
 	return nil, fmt.Errorf(fmtErrorMessage, "OIDC token or request URL and token")
