@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope for Project CapabilityHost.
  *
- * Uses Azure REST API version 2025-04-01-preview.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProjectCapabilityHost(args: GetProjectCapabilityHostArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCapabilityHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,9 +71,9 @@ export interface GetProjectCapabilityHostResult {
 /**
  * Azure Resource Manager resource envelope for Project CapabilityHost.
  *
- * Uses Azure REST API version 2025-04-01-preview.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProjectCapabilityHostOutput(args: GetProjectCapabilityHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCapabilityHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

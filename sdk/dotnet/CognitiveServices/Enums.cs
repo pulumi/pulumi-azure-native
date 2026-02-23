@@ -711,6 +711,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    /// </summary>
     [EnumType]
     public readonly struct ManagedPERequirement : IEquatable<ManagedPERequirement>
     {
@@ -740,6 +743,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    /// </summary>
     [EnumType]
     public readonly struct ManagedPEStatus : IEquatable<ManagedPEStatus>
     {
@@ -1122,6 +1128,37 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
         public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScenarioType : IEquatable<ScenarioType>
+    {
+        private readonly string _value;
+
+        private ScenarioType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScenarioType None { get; } = new ScenarioType("none");
+        public static ScenarioType Agent { get; } = new ScenarioType("agent");
+
+        public static bool operator ==(ScenarioType left, ScenarioType right) => left.Equals(right);
+        public static bool operator !=(ScenarioType left, ScenarioType right) => !left.Equals(right);
+
+        public static explicit operator string(ScenarioType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScenarioType other && Equals(other);
+        public bool Equals(ScenarioType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
