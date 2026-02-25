@@ -1,0 +1,42 @@
+name: servicebus-refresh-after-namespace-deletion
+runtime: yaml
+description: A test program for creating service bus resources, then refreshing it if the namespace is deleted.
+
+resources:
+  serviebus-rg:
+    type: azure-native:resources:ResourceGroup
+
+  serviceBusNamespace:
+    type: azure-native:servicebus:Namespace
+    properties:
+      resourceGroupName: ${serviebus-rg.name}
+      location: ${serviebus-rg.location}
+      sku:
+        name: Standard
+        tier: Standard
+
+  serviceBusTopic:
+    type: azure-native:servicebus:Topic
+    properties:
+      resourceGroupName: ${serviebus-rg.name}
+      namespaceName: ${serviceBusNamespace.name}
+
+  serviceBusSubscription:
+    type: azure-native:servicebus:Subscription
+    properties:
+      resourceGroupName: ${serviebus-rg.name}
+      namespaceName: ${serviceBusNamespace.name}
+      topicName: ${serviceBusTopic.name}
+
+  serviceBusQueue:
+    type: azure-native:servicebus:Queue
+    properties:
+      resourceGroupName: ${serviebus-rg.name}
+      namespaceName: ${serviceBusNamespace.name}
+
+outputs:
+  topicName: ${serviceBusTopic.name}
+  subscriptionName: ${serviceBusSubscription.name}
+  queueName: ${serviceBusQueue.name}
+  namespaceName: ${serviceBusNamespace.name}
+  resourceGroupName: ${serviebus-rg.name}

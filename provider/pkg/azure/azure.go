@@ -49,6 +49,12 @@ func IsNotFound(err error) bool {
 		// recognize "not found" errors for resources of type:
 		// azure-native.authorization.ManagementLockByScope
 		"LockNotFound": true,
+		// recognize error where a parent of a resource is not found (deleted) and so
+		// we consider this resource also to be deleted.
+		// This happens for example when deleting a service-bus namespace and trying
+		// to refresh a service-bus queue/topic that were within that namespace
+		"ParentResourceNotFound": true,
+		"EntityNotFound":         true,
 	}
 
 	if responseError, ok := err.(*azcore.ResponseError); ok {
