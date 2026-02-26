@@ -31,8 +31,8 @@ require (
 	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.6.0
-	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.101.0
-	github.com/pulumi/pulumi-java/pkg v1.21.1
+	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.101.2
+	github.com/pulumi/pulumi-java/pkg v1.21.2
 	github.com/pulumi/pulumi-yaml v1.29.1
 	github.com/pulumi/pulumi/pkg/v3 v3.223.0
 	github.com/pulumi/pulumi/sdk/v3 v3.223.0
