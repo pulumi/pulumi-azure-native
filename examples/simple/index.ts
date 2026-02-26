@@ -90,8 +90,8 @@ const virtualmachine  = new compute.VirtualMachine("vm", {
     storageProfile: {
         imageReference: {
             publisher: "Canonical",
-            offer: "UbuntuServer",
-            sku: "18.04-LTS",
+            offer: "ubuntu-24_04-lts",
+            sku: "server",
             version: "latest"
         }
     },
