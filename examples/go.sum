@@ -401,8 +401,8 @@ github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
 github.com/pulumi/esc v0.22.0 h1:Kbk0kIPsoIu6vnLgKtiE8AKRfl8B8bg6adiQuwJiBjA=
 github.com/pulumi/esc v0.22.0/go.mod h1:mkghIFn/TvN3XnP4jmCB4U5BG1I4UjGluARi39ckrCE=
-github.com/pulumi/examples/misc/test v0.0.0-20260226051322-ac36d3670cd8 h1:wlOiGBFn9YEDJyl5Ok3rWjP88AFvtEYLPGOfH0y4q0E=
-github.com/pulumi/examples/misc/test v0.0.0-20260226051322-ac36d3670cd8/go.mod h1:NFIcrPu9tJw/HbWNej5yqFQ84CXG3gnbkr9cMvf8A4k=
+github.com/pulumi/examples/misc/test v0.0.0-20260226111030-96af20f0a74c h1:+nZX3yJXeTu1k2uxNDp4x0WO5ALF4KzXkngBCvH5z3s=
+github.com/pulumi/examples/misc/test v0.0.0-20260226111030-96af20f0a74c/go.mod h1:NFIcrPu9tJw/HbWNej5yqFQ84CXG3gnbkr9cMvf8A4k=
 github.com/pulumi/providertest v0.6.0 h1:ZnefsbhkPE+BpKienHgb38P/6SEtXjjOXGGdMEUIOgk=
 github.com/pulumi/providertest v0.6.0/go.mod h1:OBpIGSQrw1FW9VNaHBtKCRxEoTISvx8JsxECmRqRgRQ=
 github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.13.0 h1:zLnAFfEiKhYg3up/tHICRD592oSsERAthP20JVCNhaY=
