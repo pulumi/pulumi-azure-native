@@ -29,6 +29,7 @@ class VaultArgs:
                  vault_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Vault resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the vault.
         :param pulumi.Input['VaultModelPropertiesArgs'] properties: Vault properties.
@@ -125,6 +126,7 @@ class Vault(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the vault.
@@ -145,6 +147,7 @@ class Vault(pulumi.CustomResource):
         Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
 
         Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class ProjectConnectionArgs:
                  connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectConnection resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input[Union['AADAuthTypeConnectionPropertiesArgs', 'AccessKeyAuthTypeConnectionPropertiesArgs', 'AccountKeyAuthTypeConnectionPropertiesArgs', 'ApiKeyAuthConnectionPropertiesArgs', 'CustomKeysConnectionPropertiesArgs', 'ManagedIdentityAuthTypeConnectionPropertiesArgs', 'NoneAuthTypeConnectionPropertiesArgs', 'OAuth2AuthTypeConnectionPropertiesArgs', 'PATAuthTypeConnectionPropertiesArgs', 'SASAuthTypeConnectionPropertiesArgs', 'ServicePrincipalAuthTypeConnectionPropertiesArgs', 'UsernamePasswordAuthTypeConnectionPropertiesArgs']] properties: Connection property base schema.
@@ -122,6 +123,7 @@ class ProjectConnection(pulumi.CustomResource):
 
         Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
@@ -142,6 +144,7 @@ class ProjectConnection(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ProjectConnectionArgs args: The arguments to use to populate this resource's properties.

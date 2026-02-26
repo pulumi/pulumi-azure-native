@@ -31,6 +31,7 @@ class KustoPoolPrincipalAssignmentArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KustoPoolPrincipalAssignment resource.
+
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[_builtins.str] principal_id: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[_builtins.str, 'PrincipalType']] principal_type: Principal type.
@@ -170,6 +171,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
@@ -193,6 +195,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param KustoPoolPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

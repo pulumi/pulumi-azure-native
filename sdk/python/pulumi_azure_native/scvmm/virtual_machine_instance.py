@@ -32,6 +32,7 @@ class VirtualMachineInstanceArgs:
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineInstance resource.
+
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]] availability_sets: Availability Sets in vm.
@@ -175,6 +176,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
         Other available API versions: 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineInstancePropertiesAvailabilitySetsArgs', 'VirtualMachineInstancePropertiesAvailabilitySetsArgsDict']]]] availability_sets: Availability Sets in vm.
@@ -198,6 +200,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.

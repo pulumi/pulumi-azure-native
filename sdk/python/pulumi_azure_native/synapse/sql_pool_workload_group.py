@@ -31,6 +31,7 @@ class SqlPoolWorkloadGroupArgs:
                  workload_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolWorkloadGroup resource.
+
         :param pulumi.Input[_builtins.int] max_resource_percent: The workload group cap percentage resource.
         :param pulumi.Input[_builtins.int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[_builtins.float] min_resource_percent_per_request: The workload group request minimum grant percentage.
@@ -202,6 +203,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] importance: The workload group importance level.
@@ -227,6 +229,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SqlPoolWorkloadGroupArgs args: The arguments to use to populate this resource's properties.

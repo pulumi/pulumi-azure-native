@@ -39,6 +39,7 @@ class BrokerListenerArgs:
                  tls: Optional[pulumi.Input['TlsCertMethodArgs']] = None):
         """
         The set of arguments for constructing a BrokerListener resource.
+
         :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input[_builtins.str] broker_ref: The k8s cr/resource reference of mq/broker.
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
@@ -296,6 +297,7 @@ class BrokerListener(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] authentication_enabled: The flag for enabling Authentication rules on Listener Port.
@@ -324,6 +326,7 @@ class BrokerListener(pulumi.CustomResource):
         MQ broker/listener resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param BrokerListenerArgs args: The arguments to use to populate this resource's properties.

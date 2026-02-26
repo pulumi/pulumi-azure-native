@@ -22,6 +22,7 @@ class PartnerArgs:
                  partner_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Partner resource.
+
         :param pulumi.Input[_builtins.str] partner_id: Id of the Partner
         """
         if partner_id is not None:
@@ -53,6 +54,7 @@ class Partner(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-02-01. In version 2.x of the Azure Native provider, it used API version 2018-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] partner_id: Id of the Partner
@@ -67,6 +69,7 @@ class Partner(pulumi.CustomResource):
         this is the management partner operations response
 
         Uses Azure REST API version 2018-02-01. In version 2.x of the Azure Native provider, it used API version 2018-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.

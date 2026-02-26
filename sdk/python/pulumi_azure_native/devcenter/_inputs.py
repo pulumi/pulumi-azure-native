@@ -44,27 +44,22 @@ __all__ = [
     'UserRoleAssignmentArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict(TypedDict):
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        delegated_identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
-        """
-        identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        """
-        Values can be systemAssignedIdentity or userAssignedIdentity
-        """
-        user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
-        """
-elif False:
-    CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict(TypedDict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    delegated_identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+    """
+    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    """
+    Values can be systemAssignedIdentity or userAssignedIdentity
+    """
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+    """
 
 @pulumi.input_type
 class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
@@ -74,6 +69,7 @@ class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
                  user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
         :param pulumi.Input[_builtins.str] delegated_identity_client_id: delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
         :param pulumi.Input[Union[_builtins.str, 'IdentityType']] identity_type: Values can be systemAssignedIdentity or userAssignedIdentity
         :param pulumi.Input[_builtins.str] user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
@@ -122,21 +118,18 @@ class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
-if not MYPY:
-    class CustomerManagedKeyEncryptionArgsDict(TypedDict):
-        """
-        All Customer-managed key encryption properties for the resource.
-        """
-        key_encryption_key_identity: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict']]
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-        """
-elif False:
-    CustomerManagedKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedKeyEncryptionArgsDict(TypedDict):
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
+    key_encryption_key_identity: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict']]
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+    """
 
 @pulumi.input_type
 class CustomerManagedKeyEncryptionArgs:
@@ -145,6 +138,7 @@ class CustomerManagedKeyEncryptionArgs:
                  key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         All Customer-managed key encryption properties for the resource.
+
         :param pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param pulumi.Input[_builtins.str] key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
@@ -178,17 +172,14 @@ class CustomerManagedKeyEncryptionArgs:
         pulumi.set(self, "key_encryption_key_url", value)
 
 
-if not MYPY:
-    class DevCenterProjectCatalogSettingsArgsDict(TypedDict):
-        """
-        Project catalog settings for project catalogs under a project associated to this dev center.
-        """
-        catalog_item_sync_enable_status: NotRequired[pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]
-        """
-        Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
-        """
-elif False:
-    DevCenterProjectCatalogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DevCenterProjectCatalogSettingsArgsDict(TypedDict):
+    """
+    Project catalog settings for project catalogs under a project associated to this dev center.
+    """
+    catalog_item_sync_enable_status: NotRequired[pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]]
+    """
+    Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+    """
 
 @pulumi.input_type
 class DevCenterProjectCatalogSettingsArgs:
@@ -196,6 +187,7 @@ class DevCenterProjectCatalogSettingsArgs:
                  catalog_item_sync_enable_status: Optional[pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']]] = None):
         """
         Project catalog settings for project catalogs under a project associated to this dev center.
+
         :param pulumi.Input[Union[_builtins.str, 'CatalogItemSyncEnableStatus']] catalog_item_sync_enable_status: Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
         """
         if catalog_item_sync_enable_status is not None:
@@ -214,14 +206,11 @@ class DevCenterProjectCatalogSettingsArgs:
         pulumi.set(self, "catalog_item_sync_enable_status", value)
 
 
-if not MYPY:
-    class EncryptionArgsDict(TypedDict):
-        customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
-        """
-        All Customer-managed key encryption properties for the resource.
-        """
-elif False:
-    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionArgsDict(TypedDict):
+    customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -246,29 +235,26 @@ class EncryptionArgs:
         pulumi.set(self, "customer_managed_key_encryption", value)
 
 
-if not MYPY:
-    class GitCatalogArgsDict(TypedDict):
-        """
-        Properties for a Git repository catalog.
-        """
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Git branch.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The folder where the catalog items can be found inside the repository.
-        """
-        secret_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Git URI.
-        """
-elif False:
-    GitCatalogArgsDict: TypeAlias = Mapping[str, Any]
+class GitCatalogArgsDict(TypedDict):
+    """
+    Properties for a Git repository catalog.
+    """
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Git branch.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The folder where the catalog items can be found inside the repository.
+    """
+    secret_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Git URI.
+    """
 
 @pulumi.input_type
 class GitCatalogArgs:
@@ -279,6 +265,7 @@ class GitCatalogArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties for a Git repository catalog.
+
         :param pulumi.Input[_builtins.str] branch: Git branch.
         :param pulumi.Input[_builtins.str] path: The folder where the catalog items can be found inside the repository.
         :param pulumi.Input[_builtins.str] secret_identifier: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
@@ -342,17 +329,14 @@ class GitCatalogArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class ImageReferenceArgsDict(TypedDict):
-        """
-        Image reference information
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
-        """
-elif False:
-    ImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageReferenceArgsDict(TypedDict):
+    """
+    Image reference information
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
+    """
 
 @pulumi.input_type
 class ImageReferenceArgs:
@@ -360,6 +344,7 @@ class ImageReferenceArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Image reference information
+
         :param pulumi.Input[_builtins.str] id: Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
         """
         if id is not None:
@@ -378,21 +363,18 @@ class ImageReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -401,6 +383,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -433,17 +416,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ProjectCatalogSettingsArgsDict(TypedDict):
-        """
-        Settings to be used when associating a project with a catalog.
-        """
-        catalog_item_sync_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]
-        """
-        Indicates catalog item types that can be synced.
-        """
-elif False:
-    ProjectCatalogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectCatalogSettingsArgsDict(TypedDict):
+    """
+    Settings to be used when associating a project with a catalog.
+    """
+    catalog_item_sync_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]]
+    """
+    Indicates catalog item types that can be synced.
+    """
 
 @pulumi.input_type
 class ProjectCatalogSettingsArgs:
@@ -451,6 +431,7 @@ class ProjectCatalogSettingsArgs:
                  catalog_item_sync_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]]] = None):
         """
         Settings to be used when associating a project with a catalog.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CatalogItemType']]]] catalog_item_sync_types: Indicates catalog item types that can be synced.
         """
         if catalog_item_sync_types is not None:
@@ -469,17 +450,14 @@ class ProjectCatalogSettingsArgs:
         pulumi.set(self, "catalog_item_sync_types", value)
 
 
-if not MYPY:
-    class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict(TypedDict):
-        """
-        The role definition assigned to the environment creator on backing resources.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A map of roles to assign to the environment creator.
-        """
-elif False:
-    ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict(TypedDict):
+    """
+    The role definition assigned to the environment creator on backing resources.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A map of roles to assign to the environment creator.
+    """
 
 @pulumi.input_type
 class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
@@ -487,6 +465,7 @@ class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The role definition assigned to the environment creator on backing resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: A map of roles to assign to the environment creator.
         """
         if roles is not None:
@@ -505,21 +484,18 @@ class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
         pulumi.set(self, "roles", value)
 
 
-if not MYPY:
-    class ResourcePolicyArgsDict(TypedDict):
-        """
-        A resource policy.
-        """
-        filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. When specified, this expression is used to filter the resources.
-        """
-        resources: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resources that are included and shared as a part of a project policy.
-        """
-elif False:
-    ResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyArgsDict(TypedDict):
+    """
+    A resource policy.
+    """
+    filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. When specified, this expression is used to filter the resources.
+    """
+    resources: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resources that are included and shared as a part of a project policy.
+    """
 
 @pulumi.input_type
 class ResourcePolicyArgs:
@@ -528,6 +504,7 @@ class ResourcePolicyArgs:
                  resources: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A resource policy.
+
         :param pulumi.Input[_builtins.str] filter: Optional. When specified, this expression is used to filter the resources.
         :param pulumi.Input[_builtins.str] resources: Resources that are included and shared as a part of a project policy.
         """
@@ -561,33 +538,30 @@ class ResourcePolicyArgs:
         pulumi.set(self, "resources", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. E.g. P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. E.g. P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -599,6 +573,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         The resource model definition representing SKU
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -676,21 +651,18 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class StopOnDisconnectConfigurationArgsDict(TypedDict):
-        """
-        Stop on disconnect configuration settings for Dev Boxes created in this pool.
-        """
-        grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]
-        """
-        Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
-        """
-elif False:
-    StopOnDisconnectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StopOnDisconnectConfigurationArgsDict(TypedDict):
+    """
+    Stop on disconnect configuration settings for Dev Boxes created in this pool.
+    """
+    grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]]
+    """
+    Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+    """
 
 @pulumi.input_type
 class StopOnDisconnectConfigurationArgs:
@@ -699,6 +671,7 @@ class StopOnDisconnectConfigurationArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']]] = None):
         """
         Stop on disconnect configuration settings for Dev Boxes created in this pool.
+
         :param pulumi.Input[_builtins.int] grace_period_minutes: The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
         :param pulumi.Input[Union[_builtins.str, 'StopOnDisconnectEnableStatus']] status: Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
         """
@@ -732,17 +705,14 @@ class StopOnDisconnectConfigurationArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class UserRoleAssignmentArgsDict(TypedDict):
-        """
-        Mapping of user object ID to role assignments.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A map of roles to assign to the parent user.
-        """
-elif False:
-    UserRoleAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+class UserRoleAssignmentArgsDict(TypedDict):
+    """
+    Mapping of user object ID to role assignments.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A map of roles to assign to the parent user.
+    """
 
 @pulumi.input_type
 class UserRoleAssignmentArgs:
@@ -750,6 +720,7 @@ class UserRoleAssignmentArgs:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Mapping of user object ID to role assignments.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: A map of roles to assign to the parent user.
         """
         if roles is not None:

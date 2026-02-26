@@ -30,6 +30,7 @@ class ADLSGen1FolderDataSetArgs:
                  data_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ADLSGen1FolderDataSet resource.
+
         :param pulumi.Input[_builtins.str] account_name: The ADLS account name.
         :param pulumi.Input[_builtins.str] folder_path: The folder path within the ADLS account.
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
@@ -168,6 +169,7 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The ADLS account name.
@@ -190,6 +192,7 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
         An ADLS Gen 1 folder data set.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param ADLSGen1FolderDataSetArgs args: The arguments to use to populate this resource's properties.

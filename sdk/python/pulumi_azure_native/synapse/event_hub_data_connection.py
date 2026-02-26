@@ -38,6 +38,7 @@ class EventHubDataConnectionArgs:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHubDataConnection resource.
+
         :param pulumi.Input[_builtins.str] consumer_group: The event hub consumer group.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] event_hub_resource_id: The resource ID of the event hub to be used to create a data connection.
@@ -288,6 +289,7 @@ class EventHubDataConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'Compression']] compression: The event hub messages compression type
@@ -317,6 +319,7 @@ class EventHubDataConnection(pulumi.CustomResource):
         Class representing an event hub data connection.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param EventHubDataConnectionArgs args: The arguments to use to populate this resource's properties.

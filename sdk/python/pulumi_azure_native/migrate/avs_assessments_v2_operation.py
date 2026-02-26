@@ -28,6 +28,7 @@ class AvsAssessmentsV2OperationArgs:
                  properties: Optional[pulumi.Input['AvsAssessmentPropertiesV2Args']] = None):
         """
         The set of arguments for constructing a AvsAssessmentsV2Operation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] assessment_name: AVS Assessment ARM name
@@ -105,6 +106,7 @@ class AvsAssessmentsV2Operation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: AVS Assessment ARM name
@@ -122,6 +124,7 @@ class AvsAssessmentsV2Operation(pulumi.CustomResource):
         AVS assessment V2 resource.
 
         Uses Azure REST API version 2024-03-03-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AvsAssessmentsV2OperationArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class Gen1EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gen1Environment resource.
+
         :param pulumi.Input[_builtins.str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         :param pulumi.Input[_builtins.str] kind: The kind of the environment.
                Expected value is 'Gen1'.
@@ -190,6 +191,7 @@ class Gen1Environment(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
@@ -213,6 +215,7 @@ class Gen1Environment(pulumi.CustomResource):
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
+
 
         :param str resource_name: The name of the resource.
         :param Gen1EnvironmentArgs args: The arguments to use to populate this resource's properties.

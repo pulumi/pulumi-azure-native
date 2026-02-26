@@ -30,6 +30,7 @@ class ProfessionalServiceSubscriptionLevelArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProfessionalServiceSubscriptionLevel resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] location: Resource location. Only value allowed for ProfessionalService is 'global'
         :param pulumi.Input[_builtins.str] name: The resource name
@@ -156,6 +157,7 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Resource location. Only value allowed for ProfessionalService is 'global'
@@ -176,6 +178,7 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
         ProfessionalService REST API resource definition.
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ProfessionalServiceSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.

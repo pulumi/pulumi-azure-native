@@ -28,6 +28,7 @@ class EnterpriseCustomerOperationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnterpriseCustomerOperation resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -122,6 +123,7 @@ class EnterpriseCustomerOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
@@ -140,6 +142,7 @@ class EnterpriseCustomerOperation(pulumi.CustomResource):
         ConnectedCache Resource. Represents the high level Nodes needed to provision CacheNode and customer resources used in private preview
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseCustomerOperationArgs args: The arguments to use to populate this resource's properties.

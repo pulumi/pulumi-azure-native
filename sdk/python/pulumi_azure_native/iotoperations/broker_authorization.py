@@ -30,6 +30,7 @@ class BrokerAuthorizationArgs:
                  properties: Optional[pulumi.Input['BrokerAuthorizationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BrokerAuthorization resource.
+
         :param pulumi.Input[_builtins.str] broker_name: Name of broker.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
@@ -139,6 +140,7 @@ class BrokerAuthorization(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_name: Name of Instance broker authorization resource
@@ -160,6 +162,7 @@ class BrokerAuthorization(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
 
         Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param BrokerAuthorizationArgs args: The arguments to use to populate this resource's properties.

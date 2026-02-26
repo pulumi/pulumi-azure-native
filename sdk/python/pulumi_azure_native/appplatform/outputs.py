@@ -179,6 +179,7 @@ class AcceleratorBasicAuthSettingResponse(dict):
                  ca_cert_resource_id: Optional[_builtins.str] = None):
         """
         Auth setting for basic auth.
+
         :param _builtins.str auth_type: The type of the auth setting.
                Expected value is 'BasicAuth'.
         :param _builtins.str username: Username of git repository basic auth.
@@ -356,6 +357,7 @@ class AcceleratorPublicSettingResponse(dict):
                  ca_cert_resource_id: Optional[_builtins.str] = None):
         """
         Auth setting for public url.
+
         :param _builtins.str auth_type: The type of the auth setting.
                Expected value is 'Public'.
         :param _builtins.str ca_cert_resource_id: Resource Id of CA certificate for https URL of Git repository.
@@ -408,6 +410,7 @@ class AcceleratorSshSettingResponse(dict):
                  auth_type: _builtins.str):
         """
         Auth setting for SSH auth.
+
         :param _builtins.str auth_type: The type of the auth setting.
                Expected value is 'SSH'.
         """
@@ -432,6 +435,7 @@ class ApiPortalCustomDomainPropertiesResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         The properties of custom domain for API portal
+
         :param _builtins.str thumbprint: The thumbprint of bound certificate.
         """
         if thumbprint is not None:
@@ -456,6 +460,7 @@ class ApiPortalInstanceResponse(dict):
                  status: _builtins.str):
         """
         Collection of instances belong to the API portal
+
         :param _builtins.str name: Name of the API portal instance
         :param _builtins.str status: Status of the API portal instance
         """
@@ -526,6 +531,7 @@ class ApiPortalPropertiesResponse(dict):
                  sso_properties: Optional['outputs.SsoPropertiesResponse'] = None):
         """
         API portal properties payload
+
         :param Sequence['ApiPortalInstanceResponse'] instances: Collection of instances belong to API portal.
         :param _builtins.str provisioning_state: State of the API portal.
         :param 'ApiPortalResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
@@ -651,6 +657,7 @@ class ApiPortalResourceRequestsResponse(dict):
                  memory: _builtins.str):
         """
         Resource requests of the API portal
+
         :param _builtins.str cpu: Cpu allocated to each API portal instance
         :param _builtins.str memory: Memory allocated to each API portal instance
         """
@@ -702,6 +709,7 @@ class ApmPropertiesResponse(dict):
                  properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Properties of an APM
+
         :param _builtins.str provisioning_state: State of the APM.
         :param _builtins.str type: APM Type
         :param Mapping[str, _builtins.str] properties: Non-sensitive properties for the APM
@@ -762,6 +770,7 @@ class ApmReferenceResponse(dict):
                  resource_id: _builtins.str):
         """
         A reference to the APM
+
         :param _builtins.str resource_id: Resource Id of the APM
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -838,6 +847,7 @@ class AppResourcePropertiesResponse(dict):
                  workload_profile_name: Optional[_builtins.str] = None):
         """
         App resource properties payload
+
         :param _builtins.str fqdn: Fully qualified dns Name.
         :param _builtins.str provisioning_state: Provisioning state of the App
         :param _builtins.str url: URL of the App
@@ -1049,6 +1059,7 @@ class AppVNetAddonsResponse(dict):
                  public_endpoint: Optional[_builtins.bool] = None):
         """
         Additional App settings in vnet injection instance
+
         :param _builtins.str public_endpoint_url: URL of the App in vnet injection instance which could be accessed from internet
         :param _builtins.bool public_endpoint: Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet.
         """
@@ -1175,6 +1186,7 @@ class ApplicationAcceleratorPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Application accelerator properties payload
+
         :param Sequence['ApplicationAcceleratorComponentResponse'] components: Collection of components belong to application accelerator.
         :param _builtins.str provisioning_state: State of the application accelerator.
         """
@@ -1264,6 +1276,7 @@ class ApplicationInsightsAgentVersionsResponse(dict):
                  java: _builtins.str):
         """
         Application Insights agent versions properties payload
+
         :param _builtins.str java: Indicates the version of application insight java agent
         """
         pulumi.set(__self__, "java", java)
@@ -1305,6 +1318,7 @@ class ApplicationLiveViewComponentResponse(dict):
                  resource_requests: 'outputs.ApplicationLiveViewResourceRequestsResponse'):
         """
         Application Live View properties payload
+
         :param Sequence['ApplicationLiveViewInstanceResponse'] instances: Collection of instances belong to Application Live View.
         :param Any name: Name of the component.
         :param 'ApplicationLiveViewResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
@@ -1348,6 +1362,7 @@ class ApplicationLiveViewInstanceResponse(dict):
                  status: _builtins.str):
         """
         Collection of instances belong to the Application Live View
+
         :param _builtins.str name: Name of the Application Live View instance.
         :param _builtins.str status: Status of the Application Live View instance. It can be Pending, Running, Succeeded, Failed, Unknown.
         """
@@ -1398,6 +1413,7 @@ class ApplicationLiveViewPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Application Live View properties payload
+
         :param Sequence['ApplicationLiveViewComponentResponse'] components: Component details of Application Live View
         :param _builtins.str provisioning_state: State of the Application Live View.
         """
@@ -1449,6 +1465,7 @@ class ApplicationLiveViewResourceRequestsResponse(dict):
                  memory: _builtins.str):
         """
         The resource quantity for required CPU and Memory of Application Live View component
+
         :param _builtins.str cpu: Cpu quantity allocated to each Application Live View component instance. 1 core can be represented by 1 or 1000m.
         :param _builtins.int instance_count: Desired instance count of Application Live View component instance.
         :param _builtins.str memory: Memory quantity allocated to each Application Live View component instance. 1 GB can be represented by 1Gi or 1024Mi.
@@ -1521,6 +1538,7 @@ class AzureFileVolumeResponse(dict):
                  share_name: Optional[_builtins.str] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
+
         :param _builtins.str mount_path: The mount path of the persistent disk.
         :param _builtins.str type: The type of the underlying resource to mount as a persistent disk.
                Expected value is 'AzureFileVolume'.
@@ -1637,6 +1655,7 @@ class BindingResourcePropertiesResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Binding resource properties payload
+
         :param _builtins.str created_at: Creation time of the Binding resource
         :param _builtins.str generated_properties: The generated Spring Boot property file for this binding. The secret will be deducted.
         :param _builtins.str resource_name: The name of the bound resource
@@ -1765,6 +1784,7 @@ class BuildPropertiesResponse(dict):
                  resource_requests: Optional['outputs.BuildResourceRequestsResponse'] = None):
         """
         Build resource properties payload
+
         :param _builtins.str provisioning_state: Provisioning state of the KPack build result
         :param 'TriggeredBuildResultResponse' triggered_build_result:  The build result triggered by this build
         :param _builtins.str agent_pool: The resource id of agent pool
@@ -1875,6 +1895,7 @@ class BuildResourceRequestsResponse(dict):
                  memory: Optional[_builtins.str] = None):
         """
         Resource request payload of Build Resource.
+
         :param _builtins.str cpu: Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
                The default value is 1, this should not exceed build service agent pool cpu size.
         :param _builtins.str memory: Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
@@ -1936,6 +1957,7 @@ class BuildResultUserSourceInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Reference to a build result
+
         :param _builtins.str type: Type of the source uploaded
                Expected value is 'BuildResult'.
         :param _builtins.str build_result_id: Resource id of an existing succeeded build result under the same Spring instance.
@@ -2002,6 +2024,7 @@ class BuildServiceAgentPoolPropertiesResponse(dict):
                  pool_size: Optional['outputs.BuildServiceAgentPoolSizePropertiesResponse'] = None):
         """
         Build service agent pool properties
+
         :param _builtins.str provisioning_state: Provisioning state of the build service agent pool
         :param 'BuildServiceAgentPoolSizePropertiesResponse' pool_size: build service agent pool size properties
         """
@@ -2037,6 +2060,7 @@ class BuildServiceAgentPoolSizePropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Build service agent pool size properties
+
         :param _builtins.str cpu: The cpu property of build service agent pool size
         :param _builtins.str memory: The memory property of build service agent pool size
         :param _builtins.str name: The name of build service agent pool size
@@ -2101,6 +2125,7 @@ class BuilderPropertiesResponse(dict):
                  stack: Optional['outputs.StackPropertiesResponse'] = None):
         """
         KPack Builder properties payload
+
         :param _builtins.str provisioning_state: Builder provision status.
         :param Sequence['BuildpacksGroupPropertiesResponse'] buildpack_groups: Builder buildpack groups.
         :param 'StackPropertiesResponse' stack: Builder cluster stack property.
@@ -2146,6 +2171,7 @@ class BuildpackBindingLaunchPropertiesResponse(dict):
                  secrets: Optional[Mapping[str, _builtins.str]] = None):
         """
         Buildpack Binding Launch Properties
+
         :param Mapping[str, _builtins.str] properties: Non-sensitive properties for launchProperties
         :param Mapping[str, _builtins.str] secrets: Sensitive properties for launchProperties
         """
@@ -2203,6 +2229,7 @@ class BuildpackBindingPropertiesResponse(dict):
                  launch_properties: Optional['outputs.BuildpackBindingLaunchPropertiesResponse'] = None):
         """
         Properties of a buildpack binding
+
         :param _builtins.str provisioning_state: State of the Buildpack Binding.
         :param _builtins.str binding_type: Buildpack Binding Type
         :param 'BuildpackBindingLaunchPropertiesResponse' launch_properties: The object describes the buildpack binding launch properties
@@ -2248,6 +2275,7 @@ class BuildpackPropertiesResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Buildpack properties payload
+
         :param _builtins.str version: Version of the buildpack
         :param _builtins.str id: Id of the buildpack
         """
@@ -2282,6 +2310,7 @@ class BuildpacksGroupPropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Buildpack group properties of the Builder
+
         :param Sequence['BuildpackPropertiesResponse'] buildpacks: Buildpacks in the buildpack group
         :param _builtins.str name: Buildpack group name
         """
@@ -2333,6 +2362,7 @@ class CertificateReferenceResponse(dict):
                  resource_id: _builtins.str):
         """
         A reference to the certificate
+
         :param _builtins.str resource_id: Resource Id of the certificate
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -2401,6 +2431,7 @@ class ClusterResourcePropertiesResponse(dict):
                  zone_redundant: Optional[_builtins.bool] = None):
         """
         Service properties payload
+
         :param _builtins.str fqdn: Fully qualified dns name of the service instance
         :param _builtins.str power_state: Power state of the Service
         :param _builtins.str provisioning_state: Provisioning state of the Service
@@ -2572,6 +2603,7 @@ class ConfigServerGitPropertyResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Property of git.
+
         :param _builtins.str uri: URI of the repository
         :param _builtins.str host_key: Public sshKey of git repository.
         :param _builtins.str host_key_algorithm: SshKey algorithm of git repository.
@@ -2717,6 +2749,7 @@ class ConfigServerPropertiesResponse(dict):
                  error: Optional['outputs.ErrorResponse'] = None):
         """
         Config server git properties payload
+
         :param _builtins.str provisioning_state: State of the config server.
         :param 'ConfigServerSettingsResponse' config_server: Settings of config server.
         :param _builtins.str enabled_state: Enabled state of the config server. This is only used in Consumption tier.
@@ -2789,6 +2822,7 @@ class ConfigServerSettingsResponse(dict):
                  git_property: Optional['outputs.ConfigServerGitPropertyResponse'] = None):
         """
         The settings of config server.
+
         :param 'ConfigServerGitPropertyResponse' git_property: Property of git environment.
         """
         if git_property is not None:
@@ -2812,6 +2846,7 @@ class ConfigurationServiceGitPropertyResponse(dict):
                  repositories: Optional[Sequence['outputs.ConfigurationServiceGitRepositoryResponse']] = None):
         """
         Property of git environment.
+
         :param Sequence['ConfigurationServiceGitRepositoryResponse'] repositories: Repositories of Application Configuration Service git property.
         """
         if repositories is not None:
@@ -2876,6 +2911,7 @@ class ConfigurationServiceGitRepositoryResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Git repository property payload for Application Configuration Service
+
         :param _builtins.str label: Label of the repository
         :param _builtins.str name: Name of the repository
         :param Sequence[_builtins.str] patterns: Collection of patterns of the repository
@@ -3028,6 +3064,7 @@ class ConfigurationServiceInstanceResponse(dict):
                  status: _builtins.str):
         """
         Collection of instances belong to the Application Configuration Service
+
         :param _builtins.str name: Name of the Application Configuration Service instance
         :param _builtins.str status: Status of the Application Configuration Service instance
         """
@@ -3083,6 +3120,7 @@ class ConfigurationServicePropertiesResponse(dict):
                  settings: Optional['outputs.ConfigurationServiceSettingsResponse'] = None):
         """
         Application Configuration Service properties payload
+
         :param Sequence['ConfigurationServiceInstanceResponse'] instances: Collection of instances belong to Application Configuration Service.
         :param _builtins.str provisioning_state: State of the Application Configuration Service.
         :param 'ConfigurationServiceResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
@@ -3168,6 +3206,7 @@ class ConfigurationServiceResourceRequestsResponse(dict):
                  memory: _builtins.str):
         """
         Resource request payload of Application Configuration Service
+
         :param _builtins.str cpu: Cpu allocated to each Application Configuration Service instance
         :param _builtins.int instance_count: Instance count of the Application Configuration Service
         :param _builtins.str memory: Memory allocated to each Application Configuration Service instance
@@ -3230,6 +3269,7 @@ class ConfigurationServiceSettingsResponse(dict):
                  refresh_interval_in_seconds: Optional[_builtins.int] = None):
         """
         The settings of Application Configuration Service.
+
         :param 'ConfigurationServiceGitPropertyResponse' git_property: Property of git environment.
         :param _builtins.int refresh_interval_in_seconds: How often (in seconds) to check repository updates. Minimum value is 0.
         """
@@ -3281,6 +3321,7 @@ class ContainerProbeSettingsResponse(dict):
                  disable_probe: Optional[_builtins.bool] = None):
         """
         Container liveness and readiness probe settings
+
         :param _builtins.bool disable_probe: Indicates whether disable the liveness and readiness probe
         """
         if disable_probe is not None:
@@ -3306,6 +3347,7 @@ class ContainerRegistryBasicCredentialsResponse(dict):
                  username: _builtins.str):
         """
         The basic authentication properties for the container registry resource.
+
         :param _builtins.str server: The login server of the Container Registry.
         :param _builtins.str type: The credential type of the container registry credentials.
                Expected value is 'BasicAuth'.
@@ -3368,6 +3410,7 @@ class ContainerRegistryPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Container registry resource payload.
+
         :param 'ContainerRegistryBasicCredentialsResponse' credentials: The credentials of the container registry resource.
         :param _builtins.str provisioning_state: State of the Container Registry.
         """
@@ -3435,6 +3478,7 @@ class ContentCertificatePropertiesResponse(dict):
                  type: _builtins.str):
         """
         Properties of certificate imported from key vault.
+
         :param _builtins.str activate_date: The activate date of certificate.
         :param Sequence[_builtins.str] dns_names: The domain list of certificate.
         :param _builtins.str expiration_date: The expiration date of certificate.
@@ -3565,6 +3609,7 @@ class CustomContainerResponse(dict):
                  server: Optional[_builtins.str] = None):
         """
         Custom container payload
+
         :param Sequence[_builtins.str] args: Arguments to the entrypoint. The docker image's CMD is used if this is not provided.
         :param Sequence[_builtins.str] command: Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.
         :param _builtins.str container_image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry
@@ -3662,6 +3707,7 @@ class CustomContainerUserSourceInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Custom container user source info
+
         :param _builtins.str type: Type of the source uploaded
                Expected value is 'Container'.
         :param 'CustomContainerResponse' custom_container: Custom container payload
@@ -3732,6 +3778,7 @@ class CustomDomainPropertiesResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         Custom domain of app resource payload.
+
         :param _builtins.str app_name: The app name of domain.
         :param _builtins.str provisioning_state: Provisioning state of the Domain
         :param _builtins.str cert_name: The bound certificate name of domain.
@@ -3806,6 +3853,7 @@ class CustomPersistentDiskResourceResponse(dict):
                  custom_persistent_disk_properties: Optional['outputs.AzureFileVolumeResponse'] = None):
         """
         Custom persistent disk resource payload.
+
         :param _builtins.str storage_id: The resource id of Azure Spring Apps Storage resource.
         :param 'AzureFileVolumeResponse' custom_persistent_disk_properties: Properties of the custom persistent disk resource payload.
         """
@@ -3841,6 +3889,7 @@ class CustomScaleRuleResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Azure Spring Apps App Instance Custom scaling rule.
+
         :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the custom scale rule.
         :param Mapping[str, _builtins.str] metadata: Metadata properties to describe custom scale rule.
         :param _builtins.str type: Type of the custom scale rule
@@ -3922,6 +3971,7 @@ class CustomizedAcceleratorPropertiesResponse(dict):
                  icon_url: Optional[_builtins.str] = None):
         """
         Customized accelerator properties payload
+
         :param Sequence[_builtins.str] imports: Imports references all imports that this accelerator/fragment depends upon.
         :param _builtins.str provisioning_state: State of the customized accelerator.
         :param _builtins.str accelerator_type: Type of the customized accelerator.
@@ -4023,6 +4073,7 @@ class DeploymentInstanceResponse(dict):
                  zone: _builtins.str):
         """
         Deployment instance payload
+
         :param _builtins.str discovery_status: Discovery status of the deployment instance
         :param _builtins.str name: Name of the deployment instance
         :param _builtins.str reason: Failed reason of the deployment instance
@@ -4119,6 +4170,7 @@ class DeploymentResourcePropertiesResponse(dict):
                  source: Optional[Any] = None):
         """
         Deployment resource properties payload
+
         :param Sequence['DeploymentInstanceResponse'] instances: Collection of instances belong to the Deployment
         :param _builtins.str provisioning_state: Provisioning state of the Deployment
         :param _builtins.str status: Status of the Deployment
@@ -4234,6 +4286,7 @@ class DeploymentSettingsResponse(dict):
                  termination_grace_period_seconds: Optional[_builtins.int] = None):
         """
         Deployment settings payload
+
         :param Mapping[str, Any] addon_configs: Collection of addons
         :param Sequence['ApmReferenceResponse'] apms: Collection of ApmReferences
         :param 'ContainerProbeSettingsResponse' container_probe_settings: Container liveness and readiness probe settings
@@ -4412,6 +4465,7 @@ class DevToolPortalFeatureDetailResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Detail settings for Dev Tool Portal feature
+
         :param _builtins.str route: Route path to visit the plugin
         :param _builtins.str state: State of the plugin
         """
@@ -4467,6 +4521,7 @@ class DevToolPortalFeatureSettingsResponse(dict):
                  application_live_view: Optional['outputs.DevToolPortalFeatureDetailResponse'] = None):
         """
         Settings for Dev Tool Portal
+
         :param 'DevToolPortalFeatureDetailResponse' application_accelerator: Detail of Accelerator plugin
         :param 'DevToolPortalFeatureDetailResponse' application_live_view: Detail of App Live View plugin
         """
@@ -4502,6 +4557,7 @@ class DevToolPortalInstanceResponse(dict):
                  status: _builtins.str):
         """
         Collection of instances belong to the Dev Tool Portal.
+
         :param _builtins.str name: Name of the Dev Tool Portal instance.
         :param _builtins.str status: Status of the Dev Tool Portal instance. It can be Pending, Running, Succeeded, Failed, Unknown.
         """
@@ -4558,6 +4614,7 @@ class DevToolPortalPropertiesResponse(dict):
                  sso_properties: Optional['outputs.DevToolPortalSsoPropertiesResponse'] = None):
         """
         Dev Tool Portal properties payload
+
         :param Sequence['DevToolPortalComponentResponse'] components: Collection of components belong to Dev Tool Portal.
         :param _builtins.str provisioning_state: State of the Dev Tool Portal.
         :param _builtins.str url: URL of the resource, exposed when 'public' is true.
@@ -4654,6 +4711,7 @@ class DevToolPortalResourceRequestsResponse(dict):
                  memory: _builtins.str):
         """
         The resource quantity for required CPU and Memory of Dev Tool Portal
+
         :param _builtins.str cpu: Cpu quantity allocated to each Dev Tool Portal instance. 1 core can be represented by 1 or 1000m
         :param _builtins.int instance_count: Desired instance count of Dev Tool Portal.
         :param _builtins.str memory: Memory quantity allocated to each Dev Tool Portal instance. 1 GB can be represented by 1Gi or 1024Mi.
@@ -4720,6 +4778,7 @@ class DevToolPortalSsoPropertiesResponse(dict):
                  scopes: Optional[Sequence[_builtins.str]] = None):
         """
         Single sign-on related configuration
+
         :param _builtins.str client_id: The public identifier for the application
         :param _builtins.str client_secret: The secret known only to the application and the authorization server
         :param _builtins.str metadata_url: The URI of a JSON file with generic OIDC provider configuration.
@@ -4795,6 +4854,7 @@ class EnvVarResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Azure Spring Apps components' environment variable.
+
         :param _builtins.str name: Environment variable name.
         :param _builtins.str secret_value: secret environment variable value.
         :param _builtins.str value: Non-secret environment variable value.
@@ -4841,6 +4901,7 @@ class ErrorResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         The error code compose of code and message.
+
         :param _builtins.str code: The code of error.
         :param _builtins.str message: The message of error.
         """
@@ -4876,6 +4937,7 @@ class ExecActionResponse(dict):
                  command: Optional[Sequence[_builtins.str]] = None):
         """
         ExecAction describes a "run in container" action.
+
         :param _builtins.str type: The type of the action to take to perform the health check.
                Expected value is 'ExecAction'.
         :param Sequence[_builtins.str] command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -4932,6 +4994,7 @@ class GatewayApiMetadataPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         API metadata property for Spring Cloud Gateway
+
         :param _builtins.str description: Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
         :param _builtins.str documentation: Location of additional documentation for the APIs available on the Gateway instance
         :param _builtins.str server_url: Base URL that API consumers will use to access APIs on the Gateway instance.
@@ -5026,6 +5089,7 @@ class GatewayApiRouteResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         API route config of the Spring Cloud Gateway
+
         :param _builtins.str description: A description, will be applied to methods in the generated OpenAPI documentation.
         :param Sequence[_builtins.str] filters: To modify the request before sending it to the target endpoint, or the received response.
         :param _builtins.int order: Route processing order.
@@ -5172,6 +5236,7 @@ class GatewayCorsPropertiesResponse(dict):
                  max_age: Optional[_builtins.int] = None):
         """
         Cross-Origin Resource Sharing property
+
         :param _builtins.bool allow_credentials: Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
         :param Sequence[_builtins.str] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
         :param Sequence[_builtins.str] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
@@ -5261,6 +5326,7 @@ class GatewayCustomDomainPropertiesResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         The properties of custom domain for Spring Cloud Gateway
+
         :param _builtins.str thumbprint: The thumbprint of bound certificate.
         """
         if thumbprint is not None:
@@ -5285,6 +5351,7 @@ class GatewayInstanceResponse(dict):
                  status: _builtins.str):
         """
         Collection of instances belong to the Spring Cloud Gateway
+
         :param _builtins.str name: Name of the Spring Cloud Gateway instance
         :param _builtins.str status: Status of the Spring Cloud Gateway instance
         """
@@ -5338,6 +5405,7 @@ class GatewayLocalResponseCachePerInstancePropertiesResponse(dict):
                  time_to_live: Optional[_builtins.str] = None):
         """
         Spring Cloud Gateway local response cache per instance properties.
+
         :param _builtins.str response_cache_type: The type of the response cache.
                Expected value is 'LocalCachePerInstance'.
         :param _builtins.str size: Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries
@@ -5405,6 +5473,7 @@ class GatewayLocalResponseCachePerRoutePropertiesResponse(dict):
                  time_to_live: Optional[_builtins.str] = None):
         """
         Spring Cloud Gateway local response cache per route properties.
+
         :param _builtins.str response_cache_type: The type of the response cache.
                Expected value is 'LocalCachePerRoute'.
         :param _builtins.str size: Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
@@ -5469,6 +5538,7 @@ class GatewayOperatorPropertiesResponse(dict):
                  resource_requests: 'outputs.GatewayOperatorResourceRequestsResponse'):
         """
         Properties of the Spring Cloud Gateway Operator.
+
         :param Sequence['GatewayInstanceResponse'] instances: Collection of instances belong to Spring Cloud Gateway operator.
         :param 'GatewayOperatorResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
         """
@@ -5520,6 +5590,7 @@ class GatewayOperatorResourceRequestsResponse(dict):
                  memory: _builtins.str):
         """
         Properties of the Spring Cloud Gateway Operator.
+
         :param _builtins.str cpu: Cpu allocated to each Spring Cloud Gateway Operator instance.
         :param _builtins.int instance_count: Instance count of the Spring Cloud Gateway Operator.
         :param _builtins.str memory: Memory allocated to each Spring Cloud Gateway Operator instance.
@@ -5616,6 +5687,7 @@ class GatewayPropertiesResponse(dict):
                  sso_properties: Optional['outputs.SsoPropertiesResponse'] = None):
         """
         Spring Cloud Gateway properties payload
+
         :param Sequence['GatewayInstanceResponse'] instances: Collection of instances belong to Spring Cloud Gateway.
         :param 'GatewayOperatorPropertiesResponse' operator_properties: Properties of the Spring Cloud Gateway Operator.
         :param _builtins.str provisioning_state: State of the Spring Cloud Gateway.
@@ -5822,6 +5894,7 @@ class GatewayPropertiesResponseClientAuth(dict):
                  certificates: Optional[Sequence[_builtins.str]] = None):
         """
         Client-Certification Authentication.
+
         :param _builtins.str certificate_verification: Whether to enable certificate verification or not
         :param Sequence[_builtins.str] certificates: Collection of certificate resource Ids in Azure Spring Apps.
         """
@@ -5859,6 +5932,7 @@ class GatewayPropertiesResponseEnvironmentVariables(dict):
                  secrets: Optional[Mapping[str, _builtins.str]] = None):
         """
         Environment variables of Spring Cloud Gateway
+
         :param Mapping[str, _builtins.str] properties: Non-sensitive properties
         :param Mapping[str, _builtins.str] secrets: Sensitive properties
         """
@@ -5894,6 +5968,7 @@ class GatewayResourceRequestsResponse(dict):
                  memory: Optional[_builtins.str] = None):
         """
         Resource request payload of Spring Cloud Gateway.
+
         :param _builtins.str cpu: Cpu allocated to each Spring Cloud Gateway instance.
         :param _builtins.str memory: Memory allocated to each Spring Cloud Gateway instance.
         """
@@ -5932,6 +6007,7 @@ class GatewayRouteConfigOpenApiPropertiesResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         OpenAPI properties of Spring Cloud Gateway route config.
+
         :param _builtins.str uri: The URI of OpenAPI specification.
         """
         if uri is not None:
@@ -5985,6 +6061,7 @@ class GatewayRouteConfigPropertiesResponse(dict):
                  sso_enabled: Optional[_builtins.bool] = None):
         """
         API route config of the Spring Cloud Gateway
+
         :param _builtins.str provisioning_state: State of the Spring Cloud Gateway route config.
         :param _builtins.str app_resource_id: The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
         :param Sequence[_builtins.str] filters: To modify the request before sending it to the target endpoint, or the received response in app level.
@@ -6121,6 +6198,7 @@ class GitPatternRepositoryResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Git repository property payload for config server
+
         :param _builtins.str name: Name of the repository
         :param _builtins.str uri: URI of the repository
         :param _builtins.str host_key: Public sshKey of git repository.
@@ -6254,6 +6332,7 @@ class HTTPGetActionResponse(dict):
                  scheme: Optional[_builtins.str] = None):
         """
         HTTPGetAction describes an action based on HTTP Get requests.
+
         :param _builtins.str type: The type of the action to take to perform the health check.
                Expected value is 'HTTPGetAction'.
         :param _builtins.str path: Path to access on the HTTP server.
@@ -6309,6 +6388,7 @@ class HttpScaleRuleResponse(dict):
                  metadata: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure Spring Apps App Instance Http scaling rule.
+
         :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the custom scale rule.
         :param Mapping[str, _builtins.str] metadata: Metadata properties to describe http scale rule.
         """
@@ -6344,6 +6424,7 @@ class ImageRegistryCredentialResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Credential of the image registry
+
         :param _builtins.str password: The password of the image registry credential
         :param _builtins.str username: The username of the image registry credential
         """
@@ -6395,6 +6476,7 @@ class IngressConfigResponse(dict):
                  read_timeout_in_seconds: Optional[_builtins.int] = None):
         """
         Ingress configuration payload for Azure Spring Apps resource.
+
         :param _builtins.int read_timeout_in_seconds: Ingress read time out in seconds.
         """
         if read_timeout_in_seconds is not None:
@@ -6450,6 +6532,7 @@ class IngressSettingsResponse(dict):
                  session_cookie_max_age: Optional[_builtins.int] = None):
         """
         App ingress settings payload.
+
         :param _builtins.str backend_protocol: How ingress should communicate with this app backend service.
         :param 'IngressSettingsResponseClientAuth' client_auth: Client-Certification Authentication.
         :param _builtins.int read_timeout_in_seconds: Ingress read time out in seconds.
@@ -6528,6 +6611,7 @@ class IngressSettingsResponseClientAuth(dict):
                  certificates: Optional[Sequence[_builtins.str]] = None):
         """
         Client-Certification Authentication.
+
         :param Sequence[_builtins.str] certificates: Collection of certificate resource id.
         """
         if certificates is not None:
@@ -6576,6 +6660,7 @@ class JarUploadedUserSourceInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Uploaded Jar binary for a deployment
+
         :param _builtins.str type: Type of the source uploaded
                Expected value is 'Jar'.
         :param _builtins.str jvm_options: JVM parameter
@@ -6665,6 +6750,7 @@ class JobExecutionTemplateResponse(dict):
                  resource_requests: Optional['outputs.JobResourceRequestsResponse'] = None):
         """
         Job's execution template, containing configuration for an execution
+
         :param Sequence[_builtins.str] args: Arguments for the Job execution.
         :param Sequence['EnvVarResponse'] environment_variables: Environment variables of Job execution
         :param 'JobResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
@@ -6735,6 +6821,7 @@ class JobResourcePropertiesResponse(dict):
                  trigger_config: Optional['outputs.ManualJobTriggerConfigResponse'] = None):
         """
         Job resource properties payload
+
         :param _builtins.str provisioning_state: Provisioning state of the Job
         :param Sequence['ManagedComponentReferenceResponse'] managed_component_references: Referenced managed components collection
         :param Union['BuildResultUserSourceInfoResponse', 'CustomContainerUserSourceInfoResponse', 'JarUploadedUserSourceInfoResponse', 'NetCoreZipUploadedUserSourceInfoResponse', 'SourceUploadedUserSourceInfoResponse', 'UploadedUserSourceInfoResponse', 'WarUploadedUserSourceInfoResponse'] source: Uploaded source information of the Job.
@@ -6802,6 +6889,7 @@ class JobResourceRequestsResponse(dict):
                  memory: Optional[_builtins.str] = None):
         """
         Job resource request payload
+
         :param _builtins.str cpu: CPU allocated to each job execution instance.
         :param _builtins.str memory: Memory allocated to each job execution instance.
         """
@@ -6890,6 +6978,7 @@ class KeyVaultCertificatePropertiesResponse(dict):
                  exclude_private_key: Optional[_builtins.bool] = None):
         """
         Properties of certificate imported from key vault.
+
         :param _builtins.str activate_date: The activate date of certificate.
         :param Sequence[_builtins.str] dns_names: The domain list of certificate.
         :param _builtins.str expiration_date: The expiration date of certificate.
@@ -7071,6 +7160,7 @@ class LoadedCertificateResponse(dict):
                  load_trust_store: Optional[_builtins.bool] = None):
         """
         Loaded certificate payload
+
         :param _builtins.str resource_id: Resource Id of loaded certificate
         :param _builtins.bool load_trust_store: Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
         """
@@ -7123,6 +7213,7 @@ class ManagedComponentReferenceResponse(dict):
                  resource_id: _builtins.str):
         """
         A reference to the managed component like Config Server.
+
         :param _builtins.str resource_id: Resource Id of the managed component
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -7169,6 +7260,7 @@ class ManagedIdentityPropertiesResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None):
         """
         Managed identity properties retrieved from ARM request headers.
+
         :param _builtins.str principal_id: Principal Id of system-assigned managed identity.
         :param _builtins.str tenant_id: Tenant Id of system-assigned managed identity.
         :param _builtins.str type: Type of the managed identity
@@ -7249,6 +7341,7 @@ class ManualJobTriggerConfigResponse(dict):
                  timeout_in_seconds: Optional[_builtins.int] = None):
         """
         Configuration for manual triggered job
+
         :param _builtins.str trigger_type: Type of job trigger
                Expected value is 'Manual'.
         :param _builtins.int parallelism: Number of parallel replicas of a job execution can run.
@@ -7310,6 +7403,7 @@ class MarketplaceResourceResponse(dict):
                  publisher: Optional[_builtins.str] = None):
         """
         Purchasing 3rd Party product for one Azure Spring Apps instance
+
         :param _builtins.str plan: The plan id of the 3rd Party Artifact that is being procured.
         :param _builtins.str product: The 3rd Party artifact that is being procured.
         :param _builtins.str publisher: The publisher id of the 3rd Party Artifact that is being bought.
@@ -7385,6 +7479,7 @@ class MonitoringSettingPropertiesResponse(dict):
                  trace_enabled: Optional[_builtins.bool] = None):
         """
         Monitoring Setting properties payload
+
         :param _builtins.str provisioning_state: State of the Monitoring Setting.
         :param 'ApplicationInsightsAgentVersionsResponse' app_insights_agent_versions: Indicates the versions of application insight agent
         :param _builtins.str app_insights_instrumentation_key: Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
@@ -7487,6 +7582,7 @@ class NetCoreZipUploadedUserSourceInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Uploaded Jar binary for a deployment
+
         :param _builtins.str type: Type of the source uploaded
                Expected value is 'NetCoreZip'.
         :param _builtins.str net_core_main_entry_path: The path to the .NET executable relative to zip root
@@ -7596,6 +7692,7 @@ class NetworkProfileResponse(dict):
                  service_runtime_subnet_id: Optional[_builtins.str] = None):
         """
         Service network profile payload
+
         :param 'NetworkProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for Azure Spring Apps resource.
         :param Sequence['RequiredTrafficResponse'] required_traffics: Required inbound or outbound traffics for Azure Spring Apps resource.
         :param _builtins.str app_network_resource_group: Name of the resource group containing network resources for customer apps in Azure Spring Apps
@@ -7722,6 +7819,7 @@ class NetworkProfileResponseOutboundIPs(dict):
                  public_ips: Sequence[_builtins.str]):
         """
         Desired outbound IP resources for Azure Spring Apps resource.
+
         :param Sequence[_builtins.str] public_ips: A list of public IP addresses.
         """
         pulumi.set(__self__, "public_ips", public_ips)
@@ -7767,6 +7865,7 @@ class PersistentDiskResponse(dict):
                  size_in_gb: Optional[_builtins.int] = None):
         """
         Persistent disk payload
+
         :param _builtins.int used_in_gb: Size of the used persistent disk in GB
         :param _builtins.str mount_path: Mount path of the persistent disk
         :param _builtins.int size_in_gb: Size of the persistent disk in GB
@@ -7846,6 +7945,7 @@ class ProbeResponse(dict):
                  timeout_seconds: Optional[_builtins.int] = None):
         """
         Probe describes a health check to be performed against an App Instance to determine whether it is alive or ready to receive traffic.
+
         :param _builtins.bool disable_probe: Indicate whether the probe is disabled.
         :param _builtins.int failure_threshold: Minimum consecutive failures for the probe to be considered failed after having succeeded. Minimum value is 1.
         :param _builtins.int initial_delay_seconds: Number of seconds after the App Instance has started before probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
@@ -7957,6 +8057,7 @@ class QueueScaleRuleResponse(dict):
                  queue_name: Optional[_builtins.str] = None):
         """
         Azure Spring Apps App Instance Azure Queue based scaling rule.
+
         :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the queue scale rule.
         :param _builtins.int queue_length: Queue length.
         :param _builtins.str queue_name: Queue name.
@@ -8006,6 +8107,7 @@ class RequiredTrafficResponse(dict):
                  protocol: _builtins.str):
         """
         Required inbound or outbound traffic for Azure Spring Apps resource.
+
         :param _builtins.str direction: The direction of required traffic
         :param Sequence[_builtins.str] fqdns: The FQDN list of required traffic
         :param Sequence[_builtins.str] ips: The ip list of required traffic
@@ -8069,6 +8171,7 @@ class ResourceRequestsResponse(dict):
                  memory: Optional[_builtins.str] = None):
         """
         Deployment resource request payload
+
         :param _builtins.str cpu: Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
         :param _builtins.str memory: Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
         """
@@ -8124,6 +8227,7 @@ class ScaleResponse(dict):
                  rules: Optional[Sequence['outputs.ScaleRuleResponse']] = None):
         """
         Azure Spring Apps scaling configurations.
+
         :param _builtins.int max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
         :param _builtins.int min_replicas: Optional. Minimum number of container replicas.
         :param Sequence['ScaleRuleResponse'] rules: Scaling rules.
@@ -8191,6 +8295,7 @@ class ScaleRuleAuthResponse(dict):
                  trigger_parameter: Optional[_builtins.str] = None):
         """
         Auth Secrets for Azure Spring Apps App Instance Scale Rule
+
         :param _builtins.str secret_ref: Name of the Azure Spring Apps App Instance secret from which to pull the auth params.
         :param _builtins.str trigger_parameter: Trigger Parameter that uses the secret
         """
@@ -8246,6 +8351,7 @@ class ScaleRuleResponse(dict):
                  tcp: Optional['outputs.TcpScaleRuleResponse'] = None):
         """
         Azure Spring Apps App Instance scaling rule.
+
         :param 'QueueScaleRuleResponse' azure_queue: Azure Queue based scaling.
         :param 'CustomScaleRuleResponse' custom: Custom scale rule.
         :param 'HttpScaleRuleResponse' http: HTTP requests based scaling.
@@ -8313,6 +8419,7 @@ class SecretResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Secret definition.
+
         :param _builtins.str name: Secret Name.
         """
         if name is not None:
@@ -8337,6 +8444,7 @@ class ServiceRegistryInstanceResponse(dict):
                  status: _builtins.str):
         """
         Collection of instances belong to the Service Registry
+
         :param _builtins.str name: Name of the Service Registry instance
         :param _builtins.str status: Status of the Service Registry instance
         """
@@ -8390,6 +8498,7 @@ class ServiceRegistryPropertiesResponse(dict):
                  resource_requests: 'outputs.ServiceRegistryResourceRequestsResponse'):
         """
         Service Registry properties payload
+
         :param Sequence['ServiceRegistryInstanceResponse'] instances: Collection of instances belong to Service Registry.
         :param _builtins.str provisioning_state: State of the Service Registry.
         :param 'ServiceRegistryResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
@@ -8451,6 +8560,7 @@ class ServiceRegistryResourceRequestsResponse(dict):
                  memory: _builtins.str):
         """
         Resource request payload of Service Registry
+
         :param _builtins.str cpu: Cpu allocated to each Service Registry instance
         :param _builtins.int instance_count: Instance count of the Service Registry
         :param _builtins.str memory: Memory allocated to each Service Registry instance
@@ -8513,6 +8623,7 @@ class ServiceVNetAddonsResponse(dict):
                  log_stream_public_endpoint: Optional[_builtins.bool] = None):
         """
         Additional Service settings in vnet injection instance
+
         :param _builtins.bool data_plane_public_endpoint: Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
         :param _builtins.bool log_stream_public_endpoint: Indicates whether the log stream in vnet injection instance could be accessed from internet.
         """
@@ -8553,6 +8664,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Sku of Azure Spring Apps
+
         :param _builtins.int capacity: Current capacity of the target resource
         :param _builtins.str name: Name of the Sku
         :param _builtins.str tier: Tier of the Sku
@@ -8627,6 +8739,7 @@ class SourceUploadedUserSourceInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Uploaded Java source code binary for a deployment
+
         :param _builtins.str type: Type of the source uploaded
                Expected value is 'Source'.
         :param _builtins.str artifact_selector: Selector for the artifact to be used for the deployment for multi-module projects. This should be
@@ -8721,6 +8834,7 @@ class SsoPropertiesResponse(dict):
                  scope: Optional[Sequence[_builtins.str]] = None):
         """
         Single sign-on related configuration
+
         :param _builtins.str client_id: The public identifier for the application
         :param _builtins.str client_secret: The secret known only to the application and the authorization server
         :param _builtins.str issuer_uri: The URI of Issuer Identifier
@@ -8778,6 +8892,7 @@ class StackPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         KPack ClusterStack properties payload
+
         :param _builtins.str id: Id of the ClusterStack.
         :param _builtins.str version: Version of the ClusterStack
         """
@@ -8832,6 +8947,7 @@ class StorageAccountResponse(dict):
                  storage_type: _builtins.str):
         """
         storage resource of type Azure Storage Account.
+
         :param _builtins.str account_name: The account name of the Azure Storage Account.
         :param _builtins.str storage_type: The type of the storage.
                Expected value is 'StorageAccount'.
@@ -8898,6 +9014,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -8976,6 +9093,7 @@ class TCPSocketActionResponse(dict):
                  type: _builtins.str):
         """
         TCPSocketAction describes an action based on opening a socket
+
         :param _builtins.str type: The type of the action to take to perform the health check.
                Expected value is 'TCPSocketAction'.
         """
@@ -9001,6 +9119,7 @@ class TcpScaleRuleResponse(dict):
                  metadata: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure Spring Apps App Instance Tcp scaling rule.
+
         :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the tcp scale rule.
         :param Mapping[str, _builtins.str] metadata: Metadata properties to describe tcp scale rule.
         """
@@ -9055,6 +9174,7 @@ class TemporaryDiskResponse(dict):
                  size_in_gb: Optional[_builtins.int] = None):
         """
         Temporary disk payload
+
         :param _builtins.str mount_path: Mount path of the temporary disk
         :param _builtins.int size_in_gb: Size of the temporary disk in GB
         """
@@ -9119,6 +9239,7 @@ class TriggeredBuildResultResponse(dict):
                  last_transition_time: Optional[_builtins.str] = None):
         """
         The build result triggered by a build
+
         :param _builtins.str provisioning_state: The provisioning state of this build result
         :param _builtins.str id: The unique build id of this build result
         :param _builtins.str image: The container image of this build result
@@ -9215,6 +9336,7 @@ class UploadedUserSourceInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Source with uploaded location
+
         :param _builtins.str type: Type of the source uploaded
                Expected value is 'UploadedUserSourceInfo'.
         :param _builtins.str relative_path: Relative path of the storage which stores the source
@@ -9281,6 +9403,7 @@ class UserAssignedManagedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         The details of the user-assigned managed identity assigned to an App.
+
         :param _builtins.str client_id: Client Id of user-assigned managed identity.
         :param _builtins.str principal_id: Principal Id of user-assigned managed identity.
         """
@@ -9341,6 +9464,7 @@ class WarUploadedUserSourceInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Uploaded War binary for a deployment
+
         :param _builtins.str type: Type of the source uploaded
                Expected value is 'War'.
         :param _builtins.str jvm_options: JVM parameter
@@ -9423,6 +9547,7 @@ class WeeklyMaintenanceScheduleConfigurationResponse(dict):
                  hour: _builtins.int):
         """
         Weekly planned maintenance
+
         :param _builtins.str day: The day to run the maintenance job
         :param _builtins.str duration: The duration time to run the maintenance job, specified in ISO8601 format, e.g. PT8H
         :param _builtins.str frequency: The frequency to run the maintenance job

@@ -34,6 +34,7 @@ class ManagementLockAtResourceLevelArgs:
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementLockAtResourceLevel resource.
+
         :param pulumi.Input[_builtins.str] api_version: The API version to use for this operation.
         :param pulumi.Input[Union[_builtins.str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[_builtins.str] parent_resource_path: The parent resource identity.
@@ -202,6 +203,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_version: The API version to use for this operation.
@@ -225,6 +227,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
         The lock information.
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtResourceLevelArgs args: The arguments to use to populate this resource's properties.

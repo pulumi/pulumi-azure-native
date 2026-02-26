@@ -31,6 +31,7 @@ class PrivateLinkServicesForMIPPolicySyncArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkServicesForMIPPolicySync resource.
+
         :param pulumi.Input['Kind'] kind: The kind of the service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input['ServicesResourceIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -156,6 +157,7 @@ class PrivateLinkServicesForMIPPolicySync(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-03-25-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServicesResourceIdentityArgs', 'ServicesResourceIdentityArgsDict']] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -176,6 +178,7 @@ class PrivateLinkServicesForMIPPolicySync(pulumi.CustomResource):
         The description of the service.
 
         Uses Azure REST API version 2021-03-25-preview.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkServicesForMIPPolicySyncArgs args: The arguments to use to populate this resource's properties.

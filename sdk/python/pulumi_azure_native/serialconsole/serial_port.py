@@ -28,6 +28,7 @@ class SerialPortArgs:
                  state: Optional[pulumi.Input['SerialPortState']] = None):
         """
         The set of arguments for constructing a SerialPort resource.
+
         :param pulumi.Input[_builtins.str] parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
         :param pulumi.Input[_builtins.str] parent_resource_type: The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -135,6 +136,7 @@ class SerialPort(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
@@ -154,6 +156,7 @@ class SerialPort(pulumi.CustomResource):
         Represents the serial port of the parent resource.
 
         Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param SerialPortArgs args: The arguments to use to populate this resource's properties.

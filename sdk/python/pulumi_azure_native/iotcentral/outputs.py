@@ -36,6 +36,7 @@ class AppSkuInfoResponse(dict):
                  name: _builtins.str):
         """
         Information about the SKU of the IoT Central application.
+
         :param _builtins.str name: The name of the SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -79,6 +80,7 @@ class NetworkRuleSetIpRuleResponse(dict):
                  ip_mask: Optional[_builtins.str] = None):
         """
         An object for an IP range that will be allowed access.
+
         :param _builtins.str action: The network action for the IP mask.
         :param _builtins.str filter_name: The readable name of the IP rule.
         :param _builtins.str ip_mask: The CIDR block defining the IP range.
@@ -149,6 +151,7 @@ class NetworkRuleSetsResponse(dict):
                  ip_rules: Optional[Sequence['outputs.NetworkRuleSetIpRuleResponse']] = None):
         """
         Network Rule Set Properties of this IoT Central application.
+
         :param _builtins.bool apply_to_devices: Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
         :param _builtins.bool apply_to_io_t_central: Whether these rules apply for connectivity via IoT Central web portal and APIs.
         :param _builtins.str default_action: The default network action to apply.
@@ -241,6 +244,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -334,6 +338,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -375,6 +380,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -441,6 +447,7 @@ class SystemAssignedServiceIdentityResponse(dict):
                  type: _builtins.str):
         """
         Managed service identity (either system assigned, or none)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (either system assigned, or none).
@@ -515,6 +522,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

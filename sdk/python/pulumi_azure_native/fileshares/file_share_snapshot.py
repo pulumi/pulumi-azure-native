@@ -27,6 +27,7 @@ class FileShareSnapshotArgs:
                  properties: Optional[pulumi.Input['FileShareSnapshotPropertiesArgs']] = None):
         """
         The set of arguments for constructing a FileShareSnapshot resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The resource name of the file share, as seen by the administrator through Azure Resource Manager.
         :param pulumi.Input[_builtins.str] name: The name of the FileShareSnapshot
@@ -104,6 +105,7 @@ class FileShareSnapshot(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the FileShareSnapshot
@@ -121,6 +123,7 @@ class FileShareSnapshot(pulumi.CustomResource):
         FileShareSnapshot resource
 
         Uses Azure REST API version 2025-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param FileShareSnapshotArgs args: The arguments to use to populate this resource's properties.

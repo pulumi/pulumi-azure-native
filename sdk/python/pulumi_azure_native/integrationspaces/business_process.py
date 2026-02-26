@@ -33,6 +33,7 @@ class BusinessProcessArgs:
                  tracking_data_store_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BusinessProcess resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] space_name: The name of the space
@@ -205,6 +206,7 @@ class BusinessProcess(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
@@ -228,6 +230,7 @@ class BusinessProcess(pulumi.CustomResource):
         A business process under application.
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+
 
         :param str resource_name: The name of the resource.
         :param BusinessProcessArgs args: The arguments to use to populate this resource's properties.

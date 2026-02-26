@@ -29,6 +29,7 @@ class AgentApplicationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentApplication resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input['AgenticApplicationArgs'] properties: [Required] Additional attributes of the entity.
@@ -120,6 +121,7 @@ class AgentApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
@@ -138,6 +140,7 @@ class AgentApplication(pulumi.CustomResource):
         Agent Application resource
 
         Uses Azure REST API version 2025-10-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AgentApplicationArgs args: The arguments to use to populate this resource's properties.

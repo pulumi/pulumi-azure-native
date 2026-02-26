@@ -33,6 +33,7 @@ class B2CResourceSKUResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+
         :param _builtins.str name: The name of the SKU for the tenant.
         :param _builtins.str tier: The tier of the tenant.
         """
@@ -87,6 +88,7 @@ class B2CTenantResourcePropertiesResponseBillingConfig(dict):
                  billing_type: Optional[_builtins.str] = None):
         """
         The billing configuration for the tenant.
+
         :param _builtins.str effective_start_date_utc: The data from which the billing type took effect
         :param _builtins.str billing_type: The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
         """
@@ -121,6 +123,7 @@ class CIAMResourceSKUResponse(dict):
                  tier: _builtins.str):
         """
         SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
+
         :param _builtins.str name: The name of the SKU for the tenant.
         :param _builtins.str tier: The tier of the tenant.
         """
@@ -173,6 +176,7 @@ class CreateCIAMTenantPropertiesResponse(dict):
                  display_name: _builtins.str):
         """
         These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
+
         :param _builtins.str country_code: Country code of Azure tenant (e.g. 'US'). Refer to [https://aka.ms/ciam-data-location](https://aka.ms/ciam-data-location) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
         :param _builtins.str display_name: The display name of the Azure AD for customers tenant.
         """
@@ -237,6 +241,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

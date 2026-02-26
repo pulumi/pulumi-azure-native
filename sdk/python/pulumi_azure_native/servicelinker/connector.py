@@ -36,6 +36,7 @@ class ConnectorArgs:
                  v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[_builtins.str] location: The name of Azure region.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
@@ -243,6 +244,7 @@ class Connector(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['EasyAuthMicrosoftEntraIDAuthInfoArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]] auth_info: The authentication type.
@@ -270,6 +272,7 @@ class Connector(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

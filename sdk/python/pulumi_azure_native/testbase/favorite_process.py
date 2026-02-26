@@ -27,6 +27,7 @@ class FavoriteProcessArgs:
                  favorite_process_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FavoriteProcess resource.
+
         :param pulumi.Input[_builtins.str] actual_process_name: The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
         :param pulumi.Input[_builtins.str] package_name: The resource name of the Test Base Package.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +121,7 @@ class FavoriteProcess(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] actual_process_name: The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
@@ -140,6 +142,7 @@ class FavoriteProcess(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param FavoriteProcessArgs args: The arguments to use to populate this resource's properties.

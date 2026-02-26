@@ -413,6 +413,7 @@ class AadAuthenticationParametersResponse(dict):
                  aad_tenant: Optional[_builtins.str] = None):
         """
         AAD Vpn authentication type related parameters.
+
         :param _builtins.str aad_audience: AAD Vpn authentication parameter AAD audience.
         :param _builtins.str aad_issuer: AAD Vpn authentication parameter AAD issuer.
         :param _builtins.str aad_tenant: AAD Vpn authentication parameter AAD tenant.
@@ -459,6 +460,7 @@ class ActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Action to be taken on a route matching a RouteMap criterion.
+
         :param Sequence['ParameterResponse'] parameters: List of parameters relevant to the action.For instance if type is drop then parameters has list of prefixes to be dropped.If type is add, parameters would have list of ASN numbers to be added
         :param _builtins.str type: Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'
         """
@@ -505,6 +507,7 @@ class ActiveConnectivityConfigurationResponse(dict):
                  region: Optional[_builtins.str] = None):
         """
         Active connectivity configuration.
+
         :param Sequence['ConnectivityGroupItemResponse'] applies_to_groups: Groups for configuration
         :param _builtins.str connectivity_topology: Connectivity topology type.
         :param _builtins.str provisioning_state: The provisioning state of the connectivity configuration resource.
@@ -678,6 +681,7 @@ class ActiveDefaultSecurityAdminRuleResponse(dict):
                  rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None):
         """
         Network default admin rule.
+
         :param _builtins.str access: Indicates the access allowed for this particular rule
         :param _builtins.str description: A description for this rule. Restricted to 140 chars.
         :param Sequence[_builtins.str] destination_port_ranges: The destination port ranges.
@@ -952,6 +956,7 @@ class ActiveDefaultSecurityUserRuleResponse(dict):
                  rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None):
         """
         Network security default user rule.
+
         :param _builtins.str description: A description for this rule. Restricted to 140 chars.
         :param Sequence[_builtins.str] destination_port_ranges: The destination port ranges.
         :param Sequence['AddressPrefixItemResponse'] destinations: The destination address prefixes. CIDR or destination IP ranges.
@@ -1198,6 +1203,7 @@ class ActiveSecurityAdminRuleResponse(dict):
                  sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None):
         """
         Network admin rule.
+
         :param _builtins.str access: Indicates the access allowed for this particular rule
         :param _builtins.str direction: Indicates if the traffic matched against the rule in inbound or outbound.
         :param _builtins.str kind: Whether the rule is custom or default.
@@ -1465,6 +1471,7 @@ class ActiveSecurityUserRuleResponse(dict):
                  sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None):
         """
         Network security user rule.
+
         :param _builtins.str direction: Indicates if the traffic matched against the rule in inbound or outbound.
         :param _builtins.str kind: Whether the rule is custom or default.
                Expected value is 'Custom'.
@@ -1704,6 +1711,7 @@ class AddressPrefixItemResponse(dict):
                  address_prefix_type: Optional[_builtins.str] = None):
         """
         Address prefix item.
+
         :param _builtins.str address_prefix: Address prefix.
         :param _builtins.str address_prefix_type: Address prefix type.
         """
@@ -1758,6 +1766,7 @@ class AddressSpaceResponse(dict):
                  ipam_pool_prefix_allocations: Optional[Sequence['outputs.IpamPoolPrefixAllocationResponse']] = None):
         """
         AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+
         :param Sequence[_builtins.str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         :param Sequence['IpamPoolPrefixAllocationResponse'] ipam_pool_prefix_allocations: A list of IPAM Pools allocating IP address prefixes.
         """
@@ -1814,6 +1823,7 @@ class ApplicationGatewayAuthenticationCertificateResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Authentication certificates of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the authentication certificate resource.
         :param _builtins.str type: Type of the resource.
@@ -1909,6 +1919,7 @@ class ApplicationGatewayAutoscaleConfigurationResponse(dict):
                  max_capacity: Optional[_builtins.int] = None):
         """
         Application Gateway autoscale configuration.
+
         :param _builtins.int min_capacity: Lower bound on number of Application Gateway capacity.
         :param _builtins.int max_capacity: Upper bound on number of Application Gateway capacity.
         """
@@ -1969,6 +1980,7 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Backend Address Pool of an application gateway.
+
         :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: Collection of references to IPs defined in network interfaces.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the backend address pool resource.
@@ -2072,6 +2084,7 @@ class ApplicationGatewayBackendAddressResponse(dict):
                  ip_address: Optional[_builtins.str] = None):
         """
         Backend address of an application gateway.
+
         :param _builtins.str fqdn: Fully qualified domain name (FQDN).
         :param _builtins.str ip_address: IP address.
         """
@@ -2107,6 +2120,7 @@ class ApplicationGatewayBackendHealthHttpSettingsResponse(dict):
                  servers: Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponse']] = None):
         """
         Application gateway BackendHealthHttp settings.
+
         :param 'ApplicationGatewayBackendHttpSettingsResponse' backend_http_settings: Reference to an ApplicationGatewayBackendHttpSettings resource.
         :param Sequence['ApplicationGatewayBackendHealthServerResponse'] servers: List of ApplicationGatewayBackendHealthServer resources.
         """
@@ -2144,6 +2158,7 @@ class ApplicationGatewayBackendHealthServerResponse(dict):
                  ip_configuration: Optional['outputs.NetworkInterfaceIPConfigurationResponse'] = None):
         """
         Application gateway backendhealth http settings.
+
         :param _builtins.str address: IP address or FQDN of backend server.
         :param _builtins.str health: Health of backend server.
         :param _builtins.str health_probe_log: Health Probe Log.
@@ -2252,6 +2267,7 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
                  trusted_root_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None):
         """
         Backend address pool settings of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the backend HTTP settings resource.
         :param _builtins.str type: Type of the resource.
@@ -2493,6 +2509,7 @@ class ApplicationGatewayBackendSettingsResponse(dict):
                  trusted_root_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None):
         """
         Backend address pool settings of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the backend HTTP settings resource.
         :param _builtins.str type: Type of the resource.
@@ -2654,6 +2671,7 @@ class ApplicationGatewayClientAuthConfigurationResponse(dict):
                  verify_client_revocation: Optional[_builtins.str] = None):
         """
         Application gateway client authentication configuration.
+
         :param _builtins.bool verify_client_cert_issuer_dn: Verify client certificate issuer name on the application gateway.
         :param _builtins.str verify_client_revocation: Verify client certificate revocation status.
         """
@@ -2706,6 +2724,7 @@ class ApplicationGatewayConnectionDrainingResponse(dict):
                  enabled: _builtins.bool):
         """
         Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.
+
         :param _builtins.int drain_timeout_in_sec: The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.
         :param _builtins.bool enabled: Whether connection draining is enabled or not.
         """
@@ -2758,6 +2777,7 @@ class ApplicationGatewayCustomErrorResponse(dict):
                  status_code: Optional[_builtins.str] = None):
         """
         Custom error of an application gateway.
+
         :param _builtins.str custom_error_page_url: Error page URL of the application gateway custom error.
         :param _builtins.str status_code: Status code of the application gateway custom error.
         """
@@ -2810,6 +2830,7 @@ class ApplicationGatewayFirewallDisabledRuleGroupResponse(dict):
                  rules: Optional[Sequence[_builtins.int]] = None):
         """
         Allows to disable rules within a rule group or an entire rule group.
+
         :param _builtins.str rule_group_name: The name of the rule group that will be disabled.
         :param Sequence[_builtins.int] rules: The list of rules that will be disabled. If null, all rules of the rule group will be disabled.
         """
@@ -2864,6 +2885,7 @@ class ApplicationGatewayFirewallExclusionResponse(dict):
                  selector_match_operator: _builtins.str):
         """
         Allow to exclude some variable satisfy the condition for the WAF check.
+
         :param _builtins.str match_variable: The variable to be excluded.
         :param _builtins.str selector: When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
         :param _builtins.str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
@@ -2906,6 +2928,7 @@ class ApplicationGatewayForContainersReferenceDefinitionResponse(dict):
                  id: _builtins.str):
         """
         Defines an application gateway for containers reference.
+
         :param _builtins.str id: Resource Id of the application gateway for containers.
         """
         pulumi.set(__self__, "id", id)
@@ -2962,6 +2985,7 @@ class ApplicationGatewayFrontendIPConfigurationResponse(dict):
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         Frontend IP configuration of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the frontend IP configuration resource.
         :param _builtins.str type: Type of the resource.
@@ -3103,6 +3127,7 @@ class ApplicationGatewayFrontendPortResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Frontend port of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the frontend port resource.
         :param _builtins.str type: Type of the resource.
@@ -3198,6 +3223,7 @@ class ApplicationGatewayGlobalConfigurationResponse(dict):
                  enable_response_buffering: Optional[_builtins.bool] = None):
         """
         Application Gateway global configuration.
+
         :param _builtins.bool enable_request_buffering: Enable request buffering.
         :param _builtins.bool enable_response_buffering: Enable response buffering.
         """
@@ -3255,6 +3281,7 @@ class ApplicationGatewayHeaderConfigurationResponse(dict):
                  header_value_matcher: Optional['outputs.HeaderValueMatcherResponse'] = None):
         """
         Header configuration of the Actions set in Application Gateway.
+
         :param _builtins.str header_name: Header name of the header configuration.
         :param _builtins.str header_value: Header value of the header configuration.
         :param 'HeaderValueMatcherResponse' header_value_matcher: An optional field under "Rewrite Action". It lets you capture and modify the value(s) of a specific header when multiple headers with the same name exist. Currently supported for Set-Cookie Response header only. For more details, visit https://aka.ms/appgwheadercrud
@@ -3349,6 +3376,7 @@ class ApplicationGatewayHttpListenerResponse(dict):
                  ssl_profile: Optional['outputs.SubResourceResponse'] = None):
         """
         Http listener of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the HTTP listener resource.
         :param _builtins.str type: Type of the resource.
@@ -3545,6 +3573,7 @@ class ApplicationGatewayIPConfigurationResponse(dict):
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the application gateway IP configuration resource.
         :param _builtins.str type: Type of the resource.
@@ -3657,6 +3686,7 @@ class ApplicationGatewayListenerResponse(dict):
                  ssl_profile: Optional['outputs.SubResourceResponse'] = None):
         """
         Listener of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the listener resource.
         :param _builtins.str type: Type of the resource.
@@ -3814,6 +3844,7 @@ class ApplicationGatewayLoadDistributionPolicyResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Load Distribution Policy of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the Load Distribution Policy resource.
         :param _builtins.str type: Type of the resource.
@@ -3924,6 +3955,7 @@ class ApplicationGatewayLoadDistributionTargetResponse(dict):
                  weight_per_server: Optional[_builtins.int] = None):
         """
         Load Distribution Target of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str type: Type of the resource.
         :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of the application gateway.
@@ -4040,6 +4072,7 @@ class ApplicationGatewayPathRuleResponse(dict):
                  rewrite_rule_set: Optional['outputs.SubResourceResponse'] = None):
         """
         Path rule of URL path map of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the path rule resource.
         :param _builtins.str type: Type of the resource.
@@ -4211,6 +4244,7 @@ class ApplicationGatewayPrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private Endpoint connection on an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str link_identifier: The consumer link id.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
@@ -4330,6 +4364,7 @@ class ApplicationGatewayPrivateLinkConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Private Link Configuration on an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the application gateway private link configuration.
         :param _builtins.str type: Type of the resource.
@@ -4434,6 +4469,7 @@ class ApplicationGatewayPrivateLinkIpConfigurationResponse(dict):
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         The application gateway private link ip configuration.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the application gateway private link IP configuration.
         :param _builtins.str type: The resource type.
@@ -4560,6 +4596,7 @@ class ApplicationGatewayProbeHealthResponseMatchResponse(dict):
                  status_codes: Optional[Sequence[_builtins.str]] = None):
         """
         Application gateway probe health response match.
+
         :param _builtins.str body: Body that must be contained in the health response. Default value is empty.
         :param Sequence[_builtins.str] status_codes: Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
         """
@@ -4634,6 +4671,7 @@ class ApplicationGatewayProbeResponse(dict):
                  unhealthy_threshold: Optional[_builtins.int] = None):
         """
         Probe of the application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the probe resource.
         :param _builtins.str type: Type of the resource.
@@ -4861,6 +4899,7 @@ class ApplicationGatewayRedirectConfigurationResponse(dict):
                  url_path_maps: Optional[Sequence['outputs.SubResourceResponse']] = None):
         """
         Redirect configuration of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str type: Type of the resource.
         :param _builtins.str id: Resource ID.
@@ -5049,6 +5088,7 @@ class ApplicationGatewayRequestRoutingRuleResponse(dict):
                  url_path_map: Optional['outputs.SubResourceResponse'] = None):
         """
         Request routing rule of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the request routing rule resource.
         :param _builtins.str type: Type of the resource.
@@ -5336,6 +5376,7 @@ class ApplicationGatewayResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Application gateway resource.
+
         :param _builtins.str default_predefined_ssl_policy: The default predefined SSL Policy applied on the application gateway resource.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
@@ -5847,6 +5888,7 @@ class ApplicationGatewayRewriteRuleActionSetResponse(dict):
                  url_configuration: Optional['outputs.ApplicationGatewayUrlConfigurationResponse'] = None):
         """
         Set of actions in the Rewrite Rule in Application Gateway.
+
         :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] request_header_configurations: Request Header Actions in the Action Set.
         :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] response_header_configurations: Response Header Actions in the Action Set.
         :param 'ApplicationGatewayUrlConfigurationResponse' url_configuration: Url Configuration Action in the Action Set.
@@ -5912,6 +5954,7 @@ class ApplicationGatewayRewriteRuleConditionResponse(dict):
                  variable: Optional[_builtins.str] = None):
         """
         Set of conditions in the Rewrite Rule in Application Gateway.
+
         :param _builtins.bool ignore_case: Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
         :param _builtins.bool negate: Setting this value as truth will force to check the negation of the condition given by the user.
         :param _builtins.str pattern: The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
@@ -5990,6 +6033,7 @@ class ApplicationGatewayRewriteRuleResponse(dict):
                  rule_sequence: Optional[_builtins.int] = None):
         """
         Rewrite rule of an application gateway.
+
         :param 'ApplicationGatewayRewriteRuleActionSetResponse' action_set: Set of actions to be done as part of the rewrite Rule.
         :param Sequence['ApplicationGatewayRewriteRuleConditionResponse'] conditions: Conditions based on which the action set execution will be evaluated.
         :param _builtins.str name: Name of the rewrite rule that is unique within an Application Gateway.
@@ -6069,6 +6113,7 @@ class ApplicationGatewayRewriteRuleSetResponse(dict):
                  rewrite_rules: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleResponse']] = None):
         """
         Rewrite rule set of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the rewrite rule set resource.
         :param _builtins.str id: Resource ID.
@@ -6166,6 +6211,7 @@ class ApplicationGatewayRoutingRuleResponse(dict):
                  rule_type: Optional[_builtins.str] = None):
         """
         Routing rule of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.int priority: Priority of the routing rule.
         :param _builtins.str provisioning_state: The provisioning state of the request routing rule resource.
@@ -6287,6 +6333,7 @@ class ApplicationGatewaySkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of an application gateway.
+
         :param _builtins.int capacity: Capacity (instance count) of an application gateway.
         :param _builtins.str family: Family of an application gateway SKU.
         :param _builtins.str name: Name of an application gateway SKU.
@@ -6372,6 +6419,7 @@ class ApplicationGatewaySslCertificateResponse(dict):
                  password: Optional[_builtins.str] = None):
         """
         SSL certificates of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the SSL certificate resource.
         :param _builtins.str public_cert_data: Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
@@ -6508,6 +6556,7 @@ class ApplicationGatewaySslPolicyResponse(dict):
                  policy_type: Optional[_builtins.str] = None):
         """
         Application Gateway Ssl policy.
+
         :param Sequence[_builtins.str] cipher_suites: Ssl cipher suites to be enabled in the specified order to application gateway.
         :param Sequence[_builtins.str] disabled_ssl_protocols: Ssl protocols to be disabled on application gateway.
         :param _builtins.str min_protocol_version: Minimum version of Ssl protocol to be supported on application gateway.
@@ -6605,6 +6654,7 @@ class ApplicationGatewaySslProfileResponse(dict):
                  trusted_client_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None):
         """
         SSL profile of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the HTTP listener resource.
         :param _builtins.str type: Type of the resource.
@@ -6730,6 +6780,7 @@ class ApplicationGatewayTrustedClientCertificateResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Trusted client certificates of an application gateway.
+
         :param _builtins.str client_cert_issuer_dn: Distinguished name of client certificate issuer.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the trusted client certificate resource.
@@ -6850,6 +6901,7 @@ class ApplicationGatewayTrustedRootCertificateResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Trusted Root certificates of an application gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the trusted root certificate resource.
         :param _builtins.str type: Type of the resource.
@@ -6957,6 +7009,7 @@ class ApplicationGatewayUrlConfigurationResponse(dict):
                  reroute: Optional[_builtins.bool] = None):
         """
         Url configuration of the Actions set in Application Gateway.
+
         :param _builtins.str modified_path: Url path which user has provided for url rewrite. Null means no path will be updated. Default value is null.
         :param _builtins.str modified_query_string: Query string which user has provided for url rewrite. Null means no query string will be updated. Default value is null.
         :param _builtins.bool reroute: If set as true, it will re-evaluate the url path map provided in path based request routing rules using modified path. Default value is false.
@@ -7041,6 +7094,7 @@ class ApplicationGatewayUrlPathMapResponse(dict):
                  path_rules: Optional[Sequence['outputs.ApplicationGatewayPathRuleResponse']] = None):
         """
         UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the URL path map resource.
         :param _builtins.str type: Type of the resource.
@@ -7211,6 +7265,7 @@ class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
                  request_body_check: Optional[_builtins.bool] = None):
         """
         Application gateway web application firewall configuration.
+
         :param _builtins.bool enabled: Whether the web application firewall is enabled or not.
         :param _builtins.str firewall_mode: Web application firewall mode.
         :param _builtins.str rule_set_type: The type of the web application firewall rule set. Possible values are: 'OWASP'.
@@ -7364,6 +7419,7 @@ class ApplicationRuleConditionResponse(dict):
                  target_fqdns: Optional[Sequence[_builtins.str]] = None):
         """
         Rule condition of type application.
+
         :param _builtins.str rule_condition_type: Rule Condition Type.
                Expected value is 'ApplicationRuleCondition'.
         :param _builtins.str description: Description of the rule condition.
@@ -7523,6 +7579,7 @@ class ApplicationRuleResponse(dict):
                  web_categories: Optional[Sequence[_builtins.str]] = None):
         """
         Rule of type application.
+
         :param _builtins.str rule_type: Rule Type.
                Expected value is 'ApplicationRule'.
         :param _builtins.str description: Description of the rule.
@@ -7705,6 +7762,7 @@ class ApplicationSecurityGroupResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         An application security group in a resource group.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
         :param _builtins.str provisioning_state: The provisioning state of the application security group resource.
@@ -7823,6 +7881,7 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
                  rules: Optional[Sequence['outputs.AzureFirewallApplicationRuleResponse']] = None):
         """
         Application rule collection resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the application rule collection resource.
         :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
@@ -7928,6 +7987,7 @@ class AzureFirewallApplicationRuleProtocolResponse(dict):
                  protocol_type: Optional[_builtins.str] = None):
         """
         Properties of the application rule protocol.
+
         :param _builtins.int port: Port number for the protocol, cannot be greater than 64000. This field is optional.
         :param _builtins.str protocol_type: Protocol type.
         """
@@ -7991,6 +8051,7 @@ class AzureFirewallApplicationRuleResponse(dict):
                  target_fqdns: Optional[Sequence[_builtins.str]] = None):
         """
         Properties of an application rule.
+
         :param _builtins.str description: Description of the rule.
         :param Sequence[_builtins.str] fqdn_tags: List of FQDN Tags for this rule.
         :param _builtins.str name: Name of the application rule.
@@ -8100,6 +8161,7 @@ class AzureFirewallAutoscaleConfigurationResponse(dict):
                  min_capacity: Optional[_builtins.int] = None):
         """
         Azure Firewall Autoscale Configuration parameters.
+
         :param _builtins.int max_capacity: The maximum number of capacity units for this azure firewall. Use null to reset the value to the service default.
         :param _builtins.int min_capacity: The minimum number of capacity units for this azure firewall. Use null to reset the value to the service default.
         """
@@ -8162,6 +8224,7 @@ class AzureFirewallIPConfigurationResponse(dict):
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         IP configuration of an Azure Firewall.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str private_ip_address: The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
         :param _builtins.str provisioning_state: The provisioning state of the Azure firewall IP configuration resource.
@@ -8276,6 +8339,7 @@ class AzureFirewallIpGroupsResponse(dict):
                  id: _builtins.str):
         """
         IpGroups associated with azure firewall.
+
         :param _builtins.str change_number: The iteration number.
         :param _builtins.str id: Resource ID.
         """
@@ -8308,6 +8372,7 @@ class AzureFirewallNatRCActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         AzureFirewall NAT Rule Collection Action.
+
         :param _builtins.str type: The type of action.
         """
         if type is not None:
@@ -8354,6 +8419,7 @@ class AzureFirewallNatRuleCollectionResponse(dict):
                  rules: Optional[Sequence['outputs.AzureFirewallNatRuleResponse']] = None):
         """
         NAT rule collection resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the NAT rule collection resource.
         :param 'AzureFirewallNatRCActionResponse' action: The action type of a NAT rule collection.
@@ -8479,6 +8545,7 @@ class AzureFirewallNatRuleResponse(dict):
                  translated_port: Optional[_builtins.str] = None):
         """
         Properties of a NAT rule.
+
         :param _builtins.str description: Description of the rule.
         :param Sequence[_builtins.str] destination_addresses: List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
         :param Sequence[_builtins.str] destination_ports: List of destination ports.
@@ -8624,6 +8691,7 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
                  rules: Optional[Sequence['outputs.AzureFirewallNetworkRuleResponse']] = None):
         """
         Network rule collection resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the network rule collection resource.
         :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
@@ -8746,6 +8814,7 @@ class AzureFirewallNetworkRuleResponse(dict):
                  source_ip_groups: Optional[Sequence[_builtins.str]] = None):
         """
         Properties of the network rule.
+
         :param _builtins.str description: Description of the rule.
         :param Sequence[_builtins.str] destination_addresses: List of destination IP addresses.
         :param Sequence[_builtins.str] destination_fqdns: List of destination FQDNs.
@@ -8857,6 +8926,7 @@ class AzureFirewallPublicIPAddressResponse(dict):
                  address: Optional[_builtins.str] = None):
         """
         Public IP Address associated with azure firewall.
+
         :param _builtins.str address: Public IP Address value.
         """
         if address is not None:
@@ -8880,6 +8950,7 @@ class AzureFirewallRCActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Properties of the AzureFirewallRCAction.
+
         :param _builtins.str type: The type of action.
         """
         if type is not None:
@@ -8904,6 +8975,7 @@ class AzureFirewallSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of an Azure Firewall.
+
         :param _builtins.str name: Name of an Azure Firewall SKU.
         :param _builtins.str tier: Tier of an Azure Firewall.
         """
@@ -8990,6 +9062,7 @@ class BackendAddressPoolResponse(dict):
                  virtual_network: Optional['outputs.SubResourceResponse'] = None):
         """
         Pool of backend IP addresses.
+
         :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: An array of references to IP addresses defined in network interfaces.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['SubResourceResponse'] inbound_nat_rules: An array of references to inbound NAT rules that use this backend address pool.
@@ -9180,6 +9253,7 @@ class BastionActiveSessionResponse(dict):
                  user_name: _builtins.str):
         """
         The session detail for a target.
+
         :param _builtins.str protocol: The protocol used to connect to the target.
         :param _builtins.str resource_type: The type of the resource.
         :param _builtins.float session_duration_in_mins: Duration in mins the session has been active.
@@ -9330,6 +9404,7 @@ class BastionHostIPConfigurationResponse(dict):
                  public_ip_address: Optional['outputs.SubResourceResponse'] = None):
         """
         IP configuration of an Bastion Host.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the bastion host IP configuration resource.
         :param 'SubResourceResponse' subnet: Reference of the subnet resource.
@@ -9465,6 +9540,7 @@ class BastionShareableLinkResponse(dict):
                  vm: 'outputs.VMResponse'):
         """
         Bastion Shareable Link.
+
         :param _builtins.str bsl: The unique Bastion Shareable Link to the virtual machine.
         :param _builtins.str created_at: The time when the link was created.
         :param _builtins.str message: Optional field indicating the warning or error message related to the vm in case of partial failure.
@@ -9524,6 +9600,7 @@ class BgpPeerStatusResponse(dict):
                  state: _builtins.str):
         """
         BGP peer status details.
+
         :param _builtins.float asn: The autonomous system number of the remote BGP peer.
         :param _builtins.str connected_duration: For how long the peering has been up.
         :param _builtins.str local_address: The virtual network gateway's local address.
@@ -9640,6 +9717,7 @@ class BgpSettingsResponse(dict):
                  peer_weight: Optional[_builtins.int] = None):
         """
         BGP settings details.
+
         :param _builtins.float asn: The BGP speaker's ASN.
         :param _builtins.str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         :param Sequence['IPConfigurationBgpPeeringAddressResponse'] bgp_peering_addresses: BGP peering address with IP configuration ID for virtual network gateway.
@@ -9698,6 +9776,7 @@ class BreakOutCategoryPoliciesResponse(dict):
                  optimize: Optional[_builtins.bool] = None):
         """
         Network Virtual Appliance Sku Properties.
+
         :param _builtins.bool allow: Flag to control breakout of o365 allow category.
         :param _builtins.bool default: Flag to control breakout of o365 default category.
         :param _builtins.bool optimize: Flag to control breakout of o365 optimize category.
@@ -9793,6 +9872,7 @@ class ConfigurationGroupResponse(dict):
                  member_type: Optional[_builtins.str] = None):
         """
         The network configuration group resource
+
         :param _builtins.str provisioning_state: The provisioning state of the scope assignment resource.
         :param _builtins.str resource_guid: Unique identifier for this resource.
         :param _builtins.str conditional_membership: Network group conditional filter.
@@ -9910,6 +9990,7 @@ class ConnectionMonitorDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Describes the destination of connection monitor.
+
         :param _builtins.str address: Address of the connection monitor destination (IP or domain name).
         :param _builtins.int port: The destination port used by connection monitor.
         :param _builtins.str resource_id: The ID of the resource used as the destination by connection monitor.
@@ -9956,6 +10037,7 @@ class ConnectionMonitorEndpointFilterItemResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Describes the connection monitor endpoint filter item.
+
         :param _builtins.str address: The address of the filter item.
         :param _builtins.str type: The type of item included in the filter. Currently only 'AgentAddress' is supported.
         """
@@ -9991,6 +10073,7 @@ class ConnectionMonitorEndpointFilterResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Describes the connection monitor endpoint filter.
+
         :param Sequence['ConnectionMonitorEndpointFilterItemResponse'] items: List of items in the filter.
         :param _builtins.str type: The behavior of the endpoint filter. Currently only 'Include' is supported.
         """
@@ -10025,6 +10108,7 @@ class ConnectionMonitorEndpointLocationDetailsResponse(dict):
                  region: Optional[_builtins.str] = None):
         """
         Connection monitor endpoint location details only being used for 'AzureArcNetwork' type endpoints, which contains the region details.
+
         :param _builtins.str region: Region for connection monitor endpoint.
         """
         if region is not None:
@@ -10079,6 +10163,7 @@ class ConnectionMonitorEndpointResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Describes the connection monitor endpoint.
+
         :param _builtins.str name: The name of the connection monitor endpoint.
         :param _builtins.str address: Address of the connection monitor endpoint. Supported for AzureVM, ExternalAddress, ArcMachine, MMAWorkspaceMachine endpoint type.
         :param _builtins.str coverage_level: Test coverage for the endpoint.
@@ -10189,6 +10274,7 @@ class ConnectionMonitorEndpointScopeItemResponse(dict):
                  address: Optional[_builtins.str] = None):
         """
         Describes the connection monitor endpoint scope item.
+
         :param _builtins.str address: The address of the endpoint item. Supported types are IPv4/IPv6 subnet mask or IPv4/IPv6 IP address.
         """
         if address is not None:
@@ -10213,6 +10299,7 @@ class ConnectionMonitorEndpointScopeResponse(dict):
                  include: Optional[Sequence['outputs.ConnectionMonitorEndpointScopeItemResponse']] = None):
         """
         Describes the connection monitor endpoint scope.
+
         :param Sequence['ConnectionMonitorEndpointScopeItemResponse'] exclude: List of items which needs to be excluded from the endpoint scope.
         :param Sequence['ConnectionMonitorEndpointScopeItemResponse'] include: List of items which needs to be included to the endpoint scope.
         """
@@ -10273,6 +10360,7 @@ class ConnectionMonitorHttpConfigurationResponse(dict):
                  valid_status_code_ranges: Optional[Sequence[_builtins.str]] = None):
         """
         Describes the HTTP configuration.
+
         :param _builtins.str method: The HTTP method to use.
         :param _builtins.str path: The path component of the URI. For instance, "/dir1/dir2".
         :param _builtins.int port: The port to connect to.
@@ -10368,6 +10456,7 @@ class ConnectionMonitorIcmpConfigurationResponse(dict):
                  disable_trace_route: Optional[_builtins.bool] = None):
         """
         Describes the ICMP configuration.
+
         :param _builtins.bool disable_trace_route: Value indicating whether path evaluation with trace route should be disabled.
         """
         if disable_trace_route is not None:
@@ -10409,6 +10498,7 @@ class ConnectionMonitorOutputResponse(dict):
                  workspace_settings: Optional['outputs.ConnectionMonitorWorkspaceSettingsResponse'] = None):
         """
         Describes a connection monitor output destination.
+
         :param _builtins.str type: Connection monitor output destination type. Currently, only "Workspace" is supported.
         :param 'ConnectionMonitorWorkspaceSettingsResponse' workspace_settings: Describes the settings for producing output into a log analytics workspace.
         """
@@ -10461,6 +10551,7 @@ class ConnectionMonitorSourceResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Describes the source of connection monitor.
+
         :param _builtins.str resource_id: The ID of the resource used as the source by connection monitor.
         :param _builtins.int port: The source port used by connection monitor.
         """
@@ -10514,6 +10605,7 @@ class ConnectionMonitorSuccessThresholdResponse(dict):
                  round_trip_time_ms: Optional[_builtins.float] = None):
         """
         Describes the threshold for declaring a test successful.
+
         :param _builtins.int checks_failed_percent: The maximum percentage of failed checks permitted for a test to evaluate as successful.
         :param _builtins.float round_trip_time_ms: The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
         """
@@ -10569,6 +10661,7 @@ class ConnectionMonitorTcpConfigurationResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Describes the TCP configuration.
+
         :param _builtins.str destination_port_behavior: Destination port behavior.
         :param _builtins.bool disable_trace_route: Value indicating whether path evaluation with trace route should be disabled.
         :param _builtins.int port: The port to connect to.
@@ -10648,6 +10741,7 @@ class ConnectionMonitorTestConfigurationResponse(dict):
                  test_frequency_sec: Optional[_builtins.int] = None):
         """
         Describes a connection monitor test configuration.
+
         :param _builtins.str name: The name of the connection monitor test configuration.
         :param _builtins.str protocol: The protocol to use in test evaluation.
         :param 'ConnectionMonitorHttpConfigurationResponse' http_configuration: The parameters used to perform test evaluation over HTTP.
@@ -10767,6 +10861,7 @@ class ConnectionMonitorTestGroupResponse(dict):
                  disable: Optional[_builtins.bool] = None):
         """
         Describes the connection monitor test group.
+
         :param Sequence[_builtins.str] destinations: List of destination endpoint names.
         :param _builtins.str name: The name of the connection monitor test group.
         :param Sequence[_builtins.str] sources: List of source endpoint names.
@@ -10847,6 +10942,7 @@ class ConnectionMonitorWorkspaceSettingsResponse(dict):
                  workspace_resource_id: Optional[_builtins.str] = None):
         """
         Describes the settings for producing output into a log analytics workspace.
+
         :param _builtins.str workspace_resource_id: Log analytics workspace resource ID.
         """
         if workspace_resource_id is not None:
@@ -10896,6 +10992,7 @@ class ConnectivityGroupItemResponse(dict):
                  use_hub_gateway: Optional[_builtins.str] = None):
         """
         Connectivity group item.
+
         :param _builtins.str group_connectivity: Group connectivity type.
         :param _builtins.str network_group_id: Network group Id.
         :param _builtins.str is_global: Flag if global is supported.
@@ -10977,6 +11074,7 @@ class ContainerNetworkInterfaceConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Container network interface configuration child resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the container network interface configuration resource.
         :param _builtins.str type: Sub Resource type.
@@ -11083,6 +11181,7 @@ class ContainerNetworkInterfaceIpConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The ip configuration for a container network interface.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the container network interface IP configuration resource.
         :param _builtins.str type: Sub Resource type.
@@ -11164,6 +11263,7 @@ class ContainerNetworkInterfaceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Container network interface child resource.
+
         :param 'ContainerNetworkInterfaceConfigurationResponse' container_network_interface_configuration: Container network interface configuration from which this container network interface is created.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['ContainerNetworkInterfaceIpConfigurationResponse'] ip_configurations: Reference to the ip configuration on this container nic.
@@ -11259,6 +11359,7 @@ class ContainerResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to container resource in remote resource provider.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -11306,6 +11407,7 @@ class CriterionResponse(dict):
                  route_prefix: Optional[Sequence[_builtins.str]] = None):
         """
         A matching criteria which matches routes based on route prefix, community, and AS path.
+
         :param Sequence[_builtins.str] as_path: List of AS paths which this criteria matches.
         :param Sequence[_builtins.str] community: List of BGP communities which this criteria matches.
         :param _builtins.str match_condition: Match condition to apply RouteMap rules.
@@ -11383,6 +11485,7 @@ class CrossTenantScopesResponse(dict):
                  tenant_id: _builtins.str):
         """
         Cross tenant scopes.
+
         :param Sequence[_builtins.str] management_groups: List of management groups.
         :param Sequence[_builtins.str] subscriptions: List of subscriptions.
         :param _builtins.str tenant_id: Tenant ID.
@@ -11443,6 +11546,7 @@ class CustomDnsConfigPropertiesFormatResponse(dict):
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
         Contains custom Dns resolution configuration from customer.
+
         :param _builtins.str fqdn: Fqdn that resolves to private endpoint ip address.
         :param Sequence[_builtins.str] ip_addresses: A list of private ip addresses of the private endpoint.
         """
@@ -11503,6 +11607,7 @@ class DdosSettingsResponse(dict):
                  protection_mode: Optional[_builtins.str] = None):
         """
         Contains the DDoS protection settings of the public IP.
+
         :param 'SubResourceResponse' ddos_custom_policy: The DDoS custom policy associated with the public IP.
         :param 'SubResourceResponse' ddos_protection_plan: The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
         :param _builtins.str protection_coverage: The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
@@ -11579,6 +11684,7 @@ class DelegationPropertiesResponse(dict):
                  service_name: Optional[_builtins.str] = None):
         """
         Properties of the delegation.
+
         :param _builtins.str provisioning_state: The current provisioning state.
         :param _builtins.str service_name: The service name to which the NVA is delegated.
         """
@@ -11637,6 +11743,7 @@ class DelegationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details the service to which the subnet is delegated.
+
         :param Sequence[_builtins.str] actions: The actions permitted to the service upon delegation.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the service delegation resource.
@@ -11746,6 +11853,7 @@ class DevicePropertiesResponse(dict):
                  link_speed_in_mbps: Optional[_builtins.int] = None):
         """
         List of properties of the device.
+
         :param _builtins.str device_model: Model of the device.
         :param _builtins.str device_vendor: Name of the device Vendor.
         :param _builtins.int link_speed_in_mbps: Link speed.
@@ -11808,6 +11916,7 @@ class DhcpOptionsResponse(dict):
                  dns_servers: Optional[Sequence[_builtins.str]] = None):
         """
         DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
+
         :param Sequence[_builtins.str] dns_servers: The list of DNS servers IP addresses.
         """
         if dns_servers is not None:
@@ -11852,6 +11961,7 @@ class DnsSettingsResponse(dict):
                  servers: Optional[Sequence[_builtins.str]] = None):
         """
         DNS Proxy Settings in Firewall Policy.
+
         :param _builtins.bool enable_proxy: Enable DNS Proxy on Firewalls attached to the Firewall Policy.
         :param _builtins.bool require_proxy_for_network_rules: FQDNs in Network Rules are supported when set to true.
         :param Sequence[_builtins.str] servers: List of Custom DNS Servers.
@@ -11907,6 +12017,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
                  is_global: Optional[_builtins.str] = None):
         """
         The network manager effective connectivity configuration
+
         :param Sequence['ConnectivityGroupItemResponse'] applies_to_groups: Groups for configuration
         :param _builtins.str connectivity_topology: Connectivity topology type.
         :param _builtins.str provisioning_state: The provisioning state of the connectivity configuration resource.
@@ -12056,6 +12167,7 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
                  rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None):
         """
         Network default admin rule.
+
         :param _builtins.str access: Indicates the access allowed for this particular rule
         :param _builtins.str description: A description for this rule. Restricted to 140 chars.
         :param Sequence[_builtins.str] destination_port_ranges: The destination port ranges.
@@ -12308,6 +12420,7 @@ class EffectiveSecurityAdminRuleResponse(dict):
                  sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None):
         """
         Network admin rule.
+
         :param _builtins.str access: Indicates the access allowed for this particular rule
         :param _builtins.str direction: Indicates if the traffic matched against the rule in inbound or outbound.
         :param _builtins.str kind: Whether the rule is custom or default.
@@ -12537,6 +12650,7 @@ class EffectiveVirtualNetworkResponse(dict):
                  membership_type: Optional[_builtins.str] = None):
         """
         Effective Virtual Network
+
         :param _builtins.str id: Effective vnet Id.
         :param _builtins.str location: Location of vnet.
         :param _builtins.str membership_type: Membership Type.
@@ -12582,6 +12696,7 @@ class EndpointServiceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Identifies the service being brought into the virtual network.
+
         :param _builtins.str id: A unique identifier of the service being referenced by the interface endpoint.
         """
         if id is not None:
@@ -12633,6 +12748,7 @@ class ExceptionEntryResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Adds exception to allow a request when the condition is satisfied.
+
         :param _builtins.str match_variable: The variable on which we evaluate the exception condition
         :param _builtins.str value_match_operator: Operates on the allowed values for the matchVariable
         :param Sequence['ExclusionManagedRuleSetResponse'] exception_managed_rule_sets: The managed rule sets that are associated with the exception.
@@ -12727,6 +12843,7 @@ class ExclusionManagedRuleGroupResponse(dict):
                  rules: Optional[Sequence['outputs.ExclusionManagedRuleResponse']] = None):
         """
         Defines a managed rule group to use for exclusion.
+
         :param _builtins.str rule_group_name: The managed rule group for exclusion.
         :param Sequence['ExclusionManagedRuleResponse'] rules: List of rules that will be excluded. If none specified, all rules in the group will be excluded.
         """
@@ -12777,6 +12894,7 @@ class ExclusionManagedRuleResponse(dict):
                  rule_id: _builtins.str):
         """
         Defines a managed rule to use for exclusion.
+
         :param _builtins.str rule_id: Identifier for the managed rule.
         """
         pulumi.set(__self__, "rule_id", rule_id)
@@ -12822,6 +12940,7 @@ class ExclusionManagedRuleSetResponse(dict):
                  rule_groups: Optional[Sequence['outputs.ExclusionManagedRuleGroupResponse']] = None):
         """
         Defines a managed rule set for Exclusions.
+
         :param _builtins.str rule_set_type: Defines the rule set type to use.
         :param _builtins.str rule_set_version: Defines the version of the rule set to use.
         :param Sequence['ExclusionManagedRuleGroupResponse'] rule_groups: Defines the rule groups to apply to the rule set.
@@ -12897,6 +13016,7 @@ class ExplicitProxyResponse(dict):
                  pac_file_port: Optional[_builtins.int] = None):
         """
         Explicit Proxy Settings in Firewall Policy.
+
         :param _builtins.bool enable_explicit_proxy: When set to true, explicit proxy mode is enabled.
         :param _builtins.bool enable_pac_file: When set to true, pac file port and url needs to be provided.
         :param _builtins.int http_port: Port number for explicit proxy http protocol, cannot be greater than 64000.
@@ -13005,6 +13125,7 @@ class ExpressRouteCircuitAuthorizationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Authorization in an ExpressRouteCircuit resource.
+
         :param _builtins.str connection_resource_uri: The reference to the ExpressRoute connection resource using the authorization.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the authorization resource.
@@ -13140,6 +13261,7 @@ class ExpressRouteCircuitConnectionResponse(dict):
                  peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+
         :param _builtins.str circuit_connection_status: Express Route Circuit connection state.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the express route circuit connection resource.
@@ -13301,6 +13423,7 @@ class ExpressRouteCircuitPeeringConfigResponse(dict):
                  routing_registry_name: Optional[_builtins.str] = None):
         """
         Specifies the peering configuration.
+
         :param _builtins.str advertised_public_prefixes_state: The advertised public prefix state of the Peering resource.
         :param Sequence[_builtins.str] advertised_communities: The communities of bgp peering. Specified for microsoft peering.
         :param Sequence[_builtins.str] advertised_public_prefixes: The reference to AdvertisedPublicPrefixes.
@@ -13378,6 +13501,7 @@ class ExpressRouteCircuitPeeringIdResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         ExpressRoute circuit peering identifier.
+
         :param _builtins.str id: The ID of the ExpressRoute circuit peering.
         """
         if id is not None:
@@ -13473,6 +13597,7 @@ class ExpressRouteCircuitPeeringResponse(dict):
                  vlan_id: Optional[_builtins.int] = None):
         """
         Peering in an ExpressRouteCircuit resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str last_modified_by: Who was the last to modify the peering.
         :param Sequence['PeerExpressRouteCircuitConnectionResponse'] peered_connections: The list of peered circuit connections associated with Azure Private Peering for this circuit.
@@ -13767,6 +13892,7 @@ class ExpressRouteCircuitServiceProviderPropertiesResponse(dict):
                  service_provider_name: Optional[_builtins.str] = None):
         """
         Contains ServiceProviderProperties in an ExpressRouteCircuit.
+
         :param _builtins.int bandwidth_in_mbps: The BandwidthInMbps.
         :param _builtins.str peering_location: The peering location.
         :param _builtins.str service_provider_name: The serviceProviderName.
@@ -13814,6 +13940,7 @@ class ExpressRouteCircuitSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Contains SKU in an ExpressRouteCircuit.
+
         :param _builtins.str family: The family of the SKU.
         :param _builtins.str name: The name of the SKU.
         :param _builtins.str tier: The tier of the SKU.
@@ -13885,6 +14012,7 @@ class ExpressRouteCircuitStatsResponse(dict):
                  secondarybytes_out: Optional[_builtins.float] = None):
         """
         Contains stats associated with the peering.
+
         :param _builtins.float primarybytes_in: The Primary BytesIn of the peering.
         :param _builtins.float primarybytes_out: The primary BytesOut of the peering.
         :param _builtins.float secondarybytes_in: The secondary BytesIn of the peering.
@@ -13941,6 +14069,7 @@ class ExpressRouteConnectionIdResponse(dict):
                  id: _builtins.str):
         """
         The ID of the ExpressRouteConnection.
+
         :param _builtins.str id: The ID of the ExpressRouteConnection.
         """
         pulumi.set(__self__, "id", id)
@@ -14003,6 +14132,7 @@ class ExpressRouteConnectionResponse(dict):
                  routing_weight: Optional[_builtins.int] = None):
         """
         ExpressRouteConnection resource.
+
         :param 'ExpressRouteCircuitPeeringIdResponse' express_route_circuit_peering: The ExpressRoute circuit peering.
         :param _builtins.str name: The name of the resource.
         :param _builtins.str provisioning_state: The provisioning state of the express route connection resource.
@@ -14122,6 +14252,7 @@ class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration(dict):
                  bounds: Optional['outputs.ExpressRouteGatewayPropertiesResponseBounds'] = None):
         """
         Configuration for auto scaling.
+
         :param 'ExpressRouteGatewayPropertiesResponseBounds' bounds: Minimum and maximum number of scale units to deploy.
         """
         if bounds is not None:
@@ -14146,6 +14277,7 @@ class ExpressRouteGatewayPropertiesResponseBounds(dict):
                  min: Optional[_builtins.int] = None):
         """
         Minimum and maximum number of scale units to deploy.
+
         :param _builtins.int max: Maximum number of scale units deployed for ExpressRoute gateway.
         :param _builtins.int min: Minimum number of scale units deployed for ExpressRoute gateway.
         """
@@ -14204,6 +14336,7 @@ class ExpressRouteLinkMacSecConfigResponse(dict):
                  sci_state: Optional[_builtins.str] = None):
         """
         ExpressRouteLink Mac Security Configuration.
+
         :param _builtins.str cak_secret_identifier: Keyvault Secret Identifier URL containing Mac security CAK key.
         :param _builtins.str cipher: Mac security cipher.
         :param _builtins.str ckn_secret_identifier: Keyvault Secret Identifier URL containing Mac security CKN key.
@@ -14304,6 +14437,7 @@ class ExpressRouteLinkResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         ExpressRouteLink child resource definition.
+
         :param _builtins.str colo_location: Cololocation for ExpressRoute Hybrid Direct.
         :param _builtins.str connector_type: Physical fiber port type.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -14441,6 +14575,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         ExtendedLocation complex type.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -14493,6 +14628,7 @@ class FirewallPolicyCertificateAuthorityResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Trusted Root certificates properties for tls.
+
         :param _builtins.str key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
         :param _builtins.str name: Name of the CA certificate.
         """
@@ -14527,6 +14663,7 @@ class FirewallPolicyFilterRuleActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Properties of the FirewallPolicyFilterRuleAction.
+
         :param _builtins.str type: The type of action.
         """
         if type is not None:
@@ -14550,6 +14687,7 @@ class FirewallPolicyFilterRuleCollectionActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Properties of the FirewallPolicyFilterRuleCollectionAction.
+
         :param _builtins.str type: The type of action.
         """
         if type is not None:
@@ -14594,6 +14732,7 @@ class FirewallPolicyFilterRuleCollectionResponse(dict):
                  rules: Optional[Sequence[Any]] = None):
         """
         Firewall Policy Filter Rule Collection.
+
         :param _builtins.str rule_collection_type: The type of the rule collection.
                Expected value is 'FirewallPolicyFilterRuleCollection'.
         :param 'FirewallPolicyFilterRuleCollectionActionResponse' action: The action type of a Filter rule collection.
@@ -14685,6 +14824,7 @@ class FirewallPolicyFilterRuleResponse(dict):
                  rule_conditions: Optional[Sequence[Any]] = None):
         """
         Firewall Policy Filter Rule.
+
         :param _builtins.str rule_type: The type of the rule.
                Expected value is 'FirewallPolicyFilterRule'.
         :param 'FirewallPolicyFilterRuleActionResponse' action: The action type of a Filter rule.
@@ -14773,6 +14913,7 @@ class FirewallPolicyHttpHeaderToInsertResponse(dict):
                  header_value: Optional[_builtins.str] = None):
         """
         name and value of HTTP/S header to insert
+
         :param _builtins.str header_name: Contains the name of the header
         :param _builtins.str header_value: Contains the value of the header
         """
@@ -14830,6 +14971,7 @@ class FirewallPolicyInsightsResponse(dict):
                  retention_days: Optional[_builtins.int] = None):
         """
         Firewall Policy Insights.
+
         :param _builtins.bool is_enabled: A flag to indicate if the insights are enabled on the policy.
         :param 'FirewallPolicyLogAnalyticsResourcesResponse' log_analytics_resources: Workspaces needed to configure the Firewall Policy Insights.
         :param _builtins.int retention_days: Number of days the insights should be enabled on the policy.
@@ -14907,6 +15049,7 @@ class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse(dict):
                  source_ip_groups: Optional[Sequence[_builtins.str]] = None):
         """
         Intrusion detection bypass traffic specification.
+
         :param _builtins.str description: Description of the bypass traffic rule.
         :param Sequence[_builtins.str] destination_addresses: List of destination IP addresses or ranges for this rule.
         :param Sequence[_builtins.str] destination_ip_groups: List of destination IpGroups for this rule.
@@ -15030,6 +15173,7 @@ class FirewallPolicyIntrusionDetectionConfigurationResponse(dict):
                  signature_overrides: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionSignatureSpecificationResponse']] = None):
         """
         The operation for configuring intrusion detection.
+
         :param Sequence['FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse'] bypass_traffic_settings: List of rules for traffic to bypass.
         :param Sequence[_builtins.str] private_ranges: IDPS Private IP address ranges are used to identify traffic direction (i.e. inbound, outbound, etc.). By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. To modify default ranges, specify your Private IP address ranges with this property
         :param Sequence['FirewallPolicyIntrusionDetectionSignatureSpecificationResponse'] signature_overrides: List of specific signatures states.
@@ -15077,6 +15221,7 @@ class FirewallPolicyIntrusionDetectionResponse(dict):
                  profile: Optional[_builtins.str] = None):
         """
         Configuration for intrusion detection mode and rules.
+
         :param 'FirewallPolicyIntrusionDetectionConfigurationResponse' configuration: Intrusion detection configuration properties.
         :param _builtins.str mode: Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
         :param _builtins.str profile: IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
@@ -15123,6 +15268,7 @@ class FirewallPolicyIntrusionDetectionSignatureSpecificationResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Intrusion detection signatures specification states.
+
         :param _builtins.str id: Signature id.
         :param _builtins.str mode: The signature state.
         """
@@ -15175,6 +15321,7 @@ class FirewallPolicyLogAnalyticsResourcesResponse(dict):
                  workspaces: Optional[Sequence['outputs.FirewallPolicyLogAnalyticsWorkspaceResponse']] = None):
         """
         Log Analytics Resources for Firewall Policy Insights.
+
         :param 'SubResourceResponse' default_workspace_id: The default workspace Id for Firewall Policy Insights.
         :param Sequence['FirewallPolicyLogAnalyticsWorkspaceResponse'] workspaces: List of workspaces for Firewall Policy Insights.
         """
@@ -15227,6 +15374,7 @@ class FirewallPolicyLogAnalyticsWorkspaceResponse(dict):
                  workspace_id: Optional['outputs.SubResourceResponse'] = None):
         """
         Log Analytics Workspace for Firewall Policy Insights.
+
         :param _builtins.str region: Region to configure the Workspace.
         :param 'SubResourceResponse' workspace_id: The workspace Id for Firewall Policy Insights.
         """
@@ -15261,6 +15409,7 @@ class FirewallPolicyNatRuleActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Properties of the FirewallPolicyNatRuleAction.
+
         :param _builtins.str type: The type of action.
         """
         if type is not None:
@@ -15284,6 +15433,7 @@ class FirewallPolicyNatRuleCollectionActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Properties of the FirewallPolicyNatRuleCollectionAction.
+
         :param _builtins.str type: The type of action.
         """
         if type is not None:
@@ -15328,6 +15478,7 @@ class FirewallPolicyNatRuleCollectionResponse(dict):
                  rules: Optional[Sequence[Any]] = None):
         """
         Firewall Policy NAT Rule Collection.
+
         :param _builtins.str rule_collection_type: The type of the rule collection.
                Expected value is 'FirewallPolicyNatRuleCollection'.
         :param 'FirewallPolicyNatRuleCollectionActionResponse' action: The action type of a Nat rule collection.
@@ -15425,6 +15576,7 @@ class FirewallPolicyNatRuleResponse(dict):
                  translated_port: Optional[_builtins.str] = None):
         """
         Firewall Policy NAT Rule.
+
         :param _builtins.str rule_type: The type of the rule.
                Expected value is 'FirewallPolicyNatRule'.
         :param 'FirewallPolicyNatRuleActionResponse' action: The action type of a Nat rule.
@@ -15533,6 +15685,7 @@ class FirewallPolicyRuleApplicationProtocolResponse(dict):
                  protocol_type: Optional[_builtins.str] = None):
         """
         Properties of the application rule protocol.
+
         :param _builtins.int port: Port number for the protocol, cannot be greater than 64000.
         :param _builtins.str protocol_type: Protocol type.
         """
@@ -15585,6 +15738,7 @@ class FirewallPolicyRuleConditionApplicationProtocolResponse(dict):
                  protocol_type: Optional[_builtins.str] = None):
         """
         Properties of the application rule protocol.
+
         :param _builtins.int port: Port number for the protocol, cannot be greater than 64000.
         :param _builtins.str protocol_type: Protocol type.
         """
@@ -15639,6 +15793,7 @@ class FirewallPolicySNATResponse(dict):
                  private_ranges: Optional[Sequence[_builtins.str]] = None):
         """
         The private IP addresses/IP ranges to which traffic will not be SNAT.
+
         :param _builtins.str auto_learn_private_ranges: The operation mode for automatically learning private ranges to not be SNAT
         :param Sequence[_builtins.str] private_ranges: List of private IP addresses/IP address ranges to not be SNAT.
         """
@@ -15690,6 +15845,7 @@ class FirewallPolicySQLResponse(dict):
                  allow_sql_redirect: Optional[_builtins.bool] = None):
         """
         SQL Settings in Firewall Policy.
+
         :param _builtins.bool allow_sql_redirect: A flag to indicate if SQL Redirect traffic filtering is enabled. Turning on the flag requires no rule using port 11000-11999.
         """
         if allow_sql_redirect is not None:
@@ -15713,6 +15869,7 @@ class FirewallPolicySkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of Firewall policy.
+
         :param _builtins.str tier: Tier of Firewall Policy.
         """
         if tier is not None:
@@ -15754,6 +15911,7 @@ class FirewallPolicyThreatIntelWhitelistResponse(dict):
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
         ThreatIntel Whitelist for Firewall Policy.
+
         :param Sequence[_builtins.str] fqdns: List of FQDNs for the ThreatIntel Whitelist.
         :param Sequence[_builtins.str] ip_addresses: List of IP addresses for the ThreatIntel Whitelist.
         """
@@ -15805,6 +15963,7 @@ class FirewallPolicyTransportSecurityResponse(dict):
                  certificate_authority: Optional['outputs.FirewallPolicyCertificateAuthorityResponse'] = None):
         """
         Configuration needed to perform TLS termination & initiation.
+
         :param 'FirewallPolicyCertificateAuthorityResponse' certificate_authority: The CA used for intermediate CA generation.
         """
         if certificate_authority is not None:
@@ -15829,6 +15988,7 @@ class FlowLogFormatParametersResponse(dict):
                  version: Optional[_builtins.int] = None):
         """
         Parameters that define the flow log format.
+
         :param _builtins.str type: The file type of flow log.
         :param _builtins.int version: The version (revision) of the flow log.
         """
@@ -15912,6 +16072,7 @@ class FlowLogResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         A flow log resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
         :param _builtins.str provisioning_state: The provisioning state of the flow log.
@@ -16157,6 +16318,7 @@ class FrontendIPConfigurationResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Frontend IP address of the load balancer.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['SubResourceResponse'] inbound_nat_pools: An array of references to inbound pools that use this frontend IP.
         :param Sequence['SubResourceResponse'] inbound_nat_rules: An array of references to inbound rules that use this frontend IP.
@@ -16369,6 +16531,7 @@ class GatewayCustomBgpIpAddressIpConfigurationResponse(dict):
                  ip_configuration_id: _builtins.str):
         """
         GatewayCustomBgpIpAddressIpConfiguration for a virtual network gateway connection.
+
         :param _builtins.str custom_bgp_ip_address: The custom BgpPeeringAddress which belongs to IpconfigurationId.
         :param _builtins.str ip_configuration_id: The IpconfigurationId of ipconfiguration which belongs to gateway.
         """
@@ -16404,6 +16567,7 @@ class GatewayLoadBalancerTunnelInterfaceResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Gateway load balancer tunnel interface of a load balancer backend address pool.
+
         :param _builtins.int identifier: Identifier of gateway load balancer tunnel interface.
         :param _builtins.int port: Port of gateway load balancer tunnel interface.
         :param _builtins.str protocol: Protocol of gateway load balancer tunnel interface.
@@ -16465,6 +16629,7 @@ class GatewayResiliencyRecommendationResponse(dict):
                  severity: Optional[_builtins.str] = None):
         """
         Resiliency Recommendation details
+
         :param _builtins.str call_to_action_link: Link to the public documentation for the associated recommendation
         :param _builtins.str call_to_action_text: Acton items to apply the recommendation
         :param _builtins.str recommendation_id: Recommendation Id
@@ -16549,6 +16714,7 @@ class GatewayRouteResponse(dict):
                  weight: _builtins.int):
         """
         Gateway routing details.
+
         :param _builtins.str as_path: The route's AS path sequence.
         :param _builtins.str local_address: The gateway's local address.
         :param _builtins.str network: The route's network prefix.
@@ -16691,6 +16857,7 @@ class GroupByUserSessionResponse(dict):
                  group_by_variables: Sequence['outputs.GroupByVariableResponse']):
         """
         Define user session identifier group by clauses.
+
         :param Sequence['GroupByVariableResponse'] group_by_variables: List of group by clause variables.
         """
         pulumi.set(__self__, "group_by_variables", group_by_variables)
@@ -16730,6 +16897,7 @@ class GroupByVariableResponse(dict):
                  variable_name: _builtins.str):
         """
         Define user session group by clause variables.
+
         :param _builtins.str variable_name: User Session clause variable.
         """
         pulumi.set(__self__, "variable_name", variable_name)
@@ -16752,6 +16920,7 @@ class GroupMembersItemResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         GroupMembers Item.
+
         :param _builtins.str resource_id: Resource Id.
         """
         if resource_id is not None:
@@ -16776,6 +16945,7 @@ class HTTPHeaderResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The HTTP header.
+
         :param _builtins.str name: The name in HTTP header.
         :param _builtins.str value: The value in HTTP header.
         """
@@ -16829,6 +16999,7 @@ class HeaderValueMatcherResponse(dict):
                  pattern: Optional[_builtins.str] = None):
         """
         An optional field under "Rewrite Action". It lets you capture and modify the value(s) of a specific header when multiple headers with the same name exist. Currently supported for Set-Cookie Response header only. For more details, visit https://aka.ms/appgwheadercrud
+
         :param _builtins.bool ignore_case: Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
         :param _builtins.bool negate: Setting this value as truth will force to check the negation of the condition given by the user in the pattern field.
         :param _builtins.str pattern: The pattern, either fixed string or regular expression, that evaluates if a header value should be selected for rewrite.
@@ -16894,6 +17065,7 @@ class HubIPAddressesResponse(dict):
                  public_ips: Optional['outputs.HubPublicIPAddressesResponse'] = None):
         """
         IP addresses associated with azure firewall.
+
         :param _builtins.str private_ip_address: Private IP Address associated with azure firewall.
         :param 'HubPublicIPAddressesResponse' public_ips: Public IP addresses associated with azure firewall.
         """
@@ -16929,6 +17101,7 @@ class HubPublicIPAddressesResponse(dict):
                  count: Optional[_builtins.int] = None):
         """
         Public IP addresses associated with azure firewall.
+
         :param Sequence['AzureFirewallPublicIPAddressResponse'] addresses: The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
         :param _builtins.int count: The number of Public IP addresses associated with azure firewall.
         """
@@ -16983,6 +17156,7 @@ class HubResponse(dict):
                  resource_type: Optional[_builtins.str] = None):
         """
         Hub Item.
+
         :param _builtins.str resource_id: Resource Id.
         :param _builtins.str resource_type: Resource Type.
         """
@@ -17042,6 +17216,7 @@ class HubRouteResponse(dict):
                  next_hop_type: _builtins.str):
         """
         RouteTable route.
+
         :param _builtins.str destination_type: The type of destinations (eg: CIDR, ResourceId, Service).
         :param Sequence[_builtins.str] destinations: List of all destinations.
         :param _builtins.str name: The name of the Route that is unique within a RouteTable. This name can be used to access this route.
@@ -17130,6 +17305,7 @@ class IPConfigurationBgpPeeringAddressResponse(dict):
                  ipconfiguration_id: Optional[_builtins.str] = None):
         """
         Properties of IPConfigurationBgpPeeringAddress.
+
         :param Sequence[_builtins.str] default_bgp_ip_addresses: The list of default BGP peering addresses which belong to IP configuration.
         :param Sequence[_builtins.str] tunnel_ip_addresses: The list of tunnel public IP addresses which belong to IP configuration.
         :param Sequence[_builtins.str] custom_bgp_ip_addresses: The list of custom BGP peering addresses which belong to IP configuration.
@@ -17206,6 +17382,7 @@ class IPConfigurationProfileResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         IP configuration profile child resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the IP configuration profile resource.
         :param _builtins.str type: Sub Resource type.
@@ -17311,6 +17488,7 @@ class IPConfigurationResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         IP configuration.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the IP configuration resource.
         :param _builtins.str id: Resource ID.
@@ -17474,6 +17652,7 @@ class IPTrafficResponse(dict):
                  source_ports: Sequence[_builtins.str]):
         """
         IP traffic information.
+
         :param Sequence[_builtins.str] destination_ips: List of destination IP addresses of the traffic..
         :param Sequence[_builtins.str] destination_ports: The destination ports of the traffic.
         :param Sequence[_builtins.str] source_ips: List of source IP addresses of the traffic..
@@ -17575,6 +17754,7 @@ class InboundNatPoolResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Inbound NAT pool of the load balancer.
+
         :param _builtins.int backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.int frontend_port_range_end: The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65535.
@@ -17775,6 +17955,7 @@ class InboundNatRuleResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Inbound NAT rule of the load balancer.
+
         :param 'NetworkInterfaceIPConfigurationResponse' backend_ip_configuration: A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the inbound NAT rule resource.
@@ -17983,6 +18164,7 @@ class IntentContentResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Intent information.
+
         :param _builtins.str destination_resource_id: Destination resource id of the intent.
         :param 'IPTrafficResponse' ip_traffic: IP traffic information.
         :param _builtins.str source_resource_id: Source resource id of the intent.
@@ -18064,6 +18246,7 @@ class InterfaceEndpointResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Interface endpoint resource.
+
         :param _builtins.str name: Resource name.
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: Gets an array of references to the network interfaces created for this interface endpoint.
         :param _builtins.str owner: A read-only property that identifies who created this interface endpoint.
@@ -18203,6 +18386,7 @@ class InternetIngressPublicIpsPropertiesResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Resource Uri of Public Ip for Standard Load Balancer Frontend End.
+
         :param _builtins.str id: Resource Uri of Public Ip
         """
         if id is not None:
@@ -18244,6 +18428,7 @@ class IpTagResponse(dict):
                  tag: Optional[_builtins.str] = None):
         """
         Contains the IpTag associated with the object.
+
         :param _builtins.str ip_tag_type: The IP tag type. Example: FirstPartyUsage.
         :param _builtins.str tag: The value of the IP tag associated with the public IP. Example: SQL.
         """
@@ -18299,6 +18484,7 @@ class IpamPoolPrefixAllocationResponse(dict):
                  number_of_ip_addresses: Optional[_builtins.str] = None):
         """
         IpamPool prefix allocation reference.
+
         :param Sequence[_builtins.str] allocated_address_prefixes: List of assigned IP address prefixes in the IpamPool of the associated resource.
         :param _builtins.str id: Resource id of the associated Azure IpamPool resource.
         :param _builtins.str number_of_ip_addresses: Number of IP addresses to allocate.
@@ -18373,6 +18559,7 @@ class IpamPoolPropertiesResponse(dict):
                  parent_pool_name: Optional[_builtins.str] = None):
         """
         Properties of IpamPool resource properties which are specific to the Pool resource.
+
         :param Sequence[_builtins.str] address_prefixes: List of IP address prefixes of the resource.
         :param Sequence[_builtins.str] ip_address_type: List of IP address type for the IpamPool.
         :param _builtins.str provisioning_state: Provisioning states of a resource.
@@ -18482,6 +18669,7 @@ class IpsecPolicyResponse(dict):
                  sa_life_time_seconds: _builtins.int):
         """
         An IPSec Policy configuration for a virtual network gateway connection.
+
         :param _builtins.str dh_group: The DH Group used in IKE Phase 1 for initial SA.
         :param _builtins.str ike_encryption: The IKE encryption algorithm (IKE phase 2).
         :param _builtins.str ike_integrity: The IKE integrity algorithm (IKE phase 2).
@@ -18594,6 +18782,7 @@ class Ipv6CircuitConnectionConfigResponse(dict):
                  address_prefix: Optional[_builtins.str] = None):
         """
         IPv6 Circuit Connection properties for global reach.
+
         :param _builtins.str circuit_connection_status: Express Route Circuit connection state.
         :param _builtins.str address_prefix: /125 IP address space to carve out customer addresses for global reach.
         """
@@ -18654,6 +18843,7 @@ class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Contains IPv6 peering config.
+
         :param 'ExpressRouteCircuitPeeringConfigResponse' microsoft_peering_config: The Microsoft peering configuration.
         :param _builtins.str primary_peer_address_prefix: The primary address prefix.
         :param 'SubResourceResponse' route_filter: The reference to the RouteFilter resource.
@@ -18755,6 +18945,7 @@ class LoadBalancerBackendAddressResponse(dict):
                  virtual_network: Optional['outputs.SubResourceResponse'] = None):
         """
         Load balancer backend addresses.
+
         :param Sequence['NatRulePortMappingResponse'] inbound_nat_rules_port_mapping: Collection of inbound NAT rule port mappings.
         :param 'SubResourceResponse' network_interface_ip_configuration: Reference to IP address defined in network interfaces.
         :param _builtins.str admin_state: A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
@@ -18854,6 +19045,7 @@ class LoadBalancerSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of a load balancer.
+
         :param _builtins.str name: Name of a load balancer SKU.
         :param _builtins.str tier: Tier of a load balancer SKU.
         """
@@ -18941,6 +19133,7 @@ class LoadBalancingRuleResponse(dict):
                  probe: Optional['outputs.SubResourceResponse'] = None):
         """
         A load balancing rule for a load balancer.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.int frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 0 and 65534. Note that value 0 enables "Any Port".
         :param _builtins.str protocol: The reference to the transport protocol used by the load balancing rule.
@@ -19171,6 +19364,7 @@ class LocalNetworkGatewayResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         A common class for general resource information.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
         :param _builtins.str provisioning_state: The provisioning state of the local network gateway resource.
@@ -19328,6 +19522,7 @@ class ManagedRuleGroupOverrideResponse(dict):
                  rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
+
         :param _builtins.str rule_group_name: The managed rule group to override.
         :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
@@ -19381,6 +19576,7 @@ class ManagedRuleOverrideResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines a managed rule group override setting.
+
         :param _builtins.str rule_id: Identifier for the managed rule.
         :param _builtins.str action: Describes the override action to be applied when rule matches.
         :param _builtins.str sensitivity: Describes the override sensitivity to be applied when rule matches.
@@ -19459,6 +19655,7 @@ class ManagedRuleSetResponse(dict):
                  rule_group_overrides: Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']] = None):
         """
         Defines a managed rule set.
+
         :param _builtins.str rule_set_type: Defines the rule set type to use.
         :param _builtins.str rule_set_version: Defines the version of the rule set to use.
         :param Sequence['ManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
@@ -19521,6 +19718,7 @@ class ManagedRulesDefinitionResponse(dict):
                  exclusions: Optional[Sequence['outputs.OwaspCrsExclusionEntryResponse']] = None):
         """
         Allow to exclude some variable satisfy the condition for the WAF check.
+
         :param Sequence['ManagedRuleSetResponse'] managed_rule_sets: The managed rule sets that are associated with the policy.
         :param Sequence['ExceptionEntryResponse'] exceptions: The exceptions that are applied on the policy.
         :param Sequence['OwaspCrsExclusionEntryResponse'] exclusions: The Exclusions that are applied on the policy.
@@ -19589,6 +19787,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -19716,6 +19915,7 @@ class MatchConditionResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Define match conditions.
+
         :param Sequence[_builtins.str] match_values: Match value.
         :param Sequence['MatchVariableResponse'] match_variables: List of match variables.
         :param _builtins.str operator: The operator to be matched.
@@ -19798,6 +19998,7 @@ class MatchVariableResponse(dict):
                  selector: Optional[_builtins.str] = None):
         """
         Define match variables.
+
         :param _builtins.str variable_name: Match Variable.
         :param _builtins.str selector: The selector of match variable.
         """
@@ -19881,6 +20082,7 @@ class NatGatewayResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Nat Gateway resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
         :param _builtins.str provisioning_state: The provisioning state of the NAT gateway resource.
@@ -20085,6 +20287,7 @@ class NatGatewaySkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         SKU of nat gateway.
+
         :param _builtins.str name: Name of Nat Gateway SKU.
         """
         if name is not None:
@@ -20142,6 +20345,7 @@ class NatRuleConditionResponse(dict):
                  source_ip_groups: Optional[Sequence[_builtins.str]] = None):
         """
         Rule condition of type nat.
+
         :param _builtins.str rule_condition_type: Rule Condition Type.
                Expected value is 'NatRuleCondition'.
         :param _builtins.str description: Description of the rule condition.
@@ -20266,6 +20470,7 @@ class NatRulePortMappingResponse(dict):
                  inbound_nat_rule_name: Optional[_builtins.str] = None):
         """
         Individual port mappings for inbound NAT rule created for backend pool.
+
         :param _builtins.int backend_port: Backend port.
         :param _builtins.int frontend_port: Frontend port.
         :param _builtins.str inbound_nat_rule_name: Name of inbound NAT rule.
@@ -20354,6 +20559,7 @@ class NatRuleResponse(dict):
                  translated_port: Optional[_builtins.str] = None):
         """
         Rule of type nat.
+
         :param _builtins.str rule_type: Rule Type.
                Expected value is 'NatRule'.
         :param _builtins.str description: Description of the rule.
@@ -20517,6 +20723,7 @@ class NetworkInterfaceDnsSettingsResponse(dict):
                  internal_dns_name_label: Optional[_builtins.str] = None):
         """
         DNS settings of a network interface.
+
         :param Sequence[_builtins.str] applied_dns_servers: If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
         :param _builtins.str internal_domain_name_suffix: Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
         :param _builtins.str internal_fqdn: Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
@@ -20602,6 +20809,7 @@ class NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse(dic
                  required_member_name: _builtins.str):
         """
         PrivateLinkConnection properties for the network interface.
+
         :param Sequence[_builtins.str] fqdns: List of FQDNs for current private link connection.
         :param _builtins.str group_id: The group ID for current private link connection.
         :param _builtins.str required_member_name: The required member name for current private link connection.
@@ -20703,6 +20911,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
                  virtual_network_taps: Optional[Sequence['outputs.VirtualNetworkTapResponse']] = None):
         """
         IPConfiguration in a network interface.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param 'NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse' private_link_connection_properties: PrivateLinkConnection properties for the network interface.
         :param _builtins.str provisioning_state: The provisioning state of the network interface IP configuration.
@@ -21014,6 +21223,7 @@ class NetworkInterfaceResponse(dict):
                  workload_type: Optional[_builtins.str] = None):
         """
         A network interface in a resource group.
+
         :param _builtins.bool default_outbound_connectivity_enabled: Whether default outbound connectivity for nic was configured or not.
         :param 'SubResourceResponse' dscp_configuration: A reference to the dscp configuration to which the network interface is linked.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -21377,6 +21587,7 @@ class NetworkInterfaceTapConfigurationResponse(dict):
                  virtual_network_tap: Optional['outputs.VirtualNetworkTapResponse'] = None):
         """
         Tap configuration in a Network Interface.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the network interface tap configuration resource.
         :param _builtins.str type: Sub Resource type.
@@ -21457,6 +21668,7 @@ class NetworkManagerDeploymentStatusResponse(dict):
                  region: Optional[_builtins.str] = None):
         """
         Network Manager Deployment Status.
+
         :param _builtins.str commit_time: Commit Time.
         :param Sequence[_builtins.str] configuration_ids: List of configuration ids.
         :param _builtins.str deployment_status: Deployment Status.
@@ -21556,6 +21768,7 @@ class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
                  subscriptions: Optional[Sequence[_builtins.str]] = None):
         """
         Scope of Network Manager.
+
         :param Sequence['CrossTenantScopesResponse'] cross_tenant_scopes: List of cross tenant scopes.
         :param Sequence[_builtins.str] management_groups: List of management groups.
         :param Sequence[_builtins.str] subscriptions: List of subscriptions.
@@ -21617,6 +21830,7 @@ class NetworkManagerRoutingGroupItemResponse(dict):
                  network_group_id: _builtins.str):
         """
         Network manager routing group item.
+
         :param _builtins.str network_group_id: Network manager group Id.
         """
         pulumi.set(__self__, "network_group_id", network_group_id)
@@ -21656,6 +21870,7 @@ class NetworkManagerSecurityGroupItemResponse(dict):
                  network_group_id: _builtins.str):
         """
         Network manager security group item.
+
         :param _builtins.str network_group_id: Network manager group Id.
         """
         pulumi.set(__self__, "network_group_id", network_group_id)
@@ -21715,6 +21930,7 @@ class NetworkRuleConditionResponse(dict):
                  source_ip_groups: Optional[Sequence[_builtins.str]] = None):
         """
         Rule condition of type network.
+
         :param _builtins.str rule_condition_type: Rule Condition Type.
                Expected value is 'NetworkRuleCondition'.
         :param _builtins.str description: Description of the rule condition.
@@ -21867,6 +22083,7 @@ class NetworkRuleResponse(dict):
                  source_ip_groups: Optional[Sequence[_builtins.str]] = None):
         """
         Rule of type network.
+
         :param _builtins.str rule_type: Rule Type.
                Expected value is 'NetworkRule'.
         :param _builtins.str description: Description of the rule.
@@ -22032,6 +22249,7 @@ class NetworkSecurityGroupResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         NetworkSecurityGroup resource.
+
         :param Sequence['SecurityRuleResponse'] default_security_rules: The default security rules of network security group.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['FlowLogResponse'] flow_logs: A collection of references to flow log resources.
@@ -22220,6 +22438,7 @@ class NetworkVirtualApplianceConnectionPropertiesResponse(dict):
                  tunnel_identifier: Optional[_builtins.float] = None):
         """
         Properties of the NetworkVirtualApplianceConnection subresource.
+
         :param _builtins.str provisioning_state: The provisioning state of the NetworkVirtualApplianceConnection resource.
         :param _builtins.float asn: Network Virtual Appliance ASN.
         :param Sequence[_builtins.str] bgp_peer_address: List of bgpPeerAddresses for the NVA instances
@@ -22362,6 +22581,7 @@ class NspLoggingConfigurationPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The NSP logging configuration properties.
+
         :param Sequence[_builtins.str] enabled_log_categories: The log categories to enable in the NSP logging configuration.
         :param _builtins.str version: The version of the NSP logging configuration.
         """
@@ -22398,6 +22618,7 @@ class O365BreakOutCategoryPoliciesResponse(dict):
                  optimize: Optional[_builtins.bool] = None):
         """
         Office365 breakout categories.
+
         :param _builtins.bool allow: Flag to control allow category.
         :param _builtins.bool default: Flag to control default category.
         :param _builtins.bool optimize: Flag to control optimize category.
@@ -22460,6 +22681,7 @@ class O365PolicyPropertiesResponse(dict):
                  break_out_categories: Optional['outputs.O365BreakOutCategoryPoliciesResponse'] = None):
         """
         The Office365 breakout policy.
+
         :param 'O365BreakOutCategoryPoliciesResponse' break_out_categories: Office365 breakout categories.
         """
         if break_out_categories is not None:
@@ -22500,6 +22722,7 @@ class Office365PolicyPropertiesResponse(dict):
                  break_out_categories: Optional['outputs.BreakOutCategoryPoliciesResponse'] = None):
         """
         Network Virtual Appliance Sku Properties.
+
         :param 'BreakOutCategoryPoliciesResponse' break_out_categories: Office 365 breakout categories.
         """
         if break_out_categories is not None:
@@ -22560,6 +22783,7 @@ class OutboundRuleResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Outbound rule of the load balancer.
+
         :param 'SubResourceResponse' backend_address_pool: A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['SubResourceResponse'] frontend_ip_configurations: The Frontend IP addresses of the load balancer.
@@ -22711,6 +22935,7 @@ class OwaspCrsExclusionEntryResponse(dict):
                  exclusion_managed_rule_sets: Optional[Sequence['outputs.ExclusionManagedRuleSetResponse']] = None):
         """
         Allow to exclude some variable satisfy the condition for the WAF check.
+
         :param _builtins.str match_variable: The variable to be excluded.
         :param _builtins.str selector: When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
         :param _builtins.str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
@@ -22799,6 +23024,7 @@ class P2SConnectionConfigurationResponse(dict):
                  vpn_client_address_pool: Optional['outputs.AddressSpaceResponse'] = None):
         """
         P2SConnectionConfiguration Resource.
+
         :param Sequence['SubResourceResponse'] configuration_policy_group_associations: List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['VpnServerConfigurationPolicyGroupResponse'] previous_configuration_policy_group_associations: List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
@@ -22950,6 +23176,7 @@ class P2SVpnGatewayResponse(dict):
                  vpn_server_configuration: Optional['outputs.SubResourceResponse'] = None):
         """
         P2SVpnGateway Resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str location: Resource location.
         :param _builtins.str name: Resource name.
@@ -23131,6 +23358,7 @@ class P2SVpnServerConfigRadiusClientRootCertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         Radius client root certificate of P2SVpnServerConfiguration.
+
         :param _builtins.str provisioning_state: The provisioning state of the radius client root certificate resource.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str id: Resource ID.
@@ -23220,6 +23448,7 @@ class P2SVpnServerConfigRadiusServerRootCertificateResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Radius Server root certificate of P2SVpnServerConfiguration.
+
         :param _builtins.str provisioning_state: The provisioning state of the radius server root certificate resource.
         :param _builtins.str public_cert_data: The certificate public data.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -23306,6 +23535,7 @@ class P2SVpnServerConfigVpnClientRevokedCertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         VPN client revoked certificate of P2SVpnServerConfiguration.
+
         :param _builtins.str provisioning_state: The provisioning state of the VPN client revoked certificate resource.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str id: Resource ID.
@@ -23395,6 +23625,7 @@ class P2SVpnServerConfigVpnClientRootCertificateResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         VPN client root certificate of P2SVpnServerConfiguration.
+
         :param _builtins.str provisioning_state: The provisioning state of the VPN client root certificate resource.
         :param _builtins.str public_cert_data: The certificate public data.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -23506,6 +23737,7 @@ class P2SVpnServerConfigurationPropertiesResponse(dict):
                  vpn_protocols: Optional[Sequence[_builtins.str]] = None):
         """
         Parameters for P2SVpnServerConfiguration.
+
         :param Sequence['SubResourceResponse'] p2_s_vpn_gateways: List of references to P2SVpnGateways.
         :param _builtins.str provisioning_state: The provisioning state of the P2S VPN server configuration resource.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -23675,6 +23907,7 @@ class PacketCaptureFilterResponse(dict):
                  remote_port: Optional[_builtins.str] = None):
         """
         Filter that is applied to packet capture request. Multiple filters can be applied.
+
         :param _builtins.str local_ip_address: Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
         :param _builtins.str local_port: Local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
         :param _builtins.str protocol: Protocol to be filtered on.
@@ -23745,6 +23978,7 @@ class PacketCaptureMachineScopeResponse(dict):
                  include: Optional[Sequence[_builtins.str]] = None):
         """
         A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+
         :param Sequence[_builtins.str] exclude: List of AzureVMSS instances which has to be excluded from the AzureVMSS from running packet capture.
         :param Sequence[_builtins.str] include: List of AzureVMSS instances to run packet capture on.
         """
@@ -23802,6 +24036,7 @@ class PacketCaptureSettingsResponse(dict):
                  session_time_limit_in_seconds: Optional[_builtins.int] = None):
         """
         The storage location for a packet capture session.
+
         :param _builtins.int file_count: Number of file count. Default value of count is 10 and maximum number is 10000.
         :param _builtins.float file_size_in_bytes: Number of bytes captured per packet. Default value in bytes 104857600 (100MB) and maximum in bytes 4294967295 (4GB).
         :param _builtins.int session_time_limit_in_seconds: Maximum duration of the capture session in seconds is 604800s (7 days) for a file. Default value in second 86400s (1 day).
@@ -23879,6 +24114,7 @@ class PacketCaptureStorageLocationResponse(dict):
                  storage_path: Optional[_builtins.str] = None):
         """
         The storage location for a packet capture session.
+
         :param _builtins.str file_path: This path is invalid if 'Continuous Capture' is provided with 'true' or 'false'. A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
         :param _builtins.str local_path: This path is valid if 'Continuous Capture' is provided with 'true' or 'false' and required if no storage ID is provided, otherwise optional. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures.
         :param _builtins.str storage_id: The ID of the storage account to save the packet capture session. Required if no localPath or filePath is provided.
@@ -23956,6 +24192,7 @@ class ParameterResponse(dict):
                  route_prefix: Optional[Sequence[_builtins.str]] = None):
         """
         Parameters for an Action.
+
         :param Sequence[_builtins.str] as_path: List of AS paths.
         :param Sequence[_builtins.str] community: List of BGP communities.
         :param Sequence[_builtins.str] route_prefix: List of route prefixes.
@@ -24022,6 +24259,7 @@ class PartnerManagedResourcePropertiesResponse(dict):
                  standard_load_balancer_id: _builtins.str):
         """
         Properties of the partner managed resource.
+
         :param _builtins.str id: The partner managed resource id.
         :param _builtins.str internal_load_balancer_id: The partner managed ILB resource id
         :param _builtins.str standard_load_balancer_id: The partner managed SLB resource id
@@ -24103,6 +24341,7 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
                  peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None):
         """
         Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+
         :param _builtins.str circuit_connection_status: Express Route Circuit connection state.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the peer express route circuit connection resource.
@@ -24335,6 +24574,7 @@ class PolicySettingsResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines contents of a web application firewall global configuration.
+
         :param _builtins.str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param _builtins.int custom_block_response_status_code: If the action type is block, customer can override the response status code.
         :param _builtins.bool file_upload_enforcement: Whether allow WAF to enforce file upload limits.
@@ -24501,6 +24741,7 @@ class PolicySettingsResponseLogScrubbing(dict):
                  state: Optional[_builtins.str] = None):
         """
         To scrub sensitive log fields
+
         :param Sequence['WebApplicationFirewallScrubbingRulesResponse'] scrubbing_rules: The rules that are applied to the logs for scrubbing.
         :param _builtins.str state: State of the log scrubbing config. Default value is Enabled.
         """
@@ -24543,6 +24784,7 @@ class PoolAssociationResponse(dict):
                  pool_id: Optional[_builtins.str] = None):
         """
         IpamPool association information.
+
         :param Sequence[_builtins.str] address_prefixes: List of assigned IP address prefixes in the IpamPool of the associated resource.
         :param _builtins.str created_at: Creation time of the association.
         :param _builtins.str number_of_reserved_ip_addresses: Total number of reserved IP addresses of the association.
@@ -24664,6 +24906,7 @@ class PrivateDnsZoneConfigResponse(dict):
                  private_dns_zone_id: Optional[_builtins.str] = None):
         """
         PrivateDnsZoneConfig resource.
+
         :param Sequence['RecordSetResponse'] record_sets: A collection of information regarding a recordSet, holding information to identify private resources.
         :param _builtins.str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param _builtins.str private_dns_zone_id: The resource id of the private dns zone.
@@ -24741,6 +24984,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         PrivateEndpointConnection resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str link_identifier: The consumer link id.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
@@ -24872,6 +25116,7 @@ class PrivateEndpointIPConfigurationResponse(dict):
                  private_ip_address: Optional[_builtins.str] = None):
         """
         An IP Configuration of the private endpoint.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str type: The resource type.
         :param _builtins.str group_id: The ID of a group obtained from the remote resource that this private endpoint should connect to.
@@ -24999,6 +25244,7 @@ class PrivateEndpointResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Private endpoint resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: An array of references to the network interfaces created for this private endpoint.
@@ -25228,6 +25474,7 @@ class PrivateLinkServiceConnectionResponse(dict):
                  request_message: Optional[_builtins.str] = None):
         """
         PrivateLinkServiceConnection resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the private link service connection resource.
         :param _builtins.str type: The resource type.
@@ -25355,6 +25602,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -25432,6 +25680,7 @@ class PrivateLinkServiceIpConfigurationResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         The private link service ip configuration.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the private link service IP configuration resource.
         :param _builtins.str type: The resource type.
@@ -25551,6 +25800,7 @@ class PrivateLinkServicePropertiesResponseAutoApproval(dict):
                  subscriptions: Optional[Sequence[_builtins.str]] = None):
         """
         The auto-approval list of the private link service.
+
         :param Sequence[_builtins.str] subscriptions: The list of subscriptions.
         """
         if subscriptions is not None:
@@ -25574,6 +25824,7 @@ class PrivateLinkServicePropertiesResponseVisibility(dict):
                  subscriptions: Optional[Sequence[_builtins.str]] = None):
         """
         The visibility list of the private link service.
+
         :param Sequence[_builtins.str] subscriptions: The list of subscriptions.
         """
         if subscriptions is not None:
@@ -25650,6 +25901,7 @@ class PrivateLinkServiceResponse(dict):
                  visibility: Optional['outputs.PrivateLinkServicePropertiesResponseVisibility'] = None):
         """
         Private link service resource.
+
         :param _builtins.str alias: The alias of the private link service.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
@@ -25905,6 +26157,7 @@ class ProbeResponse(dict):
                  request_path: Optional[_builtins.str] = None):
         """
         A load balancer probe.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['SubResourceResponse'] load_balancing_rules: The load balancer rules that use this probe.
         :param _builtins.int port: The port for communicating the probe. Possible values range from 1 to 65535, inclusive.
@@ -26055,6 +26308,7 @@ class PropagatedRouteTableResponse(dict):
                  labels: Optional[Sequence[_builtins.str]] = None):
         """
         The list of RouteTables to advertise the routes to.
+
         :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
         :param Sequence[_builtins.str] labels: The list of labels.
         """
@@ -26113,6 +26367,7 @@ class PublicIPAddressDnsSettingsResponse(dict):
                  reverse_fqdn: Optional[_builtins.str] = None):
         """
         Contains FQDN of the DNS record associated with the public IP address.
+
         :param _builtins.str domain_name_label: The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param _builtins.str domain_name_label_scope: The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
         :param _builtins.str fqdn: The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
@@ -26242,6 +26497,7 @@ class PublicIPAddressResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Public IP address resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param 'IPConfigurationResponse' ip_configuration: The IP configuration associated with the public IP address.
         :param _builtins.str name: Resource name.
@@ -26524,6 +26780,7 @@ class PublicIPAddressSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of a public IP address.
+
         :param _builtins.str name: Name of a public IP address SKU.
         :param _builtins.str tier: Tier of a public IP address SKU.
         """
@@ -26559,6 +26816,7 @@ class PublicIPPrefixSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of a public IP prefix.
+
         :param _builtins.str name: Name of a public IP prefix SKU.
         :param _builtins.str tier: Tier of a public IP prefix SKU.
         """
@@ -26621,6 +26879,7 @@ class QosDefinitionResponse(dict):
                  source_port_ranges: Optional[Sequence['outputs.QosPortRangeResponse']] = None):
         """
         Quality of Service defines the traffic configuration between endpoints. Mandatory to have one marking.
+
         :param Sequence['QosIpRangeResponse'] destination_ip_ranges: Destination IP ranges.
         :param Sequence['QosPortRangeResponse'] destination_port_ranges: Destination port ranges.
         :param Sequence[_builtins.int] markings: List of markings to be used in the configuration.
@@ -26719,6 +26978,7 @@ class QosIpRangeResponse(dict):
                  start_ip: Optional[_builtins.str] = None):
         """
         Qos Traffic Profiler IP Range properties.
+
         :param _builtins.str end_ip: End IP Address.
         :param _builtins.str start_ip: Start IP Address.
         """
@@ -26754,6 +27014,7 @@ class QosPortRangeResponse(dict):
                  start: Optional[_builtins.int] = None):
         """
         Qos Traffic Profiler Port range properties.
+
         :param _builtins.int end: Qos Port Range end.
         :param _builtins.int start: Qos Port Range start.
         """
@@ -26789,6 +27050,7 @@ class RadiusAuthServerResponse(dict):
                  radius_server_secret: Optional[_builtins.str] = None):
         """
         Gateway or VpnServerConfiguration Radius server with radius secret details
+
         :param _builtins.str radius_server_address: Radius server IPAddress
         :param _builtins.str radius_server_secret: Radius server secret
         """
@@ -26846,6 +27108,7 @@ class RadiusServerResponse(dict):
                  radius_server_secret: Optional[_builtins.str] = None):
         """
         Radius Server Settings.
+
         :param _builtins.str radius_server_address: The address of this radius server.
         :param _builtins.float radius_server_score: The initial score assigned to this radius server.
         :param _builtins.str radius_server_secret: The secret used for this radius server.
@@ -26917,6 +27180,7 @@ class ReachabilityAnalysisIntentPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Represents the Reachability Analysis Intent properties.
+
         :param _builtins.str destination_resource_id: Destination resource id to verify the reachability path of.
         :param 'IPTrafficResponse' ip_traffic: IP traffic information.
         :param _builtins.str provisioning_state: Provisioning states of a resource.
@@ -27006,6 +27270,7 @@ class ReachabilityAnalysisRunPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Represents the Reachability Analysis Run properties.
+
         :param 'IntentContentResponse' intent_content: Intent information.
         :param _builtins.str intent_id: Id of the intent resource to run analysis on.
         :param _builtins.str provisioning_state: Provisioning states of a resource.
@@ -27095,6 +27360,7 @@ class RecordSetResponse(dict):
                  ttl: Optional[_builtins.int] = None):
         """
         A collective group of information about the record set information.
+
         :param _builtins.str provisioning_state: The provisioning state of the recordset.
         :param _builtins.str fqdn: Fqdn that resolves to private endpoint ip address.
         :param Sequence[_builtins.str] ip_addresses: The private ip address of the private endpoint.
@@ -27172,6 +27438,7 @@ class ReferencedPublicIpAddressResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to a public IP address.
+
         :param _builtins.str id: The PublicIPAddress Reference.
         """
         if id is not None:
@@ -27198,6 +27465,7 @@ class ResiliencyRecommendationComponentsResponse(dict):
                  recommendations: Optional[Sequence['outputs.GatewayResiliencyRecommendationResponse']] = None):
         """
         Gateway Resiliency based Recommendations
+
         :param _builtins.str current_score: Current Score of the gateway
         :param _builtins.str max_score: Max score that the gateway can achieve if the specified recommendation is applied
         :param _builtins.str name: Name of the Resiliency based Recommendation Component
@@ -27255,6 +27523,7 @@ class ResourceBasicsResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Representation of basic resource information.
+
         :param Sequence[_builtins.str] address_prefixes: List of IP address prefixes of the resource.
         :param _builtins.str resource_id: ResourceId of the Azure resource.
         """
@@ -27314,6 +27583,7 @@ class ResourceNavigationLinkResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         ResourceNavigationLink resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str id: Resource ID.
         :param _builtins.str provisioning_state: The provisioning state of the resource navigation link resource.
@@ -27400,6 +27670,7 @@ class RetentionPolicyParametersResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Parameters that define the retention policy for flow log.
+
         :param _builtins.int days: Number of days to retain flow log records.
         :param _builtins.bool enabled: Flag to enable/disable retention.
         """
@@ -27464,6 +27735,7 @@ class RouteFilterRuleResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Route Filter Rule Resource.
+
         :param _builtins.str access: The access type of the rule.
         :param Sequence[_builtins.str] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -27581,6 +27853,7 @@ class RouteMapRuleResponse(dict):
                  next_step_if_matched: Optional[_builtins.str] = None):
         """
         A RouteMap Rule.
+
         :param Sequence['ActionResponse'] actions: List of actions which will be applied on a match.
         :param Sequence['CriterionResponse'] match_criteria: List of matching criterion which will be applied to traffic.
         :param _builtins.str name: The unique name for the rule.
@@ -27670,6 +27943,7 @@ class RouteResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Route resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.bool has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param _builtins.str next_hop_type: The type of Azure hop the packet should be sent to.
@@ -27851,6 +28125,7 @@ class RouteTableResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Route table resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
         :param _builtins.str provisioning_state: The provisioning state of the route table resource.
@@ -27999,6 +28274,7 @@ class RouteTargetAddressPropertiesFormatResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         Properties of route target address
+
         :param _builtins.str private_ip_address: The private IPv4 or IPv6 address of the service gateway route target address.
         :param _builtins.str private_ip_allocation_method: The Private IP allocation method.
         :param 'SubnetResponse' subnet: The reference to the subnet resource.
@@ -28073,6 +28349,7 @@ class RoutingConfigurationResponse(dict):
                  vnet_routes: Optional['outputs.VnetRouteResponse'] = None):
         """
         Routing Configuration indicating the associated and propagated route tables for this connection.
+
         :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
         :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
         :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
@@ -28159,6 +28436,7 @@ class RoutingPolicyResponse(dict):
                  next_hop: _builtins.str):
         """
         The routing policy object used in a RoutingIntent resource.
+
         :param Sequence[_builtins.str] destinations: List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
         :param _builtins.str name: The unique name for the routing policy.
         :param _builtins.str next_hop: The next hop resource id on which this routing policy is applicable to.
@@ -28221,6 +28499,7 @@ class RoutingRuleNextHopResponse(dict):
                  next_hop_address: Optional[_builtins.str] = None):
         """
         Next hop.
+
         :param _builtins.str next_hop_type: Next hop type.
         :param _builtins.str next_hop_address: Next hop address. Only required if the next hop type is VirtualAppliance.
         """
@@ -28272,6 +28551,7 @@ class RoutingRuleRouteDestinationResponse(dict):
                  type: _builtins.str):
         """
         Route destination.
+
         :param _builtins.str destination_address: Destination address.
         :param _builtins.str type: Destination type.
         """
@@ -28360,6 +28640,7 @@ class SecurityRuleResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Network security rule.
+
         :param _builtins.str access: The network traffic is allowed or denied.
         :param _builtins.str direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -28603,6 +28884,7 @@ class SecurityUserGroupItemResponse(dict):
                  network_group_id: _builtins.str):
         """
         Network manager security user group item.
+
         :param _builtins.str network_group_id: Network manager group Id.
         """
         pulumi.set(__self__, "network_group_id", network_group_id)
@@ -28654,6 +28936,7 @@ class ServiceAssociationLinkResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         ServiceAssociationLink resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the service association link resource.
         :param _builtins.str type: Resource type.
@@ -28788,6 +29071,7 @@ class ServiceEndpointPolicyDefinitionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Service Endpoint policy definitions.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the service endpoint policy definition resource.
         :param _builtins.str description: A description for this rule. Restricted to 140 chars.
@@ -28923,6 +29207,7 @@ class ServiceEndpointPolicyResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Service End point policy resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str kind: Kind of service endpoint policy. This is metadata used for the Azure portal experience.
         :param _builtins.str name: Resource name.
@@ -29093,6 +29378,7 @@ class ServiceEndpointPropertiesFormatResponse(dict):
                  service: Optional[_builtins.str] = None):
         """
         The service endpoint properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the service endpoint resource.
         :param Sequence[_builtins.str] locations: A list of locations.
         :param 'SubResourceResponse' network_identifier: SubResource as network identifier.
@@ -29149,6 +29435,7 @@ class ServiceGatewaySkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of a service gateway.
+
         :param _builtins.str name: Name of a service gateway SKU.
         :param _builtins.str tier: Tier of a service gateway SKU.
         """
@@ -29185,6 +29472,7 @@ class SharedKeyPropertiesResponse(dict):
                  shared_key_length: Optional[_builtins.int] = None):
         """
         Parameters for SharedKey.
+
         :param _builtins.str provisioning_state: The provisioning state of the SharedKey resource.
         :param _builtins.str shared_key: The value of the shared key for the vpn link connection.
         :param _builtins.int shared_key_length: The length of the shared key for the vpn link connection.
@@ -29368,6 +29656,7 @@ class SkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The sku of this Bastion Host.
+
         :param _builtins.str name: The name of the sku of this Bastion Host.
         """
         if name is None:
@@ -29420,6 +29709,7 @@ class StaticCidrPropertiesResponse(dict):
                  number_of_ip_addresses_to_allocate: Optional[_builtins.str] = None):
         """
         Properties of static CIDR resource.
+
         :param _builtins.str provisioning_state: Provisioning states of a resource.
         :param _builtins.str total_number_of_ip_addresses: Total number of IP addresses allocated for the static CIDR resource.
         :param Sequence[_builtins.str] address_prefixes: List of IP address prefixes of the resource.
@@ -29502,6 +29792,7 @@ class StaticRouteResponse(dict):
                  next_hop_ip_address: Optional[_builtins.str] = None):
         """
         List of all Static Routes.
+
         :param Sequence[_builtins.str] address_prefixes: List of all address prefixes.
         :param _builtins.str name: The name of the StaticRoute that is unique within a VnetRoute.
         :param _builtins.str next_hop_ip_address: The ip address of the next hop.
@@ -29567,6 +29858,7 @@ class StaticRoutesConfigResponse(dict):
                  vnet_local_route_override_criteria: Optional[_builtins.str] = None):
         """
         Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
+
         :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
         :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
         """
@@ -29600,6 +29892,7 @@ class SubResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to another subresource.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -29709,6 +30002,7 @@ class SubnetResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Subnet in a virtual network resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['IPConfigurationProfileResponse'] ip_configuration_profiles: Array of IP configuration profiles which reference this subnet.
         :param Sequence['IPConfigurationResponse'] ip_configurations: An array of references to the network interface IP configurations using subnet.
@@ -30076,6 +30370,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -30181,6 +30476,7 @@ class TrafficAnalyticsConfigurationPropertiesResponse(dict):
                  workspace_resource_id: Optional[_builtins.str] = None):
         """
         Parameters that define the configuration of traffic analytics.
+
         :param _builtins.bool enabled: Flag to enable/disable traffic analytics.
         :param _builtins.int traffic_analytics_interval: The interval in minutes which would decide how frequently TA service should do flow analytics.
         :param _builtins.str workspace_id: The resource guid of the attached workspace.
@@ -30265,6 +30561,7 @@ class TrafficAnalyticsPropertiesResponse(dict):
                  network_watcher_flow_analytics_configuration: Optional['outputs.TrafficAnalyticsConfigurationPropertiesResponse'] = None):
         """
         Parameters that define the configuration of traffic analytics.
+
         :param 'TrafficAnalyticsConfigurationPropertiesResponse' network_watcher_flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
         """
         if network_watcher_flow_analytics_configuration is not None:
@@ -30308,6 +30605,7 @@ class TrafficSelectorPolicyResponse(dict):
                  remote_address_ranges: Sequence[_builtins.str]):
         """
         An traffic selector policy for a virtual network gateway connection.
+
         :param Sequence[_builtins.str] local_address_ranges: A collection of local address spaces in CIDR format.
         :param Sequence[_builtins.str] remote_address_ranges: A collection of remote address spaces in CIDR format.
         """
@@ -30367,6 +30665,7 @@ class TunnelConnectionHealthResponse(dict):
                  tunnel: _builtins.str):
         """
         VirtualNetworkGatewayConnection properties.
+
         :param _builtins.str connection_status: Virtual Network Gateway connection status.
         :param _builtins.float egress_bytes_transferred: The Egress Bytes Transferred in this connection.
         :param _builtins.float ingress_bytes_transferred: The Ingress Bytes Transferred in this connection.
@@ -30433,6 +30732,7 @@ class VMResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Describes a Virtual Machine.
+
         :param _builtins.str name: Resource name.
         :param _builtins.str type: Resource type.
         :param _builtins.str id: Resource ID.
@@ -30516,6 +30816,7 @@ class VerifierWorkspacePropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Properties of Verifier Workspace resource.
+
         :param _builtins.str provisioning_state: Provisioning states of a resource.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -30563,6 +30864,7 @@ class VirtualApplianceAdditionalNicPropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Network Virtual Appliance Additional NIC properties.
+
         :param _builtins.bool has_public_ip: Flag (true or false) for Intent for Public Ip on additional nic
         :param _builtins.str name: Name of additional nic
         """
@@ -30597,6 +30899,7 @@ class VirtualApplianceIPConfigurationPropertiesResponse(dict):
                  primary: Optional[_builtins.bool] = None):
         """
         Represents a single IP configuration properties.
+
         :param _builtins.bool primary: Whether or not this is primary IP configuration of the NIC.
         """
         if primary is not None:
@@ -30621,6 +30924,7 @@ class VirtualApplianceIPConfigurationResponse(dict):
                  properties: Optional['outputs.VirtualApplianceIPConfigurationPropertiesResponse'] = None):
         """
         Represents a single IP configuration.
+
         :param _builtins.str name: Name of the IP configuration.
         :param 'VirtualApplianceIPConfigurationPropertiesResponse' properties: Represents a single IP configuration properties.
         """
@@ -30709,6 +31013,7 @@ class VirtualApplianceNetworkInterfaceConfigurationResponse(dict):
                  properties: Optional['outputs.VirtualApplianceNetworkInterfaceConfigurationPropertiesResponse'] = None):
         """
         Represents a single NIC configuration.
+
         :param _builtins.str nic_type: NIC type. This should be either PublicNic or PrivateNic.
         :param 'VirtualApplianceNetworkInterfaceConfigurationPropertiesResponse' properties: Represents a single NIC configuration properties.
         """
@@ -30770,6 +31075,7 @@ class VirtualApplianceNicPropertiesResponse(dict):
                  public_ip_address: _builtins.str):
         """
         Network Virtual Appliance NIC properties.
+
         :param _builtins.str instance_name: Instance on which nic is attached.
         :param _builtins.str name: NIC name.
         :param _builtins.str nic_type: NIC type - PublicNic, PrivateNic, or AdditionalNic.
@@ -30853,6 +31159,7 @@ class VirtualApplianceSkuPropertiesResponse(dict):
                  vendor: Optional[_builtins.str] = None):
         """
         Network Virtual Appliance Sku Properties.
+
         :param _builtins.str bundled_scale_unit: Virtual Appliance Scale Unit.
         :param _builtins.str market_place_version: Virtual Appliance Version.
         :param _builtins.str vendor: Virtual Appliance Vendor.
@@ -30898,6 +31205,7 @@ class VirtualHubIdResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Virtual Hub identifier.
+
         :param _builtins.str id: The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
         """
         if id is not None:
@@ -30941,6 +31249,7 @@ class VirtualHubRouteResponse(dict):
                  next_hop_ip_address: Optional[_builtins.str] = None):
         """
         VirtualHub route.
+
         :param Sequence[_builtins.str] address_prefixes: List of all addressPrefixes.
         :param _builtins.str next_hop_ip_address: NextHop ip address.
         """
@@ -30975,6 +31284,7 @@ class VirtualHubRouteTableResponse(dict):
                  routes: Optional[Sequence['outputs.VirtualHubRouteResponse']] = None):
         """
         VirtualHub route table.
+
         :param Sequence['VirtualHubRouteResponse'] routes: List of all routes.
         """
         if routes is not None:
@@ -31022,6 +31332,7 @@ class VirtualHubRouteTableV2Response(dict):
                  routes: Optional[Sequence['outputs.VirtualHubRouteV2Response']] = None):
         """
         VirtualHubRouteTableV2 Resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the virtual hub route table v2 resource.
         :param Sequence[_builtins.str] attached_connections: List of all connections attached to this route table v2.
@@ -31122,6 +31433,7 @@ class VirtualHubRouteV2Response(dict):
                  next_hops: Optional[Sequence[_builtins.str]] = None):
         """
         VirtualHubRouteTableV2 route.
+
         :param _builtins.str destination_type: The type of destinations.
         :param Sequence[_builtins.str] destinations: List of all destinations.
         :param _builtins.str next_hop_type: The type of next hops.
@@ -31209,6 +31521,7 @@ class VirtualNetworkApplianceIpConfigurationResponse(dict):
                  private_ip_allocation_method: Optional[_builtins.str] = None):
         """
         The virtual network appliance ip configuration.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the private link service IP configuration resource.
         :param _builtins.str type: The resource type.
@@ -31337,6 +31650,7 @@ class VirtualNetworkBgpCommunitiesResponse(dict):
                  virtual_network_community: _builtins.str):
         """
         Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+
         :param _builtins.str regional_community: The BGP community associated with the region of the virtual network.
         :param _builtins.str virtual_network_community: The BGP community associated with the virtual network.
         """
@@ -31370,6 +31684,7 @@ class VirtualNetworkEncryptionResponse(dict):
                  enforcement: Optional[_builtins.str] = None):
         """
         Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+
         :param _builtins.bool enabled: Indicates if encryption is enabled on the virtual network.
         :param _builtins.str enforcement: If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
         """
@@ -31434,6 +31749,7 @@ class VirtualNetworkGatewayAutoScaleConfigurationResponse(dict):
                  bounds: Optional['outputs.VirtualNetworkGatewayAutoScaleBoundsResponse'] = None):
         """
         Virtual Network Gateway Autoscale Configuration details
+
         :param 'VirtualNetworkGatewayAutoScaleBoundsResponse' bounds: The bounds of the autoscale configuration
         """
         if bounds is not None:
@@ -31487,6 +31803,7 @@ class VirtualNetworkGatewayIPConfigurationResponse(dict):
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         IP configuration for virtual network gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str private_ip_address: Private IP Address for this gateway.
         :param _builtins.str provisioning_state: The provisioning state of the virtual network gateway IP configuration resource.
@@ -31615,6 +31932,7 @@ class VirtualNetworkGatewayNatRuleResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         VirtualNetworkGatewayNatRule Resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the NAT Rule resource.
         :param _builtins.str type: Resource type.
@@ -31744,6 +32062,7 @@ class VirtualNetworkGatewayPolicyGroupMemberResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Vpn Client Connection configuration PolicyGroup member
+
         :param _builtins.str attribute_type: The Vpn Policy member attribute type.
         :param _builtins.str attribute_value: The value of Attribute used for this VirtualNetworkGatewayPolicyGroupMember.
         :param _builtins.str name: Name of the VirtualNetworkGatewayPolicyGroupMember.
@@ -31819,6 +32138,7 @@ class VirtualNetworkGatewayPolicyGroupResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Parameters for VirtualNetworkGatewayPolicyGroup.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.bool is_default: Shows if this is a Default VirtualNetworkGatewayPolicyGroup or not.
         :param Sequence['VirtualNetworkGatewayPolicyGroupMemberResponse'] policy_members: Multiple PolicyMembers for VirtualNetworkGatewayPolicyGroup.
@@ -32013,6 +32333,7 @@ class VirtualNetworkGatewayResponse(dict):
                  vpn_type: Optional[_builtins.str] = None):
         """
         A common class for general resource information.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str inbound_dns_forwarding_endpoint: The IP address allocated by the gateway to which dns requests can be sent.
         :param _builtins.str name: Resource name.
@@ -32395,6 +32716,7 @@ class VirtualNetworkGatewaySkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         VirtualNetworkGatewaySku details.
+
         :param _builtins.int capacity: The capacity.
         :param _builtins.str name: Gateway SKU name.
         :param _builtins.str tier: Gateway SKU tier.
@@ -32517,6 +32839,7 @@ class VirtualNetworkPeeringResponse(dict):
                  use_remote_gateways: Optional[_builtins.bool] = None):
         """
         Peerings in a virtual network resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the virtual network peering resource.
         :param 'VirtualNetworkEncryptionResponse' remote_virtual_network_encryption: The reference to the remote virtual network's encryption
@@ -32856,6 +33179,7 @@ class VirtualNetworkResponse(dict):
                  virtual_network_peerings: Optional[Sequence['outputs.VirtualNetworkPeeringResponse']] = None):
         """
         Virtual Network resource.
+
         :param 'SubResourceResponse' default_public_nat_gateway: A reference to the default public nat gateway being used by this virtual network resource.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['FlowLogResponse'] flow_logs: A collection of references to flow log resources.
@@ -33156,6 +33480,7 @@ class VirtualNetworkTapResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Virtual Network Tap resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str name: Resource name.
         :param Sequence['NetworkInterfaceTapConfigurationResponse'] network_interface_tap_configurations: Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
@@ -33311,6 +33636,7 @@ class VirtualRouterAutoScaleConfigurationResponse(dict):
                  min_capacity: Optional[_builtins.int] = None):
         """
         The VirtualHub Router autoscale configuration.
+
         :param _builtins.int min_capacity: The minimum number of scale units for VirtualHub Router.
         """
         if min_capacity is not None:
@@ -33357,6 +33683,7 @@ class VnetRouteResponse(dict):
                  static_routes_config: Optional['outputs.StaticRoutesConfigResponse'] = None):
         """
         List of routes that control routing from VirtualHub into a virtual network connection.
+
         :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
         :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
         :param 'StaticRoutesConfigResponse' static_routes_config: Configuration for static routes on this HubVnetConnection.
@@ -33427,6 +33754,7 @@ class VngClientConnectionConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         A vpn client connection configuration for client connection configuration.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the VngClientConnectionConfiguration resource.
         :param Sequence['SubResourceResponse'] virtual_network_gateway_policy_groups: List of references to virtualNetworkGatewayPolicyGroups
@@ -33554,6 +33882,7 @@ class VpnClientConfigurationResponse(dict):
                  vpn_client_root_certificates: Optional[Sequence['outputs.VpnClientRootCertificateResponse']] = None):
         """
         VpnClientConfiguration for P2S client.
+
         :param _builtins.str aad_audience: The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
         :param _builtins.str aad_issuer: The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
         :param _builtins.str aad_tenant: The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
@@ -33720,6 +34049,7 @@ class VpnClientConnectionHealthDetailResponse(dict):
                  vpn_user_name: _builtins.str):
         """
         VPN client connection health detail.
+
         :param _builtins.float egress_bytes_transferred: The egress bytes per second.
         :param _builtins.float egress_packets_transferred: The egress packets per second.
         :param _builtins.float ingress_bytes_transferred: The ingress bytes per second.
@@ -33878,6 +34208,7 @@ class VpnClientConnectionHealthResponse(dict):
                  vpn_client_connections_count: Optional[_builtins.int] = None):
         """
         VpnClientConnectionHealth properties.
+
         :param _builtins.float total_egress_bytes_transferred: Total of the Egress Bytes Transferred in this connection.
         :param _builtins.float total_ingress_bytes_transferred: Total of the Ingress Bytes Transferred in this P2S Vpn connection.
         :param Sequence[_builtins.str] allocated_ip_addresses: List of allocated ip addresses to the connected p2s vpn clients.
@@ -33953,6 +34284,7 @@ class VpnClientRevokedCertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         VPN client revoked certificate of virtual network gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the VPN client revoked certificate resource.
         :param _builtins.str id: Resource ID.
@@ -34041,6 +34373,7 @@ class VpnClientRootCertificateResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         VPN client root certificate of virtual network gateway.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the VPN client root certificate resource.
         :param _builtins.str public_cert_data: The certificate public data.
@@ -34179,6 +34512,7 @@ class VpnConnectionResponse(dict):
                  vpn_link_connections: Optional[Sequence['outputs.VpnSiteLinkConnectionResponse']] = None):
         """
         VpnConnection Resource.
+
         :param _builtins.str connection_status: The connection status.
         :param _builtins.float egress_bytes_transferred: Egress bytes transferred.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -34449,6 +34783,7 @@ class VpnGatewayIpConfigurationResponse(dict):
                  public_ip_address: Optional[_builtins.str] = None):
         """
         IP Configuration of a VPN Gateway Resource.
+
         :param _builtins.str id: The identifier of the IP configuration for a VPN Gateway.
         :param _builtins.str private_ip_address: The private IP address of this IP configuration.
         :param _builtins.str public_ip_address: The public IP address of this IP configuration.
@@ -34531,6 +34866,7 @@ class VpnGatewayNatRuleResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         VpnGatewayNatRule Resource.
+
         :param Sequence['SubResourceResponse'] egress_vpn_site_link_connections: List of egress VpnSiteLinkConnections.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['SubResourceResponse'] ingress_vpn_site_link_connections: List of ingress VpnSiteLinkConnections.
@@ -34677,6 +35013,7 @@ class VpnLinkBgpSettingsResponse(dict):
                  bgp_peering_address: Optional[_builtins.str] = None):
         """
         BGP settings details for a link.
+
         :param _builtins.float asn: The BGP speaker's ASN.
         :param _builtins.str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
         """
@@ -34731,6 +35068,7 @@ class VpnLinkProviderPropertiesResponse(dict):
                  link_speed_in_mbps: Optional[_builtins.int] = None):
         """
         List of properties of a link provider.
+
         :param _builtins.str link_provider_name: Name of the link provider.
         :param _builtins.int link_speed_in_mbps: Link speed.
         """
@@ -34785,6 +35123,7 @@ class VpnNatRuleMappingResponse(dict):
                  port_range: Optional[_builtins.str] = None):
         """
         Vpn NatRule mapping.
+
         :param _builtins.str address_space: Address space for Vpn NatRule mapping.
         :param _builtins.str port_range: Port range for Vpn NatRule mapping.
         """
@@ -34820,6 +35159,7 @@ class VpnServerConfigRadiusClientRootCertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         Properties of the Radius client root certificate of VpnServerConfiguration.
+
         :param _builtins.str name: The certificate name.
         :param _builtins.str thumbprint: The Radius client root certificate thumbprint.
         """
@@ -34872,6 +35212,7 @@ class VpnServerConfigRadiusServerRootCertificateResponse(dict):
                  public_cert_data: Optional[_builtins.str] = None):
         """
         Properties of Radius Server root certificate of VpnServerConfiguration.
+
         :param _builtins.str name: The certificate name.
         :param _builtins.str public_cert_data: The certificate public data.
         """
@@ -34907,6 +35248,7 @@ class VpnServerConfigVpnClientRevokedCertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         Properties of the revoked VPN client certificate of VpnServerConfiguration.
+
         :param _builtins.str name: The certificate name.
         :param _builtins.str thumbprint: The revoked VPN client certificate thumbprint.
         """
@@ -34959,6 +35301,7 @@ class VpnServerConfigVpnClientRootCertificateResponse(dict):
                  public_cert_data: Optional[_builtins.str] = None):
         """
         Properties of VPN client root certificate of VpnServerConfiguration.
+
         :param _builtins.str name: The certificate name.
         :param _builtins.str public_cert_data: The certificate public data.
         """
@@ -35014,6 +35357,7 @@ class VpnServerConfigurationPolicyGroupMemberResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         VpnServerConfiguration PolicyGroup member
+
         :param _builtins.str attribute_type: The Vpn Policy member attribute type.
         :param _builtins.str attribute_value: The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
         :param _builtins.str name: Name of the VpnServerConfigurationPolicyGroupMember.
@@ -35090,6 +35434,7 @@ class VpnServerConfigurationPolicyGroupResponse(dict):
                  priority: Optional[_builtins.int] = None):
         """
         VpnServerConfigurationPolicyGroup Resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['SubResourceResponse'] p2_s_connection_configurations: List of references to P2SConnectionConfigurations.
         :param _builtins.str provisioning_state: The provisioning state of the VpnServerConfigurationPolicyGroup resource.
@@ -35255,6 +35600,7 @@ class VpnServerConfigurationPropertiesResponse(dict):
                  vpn_protocols: Optional[Sequence[_builtins.str]] = None):
         """
         Parameters for VpnServerConfiguration.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['P2SVpnGatewayResponse'] p2_s_vpn_gateways: List of references to P2SVpnGateways.
         :param _builtins.str provisioning_state: The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -35515,6 +35861,7 @@ class VpnSiteLinkConnectionResponse(dict):
                  vpn_site_link: Optional['outputs.SubResourceResponse'] = None):
         """
         VpnSiteLinkConnection Resource.
+
         :param _builtins.str connection_status: The connection status.
         :param _builtins.float egress_bytes_transferred: Egress bytes transferred.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
@@ -35805,6 +36152,7 @@ class VpnSiteLinkResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         VpnSiteLink Resource.
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: The provisioning state of the VPN site link resource.
         :param _builtins.str type: Resource type.
@@ -35947,6 +36295,7 @@ class WebApplicationFirewallCustomRuleResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines contents of a web application rule.
+
         :param _builtins.str action: Type of Actions.
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
@@ -36086,6 +36435,7 @@ class WebApplicationFirewallScrubbingRulesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Allow certain variables to be scrubbed on WAF logs
+
         :param _builtins.str match_variable: The variable to be scrubbed from the logs.
         :param _builtins.str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
         :param _builtins.str selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.

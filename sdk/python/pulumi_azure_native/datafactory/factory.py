@@ -34,6 +34,7 @@ class FactoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Factory resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input['EncryptionConfigurationArgs'] encryption: Properties to enable Customer Managed Key for the factory.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
@@ -208,6 +209,7 @@ class Factory(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EncryptionConfigurationArgs', 'EncryptionConfigurationArgsDict']] encryption: Properties to enable Customer Managed Key for the factory.
@@ -231,6 +233,7 @@ class Factory(pulumi.CustomResource):
         Factory resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
 
         :param str resource_name: The name of the resource.
         :param FactoryArgs args: The arguments to use to populate this resource's properties.

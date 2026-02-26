@@ -33,6 +33,7 @@ class PublishedBlueprintArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublishedBlueprint resource.
+
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the published blueprint definition.
         :param pulumi.Input[_builtins.str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param pulumi.Input[_builtins.str] change_notes: Version-specific change notes.
@@ -190,6 +191,7 @@ class PublishedBlueprint(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the published blueprint definition.
@@ -212,6 +214,7 @@ class PublishedBlueprint(pulumi.CustomResource):
         Represents a published blueprint.
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param PublishedBlueprintArgs args: The arguments to use to populate this resource's properties.

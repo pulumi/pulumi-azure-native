@@ -26,6 +26,7 @@ class RedisFirewallRuleArgs:
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedisFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] cache_name: The name of the Redis cache.
         :param pulumi.Input[_builtins.str] end_ip: highest IP address included in the range
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -117,6 +118,7 @@ class RedisFirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-04-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cache_name: The name of the Redis cache.
@@ -135,6 +137,7 @@ class RedisFirewallRule(pulumi.CustomResource):
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 
         Uses Azure REST API version 2016-04-01.
+
 
         :param str resource_name: The name of the resource.
         :param RedisFirewallRuleArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class CosmosDbDataConnectionArgs:
                  retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CosmosDbDataConnection resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] cosmos_db_account_resource_id: The resource ID of the Cosmos DB account used to create the data connection.
         :param pulumi.Input[_builtins.str] cosmos_db_container: The name of an existing container in the Cosmos DB database.
@@ -250,6 +251,7 @@ class CosmosDbDataConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
@@ -277,6 +279,7 @@ class CosmosDbDataConnection(pulumi.CustomResource):
         Class representing a CosmosDb data connection.
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
+
 
         :param str resource_name: The name of the resource.
         :param CosmosDbDataConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class CredentialOperationArgs:
                  credential_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CredentialOperation resource.
+
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs']] properties: Properties of credentials.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -104,6 +105,7 @@ class CredentialOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] credential_name: Credential name
@@ -121,6 +123,7 @@ class CredentialOperation(pulumi.CustomResource):
         Credential resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
 
         :param str resource_name: The name of the resource.
         :param CredentialOperationArgs args: The arguments to use to populate this resource's properties.

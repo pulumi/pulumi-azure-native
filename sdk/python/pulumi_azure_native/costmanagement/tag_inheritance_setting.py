@@ -27,6 +27,7 @@ class TagInheritanceSettingArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagInheritanceSetting resource.
+
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of settings.
                Expected value is 'taginheritance'.
         :param pulumi.Input[_builtins.str] scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
@@ -106,6 +107,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of settings.
@@ -124,6 +126,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
         Tag Inheritance Setting definition.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
+
 
         :param str resource_name: The name of the resource.
         :param TagInheritanceSettingArgs args: The arguments to use to populate this resource's properties.

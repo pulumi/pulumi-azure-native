@@ -27,6 +27,7 @@ class SpringbootappArgs:
                  springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Springbootapp resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: The springbootsites name.
         :param pulumi.Input['SpringbootappsPropertiesArgs'] properties: The springbootapps resource definition.
@@ -104,6 +105,7 @@ class Springbootapp(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']] properties: The springbootapps resource definition.
@@ -121,6 +123,7 @@ class Springbootapp(pulumi.CustomResource):
         The springbootapps envelope resource definition.
 
         Uses Azure REST API version 2024-04-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SpringbootappArgs args: The arguments to use to populate this resource's properties.

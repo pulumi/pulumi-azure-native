@@ -38,6 +38,7 @@ class MqttBridgeConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MqttBridgeConnector resource.
+
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['ContainerImageArgs'] image: The details of MqttBridge Docker Image.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
@@ -271,6 +272,7 @@ class MqttBridgeConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] bridge_instances: The number of instances to deploy for a bridge rollout.
@@ -298,6 +300,7 @@ class MqttBridgeConnector(pulumi.CustomResource):
         MQ mqttBridgeConnector resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MqttBridgeConnectorArgs args: The arguments to use to populate this resource's properties.

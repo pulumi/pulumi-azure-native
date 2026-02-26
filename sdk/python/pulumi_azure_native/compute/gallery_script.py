@@ -30,6 +30,7 @@ class GalleryScriptArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryScript resource.
+
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] gallery_script_name: The name of the gallery Script Definition to be retrieved.
@@ -139,6 +140,7 @@ class GalleryScript(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-03.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
@@ -158,6 +160,7 @@ class GalleryScript(pulumi.CustomResource):
         Specifies information about the gallery Script Definition that you want to create or update.
 
         Uses Azure REST API version 2025-03-03.
+
 
         :param str resource_name: The name of the resource.
         :param GalleryScriptArgs args: The arguments to use to populate this resource's properties.

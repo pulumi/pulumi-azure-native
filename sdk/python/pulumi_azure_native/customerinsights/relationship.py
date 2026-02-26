@@ -35,6 +35,7 @@ class RelationshipArgs:
                  relationship_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Relationship resource.
+
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] profile_type: Profile type.
         :param pulumi.Input[_builtins.str] related_profile_type: Related profile being referenced.
@@ -222,6 +223,7 @@ class Relationship(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CardinalityTypes'] cardinality: The Relationship Cardinality.
@@ -246,6 +248,7 @@ class Relationship(pulumi.CustomResource):
         The relationship resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
 
         :param str resource_name: The name of the resource.
         :param RelationshipArgs args: The arguments to use to populate this resource's properties.

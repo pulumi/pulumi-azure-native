@@ -30,6 +30,7 @@ class LoadBalancerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] load_balancer_name: Name of the load balancer
@@ -140,6 +141,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
@@ -159,6 +161,7 @@ class LoadBalancer(pulumi.CustomResource):
         The LoadBalancer resource definition.
 
         Uses Azure REST API version 2025-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

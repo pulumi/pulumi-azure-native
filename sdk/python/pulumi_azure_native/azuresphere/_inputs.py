@@ -20,27 +20,22 @@ __all__ = [
     'ImageArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ImageArgsDict(TypedDict):
-        """
-        An image resource belonging to a catalog resource.
-        """
-        image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
-        """
-        image_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image ID
-        """
-        regional_data_boundary: NotRequired[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]]
-        """
-        Regional data boundary for an image
-        """
-elif False:
-    ImageArgsDict: TypeAlias = Mapping[str, Any]
+class ImageArgsDict(TypedDict):
+    """
+    An image resource belonging to a catalog resource.
+    """
+    image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
+    """
+    image_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image ID
+    """
+    regional_data_boundary: NotRequired[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]]
+    """
+    Regional data boundary for an image
+    """
 
 @pulumi.input_type
 class ImageArgs:
@@ -50,6 +45,7 @@ class ImageArgs:
                  regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None):
         """
         An image resource belonging to a catalog resource.
+
         :param pulumi.Input[_builtins.str] image: Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
         :param pulumi.Input[_builtins.str] image_id: Image ID
         :param pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for an image

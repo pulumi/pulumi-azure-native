@@ -27,6 +27,7 @@ class ServiceGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceGroup resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the serviceGroup.
         :param pulumi.Input['ServiceGroupPropertiesArgs'] properties: ServiceGroup creation request body parameters.
         :param pulumi.Input[_builtins.str] service_group_name: ServiceGroup Name.
@@ -106,6 +107,7 @@ class ServiceGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kind: The kind of the serviceGroup.
@@ -123,6 +125,7 @@ class ServiceGroup(pulumi.CustomResource):
         The serviceGroup details.
 
         Uses Azure REST API version 2024-02-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceGroupArgs args: The arguments to use to populate this resource's properties.

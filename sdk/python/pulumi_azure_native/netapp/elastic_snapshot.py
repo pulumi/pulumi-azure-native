@@ -27,6 +27,7 @@ class ElasticSnapshotArgs:
                  snapshot_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ElasticSnapshot resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
         :param pulumi.Input[_builtins.str] pool_name: The name of the ElasticCapacityPool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -118,6 +119,7 @@ class ElasticSnapshot(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
@@ -136,6 +138,7 @@ class ElasticSnapshot(pulumi.CustomResource):
         NetApp Elastic Snapshot under an Elastic Volume
 
         Uses Azure REST API version 2025-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ElasticSnapshotArgs args: The arguments to use to populate this resource's properties.

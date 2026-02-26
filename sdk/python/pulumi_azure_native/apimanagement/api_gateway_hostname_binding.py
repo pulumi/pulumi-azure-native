@@ -28,6 +28,7 @@ class ApiGatewayHostnameBindingArgs:
                  hostname_binding_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiGatewayHostnameBinding resource.
+
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management gateway.
         :param pulumi.Input[_builtins.str] hostname: The default hostname of the data-plane gateway.
         :param pulumi.Input['GatewayHostnameBindingKeyVaultArgs'] key_vault: The link to the API Management service workspace.
@@ -119,6 +120,7 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management gateway.
@@ -137,6 +139,7 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
         A single API Management gateway hostname binding resource in List or Get response.
 
         Uses Azure REST API version 2025-03-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ApiGatewayHostnameBindingArgs args: The arguments to use to populate this resource's properties.

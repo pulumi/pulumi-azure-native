@@ -31,6 +31,7 @@ class DataExportArgs:
                  last_modified_date: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataExport resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
@@ -204,6 +205,7 @@ class DataExport(pulumi.CustomResource):
 
         Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_date: The latest data export rule modification time.
@@ -229,6 +231,7 @@ class DataExport(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
 
         Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DataExportArgs args: The arguments to use to populate this resource's properties.

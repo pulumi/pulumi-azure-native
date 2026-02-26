@@ -63,6 +63,7 @@ class ErrorResponse(dict):
                  updated_time_stamp: Optional[_builtins.str] = None):
         """
         Defines the error.
+
         :param _builtins.str code: The error code.
         :param _builtins.str id: The error ID.
         :param _builtins.str message: The detailed error message.
@@ -175,6 +176,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The extended location for off-azure resources.
+
         :param _builtins.str name: The extended location name.
         :param _builtins.str type: The extended location type.
         """
@@ -241,6 +243,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

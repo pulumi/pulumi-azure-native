@@ -32,6 +32,7 @@ class SingleServerServerSecurityAlertPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerServerSecurityAlertPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['ServerSecurityAlertPolicyState'] state: Specifies the state of the policy, whether it is enabled or disabled.
@@ -204,6 +205,7 @@ class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
@@ -227,6 +229,7 @@ class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
         A server security alert policy.
 
         Uses Azure REST API version 2017-12-01.
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerServerSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.

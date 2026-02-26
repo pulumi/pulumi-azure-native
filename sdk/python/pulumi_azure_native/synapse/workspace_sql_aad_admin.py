@@ -27,6 +27,7 @@ class WorkspaceSqlAadAdminArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] administrator_type: Workspace active directory administrator type
@@ -140,6 +141,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_type: Workspace active directory administrator type
@@ -163,6 +165,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSqlAadAdminArgs args: The arguments to use to populate this resource's properties.

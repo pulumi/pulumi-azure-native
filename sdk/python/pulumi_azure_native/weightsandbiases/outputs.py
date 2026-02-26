@@ -62,6 +62,7 @@ class InstancePropertiesResponse(dict):
                  single_sign_on_properties: Optional['outputs.LiftrBaseSingleSignOnPropertiesV2Response'] = None):
         """
         Properties specific to Instance
+
         :param 'LiftrBaseMarketplaceDetailsResponse' marketplace: Marketplace details of the resource.
         :param _builtins.str provisioning_state: Provisioning state of the resource.
         :param 'LiftrBaseUserDetailsResponse' user: Details of the user.
@@ -149,6 +150,7 @@ class LiftrBaseMarketplaceDetailsResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         Marketplace details for an organization
+
         :param 'LiftrBaseOfferDetailsResponse' offer_details: Offer details for the marketplace that is selected by the user
         :param _builtins.str subscription_status: Marketplace subscription status
         :param _builtins.str subscription_id: Azure subscription id for the the marketplace offer is purchased from
@@ -224,6 +226,7 @@ class LiftrBaseOfferDetailsResponse(dict):
                  term_unit: Optional[_builtins.str] = None):
         """
         Offer details for the marketplace that is selected by the user
+
         :param _builtins.str offer_id: Offer Id for the marketplace offer
         :param _builtins.str plan_id: Plan Id for the marketplace offer
         :param _builtins.str publisher_id: Publisher Id for the marketplace offer
@@ -322,6 +325,7 @@ class LiftrBaseSingleSignOnPropertiesV2Response(dict):
                  url: Optional[_builtins.str] = None):
         """
         Properties specific to Single Sign On Resource
+
         :param _builtins.str type: Type of Single Sign-On mechanism being used
         :param Sequence[_builtins.str] aad_domains: List of AAD domains fetched from Microsoft Graph for user.
         :param _builtins.str enterprise_app_id: AAD enterprise application Id used to setup SSO
@@ -415,6 +419,7 @@ class LiftrBaseUserDetailsResponse(dict):
                  upn: Optional[_builtins.str] = None):
         """
         User details for an organization
+
         :param _builtins.str email_address: Email address of the user
         :param _builtins.str first_name: First name of the user
         :param _builtins.str last_name: Last name of the user
@@ -506,6 +511,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -560,6 +566,7 @@ class PartnerPropertiesResponse(dict):
                  subdomain: _builtins.str):
         """
         Partner's specific Properties
+
         :param _builtins.str region: The region of the instance
         :param _builtins.str subdomain: The subdomain of the instance
         """
@@ -624,6 +631,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -722,6 +730,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

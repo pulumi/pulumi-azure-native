@@ -40,6 +40,7 @@ class MySQLServerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MySQLServer resource.
+
         :param pulumi.Input[_builtins.str] host_name: The Server IP/host name.
         :param pulumi.Input[_builtins.str] port_number: MySQL Server port number
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -307,6 +308,7 @@ class MySQLServer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'Edition']] edition: mysql server edition.
@@ -336,6 +338,7 @@ class MySQLServer(pulumi.CustomResource):
         The MySQLServer resource definition.
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MySQLServerArgs args: The arguments to use to populate this resource's properties.

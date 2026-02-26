@@ -29,6 +29,7 @@ class MigrateProjectsControllerMigrateProjectArgs:
                  properties: Optional[pulumi.Input['MigrateProjectPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MigrateProjectsControllerMigrateProject resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[_builtins.str] location: Azure location in which project is created.
@@ -125,6 +126,7 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] e_tag: For optimistic concurrency control.
@@ -145,6 +147,7 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param MigrateProjectsControllerMigrateProjectArgs args: The arguments to use to populate this resource's properties.

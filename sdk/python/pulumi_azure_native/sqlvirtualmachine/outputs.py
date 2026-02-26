@@ -73,6 +73,7 @@ class AADAuthenticationSettingsResponse(dict):
                  client_id: Optional[_builtins.str] = None):
         """
         Enable AAD authentication for SQL VM.
+
         :param _builtins.str client_id: The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
         """
         if client_id is not None:
@@ -113,6 +114,7 @@ class AdditionalFeaturesServerConfigurationsResponse(dict):
                  is_r_services_enabled: Optional[_builtins.bool] = None):
         """
         Additional SQL Server feature settings.
+
         :param _builtins.bool is_r_services_enabled: Enable or disable R services (SQL 2016 onwards).
         """
         if is_r_services_enabled is not None:
@@ -136,6 +138,7 @@ class AgConfigurationResponse(dict):
                  replicas: Optional[Sequence['outputs.AgReplicaResponse']] = None):
         """
         Availability group configuration.
+
         :param Sequence['AgReplicaResponse'] replicas: Replica configurations.
         """
         if replicas is not None:
@@ -182,6 +185,7 @@ class AgReplicaResponse(dict):
                  sql_virtual_machine_instance_id: Optional[_builtins.str] = None):
         """
         Availability group replica configuration.
+
         :param _builtins.str commit: Replica commit mode in availability group.
         :param _builtins.str failover: Replica failover mode in availability group.
         :param _builtins.str readable_secondary: Replica readable secondary mode in availability group.
@@ -268,6 +272,7 @@ class AssessmentSettingsResponse(dict):
                  schedule: Optional['outputs.ScheduleResponse'] = None):
         """
         Configure SQL best practices Assessment for databases in your SQL virtual machine.
+
         :param _builtins.bool enable: Enable or disable SQL best practices Assessment feature on SQL virtual machine.
         :param _builtins.bool run_immediately: Run SQL best practices Assessment immediately on SQL virtual machine.
         :param 'ScheduleResponse' schedule: Schedule for SQL best practices Assessment.
@@ -361,6 +366,7 @@ class AutoBackupSettingsResponse(dict):
                  storage_container_name: Optional[_builtins.str] = None):
         """
         Configure backups for databases in your SQL virtual machine.
+
         :param _builtins.str backup_schedule_type: Backup schedule type.
         :param _builtins.bool backup_system_dbs: Include or exclude system databases from auto backup.
         :param Sequence[_builtins.str] days_of_week: Days of the week for the backups when FullBackupFrequency is set to Weekly.
@@ -532,6 +538,7 @@ class AutoPatchingSettingsResponse(dict):
                  maintenance_window_starting_hour: Optional[_builtins.int] = None):
         """
         Set a patching window during which Windows and SQL patches will be applied.
+
         :param _builtins.str additional_vm_patch: Additional Patch to be enable or enabled on the SQL Virtual Machine.
         :param _builtins.str day_of_week: Day of week to apply the patch on.
         :param _builtins.bool enable: Enable or disable autopatching on SQL virtual machine.
@@ -625,6 +632,7 @@ class KeyVaultCredentialSettingsResponse(dict):
                  service_principal_name: Optional[_builtins.str] = None):
         """
         Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
+
         :param _builtins.str azure_key_vault_url: Azure Key Vault url.
         :param _builtins.str credential_name: Credential name.
         :param _builtins.bool enable: Enable or disable key vault credential setting.
@@ -710,6 +718,7 @@ class LoadBalancerConfigurationResponse(dict):
                  sql_virtual_machine_instances: Optional[Sequence[_builtins.str]] = None):
         """
         A load balancer configuration for an availability group listener.
+
         :param _builtins.str load_balancer_resource_id: Resource id of the load balancer.
         :param 'PrivateIPAddressResponse' private_ip_address: Private IP address.
         :param _builtins.int probe_port: Probe port.
@@ -797,6 +806,7 @@ class MultiSubnetIpConfigurationResponse(dict):
                  sql_virtual_machine_instance: _builtins.str):
         """
         Multi subnet ip configuration for an availability group listener.
+
         :param 'PrivateIPAddressResponse' private_ip_address: Private IP address.
         :param _builtins.str sql_virtual_machine_instance: SQL virtual machine instance resource id that are enrolled into the availability group listener.
         """
@@ -849,6 +859,7 @@ class PrivateIPAddressResponse(dict):
                  subnet_resource_id: Optional[_builtins.str] = None):
         """
         A private IP address bound to the availability group listener.
+
         :param _builtins.str ip_address: Private IP address bound to the availability group listener.
         :param _builtins.str subnet_resource_id: Subnet used to include private IP.
         """
@@ -904,6 +915,7 @@ class ResourceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         :param _builtins.str tenant_id: The Azure Active Directory tenant id.
         :param _builtins.str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -980,6 +992,7 @@ class SQLInstanceSettingsResponse(dict):
                  min_server_memory_mb: Optional[_builtins.int] = None):
         """
         Set the server/instance-level settings for SQL Server.
+
         :param _builtins.str collation: SQL Server Collation.
         :param _builtins.bool is_ifi_enabled: SQL Server IFI.
         :param _builtins.bool is_lpim_enabled: SQL Server LPIM.
@@ -1090,6 +1103,7 @@ class SQLStorageSettingsResponse(dict):
                  use_storage_pool: Optional[_builtins.bool] = None):
         """
         Set disk storage settings for SQL Server.
+
         :param _builtins.str default_file_path: SQL Server default file path
         :param Sequence[_builtins.int] luns: Logical Unit Numbers for the disks.
         :param _builtins.bool use_storage_pool: Use storage pool to build a drive if true or not provided
@@ -1177,6 +1191,7 @@ class SQLTempDbSettingsResponse(dict):
                  use_storage_pool: Optional[_builtins.bool] = None):
         """
         Set tempDb storage settings for SQL Server.
+
         :param _builtins.int data_file_count: SQL Server tempdb data file count
         :param _builtins.int data_file_size: SQL Server tempdb data file size
         :param _builtins.int data_growth: SQL Server tempdb data file autoGrowth size
@@ -1326,6 +1341,7 @@ class ScheduleResponse(dict):
                  weekly_interval: Optional[_builtins.int] = None):
         """
         Set assessment schedule for SQL Server.
+
         :param _builtins.str day_of_week: Day of the week to run assessment.
         :param _builtins.bool enable: Enable or disable assessment schedule on SQL virtual machine.
         :param _builtins.int monthly_occurrence: Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
@@ -1425,6 +1441,7 @@ class ServerConfigurationsManagementSettingsResponse(dict):
                  sql_workload_type_update_settings: Optional['outputs.SqlWorkloadTypeUpdateSettingsResponse'] = None):
         """
         Set the connectivity, storage and workload settings.
+
         :param 'AdditionalFeaturesServerConfigurationsResponse' additional_features_server_configurations: Additional SQL feature settings.
         :param 'AADAuthenticationSettingsResponse' azure_ad_authentication_settings: Azure AD authentication Settings.
         :param 'SqlConnectivityUpdateSettingsResponse' sql_connectivity_update_settings: SQL connectivity type settings.
@@ -1521,6 +1538,7 @@ class SqlConnectivityUpdateSettingsResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Set the access level and network port settings for SQL Server.
+
         :param _builtins.str connectivity_type: SQL Server connectivity option.
         :param _builtins.int port: SQL Server port.
         """
@@ -1578,6 +1596,7 @@ class SqlStorageUpdateSettingsResponse(dict):
                  starting_device_id: Optional[_builtins.int] = None):
         """
         Set disk storage settings for SQL Server.
+
         :param _builtins.str disk_configuration_type: Disk configuration to apply to SQL Server.
         :param _builtins.int disk_count: Virtual machine disk count.
         :param _builtins.int starting_device_id: Device id of the first disk to be updated.
@@ -1640,6 +1659,7 @@ class SqlWorkloadTypeUpdateSettingsResponse(dict):
                  sql_workload_type: Optional[_builtins.str] = None):
         """
         Set workload type to optimize storage for SQL Server.
+
         :param _builtins.str sql_workload_type: SQL Server workload type.
         """
         if sql_workload_type is not None:
@@ -1695,6 +1715,7 @@ class StorageConfigurationSettingsResponse(dict):
                  storage_workload_type: Optional[_builtins.str] = None):
         """
         Storage Configurations for SQL Data, Log and TempDb.
+
         :param _builtins.str disk_configuration_type: Disk configuration to apply to SQL Server.
         :param 'SQLStorageSettingsResponse' sql_data_settings: SQL Server Data Storage Settings.
         :param 'SQLStorageSettingsResponse' sql_log_settings: SQL Server Log Storage Settings.
@@ -1805,6 +1826,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1900,6 +1922,7 @@ class TroubleshootingAdditionalPropertiesResponse(dict):
                  unhealthy_replica_info: Optional['outputs.UnhealthyReplicaInfoResponse'] = None):
         """
         SQL VM Troubleshooting additional properties.
+
         :param 'UnhealthyReplicaInfoResponse' unhealthy_replica_info: The unhealthy replica information
         """
         if unhealthy_replica_info is not None:
@@ -1953,6 +1976,7 @@ class TroubleshootingStatusResponse(dict):
                  troubleshooting_scenario: Optional[_builtins.str] = None):
         """
         Status of last troubleshooting operation on this SQL VM
+
         :param _builtins.str end_time_utc: End time in UTC timezone.
         :param _builtins.str last_trigger_time_utc: Last troubleshooting trigger time in UTC timezone
         :param 'TroubleshootingAdditionalPropertiesResponse' properties: Troubleshooting properties
@@ -2044,6 +2068,7 @@ class UnhealthyReplicaInfoResponse(dict):
                  availability_group_name: Optional[_builtins.str] = None):
         """
         SQL VM Troubleshoot UnhealthyReplica scenario information.
+
         :param _builtins.str availability_group_name: The name of the availability group
         """
         if availability_group_name is not None:
@@ -2085,6 +2110,7 @@ class VirtualMachineIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Virtual Machine Identity details used for Sql IaaS extension configurations.
+
         :param _builtins.str resource_id: ARM Resource Id of the identity. Only required when UserAssigned identity is selected.
         :param _builtins.str type: Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
         """
@@ -2142,6 +2168,7 @@ class WsfcDomainCredentialsResponse(dict):
                  sql_service_account_password: Optional[_builtins.str] = None):
         """
         Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+
         :param _builtins.str cluster_bootstrap_account_password: Cluster bootstrap account password.
         :param _builtins.str cluster_operator_account_password: Cluster operator account password.
         :param _builtins.str sql_service_account_password: SQL service account password.
@@ -2228,6 +2255,7 @@ class WsfcDomainProfileResponse(dict):
                  storage_account_url: Optional[_builtins.str] = None):
         """
         Active Directory account details to operate Windows Server Failover Cluster.
+
         :param _builtins.str cluster_bootstrap_account: Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
         :param _builtins.str cluster_operator_account: Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
         :param _builtins.str cluster_subnet_type: Cluster subnet type.

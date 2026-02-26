@@ -33,6 +33,7 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
                  table_level_sharing_properties: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a KustoPoolAttachedDatabaseConfiguration resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         :param pulumi.Input[Union[_builtins.str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
@@ -186,6 +187,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] attached_database_configuration_name: The name of the attached database configuration.
@@ -208,6 +210,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         Class representing an attached database configuration.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param KustoPoolAttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.

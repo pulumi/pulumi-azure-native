@@ -48,6 +48,7 @@ class ScheduledAlertRuleArgs:
                  template_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAlertRule resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name for alerts created by this alert rule.
         :param pulumi.Input[_builtins.bool] enabled: Determines whether this alert rule is enabled or disabled.
         :param pulumi.Input[_builtins.str] kind: The kind of the alert rule
@@ -436,6 +437,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']] alert_details_override: The alert details override settings
@@ -474,6 +476,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
         Represents scheduled alert rule.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledAlertRuleArgs args: The arguments to use to populate this resource's properties.

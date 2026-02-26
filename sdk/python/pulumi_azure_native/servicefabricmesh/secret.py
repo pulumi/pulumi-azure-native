@@ -28,6 +28,7 @@ class SecretArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
+
         :param pulumi.Input['SecretResourcePropertiesArgs'] properties: Describes the properties of a secret resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -121,6 +122,7 @@ class Secret(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -139,6 +141,7 @@ class Secret(pulumi.CustomResource):
         This type describes a secret resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class DisasterRecoveryConfigurationArgs:
                  disaster_recovery_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DisasterRecoveryConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] disaster_recovery_configuration_name: The name of the disaster recovery configuration to be created/updated.
@@ -85,6 +86,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disaster_recovery_configuration_name: The name of the disaster recovery configuration to be created/updated.
@@ -101,6 +103,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
         Represents a disaster recovery configuration.
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
+
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class DnssecConfigArgs:
                  zone_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DnssecConfig resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] zone_name: The name of the DNS zone (without a terminating dot).
         """
@@ -69,6 +70,7 @@ class DnssecConfig(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -84,6 +86,7 @@ class DnssecConfig(pulumi.CustomResource):
         Represents the DNSSEC configuration.
 
         Uses Azure REST API version 2023-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DnssecConfigArgs args: The arguments to use to populate this resource's properties.

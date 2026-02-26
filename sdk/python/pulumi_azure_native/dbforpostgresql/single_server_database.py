@@ -26,6 +26,7 @@ class SingleServerDatabaseArgs:
                  database_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerDatabase resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] charset: The charset of the database.
@@ -119,6 +120,7 @@ class SingleServerDatabase(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] charset: The charset of the database.
@@ -137,6 +139,7 @@ class SingleServerDatabase(pulumi.CustomResource):
         Represents a Database.
 
         Uses Azure REST API version 2017-12-01.
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerDatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class ActivityLogAlertArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActivityLogAlert resource.
+
         :param pulumi.Input['ActionListArgs'] actions: The actions that will activate when the condition is met.
         :param pulumi.Input['AlertRuleAllOfConditionArgs'] condition: The condition that will cause this alert to activate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -191,6 +192,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-10-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActionListArgs', 'ActionListArgsDict']] actions: The actions that will activate when the condition is met.
@@ -213,6 +215,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         An Activity Log Alert rule resource.
 
         Uses Azure REST API version 2020-10-01.
+
 
         :param str resource_name: The name of the resource.
         :param ActivityLogAlertArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class TenantActionGroupArgs:
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]]] = None):
         """
         The set of arguments for constructing a TenantActionGroup resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether this tenant action group is enabled. If a tenant action group is not enabled, then none of its receivers will receive communications.
         :param pulumi.Input[_builtins.str] group_short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[_builtins.str] management_group_id: The management group id.
@@ -224,6 +225,7 @@ class TenantActionGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AzureAppPushReceiverArgs', 'AzureAppPushReceiverArgsDict']]]] azure_app_push_receivers: The list of AzureAppPush receivers that are part of this tenant action group.
@@ -248,6 +250,7 @@ class TenantActionGroup(pulumi.CustomResource):
         A tenant action group resource.
 
         Uses Azure REST API version 2023-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param TenantActionGroupArgs args: The arguments to use to populate this resource's properties.

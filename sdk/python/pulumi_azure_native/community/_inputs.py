@@ -22,51 +22,46 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IdentityConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Details of the Community CommunityTraining Identity Configuration
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        The clientId of the application registered in the selected identity provider for the Community Training Resource
-        """
-        client_secret: pulumi.Input[_builtins.str]
-        """
-        The client secret of the application registered in the selected identity provider for the Community Training Resource
-        """
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        The domain name of the selected identity provider for the Community Training Resource
-        """
-        identity_type: pulumi.Input[_builtins.str]
-        """
-        The identity type of the Community Training Resource
-        """
-        tenant_id: pulumi.Input[_builtins.str]
-        """
-        The tenantId of the selected identity provider for the Community Training Resource
-        """
-        b2c_authentication_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the authentication policy registered in ADB2C for the Community Training Resource
-        """
-        b2c_password_reset_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the password reset policy registered in ADB2C for the Community Training Resource
-        """
-        custom_login_parameters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The custom login parameters for the Community Training Resource
-        """
-        teams_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        To indicate whether the Community Training Resource has Teams enabled
-        """
-elif False:
-    IdentityConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Details of the Community CommunityTraining Identity Configuration
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The clientId of the application registered in the selected identity provider for the Community Training Resource
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The client secret of the application registered in the selected identity provider for the Community Training Resource
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    The domain name of the selected identity provider for the Community Training Resource
+    """
+    identity_type: pulumi.Input[_builtins.str]
+    """
+    The identity type of the Community Training Resource
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    The tenantId of the selected identity provider for the Community Training Resource
+    """
+    b2c_authentication_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the authentication policy registered in ADB2C for the Community Training Resource
+    """
+    b2c_password_reset_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the password reset policy registered in ADB2C for the Community Training Resource
+    """
+    custom_login_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The custom login parameters for the Community Training Resource
+    """
+    teams_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    To indicate whether the Community Training Resource has Teams enabled
+    """
 
 @pulumi.input_type
 class IdentityConfigurationPropertiesArgs:
@@ -82,6 +77,7 @@ class IdentityConfigurationPropertiesArgs:
                  teams_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Details of the Community CommunityTraining Identity Configuration
+
         :param pulumi.Input[_builtins.str] client_id: The clientId of the application registered in the selected identity provider for the Community Training Resource
         :param pulumi.Input[_builtins.str] client_secret: The client secret of the application registered in the selected identity provider for the Community Training Resource
         :param pulumi.Input[_builtins.str] domain_name: The domain name of the selected identity provider for the Community Training Resource
@@ -217,33 +213,30 @@ class IdentityConfigurationPropertiesArgs:
         pulumi.set(self, "teams_enabled", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Ex - P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -255,6 +248,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         The resource model definition representing SKU
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.

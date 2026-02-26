@@ -218,6 +218,7 @@ class APIServerAccessProfileResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Access profile for the Fleet hub API server.
+
         :param _builtins.bool enable_private_cluster: Whether to create the Fleet hub as a private cluster or not.
         :param _builtins.bool enable_vnet_integration: Whether to enable apiserver vnet integration for the Fleet hub or not.
         :param _builtins.str subnet_id: The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
@@ -283,6 +284,7 @@ class AbsoluteMonthlyScheduleResponse(dict):
                  interval_months: _builtins.int):
         """
         For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+
         :param _builtins.int day_of_month: The date of the month.
         :param _builtins.int interval_months: Specifies the number of months between each set of occurrences.
         """
@@ -315,6 +317,7 @@ class AdvancedNetworkingObservabilityResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Observability profile to enable advanced network metrics and flow logs with historical contexts.
+
         :param _builtins.bool enabled: Indicates the enablement of Advanced Networking observability functionalities on clusters.
         """
         if enabled is not None:
@@ -340,6 +343,7 @@ class AdvancedNetworkingResponse(dict):
                  security: Optional['outputs.AdvancedNetworkingSecurityResponse'] = None):
         """
         Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+
         :param _builtins.bool enabled: Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
         :param 'AdvancedNetworkingObservabilityResponse' observability: Observability profile to enable advanced network metrics and flow logs with historical contexts.
         :param 'AdvancedNetworkingSecurityResponse' security: Security profile to enable security features on cilium based cluster.
@@ -403,6 +407,7 @@ class AdvancedNetworkingSecurityResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Security profile to enable security features on cilium based cluster.
+
         :param _builtins.str advanced_network_policies: Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
         :param _builtins.bool enabled: This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
         """
@@ -454,6 +459,7 @@ class AgentPoolGatewayProfileResponse(dict):
                  public_ip_prefix_size: Optional[_builtins.int] = None):
         """
         Profile of the managed cluster gateway agent pool.
+
         :param _builtins.int public_ip_prefix_size: The Gateway agent pool associates one public IPPrefix for each static egress gateway to provide public egress. The size of Public IPPrefix should be selected by the user. Each node in the agent pool is assigned with one IP from the IPPrefix. The IPPrefix size thus serves as a cap on the size of the Gateway agent pool. Due to Azure public IPPrefix size limitation, the valid value range is [28, 31] (/31 = 2 nodes/IPs, /30 = 4 nodes/IPs, /29 = 8 nodes/IPs, /28 = 16 nodes/IPs). The default value is 31.
         """
         if public_ip_prefix_size is None:
@@ -502,6 +508,7 @@ class AgentPoolNetworkProfileResponse(dict):
                  node_public_ip_tags: Optional[Sequence['outputs.IPTagResponse']] = None):
         """
         Network settings of an agent pool.
+
         :param Sequence['PortRangeResponse'] allowed_host_ports: The port ranges that are allowed to access. The specified ranges are allowed to overlap.
         :param Sequence[_builtins.str] application_security_groups: The IDs of the application security groups which agent pool will associate when created.
         :param Sequence['IPTagResponse'] node_public_ip_tags: IPTags of instance-level public IPs.
@@ -570,6 +577,7 @@ class AgentPoolSecurityProfileResponse(dict):
                  ssh_access: Optional[_builtins.str] = None):
         """
         The security settings of an agent pool.
+
         :param _builtins.bool enable_secure_boot: Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
         :param _builtins.bool enable_vtpm: vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
         :param _builtins.str ssh_access: SSH access method of an agent pool.
@@ -632,6 +640,7 @@ class AgentPoolStatusResponse(dict):
                  provisioning_error: 'outputs.ErrorDetailResponse'):
         """
         Contains read-only information about the Agent Pool.
+
         :param 'ErrorDetailResponse' provisioning_error: The error detail information of the agent pool. Preserves the detailed info of failure. If there was no error, this field is omitted.
         """
         pulumi.set(__self__, "provisioning_error", provisioning_error)
@@ -683,6 +692,7 @@ class AgentPoolUpgradeSettingsResponse(dict):
                  undrainable_node_behavior: Optional[_builtins.str] = None):
         """
         Settings for upgrading an agentpool
+
         :param _builtins.int drain_timeout_in_minutes: The drain timeout for a node. The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
         :param _builtins.str max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
         :param _builtins.str max_unavailable: The maximum number or percentage of nodes that can be simultaneously unavailable during upgrade. This can either be set to an integer (e.g. '1') or a percentage (e.g. '5%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 0. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
@@ -767,6 +777,7 @@ class AgentPoolWindowsProfileResponse(dict):
                  disable_outbound_nat: Optional[_builtins.bool] = None):
         """
         The Windows agent pool's specific profile.
+
         :param _builtins.bool disable_outbound_nat: Whether to disable OutboundNAT in windows nodes. The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
         """
         if disable_outbound_nat is not None:
@@ -810,6 +821,7 @@ class AgentProfileResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         Agent profile for the Fleet hub.
+
         :param _builtins.str subnet_id: The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
         :param _builtins.str vm_size: The virtual machine size of the Fleet hub.
         """
@@ -844,6 +856,7 @@ class AutoUpgradeNodeImageSelectionResponse(dict):
                  type: _builtins.str):
         """
         The node image upgrade to be applied to the target clusters in auto upgrade.
+
         :param _builtins.str type: The node image upgrade type.
         """
         pulumi.set(__self__, "type", type)
@@ -890,6 +903,7 @@ class AzureKeyVaultKmsResponse(dict):
                  key_vault_resource_id: Optional[_builtins.str] = None):
         """
         Azure Key Vault key management service settings for the security profile.
+
         :param _builtins.bool enabled: Whether to enable Azure Key Vault key management service. The default is false.
         :param _builtins.str key_id: Identifier of Azure Key Vault key. See [key identifier format](https://docs.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When Azure Key Vault key management service is disabled, leave the field empty.
         :param _builtins.str key_vault_network_access: Network access of the key vault. Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
@@ -965,6 +979,7 @@ class ClusterUpgradeSettingsResponse(dict):
                  override_settings: Optional['outputs.UpgradeOverrideSettingsResponse'] = None):
         """
         Settings for upgrading a cluster.
+
         :param 'UpgradeOverrideSettingsResponse' override_settings: Settings for overrides.
         """
         if override_settings is not None:
@@ -1006,6 +1021,7 @@ class ContainerServiceLinuxProfileResponse(dict):
                  ssh: 'outputs.ContainerServiceSshConfigurationResponse'):
         """
         Profile for Linux VMs in the container service cluster.
+
         :param _builtins.str admin_username: The administrator username to use for Linux VMs.
         :param 'ContainerServiceSshConfigurationResponse' ssh: The SSH configuration for Linux-based VMs running on Azure.
         """
@@ -1103,6 +1119,7 @@ class ContainerServiceNetworkProfileResponse(dict):
                  static_egress_gateway_profile: Optional['outputs.ManagedClusterStaticEgressGatewayProfileResponse'] = None):
         """
         Profile of network configuration.
+
         :param 'AdvancedNetworkingResponse' advanced_networking: Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
         :param _builtins.str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param Sequence[_builtins.str] ip_families: The IP families used to specify IP versions available to the cluster. IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
@@ -1327,6 +1344,7 @@ class ContainerServiceSshConfigurationResponse(dict):
                  public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
+
         :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
@@ -1366,6 +1384,7 @@ class ContainerServiceSshPublicKeyResponse(dict):
                  key_data: _builtins.str):
         """
         Contains information about SSH certificate public key data.
+
         :param _builtins.str key_data: Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
         """
         pulumi.set(__self__, "key_data", key_data)
@@ -1405,6 +1424,7 @@ class CreationDataResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Data used when creating a target resource from a source resource.
+
         :param _builtins.str source_resource_id: This is the ARM ID of the source object to be used to create the target object.
         """
         if source_resource_id is not None:
@@ -1429,6 +1449,7 @@ class CredentialResultResponse(dict):
                  value: _builtins.str):
         """
         The credential result response.
+
         :param _builtins.str name: The name of the credential.
         :param _builtins.str value: Base64-encoded Kubernetes configuration file.
         """
@@ -1478,6 +1499,7 @@ class DailyScheduleResponse(dict):
                  interval_days: _builtins.int):
         """
         For schedules like: 'recur every day' or 'recur every 3 days'.
+
         :param _builtins.int interval_days: Specifies the number of days between each set of occurrences.
         """
         pulumi.set(__self__, "interval_days", interval_days)
@@ -1501,6 +1523,7 @@ class DateSpanResponse(dict):
                  start: _builtins.str):
         """
         A date range. For example, between '2022-12-23' and '2023-01-05'.
+
         :param _builtins.str end: The end date of the date span.
         :param _builtins.str start: The start date of the date span.
         """
@@ -1557,6 +1580,7 @@ class DelegatedResourceResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Delegated resource properties - internal use only.
+
         :param _builtins.str location: The source resource location - internal use only.
         :param _builtins.str referral_resource: The delegation id of the referral delegation (optional) - internal use only.
         :param _builtins.str resource_id: The ARM resource id of the delegated resource - internal use only.
@@ -1614,6 +1638,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -1667,6 +1692,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -1730,6 +1756,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The complex type of the extended location.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -1765,6 +1792,7 @@ class FleetCredentialResultResponse(dict):
                  value: _builtins.str):
         """
         One credential result item.
+
         :param _builtins.str name: The name of the credential.
         :param _builtins.str value: Base64-encoded Kubernetes configuration file.
         """
@@ -1827,6 +1855,7 @@ class FleetHubProfileResponse(dict):
                  dns_prefix: Optional[_builtins.str] = None):
         """
         The FleetHubProfile configures the fleet hub.
+
         :param _builtins.str fqdn: The FQDN of the Fleet hub.
         :param _builtins.str kubernetes_version: The Kubernetes version of the Fleet hub.
         :param _builtins.str portal_fqdn: The Azure Portal FQDN of the Fleet hub.
@@ -1935,6 +1964,7 @@ class FleetManagedNamespacePropertiesResponse(dict):
                  propagation_policy: Optional['outputs.PropagationPolicyResponse'] = None):
         """
         The properties of a fleet managed namespace.
+
         :param _builtins.str adoption_policy: Action if the managed namespace with the same name already exists. Default is Never.
         :param _builtins.str delete_policy: Delete options of a fleet managed namespace. Default is Keep.
         :param _builtins.str portal_fqdn: The Azure Portal FQDN of the Fleet hub.
@@ -2039,6 +2069,7 @@ class FleetManagedNamespaceStatusResponse(dict):
                  last_operation_id: _builtins.str):
         """
         Status information for the fleet managed namespace.
+
         :param 'ErrorDetailResponse' last_operation_error: The last operation error of the fleet managed namespace
         :param _builtins.str last_operation_id: The last operation ID for the fleet managed namespace
         """
@@ -2071,6 +2102,7 @@ class GPUProfileResponse(dict):
                  driver: Optional[_builtins.str] = None):
         """
         GPU settings for the Agent Pool.
+
         :param _builtins.str driver: Whether to install GPU drivers. When it's not specified, default is Install.
         """
         if driver is not None:
@@ -2112,6 +2144,7 @@ class IPTagResponse(dict):
                  tag: Optional[_builtins.str] = None):
         """
         Contains the IPTag associated with the object.
+
         :param _builtins.str ip_tag_type: The IP tag type. Example: RoutingPreference.
         :param _builtins.str tag: The value of the IP tag associated with the public IP. Example: Internet.
         """
@@ -2172,6 +2205,7 @@ class IdentityBindingManagedIdentityProfileResponse(dict):
                  tenant_id: _builtins.str):
         """
         Managed identity profile for the identity binding.
+
         :param _builtins.str client_id: The client ID of the managed identity.
         :param _builtins.str object_id: The object ID of the managed identity.
         :param _builtins.str resource_id: The resource ID of the managed identity.
@@ -2241,6 +2275,7 @@ class IdentityBindingOidcIssuerProfileResponse(dict):
                  oidc_issuer_url: _builtins.str):
         """
         IdentityBinding OIDC issuer profile.
+
         :param _builtins.str oidc_issuer_url: The OIDC issuer URL of the IdentityBinding.
         """
         pulumi.set(__self__, "oidc_issuer_url", oidc_issuer_url)
@@ -2286,6 +2321,7 @@ class IdentityBindingPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         IdentityBinding properties.
+
         :param 'IdentityBindingManagedIdentityProfileResponse' managed_identity: Managed identity profile for the identity binding.
         :param 'IdentityBindingOidcIssuerProfileResponse' oidc_issuer: The OIDC issuer URL of the IdentityBinding.
         :param _builtins.str provisioning_state: The status of the last operation.
@@ -2328,6 +2364,7 @@ class IstioCertificateAuthorityResponse(dict):
                  plugin: Optional['outputs.IstioPluginCertificateAuthorityResponse'] = None):
         """
         Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+
         :param 'IstioPluginCertificateAuthorityResponse' plugin: Plugin certificates information for Service Mesh.
         """
         if plugin is not None:
@@ -2371,6 +2408,7 @@ class IstioComponentsResponse(dict):
                  ingress_gateways: Optional[Sequence['outputs.IstioIngressGatewayResponse']] = None):
         """
         Istio components configuration.
+
         :param Sequence['IstioEgressGatewayResponse'] egress_gateways: Istio egress gateways.
         :param Sequence['IstioIngressGatewayResponse'] ingress_gateways: Istio ingress gateways.
         """
@@ -2425,6 +2463,7 @@ class IstioEgressGatewayResponse(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Istio egress gateway configuration.
+
         :param _builtins.bool enabled: Whether to enable the egress gateway.
         :param _builtins.str name: Name of the Istio add-on egress gateway.
         :param _builtins.str gateway_configuration_name: Name of the gateway configuration custom resource for the Istio add-on egress gateway. Must be specified when enabling the Istio egress gateway. Must be deployed in the same namespace that the Istio egress gateway will be deployed in.
@@ -2480,6 +2519,7 @@ class IstioIngressGatewayResponse(dict):
                  mode: _builtins.str):
         """
         Istio ingress gateway configuration. For now, we support up to one external ingress gateway named `aks-istio-ingressgateway-external` and one internal ingress gateway named `aks-istio-ingressgateway-internal`.
+
         :param _builtins.bool enabled: Whether to enable the ingress gateway.
         :param _builtins.str mode: Mode of an ingress gateway.
         """
@@ -2541,6 +2581,7 @@ class IstioPluginCertificateAuthorityResponse(dict):
                  root_cert_object_name: Optional[_builtins.str] = None):
         """
         Plugin certificates information for Service Mesh.
+
         :param _builtins.str cert_chain_object_name: Certificate chain object name in Azure Key Vault.
         :param _builtins.str cert_object_name: Intermediate certificate object name in Azure Key Vault.
         :param _builtins.str key_object_name: Intermediate certificate private key object name in Azure Key Vault.
@@ -2627,6 +2668,7 @@ class IstioServiceMeshResponse(dict):
                  revisions: Optional[Sequence[_builtins.str]] = None):
         """
         Istio service mesh configuration.
+
         :param 'IstioCertificateAuthorityResponse' certificate_authority: Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
         :param 'IstioComponentsResponse' components: Istio components configuration.
         :param Sequence[_builtins.str] revisions: The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
@@ -2672,6 +2714,7 @@ class JWTAuthenticatorClaimMappingExpressionResponse(dict):
                  expression: _builtins.str):
         """
         The claim mapping expression for JWTAuthenticator.
+
         :param _builtins.str expression: The CEL expression used to access token claims.
         """
         pulumi.set(__self__, "expression", expression)
@@ -2697,6 +2740,7 @@ class JWTAuthenticatorClaimMappingsResponse(dict):
                  uid: Optional['outputs.JWTAuthenticatorClaimMappingExpressionResponse'] = None):
         """
         The claim mappings for JWTAuthenticator.
+
         :param 'JWTAuthenticatorClaimMappingExpressionResponse' username: The expression to extract username attribute from the token claims.
         :param Sequence['JWTAuthenticatorExtraClaimMappingExpressionResponse'] extra: The expression to extract extra attribute from the token claims. When not provided, no extra attributes are extracted from the token claims.
         :param 'JWTAuthenticatorClaimMappingExpressionResponse' groups: The expression to extract groups attribute from the token claims. When not provided, no groups are extracted from the token claims.
@@ -2770,6 +2814,7 @@ class JWTAuthenticatorExtraClaimMappingExpressionResponse(dict):
                  value_expression: _builtins.str):
         """
         The extra claim mapping expression for JWTAuthenticator.
+
         :param _builtins.str key: The key of the extra attribute.
         :param _builtins.str value_expression: The CEL expression used to extract the value of the extra attribute.
         """
@@ -2803,6 +2848,7 @@ class JWTAuthenticatorIssuerResponse(dict):
                  url: _builtins.str):
         """
         The OIDC issuer details for JWTAuthenticator.
+
         :param Sequence[_builtins.str] audiences: The set of acceptable audiences the JWT must be issued to. At least one is required. When multiple is set, AudienceMatchPolicy is used in API Server configuration.
         :param _builtins.str url: The issuer URL. The URL must begin with the scheme https and cannot contain a query string or fragment. This must match the "iss" claim in the presented JWT, and the issuer returned from discovery.
         """
@@ -2862,6 +2908,7 @@ class JWTAuthenticatorPropertiesResponse(dict):
                  user_validation_rules: Optional[Sequence['outputs.JWTAuthenticatorValidationRuleResponse']] = None):
         """
         The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.
+
         :param 'JWTAuthenticatorClaimMappingsResponse' claim_mappings: The mappings that define how user attributes are extracted from the token claims.
         :param 'JWTAuthenticatorIssuerResponse' issuer: The JWT OIDC issuer details.
         :param _builtins.str provisioning_state: The current provisioning state of the JWT authenticator.
@@ -2927,6 +2974,7 @@ class JWTAuthenticatorValidationRuleResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         The validation rule for JWTAuthenticator.
+
         :param _builtins.str expression: The CEL expression used to validate the claim or attribute.
         :param _builtins.str message: The validation error message.
         """
@@ -3007,6 +3055,7 @@ class KubeletConfigResponse(dict):
                  topology_manager_policy: Optional[_builtins.str] = None):
         """
         Kubelet configurations of agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+
         :param Sequence[_builtins.str] allowed_unsafe_sysctls: Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
         :param _builtins.int container_log_max_files: The maximum number of container log files that can be present for a container. The number must be ≥ 2.
         :param _builtins.int container_log_max_size_mb: The maximum size (e.g. 10Mi) of container log file before it is rotated.
@@ -3142,6 +3191,7 @@ class LabelSelectorRequirementResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+
         :param _builtins.str key: key is the label key that the selector applies to.
         :param _builtins.str operator: operator represents a key's relationship to a set of values. Valid operators are In and NotIn
         :param Sequence[_builtins.str] values: values is an array of string values, the values array must be non-empty.
@@ -3207,6 +3257,7 @@ class LabelSelectorResponse(dict):
                  match_labels: Optional[Sequence[_builtins.str]] = None):
         """
         A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+
         :param Sequence['LabelSelectorRequirementResponse'] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param Sequence[_builtins.str] match_labels: matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
         """
@@ -3265,6 +3316,7 @@ class LinuxOSConfigResponse(dict):
                  transparent_huge_page_enabled: Optional[_builtins.str] = None):
         """
         OS configurations of Linux agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+
         :param _builtins.int swap_file_size_mb: The size in MB of a swap file that will be created on each node.
         :param 'SysctlConfigResponse' sysctls: Sysctl settings for Linux agent nodes.
         :param _builtins.str transparent_huge_page_defrag: Whether the kernel should make aggressive use of memory compaction to make more hugepages available. Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
@@ -3357,6 +3409,7 @@ class LocalDNSOverrideResponse(dict):
                  serve_stale_duration_in_seconds: Optional[_builtins.int] = None):
         """
         Overrides for localDNS profile.
+
         :param _builtins.int cache_duration_in_seconds: Cache max TTL in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
         :param _builtins.str forward_destination: Destination server for DNS queries to be forwarded from localDNS.
         :param _builtins.str forward_policy: Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
@@ -3495,6 +3548,7 @@ class LocalDNSProfileResponse(dict):
                  vnet_dns_overrides: Optional[Mapping[str, 'outputs.LocalDNSOverrideResponse']] = None):
         """
         Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
+
         :param _builtins.str state: System-generated state of localDNS.
         :param Mapping[str, 'LocalDNSOverrideResponse'] kube_dns_overrides: KubeDNS overrides apply to DNS traffic from pods with dnsPolicy:ClusterFirst (referred to as KubeDNS traffic).
         :param _builtins.str mode: Mode of enablement for localDNS.
@@ -3582,6 +3636,7 @@ class MaintenanceWindowResponse(dict):
                  utc_offset: Optional[_builtins.str] = None):
         """
         Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
+
         :param _builtins.int duration_hours: Length of maintenance window range from 4 to 24 hours.
         :param 'ScheduleResponse' schedule: Recurrence schedule for the maintenance window.
         :param _builtins.str start_time: The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
@@ -3692,6 +3747,7 @@ class ManagedClusterAADProfileResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         AADProfile specifies attributes for Azure Active Directory integration. For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
+
         :param Sequence[_builtins.str] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
         :param _builtins.str client_app_id: (DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
         :param _builtins.bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
@@ -3781,6 +3837,7 @@ class ManagedClusterAIToolchainOperatorProfileResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         When enabling the operator, a set of AKS managed CRDs and controllers will be installed in the cluster. The operator automates the deployment of OSS models for inference and/or training purposes. It provides a set of preset models and enables distributed inference against them.
+
         :param _builtins.bool enabled: Whether to enable AI toolchain operator to the cluster. Indicates if AI toolchain operator  enabled or not.
         """
         if enabled is not None:
@@ -3839,6 +3896,7 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Access profile for managed cluster API server.
+
         :param Sequence[_builtins.str] authorized_ip_ranges: The IP ranges authorized to access the Kubernetes API server. IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
         :param _builtins.bool disable_run_command: Whether to disable run command for the cluster or not.
         :param _builtins.bool enable_private_cluster: Whether to create the cluster as a private cluster or not. For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
@@ -3930,6 +3988,7 @@ class ManagedClusterAddonProfileResponse(dict):
                  config: Optional[Mapping[str, _builtins.str]] = None):
         """
         A Kubernetes add-on profile for a managed cluster.
+
         :param _builtins.bool enabled: Whether the add-on is enabled or not.
         :param 'ManagedClusterAddonProfileResponseIdentity' identity: Information of user assigned identity used by this add-on.
         :param Mapping[str, _builtins.str] config: Key-value pairs for configuring an add-on.
@@ -3996,6 +4055,7 @@ class ManagedClusterAddonProfileResponseIdentity(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information of user assigned identity used by this add-on.
+
         :param _builtins.str client_id: The client ID of the user assigned identity.
         :param _builtins.str object_id: The object ID of the user assigned identity.
         :param _builtins.str resource_id: The resource ID of the user assigned identity.
@@ -4208,6 +4268,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  workload_runtime: Optional[_builtins.str] = None):
         """
         Profile for the container service agent pool.
+
         :param _builtins.str current_orchestrator_version: The version of Kubernetes the Agent Pool is running. If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
         :param _builtins.str e_tag: Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal eTag convention.
         :param _builtins.str name: Unique name of the agent pool profile in the context of the subscription and resource group. Windows agent pool names must be 6 characters or less.
@@ -4840,6 +4901,7 @@ class ManagedClusterAutoUpgradeProfileResponse(dict):
                  upgrade_channel: Optional[_builtins.str] = None):
         """
         Auto upgrade profile for a managed cluster.
+
         :param _builtins.str node_os_upgrade_channel: Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
         :param _builtins.str upgrade_channel: The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         """
@@ -4894,6 +4956,7 @@ class ManagedClusterAzureMonitorProfileKubeStateMetricsResponse(dict):
                  metric_labels_allowlist: Optional[_builtins.str] = None):
         """
         Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
+
         :param _builtins.str metric_annotations_allow_list: Comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric (Example: 'namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...'). By default the metric contains only resource name and namespace labels.
         :param _builtins.str metric_labels_allowlist: Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric (Example: 'namespaces=[k8s-label-1,k8s-label-n,...],pods=[app],...'). By default the metric contains only resource name and namespace labels.
         """
@@ -4946,6 +5009,7 @@ class ManagedClusterAzureMonitorProfileMetricsResponse(dict):
                  kube_state_metrics: Optional['outputs.ManagedClusterAzureMonitorProfileKubeStateMetricsResponse'] = None):
         """
         Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
+
         :param _builtins.bool enabled: Whether to enable or disable the Azure Managed Prometheus addon for Prometheus monitoring. See aka.ms/AzureManagedPrometheus-aks-enable for details on enabling and disabling.
         :param 'ManagedClusterAzureMonitorProfileKubeStateMetricsResponse' kube_state_metrics: Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
         """
@@ -4979,6 +5043,7 @@ class ManagedClusterAzureMonitorProfileResponse(dict):
                  metrics: Optional['outputs.ManagedClusterAzureMonitorProfileMetricsResponse'] = None):
         """
         Azure Monitor addon profiles for monitoring the managed cluster.
+
         :param 'ManagedClusterAzureMonitorProfileMetricsResponse' metrics: Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
         """
         if metrics is not None:
@@ -5022,6 +5087,7 @@ class ManagedClusterBootstrapProfileResponse(dict):
                  container_registry_id: Optional[_builtins.str] = None):
         """
         The bootstrap profile.
+
         :param _builtins.str artifact_source: The artifact source. The source where the artifacts are downloaded from.
         :param _builtins.str container_registry_id: The resource Id of Azure Container Registry. The registry must have private network access, premium SKU and zone redundancy.
         """
@@ -5058,6 +5124,7 @@ class ManagedClusterCostAnalysisResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The cost analysis configuration for the cluster
+
         :param _builtins.bool enabled: Whether to enable cost analysis. The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
         """
         if enabled is not None:
@@ -5107,6 +5174,7 @@ class ManagedClusterHTTPProxyConfigResponse(dict):
                  trusted_ca: Optional[_builtins.str] = None):
         """
         Cluster HTTP proxy configuration.
+
         :param _builtins.str http_proxy: The HTTP proxy server endpoint to use.
         :param _builtins.str https_proxy: The HTTPS proxy server endpoint to use.
         :param Sequence[_builtins.str] no_proxy: The endpoints that should not go through proxy.
@@ -5190,6 +5258,7 @@ class ManagedClusterIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedClusterIdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the managed cluster.
+
         :param _builtins.str principal_id: The principal id of the system assigned identity which is used by master components.
         :param _builtins.str tenant_id: The tenant id of the system assigned identity which is used by master components.
         :param Mapping[str, 'DelegatedResourceResponse'] delegated_resources: The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
@@ -5356,6 +5425,7 @@ class ManagedClusterIngressProfileResponse(dict):
                  web_app_routing: Optional['outputs.ManagedClusterIngressProfileWebAppRoutingResponse'] = None):
         """
         Ingress profile for the container service cluster.
+
         :param 'ManagedClusterIngressProfileWebAppRoutingResponse' web_app_routing: App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
         """
         if web_app_routing is not None:
@@ -5399,6 +5469,7 @@ class ManagedClusterIngressProfileWebAppRoutingResponse(dict):
                  nginx: Optional['outputs.ManagedClusterIngressProfileNginxResponse'] = None):
         """
         Application Routing add-on settings for the ingress profile.
+
         :param 'UserAssignedIdentityResponse' identity: Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
         :param Sequence[_builtins.str] dns_zone_resource_ids: Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
         :param _builtins.bool enabled: Whether to enable the Application Routing add-on.
@@ -5492,6 +5563,7 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
                  outbound_ips: Optional['outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPs'] = None):
         """
         Profile of the managed cluster load balancer.
+
         :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
         :param _builtins.int allocated_outbound_ports: The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         :param _builtins.str backend_pool_type: The type of the managed inbound Load Balancer BackendPool.
@@ -5615,6 +5687,7 @@ class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs(dict):
                  count_i_pv6: Optional[_builtins.int] = None):
         """
         Desired managed outbound IPs for the cluster load balancer.
+
         :param _builtins.int count: The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         :param _builtins.int count_i_pv6: The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
         """
@@ -5670,6 +5743,7 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes(dict):
                  public_ip_prefixes: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP Prefix resources for the cluster load balancer.
+
         :param Sequence['ResourceReferenceResponse'] public_ip_prefixes: A list of public IP prefix resources.
         """
         if public_ip_prefixes is not None:
@@ -5710,6 +5784,7 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPs(dict):
                  public_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP resources for the cluster load balancer.
+
         :param Sequence['ResourceReferenceResponse'] public_ips: A list of public IP resources.
         """
         if public_ips is not None:
@@ -5733,6 +5808,7 @@ class ManagedClusterManagedOutboundIPProfileResponse(dict):
                  count: Optional[_builtins.int] = None):
         """
         Profile of the managed outbound IP resources of the managed cluster.
+
         :param _builtins.int count: The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
         """
         if count is None:
@@ -5775,6 +5851,7 @@ class ManagedClusterMetricsProfileResponse(dict):
                  cost_analysis: Optional['outputs.ManagedClusterCostAnalysisResponse'] = None):
         """
         The metrics profile for the ManagedCluster.
+
         :param 'ManagedClusterCostAnalysisResponse' cost_analysis: The configuration for detailed per-Kubernetes resource cost analysis.
         """
         if cost_analysis is not None:
@@ -5821,6 +5898,7 @@ class ManagedClusterNATGatewayProfileResponse(dict):
                  managed_outbound_ip_profile: Optional['outputs.ManagedClusterManagedOutboundIPProfileResponse'] = None):
         """
         Profile of the managed cluster NAT gateway.
+
         :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster NAT gateway.
         :param _builtins.int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.
         :param 'ManagedClusterManagedOutboundIPProfileResponse' managed_outbound_ip_profile: Profile of the managed outbound IP resources of the cluster NAT gateway.
@@ -5934,6 +6012,7 @@ class ManagedClusterNodeResourceGroupProfileResponse(dict):
                  restriction_level: Optional[_builtins.str] = None):
         """
         Node resource group lockdown profile for a managed cluster.
+
         :param _builtins.str restriction_level: The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
         """
         if restriction_level is not None:
@@ -5975,6 +6054,7 @@ class ManagedClusterOIDCIssuerProfileResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The OIDC issuer profile of the Managed Cluster.
+
         :param _builtins.str issuer_url: The OIDC issuer url of the Managed Cluster.
         :param _builtins.bool enabled: Whether the OIDC issuer is enabled.
         """
@@ -6027,6 +6107,7 @@ class ManagedClusterPodIdentityExceptionResponse(dict):
                  pod_labels: Mapping[str, _builtins.str]):
         """
         A pod identity exception, which allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
+
         :param _builtins.str name: The name of the pod identity exception.
         :param _builtins.str namespace: The namespace of the pod identity exception.
         :param Mapping[str, _builtins.str] pod_labels: The pod labels to match.
@@ -6093,6 +6174,7 @@ class ManagedClusterPodIdentityProfileResponse(dict):
                  user_assigned_identity_exceptions: Optional[Sequence['outputs.ManagedClusterPodIdentityExceptionResponse']] = None):
         """
         The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
+
         :param _builtins.bool allow_network_plugin_kubenet: Whether pod identity is allowed to run on clusters with Kubenet networking. Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
         :param _builtins.bool enabled: Whether the pod identity addon is enabled.
         :param Sequence['ManagedClusterPodIdentityResponse'] user_assigned_identities: The pod identities to use in the cluster.
@@ -6152,6 +6234,7 @@ class ManagedClusterPodIdentityProvisioningErrorBodyResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         An error response from the pod identity provisioning.
+
         :param _builtins.str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
         :param Sequence['ManagedClusterPodIdentityProvisioningErrorBodyResponse'] details: A list of additional details about the error.
         :param _builtins.str message: A message describing the error, intended to be suitable for display in a user interface.
@@ -6208,6 +6291,7 @@ class ManagedClusterPodIdentityProvisioningErrorResponse(dict):
                  error: Optional['outputs.ManagedClusterPodIdentityProvisioningErrorBodyResponse'] = None):
         """
         An error response from the pod identity provisioning.
+
         :param 'ManagedClusterPodIdentityProvisioningErrorBodyResponse' error: Details about the error.
         """
         if error is not None:
@@ -6257,6 +6341,7 @@ class ManagedClusterPodIdentityResponse(dict):
                  binding_selector: Optional[_builtins.str] = None):
         """
         Details about the pod identity assigned to the Managed Cluster.
+
         :param 'UserAssignedIdentityResponse' identity: The user assigned identity details.
         :param _builtins.str name: The name of the pod identity.
         :param _builtins.str namespace: The namespace of the pod identity.
@@ -6369,6 +6454,7 @@ class ManagedClusterPropertiesForSnapshotResponse(dict):
                  sku: Optional['outputs.ManagedClusterSKUResponse'] = None):
         """
         managed cluster properties for snapshot, these properties are read only.
+
         :param 'NetworkProfileForSnapshotResponse' network_profile: The current network profile.
         :param _builtins.bool enable_rbac: Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
         :param _builtins.str kubernetes_version: The current kubernetes version.
@@ -6496,6 +6582,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
                  skip_nodes_with_system_pods: Optional[_builtins.str] = None):
         """
         Parameters to be applied to the cluster-autoscaler when enabled
+
         :param _builtins.str balance_similar_node_groups: Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'
         :param _builtins.bool daemonset_eviction_for_empty_nodes: DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         :param _builtins.bool daemonset_eviction_for_occupied_nodes: DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
@@ -6729,6 +6816,7 @@ class ManagedClusterSKUResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The SKU of a Managed Cluster.
+
         :param _builtins.str name: The name of a managed cluster SKU.
         :param _builtins.str tier: If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
         """
@@ -6783,6 +6871,7 @@ class ManagedClusterSecurityProfileDefenderResponse(dict):
                  security_monitoring: Optional['outputs.ManagedClusterSecurityProfileDefenderSecurityMonitoringResponse'] = None):
         """
         Microsoft Defender settings for the security profile.
+
         :param _builtins.str log_analytics_workspace_resource_id: Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
         :param 'ManagedClusterSecurityProfileDefenderSecurityMonitoringResponse' security_monitoring: Microsoft Defender threat detection for Cloud settings for the security profile.
         """
@@ -6817,6 +6906,7 @@ class ManagedClusterSecurityProfileDefenderSecurityMonitoringResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Microsoft Defender settings for the security profile threat detection.
+
         :param _builtins.bool enabled: Whether to enable Defender threat detection
         """
         if enabled is not None:
@@ -6858,6 +6948,7 @@ class ManagedClusterSecurityProfileImageCleanerResponse(dict):
                  interval_hours: Optional[_builtins.int] = None):
         """
         Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile.
+
         :param _builtins.bool enabled: Whether to enable Image Cleaner on AKS cluster.
         :param _builtins.int interval_hours: Image Cleaner scanning interval in hours.
         """
@@ -6919,6 +7010,7 @@ class ManagedClusterSecurityProfileResponse(dict):
                  workload_identity: Optional['outputs.ManagedClusterSecurityProfileWorkloadIdentityResponse'] = None):
         """
         Security profile for the container service cluster.
+
         :param 'AzureKeyVaultKmsResponse' azure_key_vault_kms: Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
         :param Sequence[_builtins.str] custom_ca_trust_certificates: A list of up to 10 base64 encoded CAs that will be added to the trust store on all nodes in the cluster. For more information see [Custom CA Trust Certificates](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority).
         :param 'ManagedClusterSecurityProfileDefenderResponse' defender: Microsoft Defender settings for the security profile.
@@ -6986,6 +7078,7 @@ class ManagedClusterSecurityProfileWorkloadIdentityResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Workload identity settings for the security profile.
+
         :param _builtins.bool enabled: Whether to enable workload identity.
         """
         if enabled is not None:
@@ -7027,6 +7120,7 @@ class ManagedClusterServicePrincipalProfileResponse(dict):
                  secret: Optional[_builtins.str] = None):
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+
         :param _builtins.str client_id: The ID for the service principal.
         :param _builtins.str secret: The secret password associated with the service principal in plain text.
         """
@@ -7060,6 +7154,7 @@ class ManagedClusterStaticEgressGatewayProfileResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Static Egress Gateway addon configuration for the cluster.
+
         :param _builtins.bool enabled: Enable Static Egress Gateway addon. Indicates if Static Egress Gateway addon is enabled or not.
         """
         if enabled is not None:
@@ -7100,6 +7195,7 @@ class ManagedClusterStatusResponse(dict):
                  provisioning_error: 'outputs.ErrorDetailResponse'):
         """
         Contains read-only information about the Managed Cluster.
+
         :param 'ErrorDetailResponse' provisioning_error: The error details information of the managed cluster. Preserves the detailed info of failure. If there was no error, this field is omitted.
         """
         pulumi.set(__self__, "provisioning_error", provisioning_error)
@@ -7122,6 +7218,7 @@ class ManagedClusterStorageProfileBlobCSIDriverResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         AzureBlob CSI Driver settings for the storage profile.
+
         :param _builtins.bool enabled: Whether to enable AzureBlob CSI Driver. The default value is false.
         """
         if enabled is not None:
@@ -7145,6 +7242,7 @@ class ManagedClusterStorageProfileDiskCSIDriverResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         AzureDisk CSI Driver settings for the storage profile.
+
         :param _builtins.bool enabled: Whether to enable AzureDisk CSI Driver. The default value is true.
         """
         if enabled is not None:
@@ -7168,6 +7266,7 @@ class ManagedClusterStorageProfileFileCSIDriverResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         AzureFile CSI Driver settings for the storage profile.
+
         :param _builtins.bool enabled: Whether to enable AzureFile CSI Driver. The default value is true.
         """
         if enabled is not None:
@@ -7217,6 +7316,7 @@ class ManagedClusterStorageProfileResponse(dict):
                  snapshot_controller: Optional['outputs.ManagedClusterStorageProfileSnapshotControllerResponse'] = None):
         """
         Storage profile for the container service cluster.
+
         :param 'ManagedClusterStorageProfileBlobCSIDriverResponse' blob_csi_driver: AzureBlob CSI Driver settings for the storage profile.
         :param 'ManagedClusterStorageProfileDiskCSIDriverResponse' disk_csi_driver: AzureDisk CSI Driver settings for the storage profile.
         :param 'ManagedClusterStorageProfileFileCSIDriverResponse' file_csi_driver: AzureFile CSI Driver settings for the storage profile.
@@ -7273,6 +7373,7 @@ class ManagedClusterStorageProfileSnapshotControllerResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Snapshot Controller settings for the storage profile.
+
         :param _builtins.bool enabled: Whether to enable Snapshot Controller. The default value is true.
         """
         if enabled is not None:
@@ -7314,6 +7415,7 @@ class ManagedClusterUpdateResponse(dict):
                  node_image_selection: Optional['outputs.NodeImageSelectionResponse'] = None):
         """
         The update to be applied to the ManagedClusters.
+
         :param 'ManagedClusterUpgradeSpecResponse' upgrade: The upgrade to apply to the ManagedClusters.
         :param 'NodeImageSelectionResponse' node_image_selection: The node image upgrade to be applied to the target nodes in update run.
         """
@@ -7365,6 +7467,7 @@ class ManagedClusterUpgradeSpecResponse(dict):
                  kubernetes_version: Optional[_builtins.str] = None):
         """
         The upgrade to apply to a ManagedCluster.
+
         :param _builtins.str type: ManagedClusterUpgradeType is the type of upgrade to be applied.
         :param _builtins.str kubernetes_version: The Kubernetes version to upgrade the member clusters to.
         """
@@ -7427,6 +7530,7 @@ class ManagedClusterWindowsProfileResponse(dict):
                  license_type: Optional[_builtins.str] = None):
         """
         Profile for Windows VMs in the managed cluster.
+
         :param _builtins.str admin_username: Specifies the name of the administrator account. <br><br> **Restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
         :param _builtins.str admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
         :param _builtins.bool enable_csi_proxy: Whether to enable CSI proxy. For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
@@ -7493,6 +7597,7 @@ class ManagedClusterWorkloadAutoScalerProfileKedaResponse(dict):
                  enabled: _builtins.bool):
         """
         KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+
         :param _builtins.bool enabled: Whether to enable KEDA.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -7533,6 +7638,7 @@ class ManagedClusterWorkloadAutoScalerProfileResponse(dict):
                  vertical_pod_autoscaler: Optional['outputs.ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse'] = None):
         """
         Workload Auto-scaler profile for the managed cluster.
+
         :param 'ManagedClusterWorkloadAutoScalerProfileKedaResponse' keda: KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
         :param 'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse' vertical_pod_autoscaler: VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
         """
@@ -7567,6 +7673,7 @@ class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse(dict)
                  enabled: Optional[_builtins.bool] = None):
         """
         VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+
         :param _builtins.bool enabled: Whether to enable VPA. Default value is false.
         """
         if enabled is None:
@@ -7613,6 +7720,7 @@ class ManagedNamespacePropertiesResponse(dict):
                  labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         The namespace properties for the fleet managed namespace.
+
         :param Mapping[str, _builtins.str] annotations: The annotations for the fleet managed namespace.
         :param 'NetworkPolicyResponse' default_network_policy: The default network policy for the fleet managed namespace.
         :param 'ResourceQuotaResponse' default_resource_quota: The default resource quota for the fleet managed namespace.
@@ -7693,6 +7801,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -7747,6 +7856,7 @@ class ManualScaleProfileResponse(dict):
                  size: Optional[_builtins.str] = None):
         """
         Specifications on number of machines.
+
         :param _builtins.int count: Number of nodes.
         :param _builtins.str size: VM size that AKS will use when creating and scaling e.g. 'Standard_E4s_v3', 'Standard_E16s_v3' or 'Standard_D16s_v5'.
         """
@@ -7804,6 +7914,7 @@ class MemberUpdateStatusResponse(dict):
                  status: 'outputs.UpdateStatusResponse'):
         """
         The status of a member update operation.
+
         :param _builtins.str cluster_resource_id: The Azure resource id of the target Kubernetes cluster.
         :param _builtins.str message: The status message after processing the member update operation.
         :param _builtins.str name: The name of the FleetMember.
@@ -7886,6 +7997,7 @@ class MeshMembershipPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Mesh membership properties of a managed cluster.
+
         :param _builtins.str managed_mesh_id: The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
         :param _builtins.str provisioning_state: The current provisioning state of the Mesh Membership.
         """
@@ -7920,6 +8032,7 @@ class MetaV1LabelSelectorRequirementResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+
         :param _builtins.str key: key is the label key that the selector applies to.
         :param _builtins.str operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         :param Sequence[_builtins.str] values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
@@ -7983,6 +8096,7 @@ class MetaV1LabelSelectorResponse(dict):
                  match_labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+
         :param Sequence['MetaV1LabelSelectorRequirementResponse'] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param Mapping[str, _builtins.str] match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
         """
@@ -8051,6 +8165,7 @@ class NamespacePropertiesResponse(dict):
                  portal_fqdn: Optional[_builtins.str] = None):
         """
         Properties of a namespace managed by ARM
+
         :param _builtins.str provisioning_state: The current provisioning state of the namespace.
         :param _builtins.str adoption_policy: Action if Kubernetes namespace with same name already exists.
         :param Mapping[str, _builtins.str] annotations: The annotations of managed namespace.
@@ -8151,6 +8266,7 @@ class NetworkPoliciesResponse(dict):
                  ingress: Optional[_builtins.str] = None):
         """
         Default network policy of the namespace, specifying ingress and egress rules.
+
         :param _builtins.str egress: Egress policy for the network.
         :param _builtins.str ingress: Ingress policy for the network.
         """
@@ -8190,6 +8306,7 @@ class NetworkPolicyResponse(dict):
                  ingress: Optional[_builtins.str] = None):
         """
         The network policy for the managed namespace.
+
         :param _builtins.str egress: The egress policy for the managed namespace.
         :param _builtins.str ingress: The ingress policy for the managed namespace.
         """
@@ -8253,6 +8370,7 @@ class NetworkProfileForSnapshotResponse(dict):
                  network_policy: Optional[_builtins.str] = None):
         """
         network profile for managed cluster snapshot, these properties are read only.
+
         :param _builtins.str load_balancer_sku: loadBalancerSku for managed cluster snapshot.
         :param _builtins.str network_mode: networkMode for managed cluster snapshot.
         :param _builtins.str network_plugin: networkPlugin for managed cluster snapshot.
@@ -8347,6 +8465,7 @@ class NodeCustomizationPropertiesResponse(dict):
                  identity_profile: Optional['outputs.UserAssignedIdentityResponse'] = None):
         """
         The properties of the Node Customization resource.
+
         :param _builtins.str provisioning_state: The provisioning state of the node customization.
         :param _builtins.str version: An auto-generated value that changes when the other fields of the image customization are changed.
         :param Sequence[_builtins.str] container_images: The list of container images to cache on nodes. See https://kubernetes.io/docs/concepts/containers/images/#image-names
@@ -8441,6 +8560,7 @@ class NodeCustomizationScriptResponse(dict):
                  script: Optional[_builtins.str] = None):
         """
         Node customization script
+
         :param _builtins.str execution_point: The stage at which the script is executed.
                Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
         :param _builtins.str name: The name for the customization script. 
@@ -8529,6 +8649,7 @@ class NodeImageSelectionResponse(dict):
                  custom_node_image_versions: Optional[Sequence['outputs.NodeImageVersionResponse']] = None):
         """
         The node image upgrade to be applied to the target nodes in update run.
+
         :param _builtins.str type: The node image upgrade type.
         :param Sequence['NodeImageVersionResponse'] custom_node_image_versions: Custom node image versions to upgrade the nodes to. This field is required if node image selection type is Custom. Otherwise, it must be empty. For each node image family (e.g., 'AKSUbuntu-1804gen2containerd'), this field can contain at most one version (e.g., only one of 'AKSUbuntu-1804gen2containerd-2023.01.12' or 'AKSUbuntu-1804gen2containerd-2023.02.12', not both). If the nodes belong to a family without a matching image version in this field, they are not upgraded.
         """
@@ -8579,6 +8700,7 @@ class NodeImageSelectionStatusResponse(dict):
                  selected_node_image_versions: Sequence['outputs.NodeImageVersionResponse']):
         """
         The node image upgrade specs for the update run.
+
         :param Sequence['NodeImageVersionResponse'] selected_node_image_versions: The image versions to upgrade the nodes to.
         """
         pulumi.set(__self__, "selected_node_image_versions", selected_node_image_versions)
@@ -8601,6 +8723,7 @@ class NodeImageVersionResponse(dict):
                  version: _builtins.str):
         """
         The node upgrade image version.
+
         :param _builtins.str version: The image version to upgrade the nodes to (e.g., 'AKSUbuntu-1804gen2containerd-2022.12.13').
         """
         pulumi.set(__self__, "version", version)
@@ -8640,6 +8763,7 @@ class PlacementProfileResponse(dict):
                  default_cluster_resource_placement: Optional['outputs.PlacementV1ClusterResourcePlacementSpecResponse'] = None):
         """
         The configuration profile for default ClusterResourcePlacement for placement.
+
         :param 'PlacementV1ClusterResourcePlacementSpecResponse' default_cluster_resource_placement: The default ClusterResourcePlacement policy configuration.
         """
         if default_cluster_resource_placement is not None:
@@ -8680,6 +8804,7 @@ class PlacementV1AffinityResponse(dict):
                  cluster_affinity: Optional['outputs.PlacementV1ClusterAffinityResponse'] = None):
         """
         Affinity is a group of cluster affinity scheduling rules. More to be added.
+
         :param 'PlacementV1ClusterAffinityResponse' cluster_affinity: ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
         """
         if cluster_affinity is not None:
@@ -8720,6 +8845,7 @@ class PlacementV1ClusterAffinityResponse(dict):
                  required_during_scheduling_ignored_during_execution: Optional['outputs.PlacementV1ClusterSelectorResponse'] = None):
         """
         ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+
         :param 'PlacementV1ClusterSelectorResponse' required_during_scheduling_ignored_during_execution: If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
         """
         if required_during_scheduling_ignored_during_execution is not None:
@@ -8743,6 +8869,7 @@ class PlacementV1ClusterResourcePlacementSpecResponse(dict):
                  policy: Optional['outputs.PlacementV1PlacementPolicyResponse'] = None):
         """
         ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
+
         :param 'PlacementV1PlacementPolicyResponse' policy: Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
         """
         if policy is not None:
@@ -8783,6 +8910,7 @@ class PlacementV1ClusterSelectorResponse(dict):
                  cluster_selector_terms: Sequence['outputs.PlacementV1ClusterSelectorTermResponse']):
         """
         ClusterSelector
+
         :param Sequence['PlacementV1ClusterSelectorTermResponse'] cluster_selector_terms: ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
         """
         pulumi.set(__self__, "cluster_selector_terms", cluster_selector_terms)
@@ -8825,6 +8953,7 @@ class PlacementV1ClusterSelectorTermResponse(dict):
                  property_selector: Optional['outputs.PlacementV1PropertySelectorResponse'] = None):
         """
         ClusterSelectorTerm
+
         :param 'MetaV1LabelSelectorResponse' label_selector: LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
         :param 'PlacementV1PropertySelectorResponse' property_selector: PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
         """
@@ -8881,6 +9010,7 @@ class PlacementV1PlacementPolicyResponse(dict):
                  tolerations: Optional[Sequence['outputs.PlacementV1TolerationResponse']] = None):
         """
         PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
+
         :param 'PlacementV1AffinityResponse' affinity: Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
         :param Sequence[_builtins.str] cluster_names: ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
         :param _builtins.str placement_type: Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
@@ -8939,6 +9069,7 @@ class PlacementV1PropertySelectorRequirementResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
+
         :param _builtins.str name: Name is the name of the property; it should be a Kubernetes label name.
         :param _builtins.str operator: Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
         :param Sequence[_builtins.str] values: Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
@@ -8998,6 +9129,7 @@ class PlacementV1PropertySelectorResponse(dict):
                  match_expressions: Sequence['outputs.PlacementV1PropertySelectorRequirementResponse']):
         """
         PropertySelector helps user specify property requirements when picking clusters for resource placement.
+
         :param Sequence['PlacementV1PropertySelectorRequirementResponse'] match_expressions: MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
         """
         pulumi.set(__self__, "match_expressions", match_expressions)
@@ -9023,6 +9155,7 @@ class PlacementV1TolerationResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+
         :param _builtins.str effect: Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
         :param _builtins.str key: Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
         :param _builtins.str operator: Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
@@ -9100,6 +9233,7 @@ class PortRangeResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         The port range.
+
         :param _builtins.int port_end: The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
         :param _builtins.int port_start: The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
         :param _builtins.str protocol: The network protocol of the port.
@@ -9145,6 +9279,7 @@ class PowerStateResponse(dict):
                  code: Optional[_builtins.str] = None):
         """
         Describes the Power State of the cluster
+
         :param _builtins.str code: Tells whether the cluster is Running or Stopped
         """
         if code is not None:
@@ -9168,6 +9303,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Private endpoint which a connection belongs to.
+
         :param _builtins.str id: The resource ID of the private endpoint
         """
         if id is not None:
@@ -9217,6 +9353,7 @@ class PrivateLinkResourceResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         A private link resource
+
         :param _builtins.str private_link_service_id: The private link service ID of the resource, this field is exposed only to NRP internally.
         :param _builtins.str group_id: The group ID of the resource.
         :param _builtins.str id: The ID of the private link resource.
@@ -9295,6 +9432,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The state of a private link service connection.
+
         :param _builtins.str description: The private link service connection description.
         :param _builtins.str status: The private link service connection status.
         """
@@ -9347,6 +9485,7 @@ class PropagationPolicyResponse(dict):
                  placement_profile: Optional['outputs.PlacementProfileResponse'] = None):
         """
         The propagation to be used for provisioning the namespace among the fleet.
+
         :param _builtins.str type: The type of the policy to be used. Default is Placement.
         :param 'PlacementProfileResponse' placement_profile: The profile to be used for propagation via placement.
         """
@@ -9403,6 +9542,7 @@ class RelativeMonthlyScheduleResponse(dict):
                  week_index: _builtins.str):
         """
         For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+
         :param _builtins.str day_of_week: Specifies on which day of the week the maintenance occurs.
         :param _builtins.int interval_months: Specifies the number of months between each set of occurrences.
         :param _builtins.str week_index: The week index. Specifies on which week of the month the dayOfWeek applies.
@@ -9471,6 +9611,7 @@ class ResourceQuotaResponse(dict):
                  memory_request: Optional[_builtins.str] = None):
         """
         Resource quota for the namespace.
+
         :param _builtins.str cpu_limit: CPU limit of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
         :param _builtins.str cpu_request: CPU request of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
         :param _builtins.str memory_limit: Memory limit of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
@@ -9527,6 +9668,7 @@ class ResourceReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         A reference to an Azure resource.
+
         :param _builtins.str id: The fully qualified Azure resource id.
         """
         if id is not None:
@@ -9550,6 +9692,7 @@ class ScaleProfileResponse(dict):
                  manual: Optional[Sequence['outputs.ManualScaleProfileResponse']] = None):
         """
         Specifications on how to scale a VirtualMachines agent pool.
+
         :param Sequence['ManualScaleProfileResponse'] manual: Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
         if manual is not None:
@@ -9595,6 +9738,7 @@ class ScheduleResponse(dict):
                  weekly: Optional['outputs.WeeklyScheduleResponse'] = None):
         """
         One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
+
         :param 'AbsoluteMonthlyScheduleResponse' absolute_monthly: For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
         :param 'DailyScheduleResponse' daily: For schedules like: 'recur every day' or 'recur every 3 days'.
         :param 'RelativeMonthlyScheduleResponse' relative_monthly: For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
@@ -9652,6 +9796,7 @@ class ServiceMeshProfileResponse(dict):
                  istio: Optional['outputs.IstioServiceMeshResponse'] = None):
         """
         Service mesh profile for a managed cluster.
+
         :param _builtins.str mode: Mode of the service mesh.
         :param 'IstioServiceMeshResponse' istio: Istio service mesh configuration.
         """
@@ -9783,6 +9928,7 @@ class SysctlConfigResponse(dict):
                  vm_vfs_cache_pressure: Optional[_builtins.int] = None):
         """
         Sysctl settings for Linux agent nodes.
+
         :param _builtins.int fs_aio_max_nr: Sysctl setting fs.aio-max-nr.
         :param _builtins.int fs_file_max: Sysctl setting fs.file-max.
         :param _builtins.int fs_inotify_max_user_watches: Sysctl setting fs.inotify.max_user_watches.
@@ -10135,6 +10281,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -10231,6 +10378,7 @@ class TimeInWeekResponse(dict):
                  hour_slots: Optional[Sequence[_builtins.int]] = None):
         """
         Time in a week.
+
         :param _builtins.str day: The day of the week.
         :param Sequence[_builtins.int] hour_slots: A list of hours in the day used to identify a time range. Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
         """
@@ -10266,6 +10414,7 @@ class TimeSpanResponse(dict):
                  start: Optional[_builtins.str] = None):
         """
         A time range. For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
+
         :param _builtins.str end: The end of a time span
         :param _builtins.str start: The start of a time span
         """
@@ -10300,6 +10449,7 @@ class UpdateGroupResponse(dict):
                  name: _builtins.str):
         """
         A group to be updated.
+
         :param _builtins.str name: Name of the group.
                It must match a group name of an existing fleet member. 
         """
@@ -10326,6 +10476,7 @@ class UpdateGroupStatusResponse(dict):
                  status: 'outputs.UpdateStatusResponse'):
         """
         The status of a UpdateGroup.
+
         :param Sequence['MemberUpdateStatusResponse'] members: The list of member this UpdateGroup updates.
         :param _builtins.str name: The name of the UpdateGroup.
         :param 'UpdateStatusResponse' status: The status of the UpdateGroup.
@@ -10387,6 +10538,7 @@ class UpdateRunStatusResponse(dict):
                  status: 'outputs.UpdateStatusResponse'):
         """
         The status of a UpdateRun.
+
         :param 'NodeImageSelectionStatusResponse' node_image_selection: The node image upgrade specs for the update run. It is only set in update run when `NodeImageSelection.type` is `Consistent`.
         :param Sequence['UpdateStageStatusResponse'] stages: The stages composing an update run. Stages are run sequentially withing an UpdateRun.
         :param 'UpdateStatusResponse' status: The status of the UpdateRun.
@@ -10441,6 +10593,7 @@ class UpdateRunStrategyResponse(dict):
         Member clusters within a group are updated sequentially one after another.
 
         A valid strategy contains no duplicate groups within or across stages.
+
         :param Sequence['UpdateStageResponse'] stages: The list of stages that compose this update run. Min size: 1.
         """
         pulumi.set(__self__, "stages", stages)
@@ -10482,6 +10635,7 @@ class UpdateStageResponse(dict):
                  groups: Optional[Sequence['outputs.UpdateGroupResponse']] = None):
         """
         Defines a stage which contains the groups to update and the steps to take (e.g., wait for a time period) before starting the next stage.
+
         :param _builtins.str name: The name of the stage. Must be unique within the UpdateRun.
         :param _builtins.int after_stage_wait_in_seconds: The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
         :param Sequence['UpdateGroupResponse'] groups: Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.
@@ -10546,6 +10700,7 @@ class UpdateStageStatusResponse(dict):
                  status: 'outputs.UpdateStatusResponse'):
         """
         The status of a UpdateStage.
+
         :param 'WaitStatusResponse' after_stage_wait_status: The status of the wait period configured on the UpdateStage.
         :param Sequence['UpdateGroupStatusResponse'] groups: The list of groups to be updated as part of this UpdateStage.
         :param _builtins.str name: The name of the UpdateStage.
@@ -10620,6 +10775,7 @@ class UpdateStatusResponse(dict):
                  state: _builtins.str):
         """
         The status for an operation or group of operations.
+
         :param _builtins.str completed_time: The time the operation or group was completed.
         :param 'ErrorDetailResponse' error: The error details when a failure is encountered.
         :param _builtins.str start_time: The time the operation or group was started.
@@ -10690,6 +10846,7 @@ class UpgradeOverrideSettingsResponse(dict):
                  until: Optional[_builtins.str] = None):
         """
         Settings for overrides when upgrading a cluster.
+
         :param _builtins.bool force_upgrade: Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
         :param _builtins.str until: Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
         """
@@ -10750,6 +10907,7 @@ class UserAssignedIdentityResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         :param _builtins.str object_id: The object ID of the user assigned identity.
@@ -10805,6 +10963,7 @@ class VirtualMachineNodesResponse(dict):
                  size: Optional[_builtins.str] = None):
         """
         Current status on a group of nodes of the same vm size.
+
         :param _builtins.int count: Number of nodes.
         :param _builtins.str size: The VM size of the agents used to host this group of nodes.
         """
@@ -10839,6 +10998,7 @@ class VirtualMachinesProfileResponse(dict):
                  scale: Optional['outputs.ScaleProfileResponse'] = None):
         """
         Specifications on VirtualMachines agent pool.
+
         :param 'ScaleProfileResponse' scale: Specifications on how to scale a VirtualMachines agent pool.
         """
         if scale is not None:
@@ -10880,6 +11040,7 @@ class WaitStatusResponse(dict):
                  wait_duration_in_seconds: _builtins.int):
         """
         The status of the wait duration.
+
         :param 'UpdateStatusResponse' status: The status of the wait duration.
         :param _builtins.int wait_duration_in_seconds: The wait duration configured in seconds.
         """
@@ -10932,6 +11093,7 @@ class WeeklyScheduleResponse(dict):
                  interval_weeks: _builtins.int):
         """
         For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+
         :param _builtins.str day_of_week: Specifies on which day of the week the maintenance occurs.
         :param _builtins.int interval_weeks: Specifies the number of weeks between each set of occurrences.
         """
@@ -10985,6 +11147,7 @@ class WindowsGmsaProfileResponse(dict):
                  root_domain_name: Optional[_builtins.str] = None):
         """
         Windows gMSA Profile in the managed cluster.
+
         :param _builtins.str dns_server: Specifies the DNS server for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
         :param _builtins.bool enabled: Whether to enable Windows gMSA. Specifies whether to enable Windows gMSA in the managed cluster.
         :param _builtins.str root_domain_name: Specifies the root domain name for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.

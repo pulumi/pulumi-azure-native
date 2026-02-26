@@ -71,6 +71,7 @@ class ConnectionDetailsResponse(dict):
                  private_ip_address: _builtins.str):
         """
         Private endpoint connection proxy object properties.
+
         :param _builtins.str group_id: Group ID.
         :param _builtins.str id: Connection details ID.
         :param _builtins.str link_identifier: Link ID.
@@ -156,6 +157,7 @@ class DiagnosticStoragePropertiesResponse(dict):
                  connection_string: Optional[_builtins.str] = None):
         """
         Customer-initiated diagnostic log collection storage properties
+
         :param _builtins.str authentication_type: Authentication Type
         :param _builtins.str resource_id: ResourceId of the diagnostic storage account
         :param _builtins.str connection_string: ConnectionString of the diagnostic storage account
@@ -219,6 +221,7 @@ class EncryptionResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         The CMK encryption settings on the Device Update account.
+
         :param _builtins.str key_vault_key_uri: The URI of the key vault
         :param _builtins.str user_assigned_identity: The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
         """
@@ -285,6 +288,7 @@ class GroupConnectivityInformationResponse(dict):
                  redirect_map_id: Optional[_builtins.str] = None):
         """
         Group connectivity details.
+
         :param _builtins.str group_id: Group ID.
         :param _builtins.str internal_fqdn: Internal FQDN.
         :param _builtins.str member_name: Member name.
@@ -377,6 +381,7 @@ class IotHubSettingsResponse(dict):
                  resource_id: _builtins.str):
         """
         Device Update account integration with IoT Hub settings.
+
         :param _builtins.str resource_id: IoTHub resource ID
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -452,6 +457,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -537,6 +543,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -631,6 +638,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -674,6 +682,7 @@ class PrivateLinkServiceConnectionResponse(dict):
                  request_message: Optional[_builtins.str] = None):
         """
         Private link service connection details.
+
         :param Sequence[_builtins.str] group_ids: List of group IDs.
         :param _builtins.str name: Private link service connection name.
         :param _builtins.str request_message: Request message.
@@ -738,6 +747,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -807,6 +817,7 @@ class PrivateLinkServiceProxyResponse(dict):
                  remote_private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private link service proxy details.
+
         :param Sequence['GroupConnectivityInformationResponse'] group_connectivity_information: Group connectivity information.
         :param _builtins.str id: NRP resource ID.
         :param 'PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection' remote_private_endpoint_connection: Remote private endpoint connection details.
@@ -863,6 +874,7 @@ class PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection(dict):
                  id: _builtins.str):
         """
         Remote private endpoint connection details.
+
         :param _builtins.str id: Remote private endpoint connection ID.
         """
         pulumi.set(__self__, "id", id)
@@ -922,6 +934,7 @@ class RemotePrivateEndpointResponse(dict):
                  vnet_traffic_tag: Optional[_builtins.str] = None):
         """
         Remote private endpoint details.
+
         :param Sequence['ConnectionDetailsResponse'] connection_details: List of connection details.
         :param _builtins.str id: Remote endpoint resource ID.
         :param _builtins.str immutable_resource_id: Original resource ID needed by Microsoft.Network.
@@ -1065,6 +1078,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1163,6 +1177,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

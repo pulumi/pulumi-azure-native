@@ -29,6 +29,7 @@ class ApiToolArgs:
                  tool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiTool resource.
+
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
@@ -153,6 +154,7 @@ class ApiTool(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -173,6 +175,7 @@ class ApiTool(pulumi.CustomResource):
         Tool details.
 
         Uses Azure REST API version 2025-03-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ApiToolArgs args: The arguments to use to populate this resource's properties.

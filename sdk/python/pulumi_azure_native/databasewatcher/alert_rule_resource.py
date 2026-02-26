@@ -31,6 +31,7 @@ class AlertRuleResourceArgs:
                  alert_rule_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertRuleResource resource.
+
         :param pulumi.Input[_builtins.str] alert_rule_resource_id: The resource ID of the alert rule resource.
         :param pulumi.Input[_builtins.str] alert_rule_template_id: The template ID associated with alert rule resource.
         :param pulumi.Input[_builtins.str] alert_rule_template_version: The alert rule template version.
@@ -169,6 +170,7 @@ class AlertRuleResource(pulumi.CustomResource):
 
         Other available API versions: 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_rule_resource_id: The resource ID of the alert rule resource.
@@ -192,6 +194,7 @@ class AlertRuleResource(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-07-19-preview.
 
         Other available API versions: 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleResourceArgs args: The arguments to use to populate this resource's properties.

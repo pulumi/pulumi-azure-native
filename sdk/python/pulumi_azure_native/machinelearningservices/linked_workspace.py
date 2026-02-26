@@ -28,6 +28,7 @@ class LinkedWorkspaceArgs:
                  properties: Optional[pulumi.Input['LinkedWorkspacePropsArgs']] = None):
         """
         The set of arguments for constructing a LinkedWorkspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
@@ -123,6 +124,7 @@ class LinkedWorkspace(pulumi.CustomResource):
 
         Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
@@ -143,6 +145,7 @@ class LinkedWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-15-preview.
 
         Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param LinkedWorkspaceArgs args: The arguments to use to populate this resource's properties.

@@ -159,6 +159,7 @@ class AADAuthTypeConnectionPropertiesResponse(dict):
                  use_workspace_managed_identity: Optional[_builtins.bool] = None):
         """
         This connection type covers the AAD auth for any applicable Azure service
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'AAD'.
         :param _builtins.str group: Group based on connection category
@@ -312,6 +313,7 @@ class AbusePenaltyResponse(dict):
                  rate_limit_percentage: Optional[_builtins.float] = None):
         """
         The abuse penalty.
+
         :param _builtins.str action: The action of AbusePenalty.
         :param _builtins.str expiration: The datetime of expiration of the AbusePenalty.
         :param _builtins.float rate_limit_percentage: The percentage of rate limit.
@@ -582,6 +584,7 @@ class AccountKeyAuthTypeConnectionPropertiesResponse(dict):
                  use_workspace_managed_identity: Optional[_builtins.bool] = None):
         """
         This connection type covers the account key connection for Azure storage
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'AccountKey'.
         :param _builtins.str group: Group based on connection category
@@ -830,6 +833,7 @@ class AccountPropertiesResponse(dict):
                  user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
         """
         Properties of Cognitive Services account.
+
         :param 'AbusePenaltyResponse' abuse_penalty: The abuse penalty.
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param Sequence['SkuCapabilityResponse'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
@@ -1167,6 +1171,7 @@ class AgentProtocolVersionResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Type modeling the protocol and version used by an agent/exposed by a deployment.
+
         :param _builtins.str protocol: The protocol used by the agent/exposed by a deployment.
         :param _builtins.str version: The version of the protocol.
         """
@@ -1205,6 +1210,7 @@ class AgentReferenceResourceResponse(dict):
                  type: _builtins.str):
         """
         Agent Reference resource
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'AgentReferenceResponse' properties: [Required] Additional attributes of the entity.
@@ -1287,6 +1293,7 @@ class AgentReferenceResponse(dict):
                  agent_name: Optional[_builtins.str] = None):
         """
         Type modeling a reference to a version of an agent definition.
+
         :param _builtins.str agent_id: Gets the agent's unique identifier within the organization (subscription).
         :param _builtins.str agent_name: Gets the agent's name (unique within the project/app).
         """
@@ -1362,6 +1369,7 @@ class AgenticApplicationResponse(dict):
                  traffic_routing_policy: Optional['outputs.ApplicationTrafficRoutingPolicyResponse'] = None):
         """
         Resource type representing an agentic application as a management construct.
+
         :param _builtins.bool is_enabled: Enabledstate of the application.
         :param _builtins.str provisioning_state: Provisioning state of the application.
         :param 'AssignedIdentityResponse' agent_identity_blueprint: The EntraId Agentic Blueprint of the application.
@@ -1575,6 +1583,7 @@ class ApiKeyAuthConnectionPropertiesResponse(dict):
             Target:= {Endpoint}
                     
         Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'ApiKey'.
         :param _builtins.str group: Group based on connection category
@@ -1764,6 +1773,7 @@ class ApiPropertiesResponse(dict):
                  website_name: Optional[_builtins.str] = None):
         """
         The api properties for special APIs.
+
         :param _builtins.str aad_client_id: (Metrics Advisor Only) The Azure AD Client Id (Application Id).
         :param _builtins.str aad_tenant_id: (Metrics Advisor Only) The Azure AD Tenant Id.
         :param _builtins.str event_hub_connection_string: (Personalization Only) The flag to enable statistics of Bing Search.
@@ -1887,6 +1897,7 @@ class ApplicationTrafficRoutingPolicyResponse(dict):
                  rules: Optional[Sequence['outputs.TrafficRoutingRuleResponse']] = None):
         """
         Type representing an application traffic policy as a property of an agentic application.
+
         :param _builtins.str protocol: Methodology used to route traffic to the application's deployments.
         :param Sequence['TrafficRoutingRuleResponse'] rules: Gets or sets the collection of traffic routing rules.
         """
@@ -1950,6 +1961,7 @@ class AssignedIdentityResponse(dict):
                  subject: Optional[_builtins.str] = None):
         """
         Type representing an identity assignment
+
         :param _builtins.str client_id: The client ID of the identity.
         :param _builtins.str kind: Specifies the kind of Entra identity described by this object.
         :param _builtins.str principal_id: The principal ID of the identity.
@@ -2052,6 +2064,7 @@ class CallRateLimitResponse(dict):
                  rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
         """
         The call rate limit Cognitive Services account.
+
         :param _builtins.float count: The count value of Call Rate Limit.
         :param _builtins.float renewal_period: The renewal period in seconds of Call Rate Limit.
         """
@@ -2236,6 +2249,7 @@ class ChannelsBuiltInAuthorizationPolicyResponse(dict):
                  type: _builtins.str):
         """
         Represents a built-in authorization policy specific to Azure Bot Service/Channels authentication.
+
         :param _builtins.str type: Authorization scheme type.
                Expected value is 'Channels'.
         """
@@ -2283,6 +2297,7 @@ class CommitmentPeriodResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Cognitive Services account commitment period.
+
         :param _builtins.str end_date: Commitment period end date.
         :param 'CommitmentQuotaResponse' quota: Cognitive Services account commitment quota.
         :param _builtins.str start_date: Commitment period start date.
@@ -2367,6 +2382,7 @@ class CommitmentPlanAssociationResponse(dict):
                  commitment_plan_location: Optional[_builtins.str] = None):
         """
         The commitment plan association.
+
         :param _builtins.str commitment_plan_id: The Azure resource id of the commitment plan.
         :param _builtins.str commitment_plan_location: The location of of the commitment plan.
         """
@@ -2436,6 +2452,7 @@ class CommitmentPlanPropertiesResponse(dict):
                  plan_type: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account commitment plan.
+
         :param 'CommitmentPeriodResponse' last: Cognitive Services account commitment period.
         :param Sequence[_builtins.str] provisioning_issues: The list of ProvisioningIssue.
         :param _builtins.str provisioning_state: Gets the status of the resource at the time the operation was called.
@@ -2545,6 +2562,7 @@ class CommitmentQuotaResponse(dict):
                  unit: Optional[_builtins.str] = None):
         """
         Cognitive Services account commitment quota.
+
         :param _builtins.float quantity: Commitment quota quantity.
         :param _builtins.str unit: Commitment quota unit.
         """
@@ -2733,6 +2751,7 @@ class ConnectionOAuth2Response(dict):
         """
         ClientId and ClientSecret are required. Other properties are optional
         depending on each OAuth2 provider's implementation.
+
         :param _builtins.str auth_url: Required by Concur connection category
         :param _builtins.str client_id: Client id in the format of UUID
         :param _builtins.str developer_token: Required by GoogleAdWords connection category
@@ -2976,6 +2995,7 @@ class CustomBlocklistConfigResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Gets or sets the source to which filter applies.
+
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.str blocklist_name: Name of ContentFilter.
         :param _builtins.str source: Content source to apply the Content Filters.
@@ -3073,6 +3093,7 @@ class CustomKeysConnectionPropertiesResponse(dict):
         Credentials:= {CustomKeys} as CustomKeys
         Target:= {any value}
         Use Metadata property bag for ApiVersion and other metadata fields
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'CustomKeys'.
         :param _builtins.str group: Group based on connection category
@@ -3256,6 +3277,7 @@ class CustomTopicConfigResponse(dict):
                  topic_name: Optional[_builtins.str] = None):
         """
         Gets or sets the source to which filter applies.
+
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.str source: Content source to apply the Content Filters.
         :param _builtins.str topic_name: Name of RAI topic.
@@ -3319,6 +3341,7 @@ class DeploymentCapacitySettingsResponse(dict):
                  priority: Optional[_builtins.int] = None):
         """
         Internal use only.
+
         :param _builtins.int designated_capacity: The designated capacity.
         :param _builtins.int priority: The priority of this capacity setting.
         """
@@ -3378,6 +3401,7 @@ class DeploymentModelResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account deployment model.
+
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param _builtins.str format: Deployment model format.
         :param _builtins.str name: Deployment model name.
@@ -3515,6 +3539,7 @@ class DeploymentPropertiesResponse(dict):
                  version_upgrade_option: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account deployment.
+
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param Mapping[str, _builtins.str] capabilities: The capabilities.
         :param _builtins.bool dynamic_throttling_enabled: If the dynamic throttling is enabled.
@@ -3682,6 +3707,7 @@ class DeploymentScaleSettingsResponse(dict):
                  scale_type: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
+
         :param _builtins.int active_capacity: Deployment active capacity. This value might be different from `capacity` if customer recently updated `capacity`.
         :param _builtins.int capacity: Deployment capacity.
         :param _builtins.str scale_type: Deployment scale type.
@@ -3746,6 +3772,7 @@ class EncryptionResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         Properties to configure Encryption
+
         :param _builtins.str key_source: Enumerates the possible value of keySource for Encryption
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
         """
@@ -3806,6 +3833,7 @@ class EncryptionScopePropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Properties to EncryptionScope
+
         :param _builtins.str provisioning_state: Gets the status of the resource at the time the operation was called.
         :param _builtins.str key_source: Enumerates the possible value of keySource for Encryption
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
@@ -3887,6 +3915,7 @@ class FqdnOutboundRuleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         FQDN Outbound Rule for the managed network of a cognitive services account.
+
         :param _builtins.str error_information: Error information about an outbound rule of a cognitive services account if RuleStatus is failed.
         :param _builtins.str type: Type of a managed network Outbound Rule of a cognitive services account.
                Expected value is 'FQDN'.
@@ -3993,6 +4022,7 @@ class HostedAgentDeploymentResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
+
         :param _builtins.str deployment_type: Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
                Expected value is 'Hosted'.
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the agent deployment.
@@ -4150,6 +4180,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -4204,6 +4235,7 @@ class IpRuleResponse(dict):
                  value: _builtins.str):
         """
         A rule governing the accessibility from a specific ip address or ip range.
+
         :param _builtins.str value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         pulumi.set(__self__, "value", value)
@@ -4252,6 +4284,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         Properties to configure keyVault Properties
+
         :param _builtins.str key_name: Name of the Key from KeyVault
         :param _builtins.str key_vault_uri: Uri of KeyVault
         :param _builtins.str key_version: Version of the Key from KeyVault
@@ -4335,6 +4368,7 @@ class ManagedAgentDeploymentResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
+
         :param _builtins.str deployment_type: Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
                Expected value is 'Managed'.
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the agent deployment.
@@ -4645,6 +4679,7 @@ class MultiRegionSettingsResponse(dict):
                  routing_method: Optional[_builtins.str] = None):
         """
         The multiregion settings Cognitive Services account.
+
         :param _builtins.str routing_method: Multiregion routing methods.
         """
         if regions is not None:
@@ -4696,6 +4731,7 @@ class NetworkInjectionResponse(dict):
                  use_microsoft_managed_network: Optional[_builtins.bool] = None):
         """
         Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources.
+
         :param _builtins.str scenario: Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
         :param _builtins.str subnet_arm_id: Specify the subnet for which your Agent Client is injected into.
         :param _builtins.bool use_microsoft_managed_network: Boolean to enable Microsoft Managed Network for subnet delegation
@@ -4765,6 +4801,7 @@ class NetworkRuleSetResponse(dict):
                  virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility.
+
         :param _builtins.str bypass: Setting for trusted services.
         :param _builtins.str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param Sequence['IpRuleResponse'] ip_rules: The list of IP address rules.
@@ -5181,6 +5218,7 @@ class OrganizationSharedBuiltInAuthorizationPolicyResponse(dict):
                  type: _builtins.str):
         """
         Built-in authorization policy scoped to organization/tenant.
+
         :param _builtins.str type: Authorization scheme type.
                Expected value is 'OrganizationScope'.
         """
@@ -5412,6 +5450,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         Properties of the PrivateEndpointConnectProperties.
+
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param Sequence[_builtins.str] group_ids: The private link resource group ids.
@@ -5489,6 +5528,7 @@ class PrivateEndpointConnectionResponse(dict):
                  properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str etag: Resource Etag.
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
@@ -5573,6 +5613,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -5614,6 +5655,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -5775,6 +5817,7 @@ class ProjectPropertiesResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services Project'.
+
         :param Mapping[str, _builtins.str] endpoints: The list of endpoint for this Cognitive Services Project.
         :param _builtins.bool is_default: Indicates whether the project is the default project for the account.
         :param _builtins.str provisioning_state: Gets the status of the cognitive services project at the time the operation was called.
@@ -5903,6 +5946,7 @@ class RaiBlocklistItemPropertiesResponse(dict):
                  pattern: Optional[_builtins.str] = None):
         """
         RAI Custom Blocklist Item properties.
+
         :param _builtins.bool is_regex: If the pattern is a regex pattern.
         :param _builtins.str pattern: Pattern to match against.
         """
@@ -5937,6 +5981,7 @@ class RaiBlocklistPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         RAI Custom Blocklist properties.
+
         :param _builtins.str description: Description of the block list.
         """
         if description is not None:
@@ -5997,6 +6042,7 @@ class RaiExternalSafetyProviderSchemaPropertiesResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         RAI External SafetyProvider schema properties.
+
         :param _builtins.str created_at: Creation time of the safety provider.
         :param _builtins.str last_modified_at: Last modified time of the safety provider.
         :param _builtins.str key_vault_uri: The Key Vault URI that contains the api key for safety provider urls.
@@ -6126,6 +6172,7 @@ class RaiMonitorConfigResponse(dict):
                  identity_client_id: Optional[_builtins.str] = None):
         """
         Cognitive Services Rai Monitor Config.
+
         :param _builtins.str adx_storage_resource_id: The storage resource Id.
         :param _builtins.str identity_client_id: The identity client Id to access the storage.
         """
@@ -6182,6 +6229,7 @@ class RaiPolicyContentFilterResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Azure OpenAI Content Filter.
+
         :param _builtins.str action: The action types to apply to the content filters
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.bool enabled: If the ContentFilter is enabled.
@@ -6291,6 +6339,7 @@ class RaiPolicyPropertiesResponse(dict):
                  safety_providers: Optional[Sequence['outputs.SafetyProviderConfigResponse']] = None):
         """
         Azure OpenAI Content Filters properties.
+
         :param _builtins.str type: Content Filters policy type.
         :param _builtins.str base_policy_name: Name of Rai policy.
         :param Sequence['RaiPolicyContentFilterResponse'] content_filters: The list of Content Filters.
@@ -6402,6 +6451,7 @@ class RaiToolLabelPropertiesResponse(dict):
                  project_scopes: Optional[Sequence['outputs.RaiToolLabelPropertiesResponseProjectScopes']] = None):
         """
         RAI Tool Label properties.
+
         :param _builtins.str tool_connection_name: The unique tool connection name, e.g., 'Web_Search'.
         :param 'RaiToolLabelPropertiesResponseAccountScope' account_scope: Account-level tool label definition.
         :param Sequence['RaiToolLabelPropertiesResponseProjectScopes'] project_scopes: List of project-level tool label definitions.
@@ -6463,6 +6513,7 @@ class RaiToolLabelPropertiesResponseAccountScope(dict):
                  label_values: Optional[Mapping[str, _builtins.str]] = None):
         """
         Account-level tool label definition.
+
         :param Mapping[str, _builtins.str] label_values: Dictionary of label key-value pairs for the account scope.
         """
         if label_values is not None:
@@ -6566,6 +6617,7 @@ class RaiTopicPropertiesResponse(dict):
                  topic_name: Optional[_builtins.str] = None):
         """
         RAI Custom Topic properties.
+
         :param _builtins.str created_at: Creation time of the custom topic.
         :param _builtins.str description: Description of the custom topic.
         :param _builtins.str failed_reason: Failed reason if the status is Failed.
@@ -6668,6 +6720,7 @@ class RegionSettingResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         The call rate limit Cognitive Services account.
+
         :param _builtins.str customsubdomain: Maps the region to the regional custom subdomain.
         :param _builtins.str name: Name of the region.
         :param _builtins.float value: A value for priority or weighted routing methods.
@@ -6734,6 +6787,7 @@ class RoleBasedBuiltInAuthorizationPolicyResponse(dict):
                  type: _builtins.str):
         """
         Built-in role-based authorization policy.
+
         :param _builtins.str type: Authorization scheme type.
                Expected value is 'Default'.
         """
@@ -6958,6 +7012,7 @@ class SafetyProviderConfigResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Gets or sets the source to which safety providers applies.
+
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.str safety_provider_name: Name of RAI Safety Provider.
         :param _builtins.str source: Content source to apply the Content Filters.
@@ -7185,6 +7240,7 @@ class SkuCapabilityResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         SkuCapability indicates the capability of a certain feature.
+
         :param _builtins.str name: The name of the SkuCapability.
         :param _builtins.str value: The value of the SkuCapability.
         """
@@ -7242,6 +7298,7 @@ class SkuChangeInfoResponse(dict):
                  last_change_date: Optional[_builtins.str] = None):
         """
         Sku change info of account.
+
         :param _builtins.float count_of_downgrades: Gets the count of downgrades.
         :param _builtins.float count_of_upgrades_after_downgrades: Gets the count of upgrades after downgrades.
         :param _builtins.str last_change_date: Gets the last change date.
@@ -7291,6 +7348,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -7389,6 +7447,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -7567,6 +7626,7 @@ class TrafficRoutingRuleResponse(dict):
                  traffic_percentage: Optional[_builtins.int] = None):
         """
         Represents a rule for routing traffic to a specific deployment.
+
         :param _builtins.str deployment_id: The unique identifier of the deployment to which traffic is routed by this rule.
         :param _builtins.str description: A user-provided description for this traffic routing rule.
         :param _builtins.str rule_id: The identifier of this traffic routing rule.
@@ -7643,6 +7703,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User-assigned managed identity.
+
         :param _builtins.str client_id: Client App Id associated with this identity.
         :param _builtins.str principal_id: Azure Active Directory principal ID associated with this Identity.
         """
@@ -7695,6 +7756,7 @@ class UserOwnedAmlWorkspaceResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         The user owned AML account for Cognitive Services account.
+
         :param _builtins.str identity_client_id: Identity Client id of a AML account resource.
         :param _builtins.str resource_id: Full resource id of a AML account resource.
         """
@@ -7749,6 +7811,7 @@ class UserOwnedStorageResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         The user owned storage for Cognitive Services account.
+
         :param _builtins.str resource_id: Full resource id of a Microsoft.Storage resource.
         """
         if identity_client_id is not None:
@@ -7983,6 +8046,7 @@ class VersionedAgentReferenceResponse(dict):
                  agent_version: Optional[_builtins.str] = None):
         """
         Type modeling a reference to a version of an agent definition.
+
         :param _builtins.str agent_id: Gets the agent's unique identifier within the organization (subscription).
         :param _builtins.str agent_name: Gets the agent's name (unique within the project/app).
         :param _builtins.str agent_version: Gets the agent's version (unique for each agent lineage).
@@ -8047,6 +8111,7 @@ class VirtualNetworkRuleResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         A rule governing the accessibility from a specific virtual network.
+
         :param _builtins.str id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         :param _builtins.bool ignore_missing_vnet_service_endpoint: Ignore missing vnet service endpoint or not.
         :param _builtins.str state: Gets the state of virtual network rule.

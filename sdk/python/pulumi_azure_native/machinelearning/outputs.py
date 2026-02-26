@@ -28,6 +28,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Sku of the resource
+
         :param _builtins.str name: Name of the sku
         :param _builtins.str tier: Tier of the sku like Basic or Enterprise
         """

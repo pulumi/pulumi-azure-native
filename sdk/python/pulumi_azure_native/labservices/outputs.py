@@ -76,6 +76,7 @@ class AutoShutdownProfileResponse(dict):
                  shutdown_when_not_connected: Optional[_builtins.str] = None):
         """
         Profile for how to handle shutting down virtual machines.
+
         :param _builtins.str disconnect_delay: The amount of time a VM will stay running after a user disconnects if this behavior is enabled.
         :param _builtins.str idle_delay: The amount of time a VM will idle before it is shutdown if this behavior is enabled.
         :param _builtins.str no_connect_delay: The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled.
@@ -186,6 +187,7 @@ class ConnectionProfileResponse(dict):
                  web_ssh_access: Optional[_builtins.str] = None):
         """
         Connection profile for how users connect to lab virtual machines.
+
         :param _builtins.str client_rdp_access: The enabled access level for Client Access over RDP.
         :param _builtins.str client_ssh_access: The enabled access level for Client Access over SSH.
         :param _builtins.str web_rdp_access: The enabled access level for Web Access over RDP.
@@ -250,6 +252,7 @@ class CredentialsResponse(dict):
                  username: _builtins.str):
         """
         Credentials for a user on a lab VM.
+
         :param _builtins.str username: The username to use when signing in to lab VMs.
         """
         pulumi.set(__self__, "username", username)
@@ -293,6 +296,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -358,6 +362,7 @@ class ImageReferenceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Image reference information. Used in the virtual machine profile.
+
         :param _builtins.str exact_version: The actual version of the image after use.
         :param _builtins.str id: Image resource ID
         :param _builtins.str offer: The image offer if applicable.
@@ -458,6 +463,7 @@ class LabNetworkProfileResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Profile for how to handle networking for Labs.
+
         :param _builtins.str load_balancer_id: The external load balancer resource id
         :param _builtins.str public_ip_id: The external public IP resource id
         :param _builtins.str subnet_id: The external subnet resource id
@@ -520,6 +526,7 @@ class LabPlanNetworkProfileResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Profile for how to handle networking for Lab Plans.
+
         :param _builtins.str subnet_id: The external subnet resource id
         """
         if subnet_id is not None:
@@ -565,6 +572,7 @@ class RecurrencePatternResponse(dict):
                  week_days: Optional[Sequence[_builtins.str]] = None):
         """
         Recurrence pattern of a lab schedule.
+
         :param _builtins.str expiration_date: When the recurrence will expire. This date is inclusive.
         :param _builtins.str frequency: The frequency of the recurrence.
         :param _builtins.int interval: The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
@@ -622,6 +630,7 @@ class ResourceOperationErrorResponse(dict):
                  timestamp: Optional[_builtins.str] = None):
         """
         Error details of the latest operation failure on this resource
+
         :param _builtins.str action: The operation action that failed
         :param _builtins.str code: The code that corresponds to the type of operation failure
         :param _builtins.str message: The operation failure message
@@ -707,6 +716,7 @@ class RosterProfileResponse(dict):
                  lti_roster_endpoint: Optional[_builtins.str] = None):
         """
         The lab user list management profile.
+
         :param _builtins.str active_directory_group_id: The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
         :param _builtins.str lms_instance: The base URI identifying the lms instance.
         :param _builtins.str lti_client_id: The unique id of the azure lab services tool in the lms.
@@ -794,6 +804,7 @@ class SecurityProfileResponse(dict):
                  open_access: Optional[_builtins.str] = None):
         """
         The lab security profile.
+
         :param _builtins.str registration_code: The registration code for the lab.
         :param _builtins.str open_access: Whether any user or only specified users can register to a lab.
         """
@@ -831,6 +842,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -900,6 +912,7 @@ class SupportInfoResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Support contact information and instructions.
+
         :param _builtins.str email: Support contact email address.
         :param _builtins.str instructions: Support instructions.
         :param _builtins.str phone: Support contact phone number.
@@ -988,6 +1001,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1083,6 +1097,7 @@ class VirtualMachineAdditionalCapabilitiesResponse(dict):
                  install_gpu_drivers: Optional[_builtins.str] = None):
         """
         The additional capabilities for a lab VM.
+
         :param _builtins.str install_gpu_drivers: Flag to pre-install dedicated GPU drivers.
         """
         if install_gpu_drivers is None:
@@ -1147,6 +1162,7 @@ class VirtualMachineProfileResponse(dict):
                  use_shared_password: Optional[_builtins.str] = None):
         """
         The base virtual machine configuration for a lab.
+
         :param 'CredentialsResponse' admin_user: Credentials for the admin user on the VM.
         :param _builtins.str create_option: Indicates what lab virtual machines are created from.
         :param 'ImageReferenceResponse' image_reference: The image configuration for lab virtual machines.

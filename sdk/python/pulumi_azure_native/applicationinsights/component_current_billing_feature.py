@@ -27,6 +27,7 @@ class ComponentCurrentBillingFeatureArgs:
                  data_volume_cap: Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']] = None):
         """
         The set of arguments for constructing a ComponentCurrentBillingFeature resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] current_billing_features: Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
@@ -104,6 +105,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] current_billing_features: Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
@@ -121,6 +123,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         An Application Insights component billing features
 
         Uses Azure REST API version 2015-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param ComponentCurrentBillingFeatureArgs args: The arguments to use to populate this resource's properties.

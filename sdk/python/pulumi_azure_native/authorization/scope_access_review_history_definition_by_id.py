@@ -33,6 +33,7 @@ class ScopeAccessReviewHistoryDefinitionByIdArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
         """
         The set of arguments for constructing a ScopeAccessReviewHistoryDefinitionById resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
         :param pulumi.Input[_builtins.str] display_name: The display name for the history definition.
@@ -191,6 +192,7 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
@@ -213,6 +215,7 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         Access Review History Definition.
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ScopeAccessReviewHistoryDefinitionByIdArgs args: The arguments to use to populate this resource's properties.

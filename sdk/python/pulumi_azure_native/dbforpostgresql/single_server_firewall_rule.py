@@ -26,6 +26,7 @@ class SingleServerFirewallRuleArgs:
                  firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
@@ -117,6 +118,7 @@ class SingleServerFirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
@@ -135,6 +137,7 @@ class SingleServerFirewallRule(pulumi.CustomResource):
         Represents a server firewall rule.
 
         Uses Azure REST API version 2017-12-01.
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerFirewallRuleArgs args: The arguments to use to populate this resource's properties.

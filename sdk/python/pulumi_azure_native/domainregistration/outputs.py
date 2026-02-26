@@ -60,6 +60,7 @@ class HostNameResponse(dict):
                  site_names: Optional[Sequence[_builtins.str]] = None):
         """
         Details of a hostname derived from a domain.
+
         :param _builtins.str azure_resource_name: Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
         :param _builtins.str azure_resource_type: Type of the Azure resource the hostname is assigned to.
         :param _builtins.str custom_host_name_dns_record_type: Type of the DNS record.
@@ -138,6 +139,7 @@ class NameIdentifierResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Identifies an object.
+
         :param _builtins.str name: Name of the object.
         """
         if name is not None:
@@ -164,6 +166,7 @@ class TldLegalAgreementResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Legal agreement for a top level domain.
+
         :param _builtins.str agreement_key: Unique identifier for the agreement.
         :param _builtins.str content: Agreement details.
         :param _builtins.str title: Agreement title.

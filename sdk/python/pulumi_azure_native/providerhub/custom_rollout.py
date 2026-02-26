@@ -27,6 +27,7 @@ class CustomRolloutArgs:
                  rollout_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomRollout resource.
+
         :param pulumi.Input['CustomRolloutPropertiesArgs'] properties: Properties of the rollout.
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[_builtins.str] rollout_name: The rollout name.
@@ -88,6 +89,7 @@ class CustomRollout(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomRolloutPropertiesArgs', 'CustomRolloutPropertiesArgsDict']] properties: Properties of the rollout.
@@ -104,6 +106,7 @@ class CustomRollout(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param CustomRolloutArgs args: The arguments to use to populate this resource's properties.

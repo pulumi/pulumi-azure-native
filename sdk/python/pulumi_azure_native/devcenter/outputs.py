@@ -61,6 +61,7 @@ class CapabilityResponse(dict):
                  value: _builtins.str):
         """
         A name/value pair to describe a capability.
+
         :param _builtins.str name: Name of the capability.
         :param _builtins.str value: Value of the capability.
         """
@@ -94,6 +95,7 @@ class CatalogConflictErrorResponse(dict):
                  path: _builtins.str):
         """
         An individual conflict error.
+
         :param _builtins.str name: Name of the conflicting catalog item.
         :param _builtins.str path: The path of the file that has a conflicting name.
         """
@@ -127,6 +129,7 @@ class CatalogErrorDetailsResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Catalog error details
+
         :param _builtins.str code: An identifier for the error.
         :param _builtins.str message: A message describing the error.
         """
@@ -162,6 +165,7 @@ class CatalogSyncErrorResponse(dict):
                  path: _builtins.str):
         """
         An individual synchronization error.
+
         :param Sequence['CatalogErrorDetailsResponse'] error_details: Errors associated with the file.
         :param _builtins.str path: The path of the file the error is associated with.
         """
@@ -214,6 +218,7 @@ class CustomerManagedKeyEncryptionResponse(dict):
                  key_encryption_key_url: Optional[_builtins.str] = None):
         """
         All Customer-managed key encryption properties for the resource.
+
         :param 'CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param _builtins.str key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
@@ -271,6 +276,7 @@ class CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity(dict):
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
         :param _builtins.str delegated_identity_client_id: delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
         :param _builtins.str identity_type: Values can be systemAssignedIdentity or userAssignedIdentity
         :param _builtins.str user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
@@ -333,6 +339,7 @@ class DevCenterProjectCatalogSettingsResponse(dict):
                  catalog_item_sync_enable_status: Optional[_builtins.str] = None):
         """
         Project catalog settings for project catalogs under a project associated to this dev center.
+
         :param _builtins.str catalog_item_sync_enable_status: Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
         """
         if catalog_item_sync_enable_status is not None:
@@ -363,6 +370,7 @@ class DevCenterSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU for DevCenter resources
+
         :param Sequence['CapabilityResponse'] capabilities: Collection of name/value pairs to describe the SKU capabilities.
         :param Sequence[_builtins.str] locations: SKU supported locations.
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
@@ -513,6 +521,7 @@ class EnvironmentRoleResponse(dict):
                  role_name: _builtins.str):
         """
         A role that can be assigned to a user.
+
         :param _builtins.str description: This is a description of the Role Assignment.
         :param _builtins.str role_name: The common name of the Role Assignment. This is a descriptive name such as 'AcrPush'.
         """
@@ -546,6 +555,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -599,6 +609,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -681,6 +692,7 @@ class GitCatalogResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         Properties for a Git repository catalog.
+
         :param _builtins.str branch: Git branch.
         :param _builtins.str path: The folder where the catalog items can be found inside the repository.
         :param _builtins.str secret_identifier: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
@@ -738,6 +750,7 @@ class HealthStatusDetailResponse(dict):
                  message: _builtins.str):
         """
         Pool health status detail.
+
         :param _builtins.str code: An identifier for the issue.
         :param _builtins.str message: A message describing the issue, intended to be suitable for display in a user interface
         """
@@ -771,6 +784,7 @@ class ImageCreationErrorDetailsResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Image creation error details
+
         :param _builtins.str code: An identifier for the error.
         :param _builtins.str message: A message describing the error.
         """
@@ -809,6 +823,7 @@ class ImageDefinitionBuildTaskGroupResponse(dict):
                  tasks: Sequence['outputs.ImageDefinitionBuildTaskResponse']):
         """
         A task group executed during the image definition build.
+
         :param _builtins.str end_time: End time of the task group.
         :param _builtins.str name: The name of the task group.
         :param _builtins.str start_time: Start time of the task group.
@@ -878,6 +893,7 @@ class ImageDefinitionBuildTaskResponse(dict):
                  parameters: Optional[Sequence['outputs.ImageDefinitionBuildTaskResponseParameters']] = None):
         """
         A task executed during the image definition build.
+
         :param _builtins.str end_time: End time of the task.
         :param _builtins.str id: ID of the task instance.
         :param _builtins.str log_uri: The URI for retrieving logs for the task execution.
@@ -1010,6 +1026,7 @@ class ImageReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Image reference information
+
         :param _builtins.str exact_version: The actual version of the image after use. When id references a gallery image latest version, this will indicate the actual version in use.
         :param _builtins.str id: Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
         """
@@ -1044,6 +1061,7 @@ class ImageValidationErrorDetailsResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Image validation error details
+
         :param _builtins.str code: An identifier for the error.
         :param _builtins.str message: A message describing the error.
         """
@@ -1102,6 +1120,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1178,6 +1197,7 @@ class PlanMemberSyncStatusResponse(dict):
                  last_sync_error: Optional['outputs.ErrorDetailResponse'] = None):
         """
         The sync status of the plan member.
+
         :param _builtins.str last_sync_time: When the plan member was last synced.
         :param _builtins.str sync_state: The synchronization state of the plan member.
         :param 'ErrorDetailResponse' last_sync_error: Error response describing why the sync failed.
@@ -1238,6 +1258,7 @@ class ProjectCatalogSettingsResponse(dict):
                  catalog_item_sync_types: Optional[Sequence[_builtins.str]] = None):
         """
         Settings to be used when associating a project with a catalog.
+
         :param Sequence[_builtins.str] catalog_item_sync_types: Indicates catalog item types that can be synced.
         """
         if catalog_item_sync_types is not None:
@@ -1261,6 +1282,7 @@ class ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment(dict):
                  roles: Optional[Mapping[str, 'outputs.EnvironmentRoleResponse']] = None):
         """
         The role definition assigned to the environment creator on backing resources.
+
         :param Mapping[str, 'EnvironmentRoleResponse'] roles: A map of roles to assign to the environment creator.
         """
         if roles is not None:
@@ -1284,6 +1306,7 @@ class ProjectNetworkSettingsResponse(dict):
                  microsoft_hosted_network_enable_status: _builtins.str):
         """
         Network settings for the project.
+
         :param _builtins.str microsoft_hosted_network_enable_status: Indicates whether pools in this Dev Center can use Microsoft Hosted Networks. Defaults to Enabled if not set.
         """
         pulumi.set(__self__, "microsoft_hosted_network_enable_status", microsoft_hosted_network_enable_status)
@@ -1307,6 +1330,7 @@ class ResourcePolicyResponse(dict):
                  resources: Optional[_builtins.str] = None):
         """
         A resource policy.
+
         :param _builtins.str filter: Optional. When specified, this expression is used to filter the resources.
         :param _builtins.str resources: Resources that are included and shared as a part of a project policy.
         """
@@ -1345,6 +1369,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -1429,6 +1454,7 @@ class StopOnDisconnectConfigurationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Stop on disconnect configuration settings for Dev Boxes created in this pool.
+
         :param _builtins.int grace_period_minutes: The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
         :param _builtins.str status: Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
         """
@@ -1490,6 +1516,7 @@ class SyncStatsResponse(dict):
                  synced_catalog_item_types: Optional[Sequence[_builtins.str]] = None):
         """
         Stats of the synchronization.
+
         :param _builtins.int added: Count of catalog items added during synchronization.
         :param _builtins.int removed: Count of catalog items removed during synchronization.
         :param _builtins.int synchronization_errors: Count of synchronization errors that occured during synchronization.
@@ -1605,6 +1632,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1703,6 +1731,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -1735,6 +1764,7 @@ class UserRoleAssignmentResponse(dict):
                  roles: Optional[Mapping[str, 'outputs.EnvironmentRoleResponse']] = None):
         """
         Mapping of user object ID to role assignments.
+
         :param Mapping[str, 'EnvironmentRoleResponse'] roles: A map of roles to assign to the parent user.
         """
         if roles is not None:

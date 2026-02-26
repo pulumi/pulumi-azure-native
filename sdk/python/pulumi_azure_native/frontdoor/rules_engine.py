@@ -28,6 +28,7 @@ class RulesEngineArgs:
                  rules_engine_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RulesEngine resource.
+
         :param pulumi.Input[_builtins.str] front_door_name: Name of the Front Door which is globally unique.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A list of rules that define a particular Rules Engine Configuration.
@@ -107,6 +108,7 @@ class RulesEngine(pulumi.CustomResource):
 
         Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] front_door_name: Name of the Front Door which is globally unique.
@@ -126,6 +128,7 @@ class RulesEngine(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01.
 
         Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param RulesEngineArgs args: The arguments to use to populate this resource's properties.

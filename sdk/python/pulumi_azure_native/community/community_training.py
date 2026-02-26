@@ -36,6 +36,7 @@ class CommunityTrainingArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunityTraining resource.
+
         :param pulumi.Input[_builtins.bool] disaster_recovery_enabled: To indicate whether the Community Training instance has Disaster Recovery enabled
         :param pulumi.Input['IdentityConfigurationPropertiesArgs'] identity_configuration: The identity configuration of the Community Training resource
         :param pulumi.Input[_builtins.str] portal_admin_email_address: The email address of the portal admin
@@ -235,6 +236,7 @@ class CommunityTraining(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] community_training_name: The name of the Community Training Resource
@@ -260,6 +262,7 @@ class CommunityTraining(pulumi.CustomResource):
         A CommunityProviderHub resource
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
+
 
         :param str resource_name: The name of the resource.
         :param CommunityTrainingArgs args: The arguments to use to populate this resource's properties.

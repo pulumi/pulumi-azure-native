@@ -42,6 +42,7 @@ class BrokerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Broker resource.
+
         :param pulumi.Input['ContainerImageArgs'] auth_image: The details of Authentication Docker Image.
         :param pulumi.Input['ContainerImageArgs'] broker_image: The details of Broker Docker Image.
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
@@ -342,6 +343,7 @@ class Broker(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']] auth_image: The details of Authentication Docker Image.
@@ -373,6 +375,7 @@ class Broker(pulumi.CustomResource):
         MQ broker resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param BrokerArgs args: The arguments to use to populate this resource's properties.

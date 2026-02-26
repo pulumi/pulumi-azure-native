@@ -30,6 +30,7 @@ class InboundEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InboundEndpoint resource.
+
         :param pulumi.Input[_builtins.str] dns_resolver_name: The name of the DNS resolver.
         :param pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]] ip_configurations: IP configurations for the inbound endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -140,6 +141,7 @@ class InboundEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dns_resolver_name: The name of the DNS resolver.
@@ -161,6 +163,7 @@ class InboundEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param InboundEndpointArgs args: The arguments to use to populate this resource's properties.

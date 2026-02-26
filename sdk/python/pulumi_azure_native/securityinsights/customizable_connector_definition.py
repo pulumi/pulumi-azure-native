@@ -32,6 +32,7 @@ class CustomizableConnectorDefinitionArgs:
                  last_modified_utc: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomizableConnectorDefinition resource.
+
         :param pulumi.Input['CustomizableConnectorUiConfigArgs'] connector_ui_config: The UiConfig for 'Customizable' connector definition kind.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector definitions
                Expected value is 'Customizable'.
@@ -173,6 +174,7 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']] connections_config: The UiConfig for 'Customizable' connector definition kind.
@@ -195,6 +197,7 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
         Connector definition for kind 'Customizable'.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param CustomizableConnectorDefinitionArgs args: The arguments to use to populate this resource's properties.

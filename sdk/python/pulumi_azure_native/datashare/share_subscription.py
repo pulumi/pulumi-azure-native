@@ -28,6 +28,7 @@ class ShareSubscriptionArgs:
                  share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareSubscription resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] invitation_id: The invitation id.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -135,6 +136,7 @@ class ShareSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
@@ -154,6 +156,7 @@ class ShareSubscription(pulumi.CustomResource):
         A share subscription data transfer object.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param ShareSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class AlertProcessingRuleByNameArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AlertProcessingRuleByName resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Resource group name where the resource is created.
         :param pulumi.Input[_builtins.str] alert_processing_rule_name: The name of the alert processing rule that needs to be created/updated.
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -125,6 +126,7 @@ class AlertProcessingRuleByName(pulumi.CustomResource):
 
         Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_processing_rule_name: The name of the alert processing rule that needs to be created/updated.
@@ -145,6 +147,7 @@ class AlertProcessingRuleByName(pulumi.CustomResource):
         Uses Azure REST API version 2021-08-08. In version 2.x of the Azure Native provider, it used API version 2021-08-08.
 
         Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param AlertProcessingRuleByNameArgs args: The arguments to use to populate this resource's properties.

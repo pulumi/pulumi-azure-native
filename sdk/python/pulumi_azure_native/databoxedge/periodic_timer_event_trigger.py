@@ -30,6 +30,7 @@ class PeriodicTimerEventTriggerArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PeriodicTimerEventTrigger resource.
+
         :param pulumi.Input[_builtins.str] device_name: Creates or updates a trigger
         :param pulumi.Input[_builtins.str] kind: Trigger Kind.
                Expected value is 'PeriodicTimerEvent'.
@@ -154,6 +155,7 @@ class PeriodicTimerEventTrigger(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
@@ -175,6 +177,7 @@ class PeriodicTimerEventTrigger(pulumi.CustomResource):
         Trigger details.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+
 
         :param str resource_name: The name of the resource.
         :param PeriodicTimerEventTriggerArgs args: The arguments to use to populate this resource's properties.

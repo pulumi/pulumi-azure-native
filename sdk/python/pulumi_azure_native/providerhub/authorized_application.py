@@ -27,6 +27,7 @@ class AuthorizedApplicationArgs:
                  properties: Optional[pulumi.Input['AuthorizedApplicationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthorizedApplication resource.
+
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         """
@@ -85,6 +86,7 @@ class AuthorizedApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -100,6 +102,7 @@ class AuthorizedApplication(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizedApplicationArgs args: The arguments to use to populate this resource's properties.

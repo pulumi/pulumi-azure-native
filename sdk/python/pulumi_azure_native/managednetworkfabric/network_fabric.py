@@ -39,6 +39,7 @@ class NetworkFabricArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkFabric resource.
+
         :param pulumi.Input[_builtins.float] fabric_asn: ASN of CE devices for CE/PE connectivity.
         :param pulumi.Input[_builtins.str] ipv4_prefix: IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         :param pulumi.Input['ManagementNetworkConfigurationPropertiesArgs'] management_network_configuration: Configuration to be used to setup the management network.
@@ -288,6 +289,7 @@ class NetworkFabric(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -318,6 +320,7 @@ class NetworkFabric(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkFabricArgs args: The arguments to use to populate this resource's properties.

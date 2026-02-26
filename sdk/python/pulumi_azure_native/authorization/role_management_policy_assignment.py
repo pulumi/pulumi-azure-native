@@ -26,6 +26,7 @@ class RoleManagementPolicyAssignmentArgs:
                  role_management_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleManagementPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] scope: The role management policy scope.
         :param pulumi.Input[_builtins.str] policy_id: The policy id role management policy assignment.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition of management policy assignment.
@@ -106,6 +107,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
 
         Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_id: The policy id role management policy assignment.
@@ -125,6 +127,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
 
         Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param RoleManagementPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

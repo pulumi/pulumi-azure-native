@@ -33,6 +33,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlotArgs:
                  platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
         """
         The set of arguments for constructing a WebAppAuthSettingsV2WithoutSecretsSlot resource.
+
         :param pulumi.Input[_builtins.str] name: Name of web app.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] slot: Name of web app slot. If not specified then will default to production slot.
@@ -191,6 +192,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlot(pulumi.CustomResource):
 
         Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
@@ -215,6 +217,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlot(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01.
 
         Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsV2WithoutSecretsSlotArgs args: The arguments to use to populate this resource's properties.

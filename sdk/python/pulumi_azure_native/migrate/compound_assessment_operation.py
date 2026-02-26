@@ -27,6 +27,7 @@ class CompoundAssessmentOperationArgs:
                  properties: Optional[pulumi.Input['CompoundAssessmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a CompoundAssessmentOperation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] compound_assessment_name: Compound Assessment ARM name
@@ -104,6 +105,7 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compound_assessment_name: Compound Assessment ARM name
@@ -121,6 +123,7 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
         Compound assessment resource.
 
         Uses Azure REST API version 2024-03-03-preview.
+
 
         :param str resource_name: The name of the resource.
         :param CompoundAssessmentOperationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class AuthorityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Authority resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] authority_name: The ID of the authority
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -104,6 +105,7 @@ class Authority(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-26-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-26-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authority_name: The ID of the authority
@@ -121,6 +123,7 @@ class Authority(pulumi.CustomResource):
         A VerifiedId authority resource
 
         Uses Azure REST API version 2024-01-26-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-26-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AuthorityArgs args: The arguments to use to populate this resource's properties.

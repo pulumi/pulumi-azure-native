@@ -28,6 +28,7 @@ class FirewallRuleArgs:
                  properties: Optional[pulumi.Input['FirewallRulePropertiesArgs']] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
+
         :param pulumi.Input[_builtins.str] fleet_name: Name of the database fleet.
         :param pulumi.Input[_builtins.str] fleetspace_name: Name of the fleetspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +121,7 @@ class FirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] firewall_rule_name: Name of the firewall rule.
@@ -138,6 +140,7 @@ class FirewallRule(pulumi.CustomResource):
         A firewall rule.
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class CapacityDetailsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityDetails resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CapacitySkuArgs'] sku: The SKU of the PowerBI Dedicated capacity resource.
         :param pulumi.Input['DedicatedCapacityAdministratorsArgs'] administration: A collection of Dedicated capacity administrators
@@ -156,6 +157,7 @@ class CapacityDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DedicatedCapacityAdministratorsArgs', 'DedicatedCapacityAdministratorsArgsDict']] administration: A collection of Dedicated capacity administrators
@@ -176,6 +178,7 @@ class CapacityDetails(pulumi.CustomResource):
         Represents an instance of a Dedicated Capacity resource.
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
+
 
         :param str resource_name: The name of the resource.
         :param CapacityDetailsArgs args: The arguments to use to populate this resource's properties.

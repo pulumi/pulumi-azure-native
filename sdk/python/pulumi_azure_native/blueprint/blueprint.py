@@ -32,6 +32,7 @@ class BlueprintArgs:
                  versions: Optional[Any] = None):
         """
         The set of arguments for constructing a Blueprint resource.
+
         :param pulumi.Input[_builtins.str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']] target_scope: The scope where this blueprint definition can be assigned.
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the blueprint definition.
@@ -173,6 +174,7 @@ class Blueprint(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the blueprint definition.
@@ -194,6 +196,7 @@ class Blueprint(pulumi.CustomResource):
         Represents a Blueprint definition.
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param BlueprintArgs args: The arguments to use to populate this resource's properties.

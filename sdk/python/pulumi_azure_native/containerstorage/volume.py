@@ -27,6 +27,7 @@ class VolumeArgs:
                  volume_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
+
         :param pulumi.Input[_builtins.float] capacity_gi_b: Requested capacity in GiB
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: String KV pairs indicating labels
         :param pulumi.Input[_builtins.str] pool_name: Pool Object
@@ -118,6 +119,7 @@ class Volume(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] capacity_gi_b: Requested capacity in GiB
@@ -136,6 +138,7 @@ class Volume(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

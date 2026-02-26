@@ -38,6 +38,7 @@ class PoolArgs:
                  virtual_network_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']]] = None):
         """
         The set of arguments for constructing a Pool resource.
+
         :param pulumi.Input[_builtins.str] dev_box_definition_name: Name of a Dev Box definition in parent Project of this Pool
         :param pulumi.Input[Union[_builtins.str, 'LicenseType']] license_type: Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
         :param pulumi.Input[Union[_builtins.str, 'LocalAdminStatus']] local_administrator: Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
@@ -273,6 +274,7 @@ class Pool(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_box_definition_name: Name of a Dev Box definition in parent Project of this Pool
@@ -302,6 +304,7 @@ class Pool(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

@@ -86,23 +86,18 @@ __all__ = [
     'WindowsOsInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ArmTemplateParameterPropertiesArgsDict(TypedDict):
-        """
-        Properties of an Azure Resource Manager template parameter.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the template parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the template parameter.
-        """
-elif False:
-    ArmTemplateParameterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ArmTemplateParameterPropertiesArgsDict(TypedDict):
+    """
+    Properties of an Azure Resource Manager template parameter.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the template parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the template parameter.
+    """
 
 @pulumi.input_type
 class ArmTemplateParameterPropertiesArgs:
@@ -111,6 +106,7 @@ class ArmTemplateParameterPropertiesArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of an Azure Resource Manager template parameter.
+
         :param pulumi.Input[_builtins.str] name: The name of the template parameter.
         :param pulumi.Input[_builtins.str] value: The value of the template parameter.
         """
@@ -144,41 +140,38 @@ class ArmTemplateParameterPropertiesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ArtifactInstallPropertiesArgsDict(TypedDict):
-        """
-        Properties of an artifact.
-        """
-        artifact_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The artifact's identifier.
-        """
-        artifact_title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The artifact's title.
-        """
-        deployment_status_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status message from the deployment.
-        """
-        install_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time that the artifact starts to install on the virtual machine.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgsDict']]]]
-        """
-        The parameters of the artifact.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the artifact.
-        """
-        vm_extension_status_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status message from the virtual machine extension.
-        """
-elif False:
-    ArtifactInstallPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ArtifactInstallPropertiesArgsDict(TypedDict):
+    """
+    Properties of an artifact.
+    """
+    artifact_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The artifact's identifier.
+    """
+    artifact_title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The artifact's title.
+    """
+    deployment_status_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status message from the deployment.
+    """
+    install_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time that the artifact starts to install on the virtual machine.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArtifactParameterPropertiesArgsDict']]]]
+    """
+    The parameters of the artifact.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the artifact.
+    """
+    vm_extension_status_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status message from the virtual machine extension.
+    """
 
 @pulumi.input_type
 class ArtifactInstallPropertiesArgs:
@@ -192,6 +185,7 @@ class ArtifactInstallPropertiesArgs:
                  vm_extension_status_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of an artifact.
+
         :param pulumi.Input[_builtins.str] artifact_id: The artifact's identifier.
         :param pulumi.Input[_builtins.str] artifact_title: The artifact's title.
         :param pulumi.Input[_builtins.str] deployment_status_message: The status message from the deployment.
@@ -300,21 +294,18 @@ class ArtifactInstallPropertiesArgs:
         pulumi.set(self, "vm_extension_status_message", value)
 
 
-if not MYPY:
-    class ArtifactParameterPropertiesArgsDict(TypedDict):
-        """
-        Properties of an artifact parameter.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the artifact parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the artifact parameter.
-        """
-elif False:
-    ArtifactParameterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ArtifactParameterPropertiesArgsDict(TypedDict):
+    """
+    Properties of an artifact parameter.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the artifact parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the artifact parameter.
+    """
 
 @pulumi.input_type
 class ArtifactParameterPropertiesArgs:
@@ -323,6 +314,7 @@ class ArtifactParameterPropertiesArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of an artifact parameter.
+
         :param pulumi.Input[_builtins.str] name: The name of the artifact parameter.
         :param pulumi.Input[_builtins.str] value: The value of the artifact parameter.
         """
@@ -356,25 +348,22 @@ class ArtifactParameterPropertiesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AttachNewDataDiskOptionsArgsDict(TypedDict):
-        """
-        Properties to attach new disk to the Virtual Machine.
-        """
-        disk_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the disk to be attached.
-        """
-        disk_size_gi_b: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the disk to be attached in Gibibytes.
-        """
-        disk_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
-        """
-        The storage type for the disk (i.e. Standard, Premium).
-        """
-elif False:
-    AttachNewDataDiskOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class AttachNewDataDiskOptionsArgsDict(TypedDict):
+    """
+    Properties to attach new disk to the Virtual Machine.
+    """
+    disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the disk to be attached.
+    """
+    disk_size_gi_b: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the disk to be attached in Gibibytes.
+    """
+    disk_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
+    """
+    The storage type for the disk (i.e. Standard, Premium).
+    """
 
 @pulumi.input_type
 class AttachNewDataDiskOptionsArgs:
@@ -384,6 +373,7 @@ class AttachNewDataDiskOptionsArgs:
                  disk_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None):
         """
         Properties to attach new disk to the Virtual Machine.
+
         :param pulumi.Input[_builtins.str] disk_name: The name of the disk to be attached.
         :param pulumi.Input[_builtins.int] disk_size_gi_b: Size of the disk to be attached in Gibibytes.
         :param pulumi.Input[Union[_builtins.str, 'StorageType']] disk_type: The storage type for the disk (i.e. Standard, Premium).
@@ -432,17 +422,14 @@ class AttachNewDataDiskOptionsArgs:
         pulumi.set(self, "disk_type", value)
 
 
-if not MYPY:
-    class BulkCreationParametersArgsDict(TypedDict):
-        """
-        Parameters for creating multiple virtual machines as a single action.
-        """
-        instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of virtual machine instances to create.
-        """
-elif False:
-    BulkCreationParametersArgsDict: TypeAlias = Mapping[str, Any]
+class BulkCreationParametersArgsDict(TypedDict):
+    """
+    Parameters for creating multiple virtual machines as a single action.
+    """
+    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of virtual machine instances to create.
+    """
 
 @pulumi.input_type
 class BulkCreationParametersArgs:
@@ -450,6 +437,7 @@ class BulkCreationParametersArgs:
                  instance_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Parameters for creating multiple virtual machines as a single action.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of virtual machine instances to create.
         """
         if instance_count is not None:
@@ -468,25 +456,22 @@ class BulkCreationParametersArgs:
         pulumi.set(self, "instance_count", value)
 
 
-if not MYPY:
-    class CustomImagePropertiesCustomArgsDict(TypedDict):
-        """
-        Properties for creating a custom image from a VHD.
-        """
-        os_type: pulumi.Input[Union[_builtins.str, 'CustomImageOsType']]
-        """
-        The OS type of the custom image (i.e. Windows, Linux)
-        """
-        image_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image name.
-        """
-        sys_prep: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether sysprep has been run on the VHD.
-        """
-elif False:
-    CustomImagePropertiesCustomArgsDict: TypeAlias = Mapping[str, Any]
+class CustomImagePropertiesCustomArgsDict(TypedDict):
+    """
+    Properties for creating a custom image from a VHD.
+    """
+    os_type: pulumi.Input[Union[_builtins.str, 'CustomImageOsType']]
+    """
+    The OS type of the custom image (i.e. Windows, Linux)
+    """
+    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image name.
+    """
+    sys_prep: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether sysprep has been run on the VHD.
+    """
 
 @pulumi.input_type
 class CustomImagePropertiesCustomArgs:
@@ -496,6 +481,7 @@ class CustomImagePropertiesCustomArgs:
                  sys_prep: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Properties for creating a custom image from a VHD.
+
         :param pulumi.Input[Union[_builtins.str, 'CustomImageOsType']] os_type: The OS type of the custom image (i.e. Windows, Linux)
         :param pulumi.Input[_builtins.str] image_name: The image name.
         :param pulumi.Input[_builtins.bool] sys_prep: Indicates whether sysprep has been run on the VHD.
@@ -543,25 +529,22 @@ class CustomImagePropertiesCustomArgs:
         pulumi.set(self, "sys_prep", value)
 
 
-if not MYPY:
-    class CustomImagePropertiesFromPlanArgsDict(TypedDict):
-        """
-        Properties for plan on a custom image.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the plan, equivalent to name of the plan
-        """
-        offer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The offer for the plan from the marketplace image the custom image is derived from
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher for the plan from the marketplace image the custom image is derived from
-        """
-elif False:
-    CustomImagePropertiesFromPlanArgsDict: TypeAlias = Mapping[str, Any]
+class CustomImagePropertiesFromPlanArgsDict(TypedDict):
+    """
+    Properties for plan on a custom image.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the plan, equivalent to name of the plan
+    """
+    offer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The offer for the plan from the marketplace image the custom image is derived from
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher for the plan from the marketplace image the custom image is derived from
+    """
 
 @pulumi.input_type
 class CustomImagePropertiesFromPlanArgs:
@@ -571,6 +554,7 @@ class CustomImagePropertiesFromPlanArgs:
                  publisher: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties for plan on a custom image.
+
         :param pulumi.Input[_builtins.str] id: The id of the plan, equivalent to name of the plan
         :param pulumi.Input[_builtins.str] offer: The offer for the plan from the marketplace image the custom image is derived from
         :param pulumi.Input[_builtins.str] publisher: The publisher for the plan from the marketplace image the custom image is derived from
@@ -619,25 +603,22 @@ class CustomImagePropertiesFromPlanArgs:
         pulumi.set(self, "publisher", value)
 
 
-if not MYPY:
-    class CustomImagePropertiesFromVmArgsDict(TypedDict):
-        """
-        Properties for creating a custom image from a virtual machine.
-        """
-        linux_os_info: NotRequired[pulumi.Input['LinuxOsInfoArgsDict']]
-        """
-        The Linux OS information of the VM.
-        """
-        source_vm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The source vm identifier.
-        """
-        windows_os_info: NotRequired[pulumi.Input['WindowsOsInfoArgsDict']]
-        """
-        The Windows OS information of the VM.
-        """
-elif False:
-    CustomImagePropertiesFromVmArgsDict: TypeAlias = Mapping[str, Any]
+class CustomImagePropertiesFromVmArgsDict(TypedDict):
+    """
+    Properties for creating a custom image from a virtual machine.
+    """
+    linux_os_info: NotRequired[pulumi.Input['LinuxOsInfoArgsDict']]
+    """
+    The Linux OS information of the VM.
+    """
+    source_vm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source vm identifier.
+    """
+    windows_os_info: NotRequired[pulumi.Input['WindowsOsInfoArgsDict']]
+    """
+    The Windows OS information of the VM.
+    """
 
 @pulumi.input_type
 class CustomImagePropertiesFromVmArgs:
@@ -647,6 +628,7 @@ class CustomImagePropertiesFromVmArgs:
                  windows_os_info: Optional[pulumi.Input['WindowsOsInfoArgs']] = None):
         """
         Properties for creating a custom image from a virtual machine.
+
         :param pulumi.Input['LinuxOsInfoArgs'] linux_os_info: The Linux OS information of the VM.
         :param pulumi.Input[_builtins.str] source_vm_id: The source vm identifier.
         :param pulumi.Input['WindowsOsInfoArgs'] windows_os_info: The Windows OS information of the VM.
@@ -695,25 +677,22 @@ class CustomImagePropertiesFromVmArgs:
         pulumi.set(self, "windows_os_info", value)
 
 
-if not MYPY:
-    class DataDiskPropertiesArgsDict(TypedDict):
-        """
-        Request body for adding a new or existing data disk to a virtual machine.
-        """
-        attach_new_data_disk_options: NotRequired[pulumi.Input['AttachNewDataDiskOptionsArgsDict']]
-        """
-        Specifies options to attach a new disk to the virtual machine.
-        """
-        existing_lab_disk_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the existing lab disk id to attach to virtual machine.
-        """
-        host_caching: NotRequired[pulumi.Input[Union[_builtins.str, 'HostCachingOptions']]]
-        """
-        Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
-        """
-elif False:
-    DataDiskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataDiskPropertiesArgsDict(TypedDict):
+    """
+    Request body for adding a new or existing data disk to a virtual machine.
+    """
+    attach_new_data_disk_options: NotRequired[pulumi.Input['AttachNewDataDiskOptionsArgsDict']]
+    """
+    Specifies options to attach a new disk to the virtual machine.
+    """
+    existing_lab_disk_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the existing lab disk id to attach to virtual machine.
+    """
+    host_caching: NotRequired[pulumi.Input[Union[_builtins.str, 'HostCachingOptions']]]
+    """
+    Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+    """
 
 @pulumi.input_type
 class DataDiskPropertiesArgs:
@@ -723,6 +702,7 @@ class DataDiskPropertiesArgs:
                  host_caching: Optional[pulumi.Input[Union[_builtins.str, 'HostCachingOptions']]] = None):
         """
         Request body for adding a new or existing data disk to a virtual machine.
+
         :param pulumi.Input['AttachNewDataDiskOptionsArgs'] attach_new_data_disk_options: Specifies options to attach a new disk to the virtual machine.
         :param pulumi.Input[_builtins.str] existing_lab_disk_id: Specifies the existing lab disk id to attach to virtual machine.
         :param pulumi.Input[Union[_builtins.str, 'HostCachingOptions']] host_caching: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
@@ -771,21 +751,18 @@ class DataDiskPropertiesArgs:
         pulumi.set(self, "host_caching", value)
 
 
-if not MYPY:
-    class DataDiskStorageTypeInfoArgsDict(TypedDict):
-        """
-        Storage information about the data disks present in the custom image
-        """
-        lun: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Disk Lun
-        """
-        storage_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
-        """
-        Disk Storage Type
-        """
-elif False:
-    DataDiskStorageTypeInfoArgsDict: TypeAlias = Mapping[str, Any]
+class DataDiskStorageTypeInfoArgsDict(TypedDict):
+    """
+    Storage information about the data disks present in the custom image
+    """
+    lun: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Disk Lun
+    """
+    storage_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
+    """
+    Disk Storage Type
+    """
 
 @pulumi.input_type
 class DataDiskStorageTypeInfoArgs:
@@ -794,6 +771,7 @@ class DataDiskStorageTypeInfoArgs:
                  storage_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None):
         """
         Storage information about the data disks present in the custom image
+
         :param pulumi.Input[_builtins.str] lun: Disk Lun
         :param pulumi.Input[Union[_builtins.str, 'StorageType']] storage_type: Disk Storage Type
         """
@@ -827,17 +805,14 @@ class DataDiskStorageTypeInfoArgs:
         pulumi.set(self, "storage_type", value)
 
 
-if not MYPY:
-    class DayDetailsArgsDict(TypedDict):
-        """
-        Properties of a daily schedule.
-        """
-        time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time of day the schedule will occur.
-        """
-elif False:
-    DayDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DayDetailsArgsDict(TypedDict):
+    """
+    Properties of a daily schedule.
+    """
+    time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time of day the schedule will occur.
+    """
 
 @pulumi.input_type
 class DayDetailsArgs:
@@ -845,6 +820,7 @@ class DayDetailsArgs:
                  time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a daily schedule.
+
         :param pulumi.Input[_builtins.str] time: The time of day the schedule will occur.
         """
         if time is not None:
@@ -863,21 +839,18 @@ class DayDetailsArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class EnvironmentDeploymentPropertiesArgsDict(TypedDict):
-        """
-        Properties of an environment deployment.
-        """
-        arm_template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Resource Manager template's identifier.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgsDict']]]]
-        """
-        The parameters of the Azure Resource Manager template.
-        """
-elif False:
-    EnvironmentDeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentDeploymentPropertiesArgsDict(TypedDict):
+    """
+    Properties of an environment deployment.
+    """
+    arm_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Resource Manager template's identifier.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgsDict']]]]
+    """
+    The parameters of the Azure Resource Manager template.
+    """
 
 @pulumi.input_type
 class EnvironmentDeploymentPropertiesArgs:
@@ -886,6 +859,7 @@ class EnvironmentDeploymentPropertiesArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]]] = None):
         """
         Properties of an environment deployment.
+
         :param pulumi.Input[_builtins.str] arm_template_id: The Azure Resource Manager template's identifier.
         :param pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterPropertiesArgs']]] parameters: The parameters of the Azure Resource Manager template.
         """
@@ -919,17 +893,14 @@ class EnvironmentDeploymentPropertiesArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class EventArgsDict(TypedDict):
-        """
-        An event to be notified for.
-        """
-        event_name: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']]]
-        """
-        The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
-        """
-elif False:
-    EventArgsDict: TypeAlias = Mapping[str, Any]
+class EventArgsDict(TypedDict):
+    """
+    An event to be notified for.
+    """
+    event_name: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']]]
+    """
+    The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+    """
 
 @pulumi.input_type
 class EventArgs:
@@ -937,6 +908,7 @@ class EventArgs:
                  event_name: Optional[pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']]] = None):
         """
         An event to be notified for.
+
         :param pulumi.Input[Union[_builtins.str, 'NotificationChannelEventType']] event_name: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
         if event_name is not None:
@@ -955,17 +927,14 @@ class EventArgs:
         pulumi.set(self, "event_name", value)
 
 
-if not MYPY:
-    class FormulaPropertiesFromVmArgsDict(TypedDict):
-        """
-        Information about a VM from which a formula is to be created.
-        """
-        lab_vm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the VM from which a formula is to be created.
-        """
-elif False:
-    FormulaPropertiesFromVmArgsDict: TypeAlias = Mapping[str, Any]
+class FormulaPropertiesFromVmArgsDict(TypedDict):
+    """
+    Information about a VM from which a formula is to be created.
+    """
+    lab_vm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the VM from which a formula is to be created.
+    """
 
 @pulumi.input_type
 class FormulaPropertiesFromVmArgs:
@@ -973,6 +942,7 @@ class FormulaPropertiesFromVmArgs:
                  lab_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about a VM from which a formula is to be created.
+
         :param pulumi.Input[_builtins.str] lab_vm_id: The identifier of the VM from which a formula is to be created.
         """
         if lab_vm_id is not None:
@@ -991,33 +961,30 @@ class FormulaPropertiesFromVmArgs:
         pulumi.set(self, "lab_vm_id", value)
 
 
-if not MYPY:
-    class GalleryImageReferenceArgsDict(TypedDict):
-        """
-        The reference information for an Azure Marketplace image.
-        """
-        offer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The offer of the gallery image.
-        """
-        os_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OS type of the gallery image.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher of the gallery image.
-        """
-        sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU of the gallery image.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the gallery image.
-        """
-elif False:
-    GalleryImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class GalleryImageReferenceArgsDict(TypedDict):
+    """
+    The reference information for an Azure Marketplace image.
+    """
+    offer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The offer of the gallery image.
+    """
+    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OS type of the gallery image.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher of the gallery image.
+    """
+    sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU of the gallery image.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the gallery image.
+    """
 
 @pulumi.input_type
 class GalleryImageReferenceArgs:
@@ -1029,6 +996,7 @@ class GalleryImageReferenceArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The reference information for an Azure Marketplace image.
+
         :param pulumi.Input[_builtins.str] offer: The offer of the gallery image.
         :param pulumi.Input[_builtins.str] os_type: The OS type of the gallery image.
         :param pulumi.Input[_builtins.str] publisher: The publisher of the gallery image.
@@ -1107,17 +1075,14 @@ class GalleryImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class HourDetailsArgsDict(TypedDict):
-        """
-        Properties of an hourly schedule.
-        """
-        minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minutes of the hour the schedule will run.
-        """
-elif False:
-    HourDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class HourDetailsArgsDict(TypedDict):
+    """
+    Properties of an hourly schedule.
+    """
+    minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minutes of the hour the schedule will run.
+    """
 
 @pulumi.input_type
 class HourDetailsArgs:
@@ -1125,6 +1090,7 @@ class HourDetailsArgs:
                  minute: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Properties of an hourly schedule.
+
         :param pulumi.Input[_builtins.int] minute: Minutes of the hour the schedule will run.
         """
         if minute is not None:
@@ -1143,29 +1109,26 @@ class HourDetailsArgs:
         pulumi.set(self, "minute", value)
 
 
-if not MYPY:
-    class IdentityPropertiesArgsDict(TypedDict):
-        """
-        Properties of a managed identity
-        """
-        client_secret_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client secret URL of the identity.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal id of resource identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tenant identifier of resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
-        """
-        Managed identity.
-        """
-elif False:
-    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPropertiesArgsDict(TypedDict):
+    """
+    Properties of a managed identity
+    """
+    client_secret_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client secret URL of the identity.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal id of resource identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenant identifier of resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
+    """
+    Managed identity.
+    """
 
 @pulumi.input_type
 class IdentityPropertiesArgs:
@@ -1176,6 +1139,7 @@ class IdentityPropertiesArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]] = None):
         """
         Properties of a managed identity
+
         :param pulumi.Input[_builtins.str] client_secret_url: The client secret URL of the identity.
         :param pulumi.Input[_builtins.str] principal_id: The principal id of resource identity.
         :param pulumi.Input[_builtins.str] tenant_id: The tenant identifier of resource.
@@ -1239,25 +1203,22 @@ class IdentityPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class InboundNatRuleArgsDict(TypedDict):
-        """
-        A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
-        """
-        backend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port to which the external traffic will be redirected.
-        """
-        frontend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-        """
-        transport_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]
-        """
-        The transport protocol for the endpoint.
-        """
-elif False:
-    InboundNatRuleArgsDict: TypeAlias = Mapping[str, Any]
+class InboundNatRuleArgsDict(TypedDict):
+    """
+    A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+    """
+    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port to which the external traffic will be redirected.
+    """
+    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+    """
+    transport_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]
+    """
+    The transport protocol for the endpoint.
+    """
 
 @pulumi.input_type
 class InboundNatRuleArgs:
@@ -1267,6 +1228,7 @@ class InboundNatRuleArgs:
                  transport_protocol: Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]] = None):
         """
         A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+
         :param pulumi.Input[_builtins.int] backend_port: The port to which the external traffic will be redirected.
         :param pulumi.Input[_builtins.int] frontend_port: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
         :param pulumi.Input[Union[_builtins.str, 'TransportProtocol']] transport_protocol: The transport protocol for the endpoint.
@@ -1315,33 +1277,30 @@ class InboundNatRuleArgs:
         pulumi.set(self, "transport_protocol", value)
 
 
-if not MYPY:
-    class LabAnnouncementPropertiesArgsDict(TypedDict):
-        """
-        Properties of a lab's announcement banner
-        """
-        enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
-        """
-        Is the lab announcement active/enabled at this time?
-        """
-        expiration_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time at which the announcement expires (null for never)
-        """
-        expired: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Has this announcement expired?
-        """
-        markdown: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-        """
-        title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plain text title for the lab announcement
-        """
-elif False:
-    LabAnnouncementPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LabAnnouncementPropertiesArgsDict(TypedDict):
+    """
+    Properties of a lab's announcement banner
+    """
+    enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    """
+    Is the lab announcement active/enabled at this time?
+    """
+    expiration_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time at which the announcement expires (null for never)
+    """
+    expired: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Has this announcement expired?
+    """
+    markdown: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+    """
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plain text title for the lab announcement
+    """
 
 @pulumi.input_type
 class LabAnnouncementPropertiesArgs:
@@ -1353,6 +1312,7 @@ class LabAnnouncementPropertiesArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a lab's announcement banner
+
         :param pulumi.Input[Union[_builtins.str, 'EnableStatus']] enabled: Is the lab announcement active/enabled at this time?
         :param pulumi.Input[_builtins.str] expiration_date: The time at which the announcement expires (null for never)
         :param pulumi.Input[_builtins.bool] expired: Has this announcement expired?
@@ -1431,21 +1391,18 @@ class LabAnnouncementPropertiesArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class LabSupportPropertiesArgsDict(TypedDict):
-        """
-        Properties of a lab's support banner
-        """
-        enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
-        """
-        Is the lab support banner active/enabled at this time?
-        """
-        markdown: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-        """
-elif False:
-    LabSupportPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LabSupportPropertiesArgsDict(TypedDict):
+    """
+    Properties of a lab's support banner
+    """
+    enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    """
+    Is the lab support banner active/enabled at this time?
+    """
+    markdown: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+    """
 
 @pulumi.input_type
 class LabSupportPropertiesArgs:
@@ -1454,6 +1411,7 @@ class LabSupportPropertiesArgs:
                  markdown: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a lab's support banner
+
         :param pulumi.Input[Union[_builtins.str, 'EnableStatus']] enabled: Is the lab support banner active/enabled at this time?
         :param pulumi.Input[_builtins.str] markdown: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
         """
@@ -1487,121 +1445,118 @@ class LabSupportPropertiesArgs:
         pulumi.set(self, "markdown", value)
 
 
-if not MYPY:
-    class LabVirtualMachineCreationParameterArgsDict(TypedDict):
-        """
-        Properties for creating a virtual machine.
-        """
-        allow_claim: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether another user can take ownership of the virtual machine
-        """
-        artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgsDict']]]]
-        """
-        The artifacts to be installed on the virtual machine.
-        """
-        bulk_creation_parameters: NotRequired[pulumi.Input['BulkCreationParametersArgsDict']]
-        """
-        The number of virtual machine instances to create.
-        """
-        created_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The creation date of the virtual machine.
-        """
-        custom_image_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The custom image identifier of the virtual machine.
-        """
-        data_disk_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgsDict']]]]
-        """
-        New or existing data disks to attach to the virtual machine after creation
-        """
-        disallow_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the virtual machine is to be created without a public IP address.
-        """
-        environment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the environment that contains this virtual machine, if any.
-        """
-        expiration_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The expiration date for VM.
-        """
-        gallery_image_reference: NotRequired[pulumi.Input['GalleryImageReferenceArgsDict']]
-        """
-        The Microsoft Azure Marketplace image reference of the virtual machine.
-        """
-        is_authentication_with_ssh_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether this virtual machine uses an SSH key for authentication.
-        """
-        lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The lab subnet name of the virtual machine.
-        """
-        lab_virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The lab virtual network identifier of the virtual machine.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location of the new virtual machine or environment
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the virtual machine or environment
-        """
-        network_interface: NotRequired[pulumi.Input['NetworkInterfacePropertiesArgsDict']]
-        """
-        The network interface properties.
-        """
-        notes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The notes of the virtual machine.
-        """
-        owner_object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object identifier of the owner of the virtual machine.
-        """
-        owner_user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user principal name of the virtual machine owner.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password of the virtual machine administrator.
-        """
-        plan_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the plan associated with the virtual machine image
-        """
-        schedule_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgsDict']]]]
-        """
-        Virtual Machine schedules to be created
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The size of the virtual machine.
-        """
-        ssh_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SSH key of the virtual machine administrator.
-        """
-        storage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage type to use for virtual machine (i.e. Standard, Premium).
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The tags of the resource.
-        """
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user name of the virtual machine.
-        """
-elif False:
-    LabVirtualMachineCreationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class LabVirtualMachineCreationParameterArgsDict(TypedDict):
+    """
+    Properties for creating a virtual machine.
+    """
+    allow_claim: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether another user can take ownership of the virtual machine
+    """
+    artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgsDict']]]]
+    """
+    The artifacts to be installed on the virtual machine.
+    """
+    bulk_creation_parameters: NotRequired[pulumi.Input['BulkCreationParametersArgsDict']]
+    """
+    The number of virtual machine instances to create.
+    """
+    created_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The creation date of the virtual machine.
+    """
+    custom_image_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The custom image identifier of the virtual machine.
+    """
+    data_disk_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgsDict']]]]
+    """
+    New or existing data disks to attach to the virtual machine after creation
+    """
+    disallow_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the virtual machine is to be created without a public IP address.
+    """
+    environment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the environment that contains this virtual machine, if any.
+    """
+    expiration_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The expiration date for VM.
+    """
+    gallery_image_reference: NotRequired[pulumi.Input['GalleryImageReferenceArgsDict']]
+    """
+    The Microsoft Azure Marketplace image reference of the virtual machine.
+    """
+    is_authentication_with_ssh_key: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether this virtual machine uses an SSH key for authentication.
+    """
+    lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The lab subnet name of the virtual machine.
+    """
+    lab_virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The lab virtual network identifier of the virtual machine.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location of the new virtual machine or environment
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the virtual machine or environment
+    """
+    network_interface: NotRequired[pulumi.Input['NetworkInterfacePropertiesArgsDict']]
+    """
+    The network interface properties.
+    """
+    notes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The notes of the virtual machine.
+    """
+    owner_object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object identifier of the owner of the virtual machine.
+    """
+    owner_user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user principal name of the virtual machine owner.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password of the virtual machine administrator.
+    """
+    plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the plan associated with the virtual machine image
+    """
+    schedule_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgsDict']]]]
+    """
+    Virtual Machine schedules to be created
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The size of the virtual machine.
+    """
+    ssh_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SSH key of the virtual machine administrator.
+    """
+    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage type to use for virtual machine (i.e. Standard, Premium).
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The tags of the resource.
+    """
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user name of the virtual machine.
+    """
 
 @pulumi.input_type
 class LabVirtualMachineCreationParameterArgs:
@@ -1635,6 +1590,7 @@ class LabVirtualMachineCreationParameterArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties for creating a virtual machine.
+
         :param pulumi.Input[_builtins.bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input['BulkCreationParametersArgs'] bulk_creation_parameters: The number of virtual machine instances to create.
@@ -2051,17 +2007,14 @@ class LabVirtualMachineCreationParameterArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class LinuxOsInfoArgsDict(TypedDict):
-        """
-        Information about a Linux OS.
-        """
-        linux_os_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LinuxOsState']]]
-        """
-        The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
-        """
-elif False:
-    LinuxOsInfoArgsDict: TypeAlias = Mapping[str, Any]
+class LinuxOsInfoArgsDict(TypedDict):
+    """
+    Information about a Linux OS.
+    """
+    linux_os_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LinuxOsState']]]
+    """
+    The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
+    """
 
 @pulumi.input_type
 class LinuxOsInfoArgs:
@@ -2069,6 +2022,7 @@ class LinuxOsInfoArgs:
                  linux_os_state: Optional[pulumi.Input[Union[_builtins.str, 'LinuxOsState']]] = None):
         """
         Information about a Linux OS.
+
         :param pulumi.Input[Union[_builtins.str, 'LinuxOsState']] linux_os_state: The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
         """
         if linux_os_state is not None:
@@ -2087,49 +2041,46 @@ class LinuxOsInfoArgs:
         pulumi.set(self, "linux_os_state", value)
 
 
-if not MYPY:
-    class NetworkInterfacePropertiesArgsDict(TypedDict):
-        """
-        Properties of a network interface.
-        """
-        dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS name.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IP address.
-        """
-        public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public IP address.
-        """
-        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the public IP address.
-        """
-        rdp_authority: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-        """
-        shared_public_ip_address_configuration: NotRequired[pulumi.Input['SharedPublicIpAddressConfigurationArgsDict']]
-        """
-        The configuration for sharing a public IP address across multiple virtual machines.
-        """
-        ssh_authority: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the sub net.
-        """
-        virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the virtual network.
-        """
-elif False:
-    NetworkInterfacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfacePropertiesArgsDict(TypedDict):
+    """
+    Properties of a network interface.
+    """
+    dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS name.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IP address.
+    """
+    public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public IP address.
+    """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the public IP address.
+    """
+    rdp_authority: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+    """
+    shared_public_ip_address_configuration: NotRequired[pulumi.Input['SharedPublicIpAddressConfigurationArgsDict']]
+    """
+    The configuration for sharing a public IP address across multiple virtual machines.
+    """
+    ssh_authority: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the sub net.
+    """
+    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the virtual network.
+    """
 
 @pulumi.input_type
 class NetworkInterfacePropertiesArgs:
@@ -2145,6 +2096,7 @@ class NetworkInterfacePropertiesArgs:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a network interface.
+
         :param pulumi.Input[_builtins.str] dns_name: The DNS name.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IP address.
         :param pulumi.Input[_builtins.str] public_ip_address: The public IP address.
@@ -2283,33 +2235,30 @@ class NetworkInterfacePropertiesArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
-if not MYPY:
-    class NotificationSettingsArgsDict(TypedDict):
-        """
-        Notification settings for a schedule.
-        """
-        email_recipient: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-        """
-        notification_locale: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The locale to use when sending a notification (fallback for unsupported languages is EN).
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
-        """
-        If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-        """
-        time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in minutes before event at which notification will be sent.
-        """
-        webhook_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The webhook URL to which the notification will be sent.
-        """
-elif False:
-    NotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationSettingsArgsDict(TypedDict):
+    """
+    Notification settings for a schedule.
+    """
+    email_recipient: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+    """
+    notification_locale: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The locale to use when sending a notification (fallback for unsupported languages is EN).
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    """
+    If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+    """
+    time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in minutes before event at which notification will be sent.
+    """
+    webhook_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The webhook URL to which the notification will be sent.
+    """
 
 @pulumi.input_type
 class NotificationSettingsArgs:
@@ -2321,6 +2270,7 @@ class NotificationSettingsArgs:
                  webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Notification settings for a schedule.
+
         :param pulumi.Input[_builtins.str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         :param pulumi.Input[_builtins.str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
         :param pulumi.Input[Union[_builtins.str, 'EnableStatus']] status: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
@@ -2401,21 +2351,18 @@ class NotificationSettingsArgs:
         pulumi.set(self, "webhook_url", value)
 
 
-if not MYPY:
-    class PortArgsDict(TypedDict):
-        """
-        Properties of a network port.
-        """
-        backend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Backend port of the target virtual machine.
-        """
-        transport_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]
-        """
-        Protocol type of the port.
-        """
-elif False:
-    PortArgsDict: TypeAlias = Mapping[str, Any]
+class PortArgsDict(TypedDict):
+    """
+    Properties of a network port.
+    """
+    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Backend port of the target virtual machine.
+    """
+    transport_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]]
+    """
+    Protocol type of the port.
+    """
 
 @pulumi.input_type
 class PortArgs:
@@ -2424,6 +2371,7 @@ class PortArgs:
                  transport_protocol: Optional[pulumi.Input[Union[_builtins.str, 'TransportProtocol']]] = None):
         """
         Properties of a network port.
+
         :param pulumi.Input[_builtins.int] backend_port: Backend port of the target virtual machine.
         :param pulumi.Input[Union[_builtins.str, 'TransportProtocol']] transport_protocol: Protocol type of the port.
         """
@@ -2457,53 +2405,50 @@ class PortArgs:
         pulumi.set(self, "transport_protocol", value)
 
 
-if not MYPY:
-    class ScheduleCreationParameterArgsDict(TypedDict):
-        """
-        Properties for creating a schedule.
-        """
-        daily_recurrence: NotRequired[pulumi.Input['DayDetailsArgsDict']]
-        """
-        If the schedule will occur once each day of the week, specify the daily recurrence.
-        """
-        hourly_recurrence: NotRequired[pulumi.Input['HourDetailsArgsDict']]
-        """
-        If the schedule will occur multiple times a day, specify the hourly recurrence.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the virtual machine or environment
-        """
-        notification_settings: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
-        """
-        Notification settings.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
-        """
-        The status of the schedule (i.e. Enabled, Disabled)
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The tags of the resource.
-        """
-        target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID to which the schedule belongs
-        """
-        task_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        """
-        time_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
-        """
-        weekly_recurrence: NotRequired[pulumi.Input['WeekDetailsArgsDict']]
-        """
-        If the schedule will occur only some days of the week, specify the weekly recurrence.
-        """
-elif False:
-    ScheduleCreationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleCreationParameterArgsDict(TypedDict):
+    """
+    Properties for creating a schedule.
+    """
+    daily_recurrence: NotRequired[pulumi.Input['DayDetailsArgsDict']]
+    """
+    If the schedule will occur once each day of the week, specify the daily recurrence.
+    """
+    hourly_recurrence: NotRequired[pulumi.Input['HourDetailsArgsDict']]
+    """
+    If the schedule will occur multiple times a day, specify the hourly recurrence.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the virtual machine or environment
+    """
+    notification_settings: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
+    """
+    Notification settings.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'EnableStatus']]]
+    """
+    The status of the schedule (i.e. Enabled, Disabled)
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The tags of the resource.
+    """
+    target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID to which the schedule belongs
+    """
+    task_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+    """
+    time_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
+    """
+    weekly_recurrence: NotRequired[pulumi.Input['WeekDetailsArgsDict']]
+    """
+    If the schedule will occur only some days of the week, specify the weekly recurrence.
+    """
 
 @pulumi.input_type
 class ScheduleCreationParameterArgs:
@@ -2520,6 +2465,7 @@ class ScheduleCreationParameterArgs:
                  weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
         """
         Properties for creating a schedule.
+
         :param pulumi.Input['DayDetailsArgs'] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input['HourDetailsArgs'] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[_builtins.str] name: The name of the virtual machine or environment
@@ -2675,17 +2621,14 @@ class ScheduleCreationParameterArgs:
         pulumi.set(self, "weekly_recurrence", value)
 
 
-if not MYPY:
-    class SharedPublicIpAddressConfigurationArgsDict(TypedDict):
-        """
-        Properties of a virtual machine that determine how it is connected to a load balancer.
-        """
-        inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgsDict']]]]
-        """
-        The incoming NAT rules
-        """
-elif False:
-    SharedPublicIpAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SharedPublicIpAddressConfigurationArgsDict(TypedDict):
+    """
+    Properties of a virtual machine that determine how it is connected to a load balancer.
+    """
+    inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgsDict']]]]
+    """
+    The incoming NAT rules
+    """
 
 @pulumi.input_type
 class SharedPublicIpAddressConfigurationArgs:
@@ -2693,6 +2636,7 @@ class SharedPublicIpAddressConfigurationArgs:
                  inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None):
         """
         Properties of a virtual machine that determine how it is connected to a load balancer.
+
         :param pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]] inbound_nat_rules: The incoming NAT rules
         """
         if inbound_nat_rules is not None:
@@ -2711,37 +2655,34 @@ class SharedPublicIpAddressConfigurationArgs:
         pulumi.set(self, "inbound_nat_rules", value)
 
 
-if not MYPY:
-    class SubnetOverrideArgsDict(TypedDict):
-        """
-        Property overrides on a subnet of a virtual network.
-        """
-        lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name given to the subnet within the lab.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the subnet.
-        """
-        shared_public_ip_address_configuration: NotRequired[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgsDict']]
-        """
-        Properties that virtual machines on this subnet will share.
-        """
-        use_in_vm_creation_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
-        """
-        Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-        """
-        use_public_ip_address_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
-        """
-        Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-        """
-        virtual_network_pool_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The virtual network pool associated with this subnet.
-        """
-elif False:
-    SubnetOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetOverrideArgsDict(TypedDict):
+    """
+    Property overrides on a subnet of a virtual network.
+    """
+    lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name given to the subnet within the lab.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the subnet.
+    """
+    shared_public_ip_address_configuration: NotRequired[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgsDict']]
+    """
+    Properties that virtual machines on this subnet will share.
+    """
+    use_in_vm_creation_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
+    """
+    Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
+    """
+    use_public_ip_address_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
+    """
+    Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
+    """
+    virtual_network_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The virtual network pool associated with this subnet.
+    """
 
 @pulumi.input_type
 class SubnetOverrideArgs:
@@ -2754,6 +2695,7 @@ class SubnetOverrideArgs:
                  virtual_network_pool_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Property overrides on a subnet of a virtual network.
+
         :param pulumi.Input[_builtins.str] lab_subnet_name: The name given to the subnet within the lab.
         :param pulumi.Input[_builtins.str] resource_id: The resource ID of the subnet.
         :param pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgs'] shared_public_ip_address_configuration: Properties that virtual machines on this subnet will share.
@@ -2847,17 +2789,14 @@ class SubnetOverrideArgs:
         pulumi.set(self, "virtual_network_pool_name", value)
 
 
-if not MYPY:
-    class SubnetSharedPublicIpAddressConfigurationArgsDict(TypedDict):
-        """
-        Configuration for public IP address sharing.
-        """
-        allowed_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortArgsDict']]]]
-        """
-        Backend ports that virtual machines on this subnet are allowed to expose
-        """
-elif False:
-    SubnetSharedPublicIpAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetSharedPublicIpAddressConfigurationArgsDict(TypedDict):
+    """
+    Configuration for public IP address sharing.
+    """
+    allowed_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortArgsDict']]]]
+    """
+    Backend ports that virtual machines on this subnet are allowed to expose
+    """
 
 @pulumi.input_type
 class SubnetSharedPublicIpAddressConfigurationArgs:
@@ -2865,6 +2804,7 @@ class SubnetSharedPublicIpAddressConfigurationArgs:
                  allowed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]] = None):
         """
         Configuration for public IP address sharing.
+
         :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
         """
         if allowed_ports is not None:
@@ -2883,25 +2823,22 @@ class SubnetSharedPublicIpAddressConfigurationArgs:
         pulumi.set(self, "allowed_ports", value)
 
 
-if not MYPY:
-    class SubnetArgsDict(TypedDict):
-        """
-        Subnet information.
-        """
-        allow_public_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
-        """
-        The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-        """
-        lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the subnet as seen in the lab.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the subnet.
-        """
-elif False:
-    SubnetArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetArgsDict(TypedDict):
+    """
+    Subnet information.
+    """
+    allow_public_ip: NotRequired[pulumi.Input[Union[_builtins.str, 'UsagePermissionType']]]
+    """
+    The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+    """
+    lab_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the subnet as seen in the lab.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the subnet.
+    """
 
 @pulumi.input_type
 class SubnetArgs:
@@ -2911,6 +2848,7 @@ class SubnetArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Subnet information.
+
         :param pulumi.Input[Union[_builtins.str, 'UsagePermissionType']] allow_public_ip: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
         :param pulumi.Input[_builtins.str] lab_subnet_name: The name of the subnet as seen in the lab.
         :param pulumi.Input[_builtins.str] resource_id: The resource ID of the subnet.
@@ -2959,33 +2897,30 @@ class SubnetArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class UserIdentityArgsDict(TypedDict):
-        """
-        Identity attributes of a lab user.
-        """
-        app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set to the app Id of the client JWT making the request.
-        """
-        object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-        """
-        principal_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set to the principal name / UPN of the client JWT making the request.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set to the tenant ID of the client JWT making the request.
-        """
-elif False:
-    UserIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class UserIdentityArgsDict(TypedDict):
+    """
+    Identity attributes of a lab user.
+    """
+    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set to the app Id of the client JWT making the request.
+    """
+    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
+    """
+    principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set to the principal name / UPN of the client JWT making the request.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set to the tenant ID of the client JWT making the request.
+    """
 
 @pulumi.input_type
 class UserIdentityArgs:
@@ -2997,6 +2932,7 @@ class UserIdentityArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Identity attributes of a lab user.
+
         :param pulumi.Input[_builtins.str] app_id: Set to the app Id of the client JWT making the request.
         :param pulumi.Input[_builtins.str] object_id: Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
         :param pulumi.Input[_builtins.str] principal_id: Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
@@ -3075,21 +3011,18 @@ class UserIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class UserSecretStoreArgsDict(TypedDict):
-        """
-        Properties of a user's secret store.
-        """
-        key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the user's Key vault.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the user's Key vault.
-        """
-elif False:
-    UserSecretStoreArgsDict: TypeAlias = Mapping[str, Any]
+class UserSecretStoreArgsDict(TypedDict):
+    """
+    Properties of a user's secret store.
+    """
+    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the user's Key vault.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the user's Key vault.
+    """
 
 @pulumi.input_type
 class UserSecretStoreArgs:
@@ -3098,6 +3031,7 @@ class UserSecretStoreArgs:
                  key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a user's secret store.
+
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the user's Key vault.
         :param pulumi.Input[_builtins.str] key_vault_uri: The URI of the user's Key vault.
         """
@@ -3131,21 +3065,18 @@ class UserSecretStoreArgs:
         pulumi.set(self, "key_vault_uri", value)
 
 
-if not MYPY:
-    class WeekDetailsArgsDict(TypedDict):
-        """
-        Properties of a weekly schedule.
-        """
-        time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time of the day the schedule will occur.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-        """
-elif False:
-    WeekDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class WeekDetailsArgsDict(TypedDict):
+    """
+    Properties of a weekly schedule.
+    """
+    time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time of the day the schedule will occur.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+    """
 
 @pulumi.input_type
 class WeekDetailsArgs:
@@ -3154,6 +3085,7 @@ class WeekDetailsArgs:
                  weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Properties of a weekly schedule.
+
         :param pulumi.Input[_builtins.str] time: The time of the day the schedule will occur.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] weekdays: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """
@@ -3187,17 +3119,14 @@ class WeekDetailsArgs:
         pulumi.set(self, "weekdays", value)
 
 
-if not MYPY:
-    class WindowsOsInfoArgsDict(TypedDict):
-        """
-        Information about a Windows OS.
-        """
-        windows_os_state: NotRequired[pulumi.Input[Union[_builtins.str, 'WindowsOsState']]]
-        """
-        The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
-        """
-elif False:
-    WindowsOsInfoArgsDict: TypeAlias = Mapping[str, Any]
+class WindowsOsInfoArgsDict(TypedDict):
+    """
+    Information about a Windows OS.
+    """
+    windows_os_state: NotRequired[pulumi.Input[Union[_builtins.str, 'WindowsOsState']]]
+    """
+    The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
+    """
 
 @pulumi.input_type
 class WindowsOsInfoArgs:
@@ -3205,6 +3134,7 @@ class WindowsOsInfoArgs:
                  windows_os_state: Optional[pulumi.Input[Union[_builtins.str, 'WindowsOsState']]] = None):
         """
         Information about a Windows OS.
+
         :param pulumi.Input[Union[_builtins.str, 'WindowsOsState']] windows_os_state: The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
         if windows_os_state is not None:

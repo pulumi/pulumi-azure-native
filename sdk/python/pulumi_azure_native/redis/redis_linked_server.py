@@ -28,6 +28,7 @@ class RedisLinkedServerArgs:
                  linked_server_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedisLinkedServer resource.
+
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
         :param pulumi.Input[_builtins.str] linked_redis_cache_location: Location of the linked redis cache.
         :param pulumi.Input[_builtins.str] name: The name of the Redis cache.
@@ -134,6 +135,7 @@ class RedisLinkedServer(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
@@ -153,6 +155,7 @@ class RedisLinkedServer(pulumi.CustomResource):
         Response to put/get linked server (with properties) for Redis cache.
 
         Uses Azure REST API version 2017-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param RedisLinkedServerArgs args: The arguments to use to populate this resource's properties.

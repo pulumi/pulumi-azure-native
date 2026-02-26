@@ -159,6 +159,7 @@ class AFDDomainHttpsCustomizedCipherSuiteSetResponse(dict):
                  cipher_suite_set_for_tls13: Optional[Sequence[_builtins.str]] = None):
         """
         Customized cipher suite set object that will be used for Https when cipherSuiteSetType is Customized.
+
         :param Sequence[_builtins.str] cipher_suite_set_for_tls12: Cipher suites for TLS 1.2. Required at least one in minimumTlsVersion TLS 1.2.
         :param Sequence[_builtins.str] cipher_suite_set_for_tls13: Cipher suites for TLS 1.3. Required at least one in minimumTlsVersion TLS 1.2, TLS 1.3.
         """
@@ -220,6 +221,7 @@ class AFDDomainHttpsParametersResponse(dict):
                  secret: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         The JSON object that contains the properties to secure a domain.
+
         :param _builtins.str certificate_type: Defines the source of the SSL certificate.
         :param _builtins.str cipher_suite_set_type: cipher suite set type that will be used for Https
         :param 'AFDDomainHttpsCustomizedCipherSuiteSetResponse' customized_cipher_suite_set: Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
@@ -304,6 +306,7 @@ class ActivatedResourceReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to another resource along with its state.
+
         :param _builtins.bool is_active: Whether the resource is active or inactive
         :param _builtins.str id: Resource ID.
         """
@@ -360,6 +363,7 @@ class AfdRouteCacheConfigurationResponse(dict):
                  query_string_caching_behavior: Optional[_builtins.str] = None):
         """
         Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+
         :param 'CompressionSettingsResponse' compression_settings: compression settings.
         :param _builtins.str query_parameters: query parameters to include or exclude (comma separated).
         :param _builtins.str query_string_caching_behavior: Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
@@ -406,6 +410,7 @@ class AgentPathResponse(dict):
                  type: _builtins.str):
         """
         Defines a path configuration for a web agent.
+
         :param _builtins.str path: The actual path value.
         :param _builtins.str type: The type of the path.
         """
@@ -467,6 +472,7 @@ class AzureFirstPartyManagedCertificateParametersResponse(dict):
                  subject_alternative_names: Optional[Sequence[_builtins.str]] = None):
         """
         Azure FirstParty Managed Certificate provided by other first party resource providers to enable HTTPS.
+
         :param _builtins.str certificate_authority: Certificate issuing authority.
         :param _builtins.str expiration_date: Certificate expiration date.
         :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{certificateName}
@@ -581,6 +587,7 @@ class CacheConfigurationResponse(dict):
                  query_string_caching_behavior: Optional[_builtins.str] = None):
         """
         Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+
         :param _builtins.str cache_behavior: Caching behavior for the requests
         :param _builtins.str cache_duration: The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
         :param _builtins.str is_compression_enabled: Indicates whether content compression is enabled. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
@@ -674,6 +681,7 @@ class CacheExpirationActionParametersResponse(dict):
                  cache_duration: Optional[_builtins.str] = None):
         """
         Defines the parameters for the cache expiration action.
+
         :param _builtins.str cache_behavior: Caching behavior for the requests
         :param _builtins.str cache_type: The level at which the content needs to be cached.
         :param _builtins.str type_name: 
@@ -752,6 +760,7 @@ class CacheKeyQueryStringActionParametersResponse(dict):
                  query_parameters: Optional[_builtins.str] = None):
         """
         Defines the parameters for the cache-key query string action.
+
         :param _builtins.str query_string_behavior: Caching behavior for the requests
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'.
@@ -817,6 +826,7 @@ class CdnCertificateSourceParametersResponse(dict):
                  type_name: _builtins.str):
         """
         Defines the parameters for using CDN managed certificate for securing custom domain.
+
         :param _builtins.str certificate_type: Type of certificate used
         :param _builtins.str type_name: 
                Expected value is 'CdnCertificateSourceParameters'.
@@ -851,6 +861,7 @@ class CdnEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Defines the ARM Resource ID for the linked endpoints
+
         :param _builtins.str id: ARM Resource ID string.
         """
         if id is not None:
@@ -900,6 +911,7 @@ class CdnManagedHttpsParametersResponse(dict):
                  minimum_tls_version: Optional[_builtins.str] = None):
         """
         Defines the certificate source parameters using CDN managed certificate for enabling SSL.
+
         :param _builtins.str certificate_source: Defines the source of the SSL certificate.
                Expected value is 'Cdn'.
         :param 'CdnCertificateSourceParametersResponse' certificate_source_parameters: Defines the certificate source parameters using CDN managed certificate for enabling SSL.
@@ -980,6 +992,7 @@ class ClientPortMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for ClientPort match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleClientPortConditionParameters'.
@@ -1069,6 +1082,7 @@ class CompressionSettingsResponse(dict):
                  is_compression_enabled: Optional[_builtins.bool] = None):
         """
         settings for compression.
+
         :param Sequence[_builtins.str] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
         :param _builtins.bool is_compression_enabled: Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
         """
@@ -1129,6 +1143,7 @@ class CookiesMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for Cookies match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleCookiesConditionParameters'.
@@ -1209,6 +1224,7 @@ class CustomRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.CustomRuleResponse']] = None):
         """
         Defines contents of custom rules
+
         :param Sequence['CustomRuleResponse'] rules: List of rules
         """
         if rules is not None:
@@ -1255,6 +1271,7 @@ class CustomRuleResponse(dict):
                  enabled_state: Optional[_builtins.str] = None):
         """
         Defines the common attributes for a custom rule that can be included in a waf policy
+
         :param _builtins.str action: Describes what action to be applied when rule matches
         :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param _builtins.str name: Defines the name of the custom rule
@@ -1353,6 +1370,7 @@ class CustomerCertificateParametersResponse(dict):
                  use_latest_version: Optional[_builtins.bool] = None):
         """
         Customer Certificate used for https
+
         :param _builtins.str certificate_authority: Certificate issuing authority.
         :param _builtins.str expiration_date: Certificate expiration date.
         :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
@@ -1480,6 +1498,7 @@ class DeepCreatedCustomDomainResponse(dict):
                  validation_data: Optional[_builtins.str] = None):
         """
         Custom domains created on the CDN endpoint.
+
         :param _builtins.str host_name: The host name of the custom domain. Must be a domain name.
         :param _builtins.str name: Custom domain name.
         :param _builtins.str validation_data: Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
@@ -1548,6 +1567,7 @@ class DeepCreatedOriginGroupResponse(dict):
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[_builtins.int] = None):
         """
         The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+
         :param _builtins.str name: Origin group name which must be unique within the endpoint.
         :param Sequence['ResourceReferenceResponse'] origins: The source of the content being delivered via CDN within given origin group.
         :param 'HealthProbeParametersResponse' health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
@@ -1658,6 +1678,7 @@ class DeepCreatedOriginResponse(dict):
                  weight: Optional[_builtins.int] = None):
         """
         The main origin of CDN content which is added when creating a CDN endpoint.
+
         :param _builtins.str host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
         :param _builtins.str name: Origin name which must be unique within the endpoint.
         :param _builtins.str private_endpoint_status: The approval status for the connection to the Private Link
@@ -1811,6 +1832,7 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
                  parameters: 'outputs.CacheExpirationActionParametersResponse'):
         """
         Defines the cache expiration action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'CacheExpiration'.
         :param 'CacheExpirationActionParametersResponse' parameters: Defines the parameters for the action.
@@ -1846,6 +1868,7 @@ class DeliveryRuleCacheKeyQueryStringActionResponse(dict):
                  parameters: 'outputs.CacheKeyQueryStringActionParametersResponse'):
         """
         Defines the cache-key query string action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'CacheKeyQueryString'.
         :param 'CacheKeyQueryStringActionParametersResponse' parameters: Defines the parameters for the action.
@@ -1881,6 +1904,7 @@ class DeliveryRuleClientPortConditionResponse(dict):
                  parameters: 'outputs.ClientPortMatchConditionParametersResponse'):
         """
         Defines the ClientPort condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'ClientPort'.
         :param 'ClientPortMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -1916,6 +1940,7 @@ class DeliveryRuleCookiesConditionResponse(dict):
                  parameters: 'outputs.CookiesMatchConditionParametersResponse'):
         """
         Defines the Cookies condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'Cookies'.
         :param 'CookiesMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -1951,6 +1976,7 @@ class DeliveryRuleHostNameConditionResponse(dict):
                  parameters: 'outputs.HostNameMatchConditionParametersResponse'):
         """
         Defines the HostName condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'HostName'.
         :param 'HostNameMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -1986,6 +2012,7 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
                  parameters: 'outputs.HttpVersionMatchConditionParametersResponse'):
         """
         Defines the HttpVersion condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'HttpVersion'.
         :param 'HttpVersionMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2021,6 +2048,7 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
                  parameters: 'outputs.IsDeviceMatchConditionParametersResponse'):
         """
         Defines the IsDevice condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'IsDevice'.
         :param 'IsDeviceMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2056,6 +2084,7 @@ class DeliveryRulePostArgsConditionResponse(dict):
                  parameters: 'outputs.PostArgsMatchConditionParametersResponse'):
         """
         Defines the PostArgs condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'PostArgs'.
         :param 'PostArgsMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2091,6 +2120,7 @@ class DeliveryRuleQueryStringConditionResponse(dict):
                  parameters: 'outputs.QueryStringMatchConditionParametersResponse'):
         """
         Defines the QueryString condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'QueryString'.
         :param 'QueryStringMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2126,6 +2156,7 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
                  parameters: 'outputs.RemoteAddressMatchConditionParametersResponse'):
         """
         Defines the RemoteAddress condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'RemoteAddress'.
         :param 'RemoteAddressMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2161,6 +2192,7 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
                  parameters: 'outputs.RequestBodyMatchConditionParametersResponse'):
         """
         Defines the RequestBody condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'RequestBody'.
         :param 'RequestBodyMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2196,6 +2228,7 @@ class DeliveryRuleRequestHeaderActionResponse(dict):
                  parameters: 'outputs.HeaderActionParametersResponse'):
         """
         Defines the request header action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'ModifyRequestHeader'.
         :param 'HeaderActionParametersResponse' parameters: Defines the parameters for the action.
@@ -2231,6 +2264,7 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
                  parameters: 'outputs.RequestHeaderMatchConditionParametersResponse'):
         """
         Defines the RequestHeader condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'RequestHeader'.
         :param 'RequestHeaderMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2266,6 +2300,7 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
                  parameters: 'outputs.RequestMethodMatchConditionParametersResponse'):
         """
         Defines the RequestMethod condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'RequestMethod'.
         :param 'RequestMethodMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2301,6 +2336,7 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
                  parameters: 'outputs.RequestSchemeMatchConditionParametersResponse'):
         """
         Defines the RequestScheme condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'RequestScheme'.
         :param 'RequestSchemeMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2336,6 +2372,7 @@ class DeliveryRuleRequestUriConditionResponse(dict):
                  parameters: 'outputs.RequestUriMatchConditionParametersResponse'):
         """
         Defines the RequestUri condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'RequestUri'.
         :param 'RequestUriMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2373,6 +2410,7 @@ class DeliveryRuleResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         A rule that specifies a set of actions and conditions
+
         :param Sequence[Union['DeliveryRuleCacheExpirationActionResponse', 'DeliveryRuleCacheKeyQueryStringActionResponse', 'DeliveryRuleRequestHeaderActionResponse', 'DeliveryRuleResponseHeaderActionResponse', 'DeliveryRuleRouteConfigurationOverrideActionResponse', 'OriginGroupOverrideActionResponse', 'UrlRedirectActionResponse', 'UrlRewriteActionResponse', 'UrlSigningActionResponse']] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
         :param _builtins.int order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         :param Sequence[Union['DeliveryRuleClientPortConditionResponse', 'DeliveryRuleCookiesConditionResponse', 'DeliveryRuleHostNameConditionResponse', 'DeliveryRuleHttpVersionConditionResponse', 'DeliveryRuleIsDeviceConditionResponse', 'DeliveryRulePostArgsConditionResponse', 'DeliveryRuleQueryStringConditionResponse', 'DeliveryRuleRemoteAddressConditionResponse', 'DeliveryRuleRequestBodyConditionResponse', 'DeliveryRuleRequestHeaderConditionResponse', 'DeliveryRuleRequestMethodConditionResponse', 'DeliveryRuleRequestSchemeConditionResponse', 'DeliveryRuleRequestUriConditionResponse', 'DeliveryRuleServerPortConditionResponse', 'DeliveryRuleSocketAddrConditionResponse', 'DeliveryRuleSslProtocolConditionResponse', 'DeliveryRuleUrlFileExtensionConditionResponse', 'DeliveryRuleUrlFileNameConditionResponse', 'DeliveryRuleUrlPathConditionResponse']] conditions: A list of conditions that must be matched for the actions to be executed
@@ -2428,6 +2466,7 @@ class DeliveryRuleResponseHeaderActionResponse(dict):
                  parameters: 'outputs.HeaderActionParametersResponse'):
         """
         Defines the response header action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'ModifyResponseHeader'.
         :param 'HeaderActionParametersResponse' parameters: Defines the parameters for the action.
@@ -2463,6 +2502,7 @@ class DeliveryRuleRouteConfigurationOverrideActionResponse(dict):
                  parameters: 'outputs.RouteConfigurationOverrideActionParametersResponse'):
         """
         Defines the route configuration override action for the delivery rule. Only applicable to Frontdoor Standard/Premium Profiles.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'RouteConfigurationOverride'.
         :param 'RouteConfigurationOverrideActionParametersResponse' parameters: Defines the parameters for the action.
@@ -2498,6 +2538,7 @@ class DeliveryRuleServerPortConditionResponse(dict):
                  parameters: 'outputs.ServerPortMatchConditionParametersResponse'):
         """
         Defines the ServerPort condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'ServerPort'.
         :param 'ServerPortMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2533,6 +2574,7 @@ class DeliveryRuleSocketAddrConditionResponse(dict):
                  parameters: 'outputs.SocketAddrMatchConditionParametersResponse'):
         """
         Defines the SocketAddress condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'SocketAddr'.
         :param 'SocketAddrMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2568,6 +2610,7 @@ class DeliveryRuleSslProtocolConditionResponse(dict):
                  parameters: 'outputs.SslProtocolMatchConditionParametersResponse'):
         """
         Defines the SslProtocol condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'SslProtocol'.
         :param 'SslProtocolMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2603,6 +2646,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
                  parameters: 'outputs.UrlFileExtensionMatchConditionParametersResponse'):
         """
         Defines the UrlFileExtension condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'UrlFileExtension'.
         :param 'UrlFileExtensionMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2638,6 +2682,7 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
                  parameters: 'outputs.UrlFileNameMatchConditionParametersResponse'):
         """
         Defines the UrlFileName condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'UrlFileName'.
         :param 'UrlFileNameMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2673,6 +2718,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
                  parameters: 'outputs.UrlPathMatchConditionParametersResponse'):
         """
         Defines the UrlPath condition for the delivery rule.
+
         :param _builtins.str name: Request variable to compare with.
                Expected value is 'UrlPath'.
         :param 'UrlPathMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
@@ -2727,6 +2773,7 @@ class DomainValidationPropertiesResponse(dict):
                  validation_token: _builtins.str):
         """
         The JSON object that contains the properties to validate a domain.
+
         :param _builtins.str expiration_date: The date time that the token expires
         :param _builtins.str validation_token: Challenge used for DNS TXT record or file based validation
         """
@@ -2777,6 +2824,7 @@ class EdgeActionAttachmentResponse(dict):
                  id: _builtins.str):
         """
         Edge action attachment information
+
         :param _builtins.str attached_resource_id: The attached resource Id
         :param _builtins.str id: The edge action attachment id
         """
@@ -2810,6 +2858,7 @@ class EndpointPropertiesUpdateParametersDeliveryPolicyResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         A policy that specifies the delivery rules to be used for an endpoint.
+
         :param Sequence['DeliveryRuleResponse'] rules: A list of the delivery rules.
         :param _builtins.str description: User-friendly description of the policy.
         """
@@ -2843,6 +2892,7 @@ class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkResponse
                  id: Optional[_builtins.str] = None):
         """
         Defines the Web Application Firewall policy for the endpoint (if applicable)
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -2887,6 +2937,7 @@ class GeoFilterResponse(dict):
                  relative_path: _builtins.str):
         """
         Rules defining user's geo access within a CDN endpoint.
+
         :param _builtins.str action: Action of the geo filter, i.e. allow or block access.
         :param Sequence[_builtins.str] country_codes: Two letter country or region codes defining user country or region access in a geo filter, e.g. AU, MX, US.
         :param _builtins.str relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -2953,6 +3004,7 @@ class HeaderActionParametersResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Defines the parameters for the request header action.
+
         :param _builtins.str header_action: Action to perform
         :param _builtins.str header_name: Name of the header to modify
         :param _builtins.str type_name: 
@@ -3034,6 +3086,7 @@ class HealthProbeParametersResponse(dict):
                  probe_request_type: Optional[_builtins.str] = None):
         """
         The JSON object that contains the properties to send health probes to origin.
+
         :param _builtins.int probe_interval_in_seconds: The number of seconds between health probes.Default is 240sec.
         :param _builtins.str probe_path: The path relative to the origin that is used to determine the health of the origin.
         :param _builtins.str probe_protocol: Protocol to use for health probe.
@@ -3115,6 +3168,7 @@ class HostNameMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for HostName match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleHostNameConditionParameters'.
@@ -3185,6 +3239,7 @@ class HttpErrorRangeParametersResponse(dict):
                  end: Optional[_builtins.int] = None):
         """
         The JSON object that represents the range for http status codes
+
         :param _builtins.int begin: The inclusive start of the http status code range.
         :param _builtins.int end: The inclusive end of the http status code range.
         """
@@ -3244,6 +3299,7 @@ class HttpVersionMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for HttpVersion match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleHttpVersionConditionParameters'.
@@ -3338,6 +3394,7 @@ class IsDeviceMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for IsDevice match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleIsDeviceConditionParameters'.
@@ -3445,6 +3502,7 @@ class KeyVaultCertificateSourceParametersResponse(dict):
                  secret_version: Optional[_builtins.str] = None):
         """
         Describes the parameters for using a user's KeyVault certificate for securing custom domain.
+
         :param _builtins.str delete_rule: Describes the action that shall be taken when the certificate is removed from Key Vault.
         :param _builtins.str resource_group_name: Resource group of the user's Key Vault containing the SSL certificate
         :param _builtins.str secret_name: The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
@@ -3572,6 +3630,7 @@ class KeyVaultSigningKeyParametersResponse(dict):
                  vault_name: _builtins.str):
         """
         Describes the parameters for using a user's KeyVault for URL Signing Key.
+
         :param _builtins.str resource_group_name: Resource group of the user's Key Vault containing the secret
         :param _builtins.str secret_name: The name of secret in Key Vault.
         :param _builtins.str secret_version: The version(GUID) of secret in Key Vault.
@@ -3663,6 +3722,7 @@ class LoadBalancingSettingsParametersResponse(dict):
                  successful_samples_required: Optional[_builtins.int] = None):
         """
         Round-Robin load balancing settings for a backend pool
+
         :param _builtins.int additional_latency_in_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
         :param _builtins.int sample_size: The number of samples to consider for load balancing decisions
         :param _builtins.int successful_samples_required: The number of samples within the sample period that must succeed
@@ -3727,6 +3787,7 @@ class ManagedCertificateParametersResponse(dict):
                  type: _builtins.str):
         """
         Managed Certificate used for https
+
         :param _builtins.str expiration_date: Certificate expiration date.
         :param _builtins.str subject: Subject name in the certificate.
         :param _builtins.str type: The type of the secret resource.
@@ -3789,6 +3850,7 @@ class ManagedRuleGroupOverrideResponse(dict):
                  rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
+
         :param _builtins.str rule_group_name: Describes the managed rule group within the rule set to override
         :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         """
@@ -3843,6 +3905,7 @@ class ManagedRuleOverrideResponse(dict):
                  enabled_state: Optional[_builtins.str] = None):
         """
         Defines a managed rule group override setting.
+
         :param _builtins.str rule_id: Identifier for the managed rule.
         :param _builtins.str action: Describes the override action to be applied when rule matches.
         :param _builtins.str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
@@ -3904,6 +3967,7 @@ class ManagedRuleSetListResponse(dict):
                  managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
+
         :param Sequence['ManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
@@ -3953,6 +4017,7 @@ class ManagedRuleSetResponse(dict):
                  rule_group_overrides: Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']] = None):
         """
         Defines a managed rule set.
+
         :param _builtins.str rule_set_type: Defines the rule set type to use.
         :param _builtins.str rule_set_version: Defines the version of the rule set to use.
         :param _builtins.int anomaly_score: Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
@@ -4031,6 +4096,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -4110,6 +4176,7 @@ class MatchConditionResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Define match conditions
+
         :param Sequence[_builtins.str] match_value: List of possible match values.
         :param _builtins.str match_variable: Match variable to compare against.
         :param _builtins.str operator: Describes operator to be matched
@@ -4204,6 +4271,7 @@ class OriginAuthenticationPropertiesResponse(dict):
                  user_assigned_identity: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         The JSON object that contains the properties of the origin authentication settings.
+
         :param _builtins.str scope: The scope used when requesting token from Microsoft Entra. For example, for Azure Blob Storage, scope could be "https://storage.azure.com/.default".
         :param _builtins.str type: The type of the authentication for the origin.
         :param 'ResourceReferenceResponse' user_assigned_identity: The user assigned managed identity to use for the origin authentication if type is UserAssignedIdentity.
@@ -4269,6 +4337,7 @@ class OriginGroupOverrideActionParametersResponse(dict):
                  type_name: _builtins.str):
         """
         Defines the parameters for the origin group override action.
+
         :param 'ResourceReferenceResponse' origin_group: defines the OriginGroup that would override the DefaultOriginGroup.
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleOriginGroupOverrideActionParameters'.
@@ -4304,6 +4373,7 @@ class OriginGroupOverrideActionResponse(dict):
                  parameters: 'outputs.OriginGroupOverrideActionParametersResponse'):
         """
         Defines the origin group override action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'OriginGroupOverride'.
         :param 'OriginGroupOverrideActionParametersResponse' parameters: Defines the parameters for the action.
@@ -4358,6 +4428,7 @@ class OriginGroupOverrideResponse(dict):
                  origin_group: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         Defines the parameters for the origin group override configuration.
+
         :param _builtins.str forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         :param 'ResourceReferenceResponse' origin_group: defines the OriginGroup that would override the DefaultOriginGroup on route.
         """
@@ -4419,6 +4490,7 @@ class PolicySettingsResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Defines contents of a web application firewall global configuration
+
         :param _builtins.str default_custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param _builtins.float default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
         :param _builtins.str default_redirect_url: If action type is redirect, this field represents the default redirect URL for the client.
@@ -4512,6 +4584,7 @@ class PostArgsMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for PostArgs match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRulePostArgsConditionParameters'.
@@ -4610,6 +4683,7 @@ class ProfileLogScrubbingResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+
         :param Sequence['ProfileScrubbingRulesResponse'] scrubbing_rules: List of log scrubbing rules applied to the Azure Front Door profile logs.
         :param _builtins.str state: State of the log scrubbing config. Default value is Enabled.
         """
@@ -4666,6 +4740,7 @@ class ProfileScrubbingRulesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines the contents of the log scrubbing rules.
+
         :param _builtins.str match_variable: The variable to be scrubbed from the logs.
         :param _builtins.str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
         :param _builtins.str selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
@@ -4745,6 +4820,7 @@ class QueryStringMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for QueryString match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleQueryStringConditionParameters'.
@@ -4814,6 +4890,7 @@ class RateLimitRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.RateLimitRuleResponse']] = None):
         """
         Defines contents of rate limit rules
+
         :param Sequence['RateLimitRuleResponse'] rules: List of rules
         """
         if rules is not None:
@@ -4866,6 +4943,7 @@ class RateLimitRuleResponse(dict):
                  enabled_state: Optional[_builtins.str] = None):
         """
         Defines a rate limiting rule that can be included in a waf policy
+
         :param _builtins.str action: Describes what action to be applied when rule matches
         :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param _builtins.str name: Defines the name of the custom rule
@@ -4974,6 +5052,7 @@ class RemoteAddressMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for RemoteAddress match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleRemoteAddressConditionParameters'.
@@ -5068,6 +5147,7 @@ class RequestBodyMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for RequestBody match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleRequestBodyConditionParameters'.
@@ -5163,6 +5243,7 @@ class RequestHeaderMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for RequestHeader match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleRequestHeaderConditionParameters'.
@@ -5268,6 +5349,7 @@ class RequestMethodMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for RequestMethod match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleRequestMethodConditionParameters'.
@@ -5362,6 +5444,7 @@ class RequestSchemeMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for RequestScheme match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleRequestSchemeConditionParameters'.
@@ -5456,6 +5539,7 @@ class RequestUriMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for RequestUri match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleRequestUriConditionParameters'.
@@ -5525,6 +5609,7 @@ class ResourceReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to another resource.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -5571,6 +5656,7 @@ class ResponseBasedOriginErrorDetectionParametersResponse(dict):
                  response_based_failover_threshold_percentage: Optional[_builtins.int] = None):
         """
         The JSON object that contains the properties to determine origin health using real requests/responses.
+
         :param Sequence['HttpErrorRangeParametersResponse'] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
         :param _builtins.str response_based_detected_error_types: Type of response errors for real user requests for which origin will be deemed unhealthy
         :param _builtins.int response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
@@ -5639,6 +5725,7 @@ class RouteConfigurationOverrideActionParametersResponse(dict):
                  origin_group_override: Optional['outputs.OriginGroupOverrideResponse'] = None):
         """
         Defines the parameters for the route configuration override action.
+
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleRouteConfigurationOverrideActionParameters'.
         :param 'CacheConfigurationResponse' cache_configuration: The caching configuration associated with this rule. To disable caching, do not provide a cacheConfiguration object.
@@ -5703,6 +5790,7 @@ class SecurityPolicyWebApplicationFirewallAssociationResponse(dict):
                  patterns_to_match: Optional[Sequence[_builtins.str]] = None):
         """
         settings for security policy patterns to match
+
         :param Sequence['ActivatedResourceReferenceResponse'] domains: List of domains.
         :param Sequence[_builtins.str] patterns_to_match: List of paths
         """
@@ -5756,6 +5844,7 @@ class SecurityPolicyWebApplicationFirewallParametersResponse(dict):
                  waf_policy: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         The json object containing security policy waf parameters
+
         :param _builtins.str type: The type of the Security policy to create.
                Expected value is 'WebApplicationFirewall'.
         :param Sequence['SecurityPolicyWebApplicationFirewallAssociationResponse'] associations: Waf associations
@@ -5827,6 +5916,7 @@ class ServerPortMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for ServerPort match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleServerPortConditionParameters'.
@@ -5923,6 +6013,7 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+
         :param _builtins.str group_id: The group id from the provider of resource the shared private link resource is for.
         :param 'ResourceReferenceResponse' private_link: The resource id of the resource the shared private link resource is for.
         :param _builtins.str private_link_location: The location of the shared private link resource
@@ -6014,6 +6105,7 @@ class SkuResponse(dict):
         StandardPlus_ChinaCdn = The SKU name for a China CDN profile for live-streaming using GB based billing model.
         StandardPlus_955BandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using 95-5 peak bandwidth billing model.
         StandardPlus_AvgBandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using monthly average peak bandwidth billing model.
+
         :param _builtins.str name: Name of the pricing tier.
         """
         if name is not None:
@@ -6038,6 +6130,7 @@ class SkuTypeResponse(dict):
                  tier: _builtins.str):
         """
         The SKU type for the edge action
+
         :param _builtins.str name: The name of the SKU
         :param _builtins.str tier: The tier of the SKU
         """
@@ -6095,6 +6188,7 @@ class SocketAddrMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for SocketAddress match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleSocketAddrConditionParameters'.
@@ -6189,6 +6283,7 @@ class SslProtocolMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for SslProtocol match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleSslProtocolConditionParameters'.
@@ -6290,6 +6385,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -6386,6 +6482,7 @@ class TargetEndpointResponse(dict):
                  target_fqdn: Optional[_builtins.str] = None):
         """
         TargetEndpoint object that forms a traffic endpoint.
+
         :param Sequence[_builtins.int] ports: The Ports to be allowed for the FQDN.
         :param _builtins.str target_fqdn: The FQDN for traffic endpoint.
         """
@@ -6445,6 +6542,7 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for UrlFileExtension match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleUrlFileExtensionMatchConditionParameters'.
@@ -6539,6 +6637,7 @@ class UrlFileNameMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for UrlFilename match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleUrlFilenameConditionParameters'.
@@ -6633,6 +6732,7 @@ class UrlPathMatchConditionParametersResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the parameters for UrlPath match conditions
+
         :param _builtins.str operator: Describes operator to be matched
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleUrlPathMatchConditionParameters'.
@@ -6737,6 +6837,7 @@ class UrlRedirectActionParametersResponse(dict):
                  destination_protocol: Optional[_builtins.str] = None):
         """
         Defines the parameters for the url redirect action.
+
         :param _builtins.str redirect_type: The redirect type the rule will use when redirecting traffic.
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleUrlRedirectActionParameters'.
@@ -6827,6 +6928,7 @@ class UrlRedirectActionResponse(dict):
                  parameters: 'outputs.UrlRedirectActionParametersResponse'):
         """
         Defines the url redirect action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'UrlRedirect'.
         :param 'UrlRedirectActionParametersResponse' parameters: Defines the parameters for the action.
@@ -6885,6 +6987,7 @@ class UrlRewriteActionParametersResponse(dict):
                  preserve_unmatched_path: Optional[_builtins.bool] = None):
         """
         Defines the parameters for the url rewrite action.
+
         :param _builtins.str destination: Define the relative URL to which the above requests will be rewritten by.
         :param _builtins.str source_pattern: define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
         :param _builtins.str type_name: 
@@ -6941,6 +7044,7 @@ class UrlRewriteActionResponse(dict):
                  parameters: 'outputs.UrlRewriteActionParametersResponse'):
         """
         Defines the url rewrite action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'UrlRewrite'.
         :param 'UrlRewriteActionParametersResponse' parameters: Defines the parameters for the action.
@@ -6996,6 +7100,7 @@ class UrlSigningActionParametersResponse(dict):
                  parameter_name_override: Optional[Sequence['outputs.UrlSigningParamIdentifierResponse']] = None):
         """
         Defines the parameters for the Url Signing action.
+
         :param _builtins.str type_name: 
                Expected value is 'DeliveryRuleUrlSigningActionParameters'.
         :param _builtins.str algorithm: Algorithm to use for URL signing
@@ -7043,6 +7148,7 @@ class UrlSigningActionResponse(dict):
                  parameters: 'outputs.UrlSigningActionParametersResponse'):
         """
         Defines the url signing action for the delivery rule.
+
         :param _builtins.str name: The name of the action for the delivery rule.
                Expected value is 'UrlSigning'.
         :param 'UrlSigningActionParametersResponse' parameters: Defines the parameters for the action.
@@ -7101,6 +7207,7 @@ class UrlSigningKeyParametersResponse(dict):
                  type: _builtins.str):
         """
         Url signing key parameters
+
         :param _builtins.str key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
         :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{secretName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
         :param _builtins.str secret_version: Version of the secret to be used
@@ -7175,6 +7282,7 @@ class UrlSigningKeyResponse(dict):
                  key_source_parameters: 'outputs.KeyVaultSigningKeyParametersResponse'):
         """
         Url signing key
+
         :param _builtins.str key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
         :param 'KeyVaultSigningKeyParametersResponse' key_source_parameters: Defines the parameters for using customer key vault for Url Signing Key.
         """
@@ -7227,6 +7335,7 @@ class UrlSigningParamIdentifierResponse(dict):
                  param_name: _builtins.str):
         """
         Defines how to identify a parameter for a specific purpose e.g. expires
+
         :param _builtins.str param_indicator: Indicates the purpose of the parameter
         :param _builtins.str param_name: Parameter name
         """
@@ -7279,6 +7388,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -7337,6 +7447,7 @@ class UserManagedHttpsParametersResponse(dict):
                  minimum_tls_version: Optional[_builtins.str] = None):
         """
         Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
+
         :param _builtins.str certificate_source: Defines the source of the SSL certificate.
                Expected value is 'AzureKeyVault'.
         :param 'KeyVaultCertificateSourceParametersResponse' certificate_source_parameters: Defines the certificate source parameters using user's keyvault certificate for enabling SSL.

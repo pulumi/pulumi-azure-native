@@ -33,6 +33,7 @@ class DataLakeConnectorTopicMapArgs:
                  topic_map_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataLakeConnectorTopicMap resource.
+
         :param pulumi.Input[_builtins.str] data_lake_connector_name: Name of MQ dataLakeConnector resource
         :param pulumi.Input[_builtins.str] data_lake_connector_ref: DataLake Connector CRD to use.
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
@@ -186,6 +187,7 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_lake_connector_name: Name of MQ dataLakeConnector resource
@@ -208,6 +210,7 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
         MQ dataLakeConnector/topicMap resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DataLakeConnectorTopicMapArgs args: The arguments to use to populate this resource's properties.

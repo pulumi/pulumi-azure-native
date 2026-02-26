@@ -33,6 +33,7 @@ class ConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Azure Resource Group Name.
         :param pulumi.Input[_builtins.str] connector_name: Connector Name.
         :param pulumi.Input[_builtins.str] credentials_key: Credentials authentication key (eg AWS ARN)
@@ -207,6 +208,7 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_name: Connector Name.
@@ -230,6 +232,7 @@ class Connector(pulumi.CustomResource):
         The Connector model definition
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

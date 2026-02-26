@@ -29,6 +29,7 @@ class ActionRuleByNameArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActionRuleByName resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Resource group name where the resource is created.
         :param pulumi.Input[_builtins.str] action_rule_name: The name of action rule that needs to be created/updated
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -123,6 +124,7 @@ class ActionRuleByName(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-05-05-preview. In version 2.x of the Azure Native provider, it used API version 2019-05-05-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_rule_name: The name of action rule that needs to be created/updated
@@ -141,6 +143,7 @@ class ActionRuleByName(pulumi.CustomResource):
         Action rule object containing target scope, conditions and suppression logic
 
         Uses Azure REST API version 2019-05-05-preview. In version 2.x of the Azure Native provider, it used API version 2019-05-05-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ActionRuleByNameArgs args: The arguments to use to populate this resource's properties.

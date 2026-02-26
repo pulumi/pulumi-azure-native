@@ -42,6 +42,7 @@ class ProfileArgs:
                  type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
@@ -343,6 +344,7 @@ class Profile(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
@@ -374,6 +376,7 @@ class Profile(pulumi.CustomResource):
         The profile resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

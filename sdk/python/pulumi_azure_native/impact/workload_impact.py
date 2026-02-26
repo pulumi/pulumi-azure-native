@@ -26,6 +26,7 @@ class WorkloadImpactArgs:
                  workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadImpact resource.
+
         :param pulumi.Input['WorkloadImpactPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource 
         """
@@ -73,6 +74,7 @@ class WorkloadImpact(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkloadImpactPropertiesArgs', 'WorkloadImpactPropertiesArgsDict']] properties: The resource-specific properties for this resource.
@@ -88,6 +90,7 @@ class WorkloadImpact(pulumi.CustomResource):
         Workload Impact properties
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param WorkloadImpactArgs args: The arguments to use to populate this resource's properties.

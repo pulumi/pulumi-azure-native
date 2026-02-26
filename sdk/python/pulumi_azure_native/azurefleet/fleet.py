@@ -37,6 +37,7 @@ class FleetArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: Compute Profile to use for running user's workloads.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]] vm_sizes_profile: List of VM sizes supported for Compute Fleet
@@ -259,6 +260,7 @@ class Fleet(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']] additional_locations_profile: Represents the configuration for additional locations where Fleet resources may be deployed.
@@ -287,6 +289,7 @@ class Fleet(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

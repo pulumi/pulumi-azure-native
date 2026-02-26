@@ -27,23 +27,18 @@ __all__ = [
     'SolutionPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ArmTemplateParameterArgsDict(TypedDict):
-        """
-        Parameter to pass to ARM template
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        name of the parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        value for the parameter. In Jtoken 
-        """
-elif False:
-    ArmTemplateParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ArmTemplateParameterArgsDict(TypedDict):
+    """
+    Parameter to pass to ARM template
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    name of the parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    value for the parameter. In Jtoken 
+    """
 
 @pulumi.input_type
 class ArmTemplateParameterArgs:
@@ -52,6 +47,7 @@ class ArmTemplateParameterArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Parameter to pass to ARM template
+
         :param pulumi.Input[_builtins.str] name: name of the parameter.
         :param pulumi.Input[_builtins.str] value: value for the parameter. In Jtoken 
         """
@@ -85,17 +81,14 @@ class ArmTemplateParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ManagementAssociationPropertiesArgsDict(TypedDict):
-        """
-        ManagementAssociation properties supported by the OperationsManagement resource provider.
-        """
-        application_id: pulumi.Input[_builtins.str]
-        """
-        The applicationId of the appliance for this association.
-        """
-elif False:
-    ManagementAssociationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementAssociationPropertiesArgsDict(TypedDict):
+    """
+    ManagementAssociation properties supported by the OperationsManagement resource provider.
+    """
+    application_id: pulumi.Input[_builtins.str]
+    """
+    The applicationId of the appliance for this association.
+    """
 
 @pulumi.input_type
 class ManagementAssociationPropertiesArgs:
@@ -103,6 +96,7 @@ class ManagementAssociationPropertiesArgs:
                  application_id: pulumi.Input[_builtins.str]):
         """
         ManagementAssociation properties supported by the OperationsManagement resource provider.
+
         :param pulumi.Input[_builtins.str] application_id: The applicationId of the appliance for this association.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -120,29 +114,26 @@ class ManagementAssociationPropertiesArgs:
         pulumi.set(self, "application_id", value)
 
 
-if not MYPY:
-    class ManagementConfigurationPropertiesArgsDict(TypedDict):
-        """
-        ManagementConfiguration properties supported by the OperationsManagement resource provider.
-        """
-        parameters: pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgsDict']]]
-        """
-        Parameters to run the ARM template
-        """
-        parent_resource_type: pulumi.Input[_builtins.str]
-        """
-        The type of the parent resource.
-        """
-        template: Any
-        """
-        The Json object containing the ARM template to deploy
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The applicationId of the appliance for this Management.
-        """
-elif False:
-    ManagementConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementConfigurationPropertiesArgsDict(TypedDict):
+    """
+    ManagementConfiguration properties supported by the OperationsManagement resource provider.
+    """
+    parameters: pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgsDict']]]
+    """
+    Parameters to run the ARM template
+    """
+    parent_resource_type: pulumi.Input[_builtins.str]
+    """
+    The type of the parent resource.
+    """
+    template: Any
+    """
+    The Json object containing the ARM template to deploy
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The applicationId of the appliance for this Management.
+    """
 
 @pulumi.input_type
 class ManagementConfigurationPropertiesArgs:
@@ -153,6 +144,7 @@ class ManagementConfigurationPropertiesArgs:
                  application_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
+
         :param pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]] parameters: Parameters to run the ARM template
         :param pulumi.Input[_builtins.str] parent_resource_type: The type of the parent resource.
         :param Any template: The Json object containing the ARM template to deploy
@@ -213,29 +205,26 @@ class ManagementConfigurationPropertiesArgs:
         pulumi.set(self, "application_id", value)
 
 
-if not MYPY:
-    class SolutionPlanArgsDict(TypedDict):
-        """
-        Plan for solution object supported by the OperationsManagement resource provider.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
-        """
-        product: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
-        """
-        promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        promotionCode, Not really used now, can you left as empty
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Publisher name. For gallery solution, it is Microsoft.
-        """
-elif False:
-    SolutionPlanArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionPlanArgsDict(TypedDict):
+    """
+    Plan for solution object supported by the OperationsManagement resource provider.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
+    """
+    product: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    promotionCode, Not really used now, can you left as empty
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Publisher name. For gallery solution, it is Microsoft.
+    """
 
 @pulumi.input_type
 class SolutionPlanArgs:
@@ -246,6 +235,7 @@ class SolutionPlanArgs:
                  publisher: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Plan for solution object supported by the OperationsManagement resource provider.
+
         :param pulumi.Input[_builtins.str] name: name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
         :param pulumi.Input[_builtins.str] product: name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
         :param pulumi.Input[_builtins.str] promotion_code: promotionCode, Not really used now, can you left as empty
@@ -309,25 +299,22 @@ class SolutionPlanArgs:
         pulumi.set(self, "publisher", value)
 
 
-if not MYPY:
-    class SolutionPropertiesArgsDict(TypedDict):
-        """
-        Solution properties supported by the OperationsManagement resource provider.
-        """
-        workspace_resource_id: pulumi.Input[_builtins.str]
-        """
-        The azure resourceId for the workspace where the solution will be deployed/enabled.
-        """
-        contained_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
-        """
-        referenced_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
-        """
-elif False:
-    SolutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionPropertiesArgsDict(TypedDict):
+    """
+    Solution properties supported by the OperationsManagement resource provider.
+    """
+    workspace_resource_id: pulumi.Input[_builtins.str]
+    """
+    The azure resourceId for the workspace where the solution will be deployed/enabled.
+    """
+    contained_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
+    """
+    referenced_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+    """
 
 @pulumi.input_type
 class SolutionPropertiesArgs:
@@ -337,6 +324,7 @@ class SolutionPropertiesArgs:
                  referenced_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Solution properties supported by the OperationsManagement resource provider.
+
         :param pulumi.Input[_builtins.str] workspace_resource_id: The azure resourceId for the workspace where the solution will be deployed/enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contained_resources: The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] referenced_resources: The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.

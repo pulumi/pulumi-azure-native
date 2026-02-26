@@ -29,6 +29,7 @@ class IntegrationAccountAssemblyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAssembly resource.
+
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
         :param pulumi.Input['AssemblyPropertiesArgs'] properties: The assembly properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -139,6 +140,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
         Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assembly_artifact_name: The assembly artifact name.
@@ -160,6 +162,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAssemblyArgs args: The arguments to use to populate this resource's properties.

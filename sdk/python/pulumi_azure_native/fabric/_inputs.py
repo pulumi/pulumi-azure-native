@@ -22,19 +22,14 @@ __all__ = [
     'RpSkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CapacityAdministrationArgsDict(TypedDict):
-        """
-        The administration properties of the Fabric capacity resource
-        """
-        members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        An array of administrator user identities.
-        """
-elif False:
-    CapacityAdministrationArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityAdministrationArgsDict(TypedDict):
+    """
+    The administration properties of the Fabric capacity resource
+    """
+    members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An array of administrator user identities.
+    """
 
 @pulumi.input_type
 class CapacityAdministrationArgs:
@@ -42,6 +37,7 @@ class CapacityAdministrationArgs:
                  members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The administration properties of the Fabric capacity resource
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: An array of administrator user identities.
         """
         pulumi.set(__self__, "members", members)
@@ -59,21 +55,18 @@ class CapacityAdministrationArgs:
         pulumi.set(self, "members", value)
 
 
-if not MYPY:
-    class RpSkuArgsDict(TypedDict):
-        """
-        Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU level.
-        """
-        tier: pulumi.Input[Union[_builtins.str, 'RpSkuTier']]
-        """
-        The name of the Azure pricing tier to which the SKU applies.
-        """
-elif False:
-    RpSkuArgsDict: TypeAlias = Mapping[str, Any]
+class RpSkuArgsDict(TypedDict):
+    """
+    Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU level.
+    """
+    tier: pulumi.Input[Union[_builtins.str, 'RpSkuTier']]
+    """
+    The name of the Azure pricing tier to which the SKU applies.
+    """
 
 @pulumi.input_type
 class RpSkuArgs:
@@ -82,6 +75,7 @@ class RpSkuArgs:
                  tier: pulumi.Input[Union[_builtins.str, 'RpSkuTier']]):
         """
         Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU level.
         :param pulumi.Input[Union[_builtins.str, 'RpSkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
         """

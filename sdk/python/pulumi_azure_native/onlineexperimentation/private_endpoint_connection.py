@@ -28,6 +28,7 @@ class PrivateEndpointConnectionArgs:
                  properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the OnlineExperimentationWorkspace
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the PrivateEndpointConnection
@@ -105,6 +106,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the PrivateEndpointConnection
@@ -122,6 +124,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Private endpoint connection resource for an online experimentation workspace resource.
 
         Uses Azure REST API version 2025-08-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

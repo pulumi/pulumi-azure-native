@@ -27,6 +27,7 @@ class BillingProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BillingProfile resource.
+
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[_builtins.str] billing_profile_name: The ID that uniquely identifies a billing profile.
         :param pulumi.Input['BillingProfilePropertiesArgs'] properties: A billing profile.
@@ -105,6 +106,7 @@ class BillingProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
@@ -122,6 +124,7 @@ class BillingProfile(pulumi.CustomResource):
         A billing profile.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
+
 
         :param str resource_name: The name of the resource.
         :param BillingProfileArgs args: The arguments to use to populate this resource's properties.

@@ -41,6 +41,7 @@ class KpiArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Kpi resource.
+
         :param pulumi.Input['CalculationWindowTypes'] calculation_window: The calculation window.
         :param pulumi.Input['EntityTypes'] entity_type: The mapping entity type.
         :param pulumi.Input[_builtins.str] entity_type_name: The mapping entity name.
@@ -321,6 +322,7 @@ class Kpi(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KpiAliasArgs', 'KpiAliasArgsDict']]]] aliases: The aliases.
@@ -351,6 +353,7 @@ class Kpi(pulumi.CustomResource):
         The KPI resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
 
         :param str resource_name: The name of the resource.
         :param KpiArgs args: The arguments to use to populate this resource's properties.

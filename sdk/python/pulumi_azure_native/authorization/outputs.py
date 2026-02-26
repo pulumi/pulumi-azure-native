@@ -116,6 +116,7 @@ class AccessReviewHistoryInstanceResponse(dict):
                  run_date_time: Optional[_builtins.str] = None):
         """
         Access Review History Definition Instance.
+
         :param _builtins.str download_uri: Uri which can be used to retrieve review history data. To generate this Uri, generateDownloadUri() must be called for a specific accessReviewHistoryDefinitionInstance. The link expires after a 24 hour period. Callers can see the expiration date time by looking at the 'se' parameter in the generated uri.
         :param _builtins.str id: The access review history definition instance id.
         :param _builtins.str name: The access review history definition instance unique id.
@@ -275,6 +276,7 @@ class AccessReviewInstanceResponse(dict):
                  start_date_time: Optional[_builtins.str] = None):
         """
         Access Review Instance.
+
         :param _builtins.str id: The access review instance id.
         :param _builtins.str name: The access review instance name.
         :param _builtins.str reviewers_type: This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
@@ -405,6 +407,7 @@ class AccessReviewRecurrenceRangeResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Recurrence Range of an Access Review Schedule Definition.
+
         :param _builtins.str end_date: The DateTime when the review is scheduled to end. Required if type is endDate
         :param _builtins.int number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
         :param _builtins.str start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
@@ -481,6 +484,7 @@ class AccessReviewReviewerResponse(dict):
                  principal_id: Optional[_builtins.str] = None):
         """
         Descriptor for what needs to be reviewed
+
         :param _builtins.str principal_type: The identity type : user/servicePrincipal
         :param _builtins.str principal_id: The id of the reviewer(user/servicePrincipal)
         """
@@ -558,6 +562,7 @@ class AccessReviewScopeResponse(dict):
                  include_inherited_access: Optional[_builtins.bool] = None):
         """
         Descriptor for what needs to be reviewed
+
         :param _builtins.str assignment_state: The role assignment state eligible/active to review
         :param _builtins.str principal_type: The identity type user/servicePrincipal to review
         :param _builtins.str resource_id: ResourceId in which this review is getting created
@@ -705,6 +710,7 @@ class ApprovalSettingsResponse(dict):
                  is_requestor_justification_required: Optional[_builtins.bool] = None):
         """
         The approval settings.
+
         :param _builtins.str approval_mode: The type of rule
         :param Sequence['ApprovalStageResponse'] approval_stages: The approval stages of the request.
         :param _builtins.bool is_approval_required: Determines whether approval is required or not.
@@ -804,6 +810,7 @@ class ApprovalStageResponse(dict):
                  primary_approvers: Optional[Sequence['outputs.UserSetResponse']] = None):
         """
         The approval stage.
+
         :param _builtins.int approval_stage_time_out_in_days: The time in days when approval request would be timed out
         :param Sequence['UserSetResponse'] escalation_approvers: The escalation approver of the request.
         :param _builtins.int escalation_time_in_minutes: The time in minutes when the approval request would be escalated if the primary approver does not approve
@@ -901,6 +908,7 @@ class ExpandedPropertiesResponse(dict):
                  scope: Optional['outputs.ExpandedPropertiesResponseScope'] = None):
         """
         Expanded info of resource, role and principal
+
         :param 'ExpandedPropertiesResponsePrincipal' principal: Details of the principal
         :param 'ExpandedPropertiesResponseRoleDefinition' role_definition: Details of role definition
         :param 'ExpandedPropertiesResponseScope' scope: Details of the resource scope
@@ -966,6 +974,7 @@ class ExpandedPropertiesResponsePrincipal(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details of the principal
+
         :param _builtins.str display_name: Display name of the principal
         :param _builtins.str email: Email id of the principal
         :param _builtins.str id: Id of the principal
@@ -1041,6 +1050,7 @@ class ExpandedPropertiesResponseRoleDefinition(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details of role definition
+
         :param _builtins.str display_name: Display name of the role definition
         :param _builtins.str id: Id of the role definition
         :param _builtins.str type: Type of the role definition
@@ -1105,6 +1115,7 @@ class ExpandedPropertiesResponseScope(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details of the resource scope
+
         :param _builtins.str display_name: Display name of the resource
         :param _builtins.str id: Scope id of the resource
         :param _builtins.str type: Type of the resource
@@ -1174,6 +1185,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+
         :param _builtins.str principal_id: The principal ID of the resource identity.  This property will only be provided for a system assigned identity
         :param _builtins.str tenant_id: The tenant ID of the resource identity.  This property will only be provided for a system assigned identity
         :param _builtins.str type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
@@ -1293,6 +1305,7 @@ class ManagementLockOwnerResponse(dict):
                  application_id: Optional[_builtins.str] = None):
         """
         Lock owner properties.
+
         :param _builtins.str application_id: The application ID of the lock owner.
         """
         if application_id is not None:
@@ -1334,6 +1347,7 @@ class NonComplianceMessageResponse(dict):
                  policy_definition_reference_id: Optional[_builtins.str] = None):
         """
         A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+
         :param _builtins.str message: A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
         :param _builtins.str policy_definition_reference_id: The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
         """
@@ -1369,6 +1383,7 @@ class OverrideResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The policy property value override.
+
         :param _builtins.str kind: The override kind.
         :param Sequence['SelectorResponse'] selectors: The list of the selector expressions.
         :param _builtins.str value: The value to override the policy property.
@@ -1433,6 +1448,7 @@ class PIMOnlyModeSettingsResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         The PIM Only Mode settings.
+
         :param Sequence[_builtins.str] excluded_assignment_types: The list of excluded assignment types allowed.
         :param Sequence['UsersOrServicePrincipalSetResponse'] excludes: The list of excluded entities that the rule does not apply to.
         :param _builtins.str mode: Determines whether the setting is enabled, disabled or report only.
@@ -1501,6 +1517,7 @@ class ParameterDefinitionsValueResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The definition of a parameter that can be provided to the policy.
+
         :param Sequence[Any] allowed_values: The allowed values for the parameter.
         :param Any default_value: The default value for the parameter if no value is provided.
         :param 'ParameterDefinitionsValueResponseMetadata' metadata: General metadata for the parameter.
@@ -1592,6 +1609,7 @@ class ParameterDefinitionsValueResponseMetadata(dict):
                  strong_type: Optional[_builtins.str] = None):
         """
         General metadata for the parameter.
+
         :param _builtins.bool assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
         :param _builtins.str description: The description of the parameter.
         :param _builtins.str display_name: The display name for the parameter.
@@ -1648,6 +1666,7 @@ class ParameterValuesValueResponse(dict):
                  value: Optional[Any] = None):
         """
         The value of a parameter.
+
         :param Any value: The value of the parameter.
         """
         if value is not None:
@@ -1699,6 +1718,7 @@ class PermissionResponse(dict):
                  not_data_actions: Optional[Sequence[_builtins.str]] = None):
         """
         Role definition permissions.
+
         :param _builtins.str condition: The conditions on the role definition. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         :param _builtins.str condition_version: Version of the condition. Currently the only accepted value is '2.0'
         :param Sequence[_builtins.str] actions: Allowed actions.
@@ -1794,6 +1814,7 @@ class PolicyAssignmentPropertiesResponse(dict):
                  scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None):
         """
         Expanded info of resource scope, role definition and policy
+
         :param 'PolicyAssignmentPropertiesResponsePolicy' policy: Details of the policy
         :param 'PolicyAssignmentPropertiesResponseRoleDefinition' role_definition: Details of role definition
         :param 'PolicyAssignmentPropertiesResponseScope' scope: Details of the resource scope
@@ -1860,6 +1881,7 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
                  last_modified_date_time: Optional[_builtins.str] = None):
         """
         Details of the policy
+
         :param 'PrincipalResponse' last_modified_by: The name of the entity last modified it
         :param _builtins.str id: Id of the policy
         :param _builtins.str last_modified_date_time: The last modified date time.
@@ -1923,6 +1945,7 @@ class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details of role definition
+
         :param _builtins.str display_name: Display name of the role definition
         :param _builtins.str id: Id of the role definition
         :param _builtins.str type: Type of the role definition
@@ -1987,6 +2010,7 @@ class PolicyAssignmentPropertiesResponseScope(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details of the resource scope
+
         :param _builtins.str display_name: Display name of the resource
         :param _builtins.str id: Scope id of the resource
         :param _builtins.str type: Type of the resource
@@ -2055,6 +2079,7 @@ class PolicyDefinitionGroupResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         The policy definition group.
+
         :param _builtins.str name: The name of the group.
         :param _builtins.str additional_metadata_id: A resource ID of a resource that contains additional metadata about the group.
         :param _builtins.str category: The group's category.
@@ -2154,6 +2179,7 @@ class PolicyDefinitionReferenceResponse(dict):
                  policy_definition_reference_id: Optional[_builtins.str] = None):
         """
         The policy definition reference.
+
         :param _builtins.str effective_definition_version: The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
         :param _builtins.str latest_definition_version: The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
         :param _builtins.str policy_definition_id: The ID of the policy definition or policy set definition.
@@ -2251,6 +2277,7 @@ class PolicyDefinitionVersionResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The ID of the policy definition version.
+
         :param _builtins.str id: The ID of the policy definition version.
         :param _builtins.str name: The name of the policy definition version.
         :param 'SystemDataResponse' system_data: The system metadata relating to this resource.
@@ -2393,6 +2420,7 @@ class PolicyPropertiesResponse(dict):
                  scope: 'outputs.PolicyPropertiesResponseScope'):
         """
         Expanded info of resource scope
+
         :param 'PolicyPropertiesResponseScope' scope: Details of the resource scope
         """
         pulumi.set(__self__, "scope", scope)
@@ -2434,6 +2462,7 @@ class PolicyPropertiesResponseScope(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details of the resource scope
+
         :param _builtins.str display_name: Display name of the resource
         :param _builtins.str id: Scope id of the resource
         :param _builtins.str type: Type of the resource
@@ -2490,6 +2519,7 @@ class PolicySetDefinitionVersionResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The policy set definition version.
+
         :param _builtins.str id: The ID of the policy set definition version.
         :param _builtins.str name: The name of the policy set definition version.
         :param Sequence['PolicyDefinitionReferenceResponse'] policy_definitions: An array of policy definition references.
@@ -2646,6 +2676,7 @@ class PolicyVariableColumnResponse(dict):
                  column_name: _builtins.str):
         """
         The variable column.
+
         :param _builtins.str column_name: The name of this policy variable column.
         """
         pulumi.set(__self__, "column_name", column_name)
@@ -2688,6 +2719,7 @@ class PolicyVariableValueColumnValueResponse(dict):
                  column_value: Any):
         """
         The name value tuple for this variable value column.
+
         :param _builtins.str column_name: Column name for the variable value
         :param Any column_value: Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
@@ -2740,6 +2772,7 @@ class PrincipalResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The name of the entity last modified it
+
         :param _builtins.str display_name: The name of the principal made changes
         :param _builtins.str email: Email of principal
         :param _builtins.str id: The id of the principal made changes
@@ -2820,6 +2853,7 @@ class PrivateLinkAssociationPropertiesExpandedResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Private Link Association Properties.
+
         :param _builtins.str private_link: The rmpl Resource ID.
         :param _builtins.str scope: The scope of the private link association.
         :param _builtins.str tenant_id: The TenantID.
@@ -2909,6 +2943,7 @@ class ResourceSelectorResponse(dict):
                  selectors: Optional[Sequence['outputs.SelectorResponse']] = None):
         """
         The resource selector to filter policies by resource properties.
+
         :param _builtins.str name: The name of the resource selector.
         :param Sequence['SelectorResponse'] selectors: The list of the selector expressions.
         """
@@ -2962,6 +2997,7 @@ class RoleEligibilityScheduleRequestPropertiesResponseExpiration(dict):
                  type: Optional[_builtins.str] = None):
         """
         Expiration of the role eligibility schedule
+
         :param _builtins.str duration: Duration of the role eligibility schedule in TimeSpan.
         :param _builtins.str end_date_time: End DateTime of the role eligibility schedule.
         :param _builtins.str type: Type of the role eligibility schedule expiration
@@ -3025,6 +3061,7 @@ class RoleEligibilityScheduleRequestPropertiesResponseScheduleInfo(dict):
                  start_date_time: Optional[_builtins.str] = None):
         """
         Schedule info of the role eligibility schedule
+
         :param 'RoleEligibilityScheduleRequestPropertiesResponseExpiration' expiration: Expiration of the role eligibility schedule
         :param _builtins.str start_date_time: Start DateTime of the role eligibility schedule.
         """
@@ -3079,6 +3116,7 @@ class RoleEligibilityScheduleRequestPropertiesResponseTicketInfo(dict):
                  ticket_system: Optional[_builtins.str] = None):
         """
         Ticket Info of the role eligibility
+
         :param _builtins.str ticket_number: Ticket number for the role eligibility
         :param _builtins.str ticket_system: Ticket system name for the role eligibility
         """
@@ -3133,6 +3171,7 @@ class RoleManagementPolicyApprovalRuleResponse(dict):
                  target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
         """
         The role management policy approval rule.
+
         :param _builtins.str rule_type: The type of rule
                Expected value is 'RoleManagementPolicyApprovalRule'.
         :param _builtins.str id: The id of the rule.
@@ -3215,6 +3254,7 @@ class RoleManagementPolicyAuthenticationContextRuleResponse(dict):
                  target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
         """
         The role management policy authentication context rule.
+
         :param _builtins.str rule_type: The type of rule
                Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
         :param _builtins.str claim_value: The claim value.
@@ -3305,6 +3345,7 @@ class RoleManagementPolicyEnablementRuleResponse(dict):
                  target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
         """
         The role management policy enablement rule.
+
         :param _builtins.str rule_type: The type of rule
                Expected value is 'RoleManagementPolicyEnablementRule'.
         :param Sequence[_builtins.str] enabled_rules: The list of enabled rules.
@@ -3390,6 +3431,7 @@ class RoleManagementPolicyExpirationRuleResponse(dict):
                  target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
         """
         The role management policy expiration rule.
+
         :param _builtins.str rule_type: The type of rule
                Expected value is 'RoleManagementPolicyExpirationRule'.
         :param Sequence['UserSetResponse'] exception_members: The members not restricted by expiration rule.
@@ -3503,6 +3545,7 @@ class RoleManagementPolicyNotificationRuleResponse(dict):
                  target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
         """
         The role management policy notification rule.
+
         :param _builtins.str rule_type: The type of rule
                Expected value is 'RoleManagementPolicyNotificationRule'.
         :param _builtins.str id: The id of the rule.
@@ -3626,6 +3669,7 @@ class RoleManagementPolicyPimOnlyModeRuleResponse(dict):
                  target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
         """
         The role management policy PIM only mode rule.
+
         :param _builtins.str rule_type: The type of rule
                Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
         :param _builtins.str id: The id of the rule.
@@ -3709,6 +3753,7 @@ class RoleManagementPolicyRuleTargetResponse(dict):
                  target_objects: Optional[Sequence[_builtins.str]] = None):
         """
         The role management policy rule target.
+
         :param _builtins.str caller: The caller of the setting.
         :param Sequence[_builtins.str] enforced_settings: The list of enforced settings.
         :param Sequence[_builtins.str] inheritable_settings: The list of inheritable settings.
@@ -3808,6 +3853,7 @@ class SelectorResponse(dict):
                  not_in: Optional[Sequence[_builtins.str]] = None):
         """
         The selector expression.
+
         :param Sequence[_builtins.str] in_: The list of values to filter in.
         :param _builtins.str kind: The selector kind.
         :param Sequence[_builtins.str] not_in: The list of values to filter out.
@@ -3885,6 +3931,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3985,6 +4032,7 @@ class UserSetResponse(dict):
                  user_type: Optional[_builtins.str] = None):
         """
         The detail of a user.
+
         :param _builtins.str description: The description of the user.
         :param _builtins.str id: The object id of the user.
         :param _builtins.bool is_backup: The value indicating whether the user is a backup fallback approver
@@ -4060,6 +4108,7 @@ class UsersOrServicePrincipalSetResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The detail of a subject.
+
         :param _builtins.str display_name: The display Name of the entity.
         :param _builtins.str id: The object id of the entity.
         :param _builtins.str type: The type of user.

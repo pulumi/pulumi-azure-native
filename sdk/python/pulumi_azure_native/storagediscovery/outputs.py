@@ -55,6 +55,7 @@ class StorageDiscoveryScopeResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Storage Discovery Scope. This had added validations
+
         :param _builtins.str display_name: Display name of the collection
         :param Sequence[_builtins.str] resource_types: Resource types for the collection
         :param Sequence[_builtins.str] tag_keys_only: The storage account tags keys to filter
@@ -132,6 +133,7 @@ class StorageDiscoveryWorkspacePropertiesResponse(dict):
                  sku: Optional[_builtins.str] = None):
         """
         Storage Discovery Workspace Properties
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param Sequence['StorageDiscoveryScopeResponse'] scopes: The scopes of the storage discovery workspace.
         :param Sequence[_builtins.str] workspace_roots: The view level storage discovery data estate
@@ -230,6 +232,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

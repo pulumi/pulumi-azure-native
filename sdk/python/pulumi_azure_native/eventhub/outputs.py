@@ -73,6 +73,7 @@ class CaptureDescriptionResponse(dict):
                  skip_empty_archives: Optional[_builtins.bool] = None):
         """
         Properties to configure capture description for eventhub
+
         :param 'DestinationResponse' destination: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
         :param _builtins.bool enabled: A value that indicates whether capture description is enabled. 
         :param _builtins.str encoding: Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
@@ -169,6 +170,7 @@ class CaptureIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         A value that indicates whether capture description is enabled.
+
         :param _builtins.str type: Type of Azure Active Directory Managed Identity.
         :param _builtins.str user_assigned_identity: ARM ID of Managed User Identity. This property is required is the type is UserAssignedIdentity. If type is SystemAssigned, then the System Assigned Identity Associated with the namespace will be used.
         """
@@ -204,6 +206,7 @@ class ClusterSkuResponse(dict):
                  capacity: Optional[_builtins.int] = None):
         """
         SKU parameters particular to a cluster instance.
+
         :param _builtins.str name: Name of this SKU.
         :param _builtins.int capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
@@ -238,6 +241,7 @@ class ConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         ConnectionState information.
+
         :param _builtins.str description: Description of the connection state.
         :param _builtins.str status: Status of the connection.
         """
@@ -306,6 +310,7 @@ class DestinationResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None):
         """
         Capture storage details for capture description
+
         :param _builtins.str archive_name_format: Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
         :param _builtins.str blob_container: Blob container Name
         :param _builtins.str data_lake_account_name: The Azure Data Lake Store name for the captured events
@@ -429,6 +434,7 @@ class EncryptionResponse(dict):
                  require_infrastructure_encryption: Optional[_builtins.bool] = None):
         """
         Properties to configure Encryption
+
         :param _builtins.str key_source: Enumerates the possible value of keySource for Encryption
         :param Sequence['KeyVaultPropertiesResponse'] key_vault_properties: Properties of KeyVault
         :param _builtins.bool require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
@@ -500,6 +506,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Properties to configure Identity for Bring your Own Keys
+
         :param _builtins.str principal_id: ObjectId from the KeyVault
         :param _builtins.str tenant_id: TenantId from the KeyVault
         :param _builtins.str type: Type of managed service identity.
@@ -578,6 +585,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         Properties to configure keyVault Properties
+
         :param _builtins.str key_name: Name of the Key from KeyVault
         :param _builtins.str key_vault_uri: Uri of KeyVault
         :param _builtins.str key_version: Key Version
@@ -648,6 +656,7 @@ class NWRuleSetIpRulesResponse(dict):
                  ip_mask: Optional[_builtins.str] = None):
         """
         The response from the List namespace operation.
+
         :param _builtins.str action: The IP Filter Action
         :param _builtins.str ip_mask: IP Mask
         """
@@ -700,6 +709,7 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         The response from the List namespace operation.
+
         :param _builtins.bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
         :param 'SubnetResponse' subnet: Subnet properties
         """
@@ -764,6 +774,7 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Properties of the PrivateEndpointConnection.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
@@ -859,6 +870,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         PrivateEndpoint information.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint.
         """
         if id is not None:
@@ -905,6 +917,7 @@ class RetentionDescriptionResponse(dict):
                  tombstone_retention_time_in_hours: Optional[_builtins.int] = None):
         """
         Properties to configure retention settings for the  eventhub
+
         :param _builtins.str cleanup_policy: Enumerates the possible values for cleanup policy
         :param _builtins.float retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
         :param _builtins.int tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
@@ -952,6 +965,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU parameters supplied to the create namespace operation
+
         :param _builtins.str name: Name of this SKU.
         :param _builtins.int capacity: The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         :param _builtins.str tier: The billing tier of this particular SKU.
@@ -996,6 +1010,7 @@ class SubnetResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Properties supplied for Subnet
+
         :param _builtins.str id: Resource ID of Virtual Network Subnet
         """
         if id is not None:
@@ -1051,6 +1066,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1151,6 +1167,7 @@ class ThrottlingPolicyResponse(dict):
                  type: _builtins.str):
         """
         Properties of the throttling policy
+
         :param _builtins.str metric_id: Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
         :param _builtins.str name: The Name of this policy
         :param _builtins.float rate_limit_threshold: The Threshold limit above which the application group will be throttled.Rate limit is always per second.
@@ -1261,6 +1278,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Recognized Dictionary value.
+
         :param _builtins.str client_id: Client Id of user assigned identity
         :param _builtins.str principal_id: Principal Id of user assigned identity
         """

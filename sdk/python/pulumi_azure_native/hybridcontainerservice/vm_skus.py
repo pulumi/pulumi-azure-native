@@ -26,6 +26,7 @@ class VMSkusArgs:
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None):
         """
         The set of arguments for constructing a VMSkus resource.
+
         :param pulumi.Input[_builtins.str] custom_location_resource_uri: The fully qualified Azure Resource Manager identifier of the custom location resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended location pointing to the underlying infrastructure
         """
@@ -74,6 +75,7 @@ class VMSkus(pulumi.CustomResource):
 
         Other available API versions: 2023-11-15-preview, 2024-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_resource_uri: The fully qualified Azure Resource Manager identifier of the custom location resource.
@@ -91,6 +93,7 @@ class VMSkus(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01-preview.
 
         Other available API versions: 2023-11-15-preview, 2024-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param VMSkusArgs args: The arguments to use to populate this resource's properties.

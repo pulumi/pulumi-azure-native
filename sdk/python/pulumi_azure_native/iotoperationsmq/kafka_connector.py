@@ -37,6 +37,7 @@ class KafkaConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KafkaConnector resource.
+
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['KafkaRemoteBrokerConnectionSpecArgs'] kafka_connection: The details for connecting with Remote Kafka Broker.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
@@ -258,6 +259,7 @@ class KafkaConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_id_prefix: The client id prefix of the dynamically generated client ids.
@@ -284,6 +286,7 @@ class KafkaConnector(pulumi.CustomResource):
         MQ kafkaConnector resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param KafkaConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -61,6 +61,7 @@ class CorsRuleResponse(dict):
                  allowed_origins: Sequence[_builtins.str]):
         """
         Specifies a CORS rule for the Map Account.
+
         :param Sequence[_builtins.str] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
@@ -100,6 +101,7 @@ class CorsRulesResponse(dict):
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+
         :param Sequence['CorsRuleResponse'] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request. 
         """
         if cors_rules is not None:
@@ -149,6 +151,7 @@ class CreatorPropertiesResponse(dict):
                  total_storage_unit_size_in_bytes: Optional[_builtins.int] = None):
         """
         Creator resource properties
+
         :param _builtins.str provisioning_state: The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
         :param _builtins.int storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
         :param _builtins.int consumed_storage_unit_size_in_bytes: The consumed storage unit size in bytes for the creator resource.
@@ -223,6 +226,7 @@ class EncryptionResponse(dict):
                  infrastructure_encryption: Optional[_builtins.str] = None):
         """
         All encryption configuration for a resource.
+
         :param 'EncryptionResponseCustomerManagedKeyEncryption' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         :param _builtins.str infrastructure_encryption: (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
         """
@@ -277,6 +281,7 @@ class EncryptionResponseCustomerManagedKeyEncryption(dict):
                  key_encryption_key_url: Optional[_builtins.str] = None):
         """
         All Customer-managed key encryption properties for the resource.
+
         :param 'EncryptionResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param _builtins.str key_encryption_key_url: key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
@@ -337,6 +342,7 @@ class EncryptionResponseKeyEncryptionKeyIdentity(dict):
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
         :param _builtins.str delegated_identity_client_id: delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
         :param _builtins.str federated_client_id: application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
         :param _builtins.str identity_type: The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
@@ -411,6 +417,7 @@ class LinkedResourceResponse(dict):
                  unique_name: _builtins.str):
         """
         Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
+
         :param _builtins.str id: ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
         :param _builtins.str unique_name: A provided name which uniquely identifies the linked resource.
         """
@@ -467,6 +474,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -549,6 +557,7 @@ class MapsAccountPropertiesResponse(dict):
                  locations: Optional[Sequence['outputs.MapsAccountPropertiesResponseLocations']] = None):
         """
         Additional Maps account properties
+
         :param _builtins.str provisioning_state: The provisioning state of the Maps account resource, Account updates can only be performed on terminal states. Terminal states: `Succeeded` and `Failed`
         :param _builtins.str unique_id: A unique identifier for the Maps Account
         :param 'CorsRulesResponse' cors: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
@@ -655,6 +664,7 @@ class MapsAccountPropertiesResponseLocations(dict):
                  location_name: _builtins.str):
         """
         Data processing location.
+
         :param _builtins.str location_name: The location name.
         """
         pulumi.set(__self__, "location_name", location_name)
@@ -694,6 +704,7 @@ class PrivateAtlasPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Private Atlas resource properties
+
         :param _builtins.str provisioning_state: The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
         """
         if provisioning_state is not None:
@@ -717,6 +728,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -758,6 +770,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -804,6 +817,7 @@ class SkuResponse(dict):
                  tier: _builtins.str):
         """
         The SKU of the Maps Account.
+
         :param _builtins.str name: The name of the SKU, in standard format (such as G2).
         :param _builtins.str tier: Gets the sku tier. This is based on the SKU name.
         """
@@ -868,6 +882,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -966,6 +981,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

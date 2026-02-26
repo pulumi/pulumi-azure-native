@@ -34,6 +34,7 @@ class SapVirtualInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapVirtualInstance resource.
+
         :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         :param pulumi.Input[Union[_builtins.str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -205,6 +206,7 @@ class SapVirtualInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict'], Union['DeploymentWithOSConfigurationArgs', 'DeploymentWithOSConfigurationArgsDict'], Union['DiscoveryConfigurationArgs', 'DiscoveryConfigurationArgsDict']]] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
@@ -228,6 +230,7 @@ class SapVirtualInstance(pulumi.CustomResource):
         Define the Virtual Instance for SAP solutions resource.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param SapVirtualInstanceArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class SettingArgs:
                  start_on: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Setting resource.
+
         :param pulumi.Input[_builtins.str] scope: Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
         :param pulumi.Input[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]] cache: Array of scopes with additional details used by Cost Management in the Azure portal.
         :param pulumi.Input[_builtins.str] setting_name: Name of the setting. Allowed values: myscope
@@ -105,6 +106,7 @@ class Setting(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01. In version 2.x of the Azure Native provider, it used API version 2019-11-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SettingsPropertiesCacheArgs', 'SettingsPropertiesCacheArgsDict']]]] cache: Array of scopes with additional details used by Cost Management in the Azure portal.
@@ -122,6 +124,7 @@ class Setting(pulumi.CustomResource):
         State of the myscope setting.
 
         Uses Azure REST API version 2019-11-01. In version 2.x of the Azure Native provider, it used API version 2019-11-01.
+
 
         :param str resource_name: The name of the resource.
         :param SettingArgs args: The arguments to use to populate this resource's properties.

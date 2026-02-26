@@ -71,6 +71,7 @@ class AdmCredentialResponse(dict):
                  client_secret: _builtins.str):
         """
         Description of a NotificationHub AdmCredential.
+
         :param _builtins.str auth_token_url: Gets or sets the URL of the authorization token.
         :param _builtins.str client_id: Gets or sets the client identifier.
         :param _builtins.str client_secret: Gets or sets the credential secret access key.
@@ -145,6 +146,7 @@ class ApnsCredentialResponse(dict):
                  token: Optional[_builtins.str] = None):
         """
         Description of a NotificationHub ApnsCredential.
+
         :param _builtins.str endpoint: Gets or sets the endpoint of this credential.
         :param _builtins.str apns_certificate: Gets or sets the APNS certificate.
         :param _builtins.str app_id: Gets or sets the issuer (iss) registered claim key, whose value is
@@ -273,6 +275,7 @@ class BaiduCredentialResponse(dict):
                  baidu_secret_key: _builtins.str):
         """
         Description of a NotificationHub BaiduCredential.
+
         :param _builtins.str baidu_api_key: Gets or sets baidu Api Key.
         :param _builtins.str baidu_end_point: Gets or sets baidu Endpoint.
         :param _builtins.str baidu_secret_key: Gets or sets baidu Secret Key
@@ -336,6 +339,7 @@ class BrowserCredentialResponse(dict):
                  vapid_public_key: _builtins.str):
         """
         Description of a NotificationHub BrowserCredential.
+
         :param _builtins.str subject: Gets or sets web push subject.
         :param _builtins.str vapid_private_key: Gets or sets VAPID private key.
         :param _builtins.str vapid_public_key: Gets or sets VAPID public key.
@@ -401,6 +405,7 @@ class FcmV1CredentialResponse(dict):
                  project_id: _builtins.str):
         """
         Description of a NotificationHub FcmV1Credential.
+
         :param _builtins.str client_email: Gets or sets client email.
         :param _builtins.str private_key: Gets or sets private key.
         :param _builtins.str project_id: Gets or sets project id.
@@ -463,6 +468,7 @@ class GcmCredentialResponse(dict):
                  gcm_endpoint: Optional[_builtins.str] = None):
         """
         Description of a NotificationHub GcmCredential.
+
         :param _builtins.str google_api_key: Gets or sets the Google API key.
         :param _builtins.str gcm_endpoint: Gets or sets the GCM endpoint.
         """
@@ -514,6 +520,7 @@ class IpRuleResponse(dict):
                  rights: Sequence[_builtins.str]):
         """
         A network authorization rule that filters traffic based on IP address.
+
         :param _builtins.str ip_mask: IP mask.
         :param Sequence[_builtins.str] rights: List of access rights.
         """
@@ -567,6 +574,7 @@ class MpnsCredentialResponse(dict):
                  thumbprint: _builtins.str):
         """
         Description of a NotificationHub MpnsCredential.
+
         :param _builtins.str certificate_key: Gets or sets the certificate key for this credential.
         :param _builtins.str mpns_certificate: Gets or sets the MPNS certificate.
         :param _builtins.str thumbprint: Gets or sets the MPNS certificate Thumbprint
@@ -629,6 +637,7 @@ class NetworkAclsResponse(dict):
                  public_network_rule: Optional['outputs.PublicInternetAuthorizationRuleResponse'] = None):
         """
         A collection of network authorization rules.
+
         :param Sequence['IpRuleResponse'] ip_rules: List of IP rules.
         :param 'PublicInternetAuthorizationRuleResponse' public_network_rule: A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
         """
@@ -704,6 +713,7 @@ class PnsCredentialsResponse(dict):
                  xiaomi_credential: Optional['outputs.XiaomiCredentialResponse'] = None):
         """
         Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+
         :param 'AdmCredentialResponse' adm_credential: Description of a NotificationHub AdmCredential.
         :param 'ApnsCredentialResponse' apns_credential: Description of a NotificationHub ApnsCredential.
         :param 'BaiduCredentialResponse' baidu_credential: Description of a NotificationHub BaiduCredential.
@@ -841,6 +851,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Private Endpoint Connection properties.
+
         :param Sequence[_builtins.str] group_ids: List of group ids. For Notification Hubs, it always contains a single "namespace" element.
         :param 'RemotePrivateEndpointConnectionResponse' private_endpoint: Represents a Private Endpoint that is connected to Notification Hubs namespace using Private Endpoint Connection.
         :param 'RemotePrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the Private Link Service connection.
@@ -917,6 +928,7 @@ class PrivateEndpointConnectionResourceResponse(dict):
                  properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
         """
         Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -980,6 +992,7 @@ class PublicInternetAuthorizationRuleResponse(dict):
                  rights: Sequence[_builtins.str]):
         """
         A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
+
         :param Sequence[_builtins.str] rights: List of access rights.
         """
         pulumi.set(__self__, "rights", rights)
@@ -1002,6 +1015,7 @@ class RemotePrivateEndpointConnectionResponse(dict):
                  id: _builtins.str):
         """
         Represents a Private Endpoint that is connected to Notification Hubs namespace using Private Endpoint Connection.
+
         :param _builtins.str id: ARM resource ID of the Private Endpoint. This may belong to different subscription and resource group than a Notification Hubs namespace.
         """
         pulumi.set(__self__, "id", id)
@@ -1043,6 +1057,7 @@ class RemotePrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         State of the Private Link Service connection.
+
         :param _builtins.str actions_required: Human-friendly description of required actions.
         :param _builtins.str description: Human-friendly description.
         :param _builtins.str status: State of Private Link Connection.
@@ -1123,6 +1138,7 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
                  secondary_key: Optional[_builtins.str] = None):
         """
         SharedAccessAuthorizationRule properties.
+
         :param _builtins.str claim_type: Gets a string that describes the claim type
         :param _builtins.str claim_value: Gets a string that describes the claim value
         :param _builtins.str created_time: Gets the created time for this rule
@@ -1235,6 +1251,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The Sku description for a namespace
+
         :param _builtins.str name: Namespace SKU name.
         :param _builtins.int capacity: Gets or sets the capacity of the resource
         :param _builtins.str family: Gets or sets the Sku Family
@@ -1333,6 +1350,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1440,6 +1458,7 @@ class WnsCredentialResponse(dict):
                  wns_certificate: Optional[_builtins.str] = None):
         """
         Description of a NotificationHub WnsCredential.
+
         :param _builtins.str certificate_key: Ges or sets the WNS Certificate Key.
         :param _builtins.str package_sid: Gets or sets the package ID for this credential.
         :param _builtins.str secret_key: Gets or sets the secret key.
@@ -1525,6 +1544,7 @@ class XiaomiCredentialResponse(dict):
                  endpoint: Optional[_builtins.str] = None):
         """
         Description of a NotificationHub XiaomiCredential.
+
         :param _builtins.str app_secret: Gets or sets app secret.
         :param _builtins.str endpoint: Gets or sets xiaomi service endpoint.
         """

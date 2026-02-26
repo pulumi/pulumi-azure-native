@@ -27,6 +27,7 @@ class HybridIdentityMetadatumArgs:
                  resource_uid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridIdentityMetadatum resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the vm.
         :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
@@ -120,6 +121,7 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
@@ -138,6 +140,7 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         Defines the HybridIdentityMetadata.
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
+
 
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.

@@ -24,31 +24,26 @@ __all__ = [
     'ScopeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ManagedNetworkPeeringPolicyPropertiesArgsDict(TypedDict):
-        """
-        Properties of a Managed Network Peering Policy
-        """
-        type: pulumi.Input[Union[_builtins.str, 'Type']]
-        """
-        Gets or sets the connectivity type of a network structure policy
-        """
-        hub: NotRequired[pulumi.Input['ResourceIdArgsDict']]
-        """
-        Gets or sets the hub virtual network ID
-        """
-        mesh: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
-        """
-        Gets or sets the mesh group IDs
-        """
-        spokes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
-        """
-        Gets or sets the spokes group IDs
-        """
-elif False:
-    ManagedNetworkPeeringPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedNetworkPeeringPolicyPropertiesArgsDict(TypedDict):
+    """
+    Properties of a Managed Network Peering Policy
+    """
+    type: pulumi.Input[Union[_builtins.str, 'Type']]
+    """
+    Gets or sets the connectivity type of a network structure policy
+    """
+    hub: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+    """
+    Gets or sets the hub virtual network ID
+    """
+    mesh: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+    """
+    Gets or sets the mesh group IDs
+    """
+    spokes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+    """
+    Gets or sets the spokes group IDs
+    """
 
 @pulumi.input_type
 class ManagedNetworkPeeringPolicyPropertiesArgs:
@@ -59,6 +54,7 @@ class ManagedNetworkPeeringPolicyPropertiesArgs:
                  spokes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
         """
         Properties of a Managed Network Peering Policy
+
         :param pulumi.Input[Union[_builtins.str, 'Type']] type: Gets or sets the connectivity type of a network structure policy
         :param pulumi.Input['ResourceIdArgs'] hub: Gets or sets the hub virtual network ID
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] mesh: Gets or sets the mesh group IDs
@@ -121,17 +117,14 @@ class ManagedNetworkPeeringPolicyPropertiesArgs:
         pulumi.set(self, "spokes", value)
 
 
-if not MYPY:
-    class ResourceIdArgsDict(TypedDict):
-        """
-        Generic pointer to a resource
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id
-        """
-elif False:
-    ResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdArgsDict(TypedDict):
+    """
+    Generic pointer to a resource
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id
+    """
 
 @pulumi.input_type
 class ResourceIdArgs:
@@ -139,6 +132,7 @@ class ResourceIdArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Generic pointer to a resource
+
         :param pulumi.Input[_builtins.str] id: Resource Id
         """
         if id is not None:
@@ -157,29 +151,26 @@ class ResourceIdArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ScopeArgsDict(TypedDict):
-        """
-        Scope of a Managed Network
-        """
-        management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
-        """
-        The collection of management groups covered by the Managed Network
-        """
-        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
-        """
-        The collection of  subnets covered by the Managed Network
-        """
-        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
-        """
-        The collection of subscriptions covered by the Managed Network
-        """
-        virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
-        """
-        The collection of virtual nets covered by the Managed Network
-        """
-elif False:
-    ScopeArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeArgsDict(TypedDict):
+    """
+    Scope of a Managed Network
+    """
+    management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+    """
+    The collection of management groups covered by the Managed Network
+    """
+    subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+    """
+    The collection of  subnets covered by the Managed Network
+    """
+    subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+    """
+    The collection of subscriptions covered by the Managed Network
+    """
+    virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+    """
+    The collection of virtual nets covered by the Managed Network
+    """
 
 @pulumi.input_type
 class ScopeArgs:
@@ -190,6 +181,7 @@ class ScopeArgs:
                  virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
         """
         Scope of a Managed Network
+
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] management_groups: The collection of management groups covered by the Managed Network
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] subnets: The collection of  subnets covered by the Managed Network
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] subscriptions: The collection of subscriptions covered by the Managed Network

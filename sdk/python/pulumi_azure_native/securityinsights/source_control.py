@@ -36,6 +36,7 @@ class SourceControlArgs:
                  version: Optional[pulumi.Input[Union[_builtins.str, 'Version']]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]] content_types: Array of source control content types.
         :param pulumi.Input[_builtins.str] display_name: The display name of the source control
         :param pulumi.Input[Union[_builtins.str, 'RepoType']] repo_type: The repository type of the source control
@@ -239,6 +240,7 @@ class SourceControl(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]] content_types: Array of source control content types.
@@ -266,6 +268,7 @@ class SourceControl(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.

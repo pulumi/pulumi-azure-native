@@ -33,6 +33,7 @@ class AssessmentsMetadataSubscriptionArgs:
                  user_impact: Optional[pulumi.Input[Union[_builtins.str, 'UserImpact']]] = None):
         """
         The set of arguments for constructing a AssessmentsMetadataSubscription resource.
+
         :param pulumi.Input[Union[_builtins.str, 'AssessmentType']] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         :param pulumi.Input[_builtins.str] display_name: User friendly display name of the assessment
         :param pulumi.Input[Union[_builtins.str, 'Severity']] severity: The severity level of the assessment
@@ -213,6 +214,7 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type
@@ -235,6 +237,7 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         Security assessment metadata
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentsMetadataSubscriptionArgs args: The arguments to use to populate this resource's properties.

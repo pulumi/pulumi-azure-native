@@ -27,6 +27,7 @@ class WorkflowAccessKeyArgs:
                  not_before: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowAccessKey resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] workflow_name: The workflow name.
         :param pulumi.Input[_builtins.str] access_key_name: The workflow access key name.
@@ -134,6 +135,7 @@ class WorkflowAccessKey(pulumi.CustomResource):
         """
         Uses Azure REST API version 2015-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-02-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key_name: The workflow access key name.
@@ -151,6 +153,7 @@ class WorkflowAccessKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2015-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-02-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowAccessKeyArgs args: The arguments to use to populate this resource's properties.

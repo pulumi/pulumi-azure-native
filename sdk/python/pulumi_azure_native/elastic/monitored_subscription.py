@@ -28,6 +28,7 @@ class MonitoredSubscriptionInitArgs:
                  properties: Optional[pulumi.Input['SubscriptionListArgs']] = None):
         """
         The set of arguments for constructing a MonitoredSubscription resource.
+
         :param pulumi.Input[_builtins.str] monitor_name: Monitor resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] configuration_name: The configuration name. Only 'default' value is supported.
@@ -107,6 +108,7 @@ class MonitoredSubscription(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_name: The configuration name. Only 'default' value is supported.
@@ -126,6 +128,7 @@ class MonitoredSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param MonitoredSubscriptionInitArgs args: The arguments to use to populate this resource's properties.

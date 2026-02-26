@@ -29,6 +29,7 @@ class BackupLongTermRetentionPolicyArgs:
                  yearly_retention: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupLongTermRetentionPolicy resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
@@ -169,6 +170,7 @@ class BackupLongTermRetentionPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-03-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
@@ -190,6 +192,7 @@ class BackupLongTermRetentionPolicy(pulumi.CustomResource):
         A long term retention policy.
 
         Uses Azure REST API version 2017-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-03-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param BackupLongTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.

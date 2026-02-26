@@ -30,6 +30,7 @@ class EdgeActionVersionArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EdgeActionVersion resource.
+
         :param pulumi.Input[Union[_builtins.str, 'EdgeActionVersionDeploymentType']] deployment_type: The deployment type
         :param pulumi.Input[_builtins.str] edge_action_name: The name of the Edge Action
         :param pulumi.Input[Union[_builtins.str, 'EdgeActionIsDefaultVersion']] is_default_version: The active state
@@ -155,6 +156,7 @@ class EdgeActionVersion(pulumi.CustomResource):
 
         Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'EdgeActionVersionDeploymentType']] deployment_type: The deployment type
@@ -177,6 +179,7 @@ class EdgeActionVersion(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01-preview.
 
         Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param EdgeActionVersionArgs args: The arguments to use to populate this resource's properties.

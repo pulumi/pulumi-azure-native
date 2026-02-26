@@ -29,6 +29,7 @@ class EnvironmentSpecificationVersionInitArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EnvironmentSpecificationVersion resource.
+
         :param pulumi.Input[_builtins.str] name: Name of EnvironmentSpecificationVersion.
         :param pulumi.Input['EnvironmentSpecificationVersionArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +121,7 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of EnvironmentSpecificationVersion.
@@ -138,6 +140,7 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
 
         Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentSpecificationVersionInitArgs args: The arguments to use to populate this resource's properties.

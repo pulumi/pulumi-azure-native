@@ -23,6 +23,7 @@ class SupportPlanTypeArgs:
                  plan_type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SupportPlanType resource.
+
         :param pulumi.Input[_builtins.str] provider_name: The support plan type. For now the only valid type is "canonical".
         :param pulumi.Input[_builtins.str] plan_type_name: The Canonical support plan type.
         """
@@ -69,6 +70,7 @@ class SupportPlanType(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] plan_type_name: The Canonical support plan type.
@@ -84,6 +86,7 @@ class SupportPlanType(pulumi.CustomResource):
         The status of the Canonical support plan.
 
         Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
+
 
         :param str resource_name: The name of the resource.
         :param SupportPlanTypeArgs args: The arguments to use to populate this resource's properties.

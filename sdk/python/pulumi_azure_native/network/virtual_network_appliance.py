@@ -31,6 +31,7 @@ class VirtualNetworkApplianceArgs:
                  virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkAppliance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -157,6 +158,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
@@ -177,6 +179,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         A virtual network appliance in a resource group.
 
         Uses Azure REST API version 2025-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkApplianceArgs args: The arguments to use to populate this resource's properties.

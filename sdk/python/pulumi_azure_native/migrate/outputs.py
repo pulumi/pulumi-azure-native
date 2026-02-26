@@ -229,6 +229,7 @@ class ACRPropertiesResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Class for ACR Properties.
+
         :param _builtins.str registry_name: Gets or sets the azure container registry name.
         :param _builtins.str resource_group: Gets or sets the resource group of the resource.
         :param _builtins.str subscription_id: Gets or sets the subscription id of the resource.
@@ -324,6 +325,7 @@ class AKSAssessmentDetailsResponse(dict):
                  web_server_count: _builtins.int):
         """
         Data model of AKS Assessment Details.
+
         :param _builtins.float confidence_rating_in_percentage: Gets Confidence score.
         :param _builtins.str created_timestamp: Gets date and time when assessment was created.
         :param _builtins.int machine_count: Gets the number of machines.
@@ -470,6 +472,7 @@ class AKSAssessmentSettingsResponse(dict):
                  scaling_factor: Optional[_builtins.float] = None):
         """
         Data model of AKS Assessment Settings.
+
         :param _builtins.str azure_location: Gets or sets azure location.
         :param _builtins.str category: Gets or sets azure VM category.
         :param _builtins.str consolidation: Gets or sets consolidation type.
@@ -631,6 +634,7 @@ class AKSDeploymentPropertiesResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Class for AKSDeployment Properties.
+
         :param _builtins.str aks_cluster_name: Gets or sets the AKS cluster name.
         :param _builtins.str resource_group: Gets or sets the resource group of the resource.
         :param _builtins.str subscription_id: Gets or sets the subscription id of the resource.
@@ -710,6 +714,7 @@ class AKSDeploymentSpecificationResponse(dict):
                  replica_count: Optional[_builtins.str] = None):
         """
         AKS Deployment Specification.
+
         :param _builtins.str kubernetes_objects_yaml: Gets or sets the Merged Deployment and service Yaml.
         :param _builtins.str load_balancer_type: Gets or sets the load balancer type.
         :param _builtins.str replica_count: Gets or sets the replica count to be created in AKS.
@@ -775,6 +780,7 @@ class ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesResponse(dict):
                  apache_tomcat_aks_workload_deployment_properties: Optional['outputs.ApacheTomcatAKSWorkloadDeploymentResponse'] = None):
         """
         ApacheTomcat workload instance model custom properties.
+
         :param _builtins.str instance_type: Gets or sets the instance type.
                Expected value is 'ApacheTomcatAKSWorkloadDeploymentModelCustomProperties'.
         :param 'ApacheTomcatAKSWorkloadDeploymentResponse' apache_tomcat_aks_workload_deployment_properties: ApacheTomcat web application.
@@ -856,6 +862,7 @@ class ApacheTomcatAKSWorkloadDeploymentResponse(dict):
                  target_platform_identity: Optional[_builtins.str] = None):
         """
         ApacheTomcat web application.
+
         :param Sequence['DeployedResourcesPropertiesResponse'] deployment_history: Gets or sets the deployment history.
         :param 'AutomationArtifactResponse' automation_artifact_properties: Class for automation artifact.
         :param Sequence['BindingResponse'] bindings: Gets or sets the bindings for the application.
@@ -1065,6 +1072,7 @@ class ApacheTomcatWebApplicationResponse(dict):
                  web_server_name: Optional[_builtins.str] = None):
         """
         ApacheTomcat web application.
+
         :param _builtins.str application_id: Gets or sets the web application id.
         :param _builtins.str application_name: Gets or sets the web application name.
         :param _builtins.str application_scratch_path: Gets or sets application scratch path.
@@ -1257,6 +1265,7 @@ class ApacheTomcatWorkloadInstanceModelCustomPropertiesResponse(dict):
                  web_app_site_name: Optional[_builtins.str] = None):
         """
         ApacheTomcat workload instance model custom properties.
+
         :param _builtins.str instance_type: Gets or sets the instance type.
                Expected value is 'ApacheTomcatWorkloadInstanceModelCustomProperties'.
         :param 'ApacheTomcatWebApplicationResponse' apache_tomcat_web_application: ApacheTomcat web application.
@@ -1344,6 +1353,7 @@ class AppInsightMonitoringPropertiesResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         Class for app insight monitoring properties.
+
         :param _builtins.str app_insights_name: Gets or sets the app insights name.
         :param _builtins.bool is_enabled: Gets or sets a value indicating whether monitoring is enabled.
         :param _builtins.str region: Gets or sets the region.
@@ -1435,6 +1445,7 @@ class AppSvcContainerSettingsResponse(dict):
                  isolation_required: _builtins.bool):
         """
         App service container settings.
+
         :param _builtins.bool isolation_required: Gets or sets the isolation required.
         """
         pulumi.set(__self__, "isolation_required", isolation_required)
@@ -1474,6 +1485,7 @@ class AppSvcNativeSettingsResponse(dict):
                  isolation_required: _builtins.bool):
         """
         App service native settings.
+
         :param _builtins.bool isolation_required: Gets or sets the isolation required.
         """
         pulumi.set(__self__, "isolation_required", isolation_required)
@@ -1496,6 +1508,7 @@ class ArgResponse(dict):
                  query: _builtins.str):
         """
         ARG query and other details to create workloads within a wave.
+
         :param _builtins.str query: The query to create workloads within the wave.
         """
         pulumi.set(__self__, "query", query)
@@ -1545,6 +1558,7 @@ class AssessmentDetailsResponse(dict):
                  updated_timestamp: _builtins.str):
         """
         Assessment details class.
+
         :param _builtins.float confidence_rating_in_percentage: Confidence Rating in Percentage.
         :param _builtins.str created_timestamp: Date and Time when assessment was created.
         :param _builtins.str prices_timestamp: Last time when rates were queried.
@@ -1703,6 +1717,7 @@ class AssessmentPropertiesResponse(dict):
                  vm_uptime: 'outputs.VmUptimeResponse'):
         """
         Properties of an assessment.
+
         :param _builtins.str azure_disk_type: Storage type selected for this disk.
         :param _builtins.str azure_hybrid_use_benefit: AHUB discount on windows virtual machines.
         :param _builtins.str azure_location: Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
@@ -2032,6 +2047,7 @@ class AssessmentScopeParametersResponse(dict):
                  server_group_id: Optional[_builtins.str] = None):
         """
         Data model of Assessment Scope Parameters.
+
         :param _builtins.str server_group_id: Gets or sets the server group id.
         """
         if server_group_id is not None:
@@ -2072,6 +2088,7 @@ class AutomaticResolutionPropertiesResponse(dict):
                  move_resource_id: Optional[_builtins.str] = None):
         """
         Defines the properties for automatic resolution.
+
         :param _builtins.str move_resource_id: Gets the MoveResource ARM ID of
                the dependent resource if the resolution type is Automatic.
         """
@@ -2116,6 +2133,7 @@ class AutomationArtifactResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Class for automation artifact.
+
         :param Mapping[str, _builtins.str] artifacts: Gets or sets the artifacts.
         :param 'AzureFileShareHydrationProfileResponse' azure_file_share_profile: Azure file share profile for hydration of application folders not mounted on
                the container file system.
@@ -2193,6 +2211,7 @@ class AvailabilitySetResourceSettingsResponse(dict):
                  update_domain: Optional[_builtins.int] = None):
         """
         Gets or sets the availability set resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/availabilitySets'.
         :param _builtins.int fault_domain: Gets or sets the target fault domain.
@@ -2295,6 +2314,7 @@ class AvsAssessmentPropertiesV2Response(dict):
                  settings: Optional['outputs.AvsAssessmentSettingsResponse'] = None):
         """
         Assessment properties class.
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
         :param _builtins.str fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
@@ -2430,6 +2450,7 @@ class AvsAssessmentSettingsResponse(dict):
                  vcpu_oversubscription: Optional[_builtins.float] = None):
         """
         Properties of the AVS assessment.
+
         :param _builtins.str avs_assessment_scenario: AVS Assessment Scenario.
         :param _builtins.str azure_location: Azure Location or Azure region where to which the machines will be migrated.
         :param 'BillingSettingsResponse' billing_settings: Gets or sets the billing settings.
@@ -2679,6 +2700,7 @@ class AvsEstimatedExternalStorageResponse(dict):
                  total_storage_in_gb: Optional[_builtins.float] = None):
         """
         Details on the Estimated External Storage for AVS Assessment.
+
         :param _builtins.float monthly_price: Total monthly cost for type of storage.
         :param _builtins.str storage_type: Recommended External Storage.
         :param _builtins.float storage_utilization: Predicted storage utilization.
@@ -2755,6 +2777,7 @@ class AvsEstimatedNetworkResponse(dict):
                  network_type: Optional[_builtins.str] = None):
         """
         Details on the Estimated Network Costs for AVS Assessment.
+
         :param _builtins.float monthly_price: Monthly cost for network type.
         :param _builtins.str network_type: Recommended Network Sku.
         """
@@ -2836,6 +2859,7 @@ class AvsEstimatedNodeResponse(dict):
                  total_storage: Optional[_builtins.float] = None):
         """
         Details on the Estimated nodes for AVS Assessment.
+
         :param _builtins.float cpu_utilization: Predicted CPU utilization.
         :param _builtins.str ftt_raid_level: FttRaidLevel recommended for Node.
         :param _builtins.float monthly_price: Total monthly cost for type and number of nodes.
@@ -2986,6 +3010,7 @@ class AzureArcManagementSettingsResponse(dict):
                  monitoring_settings: 'outputs.AzureArcMonitoringSettingsResponse'):
         """
         Azure Arc Management settings.
+
         :param 'AzureArcMonitoringSettingsResponse' monitoring_settings: Gets the azure arc monitoring settings.
         """
         pulumi.set(__self__, "monitoring_settings", monitoring_settings)
@@ -3028,6 +3053,7 @@ class AzureArcMonitoringSettingsResponse(dict):
                  logs_volume_in_gb: _builtins.float):
         """
         Azure Arc Monitoring settings.
+
         :param _builtins.int alert_rules_count: Number of alert rules settings.
         :param _builtins.float logs_volume_in_gb: Logs volume settings.
         """
@@ -3083,6 +3109,7 @@ class AzureArcSettingsResponse(dict):
                  management_settings: Optional['outputs.AzureArcManagementSettingsResponse'] = None):
         """
         Azure arc settings for a business case.
+
         :param _builtins.str azure_arc_state: AzureArc state indicates whether to include azure arc related costs in on-premises or not.
         :param _builtins.float labor_cost_percentage: Gets Azure arc labour cost percentage.
         :param 'AzureArcManagementSettingsResponse' management_settings: Management settings.
@@ -3158,6 +3185,7 @@ class AzureFileShareHydrationProfileResponse(dict):
         """
         Azure file share profile for hydration of application folders not mounted on
         the container file system.
+
         :param _builtins.str azure_file_share_dir_path: Gets or sets the cloud directory path of the directory on azure file share.
         :param _builtins.str azure_file_share_name: Gets or sets the name of the azure file share.
         :param _builtins.str azure_file_share_resource_group: Gets or sets the name of the azure file share resource group.
@@ -3286,6 +3314,7 @@ class AzureSettingsResponse(dict):
                  workload_discovery_source: Optional[_builtins.str] = None):
         """
         Azure settings for a business case.
+
         :param _builtins.str currency: Business case Currency.
         :param _builtins.str target_location: Gets or sets azure location.
         :param _builtins.float avs_labor_cost_percentage: Gets Avs labour cost percentage.
@@ -3525,6 +3554,7 @@ class BillingSettingsResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         Billing settings class.
+
         :param _builtins.str licensing_program: Gets or sets the licensing program.
         :param _builtins.str subscription_id: Gets or sets the subscription ID for licensing program selected.
         """
@@ -3586,6 +3616,7 @@ class BindingResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Binding for a web application.
+
         :param _builtins.str id: Gets the ID.
         :param 'CertResponse' cert: WebApplication certificate.
         :param _builtins.str host_name: Gets or sets the binding host name.
@@ -3700,6 +3731,7 @@ class CertResponse(dict):
                  secret_store: Optional[_builtins.str] = None):
         """
         WebApplication certificate.
+
         :param _builtins.str cert_data: Gets or sets the Certificate data.
         :param _builtins.bool cert_needed: Gets or sets a value indicating whether certificate is needed or not.
         :param _builtins.bool cert_provided: Gets or sets a value indicating whether certificate is provided or not.
@@ -3778,6 +3810,7 @@ class CollectorAgentPropertiesBaseResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Collector agent property class.
+
         :param _builtins.str id: Gets the collector agent id.
         :param _builtins.str last_heartbeat_utc: Gets the collector last heartbeat time.
         :param 'CollectorAgentSpnPropertiesBaseResponse' spn_details: Gets or sets the SPN details.
@@ -3912,6 +3945,7 @@ class CollectorAgentSpnPropertiesBaseResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Collector agent SPN details class.
+
         :param _builtins.str application_id: Gets the AAD application id.
         :param _builtins.str audience: Gets the AAD audience url.
         :param _builtins.str authority: Gets the AAD authority endpoint.
@@ -4160,6 +4194,7 @@ class CompoundAssessmentDetailsResponse(dict):
                  updated_timestamp: Optional[_builtins.str] = None):
         """
         Details of the compound assessment.
+
         :param _builtins.str status: Status of the assessment.
         :param _builtins.str created_timestamp: Timestamp when the assessment was created.
         :param _builtins.str updated_timestamp: Timestamp when the assessment was last updated.
@@ -4228,6 +4263,7 @@ class CompoundAssessmentPropertiesResponse(dict):
                  fallback_machine_assessment_arm_id: Optional[_builtins.str] = None):
         """
         Properties of a compound assessment.
+
         :param 'CompoundAssessmentDetailsResponse' details: Details of the compound assessment.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'TargetAssessmentArmIdsResponse' target_assessment_arm_ids: ARM IDs of the target assessments.
@@ -4314,6 +4350,7 @@ class ComputeSettingsResponse(dict):
                  windows_server_licensing: 'outputs.WindowsServerLicensingSettingsResponse'):
         """
         Compute settings.
+
         :param _builtins.float hyperthread_core_to_memory_ratio: Hyperthread core to memory ratio.
         :param _builtins.float price: Compute Price.
         :param 'LinuxServerLicensingSettingsResponse' rhel_linux_server_licensing: Linux Rhel Server licensing settings.
@@ -4427,6 +4464,7 @@ class ContainerImagePropertiesResponse(dict):
                  run_status: Optional[_builtins.str] = None):
         """
         Class for container image properties.
+
         :param _builtins.str id: Gets the ID.
         :param _builtins.str dockerfile: Gets or sets the dockerfile for the container image.
         :param _builtins.str image_name: Gets or sets the container image name.
@@ -4517,6 +4555,7 @@ class CostComponentResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         Class to represent the component of the cost.
+
         :param _builtins.str name: Gets the name of the component.
         :param _builtins.str description: The textual description of the component.
         :param _builtins.float value: The value of the component.
@@ -4587,6 +4626,7 @@ class DatabaseProjectSummaryResponse(dict):
                  refresh_summary_state: Optional[_builtins.str] = None):
         """
         The database project summary class.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'Databases'.
         :param Mapping[str, _builtins.str] extended_summary: Gets or sets the extended summary.
@@ -4670,6 +4710,7 @@ class DatabasesSolutionSummaryResponse(dict):
                  migration_ready_count: Optional[_builtins.int] = None):
         """
         Class representing the databases solution summary.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'Databases'.
         :param _builtins.int database_instances_assessed_count: Gets or sets the count of database instances assessed.
@@ -4760,6 +4801,7 @@ class DeployedResourcesPropertiesResponse(dict):
                  type: _builtins.str):
         """
         Class for deployed resource properties.
+
         :param _builtins.str context: Gets or sets the context of deployed resources.
         :param _builtins.str deployed_resource_id: Gets or sets the deployed resource id.
         :param _builtins.str deployment_timestamp: Gets or sets the deployment timestamp.
@@ -4864,6 +4906,7 @@ class DirectoryPathResponse(dict):
                  virtual: Optional[_builtins.str] = None):
         """
         Second level entity for virtual directories.
+
         :param _builtins.str id: Gets the ID.
         :param _builtins.str physical: Gets or sets the physical path of the directory on the web server.
         :param _builtins.str virtual: Gets or sets the virtual path for the directory.
@@ -4931,6 +4974,7 @@ class DiscoveredEntityLightSummaryResponse(dict):
                  number_of_web_apps: _builtins.int):
         """
         Discovered entity light summary.
+
         :param _builtins.int number_of_machines: Gets or sets the number of machines.
         :param _builtins.int number_of_servers: Gets or sets the number of servers.
         :param _builtins.int number_of_web_apps: Gets or sets the number of web apps.
@@ -4996,6 +5040,7 @@ class DiskEncryptionSetResourceSettingsResponse(dict):
                  target_resource_name: Optional[_builtins.str] = None):
         """
         Defines the disk encryption set resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/diskEncryptionSets'.
         :param _builtins.str target_resource_group_name: Gets or sets the target resource group name.
@@ -5062,6 +5107,7 @@ class EntityUptimeResponse(dict):
                  hours_per_day: Optional[_builtins.int] = None):
         """
         Entity Uptime.
+
         :param _builtins.int days_per_month: Gets the days per month.
         :param _builtins.int hours_per_day: Gets the hours per day.
         """
@@ -5113,6 +5159,7 @@ class FacilitySettingsResponse(dict):
                  facilities_cost_per_kwh: Optional[_builtins.float] = None):
         """
         Facility settings.
+
         :param _builtins.float facilities_cost_per_kwh: The facilities cost.
         """
         if facilities_cost_per_kwh is not None:
@@ -5186,6 +5233,7 @@ class GmsaAuthenticationPropertiesResponse(dict):
                  gmsa_username: Optional[_builtins.str] = None):
         """
         Class for GMSA authentication details to configure Active Directory connectivity.
+
         :param _builtins.str configuration_state: Gets or sets the current state of GMSA configuration.
         :param _builtins.str gmsa_cred_spec_name: Gets Cred Spec Name to be used.
         :param _builtins.str gmsa_secret_name: Gets name of the secret where GMSA secret is stored in the KeyVault.
@@ -5356,6 +5404,7 @@ class GroupPropertiesResponse(dict):
                  group_type: Optional[_builtins.str] = None):
         """
         Properties of group resource.
+
         :param _builtins.bool are_assessments_running: If the assessments are in running state.
         :param Sequence[_builtins.str] assessments: List of References to Assessments created on this group.
         :param _builtins.str created_timestamp: Time when this group was created. Date-Time represented in ISO-8601 format.
@@ -5480,6 +5529,7 @@ class HealthErrorModelResponse(dict):
                  child_errors: Optional[Sequence['outputs.InnerHealthErrorModelResponse']] = None):
         """
         Health error model.
+
         :param _builtins.str category: Gets or sets the error category.
         :param _builtins.str causes: Gets or sets possible causes of the error.
         :param _builtins.str code: Gets or sets the error code.
@@ -5685,6 +5735,7 @@ class HeterogeneousAssessmentPropertiesResponse(dict):
                  assessment_arm_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Properties of an assessment.
+
         :param _builtins.str azure_location: Azure location for assessment.
         :param _builtins.float confidence_rating_in_percentage: Confidence rating in percentage.
         :param _builtins.str last_calculated_on: Timestamp for the last successfully calculated summary for the assessment.
@@ -5798,6 +5849,7 @@ class HypervLicenseResponse(dict):
                  license_type: _builtins.str):
         """
         Representation of a licence.
+
         :param _builtins.float license_cost: Cost of a licence.
         :param _builtins.str license_type: HyperV licence type.
         """
@@ -5853,6 +5905,7 @@ class HypervVirtualizationManagementSettingsResponse(dict):
                  software_assurance_cost: _builtins.float):
         """
         HyperV Virtualization Management Settings.
+
         :param Sequence['HypervLicenseResponse'] license_and_support_list: Licence and support list.
         :param _builtins.int number_of_physical_cores_per_license: Number of physical cores per licence.
         :param _builtins.float software_assurance_cost: Software Assurance Cost.
@@ -5915,6 +5968,7 @@ class IISAKSWorkloadDeploymentModelCustomPropertiesResponse(dict):
                  iis_aks_workload_deployment_properties: Optional['outputs.IISAKSWorkloadDeploymentResponse'] = None):
         """
         IIS workload instance model custom properties.
+
         :param _builtins.str instance_type: Gets or sets the instance type.
                Expected value is 'IISAKSWorkloadDeploymentModelCustomProperties'.
         :param 'IISAKSWorkloadDeploymentResponse' iis_aks_workload_deployment_properties: IIS AKS workload deployment.
@@ -5999,6 +6053,7 @@ class IISAKSWorkloadDeploymentResponse(dict):
                  target_platform_identity: Optional[_builtins.str] = None):
         """
         IIS AKS workload deployment.
+
         :param Sequence['DeployedResourcesPropertiesResponse'] deployment_history: Gets or sets the deployment history.
         :param 'GmsaAuthenticationPropertiesResponse' authentication_properties: Class for GMSA authentication details to configure Active Directory connectivity.
         :param 'AutomationArtifactResponse' automation_artifact_properties: Class for automation artifact.
@@ -6204,6 +6259,7 @@ class IISApplicationDetailsResponse(dict):
                  runtime_version: Optional[_builtins.str] = None):
         """
         IISApplication details.
+
         :param _builtins.str id: Gets the ID.
         :param _builtins.str application_pool_name: Gets or sets the application pool name.
         :param Sequence['DirectoryPathResponse'] directories: Gets or sets the list of directories.
@@ -6312,6 +6368,7 @@ class IISVirtualApplicationDetailsResponse(dict):
                  path: Optional['outputs.DirectoryPathResponse'] = None):
         """
         IIS virtual application details.
+
         :param _builtins.str id: Gets the ID.
         :param _builtins.bool is_virtual_directory: Gets a value indicating whether the application corresponds to a directory.
         :param Sequence['DirectoryPathResponse'] directories: Gets or sets the list of directories.
@@ -6417,6 +6474,7 @@ class IISWebApplicationResponse(dict):
                  web_server_name: Optional[_builtins.str] = None):
         """
         IISWeb application.
+
         :param _builtins.str application_id: Gets or sets the web application id.
         :param _builtins.str application_name: Gets or sets the web application name.
         :param _builtins.str application_scratch_path: Gets or sets application scratch path.
@@ -6659,6 +6717,7 @@ class IISWebServerResponse(dict):
                  web_applications: Optional[Sequence[_builtins.str]] = None):
         """
         IISWeb server.
+
         :param _builtins.str display_name: Gets or sets the display name.
         :param Sequence[_builtins.str] ip_addresses: Gets or sets list of ip addresses.
         :param Sequence[_builtins.str] machines: Gets or sets the list of machines.
@@ -6820,6 +6879,7 @@ class IISWorkloadInstanceModelCustomPropertiesResponse(dict):
                  web_app_site_name: Optional[_builtins.str] = None):
         """
         IIS workload instance model custom properties.
+
         :param _builtins.str instance_type: Gets or sets the instance type.
                Expected value is 'IISWorkloadInstanceModelCustomProperties'.
         :param _builtins.str container_name: Gets or sets the container Id.
@@ -6926,6 +6986,7 @@ class IdentityModelResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Identity model.
+
         :param _builtins.str aad_authority: Gets or sets the authority of the SPN with which MigrateAgent communicates to service.
         :param _builtins.str application_id: Gets or sets the client/application Id of the SPN with which MigrateAgent communicates to
                service.
@@ -7016,6 +7077,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Defines the MSI properties of the Move Collection.
+
         :param _builtins.str principal_id: Gets or sets the principal id.
         :param _builtins.str tenant_id: Gets or sets the tenant id.
         :param _builtins.str type: The type of identity used for the resource mover service.
@@ -7135,6 +7197,7 @@ class ImportSqlCollectorPropertiesResponse(dict):
                  discovery_site_id: Optional[_builtins.str] = None):
         """
         Import SQL Collector properties class.
+
         :param _builtins.str created_timestamp: When was import SQL collector first created.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str updated_timestamp: When was import SQL collector last updated.
@@ -7220,6 +7283,7 @@ class InnerHealthErrorModelResponse(dict):
                  summary: _builtins.str):
         """
         Inner health error model.
+
         :param _builtins.str category: Gets or sets the error category.
         :param _builtins.str causes: Gets or sets possible causes of the error.
         :param _builtins.str code: Gets or sets the error code.
@@ -7372,6 +7436,7 @@ class JobStatusResponse(dict):
                  job_progress: _builtins.str):
         """
         Defines the job status.
+
         :param _builtins.str job_name: Defines the job name.
         :param _builtins.str job_progress: Gets or sets the monitoring job percentage.
         """
@@ -7427,6 +7492,7 @@ class KeyVaultResourceSettingsResponse(dict):
                  target_resource_name: Optional[_builtins.str] = None):
         """
         Defines the key vault resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.KeyVault/vaults'.
         :param _builtins.str target_resource_group_name: Gets or sets the target resource group name.
@@ -7562,6 +7628,7 @@ class LBBackendAddressPoolResourceSettingsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Defines load balancer backend address pool properties.
+
         :param _builtins.str name: Gets or sets the backend address pool name.
         """
         if name is not None:
@@ -7608,6 +7675,7 @@ class LBFrontendIPConfigurationResourceSettingsResponse(dict):
                  zones: Optional[_builtins.str] = None):
         """
         Defines load balancer frontend IP configuration properties.
+
         :param _builtins.str name: Gets or sets the frontend IP configuration name.
         :param _builtins.str private_ip_address: Gets or sets the IP address of the Load Balancer.This is only specified if a specific
                private IP address shall be allocated from the subnet specified in subnetRef.
@@ -7700,6 +7768,7 @@ class LaborSettingsResponse(dict):
                  virtual_machines_per_admin: _builtins.int):
         """
         Labour settings.
+
         :param _builtins.float hourly_admin_cost: Hourly administrator cost.
         :param _builtins.int physical_servers_per_admin: Physical servers per administrator.
         :param _builtins.int virtual_machines_per_admin: Virtual machines per administrator.
@@ -7759,6 +7828,7 @@ class LinuxServerLicensingSettingsResponse(dict):
                  license_cost: _builtins.float):
         """
         Linux Server licensing settings.
+
         :param _builtins.float license_cost: Licence Cost.
         """
         pulumi.set(__self__, "license_cost", license_cost)
@@ -7799,6 +7869,7 @@ class LoadBalancerBackendAddressPoolReferenceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Defines reference to load balancer backend address pools.
+
         :param _builtins.str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param _builtins.str name: Gets the name of the proxy resource on the target side.
         """
@@ -7850,6 +7921,7 @@ class LoadBalancerNatRuleReferenceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Defines reference to load balancer NAT rules.
+
         :param _builtins.str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param _builtins.str name: Gets the name of the proxy resource on the target side.
         """
@@ -7915,6 +7987,7 @@ class LoadBalancerResourceSettingsResponse(dict):
                  zones: Optional[_builtins.str] = None):
         """
         Defines the load balancer resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/loadBalancers'.
         :param Sequence['LBBackendAddressPoolResourceSettingsResponse'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
@@ -8084,6 +8157,7 @@ class MachineAssessmentSettingsResponse(dict):
                  vm_uptime: Optional['outputs.VmUptimeResponse'] = None):
         """
         Properties of an assessment.
+
         :param Sequence[_builtins.str] azure_disk_types: The disk type for the assessment.
         :param _builtins.str azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the azure hybrid use
                benefit.
@@ -8322,6 +8396,7 @@ class MachineAssessmentV2PropertiesResponse(dict):
                  settings: Optional['outputs.MachineAssessmentSettingsResponse'] = None):
         """
         Assessment properties class.
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
         :param 'ScopeResponse' scope: Gets or sets the scope of assessment.
@@ -8480,6 +8555,7 @@ class ManagementSettingsResponse(dict):
                  third_party_management_settings: 'outputs.ThirdPartyManagementSettingsResponse'):
         """
         Management settings.
+
         :param 'HypervVirtualizationManagementSettingsResponse' hyperv_virtualization_management_settings: HyperV Virtualization Management Settings.
         :param 'OtherManagementCostsSettingsResponse' other_management_costs_settings: Other Management Costs Settings.
         :param 'ThirdPartyManagementSettingsResponse' third_party_management_settings: Third Party Management Settings.
@@ -8539,6 +8615,7 @@ class ManualResolutionPropertiesResponse(dict):
                  target_id: Optional[_builtins.str] = None):
         """
         Defines the properties for manual resolution.
+
         :param _builtins.str target_id: Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
         """
         if target_id is not None:
@@ -8606,6 +8683,7 @@ class MigrateAgentModelPropertiesResponse(dict):
                  machine_name: Optional[_builtins.str] = None):
         """
         MigrateAgent model properties.
+
         :param _builtins.str correlation_id: Gets or sets the MigrateAgent correlation Id.
         :param Sequence['HealthErrorModelResponse'] health_errors: Gets or sets the list of health errors.
         :param _builtins.bool is_responsive: Gets or sets a value indicating whether MigrateAgent is responsive.
@@ -8871,6 +8949,7 @@ class MigrateProjectPropertiesResponse(dict):
                  utility_storage_account_id: Optional[_builtins.str] = None):
         """
         Properties of a migrate project.
+
         :param _builtins.str last_summary_refreshed_time: Last summary refresh time.
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Gets the private endpoint connections.
         :param _builtins.str refresh_summary_state: Refresh summary state.
@@ -9036,6 +9115,7 @@ class MigrationConfigurationResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None):
         """
         MigrationConfiguration properties.
+
         :param _builtins.str key_vault_resource_id: Gets or sets the key vault resource Id.
         :param _builtins.str migration_solution_resource_id: Gets or sets the migration solution resource Id.
         :param _builtins.str storage_account_resource_id: Gets or sets the storage account resource Id.
@@ -9119,6 +9199,7 @@ class MigrationEntityGroupPropertiesResponse(dict):
                  migration_path: Optional[_builtins.str] = None):
         """
         Migration Entity Group Properties class.
+
         :param _builtins.str application_display_name: Display Name of the Workload.
         :param _builtins.str application_id: Application id 
         :param _builtins.str execution_start_date: Execution Start Date
@@ -9280,6 +9361,7 @@ class MigrationEntityPropertiesResponse(dict):
                  target_azure_resource_arm_id: Optional[_builtins.str] = None):
         """
         Migration Entity Properties class.
+
         :param _builtins.str associated_inventory_resource_id: inventory resource id 
         :param _builtins.str execution_readiness: Execution Readiness of Migration Entity.
         :param _builtins.str execution_stage: Execution Stage of Migration Entity.
@@ -9508,6 +9590,7 @@ class ModernizeProjectModelPropertiesResponse(dict):
                  migration_configuration: Optional['outputs.MigrationConfigurationResponse'] = None):
         """
         ModernizeProject properties.
+
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the ModernizeProject.
         :param _builtins.str service_endpoint: Gets or sets the service endpoint.
         :param _builtins.str service_resource_id: Gets or sets the service resource Id.
@@ -9702,6 +9785,7 @@ class MoveCollectionPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Defines the move collection properties.
+
         :param 'MoveCollectionPropertiesResponseErrors' errors: Defines the move collection errors.
         :param _builtins.str provisioning_state: Defines the provisioning states.
         :param _builtins.str move_region: Gets or sets the move region which indicates the region where the VM Regional to Zonal move will be conducted.
@@ -9789,6 +9873,7 @@ class MoveCollectionPropertiesResponseErrors(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         Defines the move collection errors.
+
         :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
@@ -9830,6 +9915,7 @@ class MoveResourceDependencyOverrideResponse(dict):
                  target_id: Optional[_builtins.str] = None):
         """
         Defines the dependency override of the move resource.
+
         :param _builtins.str id: Gets or sets the ARM ID of the dependent resource.
         :param _builtins.str target_id: Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
                the dependent resource.
@@ -9899,6 +9985,7 @@ class MoveResourceDependencyResponse(dict):
                  resolution_type: Optional[_builtins.str] = None):
         """
         Defines the dependency of the move resource.
+
         :param 'AutomaticResolutionPropertiesResponse' automatic_resolution: Defines the properties for automatic resolution.
         :param _builtins.str dependency_type: Defines the dependency type.
         :param _builtins.str id: Gets the source ARM ID of the dependent resource.
@@ -9991,6 +10078,7 @@ class MoveResourceErrorBodyResponse(dict):
                  target: _builtins.str):
         """
         An error response from the Azure Migrate service.
+
         :param _builtins.str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
         :param Sequence['MoveResourceErrorBodyResponse'] details: A list of additional details about the error.
         :param _builtins.str message: A message describing the error, intended to be suitable for display in a user interface.
@@ -10043,6 +10131,7 @@ class MoveResourceErrorResponse(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         An error response from the azure resource mover service.
+
         :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
@@ -10111,6 +10200,7 @@ class MoveResourcePropertiesResponse(dict):
                  resource_settings: Optional[Any] = None):
         """
         Defines the move resource properties.
+
         :param Sequence['MoveResourceDependencyResponse'] depends_on: Gets or sets the move resource dependencies.
         :param 'MoveResourcePropertiesResponseErrors' errors: Defines the move resource errors.
         :param _builtins.bool is_resolve_required: Gets a value indicating whether the resolve action is required over the move collection.
@@ -10236,6 +10326,7 @@ class MoveResourcePropertiesResponseErrors(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         Defines the move resource errors.
+
         :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
@@ -10280,6 +10371,7 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
                  job_status: Optional['outputs.JobStatusResponse'] = None):
         """
         Defines the move resource status.
+
         :param _builtins.str move_state: Defines the MoveResource states.
         :param 'MoveResourceErrorResponse' errors: An error response from the azure resource mover service.
         :param 'JobStatusResponse' job_status: Defines the job status.
@@ -10354,6 +10446,7 @@ class NetworkInterfaceResourceSettingsResponse(dict):
                  target_resource_name: Optional[_builtins.str] = None):
         """
         Defines the network interface resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkInterfaces'.
         :param _builtins.bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
@@ -10460,6 +10553,7 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
                  target_resource_name: Optional[_builtins.str] = None):
         """
         Defines the NSG resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkSecurityGroups'.
         :param Sequence['NsgSecurityRuleResponse'] security_rules: Gets or sets Security rules of network security group.
@@ -10548,6 +10642,7 @@ class NetworkSettingsResponse(dict):
                  maintenance_cost_percentage: _builtins.float):
         """
         Network settings.
+
         :param _builtins.float hardware_software_cost_percentage: Network hardware and software cost percentage.
         :param _builtins.float maintenance_cost_percentage: Network maintenance cost percentage.
         """
@@ -10612,6 +10707,7 @@ class NicIpConfigurationResourceSettingsResponse(dict):
                  subnet: Optional['outputs.SubnetReferenceResponse'] = None):
         """
         Defines NIC IP configuration properties.
+
         :param Sequence['LoadBalancerBackendAddressPoolReferenceResponse'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
         :param Sequence['LoadBalancerNatRuleReferenceResponse'] load_balancer_nat_rules: Gets or sets the references of the load balancer NAT rules.
         :param _builtins.str name: Gets or sets the IP configuration name.
@@ -10729,6 +10825,7 @@ class NsgReferenceResponse(dict):
                  source_arm_resource_id: _builtins.str):
         """
         Defines reference to NSG.
+
         :param _builtins.str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         """
         pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
@@ -10783,6 +10880,7 @@ class NsgSecurityRuleResponse(dict):
                  source_port_range: Optional[_builtins.str] = None):
         """
         Security Rule data model for Network Security Groups.
+
         :param _builtins.str access: Gets or sets whether network traffic is allowed or denied.
                Possible values are “Allow” and “Deny”.
         :param _builtins.str description: Gets or sets a description for this rule. Restricted to 140 chars.
@@ -10962,6 +11060,7 @@ class OnPremiseSettingsResponse(dict):
                  management_settings: Optional['outputs.ManagementSettingsResponse'] = None):
         """
         On-premise settings.
+
         :param 'ComputeSettingsResponse' compute_settings: Compute settings.
         :param 'FacilitySettingsResponse' facility_settings: Facility settings.
         :param 'LaborSettingsResponse' labor_settings: Labour settings.
@@ -11126,6 +11225,7 @@ class OtherManagementCostsSettingsResponse(dict):
                  patching_cost_per_server_per_year: _builtins.float):
         """
         Other Management Costs Settings.
+
         :param _builtins.float data_protection_cost_per_server_per_year: Data Protection Cost Per Server Per Year.
         :param _builtins.float monitoring_cost_per_server_per_year: Monitoring Cost Per Server Per Year.
         :param _builtins.float patching_cost_per_server_per_year: Patching Cost Per Server Per Year.
@@ -11192,6 +11292,7 @@ class PerfDataSettingsResponse(dict):
                  perf_data_start_time: Optional[_builtins.str] = None):
         """
         Data model of Performance Data Settings.
+
         :param _builtins.str percentile: Gets percentile utilization for performance data.
         :param _builtins.str time_range: Gets perf data time range.
         :param _builtins.str perf_data_end_time: Gets or sets perf data end time.
@@ -11270,6 +11371,7 @@ class PerformanceDataResponse(dict):
                  time_range: Optional[_builtins.str] = None):
         """
         Performance data class.
+
         :param _builtins.str percentile: Percentile of the utilization data values to be considered while assessing
                machines.
         :param _builtins.str perf_data_end_time: Gets or sets the end time to consider performance data for assessment.
@@ -11350,6 +11452,7 @@ class PortMappingResponse(dict):
                  internal_port: Optional[_builtins.int] = None):
         """
         WebApplication port mapping.
+
         :param _builtins.int external_port: Gets or sets the External Port.
         :param _builtins.int internal_port: Gets or sets the Internal Port.
         """
@@ -11407,6 +11510,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection properties.
+
         :param 'ResourceIdResponse' private_endpoint: ARM id for the private endpoint resource corresponding to the connection.
         :param _builtins.str provisioning_state: Indicates whether there is an ongoing operation on the private endpoint.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the private endpoint connection.
@@ -11486,6 +11590,7 @@ class PrivateEndpointConnectionResponse(dict):
                  system_data: Optional['outputs.SystemDataResponse'] = None):
         """
         A private endpoint connection for a project.
+
         :param _builtins.str id: Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
         :param _builtins.str name: Name of the private endpoint endpoint connection.
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Properties of the private endpoint endpoint connection.
@@ -11604,6 +11709,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -11645,6 +11751,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         State of a private endpoint connection.
+
         :param _builtins.str actions_required: Actions required on the private endpoint connection.
         :param _builtins.str description: Description of the private endpoint connection.
         :param _builtins.str status: Connection status of the private endpoint connection.
@@ -11749,6 +11856,7 @@ class ProjectPropertiesResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         Properties of a project.
+
         :param _builtins.str created_timestamp: Time when this project was created. Date-Time represented in ISO-8601 format.
         :param _builtins.str last_assessment_timestamp: Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
         :param _builtins.int number_of_assessments: Number of assessments created in the project.
@@ -11943,6 +12051,7 @@ class ProjectSummaryResponse(dict):
                  refresh_summary_state: Optional[_builtins.str] = None):
         """
         Project summary.
+
         :param _builtins.str instance_type: Instance type.
         :param Mapping[str, _builtins.str] extended_summary: Extended summary.
         :param _builtins.str last_summary_refreshed_time: Last summary refresh time.
@@ -12031,6 +12140,7 @@ class PublicIPAddressResourceSettingsResponse(dict):
                  zones: Optional[_builtins.str] = None):
         """
         Defines the public IP address resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/publicIPAddresses'.
         :param _builtins.str domain_name_label: Gets or sets the domain name label.
@@ -12160,6 +12270,7 @@ class PublicIpReferenceResponse(dict):
                  source_arm_resource_id: _builtins.str):
         """
         Defines reference to a public IP.
+
         :param _builtins.str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         """
         pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
@@ -12202,6 +12313,7 @@ class ReportDetailsResponse(dict):
                  report_type: _builtins.str):
         """
         Business case report details.
+
         :param _builtins.str report_status: Report status.
         :param _builtins.str report_type: Report type.
         """
@@ -12257,6 +12369,7 @@ class ResourceGroupResourceSettingsResponse(dict):
                  target_resource_name: Optional[_builtins.str] = None):
         """
         Defines the resource group resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'resourceGroups'.
         :param _builtins.str target_resource_group_name: Gets or sets the target resource group name.
@@ -12380,6 +12493,7 @@ class ResourceRequirementsResponse(dict):
                  memory: Optional[_builtins.str] = None):
         """
         Resource Requirements.
+
         :param _builtins.str cpu: Gets or sets the Cpu requirement.
         :param _builtins.str memory: Gets or sets the Memory requirement.
         """
@@ -12434,6 +12548,7 @@ class SavingsSettingsResponse(dict):
                  savings_options: Optional[_builtins.str] = None):
         """
         Savings settings class.
+
         :param _builtins.str azure_offer_code: Gets or sets the Azure offer code.
         :param _builtins.str savings_options: Gets or sets the savings options.
         """
@@ -12491,6 +12606,7 @@ class ScopeResponse(dict):
                  server_group_id: Optional[_builtins.str] = None):
         """
         Scope of the assessment.
+
         :param _builtins.str azure_resource_graph_query: The ARG query.
         :param _builtins.str scope_type: The scope type
         :param _builtins.str server_group_id: The server group arm id.
@@ -12635,6 +12751,7 @@ class SecuritySettingsResponse(dict):
                  sql_server_security_cost_per_server_per_year: _builtins.float):
         """
         Security settings.
+
         :param _builtins.float server_security_cost_per_server_per_year: Physical servers per administrator.
         :param _builtins.float sql_server_security_cost_per_server_per_year: Virtual machines per administrator.
         """
@@ -12690,6 +12807,7 @@ class ServerMigrationSpecificPropertiesResponse(dict):
                  dr_appliance_inventory_id: Optional[_builtins.str] = None):
         """
         Represents a Server Migration Specific properties base model.
+
         :param _builtins.str instance_type: Migration Specific Properties Instance Types.
                Expected value is 'ServerMigration'.
         :param _builtins.str current_job_id: A type definition that refers the id to an Azure Resource Manager resource.
@@ -12777,6 +12895,7 @@ class ServersProjectSummaryResponse(dict):
                  test_migrated_count: Optional[_builtins.int] = None):
         """
         Class representing the servers project summary.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'Servers'.
         :param _builtins.int assessed_count: Gets or sets the count of entities assessed.
@@ -12921,6 +13040,7 @@ class ServersSolutionSummaryResponse(dict):
                  test_migrated_count: Optional[_builtins.int] = None):
         """
         Class representing the servers solution summary.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'Servers'.
         :param _builtins.int assessed_count: Gets or sets the count of servers assessed.
@@ -13023,6 +13143,7 @@ class SettingsResponse(dict):
                  on_premise_settings: Optional['outputs.OnPremiseSettingsResponse'] = None):
         """
         Business case settings.
+
         :param 'AzureSettingsResponse' azure_settings: Azure settings for a business case.
         :param 'AzureArcSettingsResponse' azure_arc_settings: Azure arc settings.
         :param 'OnPremiseSettingsResponse' on_premise_settings: On-premise settings.
@@ -13090,6 +13211,7 @@ class SolutionDetailsResponse(dict):
                  group_count: Optional[_builtins.int] = None):
         """
         Class representing the details of the solution.
+
         :param _builtins.int assessment_count: Gets or sets the count of assessments reported by the solution.
         :param Mapping[str, _builtins.str] extended_details: Gets or sets the extended details reported by the solution.
         :param _builtins.int group_count: Gets or sets the count of groups reported by the solution.
@@ -13158,6 +13280,7 @@ class SolutionPropertiesResponse(dict):
                  tool: Optional[_builtins.str] = None):
         """
         Class for solution properties.
+
         :param _builtins.str cleanup_state: Gets or sets the cleanup state of the solution.
         :param 'SolutionDetailsResponse' details: Gets or sets the details of the solution.
         :param _builtins.str goal: Gets or sets the goal of the solution.
@@ -13325,6 +13448,7 @@ class SqlAssessmentSettingsResponse(dict):
                  sql_server_license: Optional[_builtins.str] = None):
         """
         SQL assessment settings class.
+
         :param _builtins.str async_commit_mode_intent: Gets or sets user preference indicating intent of async commit mode.
         :param _builtins.str azure_location: Azure Location or Azure region where to which the machines will be migrated.
         :param _builtins.str azure_security_offering_type: Gets or sets a value indicating azure security offering type.
@@ -13608,6 +13732,7 @@ class SqlAssessmentV3PropertiesResponse(dict):
                  settings: Optional['outputs.SqlAssessmentSettingsResponse'] = None):
         """
         SQL assessment properties class.
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
         :param _builtins.str fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
@@ -13701,6 +13826,7 @@ class SqlDatabaseResourceSettingsResponse(dict):
                  zone_redundant: Optional[_builtins.str] = None):
         """
         Defines the Sql Database resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/databases'.
         :param Mapping[str, _builtins.str] tags: Gets or sets the Resource tags.
@@ -13795,6 +13921,7 @@ class SqlDbSettingsResponse(dict):
                  azure_sql_service_tier: Optional[_builtins.str] = None):
         """
         SQL database assessment settings.
+
         :param _builtins.str azure_sql_compute_tier: Gets or sets the azure SQL compute tier.
         :param _builtins.str azure_sql_data_base_type: Gets or sets the azure PAAS SQL instance type.
         :param _builtins.str azure_sql_purchase_model: Gets or sets the azure SQL purchase model.
@@ -13877,6 +14004,7 @@ class SqlDbSettingsV3Response(dict):
                  azure_sql_service_tier: Optional[_builtins.str] = None):
         """
         SQL database assessment settings V3.
+
         :param _builtins.str azure_sql_compute_tier: Gets or sets the azure SQL compute tier.
         :param _builtins.str azure_sql_data_base_type: Gets or sets the azure PAAS SQL instance type.
         :param _builtins.str azure_sql_purchase_model: Gets or sets the azure SQL purchase model.
@@ -13960,6 +14088,7 @@ class SqlElasticPoolResourceSettingsResponse(dict):
                  zone_redundant: Optional[_builtins.str] = None):
         """
         Defines the Sql ElasticPool resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/elasticPools'.
         :param Mapping[str, _builtins.str] tags: Gets or sets the Resource tags.
@@ -14048,6 +14177,7 @@ class SqlMiSettingsResponse(dict):
                  azure_sql_service_tier: Optional[_builtins.str] = None):
         """
         SQL managed instance assessment settings.
+
         :param _builtins.str azure_sql_instance_type: Gets or sets the azure PAAS SQL instance type.
         :param _builtins.str azure_sql_service_tier: Gets or sets the azure SQL service tier.
         """
@@ -14102,6 +14232,7 @@ class SqlMiSettingsV3Response(dict):
                  azure_sql_service_tier: Optional[_builtins.str] = None):
         """
         SQL managed instance assessment settings V3.
+
         :param _builtins.str azure_sql_instance_type: Gets or sets the azure PAAS SQL instance type.
         :param _builtins.str azure_sql_service_tier: Gets or sets the azure SQL service tier.
         """
@@ -14157,6 +14288,7 @@ class SqlServerLicensingSettingsResponse(dict):
                  version: _builtins.str):
         """
         SQL Server licensing settings.
+
         :param _builtins.float license_cost: Licence cost.
         :param _builtins.float software_assurance_cost: Software assurance (SA) cost.
         :param _builtins.str version: SQL Server version.
@@ -14222,6 +14354,7 @@ class SqlServerResourceSettingsResponse(dict):
                  target_resource_name: Optional[_builtins.str] = None):
         """
         Defines the SQL Server resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers'.
         :param _builtins.str target_resource_group_name: Gets or sets the target resource group name.
@@ -14285,6 +14418,7 @@ class SqlVmSettingsResponse(dict):
                  instance_series: Optional[Sequence[_builtins.str]] = None):
         """
         SQL VM assessment settings.
+
         :param Sequence[_builtins.str] instance_series: Gets or sets the Azure VM families (calling instance series to keep it
                consistent with other targets).
         """
@@ -14330,6 +14464,7 @@ class StorageSettingsResponse(dict):
                  maintainance_cost_percentage_to_acquisition_cost: _builtins.float):
         """
         Storage settings.
+
         :param _builtins.float cost_per_gb_per_month: Cost per gigabyte per month.
         :param _builtins.float maintainance_cost_percentage_to_acquisition_cost: Maintenance cost percentage.
         """
@@ -14380,6 +14515,7 @@ class SubnetReferenceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Defines reference to subnet.
+
         :param _builtins.str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param _builtins.str name: Gets the name of the proxy resource on the target side.
         """
@@ -14434,6 +14570,7 @@ class SubnetResourceSettingsResponse(dict):
                  network_security_group: Optional['outputs.NsgReferenceResponse'] = None):
         """
         Defines the virtual network subnets resource settings.
+
         :param _builtins.str address_prefix: Gets or sets address prefix for the subnet.
         :param _builtins.str name: Gets or sets the Subnet name.
         :param 'NsgReferenceResponse' network_security_group: Defines reference to NSG.
@@ -14511,6 +14648,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -14610,6 +14748,7 @@ class TargetAssessmentArmIdsResponse(dict):
                  azure_app_service_container: Optional[_builtins.str] = None):
         """
         ARM IDs of the target assessments.
+
         :param _builtins.str aks: ARM ID for Azure Kubernetes Service assessment.
         :param _builtins.str azure_app_service: ARM ID for Azure App Service assessment.
         :param _builtins.str azure_app_service_container: ARM ID for Azure App Service Container assessment.
@@ -14690,6 +14829,7 @@ class TargetStorageProfileResponse(dict):
                  target_size: Optional[_builtins.str] = None):
         """
         Storage profile for the directory on the target container.
+
         :param 'AzureFileShareHydrationProfileResponse' azure_file_share_profile: Azure file share profile for hydration of application folders not mounted on
                the container file system.
         :param _builtins.str hydration_storage_provider_type: Gets or sets the storage provider type on the target.
@@ -14827,6 +14967,7 @@ class TaskPropertiesResponse(dict):
                  stage: Optional[_builtins.str] = None):
         """
         Task Properties class.
+
         :param _builtins.str completion_date: Task completion Date
         :param _builtins.str display_name: Task Dislay Name 
         :param _builtins.bool is_editable: Indicates whether the task is editable.
@@ -14961,6 +15102,7 @@ class ThirdPartyManagementSettingsResponse(dict):
                  support_cost: _builtins.float):
         """
         Third Party Management settings.
+
         :param _builtins.float license_cost: License Cost.
         :param _builtins.float support_cost: Support Cost.
         """
@@ -15056,6 +15198,7 @@ class VMwareMigrateAgentModelCustomPropertiesResponse(dict):
                  vmware_site_id: Optional[_builtins.str] = None):
         """
         VMware MigrateAgent model custom properties.
+
         :param _builtins.str instance_type: Gets or sets the instance type.
                Expected value is 'VMwareMigrateAgentModelCustomProperties'.
         :param _builtins.str fabric_friendly_name: Gets or sets the friendly name of the,of the MigrateAgent fabric.
@@ -15138,6 +15281,7 @@ class VirtualMachineResourceSettingsResponse(dict):
                  user_managed_identities: Optional[Sequence[_builtins.str]] = None):
         """
         Gets or sets the virtual machine resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/virtualMachines'.
         :param Mapping[str, _builtins.str] tags: Gets or sets the Resource tags.
@@ -15273,6 +15417,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
                  target_resource_name: Optional[_builtins.str] = None):
         """
         Defines the virtual network resource settings.
+
         :param _builtins.str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/virtualNetworks'.
         :param Sequence[_builtins.str] address_space: Gets or sets the address prefixes for the virtual network.
@@ -15395,6 +15540,7 @@ class VirtualizationSoftwareSettingsResponse(dict):
                  v_mware_cloud_foundation_license_cost: _builtins.float):
         """
         Virtualization software settings.
+
         :param _builtins.float v_mware_cloud_foundation_license_cost: VMware cloud foundation license cost.
         """
         pulumi.set(__self__, "v_mware_cloud_foundation_license_cost", v_mware_cloud_foundation_license_cost)
@@ -15437,6 +15583,7 @@ class VmUptimeResponse(dict):
                  hours_per_day: Optional[_builtins.float] = None):
         """
         Details on the total up-time for the VM.
+
         :param _builtins.float days_per_month: Number of days in a month for VM uptime.
         :param _builtins.float hours_per_day: Number of hours per day for VM uptime.
         """
@@ -15504,6 +15651,7 @@ class WavePropertiesResponse(dict):
                  planned_completion_date: Optional[_builtins.str] = None):
         """
         Migration Wave Properties class.
+
         :param _builtins.str actual_start_date: Actual start date of the wave.
         :param 'ArgResponse' arg: ARG query and other details to create workloads within a wave
         :param _builtins.str display_name: Display Name of the wave.
@@ -15656,6 +15804,7 @@ class WebAppAssessmentSettingsResponse(dict):
                  sizing_criterion: Optional[_builtins.str] = None):
         """
         Web app assessment settings class.
+
         :param 'AppSvcContainerSettingsResponse' app_svc_container_settings: App Service container settings.
         :param 'AppSvcNativeSettingsResponse' app_svc_native_settings: App Service native settings.
         :param _builtins.str azure_security_offering_type: Azure security offering type.
@@ -15822,6 +15971,7 @@ class WebAppAssessmentV3PropertiesResponse(dict):
                  settings: Optional['outputs.WebAppAssessmentSettingsResponse'] = None):
         """
         WebApp assessment resource properties.
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
         :param _builtins.str fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
@@ -15923,6 +16073,7 @@ class WebApplicationConfigurationResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Class for web application configurations.
+
         :param _builtins.str id: Gets the ID.
         :param _builtins.str file_path: Gets or sets the configuration file path.
         :param _builtins.str identifier: Gets or sets the identifier for the configuration.
@@ -16078,6 +16229,7 @@ class WebApplicationDirectoryResponse(dict):
                  storage_profile: Optional['outputs.TargetStorageProfileResponse'] = None):
         """
         WebApplication directory structure.
+
         :param _builtins.str id: Gets the unique id corresponding to the application directory.
         :param _builtins.bool is_editable: Gets or sets a value indicating whether the directory object is editable.
                True when the directory is added as an optional directory, false when discovery is done
@@ -16150,6 +16302,7 @@ class WebApplicationFrameworkResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Framework specific data for a web application.
+
         :param _builtins.str id: Gets the ID.
         :param _builtins.str name: Gets or sets Name of the framework.
         :param _builtins.str version: Gets or sets Version of the framework.
@@ -16217,6 +16370,7 @@ class WindowsServerLicensingSettingsResponse(dict):
                  software_assurance_cost: _builtins.float):
         """
         Windows Server licensing settings.
+
         :param _builtins.float license_cost: Licence Cost.
         :param _builtins.int licenses_per_core: Licenses per core.
         :param _builtins.float software_assurance_cost: Software assurance (SA) cost.
@@ -16322,6 +16476,7 @@ class WorkloadDeploymentModelPropertiesResponse(dict):
                  workload_instance_properties: Optional['outputs.WorkloadInstanceModelPropertiesResponse'] = None):
         """
         Workload deployment model properties.
+
         :param Sequence[_builtins.str] allowed_operations: Gets or sets the allowed scenarios on the workload deployment.
         :param _builtins.str correlation_id: Gets or sets the workload deployment correlation Id.
         :param Sequence['HealthErrorModelResponse'] health_errors: Gets or sets the list of health errors.
@@ -16778,6 +16933,7 @@ class WorkloadInstanceModelPropertiesResponse(dict):
                  source_platform: Optional[_builtins.str] = None):
         """
         Workload instance model properties.
+
         :param Sequence[_builtins.str] allowed_operations: Gets or sets the allowed scenarios on the workload instance.
         :param Sequence['HealthErrorModelResponse'] health_errors: Gets or sets the list of health errors.
         :param _builtins.str last_successful_replication_cycle_time: Gets or sets the Last successful replication cycle time.

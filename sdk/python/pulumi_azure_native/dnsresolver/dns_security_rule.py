@@ -33,6 +33,7 @@ class DnsSecurityRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DnsSecurityRule resource.
+
         :param pulumi.Input['DnsSecurityRuleActionArgs'] action: The action to take on DNS requests that match the DNS security rule.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] dns_resolver_domain_lists: DNS resolver policy domains lists that the DNS security rule applies to.
         :param pulumi.Input[_builtins.str] dns_resolver_policy_name: The name of the DNS resolver policy.
@@ -189,6 +190,7 @@ class DnsSecurityRule(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DnsSecurityRuleActionArgs', 'DnsSecurityRuleActionArgsDict']] action: The action to take on DNS requests that match the DNS security rule.
@@ -213,6 +215,7 @@ class DnsSecurityRule(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DnsSecurityRuleArgs args: The arguments to use to populate this resource's properties.

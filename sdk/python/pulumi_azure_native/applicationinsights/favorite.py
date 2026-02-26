@@ -33,6 +33,7 @@ class FavoriteArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Favorite resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] category: Favorite category, as defined by the user at creation time.
@@ -222,6 +223,7 @@ class Favorite(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: Favorite category, as defined by the user at creation time.
@@ -246,6 +248,7 @@ class Favorite(pulumi.CustomResource):
         Properties that define a favorite that is associated to an Application Insights component.
 
         Uses Azure REST API version 2015-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param FavoriteArgs args: The arguments to use to populate this resource's properties.

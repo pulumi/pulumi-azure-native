@@ -30,6 +30,7 @@ class UpdateRunArgs:
                  update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UpdateRun resource.
+
         :param pulumi.Input[_builtins.str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input['ManagedClusterUpdateArgs'] managed_cluster_update: The update to be applied to all clusters in the UpdateRun. The managedClusterUpdate can be modified until the run is started.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,6 +167,7 @@ class UpdateRun(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_name: The name of the Fleet resource.
@@ -200,6 +202,7 @@ class UpdateRun(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15-preview.
 
         Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.

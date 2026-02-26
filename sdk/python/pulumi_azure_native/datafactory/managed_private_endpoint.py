@@ -28,6 +28,7 @@ class ManagedPrivateEndpointInitArgs:
                  managed_private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
+
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[_builtins.str] managed_virtual_network_name: Managed virtual network name
         :param pulumi.Input['ManagedPrivateEndpointArgs'] properties: Managed private endpoint properties.
@@ -119,6 +120,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
@@ -137,6 +139,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         Managed private endpoint resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointInitArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class IssueArgs:
                  properties: Optional[pulumi.Input['IssuePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Issue resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] issue_name: The name of the IssueResource
         :param pulumi.Input['IssuePropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -89,6 +90,7 @@ class Issue(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] issue_name: The name of the IssueResource
@@ -105,6 +107,7 @@ class Issue(pulumi.CustomResource):
         The Issue resource
 
         Uses Azure REST API version 2025-03-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param IssueArgs args: The arguments to use to populate this resource's properties.

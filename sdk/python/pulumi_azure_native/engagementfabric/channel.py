@@ -27,6 +27,7 @@ class ChannelArgs:
                  credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] account_name: Account Name
         :param pulumi.Input[_builtins.str] channel_type: The channel type
         :param pulumi.Input[_builtins.str] resource_group_name: Resource Group Name
@@ -135,6 +136,7 @@ class Channel(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Account Name
@@ -154,6 +156,7 @@ class Channel(pulumi.CustomResource):
         The EngagementFabric channel
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

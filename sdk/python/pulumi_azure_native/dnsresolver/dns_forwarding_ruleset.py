@@ -28,6 +28,7 @@ class DnsForwardingRulesetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DnsForwardingRuleset resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] dns_resolver_outbound_endpoints: The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -123,6 +124,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
 
         Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -143,6 +145,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DnsForwardingRulesetArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class MachineGroupArgs:
                  machines: Optional[pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]] = None):
         """
         The set of arguments for constructing a MachineGroup resource.
+
         :param pulumi.Input[_builtins.str] display_name: User defined name for the group
         :param pulumi.Input[_builtins.str] kind: Additional resource type qualifier.
                Expected value is 'machineGroup'.
@@ -173,6 +174,7 @@ class MachineGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
@@ -195,6 +197,7 @@ class MachineGroup(pulumi.CustomResource):
         A user-defined logical grouping of machines.
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MachineGroupArgs args: The arguments to use to populate this resource's properties.

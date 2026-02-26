@@ -27,6 +27,7 @@ class FabricAgentArgs:
                  properties: Optional[pulumi.Input['FabricAgentModelPropertiesArgs']] = None):
         """
         The set of arguments for constructing a FabricAgent resource.
+
         :param pulumi.Input[_builtins.str] fabric_name: The fabric name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] fabric_agent_name: The fabric agent name.
@@ -104,6 +105,7 @@ class FabricAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fabric_agent_name: The fabric agent name.
@@ -121,6 +123,7 @@ class FabricAgent(pulumi.CustomResource):
         Fabric agent model.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param FabricAgentArgs args: The arguments to use to populate this resource's properties.

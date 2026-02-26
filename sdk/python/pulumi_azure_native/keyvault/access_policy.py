@@ -27,6 +27,7 @@ class AccessPolicyArgs:
                  vault_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccessPolicy resource.
+
         :param pulumi.Input['AccessPolicyEntryArgs'] policy: The definition of the access policy.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the vault.
         :param pulumi.Input[_builtins.str] vault_name: Name of the Key Vault.
@@ -85,6 +86,7 @@ class AccessPolicy(pulumi.CustomResource):
         """
         Key Vault Access Policy for managing policies on existing vaults.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessPolicyEntryArgs', 'AccessPolicyEntryArgsDict']] policy: The definition of the access policy.
@@ -99,6 +101,7 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Key Vault Access Policy for managing policies on existing vaults.
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

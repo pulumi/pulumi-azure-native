@@ -98,6 +98,7 @@ class ApplicationGetEndpointResponse(dict):
                  public_port: Optional[_builtins.int] = None):
         """
         Gets the application SSH endpoint
+
         :param _builtins.int destination_port: The destination port to connect to.
         :param _builtins.str location: The location of the endpoint.
         :param _builtins.str private_ip_address: The private ip address of the endpoint.
@@ -184,6 +185,7 @@ class ApplicationGetHttpsEndpointResponse(dict):
                  private_ip_address: Optional[_builtins.str] = None):
         """
         Gets the application HTTP endpoints.
+
         :param _builtins.str location: The location of the endpoint.
         :param _builtins.int public_port: The public port to connect to.
         :param Sequence[_builtins.str] access_modes: The list of access modes for the application.
@@ -308,6 +310,7 @@ class ApplicationPropertiesResponse(dict):
                  uninstall_script_actions: Optional[Sequence['outputs.RuntimeScriptActionResponse']] = None):
         """
         The HDInsight cluster application GET response.
+
         :param _builtins.str application_state: The application state.
         :param _builtins.str created_date: The application create date time.
         :param _builtins.str marketplace_identifier: The marketplace identifier.
@@ -468,6 +471,7 @@ class AutoscaleCapacityResponse(dict):
                  min_instance_count: Optional[_builtins.int] = None):
         """
         The load-based autoscale request parameters
+
         :param _builtins.int max_instance_count: The maximum instance count of the cluster
         :param _builtins.int min_instance_count: The minimum instance count of the cluster
         """
@@ -520,6 +524,7 @@ class AutoscaleRecurrenceResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Schedule-based autoscale request parameters
+
         :param Sequence['AutoscaleScheduleResponse'] schedule: Array of schedule-based autoscale rules
         :param _builtins.str time_zone: The time zone for the autoscale schedule times
         """
@@ -555,6 +560,7 @@ class AutoscaleResponse(dict):
                  recurrence: Optional['outputs.AutoscaleRecurrenceResponse'] = None):
         """
         The autoscale request parameters
+
         :param 'AutoscaleCapacityResponse' capacity: Parameters for load-based autoscale
         :param 'AutoscaleRecurrenceResponse' recurrence: Parameters for schedule-based autoscale
         """
@@ -607,6 +613,7 @@ class AutoscaleScheduleResponse(dict):
                  time_and_capacity: Optional['outputs.AutoscaleTimeAndCapacityResponse'] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
+
         :param Sequence[_builtins.str] days: Days of the week for a schedule-based autoscale rule
         :param 'AutoscaleTimeAndCapacityResponse' time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
@@ -662,6 +669,7 @@ class AutoscaleTimeAndCapacityResponse(dict):
                  time: Optional[_builtins.str] = None):
         """
         Time and capacity request parameters
+
         :param _builtins.int max_instance_count: The maximum instance count of the cluster
         :param _builtins.int min_instance_count: The minimum instance count of the cluster
         :param _builtins.str time: 24-hour time in the form xx:xx
@@ -730,6 +738,7 @@ class AzureMonitorSelectedConfigurationsResponse(dict):
                  table_list: Optional[Sequence['outputs.AzureMonitorTableConfigurationResponse']] = None):
         """
         The selected configurations for azure monitor.
+
         :param _builtins.str configuration_version: The configuration version.
         :param Mapping[str, _builtins.str] global_configurations: The global configurations of selected configurations.
         :param Sequence['AzureMonitorTableConfigurationResponse'] table_list: The table list.
@@ -775,6 +784,7 @@ class AzureMonitorTableConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The table configuration for the Log Analytics integration.
+
         :param _builtins.str name: The name.
         """
         if name is not None:
@@ -818,6 +828,7 @@ class ClientGroupInfoResponse(dict):
                  group_name: Optional[_builtins.str] = None):
         """
         The information of AAD security group.
+
         :param _builtins.str group_id: The AAD security group id.
         :param _builtins.str group_name: The AAD security group name.
         """
@@ -872,6 +883,7 @@ class ClusterDefinitionResponse(dict):
                  kind: Optional[_builtins.str] = None):
         """
         The cluster definition.
+
         :param _builtins.str blueprint: The link to the blueprint.
         :param Mapping[str, _builtins.str] component_version: The versions of different services in the cluster.
         :param Any configurations: The cluster configurations.
@@ -1010,6 +1022,7 @@ class ClusterGetPropertiesResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The properties of cluster.
+
         :param 'ClusterDefinitionResponse' cluster_definition: The cluster definition.
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections.
         :param _builtins.str cluster_hdp_version: The hdp version of the cluster.
@@ -1308,6 +1321,7 @@ class ClusterIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the cluster.
+
         :param _builtins.str principal_id: The principal id of cluster identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the cluster. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
@@ -1382,6 +1396,7 @@ class ComputeIsolationPropertiesResponse(dict):
                  host_sku: Optional[_builtins.str] = None):
         """
         The compute isolation properties.
+
         :param _builtins.bool enable_compute_isolation: The flag indicates whether enable compute isolation or not.
         :param _builtins.str host_sku: The host sku.
         """
@@ -1418,6 +1433,7 @@ class ComputeProfileResponse(dict):
                  roles: Optional[Sequence['outputs.RoleResponse']] = None):
         """
         Describes the compute profile.
+
         :param Sequence['RoleResponse'] roles: The list of roles in the cluster.
         """
         if roles is not None:
@@ -1462,6 +1478,7 @@ class ConnectivityEndpointResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         The connectivity properties
+
         :param _builtins.str location: The location of the endpoint.
         :param _builtins.str name: The name of the endpoint.
         :param _builtins.int port: The port to connect to.
@@ -1552,6 +1569,7 @@ class DataDisksGroupsResponse(dict):
                  disks_per_node: Optional[_builtins.int] = None):
         """
         The data disks groups for the role.
+
         :param _builtins.int disk_size_gb: ReadOnly. The DiskSize in GB. Do not set this value.
         :param _builtins.str storage_account_type: ReadOnly. The storage account type. Do not set this value.
         :param _builtins.int disks_per_node: The number of disks per node.
@@ -1627,6 +1645,7 @@ class DiskEncryptionPropertiesResponse(dict):
                  vault_uri: Optional[_builtins.str] = None):
         """
         The disk encryption properties
+
         :param _builtins.str encryption_algorithm: Algorithm identifier for encryption, default RSA-OAEP.
         :param _builtins.bool encryption_at_host: Indicates whether or not resource disk encryption is enabled.
         :param _builtins.str key_name: Key name that is used for enabling disk encryption.
@@ -1724,6 +1743,7 @@ class EncryptionInTransitPropertiesResponse(dict):
                  is_encryption_in_transit_enabled: Optional[_builtins.bool] = None):
         """
         The encryption-in-transit properties.
+
         :param _builtins.bool is_encryption_in_transit_enabled: Indicates whether or not inter cluster node communication is encrypted in transit.
         """
         if is_encryption_in_transit_enabled is None:
@@ -1750,6 +1770,7 @@ class ErrorsResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         The error message associated with the cluster creation.
+
         :param _builtins.str code: The error code.
         :param _builtins.str message: The error message.
         """
@@ -1804,6 +1825,7 @@ class ExcludedServicesConfigResponse(dict):
                  excluded_services_list: Optional[_builtins.str] = None):
         """
         The configuration that services will be excluded when creating cluster.
+
         :param _builtins.str excluded_services_config_id: The config id of excluded services.
         :param _builtins.str excluded_services_list: The list of excluded services.
         """
@@ -1855,6 +1877,7 @@ class HardwareProfileResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         The hardware profile.
+
         :param _builtins.str vm_size: The size of the VM
         """
         if vm_size is not None:
@@ -1906,6 +1929,7 @@ class IPConfigurationResponse(dict):
                  subnet: Optional['outputs.ResourceIdResponse'] = None):
         """
         The ip configurations for the private link service.
+
         :param _builtins.str id: The private link IP configuration id.
         :param _builtins.str name: The name of private link IP configuration.
         :param _builtins.str provisioning_state: The private link configuration provisioning state, which only appears in the response.
@@ -2020,6 +2044,7 @@ class IpTagResponse(dict):
                  tag: _builtins.str):
         """
         Contains the IpTag associated with the public IP address
+
         :param _builtins.str ip_tag_type: Gets or sets the ipTag type: Example FirstPartyUsage.
         :param _builtins.str tag: Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc
         """
@@ -2072,6 +2097,7 @@ class KafkaRestPropertiesResponse(dict):
                  configuration_override: Optional[Mapping[str, _builtins.str]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
+
         :param 'ClientGroupInfoResponse' client_group_info: The information of AAD security group.
         :param Mapping[str, _builtins.str] configuration_override: The configurations that need to be overriden.
         """
@@ -2125,6 +2151,7 @@ class LinuxOperatingSystemProfileResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         The ssh username, password, and ssh public key.
+
         :param _builtins.str password: The password.
         :param 'SshProfileResponse' ssh_profile: The SSH profile.
         :param _builtins.str username: The username.
@@ -2196,6 +2223,7 @@ class NetworkPropertiesResponse(dict):
                  resource_provider_connection: Optional[_builtins.str] = None):
         """
         The network properties.
+
         :param _builtins.str outbound_dependencies_managed_type: A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
         :param _builtins.str private_link: Indicates whether or not private link is enabled.
         :param 'IpTagResponse' public_ip_tag: Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
@@ -2269,6 +2297,7 @@ class OsProfileResponse(dict):
                  linux_operating_system_profile: Optional['outputs.LinuxOperatingSystemProfileResponse'] = None):
         """
         The Linux operation systems profile.
+
         :param 'LinuxOperatingSystemProfileResponse' linux_operating_system_profile: The Linux OS profile.
         """
         if linux_operating_system_profile is not None:
@@ -2324,6 +2353,7 @@ class PrivateEndpointConnectionResponse(dict):
                  type: _builtins.str):
         """
         The private endpoint connection.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str link_identifier: The link identifier.
         :param _builtins.str name: The name of the resource
@@ -2416,6 +2446,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The private endpoint.
+
         :param _builtins.str id: The private endpoint id.
         """
         if id is not None:
@@ -2465,6 +2496,7 @@ class PrivateLinkConfigurationResponse(dict):
                  type: _builtins.str):
         """
         The private link configuration.
+
         :param _builtins.str group_id: The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
         :param _builtins.str id: The private link configuration id.
         :param Sequence['IPConfigurationResponse'] ip_configurations: The IP configurations for the private link service.
@@ -2556,6 +2588,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The private link service connection state.
+
         :param _builtins.str status: The concrete private link service connection.
         :param _builtins.str actions_required: Whether there is further actions.
         :param _builtins.str description: The optional description of the status.
@@ -2617,6 +2650,7 @@ class QuotaInfoResponse(dict):
                  cores_used: Optional[_builtins.int] = None):
         """
         The quota properties for the cluster.
+
         :param _builtins.int cores_used: The cores used by the cluster.
         """
         if cores_used is not None:
@@ -2640,6 +2674,7 @@ class ResourceIdResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The azure resource id.
+
         :param _builtins.str id: The azure resource id.
         """
         if id is not None:
@@ -2708,6 +2743,7 @@ class RoleResponse(dict):
                  virtual_network_profile: Optional['outputs.VirtualNetworkProfileResponse'] = None):
         """
         Describes a role on the cluster.
+
         :param 'AutoscaleResponse' autoscale_configuration: The autoscale configurations.
         :param Sequence['DataDisksGroupsResponse'] data_disks_groups: The data disks groups for the role.
         :param _builtins.bool encrypt_data_disks: Indicates whether encrypt the data disks.
@@ -2864,6 +2900,7 @@ class RuntimeScriptActionResponse(dict):
                  parameters: Optional[_builtins.str] = None):
         """
         Describes a script action on a running cluster.
+
         :param _builtins.str application_name: The application name of the script action, if any.
         :param _builtins.str name: The name of the script action.
         :param Sequence[_builtins.str] roles: The list of roles where script will be executed.
@@ -2929,6 +2966,7 @@ class ScriptActionResponse(dict):
                  uri: _builtins.str):
         """
         Describes a script action on role on the cluster.
+
         :param _builtins.str name: The name of the script action.
         :param _builtins.str parameters: The parameters for the script provided.
         :param _builtins.str uri: The URI to the script.
@@ -3010,6 +3048,7 @@ class SecurityProfileResponse(dict):
                  organizational_unit_dn: Optional[_builtins.str] = None):
         """
         The security profile which contains Ssh public key for the HDInsight cluster.
+
         :param _builtins.str aadds_resource_id: The resource ID of the user's Azure Active Directory Domain Service.
         :param Sequence[_builtins.str] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
         :param _builtins.str directory_type: The directory type.
@@ -3138,6 +3177,7 @@ class SshProfileResponse(dict):
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         The list of SSH public keys.
+
         :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys.
         """
         if public_keys is not None:
@@ -3178,6 +3218,7 @@ class SshPublicKeyResponse(dict):
                  certificate_data: Optional[_builtins.str] = None):
         """
         The SSH public key for the cluster nodes.
+
         :param _builtins.str certificate_data: The certificate for SSH.
         """
         if certificate_data is not None:
@@ -3235,6 +3276,7 @@ class StorageAccountResponse(dict):
                  saskey: Optional[_builtins.str] = None):
         """
         The storage Account.
+
         :param _builtins.str container: The container in the storage account, only to be specified for WASB storage accounts.
         :param _builtins.bool enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
         :param _builtins.str file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
@@ -3357,6 +3399,7 @@ class StorageProfileResponse(dict):
                  storageaccounts: Optional[Sequence['outputs.StorageAccountResponse']] = None):
         """
         The storage profile.
+
         :param Sequence['StorageAccountResponse'] storageaccounts: The list of storage accounts in the cluster.
         """
         if storageaccounts is not None:
@@ -3412,6 +3455,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3513,6 +3557,7 @@ class UserAssignedIdentityResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         The User Assigned Identity
+
         :param _builtins.str client_id: The client id of user assigned identity.
         :param _builtins.str principal_id: The principal id of user assigned identity.
         :param _builtins.str tenant_id: The tenant id of user assigned identity.
@@ -3557,6 +3602,7 @@ class VirtualNetworkProfileResponse(dict):
                  subnet: Optional[_builtins.str] = None):
         """
         The virtual network properties.
+
         :param _builtins.str id: The ID of the virtual network.
         :param _builtins.str subnet: The name of the subnet.
         """

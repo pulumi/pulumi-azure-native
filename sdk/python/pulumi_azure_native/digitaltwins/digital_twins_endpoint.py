@@ -28,6 +28,7 @@ class DigitalTwinsEndpointArgs:
                  endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DigitalTwinsEndpoint resource.
+
         :param pulumi.Input[Union['EventGridArgs', 'EventHubArgs', 'ServiceBusArgs']] properties: DigitalTwinsInstance endpoint resource properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[_builtins.str] resource_name: The name of the DigitalTwinsInstance.
@@ -104,6 +105,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] endpoint_name: Name of Endpoint Resource.
@@ -121,6 +123,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
         DigitalTwinsInstance endpoint resource.
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
+
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinsEndpointArgs args: The arguments to use to populate this resource's properties.

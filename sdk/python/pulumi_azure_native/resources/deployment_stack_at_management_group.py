@@ -38,6 +38,7 @@ class DeploymentStackAtManagementGroupArgs:
                  template_link: Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']] = None):
         """
         The set of arguments for constructing a DeploymentStackAtManagementGroup resource.
+
         :param pulumi.Input['ActionOnUnmanageArgs'] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param pulumi.Input['DenySettingsArgs'] deny_settings: Defines how resources deployed by the stack are locked.
         :param pulumi.Input[_builtins.str] management_group_id: The name of the management group. The name is case insensitive.
@@ -276,6 +277,7 @@ class DeploymentStackAtManagementGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActionOnUnmanageArgs', 'ActionOnUnmanageArgsDict']] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
@@ -305,6 +307,7 @@ class DeploymentStackAtManagementGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
 
         Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentStackAtManagementGroupArgs args: The arguments to use to populate this resource's properties.

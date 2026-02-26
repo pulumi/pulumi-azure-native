@@ -25,6 +25,7 @@ class PrivateEndpointConnectionArgs:
                  pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name.
         :param pulumi.Input[_builtins.str] pe_connection_name: Private link resource name.
@@ -86,6 +87,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] pe_connection_name: Private link resource name.
@@ -102,6 +104,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
 
         Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

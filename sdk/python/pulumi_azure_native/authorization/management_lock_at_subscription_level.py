@@ -28,6 +28,7 @@ class ManagementLockAtSubscriptionLevelArgs:
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementLockAtSubscriptionLevel resource.
+
         :param pulumi.Input[Union[_builtins.str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[_builtins.str] lock_name: The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
         :param pulumi.Input[_builtins.str] notes: Notes about the lock. Maximum of 512 characters.
@@ -106,6 +107,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -123,6 +125,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         The lock information.
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.

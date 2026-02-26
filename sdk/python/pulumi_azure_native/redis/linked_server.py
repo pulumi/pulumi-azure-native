@@ -29,6 +29,7 @@ class LinkedServerArgs:
                  linked_server_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedServer resource.
+
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
         :param pulumi.Input[_builtins.str] linked_redis_cache_location: Location of the linked redis cache.
         :param pulumi.Input[_builtins.str] name: The name of the redis cache.
@@ -137,6 +138,7 @@ class LinkedServer(pulumi.CustomResource):
 
         Other available API versions: 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
@@ -158,6 +160,7 @@ class LinkedServer(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServerArgs args: The arguments to use to populate this resource's properties.

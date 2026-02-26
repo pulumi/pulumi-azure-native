@@ -54,6 +54,7 @@ class DnsSecurityRuleActionResponse(dict):
                  block_response_code: Optional[_builtins.str] = None):
         """
         The action to take on DNS requests that match the DNS security rule.
+
         :param _builtins.str action_type: The type of action to take.
         :param _builtins.str block_response_code: The response code for block actions.
         """
@@ -109,6 +110,7 @@ class IpConfigurationResponse(dict):
                  private_ip_allocation_method: Optional[_builtins.str] = None):
         """
         IP configuration.
+
         :param 'SubResourceResponse' subnet: The reference to the subnet bound to the IP configuration.
         :param _builtins.str private_ip_address: Private IP address of the IP configuration.
         :param _builtins.str private_ip_allocation_method: Private IP address allocation method.
@@ -155,6 +157,7 @@ class SubResourceResponse(dict):
                  id: _builtins.str):
         """
         Reference to another ARM resource.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -209,6 +212,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -305,6 +309,7 @@ class TargetDnsServerResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Describes a server to forward the DNS queries to.
+
         :param _builtins.str ip_address: DNS server IP address.
         :param _builtins.int port: DNS server port.
         """
@@ -341,6 +346,7 @@ class VirtualNetworkDnsForwardingRulesetResponse(dict):
                  virtual_network_link: Optional['outputs.SubResourceResponse'] = None):
         """
         Reference to DNS forwarding ruleset and associated virtual network link.
+
         :param _builtins.str id: DNS Forwarding Ruleset Resource ID.
         :param 'SubResourceResponse' virtual_network_link: The reference to the virtual network link.
         """

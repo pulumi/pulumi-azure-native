@@ -110,6 +110,7 @@ class ActionOnUnmanageResponse(dict):
                  resources_without_delete_support: Optional[_builtins.str] = None):
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+
         :param _builtins.str resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
@@ -214,6 +215,7 @@ class AliasPathResponse(dict):
                  pattern: Optional['outputs.AliasPatternResponse'] = None):
         """
         The type of the paths for alias.
+
         :param 'AliasPathMetadataResponse' metadata: The metadata of the alias path. If missing, fall back to the default metadata of the alias.
         :param Sequence[_builtins.str] api_versions: The API versions.
         :param _builtins.str path: The path of an alias.
@@ -271,6 +273,7 @@ class AliasPatternResponse(dict):
                  variable: Optional[_builtins.str] = None):
         """
         The type of the pattern for an alias path.
+
         :param _builtins.str phrase: The alias pattern phrase.
         :param _builtins.str type: The type of alias pattern
         :param _builtins.str variable: The alias pattern variable.
@@ -342,6 +345,7 @@ class AliasResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The alias type. 
+
         :param 'AliasPathMetadataResponse' default_metadata: The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
         :param _builtins.str default_path: The default path for an alias.
         :param 'AliasPatternResponse' default_pattern: The default pattern for an alias.
@@ -488,6 +492,7 @@ class BasicDependencyResponse(dict):
                  resource_type: Optional[_builtins.str] = None):
         """
         Deployment dependency information.
+
         :param _builtins.str id: The ID of the dependency.
         :param _builtins.str resource_name: The dependency resource name.
         :param _builtins.str resource_type: The dependency resource type.
@@ -553,6 +558,7 @@ class ContainerConfigurationResponse(dict):
                  subnet_ids: Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']] = None):
         """
         Settings to customize ACI container instance.
+
         :param _builtins.str container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         :param Sequence['ContainerGroupSubnetIdResponse'] subnet_ids: The subnet resource IDs for a container group.
         """
@@ -588,6 +594,7 @@ class ContainerGroupSubnetIdResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Container group subnet information.
+
         :param _builtins.str id: Resource ID of subnet.
         :param _builtins.str name: Friendly name for the subnet.
         """
@@ -638,6 +645,7 @@ class DebugSettingResponse(dict):
                  detail_level: Optional[_builtins.str] = None):
         """
         The debug setting.
+
         :param _builtins.str detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
         """
         if detail_level is not None:
@@ -685,6 +693,7 @@ class DenySettingsResponse(dict):
                  excluded_principals: Optional[Sequence[_builtins.str]] = None):
         """
         Defines how resources deployed by the Deployment stack are locked.
+
         :param _builtins.str mode: denySettings Mode that defines denied actions.
         :param _builtins.bool apply_to_child_scopes: DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         :param Sequence[_builtins.str] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
@@ -764,6 +773,7 @@ class DependencyResponse(dict):
                  resource_type: Optional[_builtins.str] = None):
         """
         Deployment dependency information.
+
         :param Sequence['BasicDependencyResponse'] depends_on: The list of dependencies.
         :param _builtins.str id: The ID of the dependency.
         :param _builtins.str resource_name: The dependency resource name.
@@ -839,6 +849,7 @@ class DeploymentExtensionConfigItemResponse(dict):
                  value: Optional[Any] = None):
         """
         The value or how to get a value for an extension config property.
+
         :param _builtins.str type: The type of the value.
         :param 'KeyVaultParameterReferenceResponse' key_vault_reference: The key vault reference of the config item.
         :param Any value: The value of the config item. The type is determined by the extension config schema.
@@ -903,6 +914,7 @@ class DeploymentExtensionResponse(dict):
                  config_id: Optional[_builtins.str] = None):
         """
         Details about the usage of a deployment extension.
+
         :param _builtins.str name: The extension name.
         :param _builtins.str version: The extension version.
         :param Mapping[str, 'DeploymentExtensionConfigItemResponse'] config: The configuration used for deployment. The keys of this object should align with the extension config schema.
@@ -959,6 +971,7 @@ class DeploymentParameterResponse(dict):
                  value: Optional[Any] = None):
         """
         Deployment parameter for the template.
+
         :param 'KeyVaultParameterReferenceResponse' reference: Azure Key Vault parameter reference.
         :param _builtins.str type: Type of the value.
         :param Any value: Input value to the parameter.
@@ -1053,6 +1066,7 @@ class DeploymentPropertiesExtendedResponse(dict):
                  validated_resources: Sequence['outputs.ResourceReferenceResponse']):
         """
         Deployment properties with additional details.
+
         :param _builtins.str correlation_id: The correlation ID of the deployment.
         :param 'DebugSettingResponse' debug_setting: The debug setting of the deployment.
         :param Sequence['DependencyResponse'] dependencies: The list of deployment dependencies.
@@ -1252,6 +1266,7 @@ class DeploymentStacksDebugSettingResponse(dict):
                  detail_level: Optional[_builtins.str] = None):
         """
         The debug setting.
+
         :param _builtins.str detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
         """
         if detail_level is not None:
@@ -1296,6 +1311,7 @@ class DeploymentStacksDiagnosticResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         The error additional info
+
         :param _builtins.str code: The error code.
         :param _builtins.str level: Denotes the additional response level.
         :param _builtins.str message: The error message.
@@ -1378,6 +1394,7 @@ class DeploymentStacksParametersLinkResponse(dict):
                  content_version: Optional[_builtins.str] = None):
         """
         Entity representing the reference to the deployment parameters.
+
         :param _builtins.str uri: The URI of the parameters file.
         :param _builtins.str content_version: If included, must match the ContentVersion in the template.
         """
@@ -1434,6 +1451,7 @@ class DeploymentStacksWhatIfChangeResponse(dict):
                  deployment_scope_change: Optional['outputs.DeploymentStacksWhatIfChangeResponseDeploymentScopeChange'] = None):
         """
         Changes predicted to the deployment stack as a result of the what-if operation.
+
         :param 'DeploymentStacksWhatIfChangeResponseDenySettingsChange' deny_settings_change: Predicted changes to the deployment stack deny settings.
         :param Sequence['DeploymentStacksWhatIfResourceChangeResponse'] resource_changes: List of resource changes predicted by What-If operation.
         :param 'DeploymentStacksWhatIfChangeResponseDeploymentScopeChange' deployment_scope_change: Predicted changes to the deployment scope for the deployment stack.
@@ -1479,6 +1497,7 @@ class DeploymentStacksWhatIfChangeResponseDenySettingsChange(dict):
                  delta: Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']] = None):
         """
         Predicted changes to the deployment stack deny settings.
+
         :param 'DenySettingsResponse' after: The predicted value after the deployment is executed.
         :param 'DenySettingsResponse' before: The predicted value before the deployment is executed.
         :param Sequence['DeploymentStacksWhatIfPropertyChangeResponse'] delta: The predicted changes to the properties."
@@ -1525,6 +1544,7 @@ class DeploymentStacksWhatIfChangeResponseDeploymentScopeChange(dict):
                  before: Optional[_builtins.str] = None):
         """
         Predicted changes to the deployment scope for the deployment stack.
+
         :param _builtins.str after: The predicted value after the deployment is executed.
         :param _builtins.str before: The predicted value before the deployment is executed.
         """
@@ -1580,6 +1600,7 @@ class DeploymentStacksWhatIfPropertyChangeResponse(dict):
                  children: Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']] = None):
         """
         The predicted change to the resource property.
+
         :param _builtins.str change_type: Type of change that will be made to the resource when the deployment is executed.
         :param _builtins.str path: Type of change that will be made to the resource when the deployment is executed.
         :param Any after: The predicted value after the deployment is executed.
@@ -1690,6 +1711,7 @@ class DeploymentStacksWhatIfResourceChangeResponse(dict):
                  unsupported_reason: Optional[_builtins.str] = None):
         """
         Information about a single resource change predicted by What-If operation.
+
         :param _builtins.str api_version: The API version the resource was deployed with
         :param _builtins.str change_certainty: The confidence level of the predicted change.
         :param _builtins.str change_type: Type of change that will be made to the resource when the deployment is executed.
@@ -1839,6 +1861,7 @@ class DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange(dict):
                  before: Optional[_builtins.str] = None):
         """
         The predicted changes to the deployment stack deny status of the resource.
+
         :param _builtins.str after: The predicted value after the deployment is executed.
         :param _builtins.str before: The predicted value before the deployment is executed.
         """
@@ -1874,6 +1897,7 @@ class DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange(dict):
                  before: Optional[_builtins.str] = None):
         """
         The predicted changes to the deployment stack management status of the resource.
+
         :param _builtins.str after: The predicted value after the deployment is executed.
         :param _builtins.str before: The predicted value before the deployment is executed.
         """
@@ -1910,6 +1934,7 @@ class DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges(d
                  delta: Optional[Sequence['outputs.DeploymentStacksWhatIfPropertyChangeResponse']] = None):
         """
         The predicted changes to the resource configuration.
+
         :param Any after: The predicted value after the deployment is executed.
         :param Any before: The predicted value before the deployment is executed.
         :param Sequence['DeploymentStacksWhatIfPropertyChangeResponse'] delta: The predicted changes to the properties."
@@ -2007,6 +2032,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
                  validation_level: Optional[_builtins.str] = None):
         """
         DeploymentStack WhatIfResult Properties
+
         :param 'ActionOnUnmanageResponse' action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param 'DeploymentStacksWhatIfChangeResponse' changes: All of the changes predicted by the deployment stack what-if operation.
         :param _builtins.str correlation_id: The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
@@ -2205,6 +2231,7 @@ class EnvironmentVariableResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The environment variable to pass to the script in the container instance.
+
         :param _builtins.str name: The name of the environment variable.
         :param _builtins.str secure_value: The value of the secure environment variable.
         :param _builtins.str value: The value of the environment variable.
@@ -2250,6 +2277,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -2303,6 +2331,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -2386,6 +2415,7 @@ class ErrorResponseResponse(dict):
                  target: _builtins.str):
         """
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorResponseResponse'] details: The error details.
@@ -2449,6 +2479,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Resource extended location.
+
         :param _builtins.str name: The extended location name.
         :param _builtins.str type: The extended location type.
         """
@@ -2507,6 +2538,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -2632,6 +2664,7 @@ class KeyVaultParameterReferenceResponse(dict):
                  secret_version: Optional[_builtins.str] = None):
         """
         Azure Key Vault parameter reference.
+
         :param 'KeyVaultReferenceResponse' key_vault: Azure Key Vault reference.
         :param _builtins.str secret_name: Azure Key Vault secret name.
         :param _builtins.str secret_version: Azure Key Vault secret version.
@@ -2675,6 +2708,7 @@ class KeyVaultReferenceResponse(dict):
                  id: _builtins.str):
         """
         Azure Key Vault reference.
+
         :param _builtins.str id: Azure Key Vault resourceId.
         """
         pulumi.set(__self__, "id", id)
@@ -2698,6 +2732,7 @@ class LinkedTemplateArtifactResponse(dict):
                  template: Any):
         """
         Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+
         :param _builtins.str path: A filesystem safe relative path of the artifact.
         :param Any template: The Azure Resource Manager template.
         """
@@ -2749,6 +2784,7 @@ class ManagedResourceReferenceResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The managed resource model.
+
         :param _builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         :param _builtins.str deny_status: denyAssignment settings applied to the resource.
         :param _builtins.str status: Current management state of the resource in the deployment stack.
@@ -2816,6 +2852,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed identity generic object.
+
         :param _builtins.str tenant_id: ID of the Azure Active Directory.
         :param _builtins.str type: Type of the managed identity.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -2881,6 +2918,7 @@ class OnErrorDeploymentExtendedResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Deployment on error behavior with additional details.
+
         :param _builtins.str provisioning_state: The state of the provisioning for the on error deployment.
         :param _builtins.str deployment_name: The deployment to be used on error case.
         :param _builtins.str type: The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
@@ -2943,6 +2981,7 @@ class ParametersLinkResponse(dict):
                  content_version: Optional[_builtins.str] = None):
         """
         Entity representing the reference to the deployment parameters.
+
         :param _builtins.str uri: The URI of the parameters file.
         :param _builtins.str content_version: If included, must match the ContentVersion in the template.
         """
@@ -2997,6 +3036,7 @@ class PlanResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Plan for the resource.
+
         :param _builtins.str name: The plan ID.
         :param _builtins.str product: The offer ID.
         :param _builtins.str promotion_code: The promotion code.
@@ -3083,6 +3123,7 @@ class ProviderExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The provider extended location. 
+
         :param Sequence[_builtins.str] extended_locations: The extended locations for the azure location.
         :param _builtins.str location: The azure location.
         :param _builtins.str type: The extended location type.
@@ -3164,6 +3205,7 @@ class ProviderResourceTypeResponse(dict):
                  zone_mappings: Optional[Sequence['outputs.ZoneMappingResponse']] = None):
         """
         Resource type managed by the resource provider.
+
         :param Sequence['ApiProfileResponse'] api_profiles: The API profiles for the resource provider.
         :param _builtins.str default_api_version: The default API version.
         :param Sequence['AliasResponse'] aliases: The aliases that are supported by this resource type.
@@ -3308,6 +3350,7 @@ class ProviderResponse(dict):
                  provider_authorization_consent_state: Optional[_builtins.str] = None):
         """
         Resource provider information.
+
         :param _builtins.str id: The provider ID.
         :param _builtins.str registration_policy: The registration policy of the resource provider.
         :param _builtins.str registration_state: The registration state of the resource provider.
@@ -3399,6 +3442,7 @@ class ResourceGroupPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         The resource group properties.
+
         :param _builtins.str provisioning_state: The provisioning state. 
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -3422,6 +3466,7 @@ class ResourceReferenceExtendedResponse(dict):
                  error: Optional['outputs.ErrorDetailResponse'] = None):
         """
         The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
+
         :param _builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         :param 'ErrorDetailResponse' error: The error detail.
         """
@@ -3455,6 +3500,7 @@ class ResourceReferenceResponse(dict):
                  id: _builtins.str):
         """
         The resourceId model.
+
         :param _builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         """
         pulumi.set(__self__, "id", id)
@@ -3507,6 +3553,7 @@ class ScriptStatusResponse(dict):
                  error: Optional['outputs.ErrorResponseResponse'] = None):
         """
         Generic object modeling results of script execution.
+
         :param _builtins.str container_instance_id: ACI resource Id.
         :param _builtins.str end_time: End time of the script execution.
         :param _builtins.str expiration_time: Time the deployment script resource will expire.
@@ -3585,6 +3632,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU for the resource.
+
         :param _builtins.int capacity: The SKU capacity.
         :param _builtins.str family: The SKU family.
         :param _builtins.str model: The SKU model.
@@ -3683,6 +3731,7 @@ class StorageAccountConfigurationResponse(dict):
                  storage_account_name: Optional[_builtins.str] = None):
         """
         Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+
         :param _builtins.str storage_account_key: The storage account access key.
         :param _builtins.str storage_account_name: The storage account name.
         """
@@ -3749,6 +3798,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3871,6 +3921,7 @@ class TemplateLinkResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         Entity representing the reference to the template.
+
         :param _builtins.str content_version: If included, must match the ContentVersion in the template.
         :param _builtins.str id: The resource id of a Template Spec. Use either the id or uri property, but not both.
         :param _builtins.str query_string: The query string (for example, a SAS token) to be used with the templateLink URI.
@@ -3959,6 +4010,7 @@ class TemplateSpecVersionInfoResponse(dict):
                  time_modified: _builtins.str):
         """
         High-level information about a Template Spec version.
+
         :param _builtins.str description: Template Spec version description.
         :param _builtins.str time_created: The timestamp of when the version was created.
         :param _builtins.str time_modified: The timestamp of when the version was last modified.
@@ -4021,6 +4073,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User-assigned managed identity.
+
         :param _builtins.str client_id: Client App Id associated with this identity.
         :param _builtins.str principal_id: Azure Active Directory principal ID associated with this identity.
         """

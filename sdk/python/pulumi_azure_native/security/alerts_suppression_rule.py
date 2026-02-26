@@ -31,6 +31,7 @@ class AlertsSuppressionRuleArgs:
                  suppression_alerts_scope: Optional[pulumi.Input['SuppressionAlertsScopeArgs']] = None):
         """
         The set of arguments for constructing a AlertsSuppressionRule resource.
+
         :param pulumi.Input[_builtins.str] alert_type: Type of the alert to automatically suppress. For all alert types, use '*'
         :param pulumi.Input[_builtins.str] reason: The reason for dismissing the alert
         :param pulumi.Input[Union[_builtins.str, 'RuleState']] state: Possible states of the rule
@@ -155,6 +156,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_type: Type of the alert to automatically suppress. For all alert types, use '*'
@@ -175,6 +177,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         Describes the suppression rule
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AlertsSuppressionRuleArgs args: The arguments to use to populate this resource's properties.

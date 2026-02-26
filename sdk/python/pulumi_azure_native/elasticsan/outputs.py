@@ -61,6 +61,7 @@ class EncryptionIdentityResponse(dict):
                  encryption_user_assigned_identity: Optional[_builtins.str] = None):
         """
         Encryption identity for the volume group.
+
         :param _builtins.str encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
         """
         if encryption_user_assigned_identity is not None:
@@ -104,6 +105,7 @@ class EncryptionPropertiesResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         The encryption settings on the volume group.
+
         :param 'EncryptionIdentityResponse' encryption_identity: The identity to be used with service-side encryption at rest.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
         """
@@ -162,6 +164,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -242,6 +245,7 @@ class IscsiTargetInfoResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Iscsi target information
+
         :param _builtins.str provisioning_state: State of the operation on the resource.
         :param _builtins.str target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         :param _builtins.str target_portal_hostname: iSCSI Target Portal Host Name
@@ -337,6 +341,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         Properties of key vault.
+
         :param _builtins.str current_versioned_key_expiration_timestamp: This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
         :param _builtins.str current_versioned_key_identifier: The object identifier of the current versioned Key Vault Key in use.
         :param _builtins.str last_key_rotation_timestamp: Timestamp of last rotation of the Key Vault Key.
@@ -429,6 +434,7 @@ class ManagedByInfoResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Parent resource information.
+
         :param _builtins.str resource_id: Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
         """
         if resource_id is not None:
@@ -469,6 +475,7 @@ class NetworkRuleSetResponse(dict):
                  virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility.
+
         :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
         if virtual_network_rules is not None:
@@ -524,6 +531,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
          Response for PrivateEndpoint Connection object
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Private Link Service Connection State.
@@ -618,6 +626,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         Response for PrivateEndpoint
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -659,6 +668,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Response for Private Link Service Connection state
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -705,6 +715,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The SKU name. Required for account creation; optional for update.
+
         :param _builtins.str name: The sku name.
         :param _builtins.str tier: The sku tier.
         """
@@ -755,6 +766,7 @@ class SnapshotCreationDataResponse(dict):
                  source_id: _builtins.str):
         """
         Data used when creating a volume snapshot.
+
         :param _builtins.str source_id: Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}"
         """
         pulumi.set(__self__, "source_id", source_id)
@@ -797,6 +809,7 @@ class SourceCreationDataResponse(dict):
                  source_id: Optional[_builtins.str] = None):
         """
         Data source used when creating the volume.
+
         :param _builtins.str create_source: This enumerates the possible sources of a volume creation.
         :param _builtins.str source_id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
@@ -863,6 +876,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -961,6 +975,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         UserAssignedIdentity for the resource.
+
         :param _builtins.str client_id: The client ID of the identity.
         :param _builtins.str principal_id: The principal ID of the identity.
         """
@@ -1011,6 +1026,7 @@ class VirtualNetworkRuleResponse(dict):
                  action: Optional[_builtins.str] = None):
         """
         Virtual Network rule.
+
         :param _builtins.str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         :param _builtins.str action: The action of virtual network rule.
         """

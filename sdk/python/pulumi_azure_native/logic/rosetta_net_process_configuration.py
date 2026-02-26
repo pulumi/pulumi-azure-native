@@ -37,6 +37,7 @@ class RosettaNetProcessConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RosettaNetProcessConfiguration resource.
+
         :param pulumi.Input['RosettaNetPipActivitySettingsArgs'] activity_settings: The RosettaNet process configuration activity settings.
         :param pulumi.Input['RosettaNetPipRoleSettingsArgs'] initiator_role_settings: The RosettaNet initiator role settings.
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
@@ -252,6 +253,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RosettaNetPipActivitySettingsArgs', 'RosettaNetPipActivitySettingsArgsDict']] activity_settings: The RosettaNet process configuration activity settings.
@@ -278,6 +280,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         The integration account RosettaNet process configuration.
 
         Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
+
 
         :param str resource_name: The name of the resource.
         :param RosettaNetProcessConfigurationArgs args: The arguments to use to populate this resource's properties.

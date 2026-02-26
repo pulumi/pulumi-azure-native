@@ -28,6 +28,7 @@ class AccessPolicyArgs:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessPolicyRole']]]]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
+
         :param pulumi.Input[_builtins.str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[_builtins.str] access_policy_name: Name of the access policy.
@@ -139,6 +140,7 @@ class AccessPolicy(pulumi.CustomResource):
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy_name: Name of the access policy.
@@ -160,6 +162,7 @@ class AccessPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

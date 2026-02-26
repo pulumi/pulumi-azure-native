@@ -32,6 +32,7 @@ class CustomRecommendationArgs:
                  severity: Optional[pulumi.Input[Union[_builtins.str, 'SeverityEnum']]] = None):
         """
         The set of arguments for constructing a CustomRecommendation resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'RecommendationSupportedClouds']]]] cloud_providers: List of all standard supported clouds.
         :param pulumi.Input[_builtins.str] custom_recommendation_name: Name of the Custom Recommendation.
@@ -190,6 +191,7 @@ class CustomRecommendation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'RecommendationSupportedClouds']]]] cloud_providers: List of all standard supported clouds.
@@ -212,6 +214,7 @@ class CustomRecommendation(pulumi.CustomResource):
         Custom Recommendation
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param CustomRecommendationArgs args: The arguments to use to populate this resource's properties.

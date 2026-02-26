@@ -30,6 +30,7 @@ class P2sVpnServerConfigurationArgs:
                  properties: Optional[pulumi.Input['P2SVpnServerConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a P2sVpnServerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[_builtins.str] virtual_wan_name: The name of the VirtualWan.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -141,6 +142,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -162,6 +164,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2019-07-01. In version 2.x of the Azure Native provider, it used API version 2019-07-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param P2sVpnServerConfigurationArgs args: The arguments to use to populate this resource's properties.

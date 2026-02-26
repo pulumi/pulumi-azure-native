@@ -28,28 +28,23 @@ __all__ = [
     'SmbStorageClassTypePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BlobStorageClassTypePropertiesArgsDict(TypedDict):
-        """
-        The properties of Blob StorageClass
-        """
-        azure_storage_account_key: pulumi.Input[_builtins.str]
-        """
-        Azure Storage Account Key
-        """
-        azure_storage_account_name: pulumi.Input[_builtins.str]
-        """
-        Azure Storage Account Name
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of a storage class
-        Expected value is 'Blob'.
-        """
-elif False:
-    BlobStorageClassTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BlobStorageClassTypePropertiesArgsDict(TypedDict):
+    """
+    The properties of Blob StorageClass
+    """
+    azure_storage_account_key: pulumi.Input[_builtins.str]
+    """
+    Azure Storage Account Key
+    """
+    azure_storage_account_name: pulumi.Input[_builtins.str]
+    """
+    Azure Storage Account Name
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a storage class
+    Expected value is 'Blob'.
+    """
 
 @pulumi.input_type
 class BlobStorageClassTypePropertiesArgs:
@@ -59,6 +54,7 @@ class BlobStorageClassTypePropertiesArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         The properties of Blob StorageClass
+
         :param pulumi.Input[_builtins.str] azure_storage_account_key: Azure Storage Account Key
         :param pulumi.Input[_builtins.str] azure_storage_account_name: Azure Storage Account Name
         :param pulumi.Input[_builtins.str] type: Type of a storage class
@@ -106,18 +102,15 @@ class BlobStorageClassTypePropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NativeStorageClassTypePropertiesArgsDict(TypedDict):
-        """
-        The properties of Native StorageClass
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of a storage class
-        Expected value is 'Native'.
-        """
-elif False:
-    NativeStorageClassTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NativeStorageClassTypePropertiesArgsDict(TypedDict):
+    """
+    The properties of Native StorageClass
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a storage class
+    Expected value is 'Native'.
+    """
 
 @pulumi.input_type
 class NativeStorageClassTypePropertiesArgs:
@@ -125,6 +118,7 @@ class NativeStorageClassTypePropertiesArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         The properties of Native StorageClass
+
         :param pulumi.Input[_builtins.str] type: Type of a storage class
                Expected value is 'Native'.
         """
@@ -144,38 +138,35 @@ class NativeStorageClassTypePropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NfsStorageClassTypePropertiesArgsDict(TypedDict):
-        """
-        The properties of NFS StorageClass
-        """
-        server: pulumi.Input[_builtins.str]
-        """
-        NFS Server
-        """
-        share: pulumi.Input[_builtins.str]
-        """
-        NFS share
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of a storage class
-        Expected value is 'NFS'.
-        """
-        mount_permissions: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mounted folder permissions. Default is 0. If set as non-zero, driver will perform `chmod` after mount
-        """
-        on_delete: NotRequired[pulumi.Input[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]
-        """
-        The action to take when a NFS volume is deleted. Default is Delete
-        """
-        sub_dir: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sub directory under share. If the sub directory doesn't exist, driver will create it
-        """
-elif False:
-    NfsStorageClassTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NfsStorageClassTypePropertiesArgsDict(TypedDict):
+    """
+    The properties of NFS StorageClass
+    """
+    server: pulumi.Input[_builtins.str]
+    """
+    NFS Server
+    """
+    share: pulumi.Input[_builtins.str]
+    """
+    NFS share
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a storage class
+    Expected value is 'NFS'.
+    """
+    mount_permissions: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mounted folder permissions. Default is 0. If set as non-zero, driver will perform `chmod` after mount
+    """
+    on_delete: NotRequired[pulumi.Input[Union[_builtins.str, 'NfsDirectoryActionOnVolumeDeletion']]]
+    """
+    The action to take when a NFS volume is deleted. Default is Delete
+    """
+    sub_dir: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sub directory under share. If the sub directory doesn't exist, driver will create it
+    """
 
 @pulumi.input_type
 class NfsStorageClassTypePropertiesArgs:
@@ -188,6 +179,7 @@ class NfsStorageClassTypePropertiesArgs:
                  sub_dir: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of NFS StorageClass
+
         :param pulumi.Input[_builtins.str] server: NFS Server
         :param pulumi.Input[_builtins.str] share: NFS share
         :param pulumi.Input[_builtins.str] type: Type of a storage class
@@ -280,22 +272,19 @@ class NfsStorageClassTypePropertiesArgs:
         pulumi.set(self, "sub_dir", value)
 
 
-if not MYPY:
-    class RwxStorageClassTypePropertiesArgsDict(TypedDict):
-        """
-        The properties of RWX StorageClass
-        """
-        backing_storage_class_name: pulumi.Input[_builtins.str]
-        """
-        The backing storageclass used to create new storageclass
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of a storage class
-        Expected value is 'RWX'.
-        """
-elif False:
-    RwxStorageClassTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RwxStorageClassTypePropertiesArgsDict(TypedDict):
+    """
+    The properties of RWX StorageClass
+    """
+    backing_storage_class_name: pulumi.Input[_builtins.str]
+    """
+    The backing storageclass used to create new storageclass
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a storage class
+    Expected value is 'RWX'.
+    """
 
 @pulumi.input_type
 class RwxStorageClassTypePropertiesArgs:
@@ -304,6 +293,7 @@ class RwxStorageClassTypePropertiesArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         The properties of RWX StorageClass
+
         :param pulumi.Input[_builtins.str] backing_storage_class_name: The backing storageclass used to create new storageclass
         :param pulumi.Input[_builtins.str] type: Type of a storage class
                Expected value is 'RWX'.
@@ -337,38 +327,35 @@ class RwxStorageClassTypePropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SmbStorageClassTypePropertiesArgsDict(TypedDict):
-        """
-        The properties of SMB StorageClass
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        SMB Source
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of a storage class
-        Expected value is 'SMB'.
-        """
-        domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Server domain
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Server password
-        """
-        sub_dir: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sub directory under share. If the sub directory doesn't exist, driver will create it
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Server username
-        """
-elif False:
-    SmbStorageClassTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SmbStorageClassTypePropertiesArgsDict(TypedDict):
+    """
+    The properties of SMB StorageClass
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    SMB Source
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a storage class
+    Expected value is 'SMB'.
+    """
+    domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Server domain
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Server password
+    """
+    sub_dir: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sub directory under share. If the sub directory doesn't exist, driver will create it
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Server username
+    """
 
 @pulumi.input_type
 class SmbStorageClassTypePropertiesArgs:
@@ -381,6 +368,7 @@ class SmbStorageClassTypePropertiesArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of SMB StorageClass
+
         :param pulumi.Input[_builtins.str] source: SMB Source
         :param pulumi.Input[_builtins.str] type: Type of a storage class
                Expected value is 'SMB'.

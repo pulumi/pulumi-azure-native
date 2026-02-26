@@ -29,6 +29,7 @@ class SecurityUserRuleCollectionArgs:
                  rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityUserRuleCollection resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SecurityUserGroupItemArgs']]] applies_to_groups: Groups for configuration
         :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
@@ -138,6 +139,7 @@ class SecurityUserRuleCollection(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityUserGroupItemArgs', 'SecurityUserGroupItemArgsDict']]]] applies_to_groups: Groups for configuration
@@ -159,6 +161,7 @@ class SecurityUserRuleCollection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityUserRuleCollectionArgs args: The arguments to use to populate this resource's properties.

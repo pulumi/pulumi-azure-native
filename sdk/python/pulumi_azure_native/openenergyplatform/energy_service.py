@@ -28,6 +28,7 @@ class EnergyServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnergyService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: Geo-location where the resource lives.
         :param pulumi.Input[_builtins.str] resource_name: The resource name.
@@ -116,6 +117,7 @@ class EnergyService(pulumi.CustomResource):
         """
         Uses Azure REST API version 2022-04-04-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Geo-location where the resource lives.
@@ -131,6 +133,7 @@ class EnergyService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2022-04-04-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param EnergyServiceArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class LandingZoneRegistrationOperationArgs:
                  properties: Optional[pulumi.Input['LandingZoneRegistrationResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a LandingZoneRegistrationOperation resource.
+
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] landing_zone_registration_name: The name of the landing zone registration resource.
@@ -105,6 +106,7 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
@@ -122,6 +124,7 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
         The Landing zone registration resource type.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+
 
         :param str resource_name: The name of the resource.
         :param LandingZoneRegistrationOperationArgs args: The arguments to use to populate this resource's properties.

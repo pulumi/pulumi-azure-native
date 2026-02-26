@@ -33,6 +33,7 @@ class ApprovalArgs:
                  ticket_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Approval resource.
+
         :param pulumi.Input['RequestMetadataArgs'] request_metadata: Request metadata for the approval request.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] approval_name: The name of the approvals resource.
@@ -192,6 +193,7 @@ class Approval(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] approval_name: The name of the approvals resource.
@@ -216,6 +218,7 @@ class Approval(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ApprovalArgs args: The arguments to use to populate this resource's properties.

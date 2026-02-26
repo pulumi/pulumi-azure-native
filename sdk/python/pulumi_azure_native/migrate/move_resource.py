@@ -28,6 +28,7 @@ class MoveResourceArgs:
                  properties: Optional[pulumi.Input['MoveResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a MoveResource resource.
+
         :param pulumi.Input[_builtins.str] move_collection_name: The Move Collection Name.
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[_builtins.str] move_resource_name: The Move Resource Name.
@@ -107,6 +108,7 @@ class MoveResource(pulumi.CustomResource):
 
         Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] move_collection_name: The Move Collection Name.
@@ -126,6 +128,7 @@ class MoveResource(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param MoveResourceArgs args: The arguments to use to populate this resource's properties.

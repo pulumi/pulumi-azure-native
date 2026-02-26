@@ -28,6 +28,7 @@ class InstanceDetailsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceDetails resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input['DFPInstanceAdministratorsArgs'] administration: A collection of DFP instance administrators
         :param pulumi.Input[_builtins.str] instance_name: The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
@@ -122,6 +123,7 @@ class InstanceDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DFPInstanceAdministratorsArgs', 'DFPInstanceAdministratorsArgsDict']] administration: A collection of DFP instance administrators
@@ -140,6 +142,7 @@ class InstanceDetails(pulumi.CustomResource):
         Represents an instance of a DFP instance resource.
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param InstanceDetailsArgs args: The arguments to use to populate this resource's properties.

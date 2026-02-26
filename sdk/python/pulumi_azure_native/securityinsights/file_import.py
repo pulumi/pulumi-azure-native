@@ -31,6 +31,7 @@ class FileImportArgs:
                  file_import_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FileImport resource.
+
         :param pulumi.Input[Union[_builtins.str, 'FileImportContentType']] content_type: The content type of this file.
         :param pulumi.Input['FileMetadataArgs'] import_file: Represents the imported file.
         :param pulumi.Input[Union[_builtins.str, 'IngestionMode']] ingestion_mode: Describes how to ingest the records in the file.
@@ -154,6 +155,7 @@ class FileImport(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'FileImportContentType']] content_type: The content type of this file.
@@ -176,6 +178,7 @@ class FileImport(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param FileImportArgs args: The arguments to use to populate this resource's properties.

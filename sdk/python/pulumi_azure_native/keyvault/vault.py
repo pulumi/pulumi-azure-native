@@ -29,6 +29,7 @@ class VaultArgs:
                  vault_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Vault resource.
+
         :param pulumi.Input['VaultPropertiesArgs'] properties: Properties of the vault
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group to which the server belongs.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the key vault should be created.
@@ -124,6 +125,7 @@ class Vault(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the key vault should be created.
@@ -144,6 +146,7 @@ class Vault(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

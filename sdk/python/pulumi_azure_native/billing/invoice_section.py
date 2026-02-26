@@ -29,6 +29,7 @@ class InvoiceSectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InvoiceSection resource.
+
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[_builtins.str] billing_profile_name: The ID that uniquely identifies a billing profile.
         :param pulumi.Input[_builtins.str] invoice_section_name: The ID that uniquely identifies an invoice section.
@@ -122,6 +123,7 @@ class InvoiceSection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
@@ -140,6 +142,7 @@ class InvoiceSection(pulumi.CustomResource):
         An invoice section.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
+
 
         :param str resource_name: The name of the resource.
         :param InvoiceSectionArgs args: The arguments to use to populate this resource's properties.

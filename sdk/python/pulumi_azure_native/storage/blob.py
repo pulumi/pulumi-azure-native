@@ -32,6 +32,7 @@ class BlobArgs:
                  type: Optional[pulumi.Input['BlobType']] = None):
         """
         The set of arguments for constructing a Blob resource.
+
         :param pulumi.Input[_builtins.str] account_name: Specifies the storage account in which to create the storage container.
         :param pulumi.Input[_builtins.str] container_name: The name of the storage container in which this blob should be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
@@ -204,6 +205,7 @@ class Blob(pulumi.CustomResource):
         """
         Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['BlobAccessTier'] access_tier: The access tier of the storage blob. Only supported for standard storage accounts, not premium.
@@ -225,6 +227,7 @@ class Blob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
+
 
         :param str resource_name: The name of the resource.
         :param BlobArgs args: The arguments to use to populate this resource's properties.

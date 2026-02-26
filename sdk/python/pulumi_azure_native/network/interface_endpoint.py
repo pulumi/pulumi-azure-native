@@ -32,6 +32,7 @@ class InterfaceEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InterfaceEndpoint resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['EndpointServiceArgs'] endpoint_service: A reference to the service being brought into the virtual network.
         :param pulumi.Input[_builtins.str] fqdn: A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
@@ -176,6 +177,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EndpointServiceArgs', 'EndpointServiceArgsDict']] endpoint_service: A reference to the service being brought into the virtual network.
@@ -199,6 +201,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2019-02-01. In version 2.x of the Azure Native provider, it used API version 2019-02-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param InterfaceEndpointArgs args: The arguments to use to populate this resource's properties.

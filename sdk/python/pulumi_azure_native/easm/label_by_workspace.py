@@ -27,6 +27,7 @@ class LabelByWorkspaceArgs:
                  label_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LabelByWorkspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the Workspace.
         :param pulumi.Input[_builtins.str] color: Label color.
@@ -120,6 +121,7 @@ class LabelByWorkspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] color: Label color.
@@ -138,6 +140,7 @@ class LabelByWorkspace(pulumi.CustomResource):
         Label details
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param LabelByWorkspaceArgs args: The arguments to use to populate this resource's properties.

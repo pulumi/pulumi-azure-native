@@ -28,6 +28,7 @@ class TimeSeriesDatabaseConnectionArgs:
                  time_series_database_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TimeSeriesDatabaseConnection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[_builtins.str] resource_name: The name of the DigitalTwinsInstance.
         :param pulumi.Input['AzureDataExplorerConnectionPropertiesArgs'] properties: Properties of a specific time series database connection.
@@ -105,6 +106,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AzureDataExplorerConnectionPropertiesArgs', 'AzureDataExplorerConnectionPropertiesArgsDict']] properties: Properties of a specific time series database connection.
@@ -122,6 +124,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         Describes a time series database connection resource.
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
+
 
         :param str resource_name: The name of the resource.
         :param TimeSeriesDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.

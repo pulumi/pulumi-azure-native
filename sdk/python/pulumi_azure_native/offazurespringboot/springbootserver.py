@@ -28,6 +28,7 @@ class SpringbootserverArgs:
                  springbootservers_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Springbootserver resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: The springbootsites name.
         :param pulumi.Input['SpringbootserversPropertiesArgs'] properties: The springbootservers resource definition.
@@ -107,6 +108,7 @@ class Springbootserver(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpringbootserversPropertiesArgs', 'SpringbootserversPropertiesArgsDict']] properties: The springbootservers resource definition.
@@ -126,6 +128,7 @@ class Springbootserver(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01-preview.
 
         Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SpringbootserverArgs args: The arguments to use to populate this resource's properties.

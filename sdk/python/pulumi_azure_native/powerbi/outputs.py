@@ -81,6 +81,7 @@ class ConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         ConnectionState information.
+
         :param _builtins.str actions_required: Actions required (if any).
         :param _builtins.str description: Description of the connection state.
         :param _builtins.str status: Status of the connection.
@@ -287,6 +288,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

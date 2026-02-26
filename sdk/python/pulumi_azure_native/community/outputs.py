@@ -71,6 +71,7 @@ class IdentityConfigurationPropertiesResponse(dict):
                  teams_enabled: Optional[_builtins.bool] = None):
         """
         Details of the Community CommunityTraining Identity Configuration
+
         :param _builtins.str client_id: The clientId of the application registered in the selected identity provider for the Community Training Resource
         :param _builtins.str client_secret: The client secret of the application registered in the selected identity provider for the Community Training Resource
         :param _builtins.str domain_name: The domain name of the selected identity provider for the Community Training Resource
@@ -183,6 +184,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -281,6 +283,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

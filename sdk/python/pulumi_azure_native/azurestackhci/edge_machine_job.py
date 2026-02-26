@@ -28,6 +28,7 @@ class EdgeMachineJobArgs:
                  properties: Optional[pulumi.Input[Union['DownloadOsJobPropertiesArgs', 'EdgeMachineCollectLogJobPropertiesArgs', 'EdgeMachineRemoteSupportJobPropertiesArgs', 'ProvisionOsJobPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a EdgeMachineJob resource.
+
         :param pulumi.Input[_builtins.str] edge_machine_name: Name of Device
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] jobs_name: Name of EdgeMachineJob
@@ -105,6 +106,7 @@ class EdgeMachineJob(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-12-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] edge_machine_name: Name of Device
@@ -122,6 +124,7 @@ class EdgeMachineJob(pulumi.CustomResource):
         Cluster Jobs resource
 
         Uses Azure REST API version 2025-12-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param EdgeMachineJobArgs args: The arguments to use to populate this resource's properties.

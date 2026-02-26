@@ -25,6 +25,7 @@ class ResourceManagementPrivateLinkArgs:
                  rmpl_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceManagementPrivateLink resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: the region to create private link association.
         :param pulumi.Input[_builtins.str] rmpl_name: The name of the resource management private link.
@@ -85,6 +86,7 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
         """
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: the region to create private link association.
@@ -99,6 +101,7 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param ResourceManagementPrivateLinkArgs args: The arguments to use to populate this resource's properties.

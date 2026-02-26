@@ -29,6 +29,7 @@ class ImageDefinitionArgs:
                  image_definition_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageDefinition resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ImageArchitecture']] architecture: Custom image architecture.
         :param pulumi.Input[Union[_builtins.str, 'ImageOSState']] os_state: Custom image OS state.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -135,6 +136,7 @@ class ImageDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'ImageArchitecture']] architecture: Custom image architecture.
@@ -154,6 +156,7 @@ class ImageDefinition(pulumi.CustomResource):
         The test base image definition resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ImageDefinitionArgs args: The arguments to use to populate this resource's properties.

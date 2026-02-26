@@ -32,6 +32,7 @@ class StorageTaskArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageTask resource.
+
         :param pulumi.Input['StorageTaskActionArgs'] action: The storage task action that is executed
         :param pulumi.Input[_builtins.str] description: Text that describes the purpose of the storage task
         :param pulumi.Input[_builtins.bool] enabled: Storage Task is enabled when set to true and disabled when set to false
@@ -170,6 +171,7 @@ class StorageTask(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageTaskActionArgs', 'StorageTaskActionArgsDict']] action: The storage task action that is executed
@@ -191,6 +193,7 @@ class StorageTask(pulumi.CustomResource):
         Represents Storage Task.
 
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
+
 
         :param str resource_name: The name of the resource.
         :param StorageTaskArgs args: The arguments to use to populate this resource's properties.

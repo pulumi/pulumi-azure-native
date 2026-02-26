@@ -37,6 +37,7 @@ class ActivityCustomEntityQueryArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActivityCustomEntityQuery resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the entity query that supports put request.
                Expected value is 'Activity'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -259,6 +260,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The entity query content to display in timeline
@@ -286,6 +288,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
         Represents Activity entity query.
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ActivityCustomEntityQueryArgs args: The arguments to use to populate this resource's properties.

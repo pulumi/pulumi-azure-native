@@ -28,6 +28,7 @@ class WebAppAssessmentV3OperationArgs:
                  properties: Optional[pulumi.Input['WebAppAssessmentV3PropertiesArgs']] = None):
         """
         The set of arguments for constructing a WebAppAssessmentV3Operation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] assessment_name: WebApp Assessment ARM name
@@ -105,6 +106,7 @@ class WebAppAssessmentV3Operation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: WebApp Assessment ARM name
@@ -122,6 +124,7 @@ class WebAppAssessmentV3Operation(pulumi.CustomResource):
         WebApp assessment resource.
 
         Uses Azure REST API version 2024-03-03-preview.
+
 
         :param str resource_name: The name of the resource.
         :param WebAppAssessmentV3OperationArgs args: The arguments to use to populate this resource's properties.

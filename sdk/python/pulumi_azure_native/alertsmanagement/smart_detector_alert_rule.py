@@ -36,6 +36,7 @@ class SmartDetectorAlertRuleArgs:
                  throttling: Optional[pulumi.Input['ThrottlingInformationArgs']] = None):
         """
         The set of arguments for constructing a SmartDetectorAlertRule resource.
+
         :param pulumi.Input['ActionGroupsInformationArgs'] action_groups: The alert rule actions.
         :param pulumi.Input['DetectorArgs'] detector: The alert rule's detector.
         :param pulumi.Input[_builtins.str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
@@ -240,6 +241,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
         Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']] action_groups: The alert rule actions.
@@ -267,6 +269,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         Uses Azure REST API version 2021-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
         Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SmartDetectorAlertRuleArgs args: The arguments to use to populate this resource's properties.

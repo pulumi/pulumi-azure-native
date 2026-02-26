@@ -30,6 +30,7 @@ class MigrateProjectArgs:
                  tags: Optional[pulumi.Input['MigrateProjectTagsArgs']] = None):
         """
         The set of arguments for constructing a MigrateProject resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
         :param pulumi.Input[_builtins.str] e_tag: Gets or sets the eTag for concurrency control.
         :param pulumi.Input[_builtins.str] location: Gets or sets the Azure location in which migrate project is created.
@@ -140,6 +141,7 @@ class MigrateProject(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] e_tag: Gets or sets the eTag for concurrency control.
@@ -159,6 +161,7 @@ class MigrateProject(pulumi.CustomResource):
         Migrate Project REST Resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MigrateProjectArgs args: The arguments to use to populate this resource's properties.

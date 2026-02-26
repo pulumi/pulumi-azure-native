@@ -32,6 +32,7 @@ class ReadWriteDatabaseArgs:
                  soft_delete_period: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReadWriteDatabase resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] kind: Kind of the database
                Expected value is 'ReadWrite'.
@@ -190,6 +191,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] caller_role: By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
@@ -213,6 +215,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
         Class representing a read write database.
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
+
 
         :param str resource_name: The name of the resource.
         :param ReadWriteDatabaseArgs args: The arguments to use to populate this resource's properties.

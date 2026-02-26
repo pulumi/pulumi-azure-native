@@ -34,6 +34,7 @@ class DedicatedCloudNodeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DedicatedCloudNode resource.
+
         :param pulumi.Input[_builtins.str] availability_zone_id: Availability Zone id, e.g. "az1"
         :param pulumi.Input[_builtins.str] id: SKU's id
         :param pulumi.Input[_builtins.str] name: SKU's name
@@ -218,6 +219,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone_id: Availability Zone id, e.g. "az1"
@@ -242,6 +244,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
         Dedicated cloud node model
 
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
+
 
         :param str resource_name: The name of the resource.
         :param DedicatedCloudNodeArgs args: The arguments to use to populate this resource's properties.

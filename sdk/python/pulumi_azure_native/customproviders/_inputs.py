@@ -24,27 +24,22 @@ __all__ = [
     'CustomRPValidationsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomRPActionRouteDefinitionArgsDict(TypedDict):
-        """
-        The route definition for an action implemented by the custom resource provider.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-        """
-        routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRouting']]]
-        """
-        The routing types that are supported for action requests.
-        """
-elif False:
-    CustomRPActionRouteDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRPActionRouteDefinitionArgsDict(TypedDict):
+    """
+    The route definition for an action implemented by the custom resource provider.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
+    """
+    routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRouting']]]
+    """
+    The routing types that are supported for action requests.
+    """
 
 @pulumi.input_type
 class CustomRPActionRouteDefinitionArgs:
@@ -54,6 +49,7 @@ class CustomRPActionRouteDefinitionArgs:
                  routing_type: Optional[pulumi.Input[Union[_builtins.str, 'ActionRouting']]] = None):
         """
         The route definition for an action implemented by the custom resource provider.
+
         :param pulumi.Input[_builtins.str] endpoint: The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
         :param pulumi.Input[_builtins.str] name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
         :param pulumi.Input[Union[_builtins.str, 'ActionRouting']] routing_type: The routing types that are supported for action requests.
@@ -100,25 +96,22 @@ class CustomRPActionRouteDefinitionArgs:
         pulumi.set(self, "routing_type", value)
 
 
-if not MYPY:
-    class CustomRPResourceTypeRouteDefinitionArgsDict(TypedDict):
-        """
-        The route definition for a resource implemented by the custom resource provider.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-        """
-        routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']]]
-        """
-        The routing types that are supported for resource requests.
-        """
-elif False:
-    CustomRPResourceTypeRouteDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRPResourceTypeRouteDefinitionArgsDict(TypedDict):
+    """
+    The route definition for a resource implemented by the custom resource provider.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
+    """
+    routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']]]
+    """
+    The routing types that are supported for resource requests.
+    """
 
 @pulumi.input_type
 class CustomRPResourceTypeRouteDefinitionArgs:
@@ -128,6 +121,7 @@ class CustomRPResourceTypeRouteDefinitionArgs:
                  routing_type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']]] = None):
         """
         The route definition for a resource implemented by the custom resource provider.
+
         :param pulumi.Input[_builtins.str] endpoint: The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
         :param pulumi.Input[_builtins.str] name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
         :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRouting']] routing_type: The routing types that are supported for resource requests.
@@ -174,21 +168,18 @@ class CustomRPResourceTypeRouteDefinitionArgs:
         pulumi.set(self, "routing_type", value)
 
 
-if not MYPY:
-    class CustomRPValidationsArgsDict(TypedDict):
-        """
-        A validation to apply on custom resource provider requests.
-        """
-        specification: pulumi.Input[_builtins.str]
-        """
-        A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-        """
-        validation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationType']]]
-        """
-        The type of validation to run against a matching request.
-        """
-elif False:
-    CustomRPValidationsArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRPValidationsArgsDict(TypedDict):
+    """
+    A validation to apply on custom resource provider requests.
+    """
+    specification: pulumi.Input[_builtins.str]
+    """
+    A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
+    """
+    validation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationType']]]
+    """
+    The type of validation to run against a matching request.
+    """
 
 @pulumi.input_type
 class CustomRPValidationsArgs:
@@ -197,6 +188,7 @@ class CustomRPValidationsArgs:
                  validation_type: Optional[pulumi.Input[Union[_builtins.str, 'ValidationType']]] = None):
         """
         A validation to apply on custom resource provider requests.
+
         :param pulumi.Input[_builtins.str] specification: A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
         :param pulumi.Input[Union[_builtins.str, 'ValidationType']] validation_type: The type of validation to run against a matching request.
         """

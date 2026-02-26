@@ -48,27 +48,22 @@ __all__ = [
     'UserAssignedIdentityPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ActionArgsDict(TypedDict):
-        """
-        Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-        """
-        compatibility_level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-        """
-        requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Value that indicates whether the rule action requires preprocessing.
-        """
-        sql_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SQL expression. e.g. MyProperty='ABC'
-        """
-elif False:
-    ActionArgsDict: TypeAlias = Mapping[str, Any]
+class ActionArgsDict(TypedDict):
+    """
+    Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+    """
+    compatibility_level: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+    """
+    requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Value that indicates whether the rule action requires preprocessing.
+    """
+    sql_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SQL expression. e.g. MyProperty='ABC'
+    """
 
 @pulumi.input_type
 class ActionArgs:
@@ -78,6 +73,7 @@ class ActionArgs:
                  sql_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+
         :param pulumi.Input[_builtins.int] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param pulumi.Input[_builtins.bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param pulumi.Input[_builtins.str] sql_expression: SQL expression. e.g. MyProperty='ABC'
@@ -128,21 +124,18 @@ class ActionArgs:
         pulumi.set(self, "sql_expression", value)
 
 
-if not MYPY:
-    class ConnectionStateArgsDict(TypedDict):
-        """
-        ConnectionState information.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the connection state.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]
-        """
-        Status of the connection.
-        """
-elif False:
-    ConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionStateArgsDict(TypedDict):
+    """
+    ConnectionState information.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the connection state.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]
+    """
+    Status of the connection.
+    """
 
 @pulumi.input_type
 class ConnectionStateArgs:
@@ -151,6 +144,7 @@ class ConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]] = None):
         """
         ConnectionState information.
+
         :param pulumi.Input[_builtins.str] description: Description of the connection state.
         :param pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']] status: Status of the connection.
         """
@@ -184,53 +178,50 @@ class ConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class CorrelationFilterArgsDict(TypedDict):
-        """
-        Represents the correlation filter expression.
-        """
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Content type of the message.
-        """
-        correlation_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the correlation.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Application specific label.
-        """
-        message_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the message.
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        dictionary object for custom filters
-        """
-        reply_to: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address of the queue to reply to.
-        """
-        reply_to_session_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Session identifier to reply to.
-        """
-        requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Value that indicates whether the rule action requires preprocessing.
-        """
-        session_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Session identifier.
-        """
-        to: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address to send to.
-        """
-elif False:
-    CorrelationFilterArgsDict: TypeAlias = Mapping[str, Any]
+class CorrelationFilterArgsDict(TypedDict):
+    """
+    Represents the correlation filter expression.
+    """
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Content type of the message.
+    """
+    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the correlation.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application specific label.
+    """
+    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the message.
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    dictionary object for custom filters
+    """
+    reply_to: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address of the queue to reply to.
+    """
+    reply_to_session_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Session identifier to reply to.
+    """
+    requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Value that indicates whether the rule action requires preprocessing.
+    """
+    session_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Session identifier.
+    """
+    to: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address to send to.
+    """
 
 @pulumi.input_type
 class CorrelationFilterArgs:
@@ -247,6 +238,7 @@ class CorrelationFilterArgs:
                  to: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents the correlation filter expression.
+
         :param pulumi.Input[_builtins.str] content_type: Content type of the message.
         :param pulumi.Input[_builtins.str] correlation_id: Identifier of the correlation.
         :param pulumi.Input[_builtins.str] label: Application specific label.
@@ -402,25 +394,22 @@ class CorrelationFilterArgs:
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class EncryptionArgsDict(TypedDict):
-        """
-        Properties to configure Encryption
-        """
-        key_source: NotRequired[pulumi.Input['KeySource']]
-        """
-        Enumerates the possible value of keySource for Encryption
-        """
-        key_vault_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgsDict']]]]
-        """
-        Properties of KeyVault
-        """
-        require_infrastructure_encryption: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable Infrastructure Encryption (Double Encryption)
-        """
-elif False:
-    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionArgsDict(TypedDict):
+    """
+    Properties to configure Encryption
+    """
+    key_source: NotRequired[pulumi.Input['KeySource']]
+    """
+    Enumerates the possible value of keySource for Encryption
+    """
+    key_vault_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgsDict']]]]
+    """
+    Properties of KeyVault
+    """
+    require_infrastructure_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable Infrastructure Encryption (Double Encryption)
+    """
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -430,6 +419,7 @@ class EncryptionArgs:
                  require_infrastructure_encryption: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Properties to configure Encryption
+
         :param pulumi.Input['KeySource'] key_source: Enumerates the possible value of keySource for Encryption
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[_builtins.bool] require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
@@ -480,21 +470,18 @@ class EncryptionArgs:
         pulumi.set(self, "require_infrastructure_encryption", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Properties to configure User Assigned Identities for Bring your Own Keys
-        """
-        type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
-        """
-        Type of managed service identity.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Properties for User Assigned Identities
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Properties to configure User Assigned Identities for Bring your Own Keys
+    """
+    type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+    """
+    Type of managed service identity.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Properties for User Assigned Identities
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -503,6 +490,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Properties to configure User Assigned Identities for Bring your Own Keys
+
         :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: Properties for User Assigned Identities
         """
@@ -536,26 +524,23 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties to configure keyVault Properties
-        """
-        identity: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Key from KeyVault
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of KeyVault
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of KeyVault
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties to configure keyVault Properties
+    """
+    identity: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Key from KeyVault
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of KeyVault
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of KeyVault
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -566,6 +551,7 @@ class KeyVaultPropertiesArgs:
                  key_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties to configure keyVault Properties
+
         :param pulumi.Input[_builtins.str] key_name: Name of the Key from KeyVault
         :param pulumi.Input[_builtins.str] key_vault_uri: Uri of KeyVault
         :param pulumi.Input[_builtins.str] key_version: Version of KeyVault
@@ -625,21 +611,18 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
-if not MYPY:
-    class NWRuleSetIpRulesArgsDict(TypedDict):
-        """
-        Description of NetWorkRuleSet - IpRules resource.
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleIPAction']]]
-        """
-        The IP Filter Action
-        """
-        ip_mask: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Mask
-        """
-elif False:
-    NWRuleSetIpRulesArgsDict: TypeAlias = Mapping[str, Any]
+class NWRuleSetIpRulesArgsDict(TypedDict):
+    """
+    Description of NetWorkRuleSet - IpRules resource.
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkRuleIPAction']]]
+    """
+    The IP Filter Action
+    """
+    ip_mask: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP Mask
+    """
 
 @pulumi.input_type
 class NWRuleSetIpRulesArgs:
@@ -648,6 +631,7 @@ class NWRuleSetIpRulesArgs:
                  ip_mask: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Description of NetWorkRuleSet - IpRules resource.
+
         :param pulumi.Input[Union[_builtins.str, 'NetworkRuleIPAction']] action: The IP Filter Action
         :param pulumi.Input[_builtins.str] ip_mask: IP Mask
         """
@@ -683,21 +667,18 @@ class NWRuleSetIpRulesArgs:
         pulumi.set(self, "ip_mask", value)
 
 
-if not MYPY:
-    class NWRuleSetVirtualNetworkRulesArgsDict(TypedDict):
-        """
-        Description of VirtualNetworkRules - NetworkRules resource.
-        """
-        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Value that indicates whether to ignore missing VNet Service Endpoint
-        """
-        subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
-        """
-        Subnet properties
-        """
-elif False:
-    NWRuleSetVirtualNetworkRulesArgsDict: TypeAlias = Mapping[str, Any]
+class NWRuleSetVirtualNetworkRulesArgsDict(TypedDict):
+    """
+    Description of VirtualNetworkRules - NetworkRules resource.
+    """
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Value that indicates whether to ignore missing VNet Service Endpoint
+    """
+    subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+    """
+    Subnet properties
+    """
 
 @pulumi.input_type
 class NWRuleSetVirtualNetworkRulesArgs:
@@ -706,6 +687,7 @@ class NWRuleSetVirtualNetworkRulesArgs:
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None):
         """
         Description of VirtualNetworkRules - NetworkRules resource.
+
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
         :param pulumi.Input['SubnetArgs'] subnet: Subnet properties
         """
@@ -739,25 +721,22 @@ class NWRuleSetVirtualNetworkRulesArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        Properties of the PrivateEndpointConnection.
-        """
-        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
-        """
-        The Private Endpoint resource for this Connection.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
-        """
-        Details about the state of the connection.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']]]
-        """
-        Provisioning state of the Private Endpoint Connection.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    Properties of the PrivateEndpointConnection.
+    """
+    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+    """
+    The Private Endpoint resource for this Connection.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
+    """
+    Details about the state of the connection.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']]]
+    """
+    Provisioning state of the Private Endpoint Connection.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -767,6 +746,7 @@ class PrivateEndpointConnectionArgs:
                  provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']]] = None):
         """
         Properties of the PrivateEndpointConnection.
+
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
         :param pulumi.Input[Union[_builtins.str, 'EndPointProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
@@ -815,17 +795,14 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        PrivateEndpoint information.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARM identifier for Private Endpoint.
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    PrivateEndpoint information.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM identifier for Private Endpoint.
+    """
 
 @pulumi.input_type
 class PrivateEndpointArgs:
@@ -833,6 +810,7 @@ class PrivateEndpointArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         PrivateEndpoint information.
+
         :param pulumi.Input[_builtins.str] id: The ARM identifier for Private Endpoint.
         """
         if id is not None:
@@ -851,25 +829,22 @@ class PrivateEndpointArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SBClientAffinePropertiesArgsDict(TypedDict):
-        """
-        Properties specific to client affine subscriptions.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the Client ID of the application that created the client-affine subscription.
-        """
-        is_durable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        For client-affine subscriptions, this value indicates whether the subscription is durable or not.
-        """
-        is_shared: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        For client-affine subscriptions, this value indicates whether the subscription is shared or not.
-        """
-elif False:
-    SBClientAffinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SBClientAffinePropertiesArgsDict(TypedDict):
+    """
+    Properties specific to client affine subscriptions.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the Client ID of the application that created the client-affine subscription.
+    """
+    is_durable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+    """
+    is_shared: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+    """
 
 @pulumi.input_type
 class SBClientAffinePropertiesArgs:
@@ -879,6 +854,7 @@ class SBClientAffinePropertiesArgs:
                  is_shared: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Properties specific to client affine subscriptions.
+
         :param pulumi.Input[_builtins.str] client_id: Indicates the Client ID of the application that created the client-affine subscription.
         :param pulumi.Input[_builtins.bool] is_durable: For client-affine subscriptions, this value indicates whether the subscription is durable or not.
         :param pulumi.Input[_builtins.bool] is_shared: For client-affine subscriptions, this value indicates whether the subscription is shared or not.
@@ -927,25 +903,22 @@ class SBClientAffinePropertiesArgs:
         pulumi.set(self, "is_shared", value)
 
 
-if not MYPY:
-    class SBSkuArgsDict(TypedDict):
-        """
-        SKU of the namespace.
-        """
-        name: pulumi.Input['SkuName']
-        """
-        Name of this SKU.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        The billing tier of this particular SKU.
-        """
-elif False:
-    SBSkuArgsDict: TypeAlias = Mapping[str, Any]
+class SBSkuArgsDict(TypedDict):
+    """
+    SKU of the namespace.
+    """
+    name: pulumi.Input['SkuName']
+    """
+    Name of this SKU.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    The billing tier of this particular SKU.
+    """
 
 @pulumi.input_type
 class SBSkuArgs:
@@ -955,6 +928,7 @@ class SBSkuArgs:
                  tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         SKU of the namespace.
+
         :param pulumi.Input['SkuName'] name: Name of this SKU.
         :param pulumi.Input[_builtins.int] capacity: Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
         :param pulumi.Input['SkuTier'] tier: The billing tier of this particular SKU.
@@ -1002,25 +976,22 @@ class SBSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SqlFilterArgsDict(TypedDict):
-        """
-        Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
-        """
-        compatibility_level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-        """
-        requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Value that indicates whether the rule action requires preprocessing.
-        """
-        sql_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SQL expression. e.g. MyProperty='ABC'
-        """
-elif False:
-    SqlFilterArgsDict: TypeAlias = Mapping[str, Any]
+class SqlFilterArgsDict(TypedDict):
+    """
+    Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+    """
+    compatibility_level: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+    """
+    requires_preprocessing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Value that indicates whether the rule action requires preprocessing.
+    """
+    sql_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SQL expression. e.g. MyProperty='ABC'
+    """
 
 @pulumi.input_type
 class SqlFilterArgs:
@@ -1030,6 +1001,7 @@ class SqlFilterArgs:
                  sql_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+
         :param pulumi.Input[_builtins.int] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param pulumi.Input[_builtins.bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param pulumi.Input[_builtins.str] sql_expression: The SQL expression. e.g. MyProperty='ABC'
@@ -1080,17 +1052,14 @@ class SqlFilterArgs:
         pulumi.set(self, "sql_expression", value)
 
 
-if not MYPY:
-    class SubnetArgsDict(TypedDict):
-        """
-        Properties supplied for Subnet
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of Virtual Network Subnet
-        """
-elif False:
-    SubnetArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetArgsDict(TypedDict):
+    """
+    Properties supplied for Subnet
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of Virtual Network Subnet
+    """
 
 @pulumi.input_type
 class SubnetArgs:
@@ -1098,6 +1067,7 @@ class SubnetArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         Properties supplied for Subnet
+
         :param pulumi.Input[_builtins.str] id: Resource ID of Virtual Network Subnet
         """
         pulumi.set(__self__, "id", id)
@@ -1115,14 +1085,11 @@ class SubnetArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class UserAssignedIdentityPropertiesArgsDict(TypedDict):
-        user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM ID of user Identity selected for encryption
-        """
-elif False:
-    UserAssignedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedIdentityPropertiesArgsDict(TypedDict):
+    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM ID of user Identity selected for encryption
+    """
 
 @pulumi.input_type
 class UserAssignedIdentityPropertiesArgs:

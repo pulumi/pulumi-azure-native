@@ -190,6 +190,7 @@ class CertificatePropertiesResponse(dict):
                  is_verified: Optional[_builtins.bool] = None):
         """
         The description of an X509 CA Certificate.
+
         :param _builtins.str created: The certificate's create date and time.
         :param _builtins.str expiry: The certificate's expiration date and time.
         :param _builtins.str subject: The certificate's subject name.
@@ -295,6 +296,7 @@ class CloudToDevicePropertiesResponse(dict):
                  max_delivery_count: Optional[_builtins.int] = None):
         """
         The IoT hub cloud-to-device messaging properties.
+
         :param _builtins.str default_ttl_as_iso8601: The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param 'FeedbackPropertiesResponse' feedback: The properties of the feedback queue for cloud-to-device messages.
         :param _builtins.int max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -359,6 +361,7 @@ class EnrichmentPropertiesResponse(dict):
                  value: _builtins.str):
         """
         The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
+
         :param Sequence[_builtins.str] endpoint_names: The list of endpoints for which the enrichment is applied to the message.
         :param _builtins.str key: The key or name for the enrichment property.
         :param _builtins.str value: The value for the enrichment property.
@@ -426,6 +429,7 @@ class EventHubPropertiesResponse(dict):
                  retention_time_in_days: Optional[_builtins.float] = None):
         """
         The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+
         :param _builtins.str endpoint: The Event Hub-compatible endpoint.
         :param Sequence[_builtins.str] partition_ids: The partition ids in the Event Hub-compatible endpoint.
         :param _builtins.str path: The Event Hub-compatible name.
@@ -513,6 +517,7 @@ class FallbackRoutePropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
+
         :param Sequence[_builtins.str] endpoint_names: The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
         :param _builtins.bool is_enabled: Used to specify whether the fallback route is enabled.
         :param _builtins.str source: The source to which the routing rule is to be applied to. For example, DeviceMessages
@@ -600,6 +605,7 @@ class FeedbackPropertiesResponse(dict):
                  ttl_as_iso8601: Optional[_builtins.str] = None):
         """
         The properties of the feedback queue for cloud-to-device messages.
+
         :param _builtins.str lock_duration_as_iso8601: The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param _builtins.int max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param _builtins.str ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -646,6 +652,7 @@ class IotHubLocationDescriptionResponse(dict):
                  role: Optional[_builtins.str] = None):
         """
         Public representation of one of the locations where a resource is provisioned.
+
         :param _builtins.str location: The name of the Azure region
         :param _builtins.str role: The role of the region, can be either primary or secondary. The primary region is where the IoT hub is currently provisioned. The secondary region is the Azure disaster recovery (DR) paired region and also the region where the IoT hub can failover to.
         """
@@ -756,6 +763,7 @@ class IotHubPropertiesResponse(dict):
                  storage_endpoints: Optional[Mapping[str, 'outputs.StorageEndpointPropertiesResponse']] = None):
         """
         The properties of an IoT hub.
+
         :param _builtins.str host_name: The name of the host.
         :param Sequence['IotHubLocationDescriptionResponse'] locations: Primary and secondary location for iot hub
         :param _builtins.str provisioning_state: The provisioning state.
@@ -1030,6 +1038,7 @@ class IotHubSkuInfoResponse(dict):
                  capacity: Optional[_builtins.float] = None):
         """
         Information about the SKU of the IoT hub.
+
         :param _builtins.str name: The name of the SKU.
         :param _builtins.str tier: The billing tier for the IoT hub.
         :param _builtins.float capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
@@ -1094,6 +1103,7 @@ class IpFilterRuleResponse(dict):
                  ip_mask: _builtins.str):
         """
         The IP filter rules for the IoT hub.
+
         :param _builtins.str action: The desired action for requests captured by this rule.
         :param _builtins.str filter_name: The name of the IP filter rule.
         :param _builtins.str ip_mask: A string that contains the IP address range in CIDR notation for the rule.
@@ -1153,6 +1163,7 @@ class ManagedIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         The properties of the Managed identity.
+
         :param _builtins.str user_assigned_identity: The user assigned identity.
         """
         if user_assigned_identity is not None:
@@ -1199,6 +1210,7 @@ class MessagingEndpointPropertiesResponse(dict):
                  ttl_as_iso8601: Optional[_builtins.str] = None):
         """
         The properties of the messaging endpoints used by this IoT hub.
+
         :param _builtins.str lock_duration_as_iso8601: The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         :param _builtins.int max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         :param _builtins.str ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
@@ -1265,6 +1277,7 @@ class NetworkRuleSetIpRuleResponse(dict):
                  action: Optional[_builtins.str] = None):
         """
         IP Rule to be applied as part of Network Rule Set
+
         :param _builtins.str filter_name: Name of the IP filter rule.
         :param _builtins.str ip_mask: A string that contains the IP address range in CIDR notation for the rule.
         :param _builtins.str action: IP Filter Action
@@ -1333,6 +1346,7 @@ class NetworkRuleSetPropertiesResponse(dict):
                  default_action: Optional[_builtins.str] = None):
         """
         Network Rule Set Properties of IotHub
+
         :param _builtins.bool apply_to_built_in_event_hub_endpoint: If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
         :param Sequence['NetworkRuleSetIpRuleResponse'] ip_rules: List of IP Rules
         :param _builtins.str default_action: Default Action for Network Rule Set
@@ -1398,6 +1412,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The properties of a private endpoint connection
+
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The current state of a private endpoint connection
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint property of a private endpoint connection
         """
@@ -1434,6 +1449,7 @@ class PrivateEndpointConnectionResponse(dict):
                  type: _builtins.str):
         """
         The private endpoint connection of an IotHub
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: The properties of a private endpoint connection
@@ -1486,6 +1502,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint property of a private endpoint connection
+
         :param _builtins.str id: The resource identifier.
         """
         pulumi.set(__self__, "id", id)
@@ -1527,6 +1544,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  actions_required: Optional[_builtins.str] = None):
         """
         The current state of a private endpoint connection
+
         :param _builtins.str description: The description for the current state of a private endpoint connection
         :param _builtins.str status: The status of a private endpoint connection
         :param _builtins.str actions_required: Actions required for a private endpoint connection
@@ -1593,6 +1611,7 @@ class RoutePropertiesResponse(dict):
                  condition: Optional[_builtins.str] = None):
         """
         The properties of a routing rule that your IoT hub uses to route messages to endpoints.
+
         :param Sequence[_builtins.str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param _builtins.bool is_enabled: Used to specify whether a route is enabled.
         :param _builtins.str name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
@@ -1703,6 +1722,7 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         The properties related to a cosmos DB sql container endpoint.
+
         :param _builtins.str container_name: The name of the cosmos DB sql container in the cosmos DB database.
         :param _builtins.str database_name: The name of the cosmos DB database in the cosmos DB account.
         :param _builtins.str endpoint_uri: The url of the cosmos DB account. It must include the protocol https://
@@ -1882,6 +1902,7 @@ class RoutingEndpointsResponse(dict):
                  storage_containers: Optional[Sequence['outputs.RoutingStorageContainerPropertiesResponse']] = None):
         """
         The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
+
         :param Sequence['RoutingCosmosDBSqlApiPropertiesResponse'] cosmos_db_sql_containers: The list of Cosmos DB container endpoints that IoT hub routes messages to, based on the routing rules.
         :param Sequence['RoutingEventHubPropertiesResponse'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
         :param Sequence['RoutingServiceBusQueueEndpointPropertiesResponse'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
@@ -1984,6 +2005,7 @@ class RoutingEventHubPropertiesResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         The properties related to an event hub endpoint.
+
         :param _builtins.str name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
         :param _builtins.str authentication_type: Method used to authenticate against the event hub endpoint
         :param _builtins.str connection_string: The connection string of the event hub endpoint. 
@@ -2114,6 +2136,7 @@ class RoutingPropertiesResponse(dict):
                  routes: Optional[Sequence['outputs.RoutePropertiesResponse']] = None):
         """
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
+
         :param 'RoutingEndpointsResponse' endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
         :param Sequence['EnrichmentPropertiesResponse'] enrichments: The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
         :param 'FallbackRoutePropertiesResponse' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
@@ -2205,6 +2228,7 @@ class RoutingServiceBusQueueEndpointPropertiesResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         The properties related to service bus queue endpoint types.
+
         :param _builtins.str name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
         :param _builtins.str authentication_type: Method used to authenticate against the service bus queue endpoint
         :param _builtins.str connection_string: The connection string of the service bus queue endpoint.
@@ -2350,6 +2374,7 @@ class RoutingServiceBusTopicEndpointPropertiesResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         The properties related to service bus topic endpoint types.
+
         :param _builtins.str name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
         :param _builtins.str authentication_type: Method used to authenticate against the service bus topic endpoint
         :param _builtins.str connection_string: The connection string of the service bus topic endpoint.
@@ -2505,6 +2530,7 @@ class RoutingStorageContainerPropertiesResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         The properties related to a storage container endpoint.
+
         :param _builtins.str container_name: The name of storage container in the storage account.
         :param _builtins.str name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
         :param _builtins.str authentication_type: Method used to authenticate against the storage endpoint
@@ -2682,6 +2708,7 @@ class SharedAccessSignatureAuthorizationRuleResponse(dict):
                  secondary_key: Optional[_builtins.str] = None):
         """
         The properties of an IoT hub shared access policy.
+
         :param _builtins.str key_name: The name of the shared access policy.
         :param _builtins.str rights: The permissions assigned to the shared access policy.
         :param _builtins.str primary_key: The primary key.
@@ -2763,6 +2790,7 @@ class StorageEndpointPropertiesResponse(dict):
                  sas_ttl_as_iso8601: Optional[_builtins.str] = None):
         """
         The properties of the Azure Storage endpoint for file upload.
+
         :param _builtins.str connection_string: The connection string for the Azure Storage account to which files are uploaded.
         :param _builtins.str container_name: The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
         :param _builtins.str authentication_type: Specifies authentication type being used for connecting to the storage account.
@@ -2860,6 +2888,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

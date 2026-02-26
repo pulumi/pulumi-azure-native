@@ -20,23 +20,18 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Model representing SKU for Azure Dev Spaces Controller.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        The name of the SKU for Azure Dev Spaces Controller.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
-        """
-        The tier of the SKU for Azure Dev Spaces Controller.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Model representing SKU for Azure Dev Spaces Controller.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    The name of the SKU for Azure Dev Spaces Controller.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    """
+    The tier of the SKU for Azure Dev Spaces Controller.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -45,6 +40,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]] = None):
         """
         Model representing SKU for Azure Dev Spaces Controller.
+
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: The name of the SKU for Azure Dev Spaces Controller.
         :param pulumi.Input[Union[_builtins.str, 'SkuTier']] tier: The tier of the SKU for Azure Dev Spaces Controller.
         """

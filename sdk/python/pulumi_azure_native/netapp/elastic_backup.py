@@ -29,6 +29,7 @@ class ElasticBackupArgs:
                  properties: Optional[pulumi.Input['ElasticBackupPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ElasticBackup resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
         :param pulumi.Input[_builtins.str] backup_vault_name: The name of the ElasticBackupVault
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -121,6 +122,7 @@ class ElasticBackup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
@@ -139,6 +141,7 @@ class ElasticBackup(pulumi.CustomResource):
         NetApp Elastic Backup under an elastic Backup Vault
 
         Uses Azure REST API version 2025-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ElasticBackupArgs args: The arguments to use to populate this resource's properties.

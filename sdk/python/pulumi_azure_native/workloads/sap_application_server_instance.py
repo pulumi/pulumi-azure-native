@@ -27,6 +27,7 @@ class SapApplicationServerInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapApplicationServerInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[_builtins.str] application_instance_name: The name of SAP Application Server instance resource.
@@ -120,6 +121,7 @@ class SapApplicationServerInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_instance_name: The name of SAP Application Server instance resource.
@@ -138,6 +140,7 @@ class SapApplicationServerInstance(pulumi.CustomResource):
         Define the SAP Application Server Instance resource.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param SapApplicationServerInstanceArgs args: The arguments to use to populate this resource's properties.

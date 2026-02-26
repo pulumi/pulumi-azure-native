@@ -24,6 +24,7 @@ class SharedLimitArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedLimit resource.
+
         :param pulumi.Input[_builtins.str] location: The name of the Azure region.
         :param pulumi.Input[_builtins.str] name: The name of the SharedLimit
         """
@@ -70,6 +71,7 @@ class SharedLimit(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-15.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The name of the Azure region.
@@ -85,6 +87,7 @@ class SharedLimit(pulumi.CustomResource):
         Compute limits shared by the subscription.
 
         Uses Azure REST API version 2025-08-15.
+
 
         :param str resource_name: The name of the resource.
         :param SharedLimitArgs args: The arguments to use to populate this resource's properties.

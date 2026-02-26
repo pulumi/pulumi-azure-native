@@ -45,6 +45,7 @@ class DiscoveredAssetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoveredAsset resource.
+
         :param pulumi.Input[_builtins.str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
@@ -391,6 +392,7 @@ class DiscoveredAsset(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
@@ -425,6 +427,7 @@ class DiscoveredAsset(pulumi.CustomResource):
         Discovered Asset definition.
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetArgs args: The arguments to use to populate this resource's properties.

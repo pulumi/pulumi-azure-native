@@ -36,6 +36,7 @@ class CustomLocationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomLocation resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CustomLocationPropertiesAuthenticationArgs'] authentication: This is optional input that contains the authentication that should be used to generate the namespace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Contains the reference to the add-on that contains charts to deploy CRDs and operators.
@@ -244,6 +245,7 @@ class CustomLocation(pulumi.CustomResource):
 
         Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomLocationPropertiesAuthenticationArgs', 'CustomLocationPropertiesAuthenticationArgsDict']] authentication: This is optional input that contains the authentication that should be used to generate the namespace.
@@ -271,6 +273,7 @@ class CustomLocation(pulumi.CustomResource):
         Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-15.
 
         Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param CustomLocationArgs args: The arguments to use to populate this resource's properties.

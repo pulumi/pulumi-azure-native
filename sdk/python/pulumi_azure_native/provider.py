@@ -41,6 +41,7 @@ class ProviderArgs:
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auxiliary_tenant_ids: Any additional Tenant IDs which should be used for authentication.
         :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
@@ -376,6 +377,7 @@ class Provider(pulumi.ProviderResource):
         """
         The provider type for the native Azure package.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auxiliary_tenant_ids: Any additional Tenant IDs which should be used for authentication.
@@ -407,6 +409,7 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the native Azure package.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.

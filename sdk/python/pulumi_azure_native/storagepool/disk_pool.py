@@ -34,6 +34,7 @@ class DiskPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiskPool resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: Determines the SKU of the Disk Pool
         :param pulumi.Input[_builtins.str] subnet_id: Azure Resource ID of a Subnet for the Disk Pool.
@@ -222,6 +223,7 @@ class DiskPool(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_capabilities: List of additional capabilities for a Disk Pool.
@@ -246,6 +248,7 @@ class DiskPool(pulumi.CustomResource):
         Response for Disk Pool request.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param DiskPoolArgs args: The arguments to use to populate this resource's properties.

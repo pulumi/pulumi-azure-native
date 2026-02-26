@@ -32,6 +32,7 @@ class GovernanceAssignmentArgs:
                  remediation_eta: Optional[pulumi.Input['RemediationEtaArgs']] = None):
         """
         The set of arguments for constructing a GovernanceAssignment resource.
+
         :param pulumi.Input[_builtins.str] assessment_name: The Assessment Key - A unique key for the assessment type
         :param pulumi.Input[_builtins.str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
         :param pulumi.Input[_builtins.str] scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
@@ -188,6 +189,7 @@ class GovernanceAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
@@ -210,6 +212,7 @@ class GovernanceAssignment(pulumi.CustomResource):
         Governance assignment over a given scope
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param GovernanceAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class ReadOnlyFollowingDatabaseArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReadOnlyFollowingDatabase resource.
+
         :param pulumi.Input[_builtins.str] kind: Kind of the database
                Expected value is 'ReadOnlyFollowing'.
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
@@ -154,6 +155,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
@@ -175,6 +177,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         Class representing a read only following database.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ReadOnlyFollowingDatabaseArgs args: The arguments to use to populate this resource's properties.

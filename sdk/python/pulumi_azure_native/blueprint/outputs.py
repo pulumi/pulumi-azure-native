@@ -60,6 +60,7 @@ class AssignmentLockSettingsResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Defines how resources deployed by a blueprint assignment are locked.
+
         :param Sequence[_builtins.str] excluded_actions: List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
         :param Sequence[_builtins.str] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         :param _builtins.str mode: Lock mode.
@@ -128,6 +129,7 @@ class AssignmentStatusResponse(dict):
                  time_created: _builtins.str):
         """
         The status of a blueprint assignment. This field is readonly.
+
         :param _builtins.str last_modified: Last modified time of this blueprint definition.
         :param Sequence[_builtins.str] managed_resources: List of resources that were created by the blueprint assignment.
         :param _builtins.str time_created: Creation time of this blueprint definition.
@@ -190,6 +192,7 @@ class BlueprintStatusResponse(dict):
                  time_created: _builtins.str):
         """
         The status of the blueprint. This field is readonly.
+
         :param _builtins.str last_modified: Last modified time of this blueprint definition.
         :param _builtins.str time_created: Creation time of this blueprint definition.
         """
@@ -222,6 +225,7 @@ class KeyVaultReferenceResponse(dict):
                  id: _builtins.str):
         """
         Specifies the link to a Key Vault.
+
         :param _builtins.str id: Azure resource ID of the Key Vault.
         """
         pulumi.set(__self__, "id", id)
@@ -268,6 +272,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed identity generic object.
+
         :param _builtins.str type: Type of the managed identity.
         :param _builtins.str principal_id: Azure Active Directory principal ID associated with this Identity.
         :param _builtins.str tenant_id: ID of the Azure Active Directory.
@@ -351,6 +356,7 @@ class ParameterDefinitionResponse(dict):
                  strong_type: Optional[_builtins.str] = None):
         """
         Represent a parameter with constrains and metadata.
+
         :param _builtins.str type: Allowed data types for Resource Manager template parameters.
         :param Sequence[Any] allowed_values: Array of allowed values for this parameter.
         :param Any default_value: Default Value for this parameter.
@@ -429,6 +435,7 @@ class ParameterValueResponse(dict):
                  value: Optional[Any] = None):
         """
         Value for the specified parameter. Can be either 'value' or 'reference' but not both.
+
         :param 'SecretValueReferenceResponse' reference: Parameter value as reference type.
         :param Any value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """
@@ -490,6 +497,7 @@ class ResourceGroupDefinitionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Represents an Azure resource group in a blueprint definition.
+
         :param Sequence[_builtins.str] depends_on: Artifacts which need to be deployed before this resource group.
         :param _builtins.str description: Description of this parameter/resourceGroup.
         :param _builtins.str display_name: DisplayName of this parameter/resourceGroup.
@@ -580,6 +588,7 @@ class ResourceGroupValueResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Represents an Azure resource group.
+
         :param _builtins.str location: Location of the resource group.
         :param _builtins.str name: Name of the resource group.
         """
@@ -637,6 +646,7 @@ class SecretValueReferenceResponse(dict):
                  secret_version: Optional[_builtins.str] = None):
         """
         Reference to a Key Vault secret.
+
         :param 'KeyVaultReferenceResponse' key_vault: Specifies the reference to a given Azure Key Vault.
         :param _builtins.str secret_name: Name of the secret.
         :param _builtins.str secret_version: The version of the secret to use. If left blank, the latest version of the secret is used.
@@ -700,6 +710,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: Optional[_builtins.str] = None):
         """
         User-assigned managed identity.
+
         :param _builtins.str client_id: Client App Id associated with this identity.
         :param _builtins.str principal_id: Azure Active Directory principal ID associated with this Identity.
         """

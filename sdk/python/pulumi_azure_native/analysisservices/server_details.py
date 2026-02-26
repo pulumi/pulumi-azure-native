@@ -36,6 +36,7 @@ class ServerDetailsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerDetails resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input['ResourceSkuArgs'] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input['ServerAdministratorsArgs'] as_administrators: A collection of AS server administrators
@@ -247,6 +248,7 @@ class ServerDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-08-01. In version 2.x of the Azure Native provider, it used API version 2017-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerAdministratorsArgs', 'ServerAdministratorsArgsDict']] as_administrators: A collection of AS server administrators
@@ -272,6 +274,7 @@ class ServerDetails(pulumi.CustomResource):
         Represents an instance of an Analysis Services resource.
 
         Uses Azure REST API version 2017-08-01. In version 2.x of the Azure Native provider, it used API version 2017-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param ServerDetailsArgs args: The arguments to use to populate this resource's properties.

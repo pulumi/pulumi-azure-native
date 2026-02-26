@@ -38,6 +38,7 @@ class KafkaConnectorTopicMapArgs:
                  topic_map_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaConnectorTopicMap resource.
+
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input[_builtins.str] kafka_connector_name: Name of MQ kafkaConnector resource
         :param pulumi.Input[_builtins.str] kafka_connector_ref: The kafkaConnector CRD it refers to.
@@ -275,6 +276,7 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['KafkaTopicMapBatchingArgs', 'KafkaTopicMapBatchingArgsDict']] batching: The batching settings for kafka messages.
@@ -302,6 +304,7 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
         MQ kafkaConnector/topicMap resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param KafkaConnectorTopicMapArgs args: The arguments to use to populate this resource's properties.

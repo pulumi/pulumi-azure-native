@@ -26,6 +26,7 @@ class ManagedOpArgs:
                  properties: Optional[pulumi.Input['ManagedOpsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagedOp resource.
+
         :param pulumi.Input[_builtins.str] managed_ops_name: Name of the resource.
         :param pulumi.Input['ManagedOpsPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
@@ -73,6 +74,7 @@ class ManagedOp(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-28-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] managed_ops_name: Name of the resource.
@@ -88,6 +90,7 @@ class ManagedOp(pulumi.CustomResource):
         The Managed Operations resource.
 
         Uses Azure REST API version 2025-07-28-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ManagedOpArgs args: The arguments to use to populate this resource's properties.

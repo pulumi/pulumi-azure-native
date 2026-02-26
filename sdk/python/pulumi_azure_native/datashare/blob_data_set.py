@@ -32,6 +32,7 @@ class BlobDataSetArgs:
                  data_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BlobDataSet resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] container_name: Container that has the file path.
         :param pulumi.Input[_builtins.str] file_path: File path within the source data set
@@ -200,6 +201,7 @@ class BlobDataSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
@@ -224,6 +226,7 @@ class BlobDataSet(pulumi.CustomResource):
         An Azure storage blob data set.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param BlobDataSetArgs args: The arguments to use to populate this resource's properties.

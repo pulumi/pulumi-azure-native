@@ -25,6 +25,7 @@ class ComponentLinkedStorageAccountArgs:
                  storage_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComponentLinkedStorageAccount resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] linked_storage_account: Linked storage account resource ID
@@ -102,6 +103,7 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-03-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] linked_storage_account: Linked storage account resource ID
@@ -119,6 +121,7 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
         An Application Insights component linked storage accounts
 
         Uses Azure REST API version 2020-03-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ComponentLinkedStorageAccountArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class SecurityStandardArgs:
                  standard_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityStandard resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]] assessments: List of assessment keys to apply to standard scope.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]] cloud_providers: List of all standard supported clouds.
@@ -157,6 +158,7 @@ class SecurityStandard(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PartialAssessmentPropertiesArgs', 'PartialAssessmentPropertiesArgsDict']]]] assessments: List of assessment keys to apply to standard scope.
@@ -177,6 +179,7 @@ class SecurityStandard(pulumi.CustomResource):
         Security Standard on a resource
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityStandardArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class GovernanceRuleArgs:
                  rule_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GovernanceRule resource.
+
         :param pulumi.Input[_builtins.str] display_name: Display name of the governance rule
         :param pulumi.Input['GovernanceRuleOwnerSourceArgs'] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         :param pulumi.Input[_builtins.int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
@@ -271,6 +272,7 @@ class GovernanceRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the governance rule
@@ -298,6 +300,7 @@ class GovernanceRule(pulumi.CustomResource):
         Governance rule over a given scope
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param GovernanceRuleArgs args: The arguments to use to populate this resource's properties.

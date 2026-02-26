@@ -30,6 +30,7 @@ class CustomImageArgs:
                  vhd_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomImage resource.
+
         :param pulumi.Input[_builtins.str] definition_name: Image definition name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ImageSource']] source: Custom image source type.
@@ -154,6 +155,7 @@ class CustomImage(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_image_name: The resource name of the test base custom image.
@@ -174,6 +176,7 @@ class CustomImage(pulumi.CustomResource):
         The test base custom image resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param CustomImageArgs args: The arguments to use to populate this resource's properties.

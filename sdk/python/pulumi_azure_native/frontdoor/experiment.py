@@ -33,6 +33,7 @@ class ExperimentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
+
         :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[_builtins.str] description: The description of the details or intents of the Experiment
@@ -192,6 +193,7 @@ class Experiment(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the details or intents of the Experiment
@@ -216,6 +218,7 @@ class Experiment(pulumi.CustomResource):
         Uses Azure REST API version 2019-11-01.
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.

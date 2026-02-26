@@ -26,6 +26,7 @@ class VirtualClusterArgs:
                  virtual_cluster_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -120,6 +121,7 @@ class VirtualCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -138,6 +140,7 @@ class VirtualCluster(pulumi.CustomResource):
         An Azure SQL virtual cluster.
 
         Uses Azure REST API version 2024-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param VirtualClusterArgs args: The arguments to use to populate this resource's properties.

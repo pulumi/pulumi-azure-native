@@ -27,6 +27,7 @@ class SapDatabaseInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapDatabaseInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[_builtins.str] database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
@@ -120,6 +121,7 @@ class SapDatabaseInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
@@ -138,6 +140,7 @@ class SapDatabaseInstance(pulumi.CustomResource):
         Define the Database resource.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param SapDatabaseInstanceArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class SubscriptionFeatureRegistrationArgs:
                  properties: Optional[pulumi.Input['SubscriptionFeatureRegistrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a SubscriptionFeatureRegistration resource.
+
         :param pulumi.Input[_builtins.str] provider_namespace: The provider namespace.
         :param pulumi.Input[_builtins.str] feature_name: The feature name.
         """
@@ -85,6 +86,7 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] feature_name: The feature name.
@@ -100,6 +102,7 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
         Subscription feature registration details
 
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionFeatureRegistrationArgs args: The arguments to use to populate this resource's properties.

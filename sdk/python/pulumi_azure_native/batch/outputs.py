@@ -96,6 +96,7 @@ class ApplicationPackageReferenceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Link to an application package inside the batch account
+
         :param _builtins.str id: The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
         :param _builtins.str version: If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.
         """
@@ -131,6 +132,7 @@ class AutoScaleRunErrorResponse(dict):
                  details: Optional[Sequence['outputs.AutoScaleRunErrorResponse']] = None):
         """
         An error that occurred when autoscaling a pool.
+
         :param _builtins.str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
         :param _builtins.str message: A message describing the error, intended to be suitable for display in a user interface.
         :param Sequence['AutoScaleRunErrorResponse'] details: Additional details about the error.
@@ -193,6 +195,7 @@ class AutoScaleRunResponse(dict):
                  results: Optional[_builtins.str] = None):
         """
         The results and errors from an execution of a pool autoscale formula.
+
         :param _builtins.str evaluation_time: The time at which the autoscale formula was last evaluated.
         :param 'AutoScaleRunErrorResponse' error: An error that occurred when autoscaling a pool.
         :param _builtins.str results: Each variable value is returned in the form $variable=value, and variables are separated by semicolons.
@@ -255,6 +258,7 @@ class AutoScaleSettingsResponse(dict):
                  evaluation_interval: Optional[_builtins.str] = None):
         """
         AutoScale settings for the pool.
+
         :param _builtins.str formula: A formula for the desired number of compute nodes in the pool.
         :param _builtins.str evaluation_interval: If omitted, the default value is 15 minutes (PT15M).
         """
@@ -314,6 +318,7 @@ class AutoStoragePropertiesResponse(dict):
                  node_identity_reference: Optional['outputs.ComputeNodeIdentityReferenceResponse'] = None):
         """
         Contains information about the auto-storage account associated with a Batch account.
+
         :param _builtins.str last_key_sync: The UTC time at which storage keys were last synchronized with the Batch account.
         :param _builtins.str storage_account_id: The resource ID of the storage account to be used for auto-storage account.
         :param _builtins.str authentication_mode: The authentication mode which the Batch service will use to manage the auto-storage account.
@@ -388,6 +393,7 @@ class AutoUserSpecificationResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         Specifies the parameters for the auto user that runs a task on the Batch service.
+
         :param _builtins.str elevation_level: The default value is nonAdmin.
         :param _builtins.str scope: The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
         """
@@ -448,6 +454,7 @@ class AutomaticOSUpgradePolicyResponse(dict):
                  use_rolling_upgrade_policy: Optional[_builtins.bool] = None):
         """
         The configuration parameters used for performing automatic OS upgrade.
+
         :param _builtins.bool disable_automatic_rollback: Whether OS image rollback feature should be disabled.
         :param _builtins.bool enable_automatic_os_upgrade: Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/rest/api/batchmanagement/pool/create?tabs=HTTP#windowsconfiguration) cannot be set to true.
         :param _builtins.bool os_rolling_upgrade_deferral: Defer OS upgrades on the TVMs if they are running tasks.
@@ -539,6 +546,7 @@ class AzureBlobFileSystemConfigurationResponse(dict):
                  sas_key: Optional[_builtins.str] = None):
         """
         Information used to connect to an Azure Storage Container using Blobfuse.
+
         :param _builtins.str account_name: The Azure Storage Account name.
         :param _builtins.str container_name: The Azure Blob Storage Container name.
         :param _builtins.str relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
@@ -654,6 +662,7 @@ class AzureFileShareConfigurationResponse(dict):
                  mount_options: Optional[_builtins.str] = None):
         """
         Information used to connect to an Azure Fileshare.
+
         :param _builtins.str account_key: The Azure Storage account key.
         :param _builtins.str account_name: The Azure Storage account name.
         :param _builtins.str azure_file_url: This is of the form 'https://{account}.file.core.windows.net/'.
@@ -741,6 +750,7 @@ class BatchAccountIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
         The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
+
         :param _builtins.str principal_id: The principal id of the Batch account. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the Batch account. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the Batch account.
@@ -812,6 +822,7 @@ class BatchPoolIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
         The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+
         :param _builtins.str type: The type of identity used for the Batch Pool.
         :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the Batch pool.
         """
@@ -870,6 +881,7 @@ class CIFSMountConfigurationResponse(dict):
                  mount_options: Optional[_builtins.str] = None):
         """
         Information used to connect to a CIFS file system.
+
         :param _builtins.str password: The password to use for authentication against the CIFS file system.
         :param _builtins.str relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         :param _builtins.str source: The URI of the file system to mount.
@@ -955,6 +967,7 @@ class CertificateReferenceResponse(dict):
                  visibility: Optional[Sequence[_builtins.str]] = None):
         """
         Warning: This object is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
+
         :param _builtins.str id: The fully qualified ID of the certificate to install on the pool. This must be inside the same batch account as the pool.
         :param _builtins.str store_location: The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         :param _builtins.str store_name: This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
@@ -1027,6 +1040,7 @@ class ComputeNodeIdentityReferenceResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+
         :param _builtins.str resource_id: The ARM resource id of the user assigned identity.
         """
         if resource_id is not None:
@@ -1071,6 +1085,7 @@ class ContainerConfigurationResponse(dict):
                  container_registries: Optional[Sequence['outputs.ContainerRegistryResponse']] = None):
         """
         The configuration for container-enabled pools.
+
         :param _builtins.str type: The container technology to be used.
         :param Sequence[_builtins.str] container_image_names: This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
         :param Sequence['ContainerRegistryResponse'] container_registries: If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
@@ -1133,6 +1148,7 @@ class ContainerHostBatchBindMountEntryResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         The entry of path and mount mode you want to mount into task container.
+
         :param _builtins.bool is_read_only: For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
         :param _builtins.str source: The paths which will be mounted to container task's container.
         """
@@ -1191,6 +1207,7 @@ class ContainerRegistryResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         A private container registry.
+
         :param 'ComputeNodeIdentityReferenceResponse' identity_reference: The reference to a user assigned identity associated with the Batch pool which a compute node will use.
         :param _builtins.str password: The password to log into the registry server.
         :param _builtins.str registry_server: If omitted, the default is "docker.io".
@@ -1269,6 +1286,7 @@ class DataDiskResponse(dict):
                  storage_account_type: Optional[_builtins.str] = None):
         """
         Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
+
         :param _builtins.int disk_size_gb: The initial disk size in GB when creating new data disk.
         :param _builtins.int lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
         :param _builtins.str caching: Values are:
@@ -1358,6 +1376,7 @@ class DeploymentConfigurationResponse(dict):
                  virtual_machine_configuration: Optional['outputs.VirtualMachineConfigurationResponse'] = None):
         """
         Deployment configuration properties.
+
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
         """
         if virtual_machine_configuration is not None:
@@ -1381,6 +1400,7 @@ class DiffDiskSettingsResponse(dict):
                  placement: Optional[_builtins.str] = None):
         """
         Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+
         :param _builtins.str placement: This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
         """
         if placement is not None:
@@ -1404,6 +1424,7 @@ class DiskEncryptionConfigurationResponse(dict):
                  targets: Optional[Sequence[_builtins.str]] = None):
         """
         The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Azure Compute Gallery Image.
+
         :param Sequence[_builtins.str] targets: On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
         """
         if targets is not None:
@@ -1447,6 +1468,7 @@ class EncryptionPropertiesResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+
         :param _builtins.str key_source: Type of the key source.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Additional details when using Microsoft.KeyVault
         """
@@ -1501,6 +1523,7 @@ class EndpointAccessProfileResponse(dict):
                  ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None):
         """
         Network access profile for Batch endpoint.
+
         :param _builtins.str default_action: Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
         :param Sequence['IPRuleResponse'] ip_rules: Array of IP ranges to filter client IP address.
         """
@@ -1535,6 +1558,7 @@ class EnvironmentSettingResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         An environment variable to be set on a task process.
+
         :param _builtins.str name: The name of the environment variable.
         :param _builtins.str value: The value of the environment variable.
         """
@@ -1591,6 +1615,7 @@ class FixedScaleSettingsResponse(dict):
                  target_low_priority_nodes: Optional[_builtins.int] = None):
         """
         Fixed scale settings for the pool.
+
         :param _builtins.str resize_timeout: The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         :param _builtins.int target_dedicated_nodes: At least one of targetDedicatedNodes, targetLowPriorityNodes must be set.
         :param _builtins.int target_low_priority_nodes: At least one of targetDedicatedNodes, targetLowPriorityNodes must be set.
@@ -1639,6 +1664,7 @@ class IPRuleResponse(dict):
                  value: _builtins.str):
         """
         Rule to filter client IP address.
+
         :param _builtins.str action: Action when client IP address is matched.
         :param _builtins.str value: IPv4 address, or IPv4 address range in CIDR format.
         """
@@ -1696,6 +1722,7 @@ class ImageReferenceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
+
         :param _builtins.str community_gallery_image_id: This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
         :param _builtins.str id: This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         :param _builtins.str offer: For example, UbuntuServer or WindowsServer.
@@ -1813,6 +1840,7 @@ class InboundNatPoolResponse(dict):
                  network_security_group_rules: Optional[Sequence['outputs.NetworkSecurityGroupRuleResponse']] = None):
         """
         A inbound NAT pool that can be used to address specific ports on compute nodes in a Batch pool externally.
+
         :param _builtins.int backend_port: This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
         :param _builtins.int frontend_port_range_end: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param _builtins.int frontend_port_range_start: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
@@ -1903,6 +1931,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_identifier: Optional[_builtins.str] = None):
         """
         KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
+
         :param _builtins.str key_identifier: Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
                
                The Batch Account has a System Assigned identity
@@ -1935,6 +1964,7 @@ class KeyVaultReferenceResponse(dict):
                  url: _builtins.str):
         """
         Identifies the Azure key vault associated with a Batch account.
+
         :param _builtins.str id: The resource ID of the Azure key vault associated with the Batch account.
         :param _builtins.str url: The URL of the Azure key vault associated with the Batch account.
         """
@@ -1986,6 +2016,7 @@ class LinuxUserConfigurationResponse(dict):
                  uid: Optional[_builtins.int] = None):
         """
         Properties used to create a user account on a Linux node.
+
         :param _builtins.int gid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
         :param _builtins.str ssh_private_key: The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
         :param _builtins.int uid: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
@@ -2082,6 +2113,7 @@ class MetadataItemResponse(dict):
                  value: _builtins.str):
         """
         The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
+
         :param _builtins.str name: The name of the metadata item.
         :param _builtins.str value: The value of the metadata item.
         """
@@ -2140,6 +2172,7 @@ class MountConfigurationResponse(dict):
                  nfs_mount_configuration: Optional['outputs.NFSMountConfigurationResponse'] = None):
         """
         The file system to mount on each node.
+
         :param 'AzureBlobFileSystemConfigurationResponse' azure_blob_file_system_configuration: This property is mutually exclusive with all other properties.
         :param 'AzureFileShareConfigurationResponse' azure_file_share_configuration: This property is mutually exclusive with all other properties.
         :param 'CIFSMountConfigurationResponse' cifs_mount_configuration: This property is mutually exclusive with all other properties.
@@ -2217,6 +2250,7 @@ class NFSMountConfigurationResponse(dict):
                  mount_options: Optional[_builtins.str] = None):
         """
         Information used to connect to an NFS file system.
+
         :param _builtins.str relative_mount_path: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         :param _builtins.str source: The URI of the file system to mount.
         :param _builtins.str mount_options: These are 'net use' options in Windows and 'mount' options in Linux.
@@ -2289,6 +2323,7 @@ class NetworkConfigurationResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         The network configuration for a pool.
+
         :param _builtins.str dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment.
         :param _builtins.bool enable_accelerated_networking: Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
         :param 'PoolEndpointConfigurationResponse' endpoint_configuration: The endpoint configuration for a pool.
@@ -2378,6 +2413,7 @@ class NetworkProfileResponse(dict):
                  node_management_access: Optional['outputs.EndpointAccessProfileResponse'] = None):
         """
         Network profile for Batch account, which contains network rule settings for each endpoint.
+
         :param 'EndpointAccessProfileResponse' account_access: Network access profile for batchAccount endpoint (Batch account data plane API).
         :param 'EndpointAccessProfileResponse' node_management_access: Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).
         """
@@ -2434,6 +2470,7 @@ class NetworkSecurityGroupRuleResponse(dict):
                  source_port_ranges: Optional[Sequence[_builtins.str]] = None):
         """
         A network security group rule to apply to an inbound endpoint.
+
         :param _builtins.str access: The action that should be taken for a specified IP address, subnet range or tag.
         :param _builtins.int priority: Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
         :param _builtins.str source_address_prefix: Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
@@ -2487,6 +2524,7 @@ class NodePlacementConfigurationResponse(dict):
                  policy: Optional[_builtins.str] = None):
         """
         Allocation configuration used by Batch Service to provision the nodes.
+
         :param _builtins.str policy: Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
         """
         if policy is not None:
@@ -2537,6 +2575,7 @@ class OSDiskResponse(dict):
                  write_accelerator_enabled: Optional[_builtins.bool] = None):
         """
         Settings for the operating system disk of the virtual machine.
+
         :param _builtins.str caching: The type of caching to enable for the disk.
         :param _builtins.int disk_size_gb: The initial disk size in GB when creating new OS disk.
         :param 'DiffDiskSettingsResponse' ephemeral_os_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
@@ -2617,6 +2656,7 @@ class PoolEndpointConfigurationResponse(dict):
                  inbound_nat_pools: Sequence['outputs.InboundNatPoolResponse']):
         """
         The endpoint configuration for a pool.
+
         :param Sequence['InboundNatPoolResponse'] inbound_nat_pools: The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400. This cannot be specified if the IPAddressProvisioningType is NoPublicIPAddresses.
         """
         pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
@@ -2673,6 +2713,7 @@ class PrivateEndpointConnectionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Contains information about a private link resource.
+
         :param _builtins.str etag: The ETag of the resource, used for concurrency statements.
         :param Sequence[_builtins.str] group_ids: The value has one and only one group id.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
@@ -2787,6 +2828,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint of the private endpoint connection.
+
         :param _builtins.str id: The ARM resource identifier of the private endpoint. This is of the form /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/privateEndpoints/{privateEndpoint}.
         """
         pulumi.set(__self__, "id", id)
@@ -2828,6 +2870,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The private link service connection state of the private endpoint connection
+
         :param _builtins.str actions_required: Action required on the private connection state
         :param _builtins.str status: The status of the Batch private endpoint connection
         :param _builtins.str description: Description of the private Connection state
@@ -2889,6 +2932,7 @@ class PublicIPAddressConfigurationResponse(dict):
                  provision: Optional[_builtins.str] = None):
         """
         The public IP Address configuration of the networking configuration of a Pool.
+
         :param Sequence[_builtins.str] ip_address_ids: The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
         :param _builtins.str provision: The default value is BatchManaged
         """
@@ -2925,6 +2969,7 @@ class ResizeErrorResponse(dict):
                  details: Optional[Sequence['outputs.ResizeErrorResponse']] = None):
         """
         An error that occurred when resizing a pool.
+
         :param _builtins.str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
         :param _builtins.str message: A message describing the error, intended to be suitable for display in a user interface.
         :param Sequence['ResizeErrorResponse'] details: Additional details about the error.
@@ -2995,6 +3040,7 @@ class ResizeOperationStatusResponse(dict):
                  target_low_priority_nodes: Optional[_builtins.int] = None):
         """
         Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
+
         :param Sequence['ResizeErrorResponse'] errors: This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
         :param _builtins.str resize_timeout: The default value is 15 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service returns an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         :param _builtins.str start_time: The time when this resize operation was started.
@@ -3097,6 +3143,7 @@ class ResourceFileResponse(dict):
                  storage_container_url: Optional[_builtins.str] = None):
         """
         A single file or multiple files to be downloaded to a compute node.
+
         :param _builtins.str auto_storage_container_name: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
         :param _builtins.str blob_prefix: The property is valid only when autoStorageContainerName or storageContainerUrl is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
         :param _builtins.str file_mode: This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a resourceFile which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
@@ -3221,6 +3268,7 @@ class RollingUpgradePolicyResponse(dict):
                  rollback_failed_instances_on_policy_breach: Optional[_builtins.bool] = None):
         """
         The configuration parameters used while performing a rolling upgrade.
+
         :param _builtins.bool enable_cross_zone_upgrade: Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size. If this field is not set, Azure Azure Batch will not set its default value. The value of enableCrossZoneUpgrade on the created VirtualMachineScaleSet will be decided by the default configurations on VirtualMachineScaleSet. This field is able to be set to true or false only when using NodePlacementConfiguration as Zonal.
         :param _builtins.int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
         :param _builtins.int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
@@ -3330,6 +3378,7 @@ class ScaleSettingsResponse(dict):
                  fixed_scale: Optional['outputs.FixedScaleSettingsResponse'] = None):
         """
         Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
+
         :param 'AutoScaleSettingsResponse' auto_scale: This property and fixedScale are mutually exclusive and one of the properties must be specified.
         :param 'FixedScaleSettingsResponse' fixed_scale: This property and autoScale are mutually exclusive and one of the properties must be specified.
         """
@@ -3387,6 +3436,7 @@ class SecurityProfileResponse(dict):
                  uefi_settings: Optional['outputs.UefiSettingsResponse'] = None):
         """
         Specifies the security profile settings for the virtual machine or virtual machine scale set.
+
         :param _builtins.bool encryption_at_host: This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
         :param _builtins.str security_type: Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
         :param 'UefiSettingsResponse' uefi_settings: Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
@@ -3432,6 +3482,7 @@ class ServiceArtifactReferenceResponse(dict):
                  id: _builtins.str):
         """
         Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+
         :param _builtins.str id: The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
         """
         pulumi.set(__self__, "id", id)
@@ -3489,6 +3540,7 @@ class StartTaskResponse(dict):
                  wait_for_success: Optional[_builtins.bool] = None):
         """
         In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
+
         :param _builtins.str command_line: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
         :param 'TaskContainerSettingsResponse' container_settings: When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         :param Sequence['EnvironmentSettingResponse'] environment_settings: A list of environment variable settings for the start task.
@@ -3612,6 +3664,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3717,6 +3770,7 @@ class TaskContainerSettingsResponse(dict):
                  working_directory: Optional[_builtins.str] = None):
         """
         The container settings for a task.
+
         :param _builtins.str image_name: This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
         :param Sequence['ContainerHostBatchBindMountEntryResponse'] container_host_batch_bind_mounts: If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
         :param _builtins.str container_run_options: These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
@@ -3800,6 +3854,7 @@ class TaskSchedulingPolicyResponse(dict):
                  node_fill_type: Optional[_builtins.str] = None):
         """
         Specifies how tasks should be distributed across compute nodes.
+
         :param _builtins.str node_fill_type: How tasks should be distributed across compute nodes.
         """
         if node_fill_type is None:
@@ -3844,6 +3899,7 @@ class UefiSettingsResponse(dict):
                  v_tpm_enabled: Optional[_builtins.bool] = None):
         """
         Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
+
         :param _builtins.bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
         :param _builtins.bool v_tpm_enabled: Specifies whether vTPM should be enabled on the virtual machine.
         """
@@ -3899,6 +3955,7 @@ class UpgradePolicyResponse(dict):
                  rolling_upgrade_policy: Optional['outputs.RollingUpgradePolicyResponse'] = None):
         """
         Describes an upgrade policy - automatic, manual, or rolling.
+
         :param _builtins.str mode: Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
         :param 'AutomaticOSUpgradePolicyResponse' automatic_os_upgrade_policy: The configuration parameters used for performing automatic OS upgrade.
         :param 'RollingUpgradePolicyResponse' rolling_upgrade_policy: The configuration parameters used while performing a rolling upgrade.
@@ -3968,6 +4025,7 @@ class UserAccountResponse(dict):
                  windows_user_configuration: Optional['outputs.WindowsUserConfigurationResponse'] = None):
         """
         Properties used to create a user on an Azure Batch node.
+
         :param _builtins.str name: The name of the user account. Names can contain any Unicode characters up to a maximum length of 20.
         :param _builtins.str password: The password for the user account.
         :param _builtins.str elevation_level: nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -4053,6 +4111,7 @@ class UserAssignedIdentitiesResponse(dict):
                  principal_id: _builtins.str):
         """
         The list of associated user identities.
+
         :param _builtins.str client_id: The client id of user assigned identity.
         :param _builtins.str principal_id: The principal id of user assigned identity.
         """
@@ -4105,6 +4164,7 @@ class UserIdentityResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Specify either the userName or autoUser property, but not both.
+
         :param 'AutoUserSpecificationResponse' auto_user: The userName and autoUser properties are mutually exclusive; you must specify one but not both.
         :param _builtins.str user_name: The userName and autoUser properties are mutually exclusive; you must specify one but not both.
         """
@@ -4156,6 +4216,7 @@ class VMDiskSecurityProfileResponse(dict):
                  security_encryption_type: Optional[_builtins.str] = None):
         """
         Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+
         :param _builtins.str security_encryption_type: Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
         """
         if security_encryption_type is not None:
@@ -4212,6 +4273,7 @@ class VMExtensionResponse(dict):
                  type_handler_version: Optional[_builtins.str] = None):
         """
         The configuration for virtual machine extensions.
+
         :param _builtins.str name: The name of the virtual machine extension.
         :param _builtins.str publisher: The name of the extension handler publisher.
         :param _builtins.str type: The type of the extensions.
@@ -4368,6 +4430,7 @@ class VirtualMachineConfigurationResponse(dict):
                  windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None):
         """
         The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+
         :param 'ImageReferenceResponse' image_reference: A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
         :param _builtins.str node_agent_sku_id: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
         :param 'ContainerConfigurationResponse' container_configuration: If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
@@ -4534,6 +4597,7 @@ class VirtualMachineFamilyCoreQuotaResponse(dict):
                  name: _builtins.str):
         """
         A VM Family and its associated core quota for the Batch account.
+
         :param _builtins.int core_quota: The core quota for the VM family for the Batch account.
         :param _builtins.str name: The Virtual Machine family name.
         """
@@ -4583,6 +4647,7 @@ class WindowsConfigurationResponse(dict):
                  enable_automatic_updates: Optional[_builtins.bool] = None):
         """
         Windows operating system settings to apply to the virtual machine.
+
         :param _builtins.bool enable_automatic_updates: If omitted, the default value is true.
         """
         if enable_automatic_updates is not None:
@@ -4623,6 +4688,7 @@ class WindowsUserConfigurationResponse(dict):
                  login_mode: Optional[_builtins.str] = None):
         """
         Properties used to create a user account on a Windows node.
+
         :param _builtins.str login_mode: Specifies login mode for the user. The default value is Interactive.
         """
         if login_mode is not None:

@@ -42,6 +42,7 @@ class AzurePowerShellScriptArgs:
                  timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AzurePowerShellScript resource.
+
         :param pulumi.Input[_builtins.str] az_power_shell_version: Azure PowerShell module version to be used.
         :param pulumi.Input[_builtins.str] kind: Type of the script.
                Expected value is 'AzurePowerShell'.
@@ -347,6 +348,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -379,6 +381,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
         Object model for the Azure PowerShell script.
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
+
 
         :param str resource_name: The name of the resource.
         :param AzurePowerShellScriptArgs args: The arguments to use to populate this resource's properties.

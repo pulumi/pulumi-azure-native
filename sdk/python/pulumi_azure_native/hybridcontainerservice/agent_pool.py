@@ -43,6 +43,7 @@ class AgentPoolArgs:
                  vm_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentPool resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[_builtins.str] agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
@@ -360,6 +361,7 @@ class AgentPool(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
@@ -391,6 +393,7 @@ class AgentPool(pulumi.CustomResource):
         The agentPool resource definition
 
         Uses Azure REST API version 2022-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.

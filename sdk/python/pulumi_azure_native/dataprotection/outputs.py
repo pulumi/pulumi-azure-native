@@ -102,6 +102,7 @@ class AbsoluteDeleteOptionResponse(dict):
                  object_type: _builtins.str):
         """
         Delete option with duration
+
         :param _builtins.str duration: Duration of deletion after given timespan
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'AbsoluteDeleteOption'.
@@ -153,6 +154,7 @@ class AdhocBasedTaggingCriteriaResponse(dict):
                  tag_info: Optional['outputs.RetentionTagResponse'] = None):
         """
         Adhoc backup tagging criteria
+
         :param 'RetentionTagResponse' tag_info: Retention tag information
         """
         if tag_info is not None:
@@ -196,6 +198,7 @@ class AdhocBasedTriggerContextResponse(dict):
                  tagging_criteria: 'outputs.AdhocBasedTaggingCriteriaResponse'):
         """
         Adhoc trigger context
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'AdhocBasedTriggerContext'.
         :param 'AdhocBasedTaggingCriteriaResponse' tagging_criteria: Tagging Criteria containing retention tag for adhoc backup.
@@ -250,6 +253,7 @@ class AzureBackupParamsResponse(dict):
                  object_type: _builtins.str):
         """
         Azure backup parameters
+
         :param _builtins.str backup_type: BackupType ; Full/Incremental etc
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'AzureBackupParams'.
@@ -309,6 +313,7 @@ class AzureBackupRuleResponse(dict):
                  backup_parameters: Optional['outputs.AzureBackupParamsResponse'] = None):
         """
         Azure backup rule
+
         :param 'DataStoreInfoBaseResponse' data_store: DataStoreInfo base
         :param _builtins.str object_type: 
                Expected value is 'AzureBackupRule'.
@@ -429,6 +434,7 @@ class AzureOperationalStoreParametersResponse(dict):
                  resource_group_id: Optional[_builtins.str] = None):
         """
         Parameters for Operational-Tier DataStore
+
         :param _builtins.str data_store_type: type of datastore; Operational/Vault/Archive
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'AzureOperationalStoreParameters'.
@@ -496,6 +502,7 @@ class AzureRetentionRuleResponse(dict):
                  is_default: Optional[_builtins.bool] = None):
         """
         Azure retention rule
+
         :param _builtins.str object_type: 
                Expected value is 'AzureRetentionRule'.
         """
@@ -592,6 +599,7 @@ class BackupInstanceResponse(dict):
                  validation_type: Optional[_builtins.str] = None):
         """
         Backup Instance
+
         :param _builtins.str current_protection_state: Specifies the current protection state of the resource
         :param 'DatasourceResponse' data_source_info: Gets or sets the data source information.
         :param 'PolicyInfoResponse' policy_info: Gets or sets the policy information.
@@ -761,6 +769,7 @@ class BackupPolicyResponse(dict):
                  policy_rules: Sequence[Any]):
         """
         Rule based backup policy
+
         :param Sequence[_builtins.str] datasource_types: Type of datasource for the backup management
         :param _builtins.str object_type: 
                Expected value is 'BackupPolicy'.
@@ -825,6 +834,7 @@ class BackupScheduleResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Schedule for backup
+
         :param Sequence[_builtins.str] repeating_time_intervals: Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
                
                Supported ISO 8601 Time Formats
@@ -974,6 +984,7 @@ class BackupVaultResponse(dict):
                  security_settings: Optional['outputs.SecuritySettingsResponse'] = None):
         """
         Backup Vault
+
         :param _builtins.str bcdr_security_level: Security Level of Backup Vault
         :param _builtins.bool is_vault_protected_by_resource_guard: Is vault protected by resource guard
         :param _builtins.str provisioning_state: Provisioning state of the BackupVault resource
@@ -1131,6 +1142,7 @@ class BlobBackupDatasourceParametersResponse(dict):
                  object_type: _builtins.str):
         """
         Parameters to be used during configuration of backup of blobs
+
         :param Sequence[_builtins.str] containers_list: List of containers to be backed up during configuration of backup of blobs
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'BlobBackupDatasourceParameters'.
@@ -1185,6 +1197,7 @@ class CmkKekIdentityResponse(dict):
                  identity_type: Optional[_builtins.str] = None):
         """
         The details of the managed identity used for CMK
+
         :param _builtins.str identity_id: The managed identity to be used which has access permissions to the Key Vault. Provide a value here in case identity types: 'UserAssigned' only.
         :param _builtins.str identity_type: The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
         """
@@ -1236,6 +1249,7 @@ class CmkKeyVaultPropertiesResponse(dict):
                  key_uri: Optional[_builtins.str] = None):
         """
         The properties of the Key Vault which hosts CMK
+
         :param _builtins.str key_uri: The key uri of the Customer Managed Key
         """
         if key_uri is not None:
@@ -1276,6 +1290,7 @@ class CopyOnExpiryOptionResponse(dict):
                  object_type: _builtins.str):
         """
         Copy on Expiry Option
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'CopyOnExpiryOption'.
         """
@@ -1319,6 +1334,7 @@ class CrossSubscriptionRestoreSettingsResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         CrossSubscriptionRestore Settings
+
         :param _builtins.str state: CrossSubscriptionRestore state
         """
         if state is not None:
@@ -1360,6 +1376,7 @@ class CustomCopyOptionResponse(dict):
                  duration: Optional[_builtins.str] = None):
         """
         Duration based custom options to copy
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'CustomCopyOption'.
         :param _builtins.str duration: Data copied after given timespan
@@ -1415,6 +1432,7 @@ class DataStoreInfoBaseResponse(dict):
                  object_type: _builtins.str):
         """
         DataStoreInfo base
+
         :param _builtins.str data_store_type: type of datastore; Operational/Vault/Archive
         :param _builtins.str object_type: Type of Datasource object, used to initialize the right inherited type
         """
@@ -1485,6 +1503,7 @@ class DatasourceResponse(dict):
                  resource_uri: Optional[_builtins.str] = None):
         """
         Datasource to be backed up
+
         :param _builtins.str resource_id: Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
         :param _builtins.str datasource_type: DatasourceType of the resource.
         :param _builtins.str object_type: Type of Datasource object, used to initialize the right inherited type
@@ -1622,6 +1641,7 @@ class DatasourceSetResponse(dict):
                  resource_uri: Optional[_builtins.str] = None):
         """
         DatasourceSet details of datasource to be backed up
+
         :param _builtins.str resource_id: Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
         :param _builtins.str datasource_type: DatasourceType of the resource.
         :param _builtins.str object_type: Type of Datasource object, used to initialize the right inherited type
@@ -1739,6 +1759,7 @@ class DayResponse(dict):
                  is_last: Optional[_builtins.bool] = None):
         """
         Day of the week
+
         :param _builtins.int date: Date of the month
         :param _builtins.bool is_last: Whether Date is last date of month
         """
@@ -1790,6 +1811,7 @@ class DefaultResourcePropertiesResponse(dict):
                  object_type: _builtins.str):
         """
         Default source properties
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'DefaultResourceProperties'.
         """
@@ -1838,6 +1860,7 @@ class DppIdentityDetailsResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity details
+
         :param _builtins.str principal_id: The object ID of the service principal object for the managed identity that is used to grant role-based access to an Azure resource.
         :param _builtins.str tenant_id: A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the resource is now a member.
         :param _builtins.str type: The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
@@ -1916,6 +1939,7 @@ class EncryptionSettingsResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Customer Managed Key details of the resource.
+
         :param _builtins.str infrastructure_encryption: Enabling/Disabling the Double Encryption state
         :param 'CmkKekIdentityResponse' kek_identity: The details of the managed identity used for CMK
         :param 'CmkKeyVaultPropertiesResponse' key_vault_properties: The properties of the Key Vault which hosts CMK
@@ -1992,6 +2016,7 @@ class FeatureSettingsResponse(dict):
                  cross_subscription_restore_settings: Optional['outputs.CrossSubscriptionRestoreSettingsResponse'] = None):
         """
         Class containing feature settings of vault
+
         :param 'CrossSubscriptionRestoreSettingsResponse' cross_subscription_restore_settings: CrossSubscriptionRestore Settings
         """
         if cross_region_restore_settings is not None:
@@ -2089,6 +2114,7 @@ class ImmediateCopyOptionResponse(dict):
                  object_type: _builtins.str):
         """
         Immediate copy Option
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'ImmediateCopyOption'.
         """
@@ -2113,6 +2139,7 @@ class ImmutabilitySettingsResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Immutability Settings at vault level
+
         :param _builtins.str state: Immutability state
         """
         if state is not None:
@@ -2157,6 +2184,7 @@ class InnerErrorResponse(dict):
                  embedded_inner_error: Optional['outputs.InnerErrorResponse'] = None):
         """
         Inner Error
+
         :param Mapping[str, _builtins.str] additional_info: Any Key value pairs that can be provided to the client for additional  verbose information.
         :param _builtins.str code: Unique code for this error
         :param 'InnerErrorResponse' embedded_inner_error: Child Inner Error, to allow Nesting.
@@ -2246,6 +2274,7 @@ class KubernetesClusterBackupDatasourceParametersResponse(dict):
                  label_selectors: Optional[Sequence[_builtins.str]] = None):
         """
         Parameters for Kubernetes Cluster Backup Datasource
+
         :param _builtins.bool include_cluster_scope_resources: Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'KubernetesClusterBackupDatasourceParameters'.
@@ -2384,6 +2413,7 @@ class MonitoringSettingsResponse(dict):
                  azure_monitor_alert_settings: Optional['outputs.AzureMonitorAlertSettingsResponse'] = None):
         """
         Monitoring Settings
+
         :param 'AzureMonitorAlertSettingsResponse' azure_monitor_alert_settings: Settings for Azure Monitor based alerts
         """
         if azure_monitor_alert_settings is not None:
@@ -2408,6 +2438,7 @@ class NamespacedNameResourceResponse(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Class to refer resources which contains namespace and name
+
         :param _builtins.str name: Name of the resource
         :param _builtins.str namespace: Namespace in which the resource exists
         """
@@ -2465,6 +2496,7 @@ class PolicyInfoResponse(dict):
                  policy_parameters: Optional['outputs.PolicyParametersResponse'] = None):
         """
         Policy Info in backupInstance
+
         :param 'PolicyParametersResponse' policy_parameters: Policy parameters for the backup instance
         """
         pulumi.set(__self__, "policy_id", policy_id)
@@ -2520,6 +2552,7 @@ class PolicyParametersResponse(dict):
                  data_store_parameters_list: Optional[Sequence['outputs.AzureOperationalStoreParametersResponse']] = None):
         """
         Parameters in Policy
+
         :param Sequence[Union['BlobBackupDatasourceParametersResponse', 'KubernetesClusterBackupDatasourceParametersResponse']] backup_datasource_parameters_list: Gets or sets the Backup Data Source Parameters
         :param Sequence['AzureOperationalStoreParametersResponse'] data_store_parameters_list: Gets or sets the DataStore Parameters
         """
@@ -2572,6 +2605,7 @@ class ProtectionStatusDetailsResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Protection status details
+
         :param 'UserFacingErrorResponse' error_details: Specifies the protection status error of the resource
         :param _builtins.str status: Specifies the protection status of the resource
         """
@@ -2672,6 +2706,7 @@ class ResourceGuardOperationResponse(dict):
                  vault_critical_operation: _builtins.str):
         """
         This class contains all the details about a critical operation.
+
         :param _builtins.str request_resource_type: Type of resource request.
         :param _builtins.str vault_critical_operation: Name of the critical operation.
         """
@@ -2883,6 +2918,7 @@ class ResourceMoveDetailsResponse(dict):
                  target_resource_path: Optional[_builtins.str] = None):
         """
         ResourceMoveDetails will be returned in response to GetResource call from ARM
+
         :param _builtins.str completion_time_utc: Completion time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
         :param _builtins.str operation_id: CorrelationId of latest ResourceMove operation attempted
         :param _builtins.str source_resource_path: ARM resource path of source resource
@@ -2971,6 +3007,7 @@ class RetentionTagResponse(dict):
                  tag_name: _builtins.str):
         """
         Retention tag
+
         :param _builtins.str e_tag: Retention Tag version.
         :param _builtins.str id: Retention Tag version.
         :param _builtins.str tag_name: Retention Tag Name to relate it to retention rule.
@@ -3048,6 +3085,7 @@ class ScheduleBasedBackupCriteriaResponse(dict):
                  weeks_of_the_month: Optional[Sequence[_builtins.str]] = None):
         """
         Schedule based backup criteria
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'ScheduleBasedBackupCriteria'.
         :param Sequence[_builtins.str] absolute_criteria: it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
@@ -3161,6 +3199,7 @@ class ScheduleBasedTriggerContextResponse(dict):
                  tagging_criteria: Sequence['outputs.TaggingCriteriaResponse']):
         """
         Schedule based trigger context
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'ScheduleBasedTriggerContext'.
         :param 'BackupScheduleResponse' schedule: Schedule for this backup
@@ -3225,6 +3264,7 @@ class SecretStoreBasedAuthCredentialsResponse(dict):
                  secret_store_resource: Optional['outputs.SecretStoreResourceResponse'] = None):
         """
         Secret store based authentication credentials.
+
         :param _builtins.str object_type: Type of the specific object - used for deserializing
                Expected value is 'SecretStoreBasedAuthCredentials'.
         :param 'SecretStoreResourceResponse' secret_store_resource: Secret store resource
@@ -3279,6 +3319,7 @@ class SecretStoreResourceResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Class representing a secret store resource.
+
         :param _builtins.str secret_store_type: Gets or sets the type of secret store
         :param _builtins.str uri: Uri to get to the resource
         :param _builtins.str value: Gets or sets value stored in secret store resource
@@ -3346,6 +3387,7 @@ class SecuritySettingsResponse(dict):
                  soft_delete_settings: Optional['outputs.SoftDeleteSettingsResponse'] = None):
         """
         Class containing security settings of vault
+
         :param 'EncryptionSettingsResponse' encryption_settings: Customer Managed Key details of the resource.
         :param 'ImmutabilitySettingsResponse' immutability_settings: Immutability Settings at vault level
         :param 'SoftDeleteSettingsResponse' soft_delete_settings: Soft delete related settings
@@ -3409,6 +3451,7 @@ class SoftDeleteSettingsResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Soft delete related settings
+
         :param _builtins.float retention_duration_in_days: Soft delete retention duration
         :param _builtins.str state: State of soft delete
         """
@@ -3466,6 +3509,7 @@ class SourceLifeCycleResponse(dict):
                  target_data_store_copy_settings: Optional[Sequence['outputs.TargetCopySettingResponse']] = None):
         """
         Source LifeCycle
+
         :param 'AbsoluteDeleteOptionResponse' delete_after: Delete Option
         :param 'DataStoreInfoBaseResponse' source_data_store: DataStoreInfo base
         """
@@ -3523,6 +3567,7 @@ class StorageSettingResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Storage setting
+
         :param _builtins.str datastore_type: Gets or sets the type of the datastore.
         :param _builtins.str type: Gets or sets the type.
         """
@@ -3589,6 +3634,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3691,6 +3737,7 @@ class TaggingCriteriaResponse(dict):
                  criteria: Optional[Sequence['outputs.ScheduleBasedBackupCriteriaResponse']] = None):
         """
         Tagging criteria
+
         :param _builtins.bool is_default: Specifies if tag is default.
         :param 'RetentionTagResponse' tag_info: Retention tag information
         :param _builtins.float tagging_priority: Retention Tag priority.
@@ -3764,6 +3811,7 @@ class TargetCopySettingResponse(dict):
                  data_store: 'outputs.DataStoreInfoBaseResponse'):
         """
         Target copy settings
+
         :param Union['CopyOnExpiryOptionResponse', 'CustomCopyOptionResponse', 'ImmediateCopyOptionResponse'] copy_after: It can be CustomCopyOption or ImmediateCopyOption.
         :param 'DataStoreInfoBaseResponse' data_store: Info of target datastore
         """
@@ -3816,6 +3864,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -3879,6 +3928,7 @@ class UserFacingErrorResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         Error object used by layers that have access to localized content, and propagate that to user
+
         :param _builtins.str code: Unique code for this error
         :param Sequence['UserFacingErrorResponse'] details: Additional related Errors
         :param 'InnerErrorResponse' inner_error: Inner Error

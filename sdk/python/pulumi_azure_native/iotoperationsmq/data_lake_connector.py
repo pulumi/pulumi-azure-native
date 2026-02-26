@@ -38,6 +38,7 @@ class DataLakeConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataLakeConnector resource.
+
         :param pulumi.Input[Union[_builtins.str, 'DataLakeDatabaseFormat']] database_format: DataLake database format to use.
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['ContainerImageArgs'] image: The details of DataLakeConnector Docker Image.
@@ -270,6 +271,7 @@ class DataLakeConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_lake_connector_name: Name of MQ dataLakeConnector resource
@@ -297,6 +299,7 @@ class DataLakeConnector(pulumi.CustomResource):
         MQ dataLakeConnector resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DataLakeConnectorArgs args: The arguments to use to populate this resource's properties.

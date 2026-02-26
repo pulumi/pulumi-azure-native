@@ -35,6 +35,7 @@ class ContainerGroupProfileResponse(dict):
                  revision: Optional[_builtins.float] = None):
         """
         Details of the ContainerGroupProfile.
+
         :param _builtins.str id: Specifies container group profile id of standby container groups.
         :param _builtins.float revision: Specifies revision of container group profile.
         """
@@ -88,6 +89,7 @@ class ContainerGroupPropertiesResponse(dict):
                  subnet_ids: Optional[Sequence['outputs.SubnetResponse']] = None):
         """
         Details of the ContainerGroupProperties.
+
         :param 'ContainerGroupProfileResponse' container_group_profile: Specifies container group profile of standby container groups.
         :param Sequence['SubnetResponse'] subnet_ids: Specifies subnet Ids for container group.
         """
@@ -141,6 +143,7 @@ class StandbyContainerGroupPoolElasticityProfileResponse(dict):
                  refill_policy: Optional[_builtins.str] = None):
         """
         Specifies the elasticity profile of the standby container group pools.
+
         :param _builtins.float max_ready_capacity: Specifies maximum number of standby container groups in the standby pool.
         :param _builtins.str refill_policy: Specifies refill policy of the pool.
         """
@@ -194,6 +197,7 @@ class StandbyVirtualMachinePoolElasticityProfileResponse(dict):
                  min_ready_capacity: Optional[_builtins.float] = None):
         """
         Details of the elasticity profile.
+
         :param _builtins.float max_ready_capacity: Specifies the maximum number of virtual machines in the standby virtual machine pool.
         :param _builtins.float min_ready_capacity: Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
         """
@@ -227,6 +231,7 @@ class SubnetResponse(dict):
                  id: _builtins.str):
         """
         Subnet of container group
+
         :param _builtins.str id: Specifies ARM resource id of the subnet.
         """
         pulumi.set(__self__, "id", id)
@@ -281,6 +286,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

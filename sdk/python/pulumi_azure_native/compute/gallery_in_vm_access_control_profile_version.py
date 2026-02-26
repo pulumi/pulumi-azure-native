@@ -35,6 +35,7 @@ class GalleryInVMAccessControlProfileVersionArgs:
                  target_locations: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
         """
         The set of arguments for constructing a GalleryInVMAccessControlProfileVersion resource.
+
         :param pulumi.Input[Union[_builtins.str, 'EndpointAccess']] default_access: This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[_builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
@@ -223,6 +224,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
 
         Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'EndpointAccess']] default_access: This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
@@ -249,6 +251,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
 
         Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param GalleryInVMAccessControlProfileVersionArgs args: The arguments to use to populate this resource's properties.

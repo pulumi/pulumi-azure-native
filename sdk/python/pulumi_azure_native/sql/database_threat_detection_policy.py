@@ -35,6 +35,7 @@ class DatabaseThreatDetectionPolicyArgs:
                  use_server_default: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None):
         """
         The set of arguments for constructing a DatabaseThreatDetectionPolicy resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the database for which database Threat Detection policy is defined.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
@@ -254,6 +255,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: The name of the database for which database Threat Detection policy is defined.
@@ -280,6 +282,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
         Contains information about a database Threat Detection policy.
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseThreatDetectionPolicyArgs args: The arguments to use to populate this resource's properties.

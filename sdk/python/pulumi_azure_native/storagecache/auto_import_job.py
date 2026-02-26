@@ -33,6 +33,7 @@ class AutoImportJobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutoImportJob resource.
+
         :param pulumi.Input[_builtins.str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'AdminStatus']] admin_status: The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
@@ -212,6 +213,7 @@ class AutoImportJob(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'AdminStatus']] admin_status: The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
@@ -235,6 +237,7 @@ class AutoImportJob(pulumi.CustomResource):
         An auto import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
         Uses Azure REST API version 2025-07-01.
+
 
         :param str resource_name: The name of the resource.
         :param AutoImportJobArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class AgentDeploymentArgs:
                  deployment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentDeployment resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] app_name: The name of the application associated with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
@@ -136,6 +137,7 @@ class AgentDeployment(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
@@ -155,6 +157,7 @@ class AgentDeployment(pulumi.CustomResource):
         Agent Deployment resource
 
         Uses Azure REST API version 2025-10-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AgentDeploymentArgs args: The arguments to use to populate this resource's properties.

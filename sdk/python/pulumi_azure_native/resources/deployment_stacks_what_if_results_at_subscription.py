@@ -28,6 +28,7 @@ class DeploymentStacksWhatIfResultsAtSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStacksWhatIfResultsAtSubscription resource.
+
         :param pulumi.Input[_builtins.str] deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         :param pulumi.Input['DeploymentStacksWhatIfResultPropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -107,6 +108,7 @@ class DeploymentStacksWhatIfResultsAtSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
@@ -124,6 +126,7 @@ class DeploymentStacksWhatIfResultsAtSubscription(pulumi.CustomResource):
         Deployment stack object.
 
         Uses Azure REST API version 2025-07-01.
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentStacksWhatIfResultsAtSubscriptionArgs args: The arguments to use to populate this resource's properties.

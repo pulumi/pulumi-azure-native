@@ -37,6 +37,7 @@ class SiteCertificateSlotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SiteCertificateSlot resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the site.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
@@ -291,6 +292,7 @@ class SiteCertificateSlot(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] canonical_name: CNAME of the certificate to be issued via free certificate
@@ -321,6 +323,7 @@ class SiteCertificateSlot(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SiteCertificateSlotArgs args: The arguments to use to populate this resource's properties.

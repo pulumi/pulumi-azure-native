@@ -35,6 +35,7 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
                  severities_filter: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]] = None):
         """
         The set of arguments for constructing a MicrosoftSecurityIncidentCreationAlertRule resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name for alerts created by this alert rule.
         :param pulumi.Input[_builtins.bool] enabled: Determines whether this alert rule is enabled or disabled.
         :param pulumi.Input[_builtins.str] kind: The kind of the alert rule
@@ -238,6 +239,7 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
@@ -264,6 +266,7 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
         Represents MicrosoftSecurityIncidentCreation rule.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param MicrosoftSecurityIncidentCreationAlertRuleArgs args: The arguments to use to populate this resource's properties.

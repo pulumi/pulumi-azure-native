@@ -41,6 +41,7 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
                  techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnomalySecurityMLAnalyticsSettings resource.
+
         :param pulumi.Input[_builtins.str] anomaly_version: The anomaly version of the AnomalySecurityMLAnalyticsSettings.
         :param pulumi.Input[_builtins.str] display_name: The display name for settings created by this SecurityMLAnalyticsSettings.
         :param pulumi.Input[_builtins.bool] enabled: Determines whether this settings is enabled or disabled.
@@ -321,6 +322,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] anomaly_settings_version: The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.
@@ -352,6 +354,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
         Represents Anomaly Security ML Analytics Settings
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param AnomalySecurityMLAnalyticsSettingsArgs args: The arguments to use to populate this resource's properties.

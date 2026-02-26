@@ -31,6 +31,7 @@ class WorkspaceArgs:
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] owner_email: The email id of the owner for this workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the machine learning workspace belongs.
         :param pulumi.Input[_builtins.str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
@@ -171,6 +172,7 @@ class Workspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_vault_identifier_id: The key vault identifier used for encrypted workspaces.
@@ -192,6 +194,7 @@ class Workspace(pulumi.CustomResource):
         An object that represents a machine learning workspace.
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

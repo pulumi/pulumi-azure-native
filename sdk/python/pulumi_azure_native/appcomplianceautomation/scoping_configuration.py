@@ -26,6 +26,7 @@ class ScopingConfigurationArgs:
                  scoping_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopingConfiguration resource.
+
         :param pulumi.Input[_builtins.str] report_name: Report Name.
         :param pulumi.Input[Sequence[pulumi.Input['ScopingAnswerArgs']]] answers: List of scoping question answers.
         :param pulumi.Input[_builtins.str] scoping_configuration_name: The scoping configuration of the specific report.
@@ -88,6 +89,7 @@ class ScopingConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScopingAnswerArgs', 'ScopingAnswerArgsDict']]]] answers: List of scoping question answers.
@@ -104,6 +106,7 @@ class ScopingConfiguration(pulumi.CustomResource):
         A class represent an AppComplianceAutomation scoping configuration resource.
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
+
 
         :param str resource_name: The name of the resource.
         :param ScopingConfigurationArgs args: The arguments to use to populate this resource's properties.

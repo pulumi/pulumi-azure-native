@@ -30,6 +30,7 @@ class CloudServiceArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
         :param pulumi.Input[_builtins.str] cloud_service_name: Name of the cloud service.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -142,6 +143,7 @@ class CloudService(pulumi.CustomResource):
 
         Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_service_name: Name of the cloud service.
@@ -163,6 +165,7 @@ class CloudService(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-04. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
 
         Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param CloudServiceArgs args: The arguments to use to populate this resource's properties.

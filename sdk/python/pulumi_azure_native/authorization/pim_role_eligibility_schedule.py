@@ -34,6 +34,7 @@ class PimRoleEligibilityScheduleArgs:
                  ticket_info: Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs']] = None):
         """
         The set of arguments for constructing a PimRoleEligibilitySchedule resource.
+
         :param pulumi.Input[_builtins.str] principal_id: The principal ID.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID.
         :param pulumi.Input[_builtins.str] scope: The scope of the role eligibility schedule request to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
@@ -216,6 +217,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
         API to create and delete the schedules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
@@ -249,6 +251,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         Internally, this resource uses the
         [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
         API to create and delete the schedules.
+
 
         :param str resource_name: The name of the resource.
         :param PimRoleEligibilityScheduleArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class ElasticVolumeArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticVolume resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
         :param pulumi.Input[_builtins.str] pool_name: The name of the ElasticCapacityPool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -172,6 +173,7 @@ class ElasticVolume(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
@@ -193,6 +195,7 @@ class ElasticVolume(pulumi.CustomResource):
         NetApp Elastic Volume resource
 
         Uses Azure REST API version 2025-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ElasticVolumeArgs args: The arguments to use to populate this resource's properties.

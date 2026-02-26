@@ -28,6 +28,7 @@ class PrivateEndpointConnectionsForMIPPolicySyncArgs:
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionsForMIPPolicySync resource.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[_builtins.str] resource_name: The name of the service instance.
@@ -104,6 +105,7 @@ class PrivateEndpointConnectionsForMIPPolicySync(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-03-08. In version 2.x of the Azure Native provider, it used API version 2021-03-08.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -121,6 +123,7 @@ class PrivateEndpointConnectionsForMIPPolicySync(pulumi.CustomResource):
         The Private Endpoint Connection resource.
 
         Uses Azure REST API version 2021-03-08. In version 2.x of the Azure Native provider, it used API version 2021-03-08.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionsForMIPPolicySyncArgs args: The arguments to use to populate this resource's properties.

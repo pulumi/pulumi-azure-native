@@ -35,6 +35,7 @@ class IoTRoleArgs:
                  share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]] = None):
         """
         The set of arguments for constructing a IoTRole resource.
+
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[Union[_builtins.str, 'PlatformType']] host_platform: Host OS supported by the IoT role.
         :param pulumi.Input['IoTDeviceInfoArgs'] io_t_device_details: IoT device metadata to which data box edge device needs to be connected.
@@ -221,6 +222,7 @@ class IoTRole(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ComputeResourceArgs', 'ComputeResourceArgsDict']] compute_resource: Resource allocation
@@ -246,6 +248,7 @@ class IoTRole(pulumi.CustomResource):
         Compute role.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+
 
         :param str resource_name: The name of the resource.
         :param IoTRoleArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class AccountSkuResponse(dict):
                  name: _builtins.str):
         """
         SKU of the trusted signing account.
+
         :param _builtins.str name: Name of the SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -94,6 +95,7 @@ class CertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         Properties of the certificate.
+
         :param _builtins.str status: Status of the certificate.
         :param _builtins.str created_date: Certificate created date.
         :param _builtins.str effective_at: The timestamp when the revocation is effective.
@@ -269,6 +271,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

@@ -20,23 +20,18 @@ __all__ = [
     'AppServiceCertificateArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AppServiceCertificateArgsDict(TypedDict):
-        """
-        Key Vault container for a certificate that is purchased through Azure.
-        """
-        key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key Vault resource Id.
-        """
-        key_vault_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key Vault secret name.
-        """
-elif False:
-    AppServiceCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class AppServiceCertificateArgsDict(TypedDict):
+    """
+    Key Vault container for a certificate that is purchased through Azure.
+    """
+    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key Vault resource Id.
+    """
+    key_vault_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key Vault secret name.
+    """
 
 @pulumi.input_type
 class AppServiceCertificateArgs:
@@ -45,6 +40,7 @@ class AppServiceCertificateArgs:
                  key_vault_secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Key Vault container for a certificate that is purchased through Azure.
+
         :param pulumi.Input[_builtins.str] key_vault_id: Key Vault resource Id.
         :param pulumi.Input[_builtins.str] key_vault_secret_name: Key Vault secret name.
         """

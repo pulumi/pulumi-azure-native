@@ -57,6 +57,7 @@ class ConnectedPartnerResourcePropertiesResponse(dict):
                  partner_deployment_uri: Optional[_builtins.str] = None):
         """
         Connected Partner Resource Properties
+
         :param _builtins.str azure_resource_id: The azure resource Id of the deployment.
         :param _builtins.str location: The location of the deployment.
         :param _builtins.str partner_deployment_name: Elastic deployment name
@@ -113,6 +114,7 @@ class ConnectedPartnerResourcesListFormatResponse(dict):
                  properties: Optional['outputs.ConnectedPartnerResourcePropertiesResponse'] = None):
         """
         Connected Partner Resources List Format
+
         :param 'ConnectedPartnerResourcePropertiesResponse' properties: Connected Partner Resource Properties
         """
         if properties is not None:
@@ -169,6 +171,7 @@ class ElasticCloudDeploymentResponse(dict):
                  name: _builtins.str):
         """
         Details of the user's elastic deployment associated with the monitor resource.
+
         :param _builtins.str azure_subscription_id: Associated Azure subscription Id for the elastic deployment.
         :param _builtins.str deployment_id: Elastic deployment Id
         :param _builtins.str elasticsearch_region: Region where Deployment at Elastic side took place.
@@ -272,6 +275,7 @@ class ElasticCloudUserResponse(dict):
                  id: _builtins.str):
         """
         Details of the user's elastic account.
+
         :param _builtins.str elastic_cloud_sso_default_url: Elastic cloud default dashboard sso URL of the Elastic user account.
         :param _builtins.str email_address: Email of the Elastic User Account.
         :param _builtins.str id: User Id of the elastic account of the User.
@@ -317,6 +321,7 @@ class ElasticOrganizationToAzureSubscriptionMappingResponsePropertiesResponse(di
                  elastic_organization_name: Optional[_builtins.str] = None):
         """
         The properties of Azure Subscription ID to which the Organization of the logged in user belongs and gets billed into.
+
         :param 'MarketplaceSaaSInfoResponse' marketplace_saas_info: Marketplace SaaS Info of the resource.
         :param _builtins.str billed_azure_subscription_id: The Azure Subscription ID to which the Organization belongs and gets billed into. This is empty for a new user OR a user without an Elastic Organization.
         :param _builtins.str elastic_organization_id: The Elastic Organization Id.
@@ -392,6 +397,7 @@ class ElasticPropertiesResponse(dict):
                  elastic_cloud_user: Optional['outputs.ElasticCloudUserResponse'] = None):
         """
         Elastic Resource Properties.
+
         :param 'ElasticCloudDeploymentResponse' elastic_cloud_deployment: Details of the elastic cloud deployment.
         :param 'ElasticCloudUserResponse' elastic_cloud_user: Details of the user's elastic account.
         """
@@ -432,6 +438,7 @@ class ElasticTrafficFilterResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Elastic traffic filter object
+
         :param _builtins.str description: Description of the elastic filter
         :param _builtins.str id: Id of the elastic filter
         :param _builtins.bool include_by_default: IncludeByDefault for the elastic filter
@@ -525,6 +532,7 @@ class ElasticTrafficFilterRuleResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Elastic traffic filter rule object
+
         :param _builtins.str azure_endpoint_guid: Guid of Private Endpoint in the elastic filter rule
         :param _builtins.str azure_endpoint_name: Name of the Private Endpoint in the elastic filter rule
         :param _builtins.str description: Description of the elastic filter rule
@@ -594,6 +602,7 @@ class FilteringTagResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+
         :param _builtins.str action: Valid actions for a filtering tag.
         :param _builtins.str name: The name (also known as the key) of the tag.
         :param _builtins.str value: The value of the tag.
@@ -660,6 +669,7 @@ class IdentityPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity properties.
+
         :param _builtins.str principal_id: The identity ID.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: Managed identity type.
@@ -729,6 +739,7 @@ class LogRulesResponse(dict):
                  send_subscription_logs: Optional[_builtins.bool] = None):
         """
         Set of rules for sending logs for the Monitor resource.
+
         :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param _builtins.bool send_aad_logs: Flag specifying if AAD logs should be sent for the Monitor resource.
         :param _builtins.bool send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
@@ -790,6 +801,7 @@ class MarketplaceSaaSInfoResponse(dict):
                  subscribed: Optional[_builtins.bool] = None):
         """
         Marketplace SAAS Info of the resource.
+
         :param _builtins.str billed_azure_subscription_id: The Azure Subscription ID to which the Marketplace Subscription belongs and gets billed into.
         :param _builtins.str marketplace_name: Marketplace Subscription Details: SAAS Name
         :param _builtins.str marketplace_resource_id: Marketplace Subscription Details: Resource URI
@@ -868,6 +880,7 @@ class MarketplaceSaaSInfoResponseMarketplaceSubscription(dict):
                  id: Optional[_builtins.str] = None):
         """
         Marketplace Subscription
+
         :param _builtins.str id: Marketplace Subscription Id. This is a GUID-formatted string.
         """
         if id is not None:
@@ -939,6 +952,7 @@ class MonitorPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Properties specific to the monitor resource.
+
         :param _builtins.int liftr_resource_preference: The priority of the resource.
         :param 'ElasticPropertiesResponse' elastic_properties: Elastic cloud properties.
         :param _builtins.bool generate_api_key: Flag to determine if User API Key has to be generated and shared.
@@ -1079,6 +1093,7 @@ class MonitoredResourceResponse(dict):
                  sending_logs: Optional[_builtins.str] = None):
         """
         The properties of a resource currently being monitored by the Elastic monitor resource.
+
         :param _builtins.str id: The ARM id of the resource.
         :param _builtins.str reason_for_logs_status: Reason for why the resource is sending logs (or why it is not sending).
         :param _builtins.str sending_logs: Flag indicating the status of the resource for sending logs operation to Elastic.
@@ -1146,6 +1161,7 @@ class MonitoredSubscriptionResponse(dict):
                  tag_rules: Optional['outputs.MonitoringTagRulesPropertiesResponse'] = None):
         """
         The list of subscriptions and it's monitoring status by current Elastic monitor.
+
         :param _builtins.str error: The reason of not monitoring the subscription.
         :param _builtins.str status: The state of monitoring.
         :param _builtins.str subscription_id: The subscriptionId to be monitored.
@@ -1222,6 +1238,7 @@ class MonitoringTagRulesPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Definition of the properties for a TagRules resource.
+
         :param 'LogRulesResponse' log_rules: Rules for sending logs.
         :param _builtins.str provisioning_state: Provisioning state of the monitoring tag rules.
         """
@@ -1280,6 +1297,7 @@ class OpenAIIntegrationPropertiesResponse(dict):
                  open_ai_resource_id: Optional[_builtins.str] = None):
         """
         Open AI Integration details.
+
         :param _builtins.str last_refresh_at: Last Update Timestamp for key updation
         :param _builtins.str key: Value of API key for Open AI resource
         :param _builtins.str open_ai_resource_endpoint: The API endpoint for Open AI resource
@@ -1335,6 +1353,7 @@ class OpenAIIntegrationStatusResponsePropertiesResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Status of the OpenAI Integration
+
         :param _builtins.str status: Status of the OpenAI Integration
         """
         if status is not None:
@@ -1360,6 +1379,7 @@ class PartnerBillingEntityResponse(dict):
                  partner_entity_uri: Optional[_builtins.str] = None):
         """
         Partner Billing details associated with the resource.
+
         :param _builtins.str id: The Elastic Organization Id.
         :param _builtins.str name: The Elastic Organization Name.
         :param _builtins.str partner_entity_uri: Link to the elastic organization page
@@ -1434,6 +1454,7 @@ class PlanDetailsResponse(dict):
                  term_id: Optional[_builtins.str] = None):
         """
         Plan details of the monitor resource.
+
         :param _builtins.str offer_id: Offer ID of the plan
         :param _builtins.str plan_id: Plan ID
         :param _builtins.str plan_name: Plan Name
@@ -1501,6 +1522,7 @@ class ResourceSkuResponse(dict):
                  name: _builtins.str):
         """
         Microsoft.Elastic SKU.
+
         :param _builtins.str name: Name of the SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -1543,6 +1565,7 @@ class SubscriptionListResponse(dict):
                  monitored_subscription_list: Optional[Sequence['outputs.MonitoredSubscriptionResponse']] = None):
         """
         The request to update subscriptions needed to be monitored by the Elastic monitor resource.
+
         :param _builtins.str provisioning_state: Provisioning State of the resource
         :param Sequence['MonitoredSubscriptionResponse'] monitored_subscription_list: List of subscriptions and the state of the monitoring.
         """
@@ -1608,6 +1631,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1705,6 +1729,7 @@ class VMResourcesResponse(dict):
                  vm_resource_id: Optional[_builtins.str] = None):
         """
         The vm resource properties that is currently being monitored by the Elastic monitor resource.
+
         :param _builtins.str vm_resource_id: The ARM id of the VM resource.
         """
         if vm_resource_id is not None:

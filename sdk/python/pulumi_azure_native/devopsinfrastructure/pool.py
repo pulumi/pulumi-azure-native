@@ -35,6 +35,7 @@ class PoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Pool resource.
+
         :param pulumi.Input[Union['StatefulArgs', 'StatelessAgentProfileArgs']] agent_profile: Defines how the machine will be handled once it executed a job.
         :param pulumi.Input[_builtins.str] dev_center_project_resource_id: The resource id of the DevCenter Project the pool belongs to.
         :param pulumi.Input['VmssFabricProfileArgs'] fabric_profile: Defines the type of fabric the agent will run on.
@@ -222,6 +223,7 @@ class Pool(pulumi.CustomResource):
 
         Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-09-20. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['StatefulArgs', 'StatefulArgsDict'], Union['StatelessAgentProfileArgs', 'StatelessAgentProfileArgsDict']]] agent_profile: Defines how the machine will be handled once it executed a job.
@@ -248,6 +250,7 @@ class Pool(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-21. In version 2.x of the Azure Native provider, it used API version 2023-10-30-preview.
 
         Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-09-20. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

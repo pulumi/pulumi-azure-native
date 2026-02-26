@@ -91,6 +91,7 @@ class BackendPoolResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         A backend pool is a collection of backends that can be routed to.
+
         :param _builtins.str resource_state: Resource status.
         :param _builtins.str type: Resource type.
         :param Sequence['BackendResponse'] backends: The set of backends for this pool
@@ -198,6 +199,7 @@ class BackendPoolsSettingsResponse(dict):
                  send_recv_timeout_seconds: Optional[_builtins.int] = None):
         """
         Settings that apply to all backend pools.
+
         :param _builtins.str enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         :param _builtins.int send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
         """
@@ -278,6 +280,7 @@ class BackendResponse(dict):
                  weight: Optional[_builtins.int] = None):
         """
         Backend address of a frontDoor load balancer.
+
         :param _builtins.str private_endpoint_status: The Approval status for the connection to the Private Link
         :param _builtins.str address: Location of the backend (IP address or FQDN)
         :param _builtins.str backend_host_header: The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
@@ -447,6 +450,7 @@ class CacheConfigurationResponse(dict):
                  query_parameters: Optional[_builtins.str] = None):
         """
         Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+
         :param _builtins.str cache_duration: The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
         :param _builtins.str dynamic_compression: Whether to use dynamic compression for cached content
         :param _builtins.str query_parameter_strip_directive: Treatment of URL query terms when forming the cache key.
@@ -536,6 +540,7 @@ class CustomHttpsConfigurationResponse(dict):
                  vault: Optional['outputs.KeyVaultCertificateSourceParametersResponseVault'] = None):
         """
         Https settings for a domain
+
         :param _builtins.str certificate_source: Defines the source of the SSL certificate
         :param _builtins.str minimum_tls_version: The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
         :param _builtins.str protocol_type: Defines the TLS extension protocol that is used for secure delivery
@@ -622,6 +627,7 @@ class CustomRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.CustomRuleResponse']] = None):
         """
         Defines contents of custom rules
+
         :param Sequence['CustomRuleResponse'] rules: List of rules
         """
         if rules is not None:
@@ -680,6 +686,7 @@ class CustomRuleResponse(dict):
                  rate_limit_threshold: Optional[_builtins.int] = None):
         """
         Defines contents of a web application rule
+
         :param _builtins.str action: Describes what action to be applied when rule matches.
         :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param _builtins.int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
@@ -788,6 +795,7 @@ class EndpointResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Defines the endpoint properties
+
         :param _builtins.str endpoint: The endpoint URL
         :param _builtins.str name: The name of the endpoint
         """
@@ -851,6 +859,7 @@ class ForwardingConfigurationResponse(dict):
                  forwarding_protocol: Optional[_builtins.str] = None):
         """
         Describes Forwarding Route.
+
         :param _builtins.str odata_type: 
                Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
         :param 'SubResourceResponse' backend_pool: A reference to the BackendPool which this rule routes to.
@@ -919,6 +928,7 @@ class FrontendEndpointLinkResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Defines the Resource ID for a Frontend Endpoint.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -983,6 +993,7 @@ class FrontendEndpointResponse(dict):
                  web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
         """
         A frontend endpoint used for routing.
+
         :param 'CustomHttpsConfigurationResponse' custom_https_configuration: The configuration specifying how to enable HTTPS
         :param _builtins.str custom_https_provisioning_state: Provisioning status of Custom Https of the frontendEndpoint.
         :param _builtins.str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
@@ -1111,6 +1122,7 @@ class FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink(d
                  id: Optional[_builtins.str] = None):
         """
         Defines the Web Application Firewall policy for each host (if applicable)
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -1151,6 +1163,7 @@ class GroupByVariableResponse(dict):
                  variable_name: _builtins.str):
         """
         Describes the variables available to group the rate limit requests
+
         :param _builtins.str variable_name: Describes the supported variable for group by
         """
         pulumi.set(__self__, "variable_name", variable_name)
@@ -1194,6 +1207,7 @@ class HeaderActionResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         An action that can manipulate an http header.
+
         :param _builtins.str header_action_type: Which type of manipulation to apply to the header.
         :param _builtins.str header_name: The name of the header this action will apply to.
         :param _builtins.str value: The value to update the given header name with. This value is not used if the actionType is Delete.
@@ -1268,6 +1282,7 @@ class HealthProbeSettingsModelResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Load balancing settings for a backend pool
+
         :param _builtins.str resource_state: Resource status.
         :param _builtins.str type: Resource type.
         :param _builtins.str enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
@@ -1379,6 +1394,7 @@ class KeyVaultCertificateSourceParametersResponseVault(dict):
                  id: Optional[_builtins.str] = None):
         """
         The Key Vault containing the SSL certificate
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -1431,6 +1447,7 @@ class LoadBalancingSettingsModelResponse(dict):
                  successful_samples_required: Optional[_builtins.int] = None):
         """
         Load balancing settings for a backend pool
+
         :param _builtins.str resource_state: Resource status.
         :param _builtins.str type: Resource type.
         :param _builtins.int additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
@@ -1539,6 +1556,7 @@ class ManagedRuleExclusionResponse(dict):
                  selector_match_operator: _builtins.str):
         """
         Exclude variables from managed rule evaluation.
+
         :param _builtins.str match_variable: The variable type to be excluded.
         :param _builtins.str selector: Selector value for which elements in the collection this exclusion applies to.
         :param _builtins.str selector_match_operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
@@ -1600,6 +1618,7 @@ class ManagedRuleGroupOverrideResponse(dict):
                  rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
+
         :param _builtins.str rule_group_name: Describes the managed rule group to override.
         :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to all rules in the group.
         :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
@@ -1666,6 +1685,7 @@ class ManagedRuleOverrideResponse(dict):
                  exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None):
         """
         Defines a managed rule group override setting.
+
         :param _builtins.str rule_id: Identifier for the managed rule.
         :param _builtins.str action: Describes the override action to be applied when rule matches.
         :param _builtins.str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
@@ -1738,6 +1758,7 @@ class ManagedRuleSetListResponse(dict):
                  managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
+
         :param Sequence['ManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
@@ -1788,6 +1809,7 @@ class ManagedRuleSetResponse(dict):
                  rule_set_action: Optional[_builtins.str] = None):
         """
         Defines a managed rule set.
+
         :param _builtins.str rule_set_type: Defines the rule set type to use.
         :param _builtins.str rule_set_version: Defines the version of the rule set to use.
         :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to all rules in the set.
@@ -1879,6 +1901,7 @@ class MatchConditionResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Define a match condition.
+
         :param Sequence[_builtins.str] match_value: List of possible match values.
         :param _builtins.str match_variable: Request variable to compare with.
         :param _builtins.str operator: Comparison type to use for matching with the variable value.
@@ -1991,6 +2014,7 @@ class PolicySettingsResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines top-level WebApplicationFirewallPolicy configuration settings.
+
         :param _builtins.str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param _builtins.int custom_block_response_status_code: If the action type is block, customer can override the response status code.
         :param _builtins.str enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -2137,6 +2161,7 @@ class RedirectConfigurationResponse(dict):
                  redirect_type: Optional[_builtins.str] = None):
         """
         Describes Redirect Route.
+
         :param _builtins.str odata_type: 
                Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration'.
         :param _builtins.str custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
@@ -2227,6 +2252,7 @@ class RoutingRuleLinkResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Defines the Resource ID for a Routing Rule.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -2291,6 +2317,7 @@ class RoutingRuleResponse(dict):
                  web_application_firewall_policy_link: Optional['outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
         """
         A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+
         :param _builtins.str resource_state: Resource status.
         :param _builtins.str type: Resource type.
         :param Sequence[_builtins.str] accepted_protocols: Protocol schemes to match for this rule
@@ -2422,6 +2449,7 @@ class RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
                  id: Optional[_builtins.str] = None):
         """
         Defines the Web Application Firewall policy for each routing rule (if applicable)
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -2468,6 +2496,7 @@ class RulesEngineActionResponse(dict):
                  route_configuration_override: Optional[Any] = None):
         """
         One or more actions that will execute, modifying the request and/or response.
+
         :param Sequence['HeaderActionResponse'] request_header_actions: A list of header actions to apply from the request from AFD to the origin.
         :param Sequence['HeaderActionResponse'] response_header_actions: A list of header actions to apply from the response from AFD to the client.
         :param Union['ForwardingConfigurationResponse', 'RedirectConfigurationResponse'] route_configuration_override: Override the route configuration.
@@ -2541,6 +2570,7 @@ class RulesEngineMatchConditionResponse(dict):
                  transforms: Optional[Sequence[_builtins.str]] = None):
         """
         Define a match condition
+
         :param Sequence[_builtins.str] rules_engine_match_value: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         :param _builtins.str rules_engine_match_variable: Match Variable
         :param _builtins.str rules_engine_operator: Describes operator to apply to the match condition.
@@ -2637,6 +2667,7 @@ class RulesEngineResponse(dict):
                  rules: Optional[Sequence['outputs.RulesEngineRuleResponse']] = None):
         """
         A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+
         :param _builtins.str id: Resource ID.
         :param _builtins.str name: Resource name.
         :param _builtins.str resource_state: Resource status.
@@ -2723,6 +2754,7 @@ class RulesEngineRuleResponse(dict):
                  match_processing_behavior: Optional[_builtins.str] = None):
         """
         Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
+
         :param 'RulesEngineActionResponse' action: Actions to perform on the request and response if all of the match conditions are met.
         :param _builtins.str name: A name to refer to this specific rule.
         :param _builtins.int priority: A priority assigned to this rule. 
@@ -2787,6 +2819,7 @@ class SecurityPolicyLinkResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Defines the Resource ID for a Security Policy.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -2810,6 +2843,7 @@ class SkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The pricing tier of the web application firewall policy.
+
         :param _builtins.str name: Name of the pricing tier.
         """
         if name is not None:
@@ -2833,6 +2867,7 @@ class SubResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to another subresource.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -2878,6 +2913,7 @@ class WebApplicationFirewallScrubbingRulesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines the contents of the log scrubbing rules.
+
         :param _builtins.str match_variable: The variable to be scrubbed from the logs.
         :param _builtins.str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
         :param _builtins.str selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.

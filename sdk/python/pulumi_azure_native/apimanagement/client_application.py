@@ -27,6 +27,7 @@ class ClientApplicationArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClientApplication resource.
+
         :param pulumi.Input[_builtins.str] display_name: Client application name.
         :param pulumi.Input[_builtins.str] owner_id: A resource identifier for the user who owns the application.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -136,6 +137,7 @@ class ClientApplication(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
@@ -157,6 +159,7 @@ class ClientApplication(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview.
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ClientApplicationArgs args: The arguments to use to populate this resource's properties.

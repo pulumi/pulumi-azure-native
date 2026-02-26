@@ -32,6 +32,7 @@ class MySQLSiteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MySQLSite resource.
+
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] master_site_id: The mapped master Site Id.
         :param pulumi.Input[_builtins.str] migrate_project_id: The mapped migrate project Id.
@@ -171,6 +172,7 @@ class MySQLSite(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location.
@@ -192,6 +194,7 @@ class MySQLSite(pulumi.CustomResource):
         The MySQLSite resource definition.
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MySQLSiteArgs args: The arguments to use to populate this resource's properties.

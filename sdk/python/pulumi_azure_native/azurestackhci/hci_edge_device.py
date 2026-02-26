@@ -27,6 +27,7 @@ class HciEdgeDeviceArgs:
                  properties: Optional[pulumi.Input['HciEdgeDevicePropertiesArgs']] = None):
         """
         The set of arguments for constructing a HciEdgeDevice resource.
+
         :param pulumi.Input[_builtins.str] kind: Edge device kind.
                Expected value is 'HCI'.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -106,6 +107,7 @@ class HciEdgeDevice(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] edge_device_name: Name of Device
@@ -124,6 +126,7 @@ class HciEdgeDevice(pulumi.CustomResource):
         Arc-enabled edge device with HCI OS.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param HciEdgeDeviceArgs args: The arguments to use to populate this resource's properties.

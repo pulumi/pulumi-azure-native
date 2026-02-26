@@ -28,23 +28,18 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -53,6 +48,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -85,25 +81,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -113,6 +106,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -161,77 +155,74 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RedisCommonPropertiesRedisConfigurationArgsDict(TypedDict):
-        """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
-        """
-        aad_enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether AAD based authentication has been enabled or disabled for the cache
-        """
-        aof_backup_enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether the aof backup is enabled
-        """
-        aof_storage_connection_string0: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First storage account connection string
-        """
-        aof_storage_connection_string1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second storage account connection string
-        """
-        authnotrequired: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view; you should never disable authentication using this property!
-        """
-        maxfragmentationmemory_reserved: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value in megabytes reserved for fragmentation per shard
-        """
-        maxmemory_delta: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value in megabytes reserved for non-cache usage per shard e.g. failover.
-        """
-        maxmemory_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The eviction strategy used when your data won't fit within its memory limit.
-        """
-        maxmemory_reserved: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value in megabytes reserved for non-cache usage per shard e.g. failover.
-        """
-        notify_keyspace_events: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The keyspace events which should be monitored.
-        """
-        preferred_data_persistence_auth_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
-        """
-        rdb_backup_enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether the RDB backup is enabled
-        """
-        rdb_backup_frequency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
-        """
-        rdb_backup_max_snapshot_count: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the maximum number of snapshots for rdb backup
-        """
-        rdb_storage_connection_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage account connection string for storing rdb file
-        """
-        storage_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
-        """
-elif False:
-    RedisCommonPropertiesRedisConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RedisCommonPropertiesRedisConfigurationArgsDict(TypedDict):
+    """
+    All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
+    """
+    aad_enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether AAD based authentication has been enabled or disabled for the cache
+    """
+    aof_backup_enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether the aof backup is enabled
+    """
+    aof_storage_connection_string0: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First storage account connection string
+    """
+    aof_storage_connection_string1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second storage account connection string
+    """
+    authnotrequired: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view; you should never disable authentication using this property!
+    """
+    maxfragmentationmemory_reserved: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value in megabytes reserved for fragmentation per shard
+    """
+    maxmemory_delta: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value in megabytes reserved for non-cache usage per shard e.g. failover.
+    """
+    maxmemory_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The eviction strategy used when your data won't fit within its memory limit.
+    """
+    maxmemory_reserved: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value in megabytes reserved for non-cache usage per shard e.g. failover.
+    """
+    notify_keyspace_events: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The keyspace events which should be monitored.
+    """
+    preferred_data_persistence_auth_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+    """
+    rdb_backup_enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether the RDB backup is enabled
+    """
+    rdb_backup_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
+    """
+    rdb_backup_max_snapshot_count: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the maximum number of snapshots for rdb backup
+    """
+    rdb_storage_connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage account connection string for storing rdb file
+    """
+    storage_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+    """
 
 @pulumi.input_type
 class RedisCommonPropertiesRedisConfigurationArgs:
@@ -254,6 +245,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
                  storage_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
+
         :param pulumi.Input[_builtins.str] aad_enabled: Specifies whether AAD based authentication has been enabled or disabled for the cache
         :param pulumi.Input[_builtins.str] aof_backup_enabled: Specifies whether the aof backup is enabled
         :param pulumi.Input[_builtins.str] aof_storage_connection_string0: First storage account connection string
@@ -497,25 +489,22 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         pulumi.set(self, "storage_subscription_id", value)
 
 
-if not MYPY:
-    class ScheduleEntryArgsDict(TypedDict):
-        """
-        Patch schedule entry for a Premium Redis Cache.
-        """
-        day_of_week: pulumi.Input['DayOfWeek']
-        """
-        Day of the week when a cache can be patched.
-        """
-        start_hour_utc: pulumi.Input[_builtins.int]
-        """
-        Start hour after which cache patching can start.
-        """
-        maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ISO8601 timespan specifying how much time cache patching can take.
-        """
-elif False:
-    ScheduleEntryArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleEntryArgsDict(TypedDict):
+    """
+    Patch schedule entry for a Premium Redis Cache.
+    """
+    day_of_week: pulumi.Input['DayOfWeek']
+    """
+    Day of the week when a cache can be patched.
+    """
+    start_hour_utc: pulumi.Input[_builtins.int]
+    """
+    Start hour after which cache patching can start.
+    """
+    maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ISO8601 timespan specifying how much time cache patching can take.
+    """
 
 @pulumi.input_type
 class ScheduleEntryArgs:
@@ -525,6 +514,7 @@ class ScheduleEntryArgs:
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Patch schedule entry for a Premium Redis Cache.
+
         :param pulumi.Input['DayOfWeek'] day_of_week: Day of the week when a cache can be patched.
         :param pulumi.Input[_builtins.int] start_hour_utc: Start hour after which cache patching can start.
         :param pulumi.Input[_builtins.str] maintenance_window: ISO8601 timespan specifying how much time cache patching can take.
@@ -571,25 +561,22 @@ class ScheduleEntryArgs:
         pulumi.set(self, "maintenance_window", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        SKU parameters supplied to the create Redis operation.
-        """
-        capacity: pulumi.Input[_builtins.int]
-        """
-        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-        """
-        family: pulumi.Input[Union[_builtins.str, 'SkuFamily']]
-        """
-        The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    SKU parameters supplied to the create Redis operation.
+    """
+    capacity: pulumi.Input[_builtins.int]
+    """
+    The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+    """
+    family: pulumi.Input[Union[_builtins.str, 'SkuFamily']]
+    """
+    The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -599,6 +586,7 @@ class SkuArgs:
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']]):
         """
         SKU parameters supplied to the create Redis operation.
+
         :param pulumi.Input[_builtins.int] capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
         :param pulumi.Input[Union[_builtins.str, 'SkuFamily']] family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)

@@ -31,6 +31,7 @@ class ControllerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Controller resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Resource group to which the resource belongs.
         :param pulumi.Input['SkuArgs'] sku: Model representing SKU for Azure Dev Spaces Controller.
         :param pulumi.Input[_builtins.str] target_container_host_credentials_base64: Credentials of the target container host (base64).
@@ -152,6 +153,7 @@ class Controller(pulumi.CustomResource):
         """
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Region where the Azure resource is located.
@@ -170,6 +172,7 @@ class Controller(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
+
 
         :param str resource_name: The name of the resource.
         :param ControllerArgs args: The arguments to use to populate this resource's properties.

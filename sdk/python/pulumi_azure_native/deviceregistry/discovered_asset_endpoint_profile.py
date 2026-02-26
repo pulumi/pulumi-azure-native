@@ -35,6 +35,7 @@ class DiscoveredAssetEndpointProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoveredAssetEndpointProfile resource.
+
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset endpoint profile.
         :param pulumi.Input[_builtins.str] endpoint_profile_type: Defines the configuration for the connector type that is being used with the endpoint profile.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
@@ -220,6 +221,7 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] additional_configuration: Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
@@ -244,6 +246,7 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
         Discovered Asset Endpoint Profile definition.
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetEndpointProfileArgs args: The arguments to use to populate this resource's properties.

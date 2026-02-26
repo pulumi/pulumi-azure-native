@@ -31,6 +31,7 @@ class AzureLargeStorageInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureLargeStorageInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_unique_identifier: Specifies the AzureLargeStorageInstance unique ID.
@@ -158,6 +159,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
@@ -179,6 +181,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
         AzureLargeStorageInstance properties)
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AzureLargeStorageInstanceArgs args: The arguments to use to populate this resource's properties.

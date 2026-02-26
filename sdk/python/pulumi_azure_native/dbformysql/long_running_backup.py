@@ -30,6 +30,7 @@ class LongRunningBackupArgs:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LongRunningBackup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] backup_name: The name of the backup.
@@ -151,6 +152,7 @@ class LongRunningBackup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_name: The name of the backup.
@@ -170,6 +172,7 @@ class LongRunningBackup(pulumi.CustomResource):
         Server backup properties
 
         Uses Azure REST API version 2025-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param LongRunningBackupArgs args: The arguments to use to populate this resource's properties.

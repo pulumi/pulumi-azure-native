@@ -34,6 +34,7 @@ class SecretSyncArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecretSync resource.
+
         :param pulumi.Input[Union[_builtins.str, 'KubernetesSecretType']] kubernetes_secret_type: Type specifies the type of the Kubernetes secret object, e.g. "Opaque" or"kubernetes.io/tls". The controller must have permission to create secrets of the specified type.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesSecretObjectMappingArgs']]] object_secret_mapping: An array of SecretObjectData that maps secret data from the external secret provider to the Kubernetes secret. Each entry specifies the source secret in the external provider and the corresponding key in the Kubernetes secret.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -204,6 +205,7 @@ class SecretSync(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
@@ -227,6 +229,7 @@ class SecretSync(pulumi.CustomResource):
         The SecretSync resource.
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SecretSyncArgs args: The arguments to use to populate this resource's properties.

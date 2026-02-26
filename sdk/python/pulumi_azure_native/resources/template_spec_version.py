@@ -33,6 +33,7 @@ class TemplateSpecVersionArgs:
                  ui_form_definition: Optional[Any] = None):
         """
         The set of arguments for constructing a TemplateSpecVersion resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] template_spec_name: Name of the Template Spec.
         :param pulumi.Input[_builtins.str] description: Template Spec version description.
@@ -208,6 +209,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Template Spec version description.
@@ -233,6 +235,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
         Uses Azure REST API version 2022-02-01. In version 2.x of the Azure Native provider, it used API version 2022-02-01.
 
         Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecVersionArgs args: The arguments to use to populate this resource's properties.

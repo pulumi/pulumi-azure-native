@@ -54,6 +54,7 @@ class NamespaceDiscoveredAssetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NamespaceDiscoveredAsset resource.
+
         :param pulumi.Input['DeviceRefArgs'] device_ref: Reference to the device that provides data for this asset. Must provide device name & endpoint on the device to use.
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
@@ -545,6 +546,7 @@ class NamespaceDiscoveredAsset(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asset_type_refs: URIs or type definition IDs.
@@ -590,6 +592,7 @@ class NamespaceDiscoveredAsset(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceDiscoveredAssetArgs args: The arguments to use to populate this resource's properties.

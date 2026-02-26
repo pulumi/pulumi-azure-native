@@ -31,6 +31,7 @@ class SubscriptionDiagnosticSettingArgs:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionDiagnosticSetting resource.
+
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionLogSettingsArgs']]] logs: The list of logs settings.
@@ -174,6 +175,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
@@ -195,6 +197,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
         The subscription diagnostic setting resource.
 
         Uses Azure REST API version 2021-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionDiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

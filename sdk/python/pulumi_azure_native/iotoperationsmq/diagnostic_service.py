@@ -38,6 +38,7 @@ class DiagnosticServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiagnosticService resource.
+
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['ContainerImageArgs'] image: The details of Diagnostic Service Docker Image.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
@@ -285,6 +286,7 @@ class DiagnosticService(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] data_export_frequency_seconds: The frequency at which the data will be exported.
@@ -312,6 +314,7 @@ class DiagnosticService(pulumi.CustomResource):
         MQ diagnostic services resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DiagnosticServiceArgs args: The arguments to use to populate this resource's properties.

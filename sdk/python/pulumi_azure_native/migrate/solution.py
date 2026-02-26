@@ -27,6 +27,7 @@ class SolutionArgs:
                  solution_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Solution resource.
+
         :param pulumi.Input[_builtins.str] migrate_project_name: Name of the Azure Migrate project.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
         :param pulumi.Input['SolutionPropertiesArgs'] properties: Gets or sets the properties of the solution.
@@ -104,6 +105,7 @@ class Solution(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] migrate_project_name: Name of the Azure Migrate project.
@@ -121,6 +123,7 @@ class Solution(pulumi.CustomResource):
         Solution REST Resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SolutionArgs args: The arguments to use to populate this resource's properties.

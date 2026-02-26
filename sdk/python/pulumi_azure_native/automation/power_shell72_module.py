@@ -30,6 +30,7 @@ class PowerShell72ModuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PowerShell72Module resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['ContentLinkArgs'] content_link: Sets the hash.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,6 +155,7 @@ class PowerShell72Module(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
@@ -174,6 +176,7 @@ class PowerShell72Module(pulumi.CustomResource):
         Definition of the module type.
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
+
 
         :param str resource_name: The name of the resource.
         :param PowerShell72ModuleArgs args: The arguments to use to populate this resource's properties.

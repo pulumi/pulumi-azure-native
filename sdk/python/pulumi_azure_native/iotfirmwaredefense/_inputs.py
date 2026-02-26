@@ -20,23 +20,18 @@ __all__ = [
     'StatusMessageArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StatusMessageArgsDict(TypedDict):
-        """
-        Error and status message
-        """
-        error_code: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The error code
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error or status message
-        """
-elif False:
-    StatusMessageArgsDict: TypeAlias = Mapping[str, Any]
+class StatusMessageArgsDict(TypedDict):
+    """
+    Error and status message
+    """
+    error_code: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The error code
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error or status message
+    """
 
 @pulumi.input_type
 class StatusMessageArgs:
@@ -45,6 +40,7 @@ class StatusMessageArgs:
                  message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Error and status message
+
         :param pulumi.Input[_builtins.float] error_code: The error code
         :param pulumi.Input[_builtins.str] message: The error or status message
         """

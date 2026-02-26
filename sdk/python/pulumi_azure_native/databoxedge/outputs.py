@@ -101,6 +101,7 @@ class AddressResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The shipping address of the customer.
+
         :param _builtins.str country: The country name.
         :param _builtins.str address_line1: The address line1.
         :param _builtins.str address_line2: The address line2.
@@ -210,6 +211,7 @@ class AsymmetricEncryptedSecretResponse(dict):
                  encryption_cert_thumbprint: Optional[_builtins.str] = None):
         """
         Represent the secrets intended for encryption with asymmetric key pair.
+
         :param _builtins.str encryption_algorithm: The algorithm used to encrypt "Value".
         :param _builtins.str value: The value of the secret.
         :param _builtins.str encryption_cert_thumbprint: Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
@@ -270,6 +272,7 @@ class AuthenticationResponse(dict):
                  symmetric_key: Optional['outputs.SymmetricKeyResponse'] = None):
         """
         Authentication mechanism for IoT devices.
+
         :param 'SymmetricKeyResponse' symmetric_key: Symmetric key for authentication.
         """
         if symmetric_key is not None:
@@ -316,6 +319,7 @@ class AzureContainerInfoResponse(dict):
                  storage_account_credential_id: _builtins.str):
         """
         Azure container mapping of the endpoint.
+
         :param _builtins.str container_name: Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
         :param _builtins.str data_format: Storage format used for the file represented by the share.
         :param _builtins.str storage_account_credential_id: ID of the storage account credential used to access storage.
@@ -376,6 +380,7 @@ class ClientAccessRightResponse(dict):
                  client: _builtins.str):
         """
         The mapping between a particular client IP and the type of access client has on the NFS share.
+
         :param _builtins.str access_permission: Type of access to be allowed for the client.
         :param _builtins.str client: IP of the client.
         """
@@ -430,6 +435,7 @@ class CniConfigResponse(dict):
                  version: _builtins.str):
         """
         Cni configuration
+
         :param _builtins.str pod_subnet: Pod Subnet
         :param _builtins.str service_subnet: Service subnet
         :param _builtins.str type: Cni type
@@ -502,6 +508,7 @@ class ComputeResourceResponse(dict):
                  processor_count: _builtins.int):
         """
         Compute infrastructure Resource
+
         :param _builtins.float memory_in_gb: Memory in GB
         :param _builtins.int processor_count: Processor count
         """
@@ -558,6 +565,7 @@ class ContactDetailsResponse(dict):
                  phone: _builtins.str):
         """
         Contains all the contact details of the customer.
+
         :param _builtins.str company_name: The name of the company.
         :param _builtins.str contact_person: The contact person name.
         :param Sequence[_builtins.str] email_list: The email list.
@@ -610,6 +618,7 @@ class DataResidencyResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+
         :param _builtins.str type: DataResidencyType enum
         """
         if type is not None:
@@ -633,6 +642,7 @@ class EdgeProfileResponse(dict):
                  subscription: Optional['outputs.EdgeProfileSubscriptionResponse'] = None):
         """
         Details about Edge Profile for the resource
+
         :param 'EdgeProfileSubscriptionResponse' subscription: Edge Profile Subscription
         """
         if subscription is not None:
@@ -696,6 +706,7 @@ class EdgeProfileSubscriptionResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Subscription details for the Edge Profile
+
         :param _builtins.str id: ARM ID of the subscription
         :param _builtins.str registration_id: Edge Subscription Registration ID
         """
@@ -787,6 +798,7 @@ class EtcdInfoResponse(dict):
                  version: _builtins.str):
         """
         Etcd configuration
+
         :param _builtins.str type: Etcd type
         :param _builtins.str version: Etcd version
         """
@@ -836,6 +848,7 @@ class FileSourceInfoResponse(dict):
                  share_id: _builtins.str):
         """
         File source details.
+
         :param _builtins.str share_id: File share ID.
         """
         pulumi.set(__self__, "share_id", share_id)
@@ -879,6 +892,7 @@ class ImageRepositoryCredentialResponse(dict):
                  password: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
         """
         Image repository credential.
+
         :param _builtins.str image_repository_url: Image repository url (e.g.: mcr.microsoft.com).
         :param _builtins.str user_name: Repository user name.
         :param 'AsymmetricEncryptedSecretResponse' password: Repository user password.
@@ -946,6 +960,7 @@ class IoTDeviceInfoResponse(dict):
                  io_t_host_hub_id: Optional[_builtins.str] = None):
         """
         Metadata of IoT device/IoT Edge device to be configured.
+
         :param _builtins.str device_id: ID of the IoT device/edge device.
         :param _builtins.str io_t_host_hub: Host name for the IoT hub associated to the device.
         :param 'AuthenticationResponse' authentication: Encrypted IoT device/IoT edge device connection string.
@@ -1021,6 +1036,7 @@ class IoTEdgeAgentInfoResponse(dict):
                  image_repository: Optional['outputs.ImageRepositoryCredentialResponse'] = None):
         """
         IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+
         :param _builtins.str image_name: Name of the IoT edge agent image.
         :param _builtins.str tag: Image Tag.
         :param 'ImageRepositoryCredentialResponse' image_repository: Image repository details.
@@ -1083,6 +1099,7 @@ class KubernetesClusterInfoResponse(dict):
                  version: _builtins.str):
         """
         Kubernetes cluster configuration
+
         :param 'EtcdInfoResponse' etcd_info: Etcd configuration
         :param Sequence['NodeInfoResponse'] nodes: Kubernetes cluster nodes
         :param _builtins.str version: Kubernetes cluster version
@@ -1143,6 +1160,7 @@ class KubernetesIPConfigurationResponse(dict):
                  ip_address: Optional[_builtins.str] = None):
         """
         Kubernetes node IP configuration
+
         :param _builtins.str port: Port of the Kubernetes node.
         :param _builtins.str ip_address: IP address of the Kubernetes node.
         """
@@ -1199,6 +1217,7 @@ class KubernetesRoleComputeResponse(dict):
                  vm_profile: _builtins.str):
         """
         Kubernetes role compute resource
+
         :param _builtins.float memory_in_bytes: Memory in bytes
         :param _builtins.int processor_count: Processor count
         :param _builtins.str vm_profile: VM profile
@@ -1261,6 +1280,7 @@ class KubernetesRoleNetworkResponse(dict):
                  load_balancer_config: 'outputs.LoadBalancerConfigResponse'):
         """
         Kubernetes role network resource
+
         :param 'CniConfigResponse' cni_config: Cni configuration
         :param 'LoadBalancerConfigResponse' load_balancer_config: Load balancer configuration
         """
@@ -1295,6 +1315,7 @@ class KubernetesRoleResourcesResponse(dict):
                  storage: Optional['outputs.KubernetesRoleStorageResponse'] = None):
         """
         Kubernetes role resources
+
         :param 'KubernetesRoleComputeResponse' compute: Kubernetes role compute resource
         :param 'KubernetesRoleNetworkResponse' network: Kubernetes role network resource
         :param 'KubernetesRoleStorageResponse' storage: Kubernetes role storage resource
@@ -1357,6 +1378,7 @@ class KubernetesRoleStorageClassInfoResponse(dict):
                  type: _builtins.str):
         """
         Kubernetes storage class info.
+
         :param _builtins.str name: Storage class name.
         :param _builtins.str posix_compliant: If provisioned storage is posix compliant.
         :param _builtins.str type: Storage class type.
@@ -1417,6 +1439,7 @@ class KubernetesRoleStorageResponse(dict):
                  endpoints: Optional[Sequence['outputs.MountPointMapResponse']] = None):
         """
         Kubernetes role storage resource
+
         :param Sequence['KubernetesRoleStorageClassInfoResponse'] storage_classes: Kubernetes storage class info.
         :param Sequence['MountPointMapResponse'] endpoints: Mount points of shares in role(s).
         """
@@ -1451,6 +1474,7 @@ class LoadBalancerConfigResponse(dict):
                  version: _builtins.str):
         """
         Load balancer configuration
+
         :param _builtins.str type: Load balancer type
         :param _builtins.str version: Load balancer version
         """
@@ -1509,6 +1533,7 @@ class MetricConfigurationResponse(dict):
                  metric_name_space: Optional[_builtins.str] = None):
         """
         Metric configuration.
+
         :param Sequence['MetricCounterSetResponse'] counter_sets: Host name for the IoT hub associated to the device.
         :param _builtins.str resource_id: The Resource ID on which the metrics should be pushed.
         :param _builtins.str mdm_account: The MDM account to which the counters should be pushed.
@@ -1585,6 +1610,7 @@ class MetricCounterResponse(dict):
                  instance: Optional[_builtins.str] = None):
         """
         The metric counter
+
         :param _builtins.str name: The counter name.
         :param Sequence['MetricDimensionResponse'] additional_dimensions: The additional dimensions to be added to metric.
         :param Sequence['MetricDimensionResponse'] dimension_filter: The dimension filter.
@@ -1640,6 +1666,7 @@ class MetricCounterSetResponse(dict):
                  counters: Sequence['outputs.MetricCounterResponse']):
         """
         The metric counter set
+
         :param Sequence['MetricCounterResponse'] counters: The counters that should be collected in this set.
         """
         pulumi.set(__self__, "counters", counters)
@@ -1682,6 +1709,7 @@ class MetricDimensionResponse(dict):
                  source_type: _builtins.str):
         """
         The metric dimension
+
         :param _builtins.str source_name: The dimension value.
         :param _builtins.str source_type: The dimension type.
         """
@@ -1743,6 +1771,7 @@ class MountPointMapResponse(dict):
                  share_id: _builtins.str):
         """
         The share mount point.
+
         :param _builtins.str mount_point: Mount point for the share.
         :param _builtins.str mount_type: Mounting type.
         :param _builtins.str role_id: ID of the role to which share is mounted.
@@ -1824,6 +1853,7 @@ class NodeInfoResponse(dict):
                  ip_configuration: Optional[Sequence['outputs.KubernetesIPConfigurationResponse']] = None):
         """
         Kubernetes node info
+
         :param _builtins.str name: Node name.
         :param _builtins.str type: Node type - Master/Worker
         :param Sequence['KubernetesIPConfigurationResponse'] ip_configuration: IP Configuration of the Kubernetes node.
@@ -1892,6 +1922,7 @@ class OrderStatusResponse(dict):
                  comments: Optional[_builtins.str] = None):
         """
         Represents a single status change.
+
         :param Mapping[str, _builtins.str] additional_order_details: Dictionary to hold generic information which is not stored
                by the already existing properties
         :param _builtins.str status: Status of the order as per the allowed status types.
@@ -1976,6 +2007,7 @@ class PeriodicTimerSourceInfoResponse(dict):
                  topic: Optional[_builtins.str] = None):
         """
         Periodic timer event source.
+
         :param _builtins.str schedule: Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
         :param _builtins.str start_time: The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
         :param _builtins.str topic: Topic where periodic events are published to IoT device.
@@ -2045,6 +2077,7 @@ class RefreshDetailsResponse(dict):
                  last_job: Optional[_builtins.str] = None):
         """
         Fields for tracking refresh job on the share or container.
+
         :param _builtins.str error_manifest_file: Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
         :param _builtins.str in_progress_refresh_job_id: If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
         :param _builtins.str last_completed_refresh_job_time_in_utc: Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
@@ -2122,6 +2155,7 @@ class ResourceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Msi identity details of the resource
+
         :param _builtins.str principal_id: Service Principal Id backing the Msi
         :param _builtins.str tenant_id: Home Tenant Id
         :param _builtins.str type: Identity type
@@ -2185,6 +2219,7 @@ class ResourceMoveDetailsResponse(dict):
                  operation_in_progress_lock_timeout_in_utc: Optional[_builtins.str] = None):
         """
         Fields for tracking resource move
+
         :param _builtins.str operation_in_progress: Denotes whether move operation is in progress
         :param _builtins.str operation_in_progress_lock_timeout_in_utc: Denotes the timeout of the operation to finish
         """
@@ -2236,6 +2271,7 @@ class RoleSinkInfoResponse(dict):
                  role_id: _builtins.str):
         """
         Compute role against which events will be raised.
+
         :param _builtins.str role_id: Compute role ID.
         """
         pulumi.set(__self__, "role_id", role_id)
@@ -2259,6 +2295,7 @@ class SecretResponse(dict):
                  key_vault_id: Optional[_builtins.str] = None):
         """
         Holds device secret either as a KeyVault reference or as an encrypted value.
+
         :param 'AsymmetricEncryptedSecretResponse' encrypted_secret: Encrypted (using device public key) secret value.
         :param _builtins.str key_vault_id: Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
         """
@@ -2313,6 +2350,7 @@ class ShareAccessRightResponse(dict):
                  share_id: _builtins.str):
         """
         Specifies the mapping between this particular user and the type of access he has on shares on this device.
+
         :param _builtins.str access_type: Type of access to be allowed on the share for this user.
         :param _builtins.str share_id: The share ID.
         """
@@ -2346,6 +2384,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The SKU type.
+
         :param _builtins.str name: SKU name.
         :param _builtins.str tier: The SKU tier. This is based on the SKU name.
         """
@@ -2418,6 +2457,7 @@ class SymmetricKeyResponse(dict):
                  connection_string: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
         """
         Symmetric key for authentication.
+
         :param 'AsymmetricEncryptedSecretResponse' connection_string: Connection string based on the symmetric key.
         """
         if connection_string is not None:
@@ -2473,6 +2513,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2577,6 +2618,7 @@ class TrackingInfoResponse(dict):
                  tracking_url: Optional[_builtins.str] = None):
         """
         Tracking courier information.
+
         :param _builtins.str carrier_name: Name of the carrier used in the delivery.
         :param _builtins.str serial_number: Serial number of the device being tracked.
         :param _builtins.str tracking_id: Tracking ID of the shipment.
@@ -2653,6 +2695,7 @@ class UserAccessRightResponse(dict):
                  user_id: _builtins.str):
         """
         The mapping between a particular user and the access type on the SMB share.
+
         :param _builtins.str access_type: Type of access to be allowed for the user.
         :param _builtins.str user_id: User ID (already existing in the device).
         """

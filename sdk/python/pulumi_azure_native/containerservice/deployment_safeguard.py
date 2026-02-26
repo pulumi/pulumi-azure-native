@@ -26,6 +26,7 @@ class DeploymentSafeguardArgs:
                  excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentSafeguard resource.
+
         :param pulumi.Input[Union[_builtins.str, 'DeploymentSafeguardsLevel']] level: The deployment safeguards level. Possible values are Warn and Enforce
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: User defined list of namespaces to exclude from Deployment Safeguards. Deployments in these namespaces will not be checked against any safeguards
@@ -89,6 +90,7 @@ class DeploymentSafeguard(pulumi.CustomResource):
 
         Other available API versions: 2025-04-01, 2025-05-02-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: User defined list of namespaces to exclude from Deployment Safeguards. Deployments in these namespaces will not be checked against any safeguards
@@ -107,6 +109,7 @@ class DeploymentSafeguard(pulumi.CustomResource):
         Uses Azure REST API version 2025-04-02-preview.
 
         Other available API versions: 2025-04-01, 2025-05-02-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentSafeguardArgs args: The arguments to use to populate this resource's properties.

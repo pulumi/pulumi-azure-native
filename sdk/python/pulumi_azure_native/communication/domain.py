@@ -30,6 +30,7 @@ class DomainArgs:
                  user_engagement_tracking: Optional[pulumi.Input[Union[_builtins.str, 'UserEngagementTracking']]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[Union[_builtins.str, 'DomainManagement']] domain_management: Describes how a Domains resource is being managed.
         :param pulumi.Input[_builtins.str] email_service_name: The name of the EmailService resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -158,6 +159,7 @@ class Domain(pulumi.CustomResource):
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'DomainManagement']] domain_management: Describes how a Domains resource is being managed.
@@ -182,6 +184,7 @@ class Domain(pulumi.CustomResource):
         Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

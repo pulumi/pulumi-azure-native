@@ -44,6 +44,7 @@ class ApiKeyResponse(dict):
                  value: _builtins.str):
         """
         An API key used for authenticating with a configuration store endpoint.
+
         :param _builtins.str connection_string: A connection string that can be used by supporting clients for authentication.
         :param _builtins.str id: The key ID.
         :param _builtins.str last_modified: The last time any of the key's properties were modified.
@@ -136,6 +137,7 @@ class DataPlaneProxyPropertiesResponse(dict):
                  private_link_delegation: Optional[_builtins.str] = None):
         """
         The data plane proxy settings for a configuration store.
+
         :param _builtins.str authentication_mode: The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
         :param _builtins.str private_link_delegation: The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
         """
@@ -187,6 +189,7 @@ class EncryptionPropertiesResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         The encryption settings for a configuration store.
+
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Key vault properties.
         """
         if key_vault_properties is not None:
@@ -230,6 +233,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_identifier: Optional[_builtins.str] = None):
         """
         Settings concerning key vault encryption for a configuration store.
+
         :param _builtins.str identity_client_id: The client id of the identity which will be used to access key vault.
         :param _builtins.str key_identifier: The URI of the key vault key used to encrypt data.
         """
@@ -290,6 +294,7 @@ class PrivateEndpointConnectionReferenceResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         A reference to a related private endpoint connection.
+
         :param _builtins.str id: The resource ID.
         :param _builtins.str name: The name of the resource.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -363,6 +368,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Private endpoint which a connection belongs to.
+
         :param _builtins.str id: The resource Id for private endpoint
         """
         if id is not None:
@@ -405,6 +411,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The state of a private link service connection.
+
         :param _builtins.str actions_required: Any action that is required beyond basic workflow (approve/ reject/ disconnect)
         :param _builtins.str description: The private link service connection description.
         :param _builtins.str status: The private link service connection status.
@@ -473,6 +480,7 @@ class ResourceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         An identity that can be associated with a resource.
+
         :param _builtins.str principal_id: The principal id of the identity. This property will only be provided for a system-assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
         :param _builtins.str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -527,6 +535,7 @@ class SkuResponse(dict):
                  name: _builtins.str):
         """
         Describes a configuration store SKU.
+
         :param _builtins.str name: The SKU name of the configuration store.
         """
         pulumi.set(__self__, "name", name)
@@ -581,6 +590,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -679,6 +689,7 @@ class UserIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         A resource identity that is managed by the user of the service.
+
         :param _builtins.str client_id: The client ID of the user-assigned identity.
         :param _builtins.str principal_id: The principal ID of the user-assigned identity.
         """

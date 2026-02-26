@@ -31,6 +31,7 @@ class IoTAddonArgs:
                  addon_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IoTAddon resource.
+
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input['IoTDeviceInfoArgs'] io_t_device_details: IoT device metadata to which appliance needs to be connected.
         :param pulumi.Input['IoTDeviceInfoArgs'] io_t_edge_device_details: IoT edge device to which the IoT Addon needs to be configured.
@@ -154,6 +155,7 @@ class IoTAddon(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_name: The addon name.
@@ -175,6 +177,7 @@ class IoTAddon(pulumi.CustomResource):
         IoT Addon.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+
 
         :param str resource_name: The name of the resource.
         :param IoTAddonArgs args: The arguments to use to populate this resource's properties.

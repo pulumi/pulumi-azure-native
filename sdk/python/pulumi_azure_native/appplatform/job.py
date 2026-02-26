@@ -27,6 +27,7 @@ class JobArgs:
                  properties: Optional[pulumi.Input['JobResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
         :param pulumi.Input[_builtins.str] job_name: The name of the Job resource.
@@ -104,6 +105,7 @@ class Job(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_name: The name of the Job resource.
@@ -121,6 +123,7 @@ class Job(pulumi.CustomResource):
         Job resource payload
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

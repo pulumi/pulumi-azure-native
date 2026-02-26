@@ -27,6 +27,7 @@ class MigrationEntityGroupArgs:
                  properties: Optional[pulumi.Input['MigrationEntityGroupPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MigrationEntityGroup resource.
+
         :param pulumi.Input[_builtins.str] project_name: Migrate Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] migration_entity_group_name: Migration Entity Group ARM name
@@ -104,6 +105,7 @@ class MigrationEntityGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-30-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] migration_entity_group_name: Migration Entity Group ARM name
@@ -121,6 +123,7 @@ class MigrationEntityGroup(pulumi.CustomResource):
         Migration Entity Group resource.
 
         Uses Azure REST API version 2025-03-30-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MigrationEntityGroupArgs args: The arguments to use to populate this resource's properties.

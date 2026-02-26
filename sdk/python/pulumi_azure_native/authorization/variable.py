@@ -25,6 +25,7 @@ class VariableArgs:
                  variable_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Variable resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]] columns: Variable column definitions.
         :param pulumi.Input[_builtins.str] variable_name: The name of the variable to operate on.
         """
@@ -73,6 +74,7 @@ class Variable(pulumi.CustomResource):
 
         Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]] columns: Variable column definitions.
@@ -90,6 +92,7 @@ class Variable(pulumi.CustomResource):
         Uses Azure REST API version 2022-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
 
         Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param VariableArgs args: The arguments to use to populate this resource's properties.

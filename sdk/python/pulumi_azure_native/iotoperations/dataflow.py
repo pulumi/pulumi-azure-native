@@ -30,6 +30,7 @@ class DataflowArgs:
                  properties: Optional[pulumi.Input['DataflowPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Dataflow resource.
+
         :param pulumi.Input[_builtins.str] dataflow_profile_name: Name of Instance dataflowProfile resource
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
@@ -139,6 +140,7 @@ class Dataflow(pulumi.CustomResource):
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataflow_name: Name of Instance dataflowProfile dataflow resource
@@ -160,6 +162,7 @@ class Dataflow(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DataflowArgs args: The arguments to use to populate this resource's properties.

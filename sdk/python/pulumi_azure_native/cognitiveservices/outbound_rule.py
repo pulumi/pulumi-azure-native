@@ -29,6 +29,7 @@ class OutboundRuleArgs:
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundRule resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] managed_network_name: Name of the managedNetwork associated with the cognitive services account. Only 'default' is supported.
         :param pulumi.Input['FqdnOutboundRuleArgs'] properties: Outbound Rule for the managed network of a cognitive services account.
@@ -118,6 +119,7 @@ class OutboundRule(pulumi.CustomResource):
         """
         Uses Azure REST API version 2025-10-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
@@ -134,6 +136,7 @@ class OutboundRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2025-10-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param OutboundRuleArgs args: The arguments to use to populate this resource's properties.

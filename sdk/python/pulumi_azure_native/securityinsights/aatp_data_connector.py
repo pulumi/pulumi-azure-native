@@ -30,6 +30,7 @@ class AATPDataConnectorArgs:
                  data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None):
         """
         The set of arguments for constructing a AATPDataConnector resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
                Expected value is 'AzureAdvancedThreatProtection'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -139,6 +140,7 @@ class AATPDataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
@@ -159,6 +161,7 @@ class AATPDataConnector(pulumi.CustomResource):
         Represents AATP (Azure Advanced Threat Protection) data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param AATPDataConnectorArgs args: The arguments to use to populate this resource's properties.

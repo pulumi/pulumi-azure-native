@@ -34,6 +34,7 @@ class ChangeDataCaptureArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChangeDataCapture resource.
+
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input['MapperPolicyArgs'] policy: CDC policy
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -204,6 +205,7 @@ class ChangeDataCapture(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_v_net_override: A boolean to determine if the vnet configuration needs to be overwritten.
@@ -227,6 +229,7 @@ class ChangeDataCapture(pulumi.CustomResource):
         Change data capture resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
 
         :param str resource_name: The name of the resource.
         :param ChangeDataCaptureArgs args: The arguments to use to populate this resource's properties.

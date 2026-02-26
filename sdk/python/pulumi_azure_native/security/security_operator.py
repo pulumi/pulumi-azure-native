@@ -24,6 +24,7 @@ class SecurityOperatorArgs:
                  security_operator_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityOperator resource.
+
         :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
         :param pulumi.Input[_builtins.str] security_operator_name: name of the securityOperator
         """
@@ -70,6 +71,7 @@ class SecurityOperator(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
@@ -85,6 +87,7 @@ class SecurityOperator(pulumi.CustomResource):
         Security operator under a given subscription and pricing
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityOperatorArgs args: The arguments to use to populate this resource's properties.

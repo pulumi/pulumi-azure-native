@@ -33,6 +33,7 @@ class BrokerAuthenticationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrokerAuthentication resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['BrokerAuthenticatorMethodsArgs']]] authentication_methods: The list of authentication methods supported by the Authentication Resource. For each array element, NOTE - Enum only authenticator type supported.
         :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
@@ -186,6 +187,7 @@ class BrokerAuthentication(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerAuthenticatorMethodsArgs', 'BrokerAuthenticatorMethodsArgsDict']]]] authentication_methods: The list of authentication methods supported by the Authentication Resource. For each array element, NOTE - Enum only authenticator type supported.
@@ -208,6 +210,7 @@ class BrokerAuthentication(pulumi.CustomResource):
         MQ broker/authentication resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
 
         :param str resource_name: The name of the resource.
         :param BrokerAuthenticationArgs args: The arguments to use to populate this resource's properties.

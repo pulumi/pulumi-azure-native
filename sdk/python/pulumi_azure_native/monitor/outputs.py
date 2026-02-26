@@ -213,6 +213,7 @@ class AccessModeSettingsExclusionResponse(dict):
                  query_access_mode: Optional[_builtins.str] = None):
         """
         Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+
         :param _builtins.str ingestion_access_mode: Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
         :param _builtins.str private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
         :param _builtins.str query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
@@ -279,6 +280,7 @@ class AccessModeSettingsResponse(dict):
                  exclusions: Optional[Sequence['outputs.AccessModeSettingsExclusionResponse']] = None):
         """
         Properties that define the scope private link mode settings.
+
         :param _builtins.str ingestion_access_mode: Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
         :param _builtins.str query_access_mode: Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
         :param Sequence['AccessModeSettingsExclusionResponse'] exclusions: List of exclusions that override the default access mode settings for specific private endpoint connections.
@@ -342,6 +344,7 @@ class ActionGroupResponse(dict):
                  webhook_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         A pointer to an Azure Action Group.
+
         :param _builtins.str action_group_id: The resource ID of the Action Group. This cannot be null or empty.
         :param Mapping[str, _builtins.str] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
@@ -392,6 +395,7 @@ class ActionListResponse(dict):
                  action_groups: Optional[Sequence['outputs.ActionGroupResponse']] = None):
         """
         A list of Activity Log Alert rule actions.
+
         :param Sequence['ActionGroupResponse'] action_groups: The list of the Action Groups.
         """
         if action_groups is not None:
@@ -438,6 +442,7 @@ class ActionsResponse(dict):
                  custom_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Actions to invoke when the alert fires.
+
         :param Sequence[_builtins.str] action_groups: Action Group resource Ids to invoke when the alert fires.
         :param Mapping[str, _builtins.str] action_properties: The properties of an action properties.
         :param Mapping[str, _builtins.str] custom_properties: The properties of an alert payload.
@@ -502,6 +507,7 @@ class AlertConfigurationResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Alert configuration details
+
         :param _builtins.str severity: The severity of triggered alert.
         :param Sequence[_builtins.str] action_group_ids: Optional list of action group resource IDs to be notified when the alert is triggered.
         :param _builtins.str description: The alert rule description.
@@ -563,6 +569,7 @@ class AlertRuleAllOfConditionResponse(dict):
                  all_of: Sequence['outputs.AlertRuleAnyOfOrLeafConditionResponse']):
         """
         An Activity Log Alert rule condition that is met when all its member conditions are met.
+
         :param Sequence['AlertRuleAnyOfOrLeafConditionResponse'] all_of: The list of Activity Log Alert rule conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
@@ -619,6 +626,7 @@ class AlertRuleAnyOfOrLeafConditionResponse(dict):
           _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
           * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
           _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+
 
         :param Sequence['AlertRuleLeafConditionResponse'] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
         :param Sequence[_builtins.str] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
@@ -699,6 +707,7 @@ class AlertRuleLeafConditionResponse(dict):
         """
         An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
         This condition must contain 'field' and either 'equals' or 'containsAny'.
+
         :param Sequence[_builtins.str] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
         :param _builtins.str equals: The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
         :param _builtins.str field: The name of the Activity Log event's field that this condition will examine.
@@ -788,6 +797,7 @@ class ApplicationInsightsTopologyDiscoveryRulePropertiesResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Discovery rule properties for an Application Insights topology query
+
         :param _builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param _builtins.str application_insights_resource_id: Application Insights resource ID
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
@@ -924,6 +934,7 @@ class ArmRoleReceiverResponse(dict):
                  use_common_alert_schema: Optional[_builtins.bool] = None):
         """
         An arm role receiver.
+
         :param _builtins.str name: The name of the arm role receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str role_id: The arm role id.
         :param _builtins.bool use_common_alert_schema: Indicates whether to use common alert schema.
@@ -1005,6 +1016,7 @@ class AutomationRunbookReceiverResponse(dict):
                  use_common_alert_schema: Optional[_builtins.bool] = None):
         """
         The Azure Automation Runbook notification receiver.
+
         :param _builtins.str automation_account_id: The Azure automation account Id which holds this runbook and authenticate to Azure resource.
         :param _builtins.bool is_global_runbook: Indicates whether this instance is global runbook.
         :param _builtins.str runbook_name: The name for this runbook.
@@ -1105,6 +1117,7 @@ class AutoscaleNotificationResponse(dict):
                  webhooks: Optional[Sequence['outputs.WebhookNotificationResponse']] = None):
         """
         Autoscale notification.
+
         :param _builtins.str operation: the operation associated with the notification and its value must be "scale"
         :param 'EmailNotificationResponse' email: the email notification.
         :param Sequence['WebhookNotificationResponse'] webhooks: the collection of webhook notifications.
@@ -1170,6 +1183,7 @@ class AutoscaleProfileResponse(dict):
                  recurrence: Optional['outputs.RecurrenceResponse'] = None):
         """
         Autoscale profile.
+
         :param 'ScaleCapacityResponse' capacity: the number of instances that can be used during this profile.
         :param _builtins.str name: the name of the profile.
         :param Sequence['ScaleRuleResponse'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
@@ -1261,6 +1275,7 @@ class AutoscaleSettingResponse(dict):
                  target_resource_uri: Optional[_builtins.str] = None):
         """
         A setting that contains all of the configuration for the automatic scaling of a resource.
+
         :param Sequence['AutoscaleProfileResponse'] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param _builtins.bool enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         :param _builtins.str name: the name of the autoscale setting.
@@ -1369,6 +1384,7 @@ class AzureAppPushReceiverResponse(dict):
                  name: _builtins.str):
         """
         The Azure mobile App push notification receiver.
+
         :param _builtins.str email_address: The email address registered for the Azure mobile app.
         :param _builtins.str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
         """
@@ -1431,6 +1447,7 @@ class AzureFunctionReceiverResponse(dict):
                  use_common_alert_schema: Optional[_builtins.bool] = None):
         """
         An azure function receiver.
+
         :param _builtins.str function_app_resource_id: The azure resource id of the function app.
         :param _builtins.str function_name: The function name in the function app.
         :param _builtins.str http_trigger_url: The http trigger url where http request sent to.
@@ -1529,6 +1546,7 @@ class AzureMonitorWorkspaceLogsApiConfigResponse(dict):
                  stream: _builtins.str):
         """
         Azure Monitor Workspace Logs Api configurations.
+
         :param _builtins.str data_collection_endpoint_url: Data collection endpoint ingestion url.
         :param _builtins.str data_collection_rule: Data Collection Rule (DCR) immutable id.
         :param 'SchemaMapResponse' schema: The schema mapping for incoming data.
@@ -1583,6 +1601,7 @@ class AzureMonitorWorkspaceLogsExporterResponse(dict):
                  concurrency: Optional['outputs.ConcurrencyConfigurationResponse'] = None):
         """
         Azure Monitor Workspace Logs specific configurations.
+
         :param 'AzureMonitorWorkspaceLogsApiConfigResponse' api: API configurations for Azure Monitor workspace exporter.
         :param 'CacheConfigurationResponse' cache: Cache configurations.
         :param 'ConcurrencyConfigurationResponse' concurrency: Concurrency configuration for the exporter.
@@ -1647,6 +1666,7 @@ class AzureMonitorWorkspaceResponseDefaultIngestionSettings(dict):
                  data_collection_rule_resource_id: _builtins.str):
         """
         The Data Collection Rule and Endpoint used for ingestion by default.
+
         :param _builtins.str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
         :param _builtins.str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
         """
@@ -1699,6 +1719,7 @@ class AzureMonitorWorkspaceResponseMetrics(dict):
                  prometheus_query_endpoint: _builtins.str):
         """
         Properties related to the metrics container in the Azure Monitor Workspace
+
         :param _builtins.str internal_id: An internal identifier for the metrics container. Only to be used by the system
         :param _builtins.str prometheus_query_endpoint: The Prometheus query endpoint for the Azure Monitor Workspace
         """
@@ -1754,6 +1775,7 @@ class AzureMonitorWorkspaceSignalGroupResponse(dict):
                  signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
         """
         A grouping of signal assignments for a Azure Monitor Workspace
+
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param _builtins.str azure_monitor_workspace_resource_id: Azure Monitor workspace resource ID
         :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -1798,6 +1820,7 @@ class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         The complex type of the extended location.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -1853,6 +1876,7 @@ class AzureResourceSignalGroupResponse(dict):
                  signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
         """
         A grouping of signal assignments for an Azure resource
+
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param _builtins.str azure_resource_id: Azure resource ID
         :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -1914,6 +1938,7 @@ class BatchProcessorResponse(dict):
                  timeout: Optional[_builtins.int] = None):
         """
         Batch processor.
+
         :param _builtins.int batch_size: Size of the batch.
         :param _builtins.int timeout: Timeout in milliseconds.
         """
@@ -1972,6 +1997,7 @@ class CacheConfigurationResponse(dict):
                  retention_period: Optional[_builtins.int] = None):
         """
         Cache configurations.
+
         :param _builtins.int max_storage_usage: Max storage usage in megabytes.
         :param _builtins.int retention_period: Retention period in minutes.
         """
@@ -2007,6 +2033,7 @@ class ColumnDefinitionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of custom data column.
+
         :param _builtins.str name: The name of the column.
         :param _builtins.str type: The type of the column data.
         """
@@ -2061,6 +2088,7 @@ class ConcurrencyConfigurationResponse(dict):
                  worker_count: Optional[_builtins.int] = None):
         """
         Concurrent publishing configuration.
+
         :param _builtins.int batch_queue_size: Size of the queue for log batches.
         :param _builtins.int worker_count: Number of parallel workers processing the log queues.
         """
@@ -2144,6 +2172,7 @@ class ConditionResponse(dict):
                  time_aggregation: Optional[_builtins.str] = None):
         """
         A condition of the scheduled query rule.
+
         :param _builtins.str alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         :param _builtins.str criterion_type: Specifies the type of threshold criteria
         :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
@@ -2319,6 +2348,7 @@ class ConditionResponseFailingPeriods(dict):
                  number_of_evaluation_periods: Optional[_builtins.float] = None):
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+
         :param _builtins.float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
         :param _builtins.float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         """
@@ -2381,6 +2411,7 @@ class DataCollectionEndpointResourceResponseIdentity(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity of the resource.
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -2466,6 +2497,7 @@ class DataCollectionEndpointResourceResponseSystemData(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2544,6 +2576,7 @@ class DataCollectionEndpointResponseConfigurationAccess(dict):
                  endpoint: _builtins.str):
         """
         The endpoint used by clients to access their configuration.
+
         :param _builtins.str endpoint: The endpoint. This property is READ-ONLY.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -2584,6 +2617,7 @@ class DataCollectionEndpointResponseFailoverConfiguration(dict):
                  locations: Optional[Sequence['outputs.LocationSpecResponse']] = None):
         """
         Failover configuration on this endpoint. This property is READ-ONLY.
+
         :param _builtins.str active_location: Active location where data flow will occur.
         :param Sequence['LocationSpecResponse'] locations: Locations that are configured for failover.
         """
@@ -2618,6 +2652,7 @@ class DataCollectionEndpointResponseLogsIngestion(dict):
                  endpoint: _builtins.str):
         """
         The endpoint used by clients to ingest logs.
+
         :param _builtins.str endpoint: The endpoint. This property is READ-ONLY.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -2660,6 +2695,7 @@ class DataCollectionEndpointResponseMetadata(dict):
                  provisioned_by_resource_id: _builtins.str):
         """
         Metadata for the resource. This property is READ-ONLY.
+
         :param _builtins.str provisioned_by: Azure offering managing this resource on-behalf-of customer.
         :param _builtins.str provisioned_by_resource_id: Resource Id of azure offering managing this resource on-behalf-of customer.
         """
@@ -2692,6 +2728,7 @@ class DataCollectionEndpointResponseMetricsIngestion(dict):
                  endpoint: _builtins.str):
         """
         The endpoint used by clients to ingest metrics.
+
         :param _builtins.str endpoint: The endpoint. This property is READ-ONLY.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -2731,6 +2768,7 @@ class DataCollectionEndpointResponseNetworkAcls(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         Network access control rules for the endpoints.
+
         :param _builtins.str public_network_access: The configuration to set whether network access from public internet to the endpoints are allowed.
         """
         if public_network_access is not None:
@@ -2786,6 +2824,7 @@ class DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2884,6 +2923,7 @@ class DataCollectionRuleAssociationResponseMetadata(dict):
                  provisioned_by_resource_id: _builtins.str):
         """
         Metadata about the resource
+
         :param _builtins.str provisioned_by: Azure offering managing this resource on-behalf-of customer.
         :param _builtins.str provisioned_by_resource_id: Resource Id of azure offering managing this resource on-behalf-of customer.
         """
@@ -2940,6 +2980,7 @@ class DataCollectionRuleResourceResponseIdentity(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity of the resource.
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -3025,6 +3066,7 @@ class DataCollectionRuleResourceResponseSystemData(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3145,6 +3187,7 @@ class DataCollectionRuleResponseDataSources(dict):
         """
         The specification of data sources. 
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+
         :param 'DataSourcesSpecResponseDataImports' data_imports: Specifications of pull based data sources
         :param Sequence['ExtensionDataSourceResponse'] extensions: The list of Azure VM extension data source configurations.
         :param Sequence['IisLogsDataSourceResponse'] iis_logs: The list of IIS logs source configurations.
@@ -3305,6 +3348,7 @@ class DataCollectionRuleResponseDestinations(dict):
                  storage_tables_direct: Optional[Sequence['outputs.StorageTableDestinationResponse']] = None):
         """
         The specification of destinations.
+
         :param 'DestinationsSpecResponseAzureMonitorMetrics' azure_monitor_metrics: Azure Monitor Metrics destination.
         :param Sequence['EventHubDestinationResponse'] event_hubs: List of Event Hubs destinations.
         :param Sequence['EventHubDirectDestinationResponse'] event_hubs_direct: List of Event Hubs Direct destinations.
@@ -3425,6 +3469,7 @@ class DataCollectionRuleResponseMetadata(dict):
                  provisioned_by_resource_id: _builtins.str):
         """
         Metadata about the resource
+
         :param _builtins.str provisioned_by: Azure offering managing this resource on-behalf-of customer.
         :param _builtins.str provisioned_by_resource_id: Resource Id of azure offering managing this resource on-behalf-of customer.
         """
@@ -3482,6 +3527,7 @@ class DataFlowResponse(dict):
                  transform_kql: Optional[_builtins.str] = None):
         """
         Definition of which streams are sent to which destinations.
+
         :param _builtins.str built_in_transform: The builtIn transform to transform stream data
         :param Sequence[_builtins.str] destinations: List of destinations for this data flow.
         :param _builtins.str output_stream: The output stream of the transform. Only required if the transform changes data to a different stream.
@@ -3568,6 +3614,7 @@ class DataImportSourcesResponseEventHub(dict):
                  stream: Optional[_builtins.str] = None):
         """
         Definition of Event Hub configuration.
+
         :param _builtins.str consumer_group: Event Hub consumer group name
         :param _builtins.str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -3632,6 +3679,7 @@ class DataSourcesSpecResponseDataImports(dict):
                  event_hub: Optional['outputs.DataImportSourcesResponseEventHub'] = None):
         """
         Specifications of pull based data sources
+
         :param 'DataImportSourcesResponseEventHub' event_hub: Definition of Event Hub configuration.
         """
         if event_hub is not None:
@@ -3678,6 +3726,7 @@ class DependenciesSignalGroupResponse(dict):
                  unhealthy_threshold: Optional[_builtins.str] = None):
         """
         Properties for dependent entities, i.e. child entities
+
         :param _builtins.str aggregation_type: Aggregation type for child dependencies.
         :param _builtins.str degraded_threshold: Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         :param _builtins.str unhealthy_threshold: Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
@@ -3724,6 +3773,7 @@ class DestinationsSpecResponseAzureMonitorMetrics(dict):
                  name: Optional[_builtins.str] = None):
         """
         Azure Monitor Metrics destination.
+
         :param _builtins.str name: A friendly name for the destination. 
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
@@ -3754,6 +3804,7 @@ class DiagnosticSettingsCategoryResourceResponse(dict):
                  category_type: Optional[_builtins.str] = None):
         """
         The diagnostic settings category resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: The system metadata related to this resource.
@@ -3830,6 +3881,7 @@ class DimensionResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         Dimension splitting and filtering definition
+
         :param _builtins.str name: Name of the dimension
         :param _builtins.str operator: Operator for dimension values
         :param Sequence[_builtins.str] values: List of dimension values
@@ -3873,6 +3925,7 @@ class DiscoveryErrorResponse(dict):
                  message: _builtins.str):
         """
         Error details for a failed discovery operation
+
         :param Sequence[_builtins.str] context: Additional context information, like resource IDs or query details
         :param _builtins.str message: Error message
         """
@@ -3931,6 +3984,7 @@ class DynamicDetectionRuleResponse(dict):
                  training_start_time: Optional[_builtins.str] = None):
         """
         ML-based evaluation rule for a signal definition
+
         :param _builtins.str dynamic_threshold_direction: Threshold direction
         :param _builtins.str dynamic_threshold_model: ML model to use for dynamic thresholds
         :param _builtins.float model_sensitivity: ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
@@ -4025,6 +4079,7 @@ class DynamicMetricCriteriaResponse(dict):
                  skip_metric_validation: Optional[_builtins.bool] = None):
         """
         Criterion for dynamic threshold.
+
         :param _builtins.str alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param _builtins.str criterion_type: Specifies the type of threshold criteria
                Expected value is 'DynamicThresholdCriterion'.
@@ -4173,6 +4228,7 @@ class DynamicThresholdFailingPeriodsResponse(dict):
                  number_of_evaluation_periods: _builtins.float):
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert.
+
         :param _builtins.float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
         :param _builtins.float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
         """
@@ -4228,6 +4284,7 @@ class EmailNotificationResponse(dict):
                  send_to_subscription_co_administrators: Optional[_builtins.bool] = None):
         """
         Email notification of an autoscale event.
+
         :param Sequence[_builtins.str] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         :param _builtins.bool send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param _builtins.bool send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
@@ -4299,6 +4356,7 @@ class EmailReceiverResponse(dict):
                  use_common_alert_schema: Optional[_builtins.bool] = None):
         """
         An email receiver.
+
         :param _builtins.str email_address: The email address of this receiver.
         :param _builtins.str name: The name of the email receiver. Names must be unique across all receivers within a tenant action group.
         :param _builtins.str status: The receiver status of the e-mail.
@@ -4355,6 +4413,7 @@ class EntityAlertsResponse(dict):
                  unhealthy: Optional['outputs.AlertConfigurationResponse'] = None):
         """
         Alert configuration for an entity
+
         :param 'AlertConfigurationResponse' degraded: Alert to be triggered on state change to degraded
         :param 'AlertConfigurationResponse' unhealthy: Alert to be triggered on state change to unhealthy
         """
@@ -4390,6 +4449,7 @@ class EntityCoordinatesResponse(dict):
                  y: _builtins.float):
         """
         Visual position of the entity
+
         :param _builtins.float x: X Coordinate
         :param _builtins.float y: Y Coordinate
         """
@@ -4463,6 +4523,7 @@ class EntityPropertiesResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Properties which are common across all kinds of entities
+
         :param _builtins.str deletion_date: Date when the entity was (soft-)deleted
         :param _builtins.str discovered_by: Discovered by which discovery rule. If set, the entity cannot be deleted manually.
         :param _builtins.str health_state: Health state of this entity
@@ -4641,6 +4702,7 @@ class EvaluationRuleResponse(dict):
                  unhealthy_rule: Optional['outputs.ThresholdRuleResponse'] = None):
         """
         Evaluation rule for a signal definition
+
         :param 'ThresholdRuleResponse' degraded_rule: Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
         :param 'DynamicDetectionRuleResponse' dynamic_detection_rule: Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
         :param 'ThresholdRuleResponse' unhealthy_rule: Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
@@ -4819,6 +4881,7 @@ class EventHubReceiverResponse(dict):
                  use_common_alert_schema: Optional[_builtins.bool] = None):
         """
         An Event hub receiver.
+
         :param _builtins.str event_hub_name: The name of the specific Event Hub queue
         :param _builtins.str event_hub_name_space: The Event Hub namespace
         :param _builtins.str name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
@@ -4926,6 +4989,7 @@ class ExporterResponse(dict):
                  tcp: Optional['outputs.TcpExporterResponse'] = None):
         """
         Exporter Info.
+
         :param _builtins.str name: The name of exporter.
         :param _builtins.str type: The type of exporter.
         :param 'AzureMonitorWorkspaceLogsExporterResponse' azure_monitor_workspace_logs: Azure Monitor Workspace Logs specific configurations.
@@ -5007,6 +5071,7 @@ class ExtensionDataSourceResponse(dict):
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
         Collected from either Windows and Linux machines, depending on which extension is defined.
+
         :param _builtins.str extension_name: The name of the VM extension.
         :param Any extension_settings: The extension settings. The format is specific for particular extension.
         :param Sequence[_builtins.str] input_data_sources: The list of data sources this extension needs data from.
@@ -5098,6 +5163,7 @@ class HealthModelPropertiesResponse(dict):
                  discovery: Optional['outputs.ModelDiscoverySettingsResponse'] = None):
         """
         HealthModel properties
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str query_endpoint: The data plane endpoint for querying health data
         :param 'ModelDiscoverySettingsResponse' discovery: Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
@@ -5161,6 +5227,7 @@ class IconDefinitionResponse(dict):
                  custom_data: Optional[_builtins.str] = None):
         """
         Visual icon definition of an entity
+
         :param _builtins.str icon_name: Name of the built-in icon, or 'Custom' to use customData
         :param _builtins.str custom_data: Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
@@ -5218,6 +5285,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: Type of managed service identity.
@@ -5290,6 +5358,7 @@ class IisLogsDataSourceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Enables IIS logs to be collected by this data collection rule.
+
         :param Sequence[_builtins.str] streams: IIS streams
         :param Sequence[_builtins.str] log_directories: Absolute paths file location
         :param _builtins.str name: A friendly name for the data source. 
@@ -5356,6 +5425,7 @@ class IncidentReceiverResponse(dict):
                  name: _builtins.str):
         """
         An Incident receiver.
+
         :param 'IncidentServiceConnectionResponse' connection: The incident service connection
         :param _builtins.str incident_management_service: The incident management service type
         :param Mapping[str, _builtins.str] mappings: Field mappings for the incident service
@@ -5409,6 +5479,7 @@ class IncidentServiceConnectionResponse(dict):
                  name: _builtins.str):
         """
         The connection info for Incident Receiver.
+
         :param _builtins.str id: GUID value representing the connection ID for the incident management service.
         :param _builtins.str name: The name of the connection.
         """
@@ -5461,6 +5532,7 @@ class InvestigationExecutionResponse(dict):
                  completed_at: Optional[_builtins.str] = None):
         """
         Details about the execution of the investigation
+
         :param _builtins.str run_state: The state of the investigation execution
         :param _builtins.str completed_at: The time at which the investigation execution completed (in UTC)
         """
@@ -5516,6 +5588,7 @@ class InvestigationMetadataResponse(dict):
                  run_parameters: 'outputs.RunParametersResponse'):
         """
         Properties of the current investigation
+
         :param _builtins.str created_at: The creation time of the investigation (in UTC)
         :param 'InvestigationExecutionResponse' execution: The execution details of the investigation
         :param _builtins.str id: The unique identifier of the investigation
@@ -5570,6 +5643,7 @@ class InvestigationScopeResponse(dict):
                  relevance: Optional[_builtins.str] = None):
         """
         A single scope of the investigation
+
         :param _builtins.str id: The ID of the scope of the investigation - either an Azure alert ID or an Azure resource ID
         :param 'OriginResponse' origin: The origin of the scope
         :param _builtins.str relevance: The relevance of the scope
@@ -5640,6 +5714,7 @@ class IssuePropertiesResponse(dict):
                  title: _builtins.str):
         """
         The issue properties
+
         :param _builtins.str impact_time: The issue impact time (in UTC)
         :param Sequence['InvestigationMetadataResponse'] investigations: The list of investigations in the issue
         :param _builtins.int investigations_count: The number of investigations in the issue
@@ -5747,6 +5822,7 @@ class ItsmReceiverResponse(dict):
                  workspace_id: _builtins.str):
         """
         An Itsm receiver.
+
         :param _builtins.str connection_id: Unique identification of ITSM connection among multiple defined in above workspace.
         :param _builtins.str name: The name of the Itsm receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str region: Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
@@ -5830,6 +5906,7 @@ class JsonArrayMapperResponse(dict):
                  source_field: Optional['outputs.JsonMapperSourceFieldResponse'] = None):
         """
         A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+
         :param Sequence[_builtins.str] keys: Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
         :param 'JsonMapperDestinationFieldResponse' destination_field: Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
         :param 'JsonMapperSourceFieldResponse' source_field: Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
@@ -5892,6 +5969,7 @@ class JsonMapperDestinationFieldResponse(dict):
                  field_name: Optional[_builtins.str] = None):
         """
         JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+
         :param _builtins.str destination: Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
         :param _builtins.str field_name: Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
         """
@@ -5945,6 +6023,7 @@ class JsonMapperSourceFieldResponse(dict):
                  field_name: Optional[_builtins.str] = None):
         """
         JsonArrayMapper source field used to describe the field from which the json array will be read.
+
         :param _builtins.str field_name: Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
         """
         if field_name is not None:
@@ -6037,6 +6116,7 @@ class LogAnalyticsDestinationResponse(dict):
                  workspace_resource_id: Optional[_builtins.str] = None):
         """
         Log Analytics destination.
+
         :param _builtins.str workspace_id: The Customer ID of the Log Analytics workspace.
         :param _builtins.str name: A friendly name for the destination. 
                This name should be unique across all destinations (regardless of type) within the data collection rule.
@@ -6128,6 +6208,7 @@ class LogAnalyticsQuerySignalDefinitionPropertiesResponse(dict):
                  value_column_name: Optional[_builtins.str] = None):
         """
         Log Analytics Query Signal Definition properties
+
         :param _builtins.str deletion_date: Date when the signal definition was (soft-)deleted
         :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
         :param _builtins.str provisioning_state: The status of the last operation.
@@ -6283,6 +6364,7 @@ class LogAnalyticsSignalGroupResponse(dict):
                  signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
         """
         A grouping of signal assignments for a Log Analytics Workspace
+
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param _builtins.str log_analytics_workspace_resource_id: Log Analytics Workspace resource ID
         :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -6343,6 +6425,7 @@ class LogFileSettingsResponseText(dict):
                  record_start_timestamp_format: _builtins.str):
         """
         Text settings
+
         :param _builtins.str record_start_timestamp_format: One of the supported timestamp formats
         """
         pulumi.set(__self__, "record_start_timestamp_format", record_start_timestamp_format)
@@ -6386,6 +6469,7 @@ class LogFilesDataSourceResponse(dict):
                  settings: Optional['outputs.LogFilesDataSourceResponseSettings'] = None):
         """
         Definition of which custom log files will be collected by this data collection rule
+
         :param Sequence[_builtins.str] file_patterns: File Patterns where the log files are located
         :param _builtins.str format: The data format of the log files
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
@@ -6454,6 +6538,7 @@ class LogFilesDataSourceResponseSettings(dict):
                  text: Optional['outputs.LogFileSettingsResponseText'] = None):
         """
         The log files specific settings.
+
         :param 'LogFileSettingsResponseText' text: Text settings
         """
         if text is not None:
@@ -6499,6 +6584,7 @@ class LogSettingsResponse(dict):
                  retention_policy: Optional['outputs.RetentionPolicyResponse'] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+
         :param _builtins.bool enabled: a value indicating whether this log is enabled.
         :param _builtins.str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         :param _builtins.str category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
@@ -6581,6 +6667,7 @@ class LogicAppReceiverResponse(dict):
                  use_common_alert_schema: Optional[_builtins.bool] = None):
         """
         A logic app receiver.
+
         :param _builtins.str callback_url: The callback url where http request sent to.
         :param _builtins.str name: The name of the logic app receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str resource_id: The azure resource id of the logic app receiver.
@@ -6673,6 +6760,7 @@ class ManagedIdentityAuthenticationSettingPropertiesResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Authentication setting properties for Azure Managed Identity
+
         :param _builtins.str authentication_kind: Supported kinds of authentication settings as discriminator
                Expected value is 'ManagedIdentity'.
         :param _builtins.str managed_identity_name: Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
@@ -6752,6 +6840,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -6824,6 +6913,7 @@ class ManagementGroupLogSettingsResponse(dict):
                  category_group: Optional[_builtins.str] = None):
         """
         Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+
         :param _builtins.bool enabled: a value indicating whether this log is enabled.
         :param _builtins.str category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
         :param _builtins.str category_group: Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
@@ -6888,6 +6978,7 @@ class MetricAlertActionResponse(dict):
                  web_hook_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         An alert action.
+
         :param _builtins.str action_group_id: the id of the action group to use.
         :param Mapping[str, _builtins.str] web_hook_properties: This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         """
@@ -6942,6 +7033,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
                  all_of: Optional[Sequence[Any]] = None):
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+
         :param _builtins.str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         :param Sequence[Union['DynamicMetricCriteriaResponse', 'MetricCriteriaResponse']] all_of: the list of multiple metric criteria for this 'all of' operation. 
@@ -6997,6 +7089,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
                  all_of: Optional[Sequence['outputs.MetricCriteriaResponse']] = None):
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+
         :param _builtins.str odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         :param Sequence['MetricCriteriaResponse'] all_of: The list of metric criteria for this 'all of' operation. 
@@ -7065,6 +7158,7 @@ class MetricCriteriaResponse(dict):
                  skip_metric_validation: Optional[_builtins.bool] = None):
         """
         Criterion to filter metrics.
+
         :param _builtins.str criterion_type: Specifies the type of threshold criteria
                Expected value is 'StaticThresholdCriterion'.
         :param _builtins.str metric_name: Name of the metric.
@@ -7174,6 +7268,7 @@ class MetricDimensionResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         Specifies a metric dimension.
+
         :param _builtins.str name: Name of the dimension.
         :param _builtins.str operator: the dimension operator. Only 'Include' and 'Exclude' are supported
         :param Sequence[_builtins.str] values: list of dimension values.
@@ -7238,6 +7333,7 @@ class MetricSettingsResponse(dict):
                  time_grain: Optional[_builtins.str] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+
         :param _builtins.bool enabled: a value indicating whether this category is enabled.
         :param _builtins.str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
         :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
@@ -7335,6 +7431,7 @@ class MetricTriggerResponse(dict):
                  metric_resource_location: Optional[_builtins.str] = None):
         """
         The trigger that results in a scaling action.
+
         :param _builtins.str metric_name: the name of the metric that defines what the rule monitors.
         :param _builtins.str metric_resource_uri: the resource identifier of the resource the rule monitors.
         :param _builtins.str operator: the operator that is used to compare the metric data and the threshold.
@@ -7490,6 +7587,7 @@ class ModelDiscoverySettingsResponse(dict):
                  identity: Optional[_builtins.str] = None):
         """
         Settings for automatically discovering entities for the health model.
+
         :param _builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param _builtins.str scope: The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
         :param _builtins.str identity: Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
@@ -7554,6 +7652,7 @@ class MonitoringAccountDestinationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Monitoring account destination.
+
         :param _builtins.str account_id: The immutable ID  of the account.
         :param _builtins.str account_resource_id: The resource ID of the monitoring account.
         :param _builtins.str name: A friendly name for the destination. 
@@ -7619,6 +7718,7 @@ class NetworkingConfigurationResponse(dict):
                  host: Optional[_builtins.str] = None):
         """
         Networking configuration for the pipeline group instance.
+
         :param _builtins.str external_networking_mode: External networking mode.
         :param Sequence['NetworkingRouteResponse'] routes: Networking routes configuration.
         :param _builtins.str host: The address exposed on the cluster. Example: azuremonitorpipeline.contoso.com.
@@ -7665,6 +7765,7 @@ class NetworkingRouteResponse(dict):
                  subdomain: Optional[_builtins.str] = None):
         """
         Networking route configuration.
+
         :param _builtins.str receiver: The name of the previously defined receiver.
         :param _builtins.str path: Route path.
         :param _builtins.int port: The port that will be configured externally. If not specified, it will use the port from the receiver definition.
@@ -7740,6 +7841,7 @@ class OriginResponse(dict):
                  added_by_type: _builtins.str):
         """
         Details about the origin of the entity - the source that added it to the issue
+
         :param _builtins.str added_by: The ID of the origin - for example, in case of 'Manual', the user ID/app ID, and in case of 'Automatic', the name of the automatic system
         :param _builtins.str added_by_type: The source of the origin - Manual or Automatic
         """
@@ -7772,6 +7874,7 @@ class OtlpReceiverResponse(dict):
                  endpoint: _builtins.str):
         """
         OTLP Receiver.
+
         :param _builtins.str endpoint: OTLP GRPC endpoint definition. Example: 0.0.0.0:<port>.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -7818,6 +7921,7 @@ class PerfCounterDataSourceResponse(dict):
         """
         Definition of which performance counters will be collected and how they will be collected by this data collection rule.
         Collected from both Windows and Linux machines where the counter is present.
+
         :param Sequence[_builtins.str] counter_specifiers: A list of specifier names of the performance counters you want to collect.
                Use a wildcard (*) to collect a counter for all instances.
                To get a list of performance counters on Windows, run the command 'typeperf'.
@@ -7899,6 +8003,7 @@ class PersistenceConfigurationsResponse(dict):
                  persistent_volume_name: _builtins.str):
         """
         Persistence options to all pipelines in the instance.
+
         :param _builtins.str persistent_volume_name: The name of the mounted persistent volume.
         """
         pulumi.set(__self__, "persistent_volume_name", persistent_volume_name)
@@ -7946,6 +8051,7 @@ class PipelineGroupPropertiesResponse(dict):
                  replicas: Optional[_builtins.int] = None):
         """
         Properties that need to be specified to create a new pipeline group instance.
+
         :param Sequence['ExporterResponse'] exporters: The exporters specified for a pipeline group instance.
         :param Sequence['ProcessorResponse'] processors: The processors specified for a pipeline group instance.
         :param _builtins.str provisioning_state: The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
@@ -8034,6 +8140,7 @@ class PipelineResponse(dict):
                  processors: Optional[Sequence[_builtins.str]] = None):
         """
         Pipeline Info.
+
         :param Sequence[_builtins.str] exporters: Reference to exporters configured for the pipeline.
         :param _builtins.str name: Name of the pipeline.
         :param Sequence[_builtins.str] receivers: Reference to receivers configured for the pipeline.
@@ -8098,6 +8205,7 @@ class PlatformTelemetryDataSourceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Definition of platform telemetry data source configuration
+
         :param Sequence[_builtins.str] streams: List of platform telemetry streams to collect
         :param _builtins.str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -8153,6 +8261,7 @@ class PredictiveAutoscalePolicyResponse(dict):
                  scale_look_ahead_time: Optional[_builtins.str] = None):
         """
         The parameters for enabling predictive autoscale.
+
         :param _builtins.str scale_mode: the predictive autoscale mode
         :param _builtins.str scale_look_ahead_time: the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
         """
@@ -8218,6 +8327,7 @@ class PrivateEndpointConnectionResponse(dict):
                  system_data: Optional['outputs.SystemDataResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -8313,6 +8423,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -8404,6 +8515,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -8451,6 +8563,7 @@ class ProcessorResponse(dict):
                  batch: Optional['outputs.BatchProcessorResponse'] = None):
         """
         Processor Info.
+
         :param _builtins.str name: The name of processor.
         :param _builtins.str type: The type of processor.
         :param 'BatchProcessorResponse' batch: Batch processor configurations.
@@ -8513,6 +8626,7 @@ class PrometheusForwarderDataSourceResponse(dict):
                  streams: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of Prometheus metrics forwarding configuration.
+
         :param Mapping[str, _builtins.str] label_include_filter: The list of label inclusion filters in the form of label "name-value" pairs.
                Currently only one label is supported: 'microsoft_metrics_include_label'.
                Label values are matched case-insensitively.
@@ -8606,6 +8720,7 @@ class PrometheusMetricsSignalDefinitionPropertiesResponse(dict):
                  time_grain: Optional[_builtins.str] = None):
         """
         Prometheus Metrics Signal Definition properties
+
         :param _builtins.str deletion_date: Date when the signal definition was (soft-)deleted
         :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
         :param _builtins.str provisioning_state: The status of the last operation.
@@ -8731,6 +8846,7 @@ class ReceiverResponse(dict):
                  udp: Optional['outputs.UdpReceiverResponse'] = None):
         """
         Receiver Info.
+
         :param _builtins.str name: The name of receiver.
         :param _builtins.str type: The type of receiver.
         :param 'OtlpReceiverResponse' otlp: OTLP receiver configurations. This field is mandatory for OTLP and pipelineGroup receivers.
@@ -8814,6 +8930,7 @@ class RecordMapResponse(dict):
                  to: _builtins.str):
         """
         Record map for schema in azure monitor.
+
         :param _builtins.str from_: Record Map Key.
         :param _builtins.str to: Record Map Value.
         """
@@ -8847,6 +8964,7 @@ class RecurrenceResponse(dict):
                  schedule: 'outputs.RecurrentScheduleResponse'):
         """
         The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+
         :param _builtins.str frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         :param 'RecurrentScheduleResponse' schedule: the scheduling constraints for when the profile begins.
         """
@@ -8899,6 +9017,7 @@ class RecurrentScheduleResponse(dict):
                  time_zone: _builtins.str):
         """
         The scheduling constraints for when the profile begins.
+
         :param Sequence[_builtins.str] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
         :param Sequence[_builtins.int] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
         :param Sequence[_builtins.int] minutes: A collection of minutes at which the profile takes effect at.
@@ -8955,6 +9074,7 @@ class RelatedAlertResponse(dict):
                  relevance: _builtins.str):
         """
         Properties of an alert which is related to the issue
+
         :param _builtins.str added_at: The time this relation was added to the issue (in UTC)
         :param _builtins.str id: The alert ID
         :param _builtins.str last_modified_at: The last update time of this relation (in UTC)
@@ -9021,6 +9141,7 @@ class RelatedResourceResponse(dict):
                  relevance: _builtins.str):
         """
         Properties of a resource which is related to the issue
+
         :param _builtins.str added_at: The time this relation was added to the issue (in UTC)
         :param _builtins.str id: The resource ID
         :param _builtins.str last_modified_at: The last update time of this relation (in UTC)
@@ -9116,6 +9237,7 @@ class RelationshipPropertiesResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Relationship properties
+
         :param _builtins.str child_entity_name: Resource name of the child entity
         :param _builtins.str deletion_date: Date when the relationship was (soft-)deleted
         :param _builtins.str discovered_by: Discovered by which discovery rule. If set, the relationship cannot be deleted manually.
@@ -9242,6 +9364,7 @@ class ResourceGraphQueryDiscoveryRulePropertiesResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Discovery rule properties for an Azure Resource Graph query
+
         :param _builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
         :param _builtins.str deletion_date: Date when the discovery rule was (soft-)deleted.
@@ -9375,6 +9498,7 @@ class ResourceMapResponse(dict):
                  to: _builtins.str):
         """
         Resource map for schema in azure monitor.
+
         :param _builtins.str from_: Resource Map Key.
         :param _builtins.str to: Resource Map Value.
         """
@@ -9459,6 +9583,7 @@ class ResourceMetricSignalDefinitionPropertiesResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure Resource Metric Signal Definition properties
+
         :param _builtins.str aggregation_type: Type of aggregation to apply to the metric
         :param _builtins.str deletion_date: Date when the signal definition was (soft-)deleted
         :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
@@ -9622,6 +9747,7 @@ class RetentionPolicyResponse(dict):
                  enabled: _builtins.bool):
         """
         Specifies the retention policy for the log.
+
         :param _builtins.int days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param _builtins.bool enabled: a value indicating whether the retention policy is enabled.
         """
@@ -9674,6 +9800,7 @@ class RuleResolveConfigurationResponse(dict):
                  time_to_resolve: Optional[_builtins.str] = None):
         """
         TBD. Relevant only for rules of the kind LogAlert.
+
         :param _builtins.bool auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
         :param _builtins.str time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
         """
@@ -9727,6 +9854,7 @@ class RunParametersResponse(dict):
                  resources: Sequence['outputs.InvestigationScopeResponse']):
         """
         The parameters used to run the investigation
+
         :param Sequence['InvestigationScopeResponse'] alerts: The alerts used to run the investigation
         :param _builtins.str impact_time: The impact time to investigate (in UTC)
         :param Sequence['InvestigationScopeResponse'] resources: The resources used to run the investigation
@@ -9772,6 +9900,7 @@ class ScaleActionResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The parameters for the scaling action.
+
         :param _builtins.str cooldown: the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
         :param _builtins.str direction: the scale direction. Whether the scaling action increases or decreases the number of instances.
         :param _builtins.str type: the type of action that should occur when the scale rule fires.
@@ -9829,6 +9958,7 @@ class ScaleCapacityResponse(dict):
                  minimum: _builtins.str):
         """
         The number of instances that can be used during this profile.
+
         :param _builtins.str default: the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
         :param _builtins.str maximum: the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
         :param _builtins.str minimum: the minimum number of instances for the resource.
@@ -9890,6 +10020,7 @@ class ScaleRuleMetricDimensionResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         Specifies an auto scale rule metric dimension.
+
         :param _builtins.str dimension_name: Name of the dimension.
         :param _builtins.str operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         :param Sequence[_builtins.str] values: list of dimension values. For example: ["App1","App2"].
@@ -9952,6 +10083,7 @@ class ScaleRuleResponse(dict):
                  scale_action: 'outputs.ScaleActionResponse'):
         """
         A rule that provide the triggers and parameters for the scaling action.
+
         :param 'MetricTriggerResponse' metric_trigger: the trigger that results in a scaling action.
         :param 'ScaleActionResponse' scale_action: the parameters for the scaling action.
         """
@@ -10001,6 +10133,7 @@ class ScheduledQueryRuleCriteriaResponse(dict):
                  all_of: Optional[Sequence['outputs.ConditionResponse']] = None):
         """
         The rule criteria that defines the conditions of the scheduled query rule.
+
         :param Sequence['ConditionResponse'] all_of: A list of conditions to evaluate against the specified scopes
         """
         if all_of is not None:
@@ -10047,6 +10180,7 @@ class SchemaMapResponse(dict):
                  scope_map: Optional[Sequence['outputs.ScopeMapResponse']] = None):
         """
         Schema map for azure monitor for logs.
+
         :param Sequence['RecordMapResponse'] record_map: Record Map.
         :param Sequence['ResourceMapResponse'] resource_map: Resource Map captures information about the entity for which telemetry is recorded. For example, metrics exposed by a Kubernetes container can be linked to a resource that specifies the cluster, namespace, pod, and container name.Resource may capture an entire hierarchy of entity identification. It may describe the host in the cloud and specific container or an application running in the process.
         :param Sequence['ScopeMapResponse'] scope_map: A scope map is a logical unit of the application code with which the emitted telemetry can be associated.
@@ -10109,6 +10243,7 @@ class ScopeMapResponse(dict):
                  to: _builtins.str):
         """
         Scope map for schema in azure monitor.
+
         :param _builtins.str from_: Scope Map Key.
         :param _builtins.str to: Scope Map Value.
         """
@@ -10142,6 +10277,7 @@ class ServiceResponse(dict):
                  persistence: Optional['outputs.PersistenceConfigurationsResponse'] = None):
         """
         Service Info.
+
         :param Sequence['PipelineResponse'] pipelines: Pipelines belonging to a given pipeline group.
         :param 'PersistenceConfigurationsResponse' persistence: Persistence options to all pipelines in the instance.
         """
@@ -10192,6 +10328,7 @@ class SignalAssignmentResponse(dict):
                  signal_definitions: Sequence[_builtins.str]):
         """
         Group of signal definition assignments
+
         :param Sequence[_builtins.str] signal_definitions: Signal definitions referenced by their names. All definitions are combined with an AND operator.
         """
         pulumi.set(__self__, "signal_definitions", signal_definitions)
@@ -10238,6 +10375,7 @@ class SignalGroupResponse(dict):
                  dependencies: Optional['outputs.DependenciesSignalGroupResponse'] = None):
         """
         Contains various signal groups that can be assigned to an entity
+
         :param 'LogAnalyticsSignalGroupResponse' azure_log_analytics: Log Analytics Signal Group
         :param 'AzureMonitorWorkspaceSignalGroupResponse' azure_monitor_workspace: Azure Monitor Workspace Signal Group
         :param 'AzureResourceSignalGroupResponse' azure_resource: Azure Resource Signal Group
@@ -10316,6 +10454,7 @@ class SmsReceiverResponse(dict):
                  status: _builtins.str):
         """
         An SMS receiver.
+
         :param _builtins.str country_code: The country code of the SMS receiver.
         :param _builtins.str name: The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
         :param _builtins.str phone_number: The phone number of the SMS receiver.
@@ -10496,6 +10635,7 @@ class StreamDeclarationResponse(dict):
                  columns: Optional[Sequence['outputs.ColumnDefinitionResponse']] = None):
         """
         Declaration of a custom stream.
+
         :param Sequence['ColumnDefinitionResponse'] columns: List of columns used by data in this stream.
         """
         if columns is not None:
@@ -10538,6 +10678,7 @@ class SubscriptionLogSettingsResponse(dict):
                  category_group: Optional[_builtins.str] = None):
         """
         Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+
         :param _builtins.bool enabled: a value indicating whether this log is enabled.
         :param _builtins.str category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         :param _builtins.str category_group: Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
@@ -10606,6 +10747,7 @@ class SyslogDataSourceResponse(dict):
         """
         Definition of which syslog data will be collected and how it will be collected.
         Only collected from Linux machines.
+
         :param Sequence[_builtins.str] facility_names: The list of facility names.
         :param Sequence[_builtins.str] log_levels: The log levels to collect.
         :param _builtins.str name: A friendly name for the data source. 
@@ -10667,6 +10809,7 @@ class SyslogReceiverResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Base receiver using TCP as transport protocol.
+
         :param _builtins.str endpoint: Syslog receiver endpoint definition. Example: 0.0.0.0:<port>.
         :param _builtins.str protocol: Protocol to parse syslog messages. Default rfc3164
         """
@@ -10734,6 +10877,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -10812,6 +10956,7 @@ class TcpExporterResponse(dict):
                  url: _builtins.str):
         """
         Base exporter using TCP as transport protocol.
+
         :param _builtins.str url: TCP url to export.
         """
         pulumi.set(__self__, "url", url)
@@ -10835,6 +10980,7 @@ class ThresholdRuleResponse(dict):
                  threshold: _builtins.str):
         """
         Threshold-based evaluation rule for a signal definition
+
         :param _builtins.str operator: Operator how to compare the signal value with the threshold
         :param _builtins.str threshold: Threshold value
         """
@@ -10886,6 +11032,7 @@ class TimeWindowResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         A specific date-time for the profile.
+
         :param _builtins.str end: the end time for the profile in ISO 8601 format.
         :param _builtins.str start: the start time for the profile in ISO 8601 format.
         :param _builtins.str time_zone: the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
@@ -10951,6 +11098,7 @@ class UdpReceiverResponse(dict):
                  read_queue_length: Optional[_builtins.int] = None):
         """
         Receiver using UDP as transport protocol.
+
         :param _builtins.str endpoint: TCP endpoint definition. Example: 0.0.0.0:<port>.
         :param _builtins.str encoding: The encoding of the stream being received.
         :param 'JsonArrayMapperResponse' json_array_mapper: Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
@@ -11030,6 +11178,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -11082,6 +11231,7 @@ class UserIdentityPropertiesResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties.
+
         :param _builtins.str client_id: The client id of user assigned identity.
         :param _builtins.str principal_id: The principal id of user assigned identity.
         """
@@ -11135,6 +11285,7 @@ class VoiceReceiverResponse(dict):
                  phone_number: _builtins.str):
         """
         A voice receiver.
+
         :param _builtins.str country_code: The country code of the voice receiver.
         :param _builtins.str name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
         :param _builtins.str phone_number: The phone number of the voice receiver.
@@ -11195,6 +11346,7 @@ class WebhookNotificationResponse(dict):
                  service_uri: Optional[_builtins.str] = None):
         """
         Webhook notification of an autoscale event.
+
         :param Mapping[str, _builtins.str] properties: a property bag of settings. This value can be empty.
         :param _builtins.str service_uri: the service address to receive the notification.
         """
@@ -11265,6 +11417,7 @@ class WebhookReceiverResponse(dict):
                  use_common_alert_schema: Optional[_builtins.bool] = None):
         """
         A webhook receiver.
+
         :param _builtins.str name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         :param _builtins.str service_uri: The URI where webhooks should be sent.
         :param _builtins.str identifier_uri: Indicates the identifier uri for aad auth.
@@ -11393,6 +11546,7 @@ class WebtestLocationAvailabilityCriteriaResponse(dict):
                  web_test_id: _builtins.str):
         """
         Specifies the metric alert rule criteria for a web test resource.
+
         :param _builtins.str component_id: The Application Insights resource Id.
         :param _builtins.float failed_location_count: The number of failed locations.
         :param _builtins.str odata_type: specifies the type of the alert criteria.
@@ -11468,6 +11622,7 @@ class WindowsEventLogDataSourceResponse(dict):
         """
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
+
         :param _builtins.str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[_builtins.str] streams: List of streams that this data source will be sent to.
@@ -11518,6 +11673,7 @@ class WindowsFirewallLogsDataSourceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Enables Firewall logs to be collected by this data collection rule.
+
         :param Sequence[_builtins.str] streams: Firewall logs streams
         :param _builtins.str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.

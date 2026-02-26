@@ -26,6 +26,7 @@ class RaiExternalSafetyProviderArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiExternalSafetyProvider resource.
+
         :param pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs'] properties: Properties of Cognitive Services Rai External Safety provider.
         :param pulumi.Input[_builtins.str] safety_provider_name: The name of the Rai External Safety Provider associated with the Cognitive Services Account
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -89,6 +90,7 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']] properties: Properties of Cognitive Services Rai External Safety provider.
@@ -105,6 +107,7 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
         Cognitive Services Rai External Safety provider Schema.
 
         Uses Azure REST API version 2025-10-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param RaiExternalSafetyProviderArgs args: The arguments to use to populate this resource's properties.

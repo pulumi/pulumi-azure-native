@@ -28,6 +28,7 @@ class ActiveDirectoryConnectorArgs:
                  active_directory_connector_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActiveDirectoryConnector resource.
+
         :param pulumi.Input[_builtins.str] data_controller_name: The name of the data controller
         :param pulumi.Input['ActiveDirectoryConnectorPropertiesArgs'] properties: null
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
@@ -106,6 +107,7 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
 
         Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] active_directory_connector_name: The name of the Active Directory connector instance
@@ -125,6 +127,7 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
 
         Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ActiveDirectoryConnectorArgs args: The arguments to use to populate this resource's properties.

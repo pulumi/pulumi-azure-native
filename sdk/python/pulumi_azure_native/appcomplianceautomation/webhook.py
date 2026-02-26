@@ -33,6 +33,7 @@ class WebhookArgs:
                  webhook_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
+
         :param pulumi.Input[_builtins.str] report_name: Report Name.
         :param pulumi.Input[Union[_builtins.str, 'ContentType']] content_type: content type
         :param pulumi.Input[Union[_builtins.str, 'EnableSslVerification']] enable_ssl_verification: whether to enable ssl verification
@@ -207,6 +208,7 @@ class Webhook(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'ContentType']] content_type: content type
@@ -230,6 +232,7 @@ class Webhook(pulumi.CustomResource):
         A class represent an AppComplianceAutomation webhook resource.
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
+
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

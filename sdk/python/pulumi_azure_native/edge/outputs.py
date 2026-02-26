@@ -91,6 +91,7 @@ class AvailableSolutionTemplateVersionResponse(dict):
                  solution_template_version: _builtins.str):
         """
         Available Solution template Version along with latest revision
+
         :param _builtins.bool is_configured: Has this solution template version been configured
         :param _builtins.str latest_config_revision: Latest Configuration Revision
         :param _builtins.str solution_template_version: Solution template Version
@@ -134,6 +135,7 @@ class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         The complex type of the extended location.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -168,6 +170,7 @@ class CapabilityResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Capability, to match in Solution Templates and Targets
+
         :param _builtins.str description: Description of Capability
         :param _builtins.str name: Name of Capability
         :param _builtins.str state: State of resource
@@ -212,6 +215,7 @@ class ComponentStatusResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Component Status
+
         :param _builtins.str name: Component name
         :param _builtins.str status: Component status
         """
@@ -270,6 +274,7 @@ class ConfigTemplatePropertiesResponse(dict):
                  unique_identifier: _builtins.str):
         """
         Config Template Properties
+
         :param _builtins.str description: Description of config template
         :param _builtins.str latest_version: Latest config template version
         :param _builtins.str provisioning_state: Provisioning state of resource
@@ -339,6 +344,7 @@ class ConfigurationPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Configuration Properties
+
         :param _builtins.str provisioning_state: Provisioning state of resource
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -381,6 +387,7 @@ class ConfigurationReferencePropertiesResponse(dict):
                  configuration_resource_id: Optional[_builtins.str] = None):
         """
         Properties for ConfigurationReference Resource
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str configuration_resource_id: ArmId of Configuration resource
         """
@@ -433,6 +440,7 @@ class ContextPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Context Properties
+
         :param Sequence['CapabilityResponse'] capabilities: List of Capabilities
         :param Sequence['HierarchyResponse'] hierarchies: List of Hierarchies
         :param _builtins.str provisioning_state: Provisioning state of resource
@@ -507,6 +515,7 @@ class DeploymentStatusResponse(dict):
                  target_statuses: Optional[Sequence['outputs.TargetStatusResponse']] = None):
         """
         Deployment Status
+
         :param _builtins.int deployed: Indicates if Instance is deployed
         :param _builtins.int expected_running_job_id: The expected running job id
         :param _builtins.int generation: Deployment Generation
@@ -624,6 +633,7 @@ class DiagnosticPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         The properties of a Diagnostic resource.
+
         :param _builtins.str provisioning_state: The status of the last operation.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -672,6 +682,7 @@ class DynamicConfigurationPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Dynamic Configuration Properties
+
         :param _builtins.str current_version: Current Version of dynamic configuration
         :param _builtins.str dynamic_configuration_model: Type of dynamic configuration model
         :param _builtins.str dynamic_configuration_type: Type of dynamic configuration
@@ -745,6 +756,7 @@ class DynamicConfigurationVersionPropertiesResponse(dict):
                  values: _builtins.str):
         """
         Dynamic Configuration Properties
+
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param _builtins.str schema_id: Schema Id for configuration
         :param _builtins.str values: Values of configuration version
@@ -810,6 +822,7 @@ class DynamicSchemaPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         DynamicSchema Properties
+
         :param _builtins.str configuration_model: Type of configuration model
         :param _builtins.str configuration_type: Type of configuration
         :param _builtins.str provisioning_state: Provisioning state of resource
@@ -870,6 +883,7 @@ class ErrorActionResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Error Action Properties
+
         :param _builtins.int max_tolerated_failures: Max tolerated failures
         :param _builtins.str mode: Error action mode
         """
@@ -907,6 +921,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -960,6 +975,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -1044,6 +1060,7 @@ class ExecutionPropertiesResponse(dict):
                  specification: Optional[Any] = None):
         """
         Execution Properties
+
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param 'ExecutionStatusResponse' status: Status of Execution
         :param _builtins.str workflow_version_id: Workflow version of execution
@@ -1121,6 +1138,7 @@ class ExecutionStatusResponse(dict):
                  update_time: Optional[_builtins.str] = None):
         """
         Execution Status
+
         :param Sequence['StageStatusResponse'] stage_history: target resource statuses
         :param _builtins.int status: Deployment status
         :param _builtins.str status_message: status details
@@ -1178,6 +1196,7 @@ class HierarchyResponse(dict):
                  name: _builtins.str):
         """
         Hierarchy, to tag Sites / Hierarchy Provider nodes with what they represent
+
         :param _builtins.str description: Description of Hierarchy
         :param _builtins.str name: Name of Hierarchy
         """
@@ -1246,6 +1265,7 @@ class InstancePropertiesResponse(dict):
                  solution_scope: Optional[_builtins.str] = None):
         """
         Instance Properties
+
         :param _builtins.float deployment_timestamp_epoch: Deployment timestamp of instance
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param _builtins.str solution_version_id: Solution version of instance
@@ -1342,6 +1362,7 @@ class ReconciliationPolicyPropertiesResponse(dict):
                  state: _builtins.str):
         """
         Defines a ReconciliationPolicy
+
         :param _builtins.str interval: Policy interval
         :param _builtins.str state: The state of the ReconciliationPolicy
         """
@@ -1394,6 +1415,7 @@ class SchemaPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Schema Properties
+
         :param _builtins.str current_version: Current Version of schema
         :param _builtins.str provisioning_state: Provisioning state of resource
         """
@@ -1446,6 +1468,7 @@ class SchemaReferencePropertiesResponse(dict):
                  schema_id: _builtins.str):
         """
         Schema Reference Properties
+
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param _builtins.str schema_id: Schema Id of schema reference
         """
@@ -1496,6 +1519,7 @@ class SchemaVersionPropertiesResponse(dict):
                  value: _builtins.str):
         """
         Schema Version Properties
+
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param _builtins.str value: Value of schema version
         """
@@ -1556,6 +1580,7 @@ class SiteAddressPropertiesResponse(dict):
                  street_address2: Optional[_builtins.str] = None):
         """
         Site address properties
+
         :param _builtins.str city: City of the address
         :param _builtins.str country: Country of the address
         :param _builtins.str postal_code: Postal or ZIP code of the address
@@ -1662,6 +1687,7 @@ class SitePropertiesResponse(dict):
                  site_address: Optional['outputs.SiteAddressPropertiesResponse'] = None):
         """
         Site properties
+
         :param _builtins.str provisioning_state: Provisioning state of last operation
         :param _builtins.str address_resource_id: AddressResource ArmId of Site resource
         :param _builtins.str description: Description of Site resource
@@ -1759,6 +1785,7 @@ class SiteReferencePropertiesResponse(dict):
                  site_id: _builtins.str):
         """
         Site Reference Properties
+
         :param _builtins.str provisioning_state: Provisioning State
         :param _builtins.str site_id: Azure Resource ID for Site
         """
@@ -1818,6 +1845,7 @@ class SolutionDependencyResponse(dict):
                  solution_instance_name: Optional[_builtins.str] = None):
         """
         Solution Dependency Context
+
         :param _builtins.str solution_template_version_id: Solution Template Version Id
         :param _builtins.str solution_version_id: Solution Version Id
         :param _builtins.str target_id: Target Id
@@ -1905,6 +1933,7 @@ class SolutionPropertiesResponse(dict):
                  solution_template_id: _builtins.str):
         """
         Solution Properties
+
         :param Sequence['AvailableSolutionTemplateVersionResponse'] available_solution_template_versions: List of latest revisions for available solution template versions
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param _builtins.str solution_template_id: Solution template Id
@@ -1976,6 +2005,7 @@ class SolutionTemplatePropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Solution Template Properties
+
         :param Sequence[_builtins.str] capabilities: List of capabilities
         :param _builtins.str description: Description of Solution template
         :param _builtins.str latest_version: Latest solution template version
@@ -2111,6 +2141,7 @@ class SolutionVersionPropertiesResponse(dict):
                  target_level_configuration: _builtins.str):
         """
         Solution Version Properties
+
         :param _builtins.str action_type: The type of the latest action performed on this solution version.
         :param _builtins.str configuration: Resolved configuration values
         :param 'ErrorDetailResponse' error_details: Error Details if any failure is there
@@ -2293,6 +2324,7 @@ class StageSpecResponse(dict):
                  tasks: Optional[Sequence['outputs.TaskSpecResponse']] = None):
         """
         Stage Properties
+
         :param _builtins.str name: Name of Stage
         :param Any specification: Stage specification
         :param 'TaskOptionResponse' task_option: Task option for the stage
@@ -2376,6 +2408,7 @@ class StageStatusResponse(dict):
                  status_message: Optional[_builtins.str] = None):
         """
         Result of Stage execution
+
         :param _builtins.str error_message: Error message
         :param Any inputs: The inputs of the StageHistory, Inputs holds a key-value map of user-defined parameters for the initial stage
         :param _builtins.str is_active: whether this stage is active or inactive
@@ -2508,6 +2541,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2622,6 +2656,7 @@ class TargetPropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Target Properties
+
         :param Sequence[_builtins.str] capabilities: List of capabilities
         :param _builtins.str context_id: ArmId of Context
         :param _builtins.str description: Description of target
@@ -2755,6 +2790,7 @@ class TargetStatusResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Target Status
+
         :param Sequence['ComponentStatusResponse'] component_statuses: Component statuses
         :param _builtins.str name: Target name
         :param _builtins.str status: Target status
@@ -2818,6 +2854,7 @@ class TaskOptionResponse(dict):
                  error_action: Optional['outputs.ErrorActionResponse'] = None):
         """
         Task Option Properties
+
         :param _builtins.int concurrency: Parallel worker numbers of the tasks
         :param 'ErrorActionResponse' error_action: Error action for the tasks
         """
@@ -2873,6 +2910,7 @@ class TaskSpecResponse(dict):
                  target_id: Optional[_builtins.str] = None):
         """
         Task Spec
+
         :param _builtins.str name: Name of Task
         :param Any specification: Task specification
         :param _builtins.str target_id: Target ARM id
@@ -2936,6 +2974,7 @@ class WorkflowPropertiesResponse(dict):
                  workflow_template_id: _builtins.str):
         """
         Workflow Properties
+
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param _builtins.str workflow_template_id: Workflow template Id
         """
@@ -2995,6 +3034,7 @@ class WorkflowVersionPropertiesResponse(dict):
                  specification: Optional[Any] = None):
         """
         Workflow Version Properties
+
         :param _builtins.str configuration: Resolved configuration values
         :param _builtins.str provisioning_state: Provisioning state of resource
         :param _builtins.str review_id: Review id of resolved config for this workflow version

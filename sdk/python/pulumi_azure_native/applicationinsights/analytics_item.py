@@ -34,6 +34,7 @@ class AnalyticsItemArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ItemType']]] = None):
         """
         The set of arguments for constructing a AnalyticsItem resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
@@ -206,6 +207,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of this item
@@ -229,6 +231,7 @@ class AnalyticsItem(pulumi.CustomResource):
         Properties that define an Analytics item that is associated to an Application Insights component.
 
         Uses Azure REST API version 2015-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param AnalyticsItemArgs args: The arguments to use to populate this resource's properties.

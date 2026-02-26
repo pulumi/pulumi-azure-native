@@ -69,6 +69,7 @@ class ActionResponse(dict):
                  sql_expression: Optional[_builtins.str] = None):
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+
         :param _builtins.int compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param _builtins.bool requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param _builtins.str sql_expression: SQL expression. e.g. MyProperty='ABC'
@@ -117,6 +118,7 @@ class ConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         ConnectionState information.
+
         :param _builtins.str description: Description of the connection state.
         :param _builtins.str status: Status of the connection.
         """
@@ -189,6 +191,7 @@ class CorrelationFilterResponse(dict):
                  to: Optional[_builtins.str] = None):
         """
         Represents the correlation filter expression.
+
         :param _builtins.str content_type: Content type of the message.
         :param _builtins.str correlation_id: Identifier of the correlation.
         :param _builtins.str label: Application specific label.
@@ -336,6 +339,7 @@ class EncryptionResponse(dict):
                  require_infrastructure_encryption: Optional[_builtins.bool] = None):
         """
         Properties to configure Encryption
+
         :param _builtins.str key_source: Enumerates the possible value of keySource for Encryption
         :param Sequence['KeyVaultPropertiesResponse'] key_vault_properties: Properties of KeyVault
         :param _builtins.bool require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
@@ -407,6 +411,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Properties to configure User Assigned Identities for Bring your Own Keys
+
         :param _builtins.str principal_id: ObjectId from the KeyVault
         :param _builtins.str tenant_id: TenantId from the KeyVault
         :param _builtins.str type: Type of managed service identity.
@@ -485,6 +490,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         Properties to configure keyVault Properties
+
         :param _builtins.str key_name: Name of the Key from KeyVault
         :param _builtins.str key_vault_uri: Uri of KeyVault
         :param _builtins.str key_version: Version of KeyVault
@@ -566,6 +572,7 @@ class MessageCountDetailsResponse(dict):
                  transfer_message_count: _builtins.float):
         """
         Message Count Details.
+
         :param _builtins.float active_message_count: Number of active messages in the queue, topic, or subscription.
         :param _builtins.float dead_letter_message_count: Number of messages that are dead lettered.
         :param _builtins.float scheduled_message_count: Number of scheduled messages.
@@ -646,6 +653,7 @@ class NWRuleSetIpRulesResponse(dict):
                  ip_mask: Optional[_builtins.str] = None):
         """
         Description of NetWorkRuleSet - IpRules resource.
+
         :param _builtins.str action: The IP Filter Action
         :param _builtins.str ip_mask: IP Mask
         """
@@ -700,6 +708,7 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
                  subnet: Optional['outputs.SubnetResponse'] = None):
         """
         Description of VirtualNetworkRules - NetworkRules resource.
+
         :param _builtins.bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
         :param 'SubnetResponse' subnet: Subnet properties
         """
@@ -764,6 +773,7 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Properties of the PrivateEndpointConnection.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
@@ -859,6 +869,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         PrivateEndpoint information.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint.
         """
         if id is not None:
@@ -905,6 +916,7 @@ class SBClientAffinePropertiesResponse(dict):
                  is_shared: Optional[_builtins.bool] = None):
         """
         Properties specific to client affine subscriptions.
+
         :param _builtins.str client_id: Indicates the Client ID of the application that created the client-affine subscription.
         :param _builtins.bool is_durable: For client-affine subscriptions, this value indicates whether the subscription is durable or not.
         :param _builtins.bool is_shared: For client-affine subscriptions, this value indicates whether the subscription is shared or not.
@@ -952,6 +964,7 @@ class SBSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of the namespace.
+
         :param _builtins.str name: Name of this SKU.
         :param _builtins.int capacity: Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
         :param _builtins.str tier: The billing tier of this particular SKU.
@@ -1019,6 +1032,7 @@ class SqlFilterResponse(dict):
                  sql_expression: Optional[_builtins.str] = None):
         """
         Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+
         :param _builtins.int compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
         :param _builtins.bool requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param _builtins.str sql_expression: The SQL expression. e.g. MyProperty='ABC'
@@ -1066,6 +1080,7 @@ class SubnetResponse(dict):
                  id: _builtins.str):
         """
         Properties supplied for Subnet
+
         :param _builtins.str id: Resource ID of Virtual Network Subnet
         """
         pulumi.set(__self__, "id", id)
@@ -1120,6 +1135,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1254,6 +1270,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Recognized Dictionary value.
+
         :param _builtins.str client_id: Client Id of user assigned identity
         :param _builtins.str principal_id: Principal Id of user assigned identity
         """

@@ -39,6 +39,7 @@ class MetricAlertArgs:
                  target_resource_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricAlert resource.
+
         :param pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']] criteria: defines the specific alert criteria information.
         :param pulumi.Input[_builtins.bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[_builtins.str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
@@ -289,6 +290,7 @@ class MetricAlert(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -319,6 +321,7 @@ class MetricAlert(pulumi.CustomResource):
         Uses Azure REST API version 2018-03-01.
 
         Other available API versions: 2024-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param MetricAlertArgs args: The arguments to use to populate this resource's properties.

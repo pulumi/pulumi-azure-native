@@ -27,6 +27,7 @@ class PrivateLinkAssociationArgs:
                  properties: Optional[pulumi.Input['PrivateLinkAssociationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAssociation resource.
+
         :param pulumi.Input[_builtins.str] group_id: The management group ID.
         :param pulumi.Input[_builtins.str] pla_id: The ID of the PLA
         :param pulumi.Input['PrivateLinkAssociationPropertiesArgs'] properties: The properties of the PrivateLinkAssociation.
@@ -87,6 +88,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         """
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: The management group ID.
@@ -101,6 +103,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAssociationArgs args: The arguments to use to populate this resource's properties.

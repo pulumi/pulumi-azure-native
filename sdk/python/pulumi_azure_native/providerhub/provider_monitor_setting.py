@@ -26,6 +26,7 @@ class ProviderMonitorSettingArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProviderMonitorSetting resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] provider_monitor_setting_name: The name of the provider monitor setting.
@@ -104,6 +105,7 @@ class ProviderMonitorSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -121,6 +123,7 @@ class ProviderMonitorSetting(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderMonitorSettingArgs args: The arguments to use to populate this resource's properties.

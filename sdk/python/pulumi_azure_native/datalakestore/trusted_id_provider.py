@@ -25,6 +25,7 @@ class TrustedIdProviderArgs:
                  trusted_id_provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustedIdProvider resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Store account.
         :param pulumi.Input[_builtins.str] id_provider: The URL of this trusted identity provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
@@ -101,6 +102,7 @@ class TrustedIdProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Store account.
@@ -118,6 +120,7 @@ class TrustedIdProvider(pulumi.CustomResource):
         Data Lake Store trusted identity provider information.
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
+
 
         :param str resource_name: The name of the resource.
         :param TrustedIdProviderArgs args: The arguments to use to populate this resource's properties.

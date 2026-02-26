@@ -30,6 +30,7 @@ class ManagementAssociationArgs:
                  properties: Optional[pulumi.Input['ManagementAssociationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagementAssociation resource.
+
         :param pulumi.Input[_builtins.str] provider_name: Provider name for the parent resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to get. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: Parent resource name.
@@ -153,6 +154,7 @@ class ManagementAssociation(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -173,6 +175,7 @@ class ManagementAssociation(pulumi.CustomResource):
         The container for solution.
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ManagementAssociationArgs args: The arguments to use to populate this resource's properties.

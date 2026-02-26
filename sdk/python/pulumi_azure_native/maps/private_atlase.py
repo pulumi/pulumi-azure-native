@@ -27,6 +27,7 @@ class PrivateAtlaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateAtlase resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Maps Account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The location of the resource.
@@ -120,6 +121,7 @@ class PrivateAtlase(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-02-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Maps Account.
@@ -138,6 +140,7 @@ class PrivateAtlase(pulumi.CustomResource):
         An Azure resource which represents which will provision the ability to create private location data.
 
         Uses Azure REST API version 2020-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-02-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateAtlaseArgs args: The arguments to use to populate this resource's properties.

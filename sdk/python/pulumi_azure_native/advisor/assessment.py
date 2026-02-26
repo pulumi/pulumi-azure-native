@@ -26,6 +26,7 @@ class AssessmentArgs:
                  workload_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+
         :param pulumi.Input[_builtins.str] assessment_name: Advisor assessment name.
         :param pulumi.Input[_builtins.str] locale: Assessment Type Locale.
         :param pulumi.Input[_builtins.str] type_id: Assessment Type Id.
@@ -107,6 +108,7 @@ class Assessment(pulumi.CustomResource):
 
         Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: Advisor assessment name.
@@ -126,6 +128,7 @@ class Assessment(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

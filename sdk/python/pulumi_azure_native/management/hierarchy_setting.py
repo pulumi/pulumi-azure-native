@@ -25,6 +25,7 @@ class HierarchySettingArgs:
                  require_authorization_for_group_creation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a HierarchySetting resource.
+
         :param pulumi.Input[_builtins.str] group_id: Management Group ID.
         :param pulumi.Input[_builtins.str] default_management_group: Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         :param pulumi.Input[_builtins.bool] require_authorization_for_group_creation: Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
@@ -89,6 +90,7 @@ class HierarchySetting(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_management_group: Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
@@ -107,6 +109,7 @@ class HierarchySetting(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
         Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param HierarchySettingArgs args: The arguments to use to populate this resource's properties.

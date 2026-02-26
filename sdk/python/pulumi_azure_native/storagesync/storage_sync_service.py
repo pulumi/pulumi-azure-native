@@ -31,6 +31,7 @@ class StorageSyncServiceArgs:
                  use_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StorageSyncService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
@@ -159,6 +160,7 @@ class StorageSyncService(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
@@ -181,6 +183,7 @@ class StorageSyncService(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param StorageSyncServiceArgs args: The arguments to use to populate this resource's properties.

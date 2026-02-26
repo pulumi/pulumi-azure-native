@@ -26,6 +26,7 @@ class EksClusterArgs:
                  properties: Optional[pulumi.Input['EksClusterPropertiesArgs']] = None):
         """
         The set of arguments for constructing a EksCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input['EksClusterPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
@@ -72,6 +73,7 @@ class EksCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']] properties: The resource-specific properties for this resource.
@@ -87,6 +89,7 @@ class EksCluster(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
 
         :param str resource_name: The name of the resource.
         :param EksClusterArgs args: The arguments to use to populate this resource's properties.

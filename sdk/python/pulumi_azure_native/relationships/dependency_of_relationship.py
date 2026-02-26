@@ -26,6 +26,7 @@ class DependencyOfRelationshipArgs:
                  properties: Optional[pulumi.Input['DependencyOfRelationshipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DependencyOfRelationship resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] name: Name of dependencyOf relationship.
         :param pulumi.Input['DependencyOfRelationshipPropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -88,6 +89,7 @@ class DependencyOfRelationship(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of dependencyOf relationship.
@@ -104,6 +106,7 @@ class DependencyOfRelationship(pulumi.CustomResource):
         Defines a dependencyOf relationship resource.
 
         Uses Azure REST API version 2023-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DependencyOfRelationshipArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class TunnelPolicyArgs:
                  tunnel_type: Optional[pulumi.Input[Union[_builtins.str, 'TunnelType']]] = None):
         """
         The set of arguments for constructing a TunnelPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]] domains: Domains referenced by this tunnel policy.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -138,6 +139,7 @@ class TunnelPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]] domains: Domains referenced by this tunnel policy.
@@ -157,6 +159,7 @@ class TunnelPolicy(pulumi.CustomResource):
         Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param TunnelPolicyArgs args: The arguments to use to populate this resource's properties.

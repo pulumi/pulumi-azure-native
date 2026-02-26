@@ -31,6 +31,7 @@ class CloudConnectionArgs:
                  virtual_hub: Optional[pulumi.Input['ResourceReferenceArgs']] = None):
         """
         The set of arguments for constructing a CloudConnection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] cloud_connection_name: The name of the cloud connection resource
         :param pulumi.Input['ResourceReferenceArgs'] cloud_connector: The cloud connector which discovered the remote resource.
@@ -173,6 +174,7 @@ class CloudConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_connection_name: The name of the cloud connection resource
@@ -194,6 +196,7 @@ class CloudConnection(pulumi.CustomResource):
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param CloudConnectionArgs args: The arguments to use to populate this resource's properties.

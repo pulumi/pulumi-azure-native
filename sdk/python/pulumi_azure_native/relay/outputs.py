@@ -34,6 +34,7 @@ class ConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         ConnectionState information.
+
         :param _builtins.str description: Description of the connection state.
         :param _builtins.str status: Status of the connection.
         """
@@ -98,6 +99,7 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Properties of the PrivateEndpointConnection.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
@@ -193,6 +195,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         PrivateEndpoint information.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint.
         """
         if id is not None:
@@ -217,6 +220,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU of the namespace.
+
         :param _builtins.str name: Name of this SKU.
         :param _builtins.str tier: The tier of this SKU.
         """
@@ -282,6 +286,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

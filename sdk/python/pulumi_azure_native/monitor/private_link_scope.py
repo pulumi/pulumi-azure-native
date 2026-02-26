@@ -29,6 +29,7 @@ class PrivateLinkScopeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkScope resource.
+
         :param pulumi.Input['AccessModeSettingsArgs'] access_mode_settings: Access mode settings
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -124,6 +125,7 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessModeSettingsArgs', 'AccessModeSettingsArgsDict']] access_mode_settings: Access mode settings
@@ -144,6 +146,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.

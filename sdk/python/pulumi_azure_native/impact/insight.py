@@ -26,6 +26,7 @@ class InsightArgs:
                  properties: Optional[pulumi.Input['InsightPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Insight resource.
+
         :param pulumi.Input[_builtins.str] workload_impact_name: workloadImpact resource 
         :param pulumi.Input[_builtins.str] insight_name: Name of the insight
         :param pulumi.Input['InsightPropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -88,6 +89,7 @@ class Insight(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] insight_name: Name of the insight
@@ -104,6 +106,7 @@ class Insight(pulumi.CustomResource):
         Insight resource
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param InsightArgs args: The arguments to use to populate this resource's properties.

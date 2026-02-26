@@ -49,6 +49,7 @@ class AccessReviewScheduleDefinitionByIdArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
         """
         The set of arguments for constructing a AccessReviewScheduleDefinitionById resource.
+
         :param pulumi.Input[_builtins.bool] auto_apply_decisions_enabled: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]] backup_reviewers: This is the collection of backup reviewers.
         :param pulumi.Input[Union[_builtins.str, 'DefaultDecisionType']] default_decision: This specifies the behavior for the autoReview feature when an access review completes.
@@ -466,6 +467,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
 
         Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_apply_decisions_enabled: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
@@ -506,6 +508,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
         Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param AccessReviewScheduleDefinitionByIdArgs args: The arguments to use to populate this resource's properties.

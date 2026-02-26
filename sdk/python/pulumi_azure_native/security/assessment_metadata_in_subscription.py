@@ -40,6 +40,7 @@ class AssessmentMetadataInSubscriptionArgs:
                  user_impact: Optional[pulumi.Input[Union[_builtins.str, 'UserImpact']]] = None):
         """
         The set of arguments for constructing a AssessmentMetadataInSubscription resource.
+
         :param pulumi.Input[Union[_builtins.str, 'AssessmentType']] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         :param pulumi.Input[_builtins.str] display_name: User friendly display name of the assessment
         :param pulumi.Input[Union[_builtins.str, 'Severity']] severity: The severity level of the assessment
@@ -286,6 +287,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
         Other available API versions: 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type
@@ -311,6 +313,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentMetadataInSubscriptionArgs args: The arguments to use to populate this resource's properties.

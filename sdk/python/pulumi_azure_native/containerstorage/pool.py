@@ -33,6 +33,7 @@ class PoolArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]]] = None):
         """
         The set of arguments for constructing a Pool resource.
+
         :param pulumi.Input['PoolTypeArgs'] pool_type: Type of the Pool: ephemeralDisk, azureDisk, or elasticsan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['AssignmentArgs']]] assignments: List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
@@ -190,6 +191,7 @@ class Pool(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]] assignments: List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
@@ -212,6 +214,7 @@ class Pool(pulumi.CustomResource):
         Pool resource
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

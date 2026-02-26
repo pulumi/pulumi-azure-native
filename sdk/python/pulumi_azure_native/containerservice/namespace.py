@@ -30,6 +30,7 @@ class NamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[_builtins.str] location: The location of the namespace.
@@ -139,6 +140,7 @@ class Namespace(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-02-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The location of the namespace.
@@ -158,6 +160,7 @@ class Namespace(pulumi.CustomResource):
         Namespace managed by ARM.
 
         Uses Azure REST API version 2025-02-02-preview.
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

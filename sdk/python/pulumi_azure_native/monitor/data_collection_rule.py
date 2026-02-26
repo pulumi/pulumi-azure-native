@@ -36,6 +36,7 @@ class DataCollectionRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataCollectionRule resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The resource ID of the data collection endpoint that this rule can be used with.
         :param pulumi.Input[_builtins.str] data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
@@ -246,6 +247,7 @@ class DataCollectionRule(pulumi.CustomResource):
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The resource ID of the data collection endpoint that this rule can be used with.
@@ -274,6 +276,7 @@ class DataCollectionRule(pulumi.CustomResource):
         Uses Azure REST API version 2022-06-01.
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleArgs args: The arguments to use to populate this resource's properties.

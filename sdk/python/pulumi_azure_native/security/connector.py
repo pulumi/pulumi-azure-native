@@ -27,6 +27,7 @@ class ConnectorArgs:
                  hybrid_compute_settings: Optional[pulumi.Input['HybridComputeSettingsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgs']] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
         :param pulumi.Input[_builtins.str] connector_name: Name of the cloud account connector
         :param pulumi.Input['HybridComputeSettingsPropertiesArgs'] hybrid_compute_settings: Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
@@ -90,6 +91,7 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwAssumeRoleAuthenticationDetailsPropertiesArgsDict'], Union['AwsCredsAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgsDict'], Union['GcpCredentialsDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgsDict']]] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
@@ -106,6 +108,7 @@ class Connector(pulumi.CustomResource):
         The connector setting
 
         Uses Azure REST API version 2020-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

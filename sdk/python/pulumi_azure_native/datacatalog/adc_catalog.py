@@ -34,6 +34,7 @@ class ADCCatalogArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]] = None):
         """
         The set of arguments for constructing a ADCCatalog resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]] admins: Azure data catalog admin list.
         :param pulumi.Input[_builtins.str] catalog_name: The name of the data catalog in the specified subscription and resource group.
@@ -208,6 +209,7 @@ class ADCCatalog(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-03-30. In version 2.x of the Azure Native provider, it used API version 2016-03-30.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]] admins: Azure data catalog admin list.
@@ -231,6 +233,7 @@ class ADCCatalog(pulumi.CustomResource):
         Azure Data Catalog.
 
         Uses Azure REST API version 2016-03-30. In version 2.x of the Azure Native provider, it used API version 2016-03-30.
+
 
         :param str resource_name: The name of the resource.
         :param ADCCatalogArgs args: The arguments to use to populate this resource's properties.

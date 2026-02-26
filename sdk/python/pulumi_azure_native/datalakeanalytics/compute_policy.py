@@ -29,6 +29,7 @@ class ComputePolicyArgs:
                  min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ComputePolicy resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
         :param pulumi.Input[_builtins.str] object_id: The AAD object identifier for the entity to create a policy for.
         :param pulumi.Input[Union[_builtins.str, 'AADObjectType']] object_type: The type of AAD object the object identifier refers to.
@@ -152,6 +153,7 @@ class ComputePolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
@@ -172,6 +174,7 @@ class ComputePolicy(pulumi.CustomResource):
         Data Lake Analytics compute policy information.
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ComputePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class SingleServerServerAdministratorArgs:
                  tenant_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SingleServerServerAdministrator resource.
+
         :param pulumi.Input[Union[_builtins.str, 'AdministratorType']] administrator_type: The type of administrator.
         :param pulumi.Input[_builtins.str] login: The server administrator login account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -133,6 +134,7 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'AdministratorType']] administrator_type: The type of administrator.
@@ -152,6 +154,7 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
         Represents a and external administrator to be created.
 
         Uses Azure REST API version 2017-12-01.
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerServerAdministratorArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class FrontDoorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontDoor resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['BackendPoolArgs']]] backend_pools: Backend pools available to routing rules.
         :param pulumi.Input['BackendPoolsSettingsArgs'] backend_pools_settings: Settings for all backendPools
@@ -244,6 +245,7 @@ class FrontDoor(pulumi.CustomResource):
 
         Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BackendPoolArgs', 'BackendPoolArgsDict']]]] backend_pools: Backend pools available to routing rules.
@@ -271,6 +273,7 @@ class FrontDoor(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01.
 
         Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param FrontDoorArgs args: The arguments to use to populate this resource's properties.

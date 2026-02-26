@@ -38,6 +38,7 @@ class VirtualMachineScheduleArgs:
                  weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineSchedule resource.
+
         :param pulumi.Input[_builtins.str] lab_name: labs
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] virtual_machine_name: virtualmachines
@@ -276,6 +277,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -303,6 +305,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
         A schedule.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScheduleArgs args: The arguments to use to populate this resource's properties.

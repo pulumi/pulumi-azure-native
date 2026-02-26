@@ -27,6 +27,7 @@ class SapCentralServerInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapCentralServerInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[_builtins.str] central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
@@ -120,6 +121,7 @@ class SapCentralServerInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
@@ -138,6 +140,7 @@ class SapCentralServerInstance(pulumi.CustomResource):
         Define the SAP Central Services Instance resource.
 
         Uses Azure REST API version 2024-09-01.
+
 
         :param str resource_name: The name of the resource.
         :param SapCentralServerInstanceArgs args: The arguments to use to populate this resource's properties.

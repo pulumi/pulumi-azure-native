@@ -29,6 +29,7 @@ class GuestConfigurationAssignmentsVMSSArgs:
                  properties: Optional[pulumi.Input['GuestConfigurationAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GuestConfigurationAssignmentsVMSS resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vmss_name: The name of the virtual machine scale set.
         :param pulumi.Input[_builtins.str] location: Region where the VM is located.
@@ -124,6 +125,7 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
 
         Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Region where the VM is located.
@@ -144,6 +146,7 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-05. In version 2.x of the Azure Native provider, it used API version 2022-01-25.
 
         Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationAssignmentsVMSSArgs args: The arguments to use to populate this resource's properties.

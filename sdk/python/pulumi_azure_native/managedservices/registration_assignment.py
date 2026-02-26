@@ -26,6 +26,7 @@ class RegistrationAssignmentArgs:
                  registration_assignment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistrationAssignment resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the resource.
         :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: The properties of a registration assignment.
         :param pulumi.Input[_builtins.str] registration_assignment_id: The GUID of the registration assignment.
@@ -88,6 +89,7 @@ class RegistrationAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']] properties: The properties of a registration assignment.
@@ -104,6 +106,7 @@ class RegistrationAssignment(pulumi.CustomResource):
         The registration assignment.
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+
 
         :param str resource_name: The name of the resource.
         :param RegistrationAssignmentArgs args: The arguments to use to populate this resource's properties.

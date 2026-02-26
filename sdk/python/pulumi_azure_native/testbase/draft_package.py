@@ -50,6 +50,7 @@ class DraftPackageArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DraftPackage resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[_builtins.str] app_file_name: The name of the app file.
@@ -483,6 +484,7 @@ class DraftPackage(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_file_name: The name of the app file.
@@ -522,6 +524,7 @@ class DraftPackage(pulumi.CustomResource):
         The Test Base Draft Package resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DraftPackageArgs args: The arguments to use to populate this resource's properties.

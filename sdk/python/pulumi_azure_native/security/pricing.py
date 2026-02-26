@@ -30,6 +30,7 @@ class PricingArgs:
                  sub_plan: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pricing resource.
+
         :param pulumi.Input[Union[_builtins.str, 'PricingTier']] pricing_tier: Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
         :param pulumi.Input[_builtins.str] scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
         :param pulumi.Input[Union[_builtins.str, 'Enforce']] enforce: If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
@@ -139,6 +140,7 @@ class Pricing(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'Enforce']] enforce: If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
@@ -158,6 +160,7 @@ class Pricing(pulumi.CustomResource):
         Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
+
 
         :param str resource_name: The name of the resource.
         :param PricingArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
                  required_skus_present: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PremiumMicrosoftDefenderForThreatIntelligence resource.
+
         :param pulumi.Input['PremiumMdtiDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
                Expected value is 'PremiumMicrosoftDefenderForThreatIntelligence'.
@@ -171,6 +172,7 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
@@ -193,6 +195,7 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
         Represents Microsoft Defender for Threat Intelligence Premium data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param PremiumMicrosoftDefenderForThreatIntelligenceArgs args: The arguments to use to populate this resource's properties.

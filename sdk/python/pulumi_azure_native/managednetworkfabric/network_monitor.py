@@ -29,6 +29,7 @@ class NetworkMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkMonitor resource.
+
         :param pulumi.Input['NetworkMonitorPropertiesArgs'] properties: The NetworkFabric Properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -122,6 +123,7 @@ class NetworkMonitor(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-15-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +142,7 @@ class NetworkMonitor(pulumi.CustomResource):
         The NetworkMonitor resource definition.
 
         Uses Azure REST API version 2024-06-15-preview.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkMonitorArgs args: The arguments to use to populate this resource's properties.

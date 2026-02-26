@@ -43,6 +43,7 @@ class CommunicationsGatewayArgs:
                  teams_voicemail_pilot_number: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CommunicationsGateway resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TeamsCodecs']]]] codecs: Voice codecs to support
         :param pulumi.Input[Union[_builtins.str, 'Connectivity']] connectivity: How to connect back to the operator network, e.g. MAPS
         :param pulumi.Input[Union[_builtins.str, 'E911Type']] e911_type: How to handle 911 calls
@@ -364,6 +365,7 @@ class CommunicationsGateway(pulumi.CustomResource):
 
         Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApiBridgePropertiesArgs', 'ApiBridgePropertiesArgsDict']] api_bridge: Details of API bridge functionality, if required
@@ -398,6 +400,7 @@ class CommunicationsGateway(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
 
         Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param CommunicationsGatewayArgs args: The arguments to use to populate this resource's properties.

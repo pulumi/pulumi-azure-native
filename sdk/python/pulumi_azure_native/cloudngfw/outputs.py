@@ -62,6 +62,7 @@ class AdvSecurityObjectModelResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         List of custom and predefined url category
+
         :param Sequence['NameDescriptionObjectResponse'] entry: URL entry
         :param _builtins.str type: type of object
         """
@@ -96,6 +97,7 @@ class AppSeenDataResponse(dict):
                  count: _builtins.int):
         """
         Data Type for App Seen
+
         :param Sequence['AppSeenInfoResponse'] app_seen_list: array of appSeen
         :param _builtins.int count: number of rows
         """
@@ -134,6 +136,7 @@ class AppSeenInfoResponse(dict):
                  title: _builtins.str):
         """
         Definition for App Seen
+
         :param _builtins.str category: category
         :param _builtins.str risk: risk
         :param _builtins.str standard_ports: standardPorts
@@ -217,6 +220,7 @@ class ApplicationInsightsResponse(dict):
                  key: Optional[_builtins.str] = None):
         """
         Application Insights key
+
         :param _builtins.str id: Resource id for Application Insights
         :param _builtins.str key: Application Insights key
         """
@@ -275,6 +279,7 @@ class AzureResourceManagerManagedIdentityPropertiesResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.AzureResourceManagerUserAssignedIdentityResponse']] = None):
         """
         The properties of the managed service identities assigned to this resource.
+
         :param _builtins.str principal_id: The active directory identifier of this principal.
         :param _builtins.str tenant_id: The Active Directory tenant id of the principal.
         :param _builtins.str type: The type of managed identity assigned to this resource.
@@ -348,6 +353,7 @@ class AzureResourceManagerUserAssignedIdentityResponse(dict):
                  principal_id: Optional[_builtins.str] = None):
         """
         A managed identity assigned by the user.
+
         :param _builtins.str client_id: The active directory client identifier for this principal.
         :param _builtins.str principal_id: The active directory identifier for this principal.
         """
@@ -400,6 +406,7 @@ class CategoryResponse(dict):
                  url_custom: Sequence[_builtins.str]):
         """
         URL/EDL to match
+
         :param Sequence[_builtins.str] feeds: feed list
         :param Sequence[_builtins.str] url_custom: custom URL
         """
@@ -433,6 +440,7 @@ class CountryResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Country Description
+
         :param _builtins.str code: country code
         :param _builtins.str description: code description
         """
@@ -489,6 +497,7 @@ class DNSSettingsResponse(dict):
                  enabled_dns_type: Optional[_builtins.str] = None):
         """
         DNS Proxy settings for Firewall
+
         :param Sequence['IPAddressResponse'] dns_servers: List of IPs associated with the Firewall
         :param _builtins.str enable_dns_proxy: Enable DNS proxy, disabled by default
         :param _builtins.str enabled_dns_type: Enabled DNS proxy type, disabled by default
@@ -557,6 +566,7 @@ class DestinationAddrResponse(dict):
                  prefix_lists: Optional[Sequence[_builtins.str]] = None):
         """
         destination address
+
         :param Sequence[_builtins.str] cidrs: special value 'any'
         :param Sequence[_builtins.str] countries: list of countries
         :param Sequence[_builtins.str] feeds: list of feeds
@@ -625,6 +635,7 @@ class EndpointConfigurationResponse(dict):
                  port: _builtins.str):
         """
         Endpoint Configuration for frontend and backend
+
         :param 'IPAddressResponse' address: Address Space
         :param _builtins.str port: port ID
         """
@@ -661,6 +672,7 @@ class EventHubResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         EventHub configurations
+
         :param _builtins.str id: Resource ID of EventHub
         :param _builtins.str name: EventHub name
         :param _builtins.str name_space: EventHub namespace
@@ -750,6 +762,7 @@ class FrontendSettingResponse(dict):
                  protocol: _builtins.str):
         """
         Frontend setting for Firewall
+
         :param 'EndpointConfigurationResponse' backend_configuration: Backend configurations
         :param 'EndpointConfigurationResponse' frontend_configuration: Frontend configurations
         :param _builtins.str name: Settings name
@@ -820,6 +833,7 @@ class IPAddressResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         IP Address
+
         :param _builtins.str address: Address value
         :param _builtins.str resource_id: Resource Id
         """
@@ -874,6 +888,7 @@ class IPAddressSpaceResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         IP Address Space
+
         :param _builtins.str address_space: Address Space
         :param _builtins.str resource_id: Resource Id
         """
@@ -910,6 +925,7 @@ class LogDestinationResponse(dict):
                  storage_configurations: Optional['outputs.StorageAccountResponse'] = None):
         """
         Log Destination
+
         :param 'EventHubResponse' event_hub_configurations: Event Hub configurations
         :param 'MonitorLogResponse' monitor_configurations: Monitor Log configurations
         :param 'StorageAccountResponse' storage_configurations: Storage account configurations
@@ -981,6 +997,7 @@ class MarketplaceDetailsResponse(dict):
                  marketplace_subscription_status: Optional[_builtins.str] = None):
         """
         MarketplaceDetails of PAN Firewall resource
+
         :param _builtins.str marketplace_subscription_id: Marketplace Subscription Id
         :param _builtins.str offer_id: Offer Id
         :param _builtins.str publisher_id: Publisher Id
@@ -1038,6 +1055,7 @@ class MonitorLogResponse(dict):
                  workspace: Optional[_builtins.str] = None):
         """
         MonitorLog configurations
+
         :param _builtins.str id: Resource ID of MonitorLog
         :param _builtins.str primary_key: Primary Key value for Monitor
         :param _builtins.str secondary_key: Secondary Key value for Monitor
@@ -1106,6 +1124,7 @@ class NameDescriptionObjectResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         object type info
+
         :param _builtins.str name: name value
         :param _builtins.str description: description value
         """
@@ -1177,6 +1196,7 @@ class NetworkProfileResponse(dict):
                  vwan_configuration: Optional['outputs.VwanConfigurationResponse'] = None):
         """
         Network settings for Firewall
+
         :param _builtins.str enable_egress_nat: Enable egress NAT, enabled by default
         :param _builtins.str network_type: vnet or vwan, cannot be updated
         :param Sequence['IPAddressResponse'] public_ips: List of IPs associated with the Firewall
@@ -1312,6 +1332,7 @@ class PanoramaConfigResponse(dict):
                  vm_auth_key: _builtins.str):
         """
         Panorama Config
+
         :param _builtins.str cg_name: Panorama Collector Group to join - (Once configured we can not edit the value)
         :param _builtins.str config_string: Base64 encoded string representing Panorama parameters to be used by Firewall to connect to Panorama. This string is generated via azure plugin in Panorama
         :param _builtins.str dg_name: Panorama Device Group to join
@@ -1430,6 +1451,7 @@ class PlanDataResponse(dict):
                  usage_type: Optional[_builtins.str] = None):
         """
         Billing plan information.
+
         :param _builtins.str billing_cycle: different billing cycles like MONTHLY/WEEKLY
         :param _builtins.str effective_date: date when plan was applied
         :param _builtins.str plan_id: plan id as published by Liftr.PAN
@@ -1529,6 +1551,7 @@ class RulestackDetailsResponse(dict):
                  rulestack_id: Optional[_builtins.str] = None):
         """
         Associated rulestack details
+
         :param _builtins.str location: Rulestack location
         :param _builtins.str resource_id: Resource Id
         :param _builtins.str rulestack_id: Associated rulestack Id
@@ -1612,6 +1635,7 @@ class SecurityServicesResponse(dict):
                  vulnerability_profile: Optional[_builtins.str] = None):
         """
         security services
+
         :param _builtins.str anti_spyware_profile: Anti spyware Profile data
         :param _builtins.str anti_virus_profile: anti virus profile data
         :param _builtins.str dns_subscription: DNS Subscription profile data
@@ -1713,6 +1737,7 @@ class SecurityServicesTypeListResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Security services type list
+
         :param Sequence['NameDescriptionObjectResponse'] entry: list
         :param _builtins.str type: security services type
         """
@@ -1766,6 +1791,7 @@ class SourceAddrResponse(dict):
                  prefix_lists: Optional[Sequence[_builtins.str]] = None):
         """
         Address properties
+
         :param Sequence[_builtins.str] cidrs: special value 'any'
         :param Sequence[_builtins.str] countries: list of countries
         :param Sequence[_builtins.str] feeds: list of feeds
@@ -1824,6 +1850,7 @@ class StorageAccountResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         Storage Account configurations
+
         :param _builtins.str account_name: Storage account name
         :param _builtins.str id: Resource ID of storage account
         :param _builtins.str subscription_id: Subscription Id
@@ -1886,6 +1913,7 @@ class StrataCloudManagerConfigResponse(dict):
                  cloud_manager_name: _builtins.str):
         """
         This field is only present if Strata Cloud Manager is managing the policy for this firewall
+
         :param _builtins.str cloud_manager_name: Strata Cloud Manager name which is intended to manage the policy for this firewall.
         """
         pulumi.set(__self__, "cloud_manager_name", cloud_manager_name)
@@ -1940,6 +1968,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2019,6 +2048,7 @@ class TagInfoResponse(dict):
                  value: _builtins.str):
         """
         Tag
+
         :param _builtins.str key: tag name
         :param _builtins.str value: tag value
         """
@@ -2075,6 +2105,7 @@ class VnetConfigurationResponse(dict):
                  ip_of_trust_subnet_for_udr: Optional['outputs.IPAddressResponse'] = None):
         """
         VnetInfo for Firewall Networking
+
         :param 'IPAddressSpaceResponse' trust_subnet: Trust Subnet
         :param 'IPAddressSpaceResponse' un_trust_subnet: Untrust Subnet
         :param 'IPAddressSpaceResponse' vnet: Azure Virtual Network
@@ -2157,6 +2188,7 @@ class VwanConfigurationResponse(dict):
                  un_trust_subnet: Optional['outputs.IPAddressSpaceResponse'] = None):
         """
         VwanInfo for Firewall Networking
+
         :param 'IPAddressSpaceResponse' v_hub: vHub Address
         :param 'IPAddressResponse' ip_of_trust_subnet_for_udr: IP of trust subnet for UDR
         :param _builtins.str network_virtual_appliance_id: Network Virtual Appliance resource ID 

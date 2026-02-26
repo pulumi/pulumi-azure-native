@@ -79,6 +79,7 @@ class AccessKeyInfoBaseResponse(dict):
                  permissions: Optional[Sequence[_builtins.str]] = None):
         """
         The access key directly from target resource properties, which target service is Azure Resource, such as Microsoft.Storage
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'accessKey'.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
@@ -143,6 +144,7 @@ class AzureKeyVaultPropertiesResponse(dict):
                  connect_as_kubernetes_csi_driver: Optional[_builtins.bool] = None):
         """
         The resource properties when type is Azure Key Vault
+
         :param _builtins.str type: The azure resource type.
                Expected value is 'KeyVault'.
         :param _builtins.bool connect_as_kubernetes_csi_driver: True if connect via Kubernetes CSI Driver.
@@ -197,6 +199,7 @@ class AzureResourceResponse(dict):
                  resource_properties: Optional['outputs.AzureKeyVaultPropertiesResponse'] = None):
         """
         The azure resource info when target service type is AzureResource
+
         :param _builtins.str type: The target service type.
                Expected value is 'AzureResource'.
         :param _builtins.str id: The Id of azure resource.
@@ -245,6 +248,7 @@ class BasicErrorDryrunPrerequisiteResultResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         The represent of basic error
+
         :param _builtins.str type: The type of dryrun result.
                Expected value is 'basicError'.
         :param _builtins.str code: The error code.
@@ -324,6 +328,7 @@ class ConfigurationInfoResponse(dict):
                  delete_or_update_behavior: Optional[_builtins.str] = None):
         """
         The configuration information, used to generate configurations or save to applications
+
         :param _builtins.str action: Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.
         :param Mapping[str, _builtins.str] additional_configurations: A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
         :param Mapping[str, _builtins.str] additional_connection_string_properties: A dictionary of additional properties to be added in the end of connection string.
@@ -430,6 +435,7 @@ class ConfigurationStoreResponse(dict):
                  app_configuration_id: Optional[_builtins.str] = None):
         """
         An option to store configuration into different place
+
         :param _builtins.str app_configuration_id: The app configuration id to store configuration
         """
         if app_configuration_id is not None:
@@ -454,6 +460,7 @@ class ConfluentBootstrapServerResponse(dict):
                  endpoint: Optional[_builtins.str] = None):
         """
         The service properties when target service type is ConfluentBootstrapServer
+
         :param _builtins.str type: The target service type.
                Expected value is 'ConfluentBootstrapServer'.
         :param _builtins.str endpoint: The endpoint of service.
@@ -490,6 +497,7 @@ class ConfluentSchemaRegistryResponse(dict):
                  endpoint: Optional[_builtins.str] = None):
         """
         The service properties when target service type is ConfluentSchemaRegistry
+
         :param _builtins.str type: The target service type.
                Expected value is 'ConfluentSchemaRegistry'.
         :param _builtins.str endpoint: The endpoint of service.
@@ -567,6 +575,7 @@ class CreateOrUpdateDryrunParametersResponse(dict):
                  v_net_solution: Optional['outputs.VNetSolutionResponse'] = None):
         """
         The dryrun parameters for creation or update a linker
+
         :param _builtins.str action_name: The name of action for you dryrun job.
                Expected value is 'createOrUpdate'.
         :param _builtins.str provisioning_state: The provisioning state. 
@@ -710,6 +719,7 @@ class DaprMetadataResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The dapr component metadata.
+
         :param _builtins.str description: The description of the metadata, returned from configuration api
         :param _builtins.str name: Metadata property name.
         :param _builtins.str required: The value indicating whether the metadata is required or not
@@ -806,6 +816,7 @@ class DaprPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Indicates some additional properties for dapr client type
+
         :param _builtins.str binding_component_direction: The direction supported by the dapr binding component
         :param _builtins.str runtime_version: The runtime version supported by the properties
         :param _builtins.str component_type: The dapr component type
@@ -914,6 +925,7 @@ class DryrunOperationPreviewResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         The preview of the operations for creation
+
         :param _builtins.str action: The action defined by RBAC, refer https://docs.microsoft.com/azure/role-based-access-control/role-definitions#actions-format
         :param _builtins.str description: The description of the operation
         :param _builtins.str name: The operation name
@@ -1008,6 +1020,7 @@ class EasyAuthMicrosoftEntraIDAuthInfoResponse(dict):
                  secret: Optional[_builtins.str] = None):
         """
         The authentication info when authType is EasyAuth Microsoft Entra ID
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'easyAuthMicrosoftEntraID'.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
@@ -1099,6 +1112,7 @@ class FirewallRulesResponse(dict):
                  ip_ranges: Optional[Sequence[_builtins.str]] = None):
         """
         Target service's firewall rules. to allow connections from source service.
+
         :param _builtins.str azure_services: Allow Azure services to access the target service if true.
         :param _builtins.str caller_client_ip: Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
         :param Sequence[_builtins.str] ip_ranges: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.
@@ -1163,6 +1177,7 @@ class KeyVaultSecretReferenceSecretInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.
+
         :param _builtins.str secret_type: The secret type.
                Expected value is 'keyVaultSecretReference'.
         :param _builtins.str name: Name of the Key Vault secret.
@@ -1227,6 +1242,7 @@ class KeyVaultSecretUriSecretInfoResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.
+
         :param _builtins.str secret_type: The secret type.
                Expected value is 'keyVaultSecretUri'.
         :param _builtins.str value: URI to the keyvault secret
@@ -1282,6 +1298,7 @@ class PermissionsMissingDryrunPrerequisiteResultResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         The represent of missing permissions
+
         :param _builtins.str type: The type of dryrun result.
                Expected value is 'permissionsMissing'.
         :param Sequence[_builtins.str] permissions: The permission list
@@ -1360,6 +1377,7 @@ class PublicNetworkSolutionResponse(dict):
                  firewall_rules: Optional['outputs.FirewallRulesResponse'] = None):
         """
         Indicates public network solution, include firewall rules
+
         :param _builtins.str action: Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.
         :param _builtins.str delete_or_update_behavior: Indicates whether to clean up previous operation(such as firewall rules) when Linker is updating or deleting
         :param 'FirewallRulesResponse' firewall_rules: Describe firewall rules of target service to make sure source application could connect to the target.
@@ -1429,6 +1447,7 @@ class SecretAuthInfoResponse(dict):
                  secret_info: Optional[Any] = None):
         """
         The authentication info when authType is secret
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'secret'.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
@@ -1506,6 +1525,7 @@ class SecretStoreResponse(dict):
                  key_vault_secret_name: Optional[_builtins.str] = None):
         """
         An option to store secret value in secure place
+
         :param _builtins.str key_vault_id: The key vault id to store secret
         :param _builtins.str key_vault_secret_name: The key vault secret name to store secret, only valid when storing one secret
         """
@@ -1541,6 +1561,7 @@ class SelfHostedServerResponse(dict):
                  endpoint: Optional[_builtins.str] = None):
         """
         The service properties when target service type is SelfHostedServer
+
         :param _builtins.str type: The target service type.
                Expected value is 'SelfHostedServer'.
         :param _builtins.str endpoint: The endpoint of service.
@@ -1607,6 +1628,7 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
                  roles: Optional[Sequence[_builtins.str]] = None):
         """
         The authentication info when authType is servicePrincipal certificate
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'servicePrincipalCertificate'.
         :param _builtins.str certificate: ServicePrincipal certificate for servicePrincipal auth.
@@ -1728,6 +1750,7 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         The authentication info when authType is servicePrincipal secret
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'servicePrincipalSecret'.
         :param _builtins.str client_id: ServicePrincipal application clientId for servicePrincipal auth.
@@ -1830,6 +1853,7 @@ class SourceConfigurationResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         A configuration item for source resource
+
         :param _builtins.str config_type: The type of setting
         :param _builtins.str description: Descriptive information for the configuration
         :param _builtins.str key_vault_reference_identity: The identity for key vault reference, system or user-assigned managed identity ID
@@ -1923,6 +1947,7 @@ class SystemAssignedIdentityAuthInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         The authentication info when authType is systemAssignedIdentity
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'systemAssignedIdentity'.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
@@ -2023,6 +2048,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2131,6 +2157,7 @@ class UserAccountAuthInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         The authentication info when authType is user account
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'userAccount'.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
@@ -2243,6 +2270,7 @@ class UserAssignedIdentityAuthInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         The authentication info when authType is userAssignedIdentity
+
         :param _builtins.str auth_type: The authentication type.
                Expected value is 'userAssignedIdentity'.
         :param _builtins.str auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
@@ -2351,6 +2379,7 @@ class VNetSolutionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The VNet solution for linker
+
         :param _builtins.str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param _builtins.str type: Type of VNet solution.
         """
@@ -2403,6 +2432,7 @@ class ValueSecretInfoResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The secret info when type is rawValue. It's for scenarios that user input the secret.
+
         :param _builtins.str secret_type: The secret type.
                Expected value is 'rawValue'.
         :param _builtins.str value: The actual value of the secret.

@@ -29,6 +29,7 @@ class StorageDiscoveryWorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageDiscoveryWorkspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StorageDiscoveryWorkspacePropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -125,6 +126,7 @@ class StorageDiscoveryWorkspace(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -145,6 +147,7 @@ class StorageDiscoveryWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01-preview.
 
         Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param StorageDiscoveryWorkspaceArgs args: The arguments to use to populate this resource's properties.

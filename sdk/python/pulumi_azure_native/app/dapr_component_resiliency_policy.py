@@ -29,6 +29,7 @@ class DaprComponentResiliencyPolicyArgs:
                  outbound_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DaprComponentResiliencyPolicy resource.
+
         :param pulumi.Input[_builtins.str] component_name: Name of the Dapr Component.
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -139,6 +140,7 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] component_name: Name of the Dapr Component.
@@ -160,6 +162,7 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DaprComponentResiliencyPolicyArgs args: The arguments to use to populate this resource's properties.

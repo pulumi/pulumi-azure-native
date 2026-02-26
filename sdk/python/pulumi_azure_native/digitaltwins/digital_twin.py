@@ -31,6 +31,7 @@ class DigitalTwinArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DigitalTwin resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input['DigitalTwinsIdentityArgs'] identity: The managed identity for the DigitalTwinsInstance.
         :param pulumi.Input[_builtins.str] location: The resource location.
@@ -159,6 +160,7 @@ class DigitalTwin(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DigitalTwinsIdentityArgs', 'DigitalTwinsIdentityArgsDict']] identity: The managed identity for the DigitalTwinsInstance.
@@ -180,6 +182,7 @@ class DigitalTwin(pulumi.CustomResource):
         The description of the DigitalTwins service.
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
+
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinArgs args: The arguments to use to populate this resource's properties.

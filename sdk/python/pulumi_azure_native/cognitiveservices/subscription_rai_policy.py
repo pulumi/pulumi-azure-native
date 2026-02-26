@@ -27,6 +27,7 @@ class SubscriptionRaiPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SubscriptionRaiPolicy resource.
+
         :param pulumi.Input['RaiPolicyPropertiesArgs'] properties: Properties of Cognitive Services RaiPolicy.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of the RaiPolicy associated with the Cognitive Services Account
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -90,6 +91,7 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']] properties: Properties of Cognitive Services RaiPolicy.
@@ -106,6 +108,7 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
         Cognitive Services RaiPolicy.
 
         Uses Azure REST API version 2025-10-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionRaiPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -82,23 +82,18 @@ __all__ = [
     'VulnerabilityAssessmentRecurringScansPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DatabaseIdentityArgsDict(TypedDict):
-        """
-        Azure Active Directory identity configuration for a resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'DatabaseIdentityType']]]
-        """
-        The identity type
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource ids of the user assigned identities to use
-        """
-elif False:
-    DatabaseIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseIdentityArgsDict(TypedDict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DatabaseIdentityType']]]
+    """
+    The identity type
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource ids of the user assigned identities to use
+    """
 
 @pulumi.input_type
 class DatabaseIdentityArgs:
@@ -107,6 +102,7 @@ class DatabaseIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param pulumi.Input[Union[_builtins.str, 'DatabaseIdentityType']] type: The identity type
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
@@ -140,17 +136,14 @@ class DatabaseIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict(TypedDict):
-        """
-        Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
-        """
-        result: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The rule baseline result
-        """
-elif False:
-    DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict(TypedDict):
+    """
+    Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+    """
+    result: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The rule baseline result
+    """
 
 @pulumi.input_type
 class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
@@ -158,6 +151,7 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
                  result: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] result: The rule baseline result
         """
         pulumi.set(__self__, "result", result)
@@ -175,17 +169,14 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
         pulumi.set(self, "result", value)
 
 
-if not MYPY:
-    class DistributedAvailabilityGroupDatabaseArgsDict(TypedDict):
-        """
-        Database specific information
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the database in link
-        """
-elif False:
-    DistributedAvailabilityGroupDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+class DistributedAvailabilityGroupDatabaseArgsDict(TypedDict):
+    """
+    Database specific information
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the database in link
+    """
 
 @pulumi.input_type
 class DistributedAvailabilityGroupDatabaseArgs:
@@ -193,6 +184,7 @@ class DistributedAvailabilityGroupDatabaseArgs:
                  database_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Database specific information
+
         :param pulumi.Input[_builtins.str] database_name: The name of the database in link
         """
         if database_name is not None:
@@ -211,25 +203,22 @@ class DistributedAvailabilityGroupDatabaseArgs:
         pulumi.set(self, "database_name", value)
 
 
-if not MYPY:
-    class ElasticPoolPerDatabaseSettingsArgsDict(TypedDict):
-        """
-        Per database settings of an elastic pool.
-        """
-        auto_pause_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Auto Pause Delay for per database within pool
-        """
-        max_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum capacity any one database can consume.
-        """
-        min_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum capacity all databases are guaranteed.
-        """
-elif False:
-    ElasticPoolPerDatabaseSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticPoolPerDatabaseSettingsArgsDict(TypedDict):
+    """
+    Per database settings of an elastic pool.
+    """
+    auto_pause_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Auto Pause Delay for per database within pool
+    """
+    max_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum capacity any one database can consume.
+    """
+    min_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum capacity all databases are guaranteed.
+    """
 
 @pulumi.input_type
 class ElasticPoolPerDatabaseSettingsArgs:
@@ -239,6 +228,7 @@ class ElasticPoolPerDatabaseSettingsArgs:
                  min_capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Per database settings of an elastic pool.
+
         :param pulumi.Input[_builtins.int] auto_pause_delay: Auto Pause Delay for per database within pool
         :param pulumi.Input[_builtins.float] max_capacity: The maximum capacity any one database can consume.
         :param pulumi.Input[_builtins.float] min_capacity: The minimum capacity all databases are guaranteed.
@@ -287,21 +277,18 @@ class ElasticPoolPerDatabaseSettingsArgs:
         pulumi.set(self, "min_capacity", value)
 
 
-if not MYPY:
-    class FailoverGroupReadOnlyEndpointArgsDict(TypedDict):
-        """
-        Read-only endpoint of the failover group instance.
-        """
-        failover_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]
-        """
-        Failover policy of the read-only endpoint for the failover group.
-        """
-        target_server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The target partner server where the read-only endpoint points to.
-        """
-elif False:
-    FailoverGroupReadOnlyEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class FailoverGroupReadOnlyEndpointArgsDict(TypedDict):
+    """
+    Read-only endpoint of the failover group instance.
+    """
+    failover_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]
+    """
+    Failover policy of the read-only endpoint for the failover group.
+    """
+    target_server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The target partner server where the read-only endpoint points to.
+    """
 
 @pulumi.input_type
 class FailoverGroupReadOnlyEndpointArgs:
@@ -310,6 +297,7 @@ class FailoverGroupReadOnlyEndpointArgs:
                  target_server: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Read-only endpoint of the failover group instance.
+
         :param pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
         :param pulumi.Input[_builtins.str] target_server: The target partner server where the read-only endpoint points to.
         """
@@ -343,21 +331,18 @@ class FailoverGroupReadOnlyEndpointArgs:
         pulumi.set(self, "target_server", value)
 
 
-if not MYPY:
-    class FailoverGroupReadWriteEndpointArgsDict(TypedDict):
-        """
-        Read-write endpoint of the failover group instance.
-        """
-        failover_policy: pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']]
-        """
-        Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-        """
-        failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-        """
-elif False:
-    FailoverGroupReadWriteEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class FailoverGroupReadWriteEndpointArgsDict(TypedDict):
+    """
+    Read-write endpoint of the failover group instance.
+    """
+    failover_policy: pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']]
+    """
+    Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+    """
+    failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+    """
 
 @pulumi.input_type
 class FailoverGroupReadWriteEndpointArgs:
@@ -366,6 +351,7 @@ class FailoverGroupReadWriteEndpointArgs:
                  failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Read-write endpoint of the failover group instance.
+
         :param pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param pulumi.Input[_builtins.int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
@@ -398,17 +384,14 @@ class FailoverGroupReadWriteEndpointArgs:
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
 
-if not MYPY:
-    class InstanceFailoverGroupReadOnlyEndpointArgsDict(TypedDict):
-        """
-        Read-only endpoint of the failover group instance.
-        """
-        failover_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]
-        """
-        Failover policy of the read-only endpoint for the failover group.
-        """
-elif False:
-    InstanceFailoverGroupReadOnlyEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceFailoverGroupReadOnlyEndpointArgsDict(TypedDict):
+    """
+    Read-only endpoint of the failover group instance.
+    """
+    failover_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]]
+    """
+    Failover policy of the read-only endpoint for the failover group.
+    """
 
 @pulumi.input_type
 class InstanceFailoverGroupReadOnlyEndpointArgs:
@@ -416,6 +399,7 @@ class InstanceFailoverGroupReadOnlyEndpointArgs:
                  failover_policy: Optional[pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']]] = None):
         """
         Read-only endpoint of the failover group instance.
+
         :param pulumi.Input[Union[_builtins.str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
         """
         if failover_policy is not None:
@@ -434,21 +418,18 @@ class InstanceFailoverGroupReadOnlyEndpointArgs:
         pulumi.set(self, "failover_policy", value)
 
 
-if not MYPY:
-    class InstanceFailoverGroupReadWriteEndpointArgsDict(TypedDict):
-        """
-        Read-write endpoint of the failover group instance.
-        """
-        failover_policy: pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']]
-        """
-        Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-        """
-        failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-        """
-elif False:
-    InstanceFailoverGroupReadWriteEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceFailoverGroupReadWriteEndpointArgsDict(TypedDict):
+    """
+    Read-write endpoint of the failover group instance.
+    """
+    failover_policy: pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']]
+    """
+    Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+    """
+    failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+    """
 
 @pulumi.input_type
 class InstanceFailoverGroupReadWriteEndpointArgs:
@@ -457,6 +438,7 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
                  failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Read-write endpoint of the failover group instance.
+
         :param pulumi.Input[Union[_builtins.str, 'ReadWriteEndpointFailoverPolicy']] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param pulumi.Input[_builtins.int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
@@ -489,25 +471,22 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
 
-if not MYPY:
-    class JobAgentIdentityArgsDict(TypedDict):
-        """
-        Azure Active Directory identity configuration for a resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'JobAgentIdentityType']]
-        """
-        The job agent identity type
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The job agent identity tenant id
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource ids of the user assigned identities to use
-        """
-elif False:
-    JobAgentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class JobAgentIdentityArgsDict(TypedDict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'JobAgentIdentityType']]
+    """
+    The job agent identity type
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The job agent identity tenant id
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource ids of the user assigned identities to use
+    """
 
 @pulumi.input_type
 class JobAgentIdentityArgs:
@@ -517,6 +496,7 @@ class JobAgentIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param pulumi.Input[Union[_builtins.str, 'JobAgentIdentityType']] type: The job agent identity type
         :param pulumi.Input[_builtins.str] tenant_id: The job agent identity tenant id
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The resource ids of the user assigned identities to use
@@ -564,33 +544,30 @@ class JobAgentIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class JobScheduleArgsDict(TypedDict):
-        """
-        Scheduling properties of a job.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the schedule is enabled.
-        """
-        end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Schedule end time.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Schedule start time.
-        """
-        type: NotRequired[pulumi.Input['JobScheduleType']]
-        """
-        Schedule interval type
-        """
-elif False:
-    JobScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class JobScheduleArgsDict(TypedDict):
+    """
+    Scheduling properties of a job.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not the schedule is enabled.
+    """
+    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Schedule end time.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Schedule start time.
+    """
+    type: NotRequired[pulumi.Input['JobScheduleType']]
+    """
+    Schedule interval type
+    """
 
 @pulumi.input_type
 class JobScheduleArgs:
@@ -602,6 +579,7 @@ class JobScheduleArgs:
                  type: Optional[pulumi.Input['JobScheduleType']] = None):
         """
         Scheduling properties of a job.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the schedule is enabled.
         :param pulumi.Input[_builtins.str] end_time: Schedule end time.
         :param pulumi.Input[_builtins.str] interval: Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
@@ -686,25 +664,22 @@ class JobScheduleArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class JobStepActionArgsDict(TypedDict):
-        """
-        The action to be executed by a job step.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The action value, for example the text of the T-SQL script to execute.
-        """
-        source: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepActionSource']]]
-        """
-        The source of the action to execute.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepActionType']]]
-        """
-        Type of action being executed by the job step.
-        """
-elif False:
-    JobStepActionArgsDict: TypeAlias = Mapping[str, Any]
+class JobStepActionArgsDict(TypedDict):
+    """
+    The action to be executed by a job step.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The action value, for example the text of the T-SQL script to execute.
+    """
+    source: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepActionSource']]]
+    """
+    The source of the action to execute.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepActionType']]]
+    """
+    Type of action being executed by the job step.
+    """
 
 @pulumi.input_type
 class JobStepActionArgs:
@@ -714,6 +689,7 @@ class JobStepActionArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'JobStepActionType']]] = None):
         """
         The action to be executed by a job step.
+
         :param pulumi.Input[_builtins.str] value: The action value, for example the text of the T-SQL script to execute.
         :param pulumi.Input[Union[_builtins.str, 'JobStepActionSource']] source: The source of the action to execute.
         :param pulumi.Input[Union[_builtins.str, 'JobStepActionType']] type: Type of action being executed by the job step.
@@ -765,33 +741,30 @@ class JobStepActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class JobStepExecutionOptionsArgsDict(TypedDict):
-        """
-        The execution options of a job step.
-        """
-        initial_retry_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Initial delay between retries for job step execution.
-        """
-        maximum_retry_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of time to wait between retries for job step execution.
-        """
-        retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of times the job step will be reattempted if the first attempt fails.
-        """
-        retry_interval_backoff_multiplier: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The backoff multiplier for the time between retries.
-        """
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Execution timeout for the job step.
-        """
-elif False:
-    JobStepExecutionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class JobStepExecutionOptionsArgsDict(TypedDict):
+    """
+    The execution options of a job step.
+    """
+    initial_retry_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Initial delay between retries for job step execution.
+    """
+    maximum_retry_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of time to wait between retries for job step execution.
+    """
+    retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of times the job step will be reattempted if the first attempt fails.
+    """
+    retry_interval_backoff_multiplier: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The backoff multiplier for the time between retries.
+    """
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Execution timeout for the job step.
+    """
 
 @pulumi.input_type
 class JobStepExecutionOptionsArgs:
@@ -803,6 +776,7 @@ class JobStepExecutionOptionsArgs:
                  timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The execution options of a job step.
+
         :param pulumi.Input[_builtins.int] initial_retry_interval_seconds: Initial delay between retries for job step execution.
         :param pulumi.Input[_builtins.int] maximum_retry_interval_seconds: The maximum amount of time to wait between retries for job step execution.
         :param pulumi.Input[_builtins.int] retry_attempts: Maximum number of times the job step will be reattempted if the first attempt fails.
@@ -891,45 +865,42 @@ class JobStepExecutionOptionsArgs:
         pulumi.set(self, "timeout_seconds", value)
 
 
-if not MYPY:
-    class JobStepOutputArgsDict(TypedDict):
-        """
-        The output configuration of a job step.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The output destination database.
-        """
-        server_name: pulumi.Input[_builtins.str]
-        """
-        The output destination server name.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The output destination table.
-        """
-        credential: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the credential to use to connect to the output destination.
-        """
-        resource_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The output destination resource group.
-        """
-        schema_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The output destination schema.
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The output destination subscription id.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepOutputType']]]
-        """
-        The output destination type.
-        """
-elif False:
-    JobStepOutputArgsDict: TypeAlias = Mapping[str, Any]
+class JobStepOutputArgsDict(TypedDict):
+    """
+    The output configuration of a job step.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The output destination database.
+    """
+    server_name: pulumi.Input[_builtins.str]
+    """
+    The output destination server name.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The output destination table.
+    """
+    credential: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the credential to use to connect to the output destination.
+    """
+    resource_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The output destination resource group.
+    """
+    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The output destination schema.
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The output destination subscription id.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'JobStepOutputType']]]
+    """
+    The output destination type.
+    """
 
 @pulumi.input_type
 class JobStepOutputArgs:
@@ -944,6 +915,7 @@ class JobStepOutputArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'JobStepOutputType']]] = None):
         """
         The output configuration of a job step.
+
         :param pulumi.Input[_builtins.str] database_name: The output destination database.
         :param pulumi.Input[_builtins.str] server_name: The output destination server name.
         :param pulumi.Input[_builtins.str] table_name: The output destination table.
@@ -1068,41 +1040,38 @@ class JobStepOutputArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class JobTargetArgsDict(TypedDict):
-        """
-        A job target, for example a specific database or a container of databases that is evaluated during job execution.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'JobTargetType']]
-        """
-        The target type.
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The target database name.
-        """
-        elastic_pool_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The target elastic pool name.
-        """
-        membership_type: NotRequired[pulumi.Input['JobTargetGroupMembershipType']]
-        """
-        Whether the target is included or excluded from the group.
-        """
-        refresh_credential: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
-        """
-        server_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The target server name.
-        """
-        shard_map_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The target shard map.
-        """
-elif False:
-    JobTargetArgsDict: TypeAlias = Mapping[str, Any]
+class JobTargetArgsDict(TypedDict):
+    """
+    A job target, for example a specific database or a container of databases that is evaluated during job execution.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'JobTargetType']]
+    """
+    The target type.
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The target database name.
+    """
+    elastic_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The target elastic pool name.
+    """
+    membership_type: NotRequired[pulumi.Input['JobTargetGroupMembershipType']]
+    """
+    Whether the target is included or excluded from the group.
+    """
+    refresh_credential: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+    """
+    server_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The target server name.
+    """
+    shard_map_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The target shard map.
+    """
 
 @pulumi.input_type
 class JobTargetArgs:
@@ -1116,6 +1085,7 @@ class JobTargetArgs:
                  shard_map_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A job target, for example a specific database or a container of databases that is evaluated during job execution.
+
         :param pulumi.Input[Union[_builtins.str, 'JobTargetType']] type: The target type.
         :param pulumi.Input[_builtins.str] database_name: The target database name.
         :param pulumi.Input[_builtins.str] elastic_pool_name: The target elastic pool name.
@@ -1225,37 +1195,34 @@ class JobTargetArgs:
         pulumi.set(self, "shard_map_name", value)
 
 
-if not MYPY:
-    class ManagedInstanceExternalAdministratorArgsDict(TypedDict):
-        """
-        Properties of a active directory administrator.
-        """
-        administrator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]
-        """
-        Type of the sever administrator.
-        """
-        azure_ad_only_authentication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Azure Active Directory only Authentication enabled.
-        """
-        login: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Login name of the server administrator.
-        """
-        principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
-        """
-        Principal Type of the sever administrator.
-        """
-        sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SID (object ID) of the server administrator.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant ID of the administrator.
-        """
-elif False:
-    ManagedInstanceExternalAdministratorArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedInstanceExternalAdministratorArgsDict(TypedDict):
+    """
+    Properties of a active directory administrator.
+    """
+    administrator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]
+    """
+    Type of the sever administrator.
+    """
+    azure_ad_only_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Azure Active Directory only Authentication enabled.
+    """
+    login: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Login name of the server administrator.
+    """
+    principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
+    """
+    Principal Type of the sever administrator.
+    """
+    sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SID (object ID) of the server administrator.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant ID of the administrator.
+    """
 
 @pulumi.input_type
 class ManagedInstanceExternalAdministratorArgs:
@@ -1268,6 +1235,7 @@ class ManagedInstanceExternalAdministratorArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a active directory administrator.
+
         :param pulumi.Input[Union[_builtins.str, 'AdministratorType']] administrator_type: Type of the sever administrator.
         :param pulumi.Input[_builtins.bool] azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
         :param pulumi.Input[_builtins.str] login: Login name of the server administrator.
@@ -1361,21 +1329,18 @@ class ManagedInstanceExternalAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ManagedInstancePairInfoArgsDict(TypedDict):
-        """
-        Pairs of Managed Instances in the failover group.
-        """
-        partner_managed_instance_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of Partner Managed Instance in pair.
-        """
-        primary_managed_instance_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of Primary Managed Instance in pair.
-        """
-elif False:
-    ManagedInstancePairInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedInstancePairInfoArgsDict(TypedDict):
+    """
+    Pairs of Managed Instances in the failover group.
+    """
+    partner_managed_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of Partner Managed Instance in pair.
+    """
+    primary_managed_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of Primary Managed Instance in pair.
+    """
 
 @pulumi.input_type
 class ManagedInstancePairInfoArgs:
@@ -1384,6 +1349,7 @@ class ManagedInstancePairInfoArgs:
                  primary_managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Pairs of Managed Instances in the failover group.
+
         :param pulumi.Input[_builtins.str] partner_managed_instance_id: Id of Partner Managed Instance in pair.
         :param pulumi.Input[_builtins.str] primary_managed_instance_id: Id of Primary Managed Instance in pair.
         """
@@ -1417,14 +1383,11 @@ class ManagedInstancePairInfoArgs:
         pulumi.set(self, "primary_managed_instance_id", value)
 
 
-if not MYPY:
-    class ManagedInstancePrivateEndpointPropertyArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of the private endpoint.
-        """
-elif False:
-    ManagedInstancePrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedInstancePrivateEndpointPropertyArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of the private endpoint.
+    """
 
 @pulumi.input_type
 class ManagedInstancePrivateEndpointPropertyArgs:
@@ -1449,18 +1412,15 @@ class ManagedInstancePrivateEndpointPropertyArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
-        description: pulumi.Input[_builtins.str]
-        """
-        The private link service connection description.
-        """
-        status: pulumi.Input[_builtins.str]
-        """
-        The private link service connection status.
-        """
-elif False:
-    ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+    description: pulumi.Input[_builtins.str]
+    """
+    The private link service connection description.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    The private link service connection status.
+    """
 
 @pulumi.input_type
 class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs:
@@ -1499,17 +1459,14 @@ class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PartnerInfoArgsDict(TypedDict):
-        """
-        Partner server information for the failover group.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource identifier of the partner server.
-        """
-elif False:
-    PartnerInfoArgsDict: TypeAlias = Mapping[str, Any]
+class PartnerInfoArgsDict(TypedDict):
+    """
+    Partner server information for the failover group.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource identifier of the partner server.
+    """
 
 @pulumi.input_type
 class PartnerInfoArgs:
@@ -1517,6 +1474,7 @@ class PartnerInfoArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         Partner server information for the failover group.
+
         :param pulumi.Input[_builtins.str] id: Resource identifier of the partner server.
         """
         pulumi.set(__self__, "id", id)
@@ -1534,17 +1492,14 @@ class PartnerInfoArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PartnerRegionInfoArgsDict(TypedDict):
-        """
-        Partner region information for the failover group.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Geo location of the partner managed instances.
-        """
-elif False:
-    PartnerRegionInfoArgsDict: TypeAlias = Mapping[str, Any]
+class PartnerRegionInfoArgsDict(TypedDict):
+    """
+    Partner region information for the failover group.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Geo location of the partner managed instances.
+    """
 
 @pulumi.input_type
 class PartnerRegionInfoArgs:
@@ -1552,6 +1507,7 @@ class PartnerRegionInfoArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Partner region information for the failover group.
+
         :param pulumi.Input[_builtins.str] location: Geo location of the partner managed instances.
         """
         if location is not None:
@@ -1570,14 +1526,11 @@ class PartnerRegionInfoArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class PrivateEndpointPropertyArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of the private endpoint.
-        """
-elif False:
-    PrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointPropertyArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of the private endpoint.
+    """
 
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
@@ -1602,18 +1555,15 @@ class PrivateEndpointPropertyArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
-        description: pulumi.Input[_builtins.str]
-        """
-        The private link service connection description.
-        """
-        status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+    description: pulumi.Input[_builtins.str]
+    """
+    The private link service connection description.
+    """
+    status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]
+    """
+    The private link service connection status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:
@@ -1652,21 +1602,18 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        Azure Active Directory identity configuration for a resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
-        """
-        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource ids of the user assigned identities to use
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource ids of the user assigned identities to use
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -1675,6 +1622,7 @@ class ResourceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param pulumi.Input[Union[_builtins.str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
@@ -1708,29 +1656,26 @@ class ResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ScheduleItemArgsDict(TypedDict):
-        """
-        Schedule info describing when the server should be started or stopped.
-        """
-        start_day: pulumi.Input[Union[_builtins.str, 'DayOfWeek']]
-        """
-        Start day.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        Start time.
-        """
-        stop_day: pulumi.Input[Union[_builtins.str, 'DayOfWeek']]
-        """
-        Stop day.
-        """
-        stop_time: pulumi.Input[_builtins.str]
-        """
-        Stop time.
-        """
-elif False:
-    ScheduleItemArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleItemArgsDict(TypedDict):
+    """
+    Schedule info describing when the server should be started or stopped.
+    """
+    start_day: pulumi.Input[Union[_builtins.str, 'DayOfWeek']]
+    """
+    Start day.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    Start time.
+    """
+    stop_day: pulumi.Input[Union[_builtins.str, 'DayOfWeek']]
+    """
+    Stop day.
+    """
+    stop_time: pulumi.Input[_builtins.str]
+    """
+    Stop time.
+    """
 
 @pulumi.input_type
 class ScheduleItemArgs:
@@ -1741,6 +1686,7 @@ class ScheduleItemArgs:
                  stop_time: pulumi.Input[_builtins.str]):
         """
         Schedule info describing when the server should be started or stopped.
+
         :param pulumi.Input[Union[_builtins.str, 'DayOfWeek']] start_day: Start day.
         :param pulumi.Input[_builtins.str] start_time: Start time.
         :param pulumi.Input[Union[_builtins.str, 'DayOfWeek']] stop_day: Stop day.
@@ -1800,37 +1746,34 @@ class ScheduleItemArgs:
         pulumi.set(self, "stop_time", value)
 
 
-if not MYPY:
-    class ServerExternalAdministratorArgsDict(TypedDict):
-        """
-        Properties of a active directory administrator.
-        """
-        administrator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]
-        """
-        Type of the sever administrator.
-        """
-        azure_ad_only_authentication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Azure Active Directory only Authentication enabled.
-        """
-        login: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Login name of the server administrator.
-        """
-        principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
-        """
-        Principal Type of the sever administrator.
-        """
-        sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SID (object ID) of the server administrator.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant ID of the administrator.
-        """
-elif False:
-    ServerExternalAdministratorArgsDict: TypeAlias = Mapping[str, Any]
+class ServerExternalAdministratorArgsDict(TypedDict):
+    """
+    Properties of a active directory administrator.
+    """
+    administrator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AdministratorType']]]
+    """
+    Type of the sever administrator.
+    """
+    azure_ad_only_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Azure Active Directory only Authentication enabled.
+    """
+    login: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Login name of the server administrator.
+    """
+    principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
+    """
+    Principal Type of the sever administrator.
+    """
+    sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SID (object ID) of the server administrator.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant ID of the administrator.
+    """
 
 @pulumi.input_type
 class ServerExternalAdministratorArgs:
@@ -1843,6 +1786,7 @@ class ServerExternalAdministratorArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a active directory administrator.
+
         :param pulumi.Input[Union[_builtins.str, 'AdministratorType']] administrator_type: Type of the sever administrator.
         :param pulumi.Input[_builtins.bool] azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
         :param pulumi.Input[_builtins.str] login: Login name of the server administrator.
@@ -1936,17 +1880,14 @@ class ServerExternalAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ServerInfoArgsDict(TypedDict):
-        """
-        Server info for the server trust group.
-        """
-        server_id: pulumi.Input[_builtins.str]
-        """
-        Server Id.
-        """
-elif False:
-    ServerInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServerInfoArgsDict(TypedDict):
+    """
+    Server info for the server trust group.
+    """
+    server_id: pulumi.Input[_builtins.str]
+    """
+    Server Id.
+    """
 
 @pulumi.input_type
 class ServerInfoArgs:
@@ -1954,6 +1895,7 @@ class ServerInfoArgs:
                  server_id: pulumi.Input[_builtins.str]):
         """
         Server info for the server trust group.
+
         :param pulumi.Input[_builtins.str] server_id: Server Id.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -1971,17 +1913,14 @@ class ServerInfoArgs:
         pulumi.set(self, "server_id", value)
 
 
-if not MYPY:
-    class ServicePrincipalArgsDict(TypedDict):
-        """
-        The managed instance's service principal configuration for a resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']]]
-        """
-        Service principal type.
-        """
-elif False:
-    ServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePrincipalArgsDict(TypedDict):
+    """
+    The managed instance's service principal configuration for a resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']]]
+    """
+    Service principal type.
+    """
 
 @pulumi.input_type
 class ServicePrincipalArgs:
@@ -1989,6 +1928,7 @@ class ServicePrincipalArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']]] = None):
         """
         The managed instance's service principal configuration for a resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ServicePrincipalType']] type: Service principal type.
         """
         if type is not None:
@@ -2007,33 +1947,30 @@ class ServicePrincipalArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        An ARM Resource SKU.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU, typically, a letter + Number code, e.g. P3.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Capacity of the particular SKU.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Size of the particular SKU
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tier or edition of the particular SKU, e.g. Basic, Premium.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    An ARM Resource SKU.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU, typically, a letter + Number code, e.g. P3.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Capacity of the particular SKU.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Size of the particular SKU
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tier or edition of the particular SKU, e.g. Basic, Premium.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -2045,6 +1982,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An ARM Resource SKU.
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU, typically, a letter + Number code, e.g. P3.
         :param pulumi.Input[_builtins.int] capacity: Capacity of the particular SKU.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -2122,25 +2060,22 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SyncGroupSchemaTableColumnArgsDict(TypedDict):
-        """
-        Properties of column in sync group table.
-        """
-        data_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Data size of the column.
-        """
-        data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Data type of the column.
-        """
-        quoted_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Quoted name of sync group table column.
-        """
-elif False:
-    SyncGroupSchemaTableColumnArgsDict: TypeAlias = Mapping[str, Any]
+class SyncGroupSchemaTableColumnArgsDict(TypedDict):
+    """
+    Properties of column in sync group table.
+    """
+    data_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Data size of the column.
+    """
+    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Data type of the column.
+    """
+    quoted_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Quoted name of sync group table column.
+    """
 
 @pulumi.input_type
 class SyncGroupSchemaTableColumnArgs:
@@ -2150,6 +2085,7 @@ class SyncGroupSchemaTableColumnArgs:
                  quoted_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of column in sync group table.
+
         :param pulumi.Input[_builtins.str] data_size: Data size of the column.
         :param pulumi.Input[_builtins.str] data_type: Data type of the column.
         :param pulumi.Input[_builtins.str] quoted_name: Quoted name of sync group table column.
@@ -2198,21 +2134,18 @@ class SyncGroupSchemaTableColumnArgs:
         pulumi.set(self, "quoted_name", value)
 
 
-if not MYPY:
-    class SyncGroupSchemaTableArgsDict(TypedDict):
-        """
-        Properties of table in sync group schema.
-        """
-        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgsDict']]]]
-        """
-        List of columns in sync group schema.
-        """
-        quoted_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Quoted name of sync group schema table.
-        """
-elif False:
-    SyncGroupSchemaTableArgsDict: TypeAlias = Mapping[str, Any]
+class SyncGroupSchemaTableArgsDict(TypedDict):
+    """
+    Properties of table in sync group schema.
+    """
+    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgsDict']]]]
+    """
+    List of columns in sync group schema.
+    """
+    quoted_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Quoted name of sync group schema table.
+    """
 
 @pulumi.input_type
 class SyncGroupSchemaTableArgs:
@@ -2221,6 +2154,7 @@ class SyncGroupSchemaTableArgs:
                  quoted_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of table in sync group schema.
+
         :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
         :param pulumi.Input[_builtins.str] quoted_name: Quoted name of sync group schema table.
         """
@@ -2254,21 +2188,18 @@ class SyncGroupSchemaTableArgs:
         pulumi.set(self, "quoted_name", value)
 
 
-if not MYPY:
-    class SyncGroupSchemaArgsDict(TypedDict):
-        """
-        Properties of sync group schema.
-        """
-        master_sync_member_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of master sync member where the schema is from.
-        """
-        tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgsDict']]]]
-        """
-        List of tables in sync group schema.
-        """
-elif False:
-    SyncGroupSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class SyncGroupSchemaArgsDict(TypedDict):
+    """
+    Properties of sync group schema.
+    """
+    master_sync_member_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of master sync member where the schema is from.
+    """
+    tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgsDict']]]]
+    """
+    List of tables in sync group schema.
+    """
 
 @pulumi.input_type
 class SyncGroupSchemaArgs:
@@ -2277,6 +2208,7 @@ class SyncGroupSchemaArgs:
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None):
         """
         Properties of sync group schema.
+
         :param pulumi.Input[_builtins.str] master_sync_member_name: Name of master sync member where the schema is from.
         :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
         """
@@ -2310,25 +2242,22 @@ class SyncGroupSchemaArgs:
         pulumi.set(self, "tables", value)
 
 
-if not MYPY:
-    class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
-        """
-        Properties of a Vulnerability Assessment recurring scans.
-        """
-        email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        """
-        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies an array of e-mail addresses to which the scan notification is sent.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Recurring scans state.
-        """
-elif False:
-    VulnerabilityAssessmentRecurringScansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
+    """
+    Properties of a Vulnerability Assessment recurring scans.
+    """
+    email_subscription_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies that the schedule scan notification will be is sent to the subscription administrators.
+    """
+    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies an array of e-mail addresses to which the scan notification is sent.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Recurring scans state.
+    """
 
 @pulumi.input_type
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
@@ -2338,6 +2267,7 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
                  is_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
+
         :param pulumi.Input[_builtins.bool] email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[_builtins.bool] is_enabled: Recurring scans state.

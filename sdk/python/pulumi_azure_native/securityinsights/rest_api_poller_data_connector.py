@@ -37,6 +37,7 @@ class RestApiPollerDataConnectorArgs:
                  response: Optional[pulumi.Input['CcpResponseConfigArgs']] = None):
         """
         The set of arguments for constructing a RestApiPollerDataConnector resource.
+
         :param pulumi.Input[Union['AWSAuthModelArgs', 'ApiKeyAuthModelArgs', 'BasicAuthModelArgs', 'GCPAuthModelArgs', 'GenericBlobSbsAuthModelArgs', 'GitHubAuthModelArgs', 'JwtAuthModelArgs', 'NoneAuthModelArgs', 'OAuthModelArgs', 'OracleAuthModelArgs', 'SessionAuthModelArgs']] auth: The a authentication model.
         :param pulumi.Input[_builtins.str] connector_definition_name: The connector definition name (the dataConnectorDefinition resource id).
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
@@ -256,6 +257,7 @@ class RestApiPollerDataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] add_on_attributes: The add on attributes. The key name will become attribute name (a column) and the value will become the attribute value in the payload.
@@ -283,6 +285,7 @@ class RestApiPollerDataConnector(pulumi.CustomResource):
         Represents Rest Api Poller data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+
 
         :param str resource_name: The name of the resource.
         :param RestApiPollerDataConnectorArgs args: The arguments to use to populate this resource's properties.

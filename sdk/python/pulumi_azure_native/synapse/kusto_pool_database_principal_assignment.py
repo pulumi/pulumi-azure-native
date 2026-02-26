@@ -32,6 +32,7 @@ class KustoPoolDatabasePrincipalAssignmentArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KustoPoolDatabasePrincipalAssignment resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[_builtins.str] principal_id: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
@@ -184,6 +185,7 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
@@ -206,6 +208,7 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
         Class representing a database principal assignment.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param KustoPoolDatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

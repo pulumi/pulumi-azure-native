@@ -50,6 +50,7 @@ class ConfigurationProfileAssignmentPropertiesResponse(dict):
                  configuration_profile: Optional[_builtins.str] = None):
         """
         Automanage configuration profile assignment properties.
+
         :param _builtins.str status: The status of onboarding, which only appears in the response.
         :param _builtins.str target_id: The target VM resource URI
         :param _builtins.str configuration_profile: The Automanage configurationProfile ARM Resource URI.
@@ -93,6 +94,7 @@ class ConfigurationProfilePropertiesResponse(dict):
                  configuration: Optional[Any] = None):
         """
         Automanage configuration profile properties.
+
         :param Any configuration: configuration dictionary of the configuration profile.
         """
         if configuration is not None:
@@ -148,6 +150,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

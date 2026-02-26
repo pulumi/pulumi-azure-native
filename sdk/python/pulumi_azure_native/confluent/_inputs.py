@@ -66,32 +66,27 @@ __all__ = [
     'UserDetailArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureBlobStorageSinkConnectorServiceInfoArgsDict(TypedDict):
-        """
-        The authentication info when auth_type is azureBlobStorageSinkConnector
-        """
-        connector_service_type: pulumi.Input[_builtins.str]
-        """
-        The connector service type.
-        Expected value is 'AzureBlobStorageSinkConnector'.
-        """
-        storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Blob Storage Account Key
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Blob Storage Account Name
-        """
-        storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Blob Storage Account Container Name
-        """
-elif False:
-    AzureBlobStorageSinkConnectorServiceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class AzureBlobStorageSinkConnectorServiceInfoArgsDict(TypedDict):
+    """
+    The authentication info when auth_type is azureBlobStorageSinkConnector
+    """
+    connector_service_type: pulumi.Input[_builtins.str]
+    """
+    The connector service type.
+    Expected value is 'AzureBlobStorageSinkConnector'.
+    """
+    storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Blob Storage Account Key
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Blob Storage Account Name
+    """
+    storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Blob Storage Account Container Name
+    """
 
 @pulumi.input_type
 class AzureBlobStorageSinkConnectorServiceInfoArgs:
@@ -102,6 +97,7 @@ class AzureBlobStorageSinkConnectorServiceInfoArgs:
                  storage_container_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The authentication info when auth_type is azureBlobStorageSinkConnector
+
         :param pulumi.Input[_builtins.str] connector_service_type: The connector service type.
                Expected value is 'AzureBlobStorageSinkConnector'.
         :param pulumi.Input[_builtins.str] storage_account_key: Azure Blob Storage Account Key
@@ -166,30 +162,27 @@ class AzureBlobStorageSinkConnectorServiceInfoArgs:
         pulumi.set(self, "storage_container_name", value)
 
 
-if not MYPY:
-    class AzureBlobStorageSourceConnectorServiceInfoArgsDict(TypedDict):
-        """
-        The connector service type is AzureBlobStorageSourceConnector
-        """
-        connector_service_type: pulumi.Input[_builtins.str]
-        """
-        The connector service type.
-        Expected value is 'AzureBlobStorageSourceConnector'.
-        """
-        storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Blob Storage Account Key
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Blob Storage Account Name
-        """
-        storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Blob Storage Account Container Name
-        """
-elif False:
-    AzureBlobStorageSourceConnectorServiceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class AzureBlobStorageSourceConnectorServiceInfoArgsDict(TypedDict):
+    """
+    The connector service type is AzureBlobStorageSourceConnector
+    """
+    connector_service_type: pulumi.Input[_builtins.str]
+    """
+    The connector service type.
+    Expected value is 'AzureBlobStorageSourceConnector'.
+    """
+    storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Blob Storage Account Key
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Blob Storage Account Name
+    """
+    storage_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Blob Storage Account Container Name
+    """
 
 @pulumi.input_type
 class AzureBlobStorageSourceConnectorServiceInfoArgs:
@@ -200,6 +193,7 @@ class AzureBlobStorageSourceConnectorServiceInfoArgs:
                  storage_container_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The connector service type is AzureBlobStorageSourceConnector
+
         :param pulumi.Input[_builtins.str] connector_service_type: The connector service type.
                Expected value is 'AzureBlobStorageSourceConnector'.
         :param pulumi.Input[_builtins.str] storage_account_key: Azure Blob Storage Account Key
@@ -264,38 +258,35 @@ class AzureBlobStorageSourceConnectorServiceInfoArgs:
         pulumi.set(self, "storage_container_name", value)
 
 
-if not MYPY:
-    class AzureCosmosDBSinkConnectorServiceInfoArgsDict(TypedDict):
-        """
-        The authentication info when auth_type is AzureCosmosDBSinkConnector
-        """
-        connector_service_type: pulumi.Input[_builtins.str]
-        """
-        The connector service type.
-        Expected value is 'AzureCosmosDBSinkConnector'.
-        """
-        cosmos_connection_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Connection Endpoint
-        """
-        cosmos_containers_topic_mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Containers Topic Mapping
-        """
-        cosmos_database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Name
-        """
-        cosmos_id_strategy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Id Strategy
-        """
-        cosmos_master_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Master Key
-        """
-elif False:
-    AzureCosmosDBSinkConnectorServiceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCosmosDBSinkConnectorServiceInfoArgsDict(TypedDict):
+    """
+    The authentication info when auth_type is AzureCosmosDBSinkConnector
+    """
+    connector_service_type: pulumi.Input[_builtins.str]
+    """
+    The connector service type.
+    Expected value is 'AzureCosmosDBSinkConnector'.
+    """
+    cosmos_connection_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Connection Endpoint
+    """
+    cosmos_containers_topic_mapping: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Containers Topic Mapping
+    """
+    cosmos_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Name
+    """
+    cosmos_id_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Id Strategy
+    """
+    cosmos_master_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Master Key
+    """
 
 @pulumi.input_type
 class AzureCosmosDBSinkConnectorServiceInfoArgs:
@@ -308,6 +299,7 @@ class AzureCosmosDBSinkConnectorServiceInfoArgs:
                  cosmos_master_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The authentication info when auth_type is AzureCosmosDBSinkConnector
+
         :param pulumi.Input[_builtins.str] connector_service_type: The connector service type.
                Expected value is 'AzureCosmosDBSinkConnector'.
         :param pulumi.Input[_builtins.str] cosmos_connection_endpoint: Azure Cosmos Database Connection Endpoint
@@ -402,42 +394,39 @@ class AzureCosmosDBSinkConnectorServiceInfoArgs:
         pulumi.set(self, "cosmos_master_key", value)
 
 
-if not MYPY:
-    class AzureCosmosDBSourceConnectorServiceInfoArgsDict(TypedDict):
-        """
-        The authentication info when auth_type is AzureCosmosDBSourceConnector
-        """
-        connector_service_type: pulumi.Input[_builtins.str]
-        """
-        The connector service type.
-        Expected value is 'AzureCosmosDBSourceConnector'.
-        """
-        cosmos_connection_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Connection Endpoint
-        """
-        cosmos_containers_topic_mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Containers Topic Mapping
-        """
-        cosmos_database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Name
-        """
-        cosmos_master_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Master Key
-        """
-        cosmos_message_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Azure Cosmos Database Message Key Enabled
-        """
-        cosmos_message_key_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Cosmos Database Message Key Field
-        """
-elif False:
-    AzureCosmosDBSourceConnectorServiceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class AzureCosmosDBSourceConnectorServiceInfoArgsDict(TypedDict):
+    """
+    The authentication info when auth_type is AzureCosmosDBSourceConnector
+    """
+    connector_service_type: pulumi.Input[_builtins.str]
+    """
+    The connector service type.
+    Expected value is 'AzureCosmosDBSourceConnector'.
+    """
+    cosmos_connection_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Connection Endpoint
+    """
+    cosmos_containers_topic_mapping: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Containers Topic Mapping
+    """
+    cosmos_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Name
+    """
+    cosmos_master_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Master Key
+    """
+    cosmos_message_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Azure Cosmos Database Message Key Enabled
+    """
+    cosmos_message_key_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Cosmos Database Message Key Field
+    """
 
 @pulumi.input_type
 class AzureCosmosDBSourceConnectorServiceInfoArgs:
@@ -451,6 +440,7 @@ class AzureCosmosDBSourceConnectorServiceInfoArgs:
                  cosmos_message_key_field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The authentication info when auth_type is AzureCosmosDBSourceConnector
+
         :param pulumi.Input[_builtins.str] connector_service_type: The connector service type.
                Expected value is 'AzureCosmosDBSourceConnector'.
         :param pulumi.Input[_builtins.str] cosmos_connection_endpoint: Azure Cosmos Database Connection Endpoint
@@ -560,34 +550,31 @@ class AzureCosmosDBSourceConnectorServiceInfoArgs:
         pulumi.set(self, "cosmos_message_key_field", value)
 
 
-if not MYPY:
-    class AzureSynapseAnalyticsSinkConnectorServiceInfoArgsDict(TypedDict):
-        """
-        The authentication info when auth_type is AzureSynapseAnalyticsSinkConnector
-        """
-        connector_service_type: pulumi.Input[_builtins.str]
-        """
-        The connector service type.
-        Expected value is 'AzureSynapseAnalyticsSinkConnector'.
-        """
-        synapse_sql_database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Synapse Dedicated SQL Pool Database Name
-        """
-        synapse_sql_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Synapse SQL login details
-        """
-        synapse_sql_server_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Synapse Analytics SQL Server Name
-        """
-        synapse_sql_user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Synapse SQL login details
-        """
-elif False:
-    AzureSynapseAnalyticsSinkConnectorServiceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class AzureSynapseAnalyticsSinkConnectorServiceInfoArgsDict(TypedDict):
+    """
+    The authentication info when auth_type is AzureSynapseAnalyticsSinkConnector
+    """
+    connector_service_type: pulumi.Input[_builtins.str]
+    """
+    The connector service type.
+    Expected value is 'AzureSynapseAnalyticsSinkConnector'.
+    """
+    synapse_sql_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Synapse Dedicated SQL Pool Database Name
+    """
+    synapse_sql_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Synapse SQL login details
+    """
+    synapse_sql_server_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Synapse Analytics SQL Server Name
+    """
+    synapse_sql_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Synapse SQL login details
+    """
 
 @pulumi.input_type
 class AzureSynapseAnalyticsSinkConnectorServiceInfoArgs:
@@ -599,6 +586,7 @@ class AzureSynapseAnalyticsSinkConnectorServiceInfoArgs:
                  synapse_sql_user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The authentication info when auth_type is AzureSynapseAnalyticsSinkConnector
+
         :param pulumi.Input[_builtins.str] connector_service_type: The connector service type.
                Expected value is 'AzureSynapseAnalyticsSinkConnector'.
         :param pulumi.Input[_builtins.str] synapse_sql_database_name: Azure Synapse Dedicated SQL Pool Database Name
@@ -678,17 +666,14 @@ class AzureSynapseAnalyticsSinkConnectorServiceInfoArgs:
         pulumi.set(self, "synapse_sql_user", value)
 
 
-if not MYPY:
-    class ClusterConfigEntityArgsDict(TypedDict):
-        """
-        The configuration of the Kafka cluster
-        """
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The lifecycle phase of the cluster
-        """
-elif False:
-    ClusterConfigEntityArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterConfigEntityArgsDict(TypedDict):
+    """
+    The configuration of the Kafka cluster
+    """
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The lifecycle phase of the cluster
+    """
 
 @pulumi.input_type
 class ClusterConfigEntityArgs:
@@ -696,6 +681,7 @@ class ClusterConfigEntityArgs:
                  kind: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The configuration of the Kafka cluster
+
         :param pulumi.Input[_builtins.str] kind: The lifecycle phase of the cluster
         """
         if kind is not None:
@@ -714,21 +700,18 @@ class ClusterConfigEntityArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class ClusterStatusEntityArgsDict(TypedDict):
-        """
-        Status of the cluster record
-        """
-        cku: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of Confluent Kafka Units
-        """
-        phase: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The lifecycle phase of the cluster
-        """
-elif False:
-    ClusterStatusEntityArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterStatusEntityArgsDict(TypedDict):
+    """
+    Status of the cluster record
+    """
+    cku: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of Confluent Kafka Units
+    """
+    phase: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The lifecycle phase of the cluster
+    """
 
 @pulumi.input_type
 class ClusterStatusEntityArgs:
@@ -737,6 +720,7 @@ class ClusterStatusEntityArgs:
                  phase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Status of the cluster record
+
         :param pulumi.Input[_builtins.int] cku: The number of Confluent Kafka Units
         :param pulumi.Input[_builtins.str] phase: The lifecycle phase of the cluster
         """
@@ -770,33 +754,30 @@ class ClusterStatusEntityArgs:
         pulumi.set(self, "phase", value)
 
 
-if not MYPY:
-    class ConnectorInfoBaseArgsDict(TypedDict):
-        """
-        Connector Info Base properties
-        """
-        connector_class: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectorClass']]]
-        """
-        Connector Class
-        """
-        connector_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connector Id
-        """
-        connector_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connector Name
-        """
-        connector_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectorStatus']]]
-        """
-        Connector Status
-        """
-        connector_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectorType']]]
-        """
-        Connector Type
-        """
-elif False:
-    ConnectorInfoBaseArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorInfoBaseArgsDict(TypedDict):
+    """
+    Connector Info Base properties
+    """
+    connector_class: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectorClass']]]
+    """
+    Connector Class
+    """
+    connector_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connector Id
+    """
+    connector_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connector Name
+    """
+    connector_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectorStatus']]]
+    """
+    Connector Status
+    """
+    connector_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectorType']]]
+    """
+    Connector Type
+    """
 
 @pulumi.input_type
 class ConnectorInfoBaseArgs:
@@ -808,6 +789,7 @@ class ConnectorInfoBaseArgs:
                  connector_type: Optional[pulumi.Input[Union[_builtins.str, 'ConnectorType']]] = None):
         """
         Connector Info Base properties
+
         :param pulumi.Input[Union[_builtins.str, 'ConnectorClass']] connector_class: Connector Class
         :param pulumi.Input[_builtins.str] connector_id: Connector Id
         :param pulumi.Input[_builtins.str] connector_name: Connector Name
@@ -886,62 +868,59 @@ class ConnectorInfoBaseArgs:
         pulumi.set(self, "connector_type", value)
 
 
-if not MYPY:
-    class KafkaAzureBlobStorageSinkConnectorInfoArgsDict(TypedDict):
-        """
-        The partner connector type is KafkaAzureBlobStorageSink
-        """
-        partner_connector_type: pulumi.Input[_builtins.str]
-        """
-        Partner Connector type.
-        Expected value is 'KafkaAzureBlobStorageSink'.
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key
-        """
-        api_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key Secret
-        """
-        auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
-        """
-        Kafka Auth Type
-        """
-        flush_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Flush size
-        """
-        input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Input Data Format Type
-        """
-        max_tasks: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum Tasks
-        """
-        output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Output Data Format Type
-        """
-        service_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka Service Account Id
-        """
-        time_interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time Interval
-        """
-        topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Kafka topics list
-        """
-        topics_dir: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topics directory
-        """
-elif False:
-    KafkaAzureBlobStorageSinkConnectorInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaAzureBlobStorageSinkConnectorInfoArgsDict(TypedDict):
+    """
+    The partner connector type is KafkaAzureBlobStorageSink
+    """
+    partner_connector_type: pulumi.Input[_builtins.str]
+    """
+    Partner Connector type.
+    Expected value is 'KafkaAzureBlobStorageSink'.
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key
+    """
+    api_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key Secret
+    """
+    auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
+    """
+    Kafka Auth Type
+    """
+    flush_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Flush size
+    """
+    input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Input Data Format Type
+    """
+    max_tasks: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum Tasks
+    """
+    output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Output Data Format Type
+    """
+    service_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka Service Account Id
+    """
+    time_interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time Interval
+    """
+    topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Kafka topics list
+    """
+    topics_dir: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topics directory
+    """
 
 @pulumi.input_type
 class KafkaAzureBlobStorageSinkConnectorInfoArgs:
@@ -960,6 +939,7 @@ class KafkaAzureBlobStorageSinkConnectorInfoArgs:
                  topics_dir: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The partner connector type is KafkaAzureBlobStorageSink
+
         :param pulumi.Input[_builtins.str] partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureBlobStorageSink'.
         :param pulumi.Input[_builtins.str] api_key: Kafka API Key
@@ -1144,54 +1124,51 @@ class KafkaAzureBlobStorageSinkConnectorInfoArgs:
         pulumi.set(self, "topics_dir", value)
 
 
-if not MYPY:
-    class KafkaAzureBlobStorageSourceConnectorInfoArgsDict(TypedDict):
-        """
-        The partner connector type is KafkaAzureBlobStorageSource
-        """
-        partner_connector_type: pulumi.Input[_builtins.str]
-        """
-        Partner Connector type.
-        Expected value is 'KafkaAzureBlobStorageSource'.
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key
-        """
-        api_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Secret
-        """
-        auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
-        """
-        Kafka Auth Type
-        """
-        input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Input Data Format Type
-        """
-        max_tasks: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum Tasks
-        """
-        output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Output Data Format Type
-        """
-        service_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka Service Account Id
-        """
-        topic_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topics Regex pattern
-        """
-        topics_dir: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topics directory
-        """
-elif False:
-    KafkaAzureBlobStorageSourceConnectorInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaAzureBlobStorageSourceConnectorInfoArgsDict(TypedDict):
+    """
+    The partner connector type is KafkaAzureBlobStorageSource
+    """
+    partner_connector_type: pulumi.Input[_builtins.str]
+    """
+    Partner Connector type.
+    Expected value is 'KafkaAzureBlobStorageSource'.
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key
+    """
+    api_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Secret
+    """
+    auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
+    """
+    Kafka Auth Type
+    """
+    input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Input Data Format Type
+    """
+    max_tasks: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum Tasks
+    """
+    output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Output Data Format Type
+    """
+    service_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka Service Account Id
+    """
+    topic_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topics Regex pattern
+    """
+    topics_dir: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topics directory
+    """
 
 @pulumi.input_type
 class KafkaAzureBlobStorageSourceConnectorInfoArgs:
@@ -1208,6 +1185,7 @@ class KafkaAzureBlobStorageSourceConnectorInfoArgs:
                  topics_dir: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The partner connector type is KafkaAzureBlobStorageSource
+
         :param pulumi.Input[_builtins.str] partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureBlobStorageSource'.
         :param pulumi.Input[_builtins.str] api_key: Kafka API Key
@@ -1362,62 +1340,59 @@ class KafkaAzureBlobStorageSourceConnectorInfoArgs:
         pulumi.set(self, "topics_dir", value)
 
 
-if not MYPY:
-    class KafkaAzureCosmosDBSinkConnectorInfoArgsDict(TypedDict):
-        """
-        The partner connector type is KafkaAzureCosmosDBSink
-        """
-        partner_connector_type: pulumi.Input[_builtins.str]
-        """
-        Partner Connector type.
-        Expected value is 'KafkaAzureCosmosDBSink'.
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key
-        """
-        api_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key Secret
-        """
-        auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
-        """
-        Kafka Auth Type
-        """
-        flush_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Flush size
-        """
-        input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Input Data Format Type
-        """
-        max_tasks: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum Tasks
-        """
-        output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Output Data Format Type
-        """
-        service_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka Service Account Id
-        """
-        time_interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time Interval
-        """
-        topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Kafka topics list
-        """
-        topics_dir: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topics directory
-        """
-elif False:
-    KafkaAzureCosmosDBSinkConnectorInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaAzureCosmosDBSinkConnectorInfoArgsDict(TypedDict):
+    """
+    The partner connector type is KafkaAzureCosmosDBSink
+    """
+    partner_connector_type: pulumi.Input[_builtins.str]
+    """
+    Partner Connector type.
+    Expected value is 'KafkaAzureCosmosDBSink'.
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key
+    """
+    api_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key Secret
+    """
+    auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
+    """
+    Kafka Auth Type
+    """
+    flush_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Flush size
+    """
+    input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Input Data Format Type
+    """
+    max_tasks: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum Tasks
+    """
+    output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Output Data Format Type
+    """
+    service_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka Service Account Id
+    """
+    time_interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time Interval
+    """
+    topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Kafka topics list
+    """
+    topics_dir: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topics directory
+    """
 
 @pulumi.input_type
 class KafkaAzureCosmosDBSinkConnectorInfoArgs:
@@ -1436,6 +1411,7 @@ class KafkaAzureCosmosDBSinkConnectorInfoArgs:
                  topics_dir: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The partner connector type is KafkaAzureCosmosDBSink
+
         :param pulumi.Input[_builtins.str] partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureCosmosDBSink'.
         :param pulumi.Input[_builtins.str] api_key: Kafka API Key
@@ -1620,54 +1596,51 @@ class KafkaAzureCosmosDBSinkConnectorInfoArgs:
         pulumi.set(self, "topics_dir", value)
 
 
-if not MYPY:
-    class KafkaAzureCosmosDBSourceConnectorInfoArgsDict(TypedDict):
-        """
-        The partner connector type is KafkaAzureCosmosDBSource
-        """
-        partner_connector_type: pulumi.Input[_builtins.str]
-        """
-        Partner Connector type.
-        Expected value is 'KafkaAzureCosmosDBSource'.
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key
-        """
-        api_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Secret
-        """
-        auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
-        """
-        Kafka Auth Type
-        """
-        input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Input Data Format Type
-        """
-        max_tasks: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum Tasks
-        """
-        output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Output Data Format Type
-        """
-        service_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka Service Account Id
-        """
-        topic_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topics Regex pattern
-        """
-        topics_dir: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topics directory
-        """
-elif False:
-    KafkaAzureCosmosDBSourceConnectorInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaAzureCosmosDBSourceConnectorInfoArgsDict(TypedDict):
+    """
+    The partner connector type is KafkaAzureCosmosDBSource
+    """
+    partner_connector_type: pulumi.Input[_builtins.str]
+    """
+    Partner Connector type.
+    Expected value is 'KafkaAzureCosmosDBSource'.
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key
+    """
+    api_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Secret
+    """
+    auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
+    """
+    Kafka Auth Type
+    """
+    input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Input Data Format Type
+    """
+    max_tasks: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum Tasks
+    """
+    output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Output Data Format Type
+    """
+    service_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka Service Account Id
+    """
+    topic_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topics Regex pattern
+    """
+    topics_dir: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topics directory
+    """
 
 @pulumi.input_type
 class KafkaAzureCosmosDBSourceConnectorInfoArgs:
@@ -1684,6 +1657,7 @@ class KafkaAzureCosmosDBSourceConnectorInfoArgs:
                  topics_dir: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The partner connector type is KafkaAzureCosmosDBSource
+
         :param pulumi.Input[_builtins.str] partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureCosmosDBSource'.
         :param pulumi.Input[_builtins.str] api_key: Kafka API Key
@@ -1838,62 +1812,59 @@ class KafkaAzureCosmosDBSourceConnectorInfoArgs:
         pulumi.set(self, "topics_dir", value)
 
 
-if not MYPY:
-    class KafkaAzureSynapseAnalyticsSinkConnectorInfoArgsDict(TypedDict):
-        """
-        The partner connector type is KafkaAzureSynapseAnalyticsSink
-        """
-        partner_connector_type: pulumi.Input[_builtins.str]
-        """
-        Partner Connector type.
-        Expected value is 'KafkaAzureSynapseAnalyticsSink'.
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key
-        """
-        api_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka API Key Secret
-        """
-        auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
-        """
-        Kafka Auth Type
-        """
-        flush_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Flush size
-        """
-        input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Input Data Format Type
-        """
-        max_tasks: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum Tasks
-        """
-        output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
-        """
-        Kafka Output Data Format Type
-        """
-        service_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka Service Account Id
-        """
-        time_interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time Interval
-        """
-        topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Kafka topics list
-        """
-        topics_dir: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topics directory
-        """
-elif False:
-    KafkaAzureSynapseAnalyticsSinkConnectorInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaAzureSynapseAnalyticsSinkConnectorInfoArgsDict(TypedDict):
+    """
+    The partner connector type is KafkaAzureSynapseAnalyticsSink
+    """
+    partner_connector_type: pulumi.Input[_builtins.str]
+    """
+    Partner Connector type.
+    Expected value is 'KafkaAzureSynapseAnalyticsSink'.
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key
+    """
+    api_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka API Key Secret
+    """
+    auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthType']]]
+    """
+    Kafka Auth Type
+    """
+    flush_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Flush size
+    """
+    input_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Input Data Format Type
+    """
+    max_tasks: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum Tasks
+    """
+    output_format: NotRequired[pulumi.Input[Union[_builtins.str, 'DataFormatType']]]
+    """
+    Kafka Output Data Format Type
+    """
+    service_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka Service Account Id
+    """
+    time_interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time Interval
+    """
+    topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Kafka topics list
+    """
+    topics_dir: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topics directory
+    """
 
 @pulumi.input_type
 class KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs:
@@ -1912,6 +1883,7 @@ class KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs:
                  topics_dir: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The partner connector type is KafkaAzureSynapseAnalyticsSink
+
         :param pulumi.Input[_builtins.str] partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureSynapseAnalyticsSink'.
         :param pulumi.Input[_builtins.str] api_key: Kafka API Key
@@ -2096,17 +2068,14 @@ class KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs:
         pulumi.set(self, "topics_dir", value)
 
 
-if not MYPY:
-    class LinkOrganizationArgsDict(TypedDict):
-        """
-        Link an existing Confluent organization
-        """
-        token: pulumi.Input[_builtins.str]
-        """
-        User auth token
-        """
-elif False:
-    LinkOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+class LinkOrganizationArgsDict(TypedDict):
+    """
+    Link an existing Confluent organization
+    """
+    token: pulumi.Input[_builtins.str]
+    """
+    User auth token
+    """
 
 @pulumi.input_type
 class LinkOrganizationArgs:
@@ -2114,6 +2083,7 @@ class LinkOrganizationArgs:
                  token: pulumi.Input[_builtins.str]):
         """
         Link an existing Confluent organization
+
         :param pulumi.Input[_builtins.str] token: User auth token
         """
         pulumi.set(__self__, "token", token)
@@ -2131,49 +2101,46 @@ class LinkOrganizationArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class OfferDetailArgsDict(TypedDict):
-        """
-        Confluent Offer detail
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Offer Id
-        """
-        plan_id: pulumi.Input[_builtins.str]
-        """
-        Offer Plan Id
-        """
-        plan_name: pulumi.Input[_builtins.str]
-        """
-        Offer Plan Name
-        """
-        publisher_id: pulumi.Input[_builtins.str]
-        """
-        Publisher Id
-        """
-        term_unit: pulumi.Input[_builtins.str]
-        """
-        Offer Plan Term unit
-        """
-        private_offer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private Offer Id
-        """
-        private_offer_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of Private Offer Ids
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'SaaSOfferStatus']]]
-        """
-        SaaS Offer Status
-        """
-        term_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Offer Plan Term Id
-        """
-elif False:
-    OfferDetailArgsDict: TypeAlias = Mapping[str, Any]
+class OfferDetailArgsDict(TypedDict):
+    """
+    Confluent Offer detail
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Offer Id
+    """
+    plan_id: pulumi.Input[_builtins.str]
+    """
+    Offer Plan Id
+    """
+    plan_name: pulumi.Input[_builtins.str]
+    """
+    Offer Plan Name
+    """
+    publisher_id: pulumi.Input[_builtins.str]
+    """
+    Publisher Id
+    """
+    term_unit: pulumi.Input[_builtins.str]
+    """
+    Offer Plan Term unit
+    """
+    private_offer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private Offer Id
+    """
+    private_offer_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of Private Offer Ids
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'SaaSOfferStatus']]]
+    """
+    SaaS Offer Status
+    """
+    term_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Offer Plan Term Id
+    """
 
 @pulumi.input_type
 class OfferDetailArgs:
@@ -2189,6 +2156,7 @@ class OfferDetailArgs:
                  term_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Confluent Offer detail
+
         :param pulumi.Input[_builtins.str] id: Offer Id
         :param pulumi.Input[_builtins.str] plan_id: Offer Plan Id
         :param pulumi.Input[_builtins.str] plan_name: Offer Plan Name
@@ -2322,25 +2290,22 @@ class OfferDetailArgs:
         pulumi.set(self, "term_id", value)
 
 
-if not MYPY:
-    class SCClusterByokEntityArgsDict(TypedDict):
-        """
-        The network associated with this object
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the referred resource
-        """
-        related: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        API URL for accessing or modifying the referred object
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CRN reference to the referred resource
-        """
-elif False:
-    SCClusterByokEntityArgsDict: TypeAlias = Mapping[str, Any]
+class SCClusterByokEntityArgsDict(TypedDict):
+    """
+    The network associated with this object
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the referred resource
+    """
+    related: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    API URL for accessing or modifying the referred object
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CRN reference to the referred resource
+    """
 
 @pulumi.input_type
 class SCClusterByokEntityArgs:
@@ -2350,6 +2315,7 @@ class SCClusterByokEntityArgs:
                  resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The network associated with this object
+
         :param pulumi.Input[_builtins.str] id: ID of the referred resource
         :param pulumi.Input[_builtins.str] related: API URL for accessing or modifying the referred object
         :param pulumi.Input[_builtins.str] resource_name: CRN reference to the referred resource
@@ -2398,29 +2364,26 @@ class SCClusterByokEntityArgs:
         pulumi.set(self, "resource_name", value)
 
 
-if not MYPY:
-    class SCClusterNetworkEnvironmentEntityArgsDict(TypedDict):
-        """
-        The environment or the network to which cluster belongs
-        """
-        environment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Environment of the referred resource
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the referred resource
-        """
-        related: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        API URL for accessing or modifying the referred object
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CRN reference to the referred resource
-        """
-elif False:
-    SCClusterNetworkEnvironmentEntityArgsDict: TypeAlias = Mapping[str, Any]
+class SCClusterNetworkEnvironmentEntityArgsDict(TypedDict):
+    """
+    The environment or the network to which cluster belongs
+    """
+    environment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Environment of the referred resource
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the referred resource
+    """
+    related: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    API URL for accessing or modifying the referred object
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CRN reference to the referred resource
+    """
 
 @pulumi.input_type
 class SCClusterNetworkEnvironmentEntityArgs:
@@ -2431,6 +2394,7 @@ class SCClusterNetworkEnvironmentEntityArgs:
                  resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The environment or the network to which cluster belongs
+
         :param pulumi.Input[_builtins.str] environment: Environment of the referred resource
         :param pulumi.Input[_builtins.str] id: ID of the referred resource
         :param pulumi.Input[_builtins.str] related: API URL for accessing or modifying the referred object
@@ -2494,65 +2458,62 @@ class SCClusterNetworkEnvironmentEntityArgs:
         pulumi.set(self, "resource_name", value)
 
 
-if not MYPY:
-    class SCClusterSpecEntityArgsDict(TypedDict):
-        """
-        Spec of the cluster record
-        """
-        api_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kafka API cluster endpoint
-        """
-        availability: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The availability zone configuration of the cluster
-        """
-        byok: NotRequired[pulumi.Input['SCClusterByokEntityArgsDict']]
-        """
-        Specification of the cluster byok
-        """
-        cloud: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cloud service provider
-        """
-        config: NotRequired[pulumi.Input['ClusterConfigEntityArgsDict']]
-        """
-        Specification of the cluster configuration
-        """
-        environment: NotRequired[pulumi.Input['SCClusterNetworkEnvironmentEntityArgsDict']]
-        """
-        Specification of the cluster environment
-        """
-        http_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cluster HTTP request URL.
-        """
-        kafka_bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bootstrap endpoint used by Kafka clients to connect to the cluster
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the cluster
-        """
-        network: NotRequired[pulumi.Input['SCClusterNetworkEnvironmentEntityArgsDict']]
-        """
-        Specification of the cluster network
-        """
-        package: NotRequired[pulumi.Input[Union[_builtins.str, 'Package']]]
-        """
-        Stream governance configuration
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cloud service provider region
-        """
-        zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        type of zone availability
-        """
-elif False:
-    SCClusterSpecEntityArgsDict: TypeAlias = Mapping[str, Any]
+class SCClusterSpecEntityArgsDict(TypedDict):
+    """
+    Spec of the cluster record
+    """
+    api_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kafka API cluster endpoint
+    """
+    availability: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The availability zone configuration of the cluster
+    """
+    byok: NotRequired[pulumi.Input['SCClusterByokEntityArgsDict']]
+    """
+    Specification of the cluster byok
+    """
+    cloud: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cloud service provider
+    """
+    config: NotRequired[pulumi.Input['ClusterConfigEntityArgsDict']]
+    """
+    Specification of the cluster configuration
+    """
+    environment: NotRequired[pulumi.Input['SCClusterNetworkEnvironmentEntityArgsDict']]
+    """
+    Specification of the cluster environment
+    """
+    http_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cluster HTTP request URL.
+    """
+    kafka_bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bootstrap endpoint used by Kafka clients to connect to the cluster
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the cluster
+    """
+    network: NotRequired[pulumi.Input['SCClusterNetworkEnvironmentEntityArgsDict']]
+    """
+    Specification of the cluster network
+    """
+    package: NotRequired[pulumi.Input[Union[_builtins.str, 'Package']]]
+    """
+    Stream governance configuration
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cloud service provider region
+    """
+    zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    type of zone availability
+    """
 
 @pulumi.input_type
 class SCClusterSpecEntityArgs:
@@ -2572,6 +2533,7 @@ class SCClusterSpecEntityArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Spec of the cluster record
+
         :param pulumi.Input[_builtins.str] api_endpoint: The Kafka API cluster endpoint
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the cluster
         :param pulumi.Input['SCClusterByokEntityArgs'] byok: Specification of the cluster byok
@@ -2770,33 +2732,30 @@ class SCClusterSpecEntityArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class SCMetadataEntityArgsDict(TypedDict):
-        """
-        Metadata of the data record
-        """
-        created_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Created Date Time
-        """
-        deleted_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Deleted Date time
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name of the record
-        """
-        self: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Self lookup url
-        """
-        updated_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Updated Date time
-        """
-elif False:
-    SCMetadataEntityArgsDict: TypeAlias = Mapping[str, Any]
+class SCMetadataEntityArgsDict(TypedDict):
+    """
+    Metadata of the data record
+    """
+    created_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Created Date Time
+    """
+    deleted_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Deleted Date time
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name of the record
+    """
+    self: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Self lookup url
+    """
+    updated_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Updated Date time
+    """
 
 @pulumi.input_type
 class SCMetadataEntityArgs:
@@ -2808,6 +2767,7 @@ class SCMetadataEntityArgs:
                  updated_timestamp: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Metadata of the data record
+
         :param pulumi.Input[_builtins.str] created_timestamp: Created Date Time
         :param pulumi.Input[_builtins.str] deleted_timestamp: Deleted Date time
         :param pulumi.Input[_builtins.str] resource_name: Resource name of the record
@@ -2886,17 +2846,14 @@ class SCMetadataEntityArgs:
         pulumi.set(self, "updated_timestamp", value)
 
 
-if not MYPY:
-    class StreamGovernanceConfigArgsDict(TypedDict):
-        """
-        Stream governance configuration
-        """
-        package: NotRequired[pulumi.Input[Union[_builtins.str, 'Package']]]
-        """
-        Stream governance configuration
-        """
-elif False:
-    StreamGovernanceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class StreamGovernanceConfigArgsDict(TypedDict):
+    """
+    Stream governance configuration
+    """
+    package: NotRequired[pulumi.Input[Union[_builtins.str, 'Package']]]
+    """
+    Stream governance configuration
+    """
 
 @pulumi.input_type
 class StreamGovernanceConfigArgs:
@@ -2904,6 +2861,7 @@ class StreamGovernanceConfigArgs:
                  package: Optional[pulumi.Input[Union[_builtins.str, 'Package']]] = None):
         """
         Stream governance configuration
+
         :param pulumi.Input[Union[_builtins.str, 'Package']] package: Stream governance configuration
         """
         if package is not None:
@@ -2922,21 +2880,18 @@ class StreamGovernanceConfigArgs:
         pulumi.set(self, "package", value)
 
 
-if not MYPY:
-    class TopicMetadataEntityArgsDict(TypedDict):
-        """
-        Metadata of the data record
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name of the record
-        """
-        self: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Self lookup url
-        """
-elif False:
-    TopicMetadataEntityArgsDict: TypeAlias = Mapping[str, Any]
+class TopicMetadataEntityArgsDict(TypedDict):
+    """
+    Metadata of the data record
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name of the record
+    """
+    self: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Self lookup url
+    """
 
 @pulumi.input_type
 class TopicMetadataEntityArgs:
@@ -2945,6 +2900,7 @@ class TopicMetadataEntityArgs:
                  self: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Metadata of the data record
+
         :param pulumi.Input[_builtins.str] resource_name: Resource name of the record
         :param pulumi.Input[_builtins.str] self: Self lookup url
         """
@@ -2978,21 +2934,18 @@ class TopicMetadataEntityArgs:
         pulumi.set(self, "self", value)
 
 
-if not MYPY:
-    class TopicsInputConfigArgsDict(TypedDict):
-        """
-        Topics input config
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the topic input config
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of the topic input config
-        """
-elif False:
-    TopicsInputConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TopicsInputConfigArgsDict(TypedDict):
+    """
+    Topics input config
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the topic input config
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value of the topic input config
+    """
 
 @pulumi.input_type
 class TopicsInputConfigArgs:
@@ -3001,6 +2954,7 @@ class TopicsInputConfigArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Topics input config
+
         :param pulumi.Input[_builtins.str] name: Name of the topic input config
         :param pulumi.Input[_builtins.str] value: Value of the topic input config
         """
@@ -3034,17 +2988,14 @@ class TopicsInputConfigArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicsRelatedLinkArgsDict(TypedDict):
-        """
-        Partition Config spec of the topic record
-        """
-        related: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Relationship of the topic
-        """
-elif False:
-    TopicsRelatedLinkArgsDict: TypeAlias = Mapping[str, Any]
+class TopicsRelatedLinkArgsDict(TypedDict):
+    """
+    Partition Config spec of the topic record
+    """
+    related: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Relationship of the topic
+    """
 
 @pulumi.input_type
 class TopicsRelatedLinkArgs:
@@ -3052,6 +3003,7 @@ class TopicsRelatedLinkArgs:
                  related: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Partition Config spec of the topic record
+
         :param pulumi.Input[_builtins.str] related: Relationship of the topic
         """
         if related is not None:
@@ -3070,33 +3022,30 @@ class TopicsRelatedLinkArgs:
         pulumi.set(self, "related", value)
 
 
-if not MYPY:
-    class UserDetailArgsDict(TypedDict):
-        """
-        Subscriber detail
-        """
-        email_address: pulumi.Input[_builtins.str]
-        """
-        Email address
-        """
-        aad_email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AAD email address
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name
-        """
-        user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User principal name
-        """
-elif False:
-    UserDetailArgsDict: TypeAlias = Mapping[str, Any]
+class UserDetailArgsDict(TypedDict):
+    """
+    Subscriber detail
+    """
+    email_address: pulumi.Input[_builtins.str]
+    """
+    Email address
+    """
+    aad_email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AAD email address
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name
+    """
+    user_principal_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User principal name
+    """
 
 @pulumi.input_type
 class UserDetailArgs:
@@ -3108,6 +3057,7 @@ class UserDetailArgs:
                  user_principal_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Subscriber detail
+
         :param pulumi.Input[_builtins.str] email_address: Email address
         :param pulumi.Input[_builtins.str] aad_email: AAD email address
         :param pulumi.Input[_builtins.str] first_name: First name

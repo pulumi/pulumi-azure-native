@@ -25,6 +25,7 @@ class CustomEntityStoreAssignmentArgs:
                  principal: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomEntityStoreAssignment resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.str] custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.
         :param pulumi.Input[_builtins.str] principal: The principal assigned with entity store. If not provided, will use caller principal. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
@@ -87,6 +88,7 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.
@@ -103,6 +105,7 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
         Custom entity store assignment
 
         Uses Azure REST API version 2021-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param CustomEntityStoreAssignmentArgs args: The arguments to use to populate this resource's properties.

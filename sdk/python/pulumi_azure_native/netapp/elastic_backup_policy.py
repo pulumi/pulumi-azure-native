@@ -30,6 +30,7 @@ class ElasticBackupPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticBackupPolicy resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] backup_policy_name: The name of the ElasticBackupPolicy
@@ -139,6 +140,7 @@ class ElasticBackupPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
@@ -158,6 +160,7 @@ class ElasticBackupPolicy(pulumi.CustomResource):
         NetApp Elastic Backup Policy resource
 
         Uses Azure REST API version 2025-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ElasticBackupPolicyArgs args: The arguments to use to populate this resource's properties.

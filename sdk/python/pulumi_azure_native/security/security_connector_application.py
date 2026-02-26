@@ -28,6 +28,7 @@ class SecurityConnectorApplicationArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityConnectorApplication resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.str] security_connector_name: The security connector name.
         :param pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']] source_resource_type: The application source, what it affects, e.g. Assessments
@@ -136,6 +137,7 @@ class SecurityConnectorApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The security Application key - unique key for the standard application
@@ -155,6 +157,7 @@ class SecurityConnectorApplication(pulumi.CustomResource):
         Security Application over a given scope
 
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorApplicationArgs args: The arguments to use to populate this resource's properties.

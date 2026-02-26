@@ -63,6 +63,7 @@ class ACRResponse(dict):
                  acr_subscription_id: Optional[_builtins.str] = None):
         """
         Information on the azure container registry
+
         :param _builtins.str acr_registry_name: ACR registry
         :param _builtins.str acr_repository_name: ACR repository
         :param _builtins.str acr_resource_group: ACR resource group
@@ -258,6 +259,7 @@ class GitHubWorkflowProfileResponse(dict):
                  repository_owner: Optional[_builtins.str] = None):
         """
         GitHub Workflow Profile
+
         :param _builtins.str auth_status: Determines the authorization status of requests.
         :param _builtins.str pr_status: The status of the Pull Request submitted against the users repository.
         :param _builtins.str pr_url: The URL to the Pull Request submitted against the users repository.
@@ -443,6 +445,7 @@ class GitHubWorkflowProfileResponseOidcCredentials(dict):
                  azure_tenant_id: Optional[_builtins.str] = None):
         """
         The fields needed for OIDC with GitHub.
+
         :param _builtins.str azure_client_id: Azure Application Client ID
         :param _builtins.str azure_tenant_id: Azure Directory (tenant) ID
         """
@@ -571,6 +574,7 @@ class IacTemplatePropertiesResponse(dict):
                  template_name: Optional[_builtins.str] = None):
         """
         Properties of a IacTemplate.
+
         :param _builtins.str instance_name: the sample instance name of the template
         :param _builtins.str instance_stage: the source stage of the template
         :param _builtins.str quick_start_template_type: Determines the authorization status of requests.
@@ -666,6 +670,7 @@ class StagePropertiesResponse(dict):
                  stage_name: Optional[_builtins.str] = None):
         """
         Properties of a Stage.
+
         :param _builtins.str stage_name: Stage Name
         """
         if dependencies is not None:
@@ -735,6 +740,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

@@ -25,6 +25,7 @@ class NamespaceVirtualNetworkRuleArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceVirtualNetworkRule resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[_builtins.str] virtual_network_rule_name: The Virtual Network Rule name.
@@ -102,6 +103,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
@@ -119,6 +121,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
         Single item in a List or Get VirtualNetworkRules operation
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceVirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.

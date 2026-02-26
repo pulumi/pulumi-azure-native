@@ -27,6 +27,7 @@ class ThroughputPoolAccountArgs:
                  throughput_pool_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThroughputPoolAccount resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] throughput_pool_name: Cosmos DB Throughput Pool name.
         :param pulumi.Input[_builtins.str] account_location: The location of  global database account in the throughputPool.
@@ -122,6 +123,7 @@ class ThroughputPoolAccount(pulumi.CustomResource):
 
         Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_location: The location of  global database account in the throughputPool.
@@ -142,6 +144,7 @@ class ThroughputPoolAccount(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01-preview.
 
         Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ThroughputPoolAccountArgs args: The arguments to use to populate this resource's properties.

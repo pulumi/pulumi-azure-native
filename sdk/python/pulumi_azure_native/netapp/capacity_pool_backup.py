@@ -30,6 +30,7 @@ class CapacityPoolBackupArgs:
                  use_existing_snapshot: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CapacityPoolBackup resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -171,6 +172,7 @@ class CapacityPoolBackup(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
@@ -192,6 +194,7 @@ class CapacityPoolBackup(pulumi.CustomResource):
         Backup of a Volume
 
         Uses Azure REST API version 2022-11-01.
+
 
         :param str resource_name: The name of the resource.
         :param CapacityPoolBackupArgs args: The arguments to use to populate this resource's properties.

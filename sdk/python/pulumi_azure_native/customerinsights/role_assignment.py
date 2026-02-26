@@ -44,6 +44,7 @@ class RoleAssignmentArgs:
                  widget_types: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
+
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[Sequence[pulumi.Input['AssignmentPrincipalArgs']]] principals: The principals being assigned to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -375,6 +376,7 @@ class RoleAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assignment_name: The assignment name
@@ -408,6 +410,7 @@ class RoleAssignment(pulumi.CustomResource):
         The Role Assignment resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.

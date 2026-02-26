@@ -34,23 +34,18 @@ __all__ = [
     'ResourceEncryptionConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomerManagedKeyEncryptionArgsDict(TypedDict):
-        """
-        Customer-managed key encryption properties for the resource.
-        """
-        key_encryption_key_identity: NotRequired[pulumi.Input['KeyEncryptionKeyIdentityArgsDict']]
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
-        """
-elif False:
-    CustomerManagedKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedKeyEncryptionArgsDict(TypedDict):
+    """
+    Customer-managed key encryption properties for the resource.
+    """
+    key_encryption_key_identity: NotRequired[pulumi.Input['KeyEncryptionKeyIdentityArgsDict']]
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+    """
 
 @pulumi.input_type
 class CustomerManagedKeyEncryptionArgs:
@@ -59,6 +54,7 @@ class CustomerManagedKeyEncryptionArgs:
                  key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Customer-managed key encryption properties for the resource.
+
         :param pulumi.Input['KeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param pulumi.Input[_builtins.str] key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
@@ -92,25 +88,22 @@ class CustomerManagedKeyEncryptionArgs:
         pulumi.set(self, "key_encryption_key_url", value)
 
 
-if not MYPY:
-    class KeyEncryptionKeyIdentityArgsDict(TypedDict):
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        """
-        federated_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
-        """
-        identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]
-        """
-        The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
-        """
-        user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
-        """
-elif False:
-    KeyEncryptionKeyIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class KeyEncryptionKeyIdentityArgsDict(TypedDict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    federated_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
+    """
+    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]
+    """
+    The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
+    """
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
+    """
 
 @pulumi.input_type
 class KeyEncryptionKeyIdentityArgs:
@@ -120,6 +113,7 @@ class KeyEncryptionKeyIdentityArgs:
                  user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
         :param pulumi.Input[_builtins.str] federated_client_id: application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
         :param pulumi.Input[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']] identity_type: The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
         :param pulumi.Input[_builtins.str] user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
@@ -168,21 +162,18 @@ class KeyEncryptionKeyIdentityArgs:
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -191,6 +182,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -223,29 +215,26 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class OnlineExperimentationWorkspacePropertiesArgsDict(TypedDict):
-        """
-        The properties of an online experimentation workspace.
-        """
-        app_configuration_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
-        """
-        log_analytics_workspace_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
-        """
-        logs_exporter_storage_account_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
-        """
-        encryption: NotRequired[pulumi.Input['ResourceEncryptionConfigurationArgsDict']]
-        """
-        The encryption configuration for the online experimentation workspace resource.
-        """
-elif False:
-    OnlineExperimentationWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OnlineExperimentationWorkspacePropertiesArgsDict(TypedDict):
+    """
+    The properties of an online experimentation workspace.
+    """
+    app_configuration_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
+    """
+    log_analytics_workspace_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
+    """
+    logs_exporter_storage_account_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
+    """
+    encryption: NotRequired[pulumi.Input['ResourceEncryptionConfigurationArgsDict']]
+    """
+    The encryption configuration for the online experimentation workspace resource.
+    """
 
 @pulumi.input_type
 class OnlineExperimentationWorkspacePropertiesArgs:
@@ -256,6 +245,7 @@ class OnlineExperimentationWorkspacePropertiesArgs:
                  encryption: Optional[pulumi.Input['ResourceEncryptionConfigurationArgs']] = None):
         """
         The properties of an online experimentation workspace.
+
         :param pulumi.Input[_builtins.str] app_configuration_resource_id: The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_resource_id: The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
         :param pulumi.Input[_builtins.str] logs_exporter_storage_account_resource_id: The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
@@ -316,17 +306,14 @@ class OnlineExperimentationWorkspacePropertiesArgs:
         pulumi.set(self, "encryption", value)
 
 
-if not MYPY:
-    class OnlineExperimentationWorkspaceSkuArgsDict(TypedDict):
-        """
-        The SKU (Stock Keeping Unit) assigned to this resource.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'OnlineExperimentationWorkspaceSkuName']]
-        """
-        The name of the SKU. Ex - F0, P0. It is typically a letter+number code
-        """
-elif False:
-    OnlineExperimentationWorkspaceSkuArgsDict: TypeAlias = Mapping[str, Any]
+class OnlineExperimentationWorkspaceSkuArgsDict(TypedDict):
+    """
+    The SKU (Stock Keeping Unit) assigned to this resource.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'OnlineExperimentationWorkspaceSkuName']]
+    """
+    The name of the SKU. Ex - F0, P0. It is typically a letter+number code
+    """
 
 @pulumi.input_type
 class OnlineExperimentationWorkspaceSkuArgs:
@@ -334,6 +321,7 @@ class OnlineExperimentationWorkspaceSkuArgs:
                  name: pulumi.Input[Union[_builtins.str, 'OnlineExperimentationWorkspaceSkuName']]):
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
+
         :param pulumi.Input[Union[_builtins.str, 'OnlineExperimentationWorkspaceSkuName']] name: The name of the SKU. Ex - F0, P0. It is typically a letter+number code
         """
         pulumi.set(__self__, "name", name)
@@ -351,17 +339,14 @@ class OnlineExperimentationWorkspaceSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        Properties of the private endpoint connection.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    Properties of the private endpoint connection.
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -369,6 +354,7 @@ class PrivateEndpointConnectionPropertiesArgs:
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         """
         Properties of the private endpoint connection.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -386,25 +372,22 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -414,6 +397,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -462,17 +446,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ResourceEncryptionConfigurationArgsDict(TypedDict):
-        """
-        The encryption configuration for the online experimentation workspace resource.
-        """
-        customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
-        """
-        All Customer-managed key encryption properties for the resource.
-        """
-elif False:
-    ResourceEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The encryption configuration for the online experimentation workspace resource.
+    """
+    customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
+    """
+    All Customer-managed key encryption properties for the resource.
+    """
 
 @pulumi.input_type
 class ResourceEncryptionConfigurationArgs:
@@ -480,6 +461,7 @@ class ResourceEncryptionConfigurationArgs:
                  customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']] = None):
         """
         The encryption configuration for the online experimentation workspace resource.
+
         :param pulumi.Input['CustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
         if customer_managed_key_encryption is not None:

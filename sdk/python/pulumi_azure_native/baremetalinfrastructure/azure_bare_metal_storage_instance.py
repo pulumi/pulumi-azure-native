@@ -31,6 +31,7 @@ class AzureBareMetalStorageInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureBareMetalStorageInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         :param pulumi.Input[_builtins.str] azure_bare_metal_storage_instance_unique_identifier: Specifies the AzureBareMetaStorageInstance unique ID.
@@ -159,6 +160,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
 
         Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
@@ -181,6 +183,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-06.
 
         Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param AzureBareMetalStorageInstanceArgs args: The arguments to use to populate this resource's properties.

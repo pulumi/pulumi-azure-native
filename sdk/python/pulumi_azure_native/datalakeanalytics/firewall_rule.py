@@ -26,6 +26,7 @@ class FirewallRuleArgs:
                  firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
@@ -117,6 +118,7 @@ class FirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
@@ -135,6 +137,7 @@ class FirewallRule(pulumi.CustomResource):
         Data Lake Analytics firewall rule information.
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

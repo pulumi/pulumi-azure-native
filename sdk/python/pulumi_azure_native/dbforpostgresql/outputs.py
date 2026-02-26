@@ -89,6 +89,7 @@ class AuthConfigResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Authentication configuration properties of a server.
+
         :param _builtins.str active_directory_auth: Indicates if the server supports Microsoft Entra authentication.
         :param _builtins.str password_auth: Indicates if the server supports password based authentication.
         :param _builtins.str tenant_id: Identifier of the tenant of the delegated resource.
@@ -161,6 +162,7 @@ class BackupResponse(dict):
                  geo_redundant_backup: Optional[_builtins.str] = None):
         """
         Backup properties of a server.
+
         :param _builtins.str earliest_restore_date: Earliest restore point time (ISO8601 format) for a server.
         :param _builtins.int backup_retention_days: Backup retention days for the server.
         :param _builtins.str geo_redundant_backup: Indicates if the server is configured to create geographically redundant backups.
@@ -229,6 +231,7 @@ class ClusterResponse(dict):
                  default_database_name: Optional[_builtins.str] = None):
         """
         Cluster properties of a server.
+
         :param _builtins.int cluster_size: Number of nodes assigned to the elastic cluster.
         :param _builtins.str default_database_name: Default database name for the elastic cluster.
         """
@@ -298,6 +301,7 @@ class DataEncryptionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Data encryption properties of a server.
+
         :param _builtins.str geo_backup_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         :param _builtins.str primary_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         :param _builtins.str geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
@@ -443,6 +447,7 @@ class DatabaseMigrationStateResponse(dict):
                  started_on: Optional[_builtins.str] = None):
         """
         Migration state of a database.
+
         :param _builtins.int applied_changes: Change Data Capture applied changes counter.
         :param _builtins.int cdc_delete_counter: Change Data Capture delete counter.
         :param _builtins.int cdc_insert_counter: Change Data Capture insert counter.
@@ -655,6 +660,7 @@ class DbLevelValidationStatusResponse(dict):
                  summary: Optional[Sequence['outputs.ValidationSummaryItemResponse']] = None):
         """
         Validation status summary for a database.
+
         :param _builtins.str database_name: Name of database.
         :param _builtins.str ended_on: End time of a database level validation.
         :param _builtins.str started_on: Start time of a database level validation.
@@ -731,6 +737,7 @@ class DbServerMetadataResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Database server metadata.
+
         :param _builtins.str location: Location of database server.
         :param 'ServerSkuResponse' sku: Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
         :param _builtins.int storage_mb: Storage size (in MB) for database server.
@@ -805,6 +812,7 @@ class HighAvailabilityResponse(dict):
                  standby_availability_zone: Optional[_builtins.str] = None):
         """
         High availability properties of a server.
+
         :param _builtins.str state: Possible states of the standby server created when high availability is set to SameZone or ZoneRedundant.
         :param _builtins.str mode: High availability mode for a server.
         :param _builtins.str standby_availability_zone: Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
@@ -871,6 +879,7 @@ class IdentityPropertiesResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Describes the identity of the cluster.
+
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         if type is not None:
@@ -927,6 +936,7 @@ class MaintenanceWindowResponse(dict):
                  start_minute: Optional[_builtins.int] = None):
         """
         Maintenance window properties of a server.
+
         :param _builtins.str custom_window: Indicates whether custom window is enabled or disabled.
         :param _builtins.int day_of_week: Day of the week to be used for maintenance window.
         :param _builtins.int start_hour: Start hour to be used for maintenance window.
@@ -1010,6 +1020,7 @@ class MigrationStatusResponse(dict):
                  state: _builtins.str):
         """
         State of migration.
+
         :param 'MigrationSubstateDetailsResponse' current_sub_state_details: Current migration sub state details.
         :param _builtins.str error: Error message, if any, for the migration state.
         :param _builtins.str state: State of migration.
@@ -1075,6 +1086,7 @@ class MigrationSubstateDetailsResponse(dict):
                  validation_details: Optional['outputs.ValidationDetailsResponse'] = None):
         """
         Details of migration substate.
+
         :param _builtins.str current_sub_state: Substate of migration.
         :param 'ValidationDetailsResponse' validation_details: Details for the validation for migration.
         """
@@ -1138,6 +1150,7 @@ class NetworkResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         Network properties of a server.
+
         :param _builtins.str delegated_subnet_resource_id: Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         :param _builtins.str private_dns_zone_arm_resource_id: Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         :param _builtins.str public_network_access: Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
@@ -1215,6 +1228,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -1327,6 +1341,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -1368,6 +1383,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1432,6 +1448,7 @@ class ReplicaResponse(dict):
                  role: Optional[_builtins.str] = None):
         """
         Replica properties of a server.
+
         :param _builtins.int capacity: Maximum number of read replicas allowed for a server.
         :param _builtins.str replication_state: Indicates the replication state of a read replica. This property is returned only when the target server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
         :param _builtins.str role: Role of the server in a replication set.
@@ -1496,6 +1513,7 @@ class ResourceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         :param _builtins.str tenant_id: The Azure Active Directory tenant id.
         :param _builtins.str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -1606,6 +1624,7 @@ class ServerGroupClusterDataEncryptionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The data encryption properties of a cluster.
+
         :param _builtins.str primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
         :param _builtins.str primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
         """
@@ -1673,6 +1692,7 @@ class ServerGroupClusterMaintenanceWindowResponse(dict):
                  start_minute: Optional[_builtins.int] = None):
         """
         Schedule settings for regular cluster updates.
+
         :param _builtins.str custom_window: Indicates whether custom maintenance window is enabled or not.
         :param _builtins.int day_of_week: Preferred day of the week for maintenance window.
         :param _builtins.int start_hour: Start hour within preferred day of the week for maintenance window.
@@ -1747,6 +1767,7 @@ class ServerNameItemResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The name object for a server.
+
         :param _builtins.str fully_qualified_domain_name: The fully qualified domain name of a server.
         :param _builtins.str name: The name of a server.
         """
@@ -1803,6 +1824,7 @@ class ServerPrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+
         :param _builtins.str provisioning_state: State of the private endpoint connection.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'ServerPrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
@@ -1848,6 +1870,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
                  properties: 'outputs.ServerPrivateEndpointConnectionPropertiesResponse'):
         """
         A private endpoint connection under a server
+
         :param _builtins.str id: Resource ID of the Private Endpoint Connection.
         :param 'ServerPrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
@@ -1938,6 +1961,7 @@ class ServerSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Compute information of a server.
+
         :param _builtins.str name: Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
         :param _builtins.str tier: Tier of the compute assigned to a server.
         """
@@ -2001,6 +2025,7 @@ class SimplePrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -2090,6 +2115,7 @@ class SingleServerSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Billing information related properties of a server.
+
         :param _builtins.str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param _builtins.int capacity: The scale up/out capacity, representing server's compute units.
         :param _builtins.str family: The family of hardware.
@@ -2157,6 +2183,7 @@ class SkuResponse(dict):
                  tier: _builtins.str):
         """
         Compute information of a server.
+
         :param _builtins.str name: Name by which is known a given compute size assigned to a server.
         :param _builtins.str tier: Tier of the compute assigned to a server.
         """
@@ -2215,6 +2242,7 @@ class StorageProfileResponse(dict):
                  storage_mb: Optional[_builtins.int] = None):
         """
         Storage Profile properties of a server
+
         :param _builtins.int backup_retention_days: Backup retention days for the server.
         :param _builtins.str geo_redundant_backup: Enable Geo-redundant or not for server backup.
         :param _builtins.str storage_autogrow: Enable Storage Auto Grow.
@@ -2295,6 +2323,7 @@ class StorageResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Storage properties of a server.
+
         :param _builtins.str auto_grow: Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
         :param _builtins.int iops: Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         :param _builtins.int storage_size_gb: Size of storage assigned to a server.
@@ -2405,6 +2434,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2510,6 +2540,7 @@ class UserAssignedIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         :param _builtins.str tenant_id: Identifier of the tenant of a server.
@@ -2595,6 +2626,7 @@ class UserIdentityResponse(dict):
                  principal_id: Optional[_builtins.str] = None):
         """
         User assigned managed identity associated with a server.
+
         :param _builtins.str client_id: Identifier of the client of the service principal associated to the user assigned managed identity.
         :param _builtins.str principal_id: Identifier of the object of the service principal associated to the user assigned managed identity.
         """
@@ -2656,6 +2688,7 @@ class ValidationDetailsResponse(dict):
                  validation_start_time_in_utc: Optional[_builtins.str] = None):
         """
         Details for the validation for migration.
+
         :param Sequence['DbLevelValidationStatusResponse'] db_level_validation_details: Details of server level validations.
         :param Sequence['ValidationSummaryItemResponse'] server_level_validation_details: Details of server level validations.
         :param _builtins.str status: Validation status for migration.
@@ -2724,6 +2757,7 @@ class ValidationMessageResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Validation message object.
+
         :param _builtins.str message: Validation message string.
         :param _builtins.str state: Severity of validation message.
         """
@@ -2760,6 +2794,7 @@ class ValidationSummaryItemResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Validation summary object.
+
         :param Sequence['ValidationMessageResponse'] messages: Validation messages.
         :param _builtins.str state: Validation status for migration.
         :param _builtins.str type: Validation type.

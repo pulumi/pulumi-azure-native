@@ -202,23 +202,18 @@ __all__ = [
     'YearlyRetentionScheduleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AlertQueryParameterArgsDict(TypedDict):
-        """
-        Defines the Alert Query Parameter.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the alert query parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the alert query parameter.
-        """
-elif False:
-    AlertQueryParameterArgsDict: TypeAlias = Mapping[str, Any]
+class AlertQueryParameterArgsDict(TypedDict):
+    """
+    Defines the Alert Query Parameter.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the alert query parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the alert query parameter.
+    """
 
 @pulumi.input_type
 class AlertQueryParameterArgs:
@@ -227,6 +222,7 @@ class AlertQueryParameterArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the Alert Query Parameter.
+
         :param pulumi.Input[_builtins.str] name: The name of the alert query parameter.
         :param pulumi.Input[_builtins.str] value: The value of the alert query parameter.
         """
@@ -260,65 +256,62 @@ class AlertQueryParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AlertRulePropertiesArgsDict(TypedDict):
-        """
-        Describes the properties of an alert.
-        """
-        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Action Group resource Ids to invoke when the alert fires
-        """
-        alert_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgsDict']]]]
-        """
-        The alert query parameters.
-        """
-        auto_mitigate: NotRequired[pulumi.Input[Union[_builtins.str, 'AlertAutoMitigate']]]
-        """
-        The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
-        """
-        dimension: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Evaluation of metric on a particular column.
-        """
-        evaluation_frequency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often the scheduled query rule is evaluated.
-        """
-        failing_periods_operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionalOperator']]]
-        """
-        The operator for failing periods.
-        """
-        failing_periods_to_alert: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of failing periods to trigger an alert.
-        """
-        mute_actions_duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Mute actions for the chosen period of time after the alert is fired.
-        """
-        severity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'AlertRuleStatus']]]
-        """
-        Indicates whether the alert is in an enabled state.
-        """
-        threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The threshold of the alert.
-        """
-        threshold_operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionalOperator']]]
-        """
-        The threshold operator of the alert.
-        """
-        window_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The period of time on which the Alert query will be executed.
-        """
-elif False:
-    AlertRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRulePropertiesArgsDict(TypedDict):
+    """
+    Describes the properties of an alert.
+    """
+    action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Action Group resource Ids to invoke when the alert fires
+    """
+    alert_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgsDict']]]]
+    """
+    The alert query parameters.
+    """
+    auto_mitigate: NotRequired[pulumi.Input[Union[_builtins.str, 'AlertAutoMitigate']]]
+    """
+    The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+    """
+    dimension: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Evaluation of metric on a particular column.
+    """
+    evaluation_frequency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often the scheduled query rule is evaluated.
+    """
+    failing_periods_operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionalOperator']]]
+    """
+    The operator for failing periods.
+    """
+    failing_periods_to_alert: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of failing periods to trigger an alert.
+    """
+    mute_actions_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Mute actions for the chosen period of time after the alert is fired.
+    """
+    severity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'AlertRuleStatus']]]
+    """
+    Indicates whether the alert is in an enabled state.
+    """
+    threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The threshold of the alert.
+    """
+    threshold_operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionalOperator']]]
+    """
+    The threshold operator of the alert.
+    """
+    window_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The period of time on which the Alert query will be executed.
+    """
 
 @pulumi.input_type
 class AlertRulePropertiesArgs:
@@ -338,6 +331,7 @@ class AlertRulePropertiesArgs:
                  window_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Describes the properties of an alert.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action_groups: Action Group resource Ids to invoke when the alert fires
         :param pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgs']]] alert_query_parameters: The alert query parameters.
         :param pulumi.Input[Union[_builtins.str, 'AlertAutoMitigate']] auto_mitigate: The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
@@ -536,21 +530,18 @@ class AlertRulePropertiesArgs:
         pulumi.set(self, "window_size", value)
 
 
-if not MYPY:
-    class AppServicePlanConfigurationArgsDict(TypedDict):
-        """
-        Configuration details of app service plan
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'AppServicePlanTier']]]
-        """
-        The App Service plan tier.
-        """
-elif False:
-    AppServicePlanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AppServicePlanConfigurationArgsDict(TypedDict):
+    """
+    Configuration details of app service plan
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'AppServicePlanTier']]]
+    """
+    The App Service plan tier.
+    """
 
 @pulumi.input_type
 class AppServicePlanConfigurationArgs:
@@ -559,6 +550,7 @@ class AppServicePlanConfigurationArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'AppServicePlanTier']]] = None):
         """
         Configuration details of app service plan
+
         :param pulumi.Input[_builtins.int] capacity: The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
         :param pulumi.Input[Union[_builtins.str, 'AppServicePlanTier']] tier: The App Service plan tier.
         """
@@ -592,25 +584,22 @@ class AppServicePlanConfigurationArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class ApplicationServerConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the application server configuration.
-        """
-        instance_count: pulumi.Input[_builtins.float]
-        """
-        The number of app server instances.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The subnet id.
-        """
-        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
-        """
-        Gets or sets the virtual machine configuration.
-        """
-elif False:
-    ApplicationServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationServerConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the application server configuration.
+    """
+    instance_count: pulumi.Input[_builtins.float]
+    """
+    The number of app server instances.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The subnet id.
+    """
+    virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+    """
+    Gets or sets the virtual machine configuration.
+    """
 
 @pulumi.input_type
 class ApplicationServerConfigurationArgs:
@@ -620,6 +609,7 @@ class ApplicationServerConfigurationArgs:
                  virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgs']):
         """
         Gets or sets the application server configuration.
+
         :param pulumi.Input[_builtins.float] instance_count: The number of app server instances.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet id.
         :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: Gets or sets the virtual machine configuration.
@@ -665,21 +655,18 @@ class ApplicationServerConfigurationArgs:
         pulumi.set(self, "virtual_machine_configuration", value)
 
 
-if not MYPY:
-    class ApplicationServerFullResourceNamesArgsDict(TypedDict):
-        """
-        The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
-        """
-        availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
-        """
-        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
-        """
-        The list of virtual machine naming details.
-        """
-elif False:
-    ApplicationServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationServerFullResourceNamesArgsDict(TypedDict):
+    """
+    The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+    """
+    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
+    """
+    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
+    """
+    The list of virtual machine naming details.
+    """
 
 @pulumi.input_type
 class ApplicationServerFullResourceNamesArgs:
@@ -688,6 +675,7 @@ class ApplicationServerFullResourceNamesArgs:
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]] = None):
         """
         The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+
         :param pulumi.Input[_builtins.str] availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]] virtual_machines: The list of virtual machine naming details.
         """
@@ -721,25 +709,22 @@ class ApplicationServerFullResourceNamesArgs:
         pulumi.set(self, "virtual_machines", value)
 
 
-if not MYPY:
-    class CentralServerConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the central server configuration.
-        """
-        instance_count: pulumi.Input[_builtins.float]
-        """
-        The number of central server VMs.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The subnet id.
-        """
-        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
-        """
-        Gets or sets the virtual machine configuration.
-        """
-elif False:
-    CentralServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CentralServerConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the central server configuration.
+    """
+    instance_count: pulumi.Input[_builtins.float]
+    """
+    The number of central server VMs.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The subnet id.
+    """
+    virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+    """
+    Gets or sets the virtual machine configuration.
+    """
 
 @pulumi.input_type
 class CentralServerConfigurationArgs:
@@ -749,6 +734,7 @@ class CentralServerConfigurationArgs:
                  virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgs']):
         """
         Gets or sets the central server configuration.
+
         :param pulumi.Input[_builtins.float] instance_count: The number of central server VMs.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet id.
         :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: Gets or sets the virtual machine configuration.
@@ -794,25 +780,22 @@ class CentralServerConfigurationArgs:
         pulumi.set(self, "virtual_machine_configuration", value)
 
 
-if not MYPY:
-    class CentralServerFullResourceNamesArgsDict(TypedDict):
-        """
-        The full resource names object for central server layer resources.
-        """
-        availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.
-        """
-        load_balancer: NotRequired[pulumi.Input['LoadBalancerResourceNamesArgsDict']]
-        """
-        The resource names object for load balancer and related resources.
-        """
-        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
-        """
-        The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
-        """
-elif False:
-    CentralServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class CentralServerFullResourceNamesArgsDict(TypedDict):
+    """
+    The full resource names object for central server layer resources.
+    """
+    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.
+    """
+    load_balancer: NotRequired[pulumi.Input['LoadBalancerResourceNamesArgsDict']]
+    """
+    The resource names object for load balancer and related resources.
+    """
+    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
+    """
+    The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
+    """
 
 @pulumi.input_type
 class CentralServerFullResourceNamesArgs:
@@ -822,6 +805,7 @@ class CentralServerFullResourceNamesArgs:
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]] = None):
         """
         The full resource names object for central server layer resources.
+
         :param pulumi.Input[_builtins.str] availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.
         :param pulumi.Input['LoadBalancerResourceNamesArgs'] load_balancer: The resource names object for load balancer and related resources.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]] virtual_machines: The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
@@ -870,26 +854,23 @@ class CentralServerFullResourceNamesArgs:
         pulumi.set(self, "virtual_machines", value)
 
 
-if not MYPY:
-    class CreateAndMountFileShareConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn't need to be pre-created.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The type of file share config.
-        Expected value is 'CreateAndMount'.
-        """
-        resource_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of file share storage account name . A custom name is used in case of missing input.
-        """
-elif False:
-    CreateAndMountFileShareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CreateAndMountFileShareConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn't need to be pre-created.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The type of file share config.
+    Expected value is 'CreateAndMount'.
+    """
+    resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of file share storage account name . A custom name is used in case of missing input.
+    """
 
 @pulumi.input_type
 class CreateAndMountFileShareConfigurationArgs:
@@ -899,6 +880,7 @@ class CreateAndMountFileShareConfigurationArgs:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn't need to be pre-created.
+
         :param pulumi.Input[_builtins.str] configuration_type: The type of file share config.
                Expected value is 'CreateAndMount'.
         :param pulumi.Input[_builtins.str] resource_group: The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
@@ -948,46 +930,43 @@ class CreateAndMountFileShareConfigurationArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
-if not MYPY:
-    class DBBackupPolicyPropertiesArgsDict(TypedDict):
-        """
-        Defines the policy properties for database backup.
-        """
-        backup_management_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'AzureWorkload'.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the DB backup policy.
-        """
-        make_policy_consistent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Fix the policy inconsistency
-        """
-        protected_items_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of items associated with this policy.
-        """
-        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        ResourceGuard Operation Requests
-        """
-        settings: NotRequired[pulumi.Input['SettingsArgsDict']]
-        """
-        Common settings for the backup management
-        """
-        sub_protection_policy: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgsDict']]]]
-        """
-        List of sub-protection policies which includes schedule and retention
-        """
-        work_load_type: NotRequired[pulumi.Input[Union[_builtins.str, 'WorkloadType']]]
-        """
-        Type of workload for the backup management
-        """
-elif False:
-    DBBackupPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DBBackupPolicyPropertiesArgsDict(TypedDict):
+    """
+    Defines the policy properties for database backup.
+    """
+    backup_management_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'AzureWorkload'.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the DB backup policy.
+    """
+    make_policy_consistent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Fix the policy inconsistency
+    """
+    protected_items_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of items associated with this policy.
+    """
+    resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    ResourceGuard Operation Requests
+    """
+    settings: NotRequired[pulumi.Input['SettingsArgsDict']]
+    """
+    Common settings for the backup management
+    """
+    sub_protection_policy: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgsDict']]]]
+    """
+    List of sub-protection policies which includes schedule and retention
+    """
+    work_load_type: NotRequired[pulumi.Input[Union[_builtins.str, 'WorkloadType']]]
+    """
+    Type of workload for the backup management
+    """
 
 @pulumi.input_type
 class DBBackupPolicyPropertiesArgs:
@@ -1002,6 +981,7 @@ class DBBackupPolicyPropertiesArgs:
                  work_load_type: Optional[pulumi.Input[Union[_builtins.str, 'WorkloadType']]] = None):
         """
         Defines the policy properties for database backup.
+
         :param pulumi.Input[_builtins.str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureWorkload'.
         :param pulumi.Input[_builtins.str] name: The name of the DB backup policy.
@@ -1125,17 +1105,14 @@ class DBBackupPolicyPropertiesArgs:
         pulumi.set(self, "work_load_type", value)
 
 
-if not MYPY:
-    class DailyRetentionFormatArgsDict(TypedDict):
-        """
-        Daily retention format.
-        """
-        days_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayArgsDict']]]]
-        """
-        List of days of the month.
-        """
-elif False:
-    DailyRetentionFormatArgsDict: TypeAlias = Mapping[str, Any]
+class DailyRetentionFormatArgsDict(TypedDict):
+    """
+    Daily retention format.
+    """
+    days_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayArgsDict']]]]
+    """
+    List of days of the month.
+    """
 
 @pulumi.input_type
 class DailyRetentionFormatArgs:
@@ -1143,6 +1120,7 @@ class DailyRetentionFormatArgs:
                  days_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]] = None):
         """
         Daily retention format.
+
         :param pulumi.Input[Sequence[pulumi.Input['DayArgs']]] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
@@ -1161,21 +1139,18 @@ class DailyRetentionFormatArgs:
         pulumi.set(self, "days_of_the_month", value)
 
 
-if not MYPY:
-    class DailyRetentionScheduleArgsDict(TypedDict):
-        """
-        Daily retention schedule.
-        """
-        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
-        """
-        Retention duration of retention Policy.
-        """
-        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Retention times of retention policy.
-        """
-elif False:
-    DailyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class DailyRetentionScheduleArgsDict(TypedDict):
+    """
+    Daily retention schedule.
+    """
+    retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+    """
+    Retention duration of retention Policy.
+    """
+    retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Retention times of retention policy.
+    """
 
 @pulumi.input_type
 class DailyRetentionScheduleArgs:
@@ -1184,6 +1159,7 @@ class DailyRetentionScheduleArgs:
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Daily retention schedule.
+
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] retention_times: Retention times of retention policy.
         """
@@ -1217,17 +1193,14 @@ class DailyRetentionScheduleArgs:
         pulumi.set(self, "retention_times", value)
 
 
-if not MYPY:
-    class DailyScheduleArgsDict(TypedDict):
-        """
-        Daily schedule.
-        """
-        schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of times of day this schedule has to be run.
-        """
-elif False:
-    DailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class DailyScheduleArgsDict(TypedDict):
+    """
+    Daily schedule.
+    """
+    schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of times of day this schedule has to be run.
+    """
 
 @pulumi.input_type
 class DailyScheduleArgs:
@@ -1235,6 +1208,7 @@ class DailyScheduleArgs:
                  schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Daily schedule.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schedule_run_times: List of times of day this schedule has to be run.
         """
         if schedule_run_times is not None:
@@ -1253,33 +1227,30 @@ class DailyScheduleArgs:
         pulumi.set(self, "schedule_run_times", value)
 
 
-if not MYPY:
-    class DatabaseConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the database configuration.
-        """
-        instance_count: pulumi.Input[_builtins.float]
-        """
-        The number of database VMs.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The subnet id.
-        """
-        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
-        """
-        Gets or sets the virtual machine configuration.
-        """
-        database_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]]
-        """
-        The database type.
-        """
-        disk_configuration: NotRequired[pulumi.Input['DiskConfigurationArgsDict']]
-        """
-        Gets or sets the disk configuration.
-        """
-elif False:
-    DatabaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the database configuration.
+    """
+    instance_count: pulumi.Input[_builtins.float]
+    """
+    The number of database VMs.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The subnet id.
+    """
+    virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+    """
+    Gets or sets the virtual machine configuration.
+    """
+    database_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]]
+    """
+    The database type.
+    """
+    disk_configuration: NotRequired[pulumi.Input['DiskConfigurationArgsDict']]
+    """
+    Gets or sets the disk configuration.
+    """
 
 @pulumi.input_type
 class DatabaseConfigurationArgs:
@@ -1291,6 +1262,7 @@ class DatabaseConfigurationArgs:
                  disk_configuration: Optional[pulumi.Input['DiskConfigurationArgs']] = None):
         """
         Gets or sets the database configuration.
+
         :param pulumi.Input[_builtins.float] instance_count: The number of database VMs.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet id.
         :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: Gets or sets the virtual machine configuration.
@@ -1366,25 +1338,22 @@ class DatabaseConfigurationArgs:
         pulumi.set(self, "disk_configuration", value)
 
 
-if not MYPY:
-    class DatabaseServerFullResourceNamesArgsDict(TypedDict):
-        """
-        The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
-        """
-        availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.
-        """
-        load_balancer: NotRequired[pulumi.Input['LoadBalancerResourceNamesArgsDict']]
-        """
-        The resource names object for load balancer and related resources.
-        """
-        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
-        """
-        The list of virtual machine naming details.
-        """
-elif False:
-    DatabaseServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseServerFullResourceNamesArgsDict(TypedDict):
+    """
+    The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+    """
+    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.
+    """
+    load_balancer: NotRequired[pulumi.Input['LoadBalancerResourceNamesArgsDict']]
+    """
+    The resource names object for load balancer and related resources.
+    """
+    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
+    """
+    The list of virtual machine naming details.
+    """
 
 @pulumi.input_type
 class DatabaseServerFullResourceNamesArgs:
@@ -1394,6 +1363,7 @@ class DatabaseServerFullResourceNamesArgs:
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]] = None):
         """
         The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+
         :param pulumi.Input[_builtins.str] availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.
         :param pulumi.Input['LoadBalancerResourceNamesArgs'] load_balancer: The resource names object for load balancer and related resources.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]] virtual_machines: The list of virtual machine naming details.
@@ -1442,21 +1412,18 @@ class DatabaseServerFullResourceNamesArgs:
         pulumi.set(self, "virtual_machines", value)
 
 
-if not MYPY:
-    class DayArgsDict(TypedDict):
-        """
-        Day of the week.
-        """
-        date: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Date of the month
-        """
-        is_last: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Date is last date of month
-        """
-elif False:
-    DayArgsDict: TypeAlias = Mapping[str, Any]
+class DayArgsDict(TypedDict):
+    """
+    Day of the week.
+    """
+    date: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Date of the month
+    """
+    is_last: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Date is last date of month
+    """
 
 @pulumi.input_type
 class DayArgs:
@@ -1465,6 +1432,7 @@ class DayArgs:
                  is_last: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Day of the week.
+
         :param pulumi.Input[_builtins.int] date: Date of the month
         :param pulumi.Input[_builtins.bool] is_last: Whether Date is last date of month
         """
@@ -1498,54 +1466,51 @@ class DayArgs:
         pulumi.set(self, "is_last", value)
 
 
-if not MYPY:
-    class Db2ProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the DB2 provider properties.
-        """
-        provider_type: pulumi.Input[_builtins.str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'Db2'.
-        """
-        db_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the db2 database name.
-        """
-        db_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the db2 database password.
-        """
-        db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the key vault URI to secret with the database password.
-        """
-        db_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the db2 database sql port.
-        """
-        db_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the db2 database user name.
-        """
-        hostname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target virtual machine name.
-        """
-        sap_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP System Identifier
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the DB2 Database.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    Db2ProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class Db2ProviderInstancePropertiesArgsDict(TypedDict):
+    """
+    Gets or sets the DB2 provider properties.
+    """
+    provider_type: pulumi.Input[_builtins.str]
+    """
+    The provider type. For example, the value can be SapHana.
+    Expected value is 'Db2'.
+    """
+    db_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the db2 database name.
+    """
+    db_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the db2 database password.
+    """
+    db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the key vault URI to secret with the database password.
+    """
+    db_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the db2 database sql port.
+    """
+    db_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the db2 database user name.
+    """
+    hostname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target virtual machine name.
+    """
+    sap_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP System Identifier
+    """
+    ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the blob URI to SSL certificate for the DB2 Database.
+    """
+    ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
 
 @pulumi.input_type
 class Db2ProviderInstancePropertiesArgs:
@@ -1562,6 +1527,7 @@ class Db2ProviderInstancePropertiesArgs:
                  ssl_preference: Optional[pulumi.Input[Union[_builtins.str, 'SslPreference']]] = None):
         """
         Gets or sets the DB2 provider properties.
+
         :param pulumi.Input[_builtins.str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'Db2'.
         :param pulumi.Input[_builtins.str] db_name: Gets or sets the db2 database name.
@@ -1716,21 +1682,18 @@ class Db2ProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
-if not MYPY:
-    class DeployerVmPackagesArgsDict(TypedDict):
-        """
-        Defines the url and storage account ID where deployer VM packages are uploaded
-        """
-        storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The deployer VM packages storage account id
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to the deployer VM packages file.
-        """
-elif False:
-    DeployerVmPackagesArgsDict: TypeAlias = Mapping[str, Any]
+class DeployerVmPackagesArgsDict(TypedDict):
+    """
+    Defines the url and storage account ID where deployer VM packages are uploaded
+    """
+    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The deployer VM packages storage account id
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to the deployer VM packages file.
+    """
 
 @pulumi.input_type
 class DeployerVmPackagesArgs:
@@ -1739,6 +1702,7 @@ class DeployerVmPackagesArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the url and storage account ID where deployer VM packages are uploaded
+
         :param pulumi.Input[_builtins.str] storage_account_id: The deployer VM packages storage account id
         :param pulumi.Input[_builtins.str] url: The URL to the deployer VM packages file.
         """
@@ -1772,30 +1736,27 @@ class DeployerVmPackagesArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class DeploymentConfigurationArgsDict(TypedDict):
-        """
-        Deployment Configuration.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The configuration Type.
-        Expected value is 'Deployment'.
-        """
-        app_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The geo-location where the SAP system is to be created.
-        """
-        infrastructure_configuration: NotRequired[pulumi.Input[Union['SingleServerConfigurationArgsDict', 'ThreeTierConfigurationArgsDict']]]
-        """
-        The infrastructure configuration.
-        """
-        software_configuration: NotRequired[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgsDict', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict', 'ServiceInitiatedSoftwareConfigurationArgsDict']]]
-        """
-        The software configuration.
-        """
-elif False:
-    DeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigurationArgsDict(TypedDict):
+    """
+    Deployment Configuration.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The configuration Type.
+    Expected value is 'Deployment'.
+    """
+    app_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The geo-location where the SAP system is to be created.
+    """
+    infrastructure_configuration: NotRequired[pulumi.Input[Union['SingleServerConfigurationArgsDict', 'ThreeTierConfigurationArgsDict']]]
+    """
+    The infrastructure configuration.
+    """
+    software_configuration: NotRequired[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgsDict', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict', 'ServiceInitiatedSoftwareConfigurationArgsDict']]]
+    """
+    The software configuration.
+    """
 
 @pulumi.input_type
 class DeploymentConfigurationArgs:
@@ -1806,6 +1767,7 @@ class DeploymentConfigurationArgs:
                  software_configuration: Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]] = None):
         """
         Deployment Configuration.
+
         :param pulumi.Input[_builtins.str] configuration_type: The configuration Type.
                Expected value is 'Deployment'.
         :param pulumi.Input[_builtins.str] app_location: The geo-location where the SAP system is to be created.
@@ -1870,34 +1832,31 @@ class DeploymentConfigurationArgs:
         pulumi.set(self, "software_configuration", value)
 
 
-if not MYPY:
-    class DeploymentWithOSConfigurationArgsDict(TypedDict):
-        """
-        Deployment along with OS Configuration.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The configuration Type.
-        Expected value is 'DeploymentWithOSConfig'.
-        """
-        app_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The geo-location where the SAP system is to be created.
-        """
-        infrastructure_configuration: NotRequired[pulumi.Input[Union['SingleServerConfigurationArgsDict', 'ThreeTierConfigurationArgsDict']]]
-        """
-        The infrastructure configuration.
-        """
-        os_sap_configuration: NotRequired[pulumi.Input['OsSapConfigurationArgsDict']]
-        """
-        The OS and SAP configuration.
-        """
-        software_configuration: NotRequired[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgsDict', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict', 'ServiceInitiatedSoftwareConfigurationArgsDict']]]
-        """
-        The software configuration.
-        """
-elif False:
-    DeploymentWithOSConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentWithOSConfigurationArgsDict(TypedDict):
+    """
+    Deployment along with OS Configuration.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The configuration Type.
+    Expected value is 'DeploymentWithOSConfig'.
+    """
+    app_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The geo-location where the SAP system is to be created.
+    """
+    infrastructure_configuration: NotRequired[pulumi.Input[Union['SingleServerConfigurationArgsDict', 'ThreeTierConfigurationArgsDict']]]
+    """
+    The infrastructure configuration.
+    """
+    os_sap_configuration: NotRequired[pulumi.Input['OsSapConfigurationArgsDict']]
+    """
+    The OS and SAP configuration.
+    """
+    software_configuration: NotRequired[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgsDict', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict', 'ServiceInitiatedSoftwareConfigurationArgsDict']]]
+    """
+    The software configuration.
+    """
 
 @pulumi.input_type
 class DeploymentWithOSConfigurationArgs:
@@ -1909,6 +1868,7 @@ class DeploymentWithOSConfigurationArgs:
                  software_configuration: Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]] = None):
         """
         Deployment along with OS Configuration.
+
         :param pulumi.Input[_builtins.str] configuration_type: The configuration Type.
                Expected value is 'DeploymentWithOSConfig'.
         :param pulumi.Input[_builtins.str] app_location: The geo-location where the SAP system is to be created.
@@ -1988,26 +1948,23 @@ class DeploymentWithOSConfigurationArgs:
         pulumi.set(self, "software_configuration", value)
 
 
-if not MYPY:
-    class DiscoveryConfigurationArgsDict(TypedDict):
-        """
-        Discovery Details.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The configuration Type.
-        Expected value is 'Discovery'.
-        """
-        central_server_vm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The virtual machine ID of the Central Server.
-        """
-        managed_rg_storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.<br><br>Refer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).<br><br>If not provided, the service will create the storage account with a random name.
-        """
-elif False:
-    DiscoveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveryConfigurationArgsDict(TypedDict):
+    """
+    Discovery Details.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The configuration Type.
+    Expected value is 'Discovery'.
+    """
+    central_server_vm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The virtual machine ID of the Central Server.
+    """
+    managed_rg_storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.<br><br>Refer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).<br><br>If not provided, the service will create the storage account with a random name.
+    """
 
 @pulumi.input_type
 class DiscoveryConfigurationArgs:
@@ -2017,6 +1974,7 @@ class DiscoveryConfigurationArgs:
                  managed_rg_storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Discovery Details.
+
         :param pulumi.Input[_builtins.str] configuration_type: The configuration Type.
                Expected value is 'Discovery'.
         :param pulumi.Input[_builtins.str] central_server_vm_id: The virtual machine ID of the Central Server.
@@ -2066,17 +2024,14 @@ class DiscoveryConfigurationArgs:
         pulumi.set(self, "managed_rg_storage_account_name", value)
 
 
-if not MYPY:
-    class DiskConfigurationArgsDict(TypedDict):
-        """
-        The Disk Configuration Details.
-        """
-        disk_volume_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgsDict']]]]
-        """
-        The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
-        """
-elif False:
-    DiskConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DiskConfigurationArgsDict(TypedDict):
+    """
+    The Disk Configuration Details.
+    """
+    disk_volume_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgsDict']]]]
+    """
+    The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
+    """
 
 @pulumi.input_type
 class DiskConfigurationArgs:
@@ -2084,6 +2039,7 @@ class DiskConfigurationArgs:
                  disk_volume_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgs']]]] = None):
         """
         The Disk Configuration Details.
+
         :param pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgs']]] disk_volume_configurations: The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
         """
         if disk_volume_configurations is not None:
@@ -2102,21 +2058,18 @@ class DiskConfigurationArgs:
         pulumi.set(self, "disk_volume_configurations", value)
 
 
-if not MYPY:
-    class DiskExclusionPropertiesArgsDict(TypedDict):
-        """
-        Defines the disk exclusion properties for virtual machine backup.
-        """
-        disk_lun_list: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
-        """
-        is_inclusion_list: pulumi.Input[_builtins.bool]
-        """
-        Flag to indicate whether DiskLunList is to be included/ excluded from backup.
-        """
-elif False:
-    DiskExclusionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DiskExclusionPropertiesArgsDict(TypedDict):
+    """
+    Defines the disk exclusion properties for virtual machine backup.
+    """
+    disk_lun_list: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+    """
+    is_inclusion_list: pulumi.Input[_builtins.bool]
+    """
+    Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+    """
 
 @pulumi.input_type
 class DiskExclusionPropertiesArgs:
@@ -2125,6 +2078,7 @@ class DiskExclusionPropertiesArgs:
                  is_inclusion_list: pulumi.Input[_builtins.bool]):
         """
         Defines the disk exclusion properties for virtual machine backup.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         :param pulumi.Input[_builtins.bool] is_inclusion_list: Flag to indicate whether DiskLunList is to be included/ excluded from backup.
         """
@@ -2156,17 +2110,14 @@ class DiskExclusionPropertiesArgs:
         pulumi.set(self, "is_inclusion_list", value)
 
 
-if not MYPY:
-    class DiskSkuArgsDict(TypedDict):
-        """
-        The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskSkuName']]]
-        """
-        Defines the disk sku name.
-        """
-elif False:
-    DiskSkuArgsDict: TypeAlias = Mapping[str, Any]
+class DiskSkuArgsDict(TypedDict):
+    """
+    The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'DiskSkuName']]]
+    """
+    Defines the disk sku name.
+    """
 
 @pulumi.input_type
 class DiskSkuArgs:
@@ -2174,6 +2125,7 @@ class DiskSkuArgs:
                  name: Optional[pulumi.Input[Union[_builtins.str, 'DiskSkuName']]] = None):
         """
         The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
+
         :param pulumi.Input[Union[_builtins.str, 'DiskSkuName']] name: Defines the disk sku name.
         """
         if name is not None:
@@ -2192,25 +2144,22 @@ class DiskSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DiskVolumeConfigurationArgsDict(TypedDict):
-        """
-        The disk configuration required for the selected volume.
-        """
-        count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The total number of disks required for the concerned volume.
-        """
-        size_gb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The disk size in GB.
-        """
-        sku: NotRequired[pulumi.Input['DiskSkuArgsDict']]
-        """
-        The disk SKU details.
-        """
-elif False:
-    DiskVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DiskVolumeConfigurationArgsDict(TypedDict):
+    """
+    The disk configuration required for the selected volume.
+    """
+    count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The total number of disks required for the concerned volume.
+    """
+    size_gb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The disk size in GB.
+    """
+    sku: NotRequired[pulumi.Input['DiskSkuArgsDict']]
+    """
+    The disk SKU details.
+    """
 
 @pulumi.input_type
 class DiskVolumeConfigurationArgs:
@@ -2220,6 +2169,7 @@ class DiskVolumeConfigurationArgs:
                  sku: Optional[pulumi.Input['DiskSkuArgs']] = None):
         """
         The disk configuration required for the selected volume.
+
         :param pulumi.Input[_builtins.float] count: The total number of disks required for the concerned volume.
         :param pulumi.Input[_builtins.float] size_gb: The disk size in GB.
         :param pulumi.Input['DiskSkuArgs'] sku: The disk SKU details.
@@ -2268,22 +2218,19 @@ class DiskVolumeConfigurationArgs:
         pulumi.set(self, "sku", value)
 
 
-if not MYPY:
-    class ExistingRecoveryServicesVaultArgsDict(TypedDict):
-        """
-        Existing recovery services vault.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the recovery services vault that has been created.
-        """
-        vault_type: pulumi.Input[_builtins.str]
-        """
-        The vault type, whether it is existing or has to be created.
-        Expected value is 'Existing'.
-        """
-elif False:
-    ExistingRecoveryServicesVaultArgsDict: TypeAlias = Mapping[str, Any]
+class ExistingRecoveryServicesVaultArgsDict(TypedDict):
+    """
+    Existing recovery services vault.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the recovery services vault that has been created.
+    """
+    vault_type: pulumi.Input[_builtins.str]
+    """
+    The vault type, whether it is existing or has to be created.
+    Expected value is 'Existing'.
+    """
 
 @pulumi.input_type
 class ExistingRecoveryServicesVaultArgs:
@@ -2292,6 +2239,7 @@ class ExistingRecoveryServicesVaultArgs:
                  vault_type: pulumi.Input[_builtins.str]):
         """
         Existing recovery services vault.
+
         :param pulumi.Input[_builtins.str] id: The resource ID of the recovery services vault that has been created.
         :param pulumi.Input[_builtins.str] vault_type: The vault type, whether it is existing or has to be created.
                Expected value is 'Existing'.
@@ -2325,21 +2273,18 @@ class ExistingRecoveryServicesVaultArgs:
         pulumi.set(self, "vault_type", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        The extended location definition.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The extended location name.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The extended location type.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    The extended location definition.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The extended location name.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The extended location type.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -2348,6 +2293,7 @@ class ExtendedLocationArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         The extended location definition.
+
         :param pulumi.Input[_builtins.str] name: The extended location name.
         :param pulumi.Input[_builtins.str] type: The extended location type.
         """
@@ -2379,22 +2325,19 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ExternalInstallationSoftwareConfigurationArgsDict(TypedDict):
-        """
-        The SAP Software configuration Input when the software is installed externally outside the service.
-        """
-        software_installation_type: pulumi.Input[_builtins.str]
-        """
-        The SAP software installation Type.
-        Expected value is 'External'.
-        """
-        central_server_vm_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the virtual machine containing the central server instance.
-        """
-elif False:
-    ExternalInstallationSoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ExternalInstallationSoftwareConfigurationArgsDict(TypedDict):
+    """
+    The SAP Software configuration Input when the software is installed externally outside the service.
+    """
+    software_installation_type: pulumi.Input[_builtins.str]
+    """
+    The SAP software installation Type.
+    Expected value is 'External'.
+    """
+    central_server_vm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the virtual machine containing the central server instance.
+    """
 
 @pulumi.input_type
 class ExternalInstallationSoftwareConfigurationArgs:
@@ -2403,6 +2346,7 @@ class ExternalInstallationSoftwareConfigurationArgs:
                  central_server_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The SAP Software configuration Input when the software is installed externally outside the service.
+
         :param pulumi.Input[_builtins.str] software_installation_type: The SAP software installation Type.
                Expected value is 'External'.
         :param pulumi.Input[_builtins.str] central_server_vm_id: The resource ID of the virtual machine containing the central server instance.
@@ -2437,42 +2381,39 @@ class ExternalInstallationSoftwareConfigurationArgs:
         pulumi.set(self, "central_server_vm_id", value)
 
 
-if not MYPY:
-    class HanaBackupDataArgsDict(TypedDict):
-        """
-        Defines the HANA Backup data for a virtual instance for SAP.
-        """
-        backup_policy: pulumi.Input['DBBackupPolicyPropertiesArgsDict']
-        """
-        Defines the policy properties for database backup.
-        """
-        backup_type: pulumi.Input[_builtins.str]
-        """
-        The type of backup, VM, SQL or HANA.
-        Expected value is 'HANA'.
-        """
-        hdbuserstore_key_name: pulumi.Input[_builtins.str]
-        """
-        Name of the HANA Database User Store Key.
-        """
-        recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgsDict', 'NewRecoveryServicesVaultArgsDict']]
-        """
-        The properties of the recovery services vault used for backup.
-        """
-        db_instance_snapshot_backup_policy: NotRequired[pulumi.Input['DBBackupPolicyPropertiesArgsDict']]
-        """
-        Defines the policy properties for database backup.
-        """
-        instance_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database instance number.
-        """
-        ssl_configuration: NotRequired[pulumi.Input['SSLConfigurationArgsDict']]
-        """
-        Path of the SSL key store.
-        """
-elif False:
-    HanaBackupDataArgsDict: TypeAlias = Mapping[str, Any]
+class HanaBackupDataArgsDict(TypedDict):
+    """
+    Defines the HANA Backup data for a virtual instance for SAP.
+    """
+    backup_policy: pulumi.Input['DBBackupPolicyPropertiesArgsDict']
+    """
+    Defines the policy properties for database backup.
+    """
+    backup_type: pulumi.Input[_builtins.str]
+    """
+    The type of backup, VM, SQL or HANA.
+    Expected value is 'HANA'.
+    """
+    hdbuserstore_key_name: pulumi.Input[_builtins.str]
+    """
+    Name of the HANA Database User Store Key.
+    """
+    recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgsDict', 'NewRecoveryServicesVaultArgsDict']]
+    """
+    The properties of the recovery services vault used for backup.
+    """
+    db_instance_snapshot_backup_policy: NotRequired[pulumi.Input['DBBackupPolicyPropertiesArgsDict']]
+    """
+    Defines the policy properties for database backup.
+    """
+    instance_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database instance number.
+    """
+    ssl_configuration: NotRequired[pulumi.Input['SSLConfigurationArgsDict']]
+    """
+    Path of the SSL key store.
+    """
 
 @pulumi.input_type
 class HanaBackupDataArgs:
@@ -2486,6 +2427,7 @@ class HanaBackupDataArgs:
                  ssl_configuration: Optional[pulumi.Input['SSLConfigurationArgs']] = None):
         """
         Defines the HANA Backup data for a virtual instance for SAP.
+
         :param pulumi.Input['DBBackupPolicyPropertiesArgs'] backup_policy: Defines the policy properties for database backup.
         :param pulumi.Input[_builtins.str] backup_type: The type of backup, VM, SQL or HANA.
                Expected value is 'HANA'.
@@ -2592,62 +2534,59 @@ class HanaBackupDataArgs:
         pulumi.set(self, "ssl_configuration", value)
 
 
-if not MYPY:
-    class HanaDbProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the provider properties.
-        """
-        provider_type: pulumi.Input[_builtins.str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'SapHana'.
-        """
-        db_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the hana database name.
-        """
-        db_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database password.
-        """
-        db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the key vault URI to secret with the database password.
-        """
-        db_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database user name.
-        """
-        hostname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target virtual machine size.
-        """
-        instance_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database instance number.
-        """
-        sap_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP System Identifier.
-        """
-        sql_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database sql port.
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the DB.
-        """
-        ssl_host_name_in_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the hostname(s) in the SSL certificate.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    HanaDbProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HanaDbProviderInstancePropertiesArgsDict(TypedDict):
+    """
+    Gets or sets the provider properties.
+    """
+    provider_type: pulumi.Input[_builtins.str]
+    """
+    The provider type. For example, the value can be SapHana.
+    Expected value is 'SapHana'.
+    """
+    db_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the hana database name.
+    """
+    db_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database password.
+    """
+    db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the key vault URI to secret with the database password.
+    """
+    db_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database user name.
+    """
+    hostname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target virtual machine size.
+    """
+    instance_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database instance number.
+    """
+    sap_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP System Identifier.
+    """
+    sql_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database sql port.
+    """
+    ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the blob URI to SSL certificate for the DB.
+    """
+    ssl_host_name_in_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the hostname(s) in the SSL certificate.
+    """
+    ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
 
 @pulumi.input_type
 class HanaDbProviderInstancePropertiesArgs:
@@ -2666,6 +2605,7 @@ class HanaDbProviderInstancePropertiesArgs:
                  ssl_preference: Optional[pulumi.Input[Union[_builtins.str, 'SslPreference']]] = None):
         """
         Gets or sets the provider properties.
+
         :param pulumi.Input[_builtins.str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'SapHana'.
         :param pulumi.Input[_builtins.str] db_name: Gets or sets the hana database name.
@@ -2850,17 +2790,14 @@ class HanaDbProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
-if not MYPY:
-    class HighAvailabilityConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the high availability configuration.
-        """
-        high_availability_type: pulumi.Input[Union[_builtins.str, 'SAPHighAvailabilityType']]
-        """
-        The high availability type.
-        """
-elif False:
-    HighAvailabilityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class HighAvailabilityConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the high availability configuration.
+    """
+    high_availability_type: pulumi.Input[Union[_builtins.str, 'SAPHighAvailabilityType']]
+    """
+    The high availability type.
+    """
 
 @pulumi.input_type
 class HighAvailabilityConfigurationArgs:
@@ -2868,6 +2805,7 @@ class HighAvailabilityConfigurationArgs:
                  high_availability_type: pulumi.Input[Union[_builtins.str, 'SAPHighAvailabilityType']]):
         """
         Gets or sets the high availability configuration.
+
         :param pulumi.Input[Union[_builtins.str, 'SAPHighAvailabilityType']] high_availability_type: The high availability type.
         """
         pulumi.set(__self__, "high_availability_type", high_availability_type)
@@ -2885,21 +2823,18 @@ class HighAvailabilityConfigurationArgs:
         pulumi.set(self, "high_availability_type", value)
 
 
-if not MYPY:
-    class HighAvailabilitySoftwareConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the HA software configuration.
-        """
-        fencing_client_id: pulumi.Input[_builtins.str]
-        """
-        The fencing client id.
-        """
-        fencing_client_password: pulumi.Input[_builtins.str]
-        """
-        The fencing client id secret/password. The secret should never expire. This will be used pacemaker to start/stop the cluster VMs.
-        """
-elif False:
-    HighAvailabilitySoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class HighAvailabilitySoftwareConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the HA software configuration.
+    """
+    fencing_client_id: pulumi.Input[_builtins.str]
+    """
+    The fencing client id.
+    """
+    fencing_client_password: pulumi.Input[_builtins.str]
+    """
+    The fencing client id secret/password. The secret should never expire. This will be used pacemaker to start/stop the cluster VMs.
+    """
 
 @pulumi.input_type
 class HighAvailabilitySoftwareConfigurationArgs:
@@ -2908,6 +2843,7 @@ class HighAvailabilitySoftwareConfigurationArgs:
                  fencing_client_password: pulumi.Input[_builtins.str]):
         """
         Gets or sets the HA software configuration.
+
         :param pulumi.Input[_builtins.str] fencing_client_id: The fencing client id.
         :param pulumi.Input[_builtins.str] fencing_client_password: The fencing client id secret/password. The secret should never expire. This will be used pacemaker to start/stop the cluster VMs.
         """
@@ -2939,26 +2875,23 @@ class HighAvailabilitySoftwareConfigurationArgs:
         pulumi.set(self, "fencing_client_password", value)
 
 
-if not MYPY:
-    class HourlyScheduleArgsDict(TypedDict):
-        """
-        Hourly schedule.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Interval at which backup needs to be triggered. For hourly the value
-         can be 4/6/8/12
-        """
-        schedule_window_duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        To specify duration of the backup window
-        """
-        schedule_window_start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        To specify start time of the backup window
-        """
-elif False:
-    HourlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class HourlyScheduleArgsDict(TypedDict):
+    """
+    Hourly schedule.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Interval at which backup needs to be triggered. For hourly the value
+     can be 4/6/8/12
+    """
+    schedule_window_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    To specify duration of the backup window
+    """
+    schedule_window_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    To specify start time of the backup window
+    """
 
 @pulumi.input_type
 class HourlyScheduleArgs:
@@ -2968,6 +2901,7 @@ class HourlyScheduleArgs:
                  schedule_window_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Hourly schedule.
+
         :param pulumi.Input[_builtins.int] interval: Interval at which backup needs to be triggered. For hourly the value
                 can be 4/6/8/12
         :param pulumi.Input[_builtins.int] schedule_window_duration: To specify duration of the backup window
@@ -3018,33 +2952,30 @@ class HourlyScheduleArgs:
         pulumi.set(self, "schedule_window_start_time", value)
 
 
-if not MYPY:
-    class ImageReferenceArgsDict(TypedDict):
-        """
-        Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
-        """
-        offer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the offer of the platform image or marketplace image used to create the virtual machine.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image publisher.
-        """
-        sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image SKU.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-        """
-elif False:
-    ImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageReferenceArgsDict(TypedDict):
+    """
+    Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
+    """
+    offer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the offer of the platform image or marketplace image used to create the virtual machine.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image publisher.
+    """
+    sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image SKU.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+    """
 
 @pulumi.input_type
 class ImageReferenceArgs:
@@ -3056,6 +2987,7 @@ class ImageReferenceArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+
         :param pulumi.Input[_builtins.str] id: Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
         :param pulumi.Input[_builtins.str] offer: Specifies the offer of the platform image or marketplace image used to create the virtual machine.
         :param pulumi.Input[_builtins.str] publisher: The image publisher.
@@ -3134,21 +3066,18 @@ class ImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class InstantRPAdditionalDetailsArgsDict(TypedDict):
-        """
-        Instant recovery point additional details.
-        """
-        azure_backup_rg_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure backup resource group name prefix.
-        """
-        azure_backup_rg_name_suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure backup resource group name suffix.
-        """
-elif False:
-    InstantRPAdditionalDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class InstantRPAdditionalDetailsArgsDict(TypedDict):
+    """
+    Instant recovery point additional details.
+    """
+    azure_backup_rg_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure backup resource group name prefix.
+    """
+    azure_backup_rg_name_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure backup resource group name suffix.
+    """
 
 @pulumi.input_type
 class InstantRPAdditionalDetailsArgs:
@@ -3157,6 +3086,7 @@ class InstantRPAdditionalDetailsArgs:
                  azure_backup_rg_name_suffix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Instant recovery point additional details.
+
         :param pulumi.Input[_builtins.str] azure_backup_rg_name_prefix: Azure backup resource group name prefix.
         :param pulumi.Input[_builtins.str] azure_backup_rg_name_suffix: Azure backup resource group name suffix.
         """
@@ -3190,30 +3120,27 @@ class InstantRPAdditionalDetailsArgs:
         pulumi.set(self, "azure_backup_rg_name_suffix", value)
 
 
-if not MYPY:
-    class LinuxConfigurationArgsDict(TypedDict):
-        """
-        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
-        """
-        os_type: pulumi.Input[_builtins.str]
-        """
-        The OS Type
-        Expected value is 'Linux'.
-        """
-        disable_password_authentication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether password authentication should be disabled.
-        """
-        ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
-        """
-        Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)
-        """
-        ssh_key_pair: NotRequired[pulumi.Input['SshKeyPairArgsDict']]
-        """
-        The SSH Key-pair used to authenticate with the VM's.
-        """
-elif False:
-    LinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LinuxConfigurationArgsDict(TypedDict):
+    """
+    Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+    """
+    os_type: pulumi.Input[_builtins.str]
+    """
+    The OS Type
+    Expected value is 'Linux'.
+    """
+    disable_password_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether password authentication should be disabled.
+    """
+    ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+    """
+    Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)
+    """
+    ssh_key_pair: NotRequired[pulumi.Input['SshKeyPairArgsDict']]
+    """
+    The SSH Key-pair used to authenticate with the VM's.
+    """
 
 @pulumi.input_type
 class LinuxConfigurationArgs:
@@ -3224,6 +3151,7 @@ class LinuxConfigurationArgs:
                  ssh_key_pair: Optional[pulumi.Input['SshKeyPairArgs']] = None):
         """
         Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+
         :param pulumi.Input[_builtins.str] os_type: The OS Type
                Expected value is 'Linux'.
         :param pulumi.Input[_builtins.bool] disable_password_authentication: Specifies whether password authentication should be disabled.
@@ -3288,29 +3216,26 @@ class LinuxConfigurationArgs:
         pulumi.set(self, "ssh_key_pair", value)
 
 
-if not MYPY:
-    class LoadBalancerResourceNamesArgsDict(TypedDict):
-        """
-        The resource names object for load balancer and related resources.
-        """
-        backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1
-        """
-        frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
-        """
-        health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
-        """
-        load_balancer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full resource name for load balancer. If this value is not provided, load balancer will be name as {ASCS/DB}-loadBalancer.
-        """
-elif False:
-    LoadBalancerResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancerResourceNamesArgsDict(TypedDict):
+    """
+    The resource names object for load balancer and related resources.
+    """
+    backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1
+    """
+    frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+    """
+    health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+    """
+    load_balancer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full resource name for load balancer. If this value is not provided, load balancer will be name as {ASCS/DB}-loadBalancer.
+    """
 
 @pulumi.input_type
 class LoadBalancerResourceNamesArgs:
@@ -3321,6 +3246,7 @@ class LoadBalancerResourceNamesArgs:
                  load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The resource names object for load balancer and related resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backend_pool_names: The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_ip_configuration_names: The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] health_probe_names: The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
@@ -3384,22 +3310,19 @@ class LoadBalancerResourceNamesArgs:
         pulumi.set(self, "load_balancer_name", value)
 
 
-if not MYPY:
-    class LogSchedulePolicyArgsDict(TypedDict):
-        """
-        Log policy schedule.
-        """
-        schedule_policy_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'LogSchedulePolicy'.
-        """
-        schedule_frequency_in_mins: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Frequency of the log schedule operation of this policy in minutes.
-        """
-elif False:
-    LogSchedulePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class LogSchedulePolicyArgsDict(TypedDict):
+    """
+    Log policy schedule.
+    """
+    schedule_policy_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'LogSchedulePolicy'.
+    """
+    schedule_frequency_in_mins: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Frequency of the log schedule operation of this policy in minutes.
+    """
 
 @pulumi.input_type
 class LogSchedulePolicyArgs:
@@ -3408,6 +3331,7 @@ class LogSchedulePolicyArgs:
                  schedule_frequency_in_mins: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Log policy schedule.
+
         :param pulumi.Input[_builtins.str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LogSchedulePolicy'.
         :param pulumi.Input[_builtins.int] schedule_frequency_in_mins: Frequency of the log schedule operation of this policy in minutes.
@@ -3442,34 +3366,31 @@ class LogSchedulePolicyArgs:
         pulumi.set(self, "schedule_frequency_in_mins", value)
 
 
-if not MYPY:
-    class LongTermRetentionPolicyArgsDict(TypedDict):
-        """
-        Long term retention policy.
-        """
-        retention_policy_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'LongTermRetentionPolicy'.
-        """
-        daily_schedule: NotRequired[pulumi.Input['DailyRetentionScheduleArgsDict']]
-        """
-        Daily retention schedule of the protection policy.
-        """
-        monthly_schedule: NotRequired[pulumi.Input['MonthlyRetentionScheduleArgsDict']]
-        """
-        Monthly retention schedule of the protection policy.
-        """
-        weekly_schedule: NotRequired[pulumi.Input['WeeklyRetentionScheduleArgsDict']]
-        """
-        Weekly retention schedule of the protection policy.
-        """
-        yearly_schedule: NotRequired[pulumi.Input['YearlyRetentionScheduleArgsDict']]
-        """
-        Yearly retention schedule of the protection policy.
-        """
-elif False:
-    LongTermRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class LongTermRetentionPolicyArgsDict(TypedDict):
+    """
+    Long term retention policy.
+    """
+    retention_policy_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'LongTermRetentionPolicy'.
+    """
+    daily_schedule: NotRequired[pulumi.Input['DailyRetentionScheduleArgsDict']]
+    """
+    Daily retention schedule of the protection policy.
+    """
+    monthly_schedule: NotRequired[pulumi.Input['MonthlyRetentionScheduleArgsDict']]
+    """
+    Monthly retention schedule of the protection policy.
+    """
+    weekly_schedule: NotRequired[pulumi.Input['WeeklyRetentionScheduleArgsDict']]
+    """
+    Weekly retention schedule of the protection policy.
+    """
+    yearly_schedule: NotRequired[pulumi.Input['YearlyRetentionScheduleArgsDict']]
+    """
+    Yearly retention schedule of the protection policy.
+    """
 
 @pulumi.input_type
 class LongTermRetentionPolicyArgs:
@@ -3481,6 +3402,7 @@ class LongTermRetentionPolicyArgs:
                  yearly_schedule: Optional[pulumi.Input['YearlyRetentionScheduleArgs']] = None):
         """
         Long term retention policy.
+
         :param pulumi.Input[_builtins.str] retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermRetentionPolicy'.
         :param pulumi.Input['DailyRetentionScheduleArgs'] daily_schedule: Daily retention schedule of the protection policy.
@@ -3560,18 +3482,15 @@ class LongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_schedule", value)
 
 
-if not MYPY:
-    class LongTermSchedulePolicyArgsDict(TypedDict):
-        """
-        Long term policy schedule.
-        """
-        schedule_policy_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'LongTermSchedulePolicy'.
-        """
-elif False:
-    LongTermSchedulePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class LongTermSchedulePolicyArgsDict(TypedDict):
+    """
+    Long term policy schedule.
+    """
+    schedule_policy_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'LongTermSchedulePolicy'.
+    """
 
 @pulumi.input_type
 class LongTermSchedulePolicyArgs:
@@ -3579,6 +3498,7 @@ class LongTermSchedulePolicyArgs:
                  schedule_policy_type: pulumi.Input[_builtins.str]):
         """
         Long term policy schedule.
+
         :param pulumi.Input[_builtins.str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermSchedulePolicy'.
         """
@@ -3598,17 +3518,14 @@ class LongTermSchedulePolicyArgs:
         pulumi.set(self, "schedule_policy_type", value)
 
 
-if not MYPY:
-    class ManagedRGConfigurationArgsDict(TypedDict):
-        """
-        Managed resource group configuration
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Managed resource group name
-        """
-elif False:
-    ManagedRGConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedRGConfigurationArgsDict(TypedDict):
+    """
+    Managed resource group configuration
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Managed resource group name
+    """
 
 @pulumi.input_type
 class ManagedRGConfigurationArgs:
@@ -3616,6 +3533,7 @@ class ManagedRGConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Managed resource group configuration
+
         :param pulumi.Input[_builtins.str] name: Managed resource group name
         """
         if name is not None:
@@ -3634,17 +3552,14 @@ class ManagedRGConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ManagedResourceGroupConfigurationArgsDict(TypedDict):
-        """
-        Managed resource group configuration
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Managed resource group name
-        """
-elif False:
-    ManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedResourceGroupConfigurationArgsDict(TypedDict):
+    """
+    Managed resource group configuration
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Managed resource group name
+    """
 
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
@@ -3652,6 +3567,7 @@ class ManagedResourceGroupConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Managed resource group configuration
+
         :param pulumi.Input[_builtins.str] name: Managed resource group name
         """
         if name is not None:
@@ -3670,21 +3586,18 @@ class ManagedResourceGroupConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -3693,6 +3606,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -3725,33 +3639,30 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class MonthlyRetentionScheduleArgsDict(TypedDict):
-        """
-        Monthly retention schedule.
-        """
-        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
-        """
-        Retention duration of retention Policy.
-        """
-        retention_schedule_daily: NotRequired[pulumi.Input['DailyRetentionFormatArgsDict']]
-        """
-        Daily retention format for monthly retention policy.
-        """
-        retention_schedule_format_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionScheduleFormat']]]
-        """
-        Retention schedule format type for monthly retention policy.
-        """
-        retention_schedule_weekly: NotRequired[pulumi.Input['WeeklyRetentionFormatArgsDict']]
-        """
-        Weekly retention format for monthly retention policy.
-        """
-        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Retention times of retention policy.
-        """
-elif False:
-    MonthlyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class MonthlyRetentionScheduleArgsDict(TypedDict):
+    """
+    Monthly retention schedule.
+    """
+    retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+    """
+    Retention duration of retention Policy.
+    """
+    retention_schedule_daily: NotRequired[pulumi.Input['DailyRetentionFormatArgsDict']]
+    """
+    Daily retention format for monthly retention policy.
+    """
+    retention_schedule_format_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionScheduleFormat']]]
+    """
+    Retention schedule format type for monthly retention policy.
+    """
+    retention_schedule_weekly: NotRequired[pulumi.Input['WeeklyRetentionFormatArgsDict']]
+    """
+    Weekly retention format for monthly retention policy.
+    """
+    retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Retention times of retention policy.
+    """
 
 @pulumi.input_type
 class MonthlyRetentionScheduleArgs:
@@ -3763,6 +3674,7 @@ class MonthlyRetentionScheduleArgs:
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Monthly retention schedule.
+
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
         :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for monthly retention policy.
         :param pulumi.Input[Union[_builtins.str, 'RetentionScheduleFormat']] retention_schedule_format_type: Retention schedule format type for monthly retention policy.
@@ -3841,26 +3753,23 @@ class MonthlyRetentionScheduleArgs:
         pulumi.set(self, "retention_times", value)
 
 
-if not MYPY:
-    class MountFileShareConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The type of file share config.
-        Expected value is 'Mount'.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The fileshare resource ID
-        """
-        private_endpoint_id: pulumi.Input[_builtins.str]
-        """
-        The private endpoint resource ID
-        """
-elif False:
-    MountFileShareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MountFileShareConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The type of file share config.
+    Expected value is 'Mount'.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The fileshare resource ID
+    """
+    private_endpoint_id: pulumi.Input[_builtins.str]
+    """
+    The private endpoint resource ID
+    """
 
 @pulumi.input_type
 class MountFileShareConfigurationArgs:
@@ -3870,6 +3779,7 @@ class MountFileShareConfigurationArgs:
                  private_endpoint_id: pulumi.Input[_builtins.str]):
         """
         Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
+
         :param pulumi.Input[_builtins.str] configuration_type: The type of file share config.
                Expected value is 'Mount'.
         :param pulumi.Input[_builtins.str] id: The fileshare resource ID
@@ -3917,50 +3827,47 @@ class MountFileShareConfigurationArgs:
         pulumi.set(self, "private_endpoint_id", value)
 
 
-if not MYPY:
-    class MsSqlServerProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the SQL server provider properties.
-        """
-        provider_type: pulumi.Input[_builtins.str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'MsSqlServer'.
-        """
-        db_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database password.
-        """
-        db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the key vault URI to secret with the database password.
-        """
-        db_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database sql port.
-        """
-        db_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the database user name.
-        """
-        hostname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SQL server host name.
-        """
-        sap_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP System Identifier
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the SQL Database.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    MsSqlServerProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MsSqlServerProviderInstancePropertiesArgsDict(TypedDict):
+    """
+    Gets or sets the SQL server provider properties.
+    """
+    provider_type: pulumi.Input[_builtins.str]
+    """
+    The provider type. For example, the value can be SapHana.
+    Expected value is 'MsSqlServer'.
+    """
+    db_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database password.
+    """
+    db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the key vault URI to secret with the database password.
+    """
+    db_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database sql port.
+    """
+    db_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the database user name.
+    """
+    hostname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SQL server host name.
+    """
+    sap_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP System Identifier
+    """
+    ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the blob URI to SSL certificate for the SQL Database.
+    """
+    ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
 
 @pulumi.input_type
 class MsSqlServerProviderInstancePropertiesArgs:
@@ -3976,6 +3883,7 @@ class MsSqlServerProviderInstancePropertiesArgs:
                  ssl_preference: Optional[pulumi.Input[Union[_builtins.str, 'SslPreference']]] = None):
         """
         Gets or sets the SQL server provider properties.
+
         :param pulumi.Input[_builtins.str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'MsSqlServer'.
         :param pulumi.Input[_builtins.str] db_password: Gets or sets the database password.
@@ -4115,17 +4023,14 @@ class MsSqlServerProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
-if not MYPY:
-    class NetworkConfigurationArgsDict(TypedDict):
-        """
-        Defines the network configuration type for SAP system infrastructure that is being deployed
-        """
-        is_secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
-        """
-elif False:
-    NetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConfigurationArgsDict(TypedDict):
+    """
+    Defines the network configuration type for SAP system infrastructure that is being deployed
+    """
+    is_secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
+    """
 
 @pulumi.input_type
 class NetworkConfigurationArgs:
@@ -4133,6 +4038,7 @@ class NetworkConfigurationArgs:
                  is_secondary_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Defines the network configuration type for SAP system infrastructure that is being deployed
+
         :param pulumi.Input[_builtins.bool] is_secondary_ip_enabled: Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
         """
         if is_secondary_ip_enabled is None:
@@ -4153,17 +4059,14 @@ class NetworkConfigurationArgs:
         pulumi.set(self, "is_secondary_ip_enabled", value)
 
 
-if not MYPY:
-    class NetworkInterfaceResourceNamesArgsDict(TypedDict):
-        """
-        The resource names object for network interface and related resources.
-        """
-        network_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
-        """
-elif False:
-    NetworkInterfaceResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceResourceNamesArgsDict(TypedDict):
+    """
+    The resource names object for network interface and related resources.
+    """
+    network_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceResourceNamesArgs:
@@ -4171,6 +4074,7 @@ class NetworkInterfaceResourceNamesArgs:
                  network_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The resource names object for network interface and related resources.
+
         :param pulumi.Input[_builtins.str] network_interface_name: The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
         """
         if network_interface_name is not None:
@@ -4189,26 +4093,23 @@ class NetworkInterfaceResourceNamesArgs:
         pulumi.set(self, "network_interface_name", value)
 
 
-if not MYPY:
-    class NewRecoveryServicesVaultArgsDict(TypedDict):
-        """
-        New recovery services vault.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the recovery services vault has to be created.
-        """
-        resource_group: pulumi.Input[_builtins.str]
-        """
-        The name of the resource group where the recovery services vault has to be created.
-        """
-        vault_type: pulumi.Input[_builtins.str]
-        """
-        The vault type, whether it is existing or has to be created.
-        Expected value is 'New'.
-        """
-elif False:
-    NewRecoveryServicesVaultArgsDict: TypeAlias = Mapping[str, Any]
+class NewRecoveryServicesVaultArgsDict(TypedDict):
+    """
+    New recovery services vault.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the recovery services vault has to be created.
+    """
+    resource_group: pulumi.Input[_builtins.str]
+    """
+    The name of the resource group where the recovery services vault has to be created.
+    """
+    vault_type: pulumi.Input[_builtins.str]
+    """
+    The vault type, whether it is existing or has to be created.
+    Expected value is 'New'.
+    """
 
 @pulumi.input_type
 class NewRecoveryServicesVaultArgs:
@@ -4218,6 +4119,7 @@ class NewRecoveryServicesVaultArgs:
                  vault_type: pulumi.Input[_builtins.str]):
         """
         New recovery services vault.
+
         :param pulumi.Input[_builtins.str] name: The name of the recovery services vault has to be created.
         :param pulumi.Input[_builtins.str] resource_group: The name of the resource group where the recovery services vault has to be created.
         :param pulumi.Input[_builtins.str] vault_type: The vault type, whether it is existing or has to be created.
@@ -4265,25 +4167,22 @@ class NewRecoveryServicesVaultArgs:
         pulumi.set(self, "vault_type", value)
 
 
-if not MYPY:
-    class OSProfileArgsDict(TypedDict):
-        """
-        Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
-        """
-        admin_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
-        """
-        admin_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
-        """
-        os_configuration: NotRequired[pulumi.Input[Union['LinuxConfigurationArgsDict', 'WindowsConfigurationArgsDict']]]
-        """
-        Specifies Windows operating system settings on the virtual machine.
-        """
-elif False:
-    OSProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OSProfileArgsDict(TypedDict):
+    """
+    Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+    """
+    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+    """
+    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
+    """
+    os_configuration: NotRequired[pulumi.Input[Union['LinuxConfigurationArgsDict', 'WindowsConfigurationArgsDict']]]
+    """
+    Specifies Windows operating system settings on the virtual machine.
+    """
 
 @pulumi.input_type
 class OSProfileArgs:
@@ -4293,6 +4192,7 @@ class OSProfileArgs:
                  os_configuration: Optional[pulumi.Input[Union['LinuxConfigurationArgs', 'WindowsConfigurationArgs']]] = None):
         """
         Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+
         :param pulumi.Input[_builtins.str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         :param pulumi.Input[_builtins.str] admin_username: Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
         :param pulumi.Input[Union['LinuxConfigurationArgs', 'WindowsConfigurationArgs']] os_configuration: Specifies Windows operating system settings on the virtual machine.
@@ -4341,54 +4241,51 @@ class OSProfileArgs:
         pulumi.set(self, "os_configuration", value)
 
 
-if not MYPY:
-    class OracleProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the Oracle provider properties.
-        """
-        provider_type: pulumi.Input[_builtins.str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'Oracle'.
-        """
-        db_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the oracle database name.
-        """
-        db_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the oracle database password.
-        """
-        db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the key vault URI to secret with the database password.
-        """
-        db_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the oracle database sql port.
-        """
-        db_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the oracle database user name.
-        """
-        hostname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target virtual machine name.
-        """
-        sap_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP System Identifier
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the Oracle Database.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    OracleProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OracleProviderInstancePropertiesArgsDict(TypedDict):
+    """
+    Gets or sets the Oracle provider properties.
+    """
+    provider_type: pulumi.Input[_builtins.str]
+    """
+    The provider type. For example, the value can be SapHana.
+    Expected value is 'Oracle'.
+    """
+    db_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the oracle database name.
+    """
+    db_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the oracle database password.
+    """
+    db_password_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the key vault URI to secret with the database password.
+    """
+    db_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the oracle database sql port.
+    """
+    db_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the oracle database user name.
+    """
+    hostname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target virtual machine name.
+    """
+    sap_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP System Identifier
+    """
+    ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the blob URI to SSL certificate for the Oracle Database.
+    """
+    ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
 
 @pulumi.input_type
 class OracleProviderInstancePropertiesArgs:
@@ -4405,6 +4302,7 @@ class OracleProviderInstancePropertiesArgs:
                  ssl_preference: Optional[pulumi.Input[Union[_builtins.str, 'SslPreference']]] = None):
         """
         Gets or sets the Oracle provider properties.
+
         :param pulumi.Input[_builtins.str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'Oracle'.
         :param pulumi.Input[_builtins.str] db_name: Gets or sets the oracle database name.
@@ -4559,21 +4457,18 @@ class OracleProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
-if not MYPY:
-    class OsSapConfigurationArgsDict(TypedDict):
-        """
-        Defines the OS and SAP Configurations for Deployment
-        """
-        deployer_vm_packages: NotRequired[pulumi.Input['DeployerVmPackagesArgsDict']]
-        """
-        The url and storage account ID where deployer VM packages are uploaded
-        """
-        sap_fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The FQDN to set for the SAP system
-        """
-elif False:
-    OsSapConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OsSapConfigurationArgsDict(TypedDict):
+    """
+    Defines the OS and SAP Configurations for Deployment
+    """
+    deployer_vm_packages: NotRequired[pulumi.Input['DeployerVmPackagesArgsDict']]
+    """
+    The url and storage account ID where deployer VM packages are uploaded
+    """
+    sap_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The FQDN to set for the SAP system
+    """
 
 @pulumi.input_type
 class OsSapConfigurationArgs:
@@ -4582,6 +4477,7 @@ class OsSapConfigurationArgs:
                  sap_fqdn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the OS and SAP Configurations for Deployment
+
         :param pulumi.Input['DeployerVmPackagesArgs'] deployer_vm_packages: The url and storage account ID where deployer VM packages are uploaded
         :param pulumi.Input[_builtins.str] sap_fqdn: The FQDN to set for the SAP system
         """
@@ -4615,42 +4511,39 @@ class OsSapConfigurationArgs:
         pulumi.set(self, "sap_fqdn", value)
 
 
-if not MYPY:
-    class PrometheusHaClusterProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the PrometheusHaCluster provider properties.
-        """
-        provider_type: pulumi.Input[_builtins.str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'PrometheusHaCluster'.
-        """
-        cluster_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the clusterName.
-        """
-        hostname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target machine name.
-        """
-        prometheus_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL of the Node Exporter endpoint.
-        """
-        sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the cluster sid.
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    PrometheusHaClusterProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusHaClusterProviderInstancePropertiesArgsDict(TypedDict):
+    """
+    Gets or sets the PrometheusHaCluster provider properties.
+    """
+    provider_type: pulumi.Input[_builtins.str]
+    """
+    The provider type. For example, the value can be SapHana.
+    Expected value is 'PrometheusHaCluster'.
+    """
+    cluster_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the clusterName.
+    """
+    hostname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target machine name.
+    """
+    prometheus_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL of the Node Exporter endpoint.
+    """
+    sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the cluster sid.
+    """
+    ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+    """
+    ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
 
 @pulumi.input_type
 class PrometheusHaClusterProviderInstancePropertiesArgs:
@@ -4664,6 +4557,7 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
                  ssl_preference: Optional[pulumi.Input[Union[_builtins.str, 'SslPreference']]] = None):
         """
         Gets or sets the PrometheusHaCluster provider properties.
+
         :param pulumi.Input[_builtins.str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'PrometheusHaCluster'.
         :param pulumi.Input[_builtins.str] cluster_name: Gets or sets the clusterName.
@@ -4773,34 +4667,31 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
-if not MYPY:
-    class PrometheusOsProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the PrometheusOS provider properties.
-        """
-        provider_type: pulumi.Input[_builtins.str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'PrometheusOS'.
-        """
-        prometheus_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL of the Node Exporter endpoint
-        """
-        sap_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP System Identifier
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    PrometheusOsProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusOsProviderInstancePropertiesArgsDict(TypedDict):
+    """
+    Gets or sets the PrometheusOS provider properties.
+    """
+    provider_type: pulumi.Input[_builtins.str]
+    """
+    The provider type. For example, the value can be SapHana.
+    Expected value is 'PrometheusOS'.
+    """
+    prometheus_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL of the Node Exporter endpoint
+    """
+    sap_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP System Identifier
+    """
+    ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+    """
+    ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
 
 @pulumi.input_type
 class PrometheusOsProviderInstancePropertiesArgs:
@@ -4812,6 +4703,7 @@ class PrometheusOsProviderInstancePropertiesArgs:
                  ssl_preference: Optional[pulumi.Input[Union[_builtins.str, 'SslPreference']]] = None):
         """
         Gets or sets the PrometheusOS provider properties.
+
         :param pulumi.Input[_builtins.str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'PrometheusOS'.
         :param pulumi.Input[_builtins.str] prometheus_url: URL of the Node Exporter endpoint
@@ -4891,22 +4783,19 @@ class PrometheusOsProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
-if not MYPY:
-    class RetentionDurationArgsDict(TypedDict):
-        """
-        Retention duration.
-        """
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Count of duration types. Retention duration is obtained by the counting the duration type Count times.
-        For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
-        """
-        duration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionDurationType']]]
-        """
-        Retention duration type of retention policy.
-        """
-elif False:
-    RetentionDurationArgsDict: TypeAlias = Mapping[str, Any]
+class RetentionDurationArgsDict(TypedDict):
+    """
+    Retention duration.
+    """
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+    For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+    """
+    duration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionDurationType']]]
+    """
+    Retention duration type of retention policy.
+    """
 
 @pulumi.input_type
 class RetentionDurationArgs:
@@ -4915,6 +4804,7 @@ class RetentionDurationArgs:
                  duration_type: Optional[pulumi.Input[Union[_builtins.str, 'RetentionDurationType']]] = None):
         """
         Retention duration.
+
         :param pulumi.Input[_builtins.int] count: Count of duration types. Retention duration is obtained by the counting the duration type Count times.
                For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
         :param pulumi.Input[Union[_builtins.str, 'RetentionDurationType']] duration_type: Retention duration type of retention policy.
@@ -4950,34 +4840,31 @@ class RetentionDurationArgs:
         pulumi.set(self, "duration_type", value)
 
 
-if not MYPY:
-    class SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict(TypedDict):
-        """
-        The SAP Software configuration Input when the software is to be installed by service without OS Configurations
-        """
-        bom_url: pulumi.Input[_builtins.str]
-        """
-        The URL to the SAP Build of Materials(BOM) file.
-        """
-        sap_bits_storage_account_id: pulumi.Input[_builtins.str]
-        """
-        The SAP bits storage account id.
-        """
-        software_installation_type: pulumi.Input[_builtins.str]
-        """
-        The SAP software installation Type.
-        Expected value is 'SAPInstallWithoutOSConfig'.
-        """
-        software_version: pulumi.Input[_builtins.str]
-        """
-        The software version to install.
-        """
-        high_availability_software_configuration: NotRequired[pulumi.Input['HighAvailabilitySoftwareConfigurationArgsDict']]
-        """
-        Gets or sets the HA software configuration.
-        """
-elif False:
-    SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict(TypedDict):
+    """
+    The SAP Software configuration Input when the software is to be installed by service without OS Configurations
+    """
+    bom_url: pulumi.Input[_builtins.str]
+    """
+    The URL to the SAP Build of Materials(BOM) file.
+    """
+    sap_bits_storage_account_id: pulumi.Input[_builtins.str]
+    """
+    The SAP bits storage account id.
+    """
+    software_installation_type: pulumi.Input[_builtins.str]
+    """
+    The SAP software installation Type.
+    Expected value is 'SAPInstallWithoutOSConfig'.
+    """
+    software_version: pulumi.Input[_builtins.str]
+    """
+    The software version to install.
+    """
+    high_availability_software_configuration: NotRequired[pulumi.Input['HighAvailabilitySoftwareConfigurationArgsDict']]
+    """
+    Gets or sets the HA software configuration.
+    """
 
 @pulumi.input_type
 class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
@@ -4989,6 +4876,7 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
                  high_availability_software_configuration: Optional[pulumi.Input['HighAvailabilitySoftwareConfigurationArgs']] = None):
         """
         The SAP Software configuration Input when the software is to be installed by service without OS Configurations
+
         :param pulumi.Input[_builtins.str] bom_url: The URL to the SAP Build of Materials(BOM) file.
         :param pulumi.Input[_builtins.str] sap_bits_storage_account_id: The SAP bits storage account id.
         :param pulumi.Input[_builtins.str] software_installation_type: The SAP software installation Type.
@@ -5065,21 +4953,18 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
         pulumi.set(self, "high_availability_software_configuration", value)
 
 
-if not MYPY:
-    class SAPVirtualInstanceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'SAPVirtualInstanceIdentityType']]
-        """
-        The type of managed identity assigned to this resource.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The identities assigned to this resource by the user.
-        """
-elif False:
-    SAPVirtualInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class SAPVirtualInstanceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'SAPVirtualInstanceIdentityType']]
+    """
+    The type of managed identity assigned to this resource.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The identities assigned to this resource by the user.
+    """
 
 @pulumi.input_type
 class SAPVirtualInstanceIdentityArgs:
@@ -5088,6 +4973,7 @@ class SAPVirtualInstanceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'SAPVirtualInstanceIdentityType']] type: The type of managed identity assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The identities assigned to this resource by the user.
         """
@@ -5120,29 +5006,26 @@ class SAPVirtualInstanceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class SSLConfigurationArgsDict(TypedDict):
-        """
-        Specify the HANA database TLS/SSL properties which will be used for enabling Azure Backup for this database. You need to specify these details if you have enabled secure communication for your HANA database.
-        """
-        ssl_crypto_provider: NotRequired[pulumi.Input[Union[_builtins.str, 'SslCryptoProvider']]]
-        """
-        Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
-        """
-        ssl_host_name_in_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the hostname as mentioned in the SSL certificate. If this argument is not provided, it is automatically determined by searching in the SSL certificate.
-        """
-        ssl_key_store: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the name of the keystore file that contains the client's identity (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
-        """
-        ssl_trust_store: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the name of the trust store file that contains the server’s public certificates (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
-        """
-elif False:
-    SSLConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SSLConfigurationArgsDict(TypedDict):
+    """
+    Specify the HANA database TLS/SSL properties which will be used for enabling Azure Backup for this database. You need to specify these details if you have enabled secure communication for your HANA database.
+    """
+    ssl_crypto_provider: NotRequired[pulumi.Input[Union[_builtins.str, 'SslCryptoProvider']]]
+    """
+    Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
+    """
+    ssl_host_name_in_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the hostname as mentioned in the SSL certificate. If this argument is not provided, it is automatically determined by searching in the SSL certificate.
+    """
+    ssl_key_store: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the name of the keystore file that contains the client's identity (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
+    """
+    ssl_trust_store: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the name of the trust store file that contains the server’s public certificates (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
+    """
 
 @pulumi.input_type
 class SSLConfigurationArgs:
@@ -5153,6 +5036,7 @@ class SSLConfigurationArgs:
                  ssl_trust_store: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specify the HANA database TLS/SSL properties which will be used for enabling Azure Backup for this database. You need to specify these details if you have enabled secure communication for your HANA database.
+
         :param pulumi.Input[Union[_builtins.str, 'SslCryptoProvider']] ssl_crypto_provider: Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
         :param pulumi.Input[_builtins.str] ssl_host_name_in_certificate: Specify the hostname as mentioned in the SSL certificate. If this argument is not provided, it is automatically determined by searching in the SSL certificate.
         :param pulumi.Input[_builtins.str] ssl_key_store: Specify the name of the keystore file that contains the client's identity (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
@@ -5216,29 +5100,26 @@ class SSLConfigurationArgs:
         pulumi.set(self, "ssl_trust_store", value)
 
 
-if not MYPY:
-    class SapLandscapeMonitorMetricThresholdsArgsDict(TypedDict):
-        """
-        Gets or sets the Threshold Values for Top Metrics Health.
-        """
-        green: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Gets or sets the threshold value for Green.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the threshold.
-        """
-        red: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Gets or sets the threshold value for Red.
-        """
-        yellow: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Gets or sets the threshold value for Yellow.
-        """
-elif False:
-    SapLandscapeMonitorMetricThresholdsArgsDict: TypeAlias = Mapping[str, Any]
+class SapLandscapeMonitorMetricThresholdsArgsDict(TypedDict):
+    """
+    Gets or sets the Threshold Values for Top Metrics Health.
+    """
+    green: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Gets or sets the threshold value for Green.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the threshold.
+    """
+    red: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Gets or sets the threshold value for Red.
+    """
+    yellow: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Gets or sets the threshold value for Yellow.
+    """
 
 @pulumi.input_type
 class SapLandscapeMonitorMetricThresholdsArgs:
@@ -5249,6 +5130,7 @@ class SapLandscapeMonitorMetricThresholdsArgs:
                  yellow: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Gets or sets the Threshold Values for Top Metrics Health.
+
         :param pulumi.Input[_builtins.float] green: Gets or sets the threshold value for Green.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the threshold.
         :param pulumi.Input[_builtins.float] red: Gets or sets the threshold value for Red.
@@ -5312,21 +5194,18 @@ class SapLandscapeMonitorMetricThresholdsArgs:
         pulumi.set(self, "yellow", value)
 
 
-if not MYPY:
-    class SapLandscapeMonitorPropertiesGroupingArgsDict(TypedDict):
-        """
-        Gets or sets the SID groupings by landscape and Environment.
-        """
-        landscape: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
-        """
-        Gets or sets the list of landscape to SID mappings.
-        """
-        sap_application: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
-        """
-        Gets or sets the list of Sap Applications to SID mappings.
-        """
-elif False:
-    SapLandscapeMonitorPropertiesGroupingArgsDict: TypeAlias = Mapping[str, Any]
+class SapLandscapeMonitorPropertiesGroupingArgsDict(TypedDict):
+    """
+    Gets or sets the SID groupings by landscape and Environment.
+    """
+    landscape: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
+    """
+    Gets or sets the list of landscape to SID mappings.
+    """
+    sap_application: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
+    """
+    Gets or sets the list of Sap Applications to SID mappings.
+    """
 
 @pulumi.input_type
 class SapLandscapeMonitorPropertiesGroupingArgs:
@@ -5335,6 +5214,7 @@ class SapLandscapeMonitorPropertiesGroupingArgs:
                  sap_application: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]]] = None):
         """
         Gets or sets the SID groupings by landscape and Environment.
+
         :param pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]] landscape: Gets or sets the list of landscape to SID mappings.
         :param pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]] sap_application: Gets or sets the list of Sap Applications to SID mappings.
         """
@@ -5368,21 +5248,18 @@ class SapLandscapeMonitorPropertiesGroupingArgs:
         pulumi.set(self, "sap_application", value)
 
 
-if not MYPY:
-    class SapLandscapeMonitorSidMappingArgsDict(TypedDict):
-        """
-        Gets or sets the mapping for SID to Environment/Applications.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the grouping.
-        """
-        top_sid: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the list of SID's.
-        """
-elif False:
-    SapLandscapeMonitorSidMappingArgsDict: TypeAlias = Mapping[str, Any]
+class SapLandscapeMonitorSidMappingArgsDict(TypedDict):
+    """
+    Gets or sets the mapping for SID to Environment/Applications.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the grouping.
+    """
+    top_sid: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the list of SID's.
+    """
 
 @pulumi.input_type
 class SapLandscapeMonitorSidMappingArgs:
@@ -5391,6 +5268,7 @@ class SapLandscapeMonitorSidMappingArgs:
                  top_sid: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Gets or sets the mapping for SID to Environment/Applications.
+
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the grouping.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] top_sid: Gets or sets the list of SID's.
         """
@@ -5424,62 +5302,59 @@ class SapLandscapeMonitorSidMappingArgs:
         pulumi.set(self, "top_sid", value)
 
 
-if not MYPY:
-    class SapNetWeaverProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the provider properties.
-        """
-        provider_type: pulumi.Input[_builtins.str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'SapNetWeaver'.
-        """
-        sap_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP Client ID.
-        """
-        sap_host_file_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the list of HostFile Entries
-        """
-        sap_hostname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the target virtual machine IP Address/FQDN.
-        """
-        sap_instance_nr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the instance number of SAP NetWeaver.
-        """
-        sap_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets the SAP password.
-        """
-        sap_password_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the key vault URI to secret with the SAP password.
-        """
-        sap_port_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP HTTP port number.
-        """
-        sap_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP System Identifier
-        """
-        sap_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the SAP user name.
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the SAP system.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    SapNetWeaverProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SapNetWeaverProviderInstancePropertiesArgsDict(TypedDict):
+    """
+    Gets or sets the provider properties.
+    """
+    provider_type: pulumi.Input[_builtins.str]
+    """
+    The provider type. For example, the value can be SapHana.
+    Expected value is 'SapNetWeaver'.
+    """
+    sap_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP Client ID.
+    """
+    sap_host_file_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the list of HostFile Entries
+    """
+    sap_hostname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the target virtual machine IP Address/FQDN.
+    """
+    sap_instance_nr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the instance number of SAP NetWeaver.
+    """
+    sap_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets the SAP password.
+    """
+    sap_password_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the key vault URI to secret with the SAP password.
+    """
+    sap_port_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP HTTP port number.
+    """
+    sap_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP System Identifier
+    """
+    sap_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the SAP user name.
+    """
+    ssl_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the blob URI to SSL certificate for the SAP system.
+    """
+    ssl_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'SslPreference']]]
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
 
 @pulumi.input_type
 class SapNetWeaverProviderInstancePropertiesArgs:
@@ -5498,6 +5373,7 @@ class SapNetWeaverProviderInstancePropertiesArgs:
                  ssl_preference: Optional[pulumi.Input[Union[_builtins.str, 'SslPreference']]] = None):
         """
         Gets or sets the provider properties.
+
         :param pulumi.Input[_builtins.str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'SapNetWeaver'.
         :param pulumi.Input[_builtins.str] sap_client_id: Gets or sets the SAP Client ID.
@@ -5682,42 +5558,39 @@ class SapNetWeaverProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
-if not MYPY:
-    class ServiceInitiatedSoftwareConfigurationArgsDict(TypedDict):
-        """
-        The SAP Software configuration Input when the software is to be installed by service.
-        """
-        bom_url: pulumi.Input[_builtins.str]
-        """
-        The URL to the SAP Build of Materials(BOM) file.
-        """
-        sap_bits_storage_account_id: pulumi.Input[_builtins.str]
-        """
-        The SAP bits storage account id.
-        """
-        sap_fqdn: pulumi.Input[_builtins.str]
-        """
-        The FQDN to set for the SAP system during install.
-        """
-        software_installation_type: pulumi.Input[_builtins.str]
-        """
-        The SAP software installation Type.
-        Expected value is 'ServiceInitiated'.
-        """
-        software_version: pulumi.Input[_builtins.str]
-        """
-        The software version to install.
-        """
-        ssh_private_key: pulumi.Input[_builtins.str]
-        """
-        The SSH private key.
-        """
-        high_availability_software_configuration: NotRequired[pulumi.Input['HighAvailabilitySoftwareConfigurationArgsDict']]
-        """
-        Gets or sets the HA software configuration.
-        """
-elif False:
-    ServiceInitiatedSoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceInitiatedSoftwareConfigurationArgsDict(TypedDict):
+    """
+    The SAP Software configuration Input when the software is to be installed by service.
+    """
+    bom_url: pulumi.Input[_builtins.str]
+    """
+    The URL to the SAP Build of Materials(BOM) file.
+    """
+    sap_bits_storage_account_id: pulumi.Input[_builtins.str]
+    """
+    The SAP bits storage account id.
+    """
+    sap_fqdn: pulumi.Input[_builtins.str]
+    """
+    The FQDN to set for the SAP system during install.
+    """
+    software_installation_type: pulumi.Input[_builtins.str]
+    """
+    The SAP software installation Type.
+    Expected value is 'ServiceInitiated'.
+    """
+    software_version: pulumi.Input[_builtins.str]
+    """
+    The software version to install.
+    """
+    ssh_private_key: pulumi.Input[_builtins.str]
+    """
+    The SSH private key.
+    """
+    high_availability_software_configuration: NotRequired[pulumi.Input['HighAvailabilitySoftwareConfigurationArgsDict']]
+    """
+    Gets or sets the HA software configuration.
+    """
 
 @pulumi.input_type
 class ServiceInitiatedSoftwareConfigurationArgs:
@@ -5731,6 +5604,7 @@ class ServiceInitiatedSoftwareConfigurationArgs:
                  high_availability_software_configuration: Optional[pulumi.Input['HighAvailabilitySoftwareConfigurationArgs']] = None):
         """
         The SAP Software configuration Input when the software is to be installed by service.
+
         :param pulumi.Input[_builtins.str] bom_url: The URL to the SAP Build of Materials(BOM) file.
         :param pulumi.Input[_builtins.str] sap_bits_storage_account_id: The SAP bits storage account id.
         :param pulumi.Input[_builtins.str] sap_fqdn: The FQDN to set for the SAP system during install.
@@ -5835,26 +5709,23 @@ class ServiceInitiatedSoftwareConfigurationArgs:
         pulumi.set(self, "high_availability_software_configuration", value)
 
 
-if not MYPY:
-    class SettingsArgsDict(TypedDict):
-        """
-        Common settings field for backup management
-        """
-        is_compression: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Workload compression flag. This has been added so that 'isSqlCompression'
-        will be deprecated once clients upgrade to consider this flag.
-        """
-        issqlcompression: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        SQL compression flag
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
-        """
-elif False:
-    SettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsArgsDict(TypedDict):
+    """
+    Common settings field for backup management
+    """
+    is_compression: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Workload compression flag. This has been added so that 'isSqlCompression'
+    will be deprecated once clients upgrade to consider this flag.
+    """
+    issqlcompression: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    SQL compression flag
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+    """
 
 @pulumi.input_type
 class SettingsArgs:
@@ -5864,6 +5735,7 @@ class SettingsArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Common settings field for backup management
+
         :param pulumi.Input[_builtins.bool] is_compression: Workload compression flag. This has been added so that 'isSqlCompression'
                will be deprecated once clients upgrade to consider this flag.
         :param pulumi.Input[_builtins.bool] issqlcompression: SQL compression flag
@@ -5914,21 +5786,18 @@ class SettingsArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class SharedStorageResourceNamesArgsDict(TypedDict):
-        """
-        The resource names object for shared storage.
-        """
-        shared_storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
-        """
-        shared_storage_account_private_end_point_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
-        """
-elif False:
-    SharedStorageResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class SharedStorageResourceNamesArgsDict(TypedDict):
+    """
+    The resource names object for shared storage.
+    """
+    shared_storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
+    """
+    shared_storage_account_private_end_point_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
+    """
 
 @pulumi.input_type
 class SharedStorageResourceNamesArgs:
@@ -5937,6 +5806,7 @@ class SharedStorageResourceNamesArgs:
                  shared_storage_account_private_end_point_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The resource names object for shared storage.
+
         :param pulumi.Input[_builtins.str] shared_storage_account_name: The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
         :param pulumi.Input[_builtins.str] shared_storage_account_private_end_point_name: The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
         """
@@ -5970,22 +5840,19 @@ class SharedStorageResourceNamesArgs:
         pulumi.set(self, "shared_storage_account_private_end_point_name", value)
 
 
-if not MYPY:
-    class SimpleRetentionPolicyArgsDict(TypedDict):
-        """
-        Simple policy retention.
-        """
-        retention_policy_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'SimpleRetentionPolicy'.
-        """
-        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
-        """
-        Retention duration of the protection policy.
-        """
-elif False:
-    SimpleRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class SimpleRetentionPolicyArgsDict(TypedDict):
+    """
+    Simple policy retention.
+    """
+    retention_policy_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'SimpleRetentionPolicy'.
+    """
+    retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+    """
+    Retention duration of the protection policy.
+    """
 
 @pulumi.input_type
 class SimpleRetentionPolicyArgs:
@@ -5994,6 +5861,7 @@ class SimpleRetentionPolicyArgs:
                  retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None):
         """
         Simple policy retention.
+
         :param pulumi.Input[_builtins.str] retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleRetentionPolicy'.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of the protection policy.
@@ -6028,34 +5896,31 @@ class SimpleRetentionPolicyArgs:
         pulumi.set(self, "retention_duration", value)
 
 
-if not MYPY:
-    class SimpleSchedulePolicyV2ArgsDict(TypedDict):
-        """
-        The V2 policy schedule for IaaS that supports hourly backups.
-        """
-        schedule_policy_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'SimpleSchedulePolicyV2'.
-        """
-        daily_schedule: NotRequired[pulumi.Input['DailyScheduleArgsDict']]
-        """
-        Daily schedule of this policy
-        """
-        hourly_schedule: NotRequired[pulumi.Input['HourlyScheduleArgsDict']]
-        """
-        hourly schedule of this policy
-        """
-        schedule_run_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleRunType']]]
-        """
-        Frequency of the schedule operation of this policy.
-        """
-        weekly_schedule: NotRequired[pulumi.Input['WeeklyScheduleArgsDict']]
-        """
-        Weekly schedule of this policy
-        """
-elif False:
-    SimpleSchedulePolicyV2ArgsDict: TypeAlias = Mapping[str, Any]
+class SimpleSchedulePolicyV2ArgsDict(TypedDict):
+    """
+    The V2 policy schedule for IaaS that supports hourly backups.
+    """
+    schedule_policy_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'SimpleSchedulePolicyV2'.
+    """
+    daily_schedule: NotRequired[pulumi.Input['DailyScheduleArgsDict']]
+    """
+    Daily schedule of this policy
+    """
+    hourly_schedule: NotRequired[pulumi.Input['HourlyScheduleArgsDict']]
+    """
+    hourly schedule of this policy
+    """
+    schedule_run_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleRunType']]]
+    """
+    Frequency of the schedule operation of this policy.
+    """
+    weekly_schedule: NotRequired[pulumi.Input['WeeklyScheduleArgsDict']]
+    """
+    Weekly schedule of this policy
+    """
 
 @pulumi.input_type
 class SimpleSchedulePolicyV2Args:
@@ -6067,6 +5932,7 @@ class SimpleSchedulePolicyV2Args:
                  weekly_schedule: Optional[pulumi.Input['WeeklyScheduleArgs']] = None):
         """
         The V2 policy schedule for IaaS that supports hourly backups.
+
         :param pulumi.Input[_builtins.str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleSchedulePolicyV2'.
         :param pulumi.Input['DailyScheduleArgs'] daily_schedule: Daily schedule of this policy
@@ -6146,38 +6012,35 @@ class SimpleSchedulePolicyV2Args:
         pulumi.set(self, "weekly_schedule", value)
 
 
-if not MYPY:
-    class SimpleSchedulePolicyArgsDict(TypedDict):
-        """
-        Simple policy schedule.
-        """
-        schedule_policy_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'SimpleSchedulePolicy'.
-        """
-        hourly_schedule: NotRequired[pulumi.Input['HourlyScheduleArgsDict']]
-        """
-        Hourly Schedule of this Policy
-        """
-        schedule_run_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
-        """
-        List of days of week this schedule has to be run.
-        """
-        schedule_run_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleRunType']]]
-        """
-        Frequency of the schedule operation of this policy.
-        """
-        schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of times of day this schedule has to be run.
-        """
-        schedule_weekly_frequency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        At every number weeks this schedule has to be run.
-        """
-elif False:
-    SimpleSchedulePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class SimpleSchedulePolicyArgsDict(TypedDict):
+    """
+    Simple policy schedule.
+    """
+    schedule_policy_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'SimpleSchedulePolicy'.
+    """
+    hourly_schedule: NotRequired[pulumi.Input['HourlyScheduleArgsDict']]
+    """
+    Hourly Schedule of this Policy
+    """
+    schedule_run_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+    """
+    List of days of week this schedule has to be run.
+    """
+    schedule_run_frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'ScheduleRunType']]]
+    """
+    Frequency of the schedule operation of this policy.
+    """
+    schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of times of day this schedule has to be run.
+    """
+    schedule_weekly_frequency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    At every number weeks this schedule has to be run.
+    """
 
 @pulumi.input_type
 class SimpleSchedulePolicyArgs:
@@ -6190,6 +6053,7 @@ class SimpleSchedulePolicyArgs:
                  schedule_weekly_frequency: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Simple policy schedule.
+
         :param pulumi.Input[_builtins.str] schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleSchedulePolicy'.
         :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Hourly Schedule of this Policy
@@ -6284,46 +6148,43 @@ class SimpleSchedulePolicyArgs:
         pulumi.set(self, "schedule_weekly_frequency", value)
 
 
-if not MYPY:
-    class SingleServerConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
-        """
-        app_resource_group: pulumi.Input[_builtins.str]
-        """
-        The application resource group where SAP system resources will be deployed.
-        """
-        deployment_type: pulumi.Input[_builtins.str]
-        """
-        The type of SAP deployment, single server or Three tier.
-        Expected value is 'SingleServer'.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The subnet id.
-        """
-        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
-        """
-        Gets or sets the virtual machine configuration.
-        """
-        custom_resource_names: NotRequired[pulumi.Input['SingleServerFullResourceNamesArgsDict']]
-        """
-        The set of custom names to be used for underlying azure resources that are part of the SAP system.
-        """
-        database_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]]
-        """
-        The database type.
-        """
-        db_disk_configuration: NotRequired[pulumi.Input['DiskConfigurationArgsDict']]
-        """
-        Gets or sets the disk configuration.
-        """
-        network_configuration: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
-        """
-        Network configuration for the server
-        """
-elif False:
-    SingleServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SingleServerConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
+    """
+    app_resource_group: pulumi.Input[_builtins.str]
+    """
+    The application resource group where SAP system resources will be deployed.
+    """
+    deployment_type: pulumi.Input[_builtins.str]
+    """
+    The type of SAP deployment, single server or Three tier.
+    Expected value is 'SingleServer'.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The subnet id.
+    """
+    virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+    """
+    Gets or sets the virtual machine configuration.
+    """
+    custom_resource_names: NotRequired[pulumi.Input['SingleServerFullResourceNamesArgsDict']]
+    """
+    The set of custom names to be used for underlying azure resources that are part of the SAP system.
+    """
+    database_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]]
+    """
+    The database type.
+    """
+    db_disk_configuration: NotRequired[pulumi.Input['DiskConfigurationArgsDict']]
+    """
+    Gets or sets the disk configuration.
+    """
+    network_configuration: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
+    """
+    Network configuration for the server
+    """
 
 @pulumi.input_type
 class SingleServerConfigurationArgs:
@@ -6338,6 +6199,7 @@ class SingleServerConfigurationArgs:
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None):
         """
         Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
+
         :param pulumi.Input[_builtins.str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input[_builtins.str] deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'SingleServer'.
@@ -6459,22 +6321,19 @@ class SingleServerConfigurationArgs:
         pulumi.set(self, "network_configuration", value)
 
 
-if not MYPY:
-    class SingleServerFullResourceNamesArgsDict(TypedDict):
-        """
-        The resource name object where the specified values will be full resource names of the corresponding resources in a single server SAP system.
-        """
-        naming_pattern_type: pulumi.Input[_builtins.str]
-        """
-        The pattern type to be used for resource naming.
-        Expected value is 'FullResourceName'.
-        """
-        virtual_machine: NotRequired[pulumi.Input['VirtualMachineResourceNamesArgsDict']]
-        """
-        The resource names object for virtual machine and related resources.
-        """
-elif False:
-    SingleServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class SingleServerFullResourceNamesArgsDict(TypedDict):
+    """
+    The resource name object where the specified values will be full resource names of the corresponding resources in a single server SAP system.
+    """
+    naming_pattern_type: pulumi.Input[_builtins.str]
+    """
+    The pattern type to be used for resource naming.
+    Expected value is 'FullResourceName'.
+    """
+    virtual_machine: NotRequired[pulumi.Input['VirtualMachineResourceNamesArgsDict']]
+    """
+    The resource names object for virtual machine and related resources.
+    """
 
 @pulumi.input_type
 class SingleServerFullResourceNamesArgs:
@@ -6483,6 +6342,7 @@ class SingleServerFullResourceNamesArgs:
                  virtual_machine: Optional[pulumi.Input['VirtualMachineResourceNamesArgs']] = None):
         """
         The resource name object where the specified values will be full resource names of the corresponding resources in a single server SAP system.
+
         :param pulumi.Input[_builtins.str] naming_pattern_type: The pattern type to be used for resource naming.
                Expected value is 'FullResourceName'.
         :param pulumi.Input['VirtualMachineResourceNamesArgs'] virtual_machine: The resource names object for virtual machine and related resources.
@@ -6517,18 +6377,15 @@ class SingleServerFullResourceNamesArgs:
         pulumi.set(self, "virtual_machine", value)
 
 
-if not MYPY:
-    class SkipFileShareConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
-        """
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        The type of file share config.
-        Expected value is 'Skip'.
-        """
-elif False:
-    SkipFileShareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SkipFileShareConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
+    """
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    The type of file share config.
+    Expected value is 'Skip'.
+    """
 
 @pulumi.input_type
 class SkipFileShareConfigurationArgs:
@@ -6536,6 +6393,7 @@ class SkipFileShareConfigurationArgs:
                  configuration_type: pulumi.Input[_builtins.str]):
         """
         Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
+
         :param pulumi.Input[_builtins.str] configuration_type: The type of file share config.
                Expected value is 'Skip'.
         """
@@ -6555,25 +6413,22 @@ class SkipFileShareConfigurationArgs:
         pulumi.set(self, "configuration_type", value)
 
 
-if not MYPY:
-    class SnapshotBackupAdditionalDetailsArgsDict(TypedDict):
-        """
-        Snapshot Backup related fields for WorkloadType SAP Hana system
-        """
-        instant_rp_details: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instant RP details for the snapshot.
-        """
-        instant_rp_retention_range_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Retention range for instant Rp in days.
-        """
-        user_assigned_managed_identity_details: NotRequired[pulumi.Input['UserAssignedManagedIdentityDetailsArgsDict']]
-        """
-        User Assigned managed identity details used for snapshot policy.
-        """
-elif False:
-    SnapshotBackupAdditionalDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotBackupAdditionalDetailsArgsDict(TypedDict):
+    """
+    Snapshot Backup related fields for WorkloadType SAP Hana system
+    """
+    instant_rp_details: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instant RP details for the snapshot.
+    """
+    instant_rp_retention_range_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Retention range for instant Rp in days.
+    """
+    user_assigned_managed_identity_details: NotRequired[pulumi.Input['UserAssignedManagedIdentityDetailsArgsDict']]
+    """
+    User Assigned managed identity details used for snapshot policy.
+    """
 
 @pulumi.input_type
 class SnapshotBackupAdditionalDetailsArgs:
@@ -6583,6 +6438,7 @@ class SnapshotBackupAdditionalDetailsArgs:
                  user_assigned_managed_identity_details: Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']] = None):
         """
         Snapshot Backup related fields for WorkloadType SAP Hana system
+
         :param pulumi.Input[_builtins.str] instant_rp_details: Instant RP details for the snapshot.
         :param pulumi.Input[_builtins.int] instant_rp_retention_range_in_days: Retention range for instant Rp in days.
         :param pulumi.Input['UserAssignedManagedIdentityDetailsArgs'] user_assigned_managed_identity_details: User Assigned managed identity details used for snapshot policy.
@@ -6631,26 +6487,23 @@ class SnapshotBackupAdditionalDetailsArgs:
         pulumi.set(self, "user_assigned_managed_identity_details", value)
 
 
-if not MYPY:
-    class SqlBackupDataArgsDict(TypedDict):
-        """
-        Defines the SQL Backup data for a virtual instance for SAP.
-        """
-        backup_policy: pulumi.Input['DBBackupPolicyPropertiesArgsDict']
-        """
-        Defines the policy properties for database backup.
-        """
-        backup_type: pulumi.Input[_builtins.str]
-        """
-        The type of backup, VM, SQL or HANA.
-        Expected value is 'SQL'.
-        """
-        recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgsDict', 'NewRecoveryServicesVaultArgsDict']]
-        """
-        The properties of the recovery services vault used for backup.
-        """
-elif False:
-    SqlBackupDataArgsDict: TypeAlias = Mapping[str, Any]
+class SqlBackupDataArgsDict(TypedDict):
+    """
+    Defines the SQL Backup data for a virtual instance for SAP.
+    """
+    backup_policy: pulumi.Input['DBBackupPolicyPropertiesArgsDict']
+    """
+    Defines the policy properties for database backup.
+    """
+    backup_type: pulumi.Input[_builtins.str]
+    """
+    The type of backup, VM, SQL or HANA.
+    Expected value is 'SQL'.
+    """
+    recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgsDict', 'NewRecoveryServicesVaultArgsDict']]
+    """
+    The properties of the recovery services vault used for backup.
+    """
 
 @pulumi.input_type
 class SqlBackupDataArgs:
@@ -6660,6 +6513,7 @@ class SqlBackupDataArgs:
                  recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgs', 'NewRecoveryServicesVaultArgs']]):
         """
         Defines the SQL Backup data for a virtual instance for SAP.
+
         :param pulumi.Input['DBBackupPolicyPropertiesArgs'] backup_policy: Defines the policy properties for database backup.
         :param pulumi.Input[_builtins.str] backup_type: The type of backup, VM, SQL or HANA.
                Expected value is 'SQL'.
@@ -6707,17 +6561,14 @@ class SqlBackupDataArgs:
         pulumi.set(self, "recovery_services_vault", value)
 
 
-if not MYPY:
-    class SshConfigurationArgsDict(TypedDict):
-        """
-        SSH configuration for Linux based VMs running on Azure
-        """
-        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
-        """
-        The list of SSH public keys used to authenticate with linux based VMs.
-        """
-elif False:
-    SshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SshConfigurationArgsDict(TypedDict):
+    """
+    SSH configuration for Linux based VMs running on Azure
+    """
+    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+    """
+    The list of SSH public keys used to authenticate with linux based VMs.
+    """
 
 @pulumi.input_type
 class SshConfigurationArgs:
@@ -6725,6 +6576,7 @@ class SshConfigurationArgs:
                  public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
         """
         SSH configuration for Linux based VMs running on Azure
+
         :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
@@ -6743,21 +6595,18 @@ class SshConfigurationArgs:
         pulumi.set(self, "public_keys", value)
 
 
-if not MYPY:
-    class SshKeyPairArgsDict(TypedDict):
-        """
-        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
-        """
-        private_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SSH private key.
-        """
-        public_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SSH public key
-        """
-elif False:
-    SshKeyPairArgsDict: TypeAlias = Mapping[str, Any]
+class SshKeyPairArgsDict(TypedDict):
+    """
+    The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+    """
+    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SSH private key.
+    """
+    public_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SSH public key
+    """
 
 @pulumi.input_type
 class SshKeyPairArgs:
@@ -6766,6 +6615,7 @@ class SshKeyPairArgs:
                  public_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+
         :param pulumi.Input[_builtins.str] private_key: SSH private key.
         :param pulumi.Input[_builtins.str] public_key: SSH public key
         """
@@ -6799,17 +6649,14 @@ class SshKeyPairArgs:
         pulumi.set(self, "public_key", value)
 
 
-if not MYPY:
-    class SshPublicKeyArgsDict(TypedDict):
-        """
-        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
-        """
-        key_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
-        """
-elif False:
-    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SshPublicKeyArgsDict(TypedDict):
+    """
+    Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+    """
+    key_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+    """
 
 @pulumi.input_type
 class SshPublicKeyArgs:
@@ -6817,6 +6664,7 @@ class SshPublicKeyArgs:
                  key_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+
         :param pulumi.Input[_builtins.str] key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         if key_data is not None:
@@ -6835,17 +6683,14 @@ class SshPublicKeyArgs:
         pulumi.set(self, "key_data", value)
 
 
-if not MYPY:
-    class StorageConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the storage configuration.
-        """
-        transport_file_share_configuration: NotRequired[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgsDict', 'MountFileShareConfigurationArgsDict', 'SkipFileShareConfigurationArgsDict']]]
-        """
-        The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
-        """
-elif False:
-    StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the storage configuration.
+    """
+    transport_file_share_configuration: NotRequired[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgsDict', 'MountFileShareConfigurationArgsDict', 'SkipFileShareConfigurationArgsDict']]]
+    """
+    The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
+    """
 
 @pulumi.input_type
 class StorageConfigurationArgs:
@@ -6853,6 +6698,7 @@ class StorageConfigurationArgs:
                  transport_file_share_configuration: Optional[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']]] = None):
         """
         Gets or sets the storage configuration.
+
         :param pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']] transport_file_share_configuration: The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
         """
         if transport_file_share_configuration is not None:
@@ -6871,35 +6717,32 @@ class StorageConfigurationArgs:
         pulumi.set(self, "transport_file_share_configuration", value)
 
 
-if not MYPY:
-    class SubProtectionPolicyArgsDict(TypedDict):
-        """
-        Sub-protection policy which includes schedule and retention
-        """
-        policy_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyType']]]
-        """
-        Type of backup policy type
-        """
-        retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
-        """
-        Retention policy with the details on backup copy retention ranges.
-        """
-        schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
-        """
-        Backup schedule specified as part of backup policy.
-        """
-        snapshot_backup_additional_details: NotRequired[pulumi.Input['SnapshotBackupAdditionalDetailsArgsDict']]
-        """
-        Hana DB instance snapshot backup additional details.
-        """
-        tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
-        """
-        Tiering policy to automatically move RPs to another tier.
-        Key is Target Tier, defined in RecoveryPointTierType enum.
-        Tiering policy specifies the criteria to move RP to the target tier.
-        """
-elif False:
-    SubProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class SubProtectionPolicyArgsDict(TypedDict):
+    """
+    Sub-protection policy which includes schedule and retention
+    """
+    policy_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyType']]]
+    """
+    Type of backup policy type
+    """
+    retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
+    """
+    Retention policy with the details on backup copy retention ranges.
+    """
+    schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
+    """
+    Backup schedule specified as part of backup policy.
+    """
+    snapshot_backup_additional_details: NotRequired[pulumi.Input['SnapshotBackupAdditionalDetailsArgsDict']]
+    """
+    Hana DB instance snapshot backup additional details.
+    """
+    tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
+    """
+    Tiering policy to automatically move RPs to another tier.
+    Key is Target Tier, defined in RecoveryPointTierType enum.
+    Tiering policy specifies the criteria to move RP to the target tier.
+    """
 
 @pulumi.input_type
 class SubProtectionPolicyArgs:
@@ -6911,6 +6754,7 @@ class SubProtectionPolicyArgs:
                  tiering_policy: Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]] = None):
         """
         Sub-protection policy which includes schedule and retention
+
         :param pulumi.Input[Union[_builtins.str, 'PolicyType']] policy_type: Type of backup policy type
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']] schedule_policy: Backup schedule specified as part of backup policy.
@@ -6993,50 +6837,47 @@ class SubProtectionPolicyArgs:
         pulumi.set(self, "tiering_policy", value)
 
 
-if not MYPY:
-    class ThreeTierConfigurationArgsDict(TypedDict):
-        """
-        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
-        """
-        app_resource_group: pulumi.Input[_builtins.str]
-        """
-        The application resource group where SAP system resources will be deployed.
-        """
-        application_server: pulumi.Input['ApplicationServerConfigurationArgsDict']
-        """
-        The application server configuration.
-        """
-        central_server: pulumi.Input['CentralServerConfigurationArgsDict']
-        """
-        The central server configuration.
-        """
-        database_server: pulumi.Input['DatabaseConfigurationArgsDict']
-        """
-        The database configuration.
-        """
-        deployment_type: pulumi.Input[_builtins.str]
-        """
-        The type of SAP deployment, single server or Three tier.
-        Expected value is 'ThreeTier'.
-        """
-        custom_resource_names: NotRequired[pulumi.Input['ThreeTierFullResourceNamesArgsDict']]
-        """
-        The set of custom names to be used for underlying azure resources that are part of the SAP system.
-        """
-        high_availability_config: NotRequired[pulumi.Input['HighAvailabilityConfigurationArgsDict']]
-        """
-        The high availability configuration.
-        """
-        network_configuration: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
-        """
-        Network configuration common to all servers
-        """
-        storage_configuration: NotRequired[pulumi.Input['StorageConfigurationArgsDict']]
-        """
-        The storage configuration.
-        """
-elif False:
-    ThreeTierConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierConfigurationArgsDict(TypedDict):
+    """
+    Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
+    """
+    app_resource_group: pulumi.Input[_builtins.str]
+    """
+    The application resource group where SAP system resources will be deployed.
+    """
+    application_server: pulumi.Input['ApplicationServerConfigurationArgsDict']
+    """
+    The application server configuration.
+    """
+    central_server: pulumi.Input['CentralServerConfigurationArgsDict']
+    """
+    The central server configuration.
+    """
+    database_server: pulumi.Input['DatabaseConfigurationArgsDict']
+    """
+    The database configuration.
+    """
+    deployment_type: pulumi.Input[_builtins.str]
+    """
+    The type of SAP deployment, single server or Three tier.
+    Expected value is 'ThreeTier'.
+    """
+    custom_resource_names: NotRequired[pulumi.Input['ThreeTierFullResourceNamesArgsDict']]
+    """
+    The set of custom names to be used for underlying azure resources that are part of the SAP system.
+    """
+    high_availability_config: NotRequired[pulumi.Input['HighAvailabilityConfigurationArgsDict']]
+    """
+    The high availability configuration.
+    """
+    network_configuration: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
+    """
+    Network configuration common to all servers
+    """
+    storage_configuration: NotRequired[pulumi.Input['StorageConfigurationArgsDict']]
+    """
+    The storage configuration.
+    """
 
 @pulumi.input_type
 class ThreeTierConfigurationArgs:
@@ -7052,6 +6893,7 @@ class ThreeTierConfigurationArgs:
                  storage_configuration: Optional[pulumi.Input['StorageConfigurationArgs']] = None):
         """
         Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
+
         :param pulumi.Input[_builtins.str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input['ApplicationServerConfigurationArgs'] application_server: The application server configuration.
         :param pulumi.Input['CentralServerConfigurationArgs'] central_server: The central server configuration.
@@ -7187,34 +7029,31 @@ class ThreeTierConfigurationArgs:
         pulumi.set(self, "storage_configuration", value)
 
 
-if not MYPY:
-    class ThreeTierFullResourceNamesArgsDict(TypedDict):
-        """
-        The resource name object where the specified values will be full resource names of the corresponding resources in a three tier SAP system.
-        """
-        naming_pattern_type: pulumi.Input[_builtins.str]
-        """
-        The pattern type to be used for resource naming.
-        Expected value is 'FullResourceName'.
-        """
-        application_server: NotRequired[pulumi.Input['ApplicationServerFullResourceNamesArgsDict']]
-        """
-        The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
-        """
-        central_server: NotRequired[pulumi.Input['CentralServerFullResourceNamesArgsDict']]
-        """
-        The full resource names object for central server layer resources.
-        """
-        database_server: NotRequired[pulumi.Input['DatabaseServerFullResourceNamesArgsDict']]
-        """
-        The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
-        """
-        shared_storage: NotRequired[pulumi.Input['SharedStorageResourceNamesArgsDict']]
-        """
-        The resource names object for shared storage.
-        """
-elif False:
-    ThreeTierFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierFullResourceNamesArgsDict(TypedDict):
+    """
+    The resource name object where the specified values will be full resource names of the corresponding resources in a three tier SAP system.
+    """
+    naming_pattern_type: pulumi.Input[_builtins.str]
+    """
+    The pattern type to be used for resource naming.
+    Expected value is 'FullResourceName'.
+    """
+    application_server: NotRequired[pulumi.Input['ApplicationServerFullResourceNamesArgsDict']]
+    """
+    The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+    """
+    central_server: NotRequired[pulumi.Input['CentralServerFullResourceNamesArgsDict']]
+    """
+    The full resource names object for central server layer resources.
+    """
+    database_server: NotRequired[pulumi.Input['DatabaseServerFullResourceNamesArgsDict']]
+    """
+    The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+    """
+    shared_storage: NotRequired[pulumi.Input['SharedStorageResourceNamesArgsDict']]
+    """
+    The resource names object for shared storage.
+    """
 
 @pulumi.input_type
 class ThreeTierFullResourceNamesArgs:
@@ -7226,6 +7065,7 @@ class ThreeTierFullResourceNamesArgs:
                  shared_storage: Optional[pulumi.Input['SharedStorageResourceNamesArgs']] = None):
         """
         The resource name object where the specified values will be full resource names of the corresponding resources in a three tier SAP system.
+
         :param pulumi.Input[_builtins.str] naming_pattern_type: The pattern type to be used for resource naming.
                Expected value is 'FullResourceName'.
         :param pulumi.Input['ApplicationServerFullResourceNamesArgs'] application_server: The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
@@ -7305,31 +7145,28 @@ class ThreeTierFullResourceNamesArgs:
         pulumi.set(self, "shared_storage", value)
 
 
-if not MYPY:
-    class TieringPolicyArgsDict(TypedDict):
-        """
-        Tiering Policy for a target tier.
-        If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
-        """
-        duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of days/weeks/months/years to retain backups in current tier before tiering.
-        Used only if TieringMode is set to TierAfter
-        """
-        duration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionDurationType']]]
-        """
-        Retention duration type: days/weeks/months/years
-        Used only if TieringMode is set to TierAfter
-        """
-        tiering_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'TieringMode']]]
-        """
-        Tiering Mode to control automatic tiering of recovery points. Supported values are:
-        1. TierRecommended: Tier all recovery points recommended to be tiered
-        2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
-        3. DoNotTier: Do not tier any recovery points
-        """
-elif False:
-    TieringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class TieringPolicyArgsDict(TypedDict):
+    """
+    Tiering Policy for a target tier.
+    If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+    """
+    duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of days/weeks/months/years to retain backups in current tier before tiering.
+    Used only if TieringMode is set to TierAfter
+    """
+    duration_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionDurationType']]]
+    """
+    Retention duration type: days/weeks/months/years
+    Used only if TieringMode is set to TierAfter
+    """
+    tiering_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'TieringMode']]]
+    """
+    Tiering Mode to control automatic tiering of recovery points. Supported values are:
+    1. TierRecommended: Tier all recovery points recommended to be tiered
+    2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+    3. DoNotTier: Do not tier any recovery points
+    """
 
 @pulumi.input_type
 class TieringPolicyArgs:
@@ -7340,6 +7177,7 @@ class TieringPolicyArgs:
         """
         Tiering Policy for a target tier.
         If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+
         :param pulumi.Input[_builtins.int] duration: Number of days/weeks/months/years to retain backups in current tier before tiering.
                Used only if TieringMode is set to TierAfter
         :param pulumi.Input[Union[_builtins.str, 'RetentionDurationType']] duration_type: Retention duration type: days/weeks/months/years
@@ -7398,15 +7236,12 @@ class TieringPolicyArgs:
         pulumi.set(self, "tiering_mode", value)
 
 
-if not MYPY:
-    class UserAssignedIdentityPropertiesArgsDict(TypedDict):
-        """
-        User assigned managed identity properties.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    UserAssignedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedIdentityPropertiesArgsDict(TypedDict):
+    """
+    User assigned managed identity properties.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class UserAssignedIdentityPropertiesArgs:
@@ -7440,19 +7275,16 @@ class UserAssignedIdentityPropertiesArgs:
         pulumi.set(self, "principal_id", value)
 
 
-if not MYPY:
-    class UserAssignedManagedIdentityDetailsArgsDict(TypedDict):
-        """
-        User assigned managed identity details.
-        """
-        identity_arm_id: NotRequired[pulumi.Input[_builtins.str]]
-        identity_name: NotRequired[pulumi.Input[_builtins.str]]
-        user_assigned_identity_properties: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
-        """
-        User assigned managed identity properties.
-        """
-elif False:
-    UserAssignedManagedIdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedManagedIdentityDetailsArgsDict(TypedDict):
+    """
+    User assigned managed identity details.
+    """
+    identity_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+    identity_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_properties: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
+    """
+    User assigned managed identity properties.
+    """
 
 @pulumi.input_type
 class UserAssignedManagedIdentityDetailsArgs:
@@ -7462,6 +7294,7 @@ class UserAssignedManagedIdentityDetailsArgs:
                  user_assigned_identity_properties: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None):
         """
         User assigned managed identity details.
+
         :param pulumi.Input['UserAssignedIdentityPropertiesArgs'] user_assigned_identity_properties: User assigned managed identity properties.
         """
         if identity_arm_id is not None:
@@ -7502,21 +7335,18 @@ class UserAssignedManagedIdentityDetailsArgs:
         pulumi.set(self, "user_assigned_identity_properties", value)
 
 
-if not MYPY:
-    class UserAssignedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of manage identity
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        User assigned identities dictionary
-        """
-elif False:
-    UserAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of manage identity
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    User assigned identities dictionary
+    """
 
 @pulumi.input_type
 class UserAssignedServiceIdentityArgs:
@@ -7525,6 +7355,7 @@ class UserAssignedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of manage identity
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: User assigned identities dictionary
         """
@@ -7557,30 +7388,27 @@ class UserAssignedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class VMBackupDataArgsDict(TypedDict):
-        """
-        Defines the VM Backup data for a virtual instance for SAP.
-        """
-        backup_policy: pulumi.Input['VMBackupPolicyPropertiesArgsDict']
-        """
-        Defines the policy properties for virtual machine backup.
-        """
-        backup_type: pulumi.Input[_builtins.str]
-        """
-        The type of backup, VM, SQL or HANA.
-        Expected value is 'VM'.
-        """
-        recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgsDict', 'NewRecoveryServicesVaultArgsDict']]
-        """
-        The properties of the recovery services vault used for backup.
-        """
-        disk_exclusion_properties: NotRequired[pulumi.Input['DiskExclusionPropertiesArgsDict']]
-        """
-        Defines the disk exclusion properties for virtual machine backup.
-        """
-elif False:
-    VMBackupDataArgsDict: TypeAlias = Mapping[str, Any]
+class VMBackupDataArgsDict(TypedDict):
+    """
+    Defines the VM Backup data for a virtual instance for SAP.
+    """
+    backup_policy: pulumi.Input['VMBackupPolicyPropertiesArgsDict']
+    """
+    Defines the policy properties for virtual machine backup.
+    """
+    backup_type: pulumi.Input[_builtins.str]
+    """
+    The type of backup, VM, SQL or HANA.
+    Expected value is 'VM'.
+    """
+    recovery_services_vault: pulumi.Input[Union['ExistingRecoveryServicesVaultArgsDict', 'NewRecoveryServicesVaultArgsDict']]
+    """
+    The properties of the recovery services vault used for backup.
+    """
+    disk_exclusion_properties: NotRequired[pulumi.Input['DiskExclusionPropertiesArgsDict']]
+    """
+    Defines the disk exclusion properties for virtual machine backup.
+    """
 
 @pulumi.input_type
 class VMBackupDataArgs:
@@ -7591,6 +7419,7 @@ class VMBackupDataArgs:
                  disk_exclusion_properties: Optional[pulumi.Input['DiskExclusionPropertiesArgs']] = None):
         """
         Defines the VM Backup data for a virtual instance for SAP.
+
         :param pulumi.Input['VMBackupPolicyPropertiesArgs'] backup_policy: Defines the policy properties for virtual machine backup.
         :param pulumi.Input[_builtins.str] backup_type: The type of backup, VM, SQL or HANA.
                Expected value is 'VM'.
@@ -7653,60 +7482,57 @@ class VMBackupDataArgs:
         pulumi.set(self, "disk_exclusion_properties", value)
 
 
-if not MYPY:
-    class VMBackupPolicyPropertiesArgsDict(TypedDict):
-        """
-        Defines the policy properties for virtual machine backup.
-        """
-        backup_management_type: pulumi.Input[_builtins.str]
-        """
-        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        Expected value is 'AzureIaasVM'.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the VM Backup policy.
-        """
-        instant_rp_details: NotRequired[pulumi.Input['InstantRPAdditionalDetailsArgsDict']]
-        """
-        Instant recovery point additional details.
-        """
-        instant_rp_retention_range_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Instant RP retention policy range in days
-        """
-        policy_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IAASVMPolicyType']]]
-        """
-        The policy type.
-        """
-        protected_items_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of items associated with this policy.
-        """
-        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        ResourceGuard Operation Requests
-        """
-        retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
-        """
-        Retention policy with the details on backup copy retention ranges.
-        """
-        schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
-        """
-        Backup schedule specified as part of backup policy.
-        """
-        tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
-        """
-        Tiering policy to automatically move RPs to another tier
-        Key is Target Tier, defined in RecoveryPointTierType enum.
-        Tiering policy specifies the criteria to move RP to the target tier.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time zone optional input as string. For example: "Pacific Standard Time".
-        """
-elif False:
-    VMBackupPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VMBackupPolicyPropertiesArgsDict(TypedDict):
+    """
+    Defines the policy properties for virtual machine backup.
+    """
+    backup_management_type: pulumi.Input[_builtins.str]
+    """
+    This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+    Expected value is 'AzureIaasVM'.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the VM Backup policy.
+    """
+    instant_rp_details: NotRequired[pulumi.Input['InstantRPAdditionalDetailsArgsDict']]
+    """
+    Instant recovery point additional details.
+    """
+    instant_rp_retention_range_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Instant RP retention policy range in days
+    """
+    policy_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IAASVMPolicyType']]]
+    """
+    The policy type.
+    """
+    protected_items_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of items associated with this policy.
+    """
+    resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    ResourceGuard Operation Requests
+    """
+    retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
+    """
+    Retention policy with the details on backup copy retention ranges.
+    """
+    schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
+    """
+    Backup schedule specified as part of backup policy.
+    """
+    tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
+    """
+    Tiering policy to automatically move RPs to another tier
+    Key is Target Tier, defined in RecoveryPointTierType enum.
+    Tiering policy specifies the criteria to move RP to the target tier.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time zone optional input as string. For example: "Pacific Standard Time".
+    """
 
 @pulumi.input_type
 class VMBackupPolicyPropertiesArgs:
@@ -7724,6 +7550,7 @@ class VMBackupPolicyPropertiesArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the policy properties for virtual machine backup.
+
         :param pulumi.Input[_builtins.str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureIaasVM'.
         :param pulumi.Input[_builtins.str] name: The name of the VM Backup policy.
@@ -7896,25 +7723,22 @@ class VMBackupPolicyPropertiesArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class VirtualMachineConfigurationArgsDict(TypedDict):
-        """
-        Defines the virtual machine configuration.
-        """
-        image_reference: pulumi.Input['ImageReferenceArgsDict']
-        """
-        The image reference.
-        """
-        os_profile: pulumi.Input['OSProfileArgsDict']
-        """
-        The OS profile.
-        """
-        vm_size: pulumi.Input[_builtins.str]
-        """
-        The virtual machine size.
-        """
-elif False:
-    VirtualMachineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineConfigurationArgsDict(TypedDict):
+    """
+    Defines the virtual machine configuration.
+    """
+    image_reference: pulumi.Input['ImageReferenceArgsDict']
+    """
+    The image reference.
+    """
+    os_profile: pulumi.Input['OSProfileArgsDict']
+    """
+    The OS profile.
+    """
+    vm_size: pulumi.Input[_builtins.str]
+    """
+    The virtual machine size.
+    """
 
 @pulumi.input_type
 class VirtualMachineConfigurationArgs:
@@ -7924,6 +7748,7 @@ class VirtualMachineConfigurationArgs:
                  vm_size: pulumi.Input[_builtins.str]):
         """
         Defines the virtual machine configuration.
+
         :param pulumi.Input['ImageReferenceArgs'] image_reference: The image reference.
         :param pulumi.Input['OSProfileArgs'] os_profile: The OS profile.
         :param pulumi.Input[_builtins.str] vm_size: The virtual machine size.
@@ -7969,33 +7794,30 @@ class VirtualMachineConfigurationArgs:
         pulumi.set(self, "vm_size", value)
 
 
-if not MYPY:
-    class VirtualMachineResourceNamesArgsDict(TypedDict):
-        """
-        The resource names object for virtual machine and related resources.
-        """
-        data_disk_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
-        """
-        The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for virtual-machine's host (computer name). Currently, ACSS only supports host names which are less than or equal to 13 characters long. If this value is not provided, vmName will be used as host name.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgsDict']]]]
-        """
-        The list of network interface name objects for the selected virtual machine. Currently, only one network interface is supported per virtual machine.
-        """
-        os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for OS disk attached to the VM. If this value is not provided, it will be named by ARM as per its default naming standards (prefixed with vm name). There is only one OS disk attached per Virtual Machine.
-        """
-        vm_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for virtual machine. The length of this field can be upto 64 characters. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}vm. In case of HA-AvZone systems, default name will be {SID}{app/ascs/db}z{a/b}vm with an incrementor at the end in case of more than 1 vm per layer. For distributed and HA-AvSet systems, default name will be {SID}{app/ascs/db}vm with an incrementor at the end in case of more than 1 vm per layer.
-        """
-elif False:
-    VirtualMachineResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineResourceNamesArgsDict(TypedDict):
+    """
+    The resource names object for virtual machine and related resources.
+    """
+    data_disk_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    """
+    The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for virtual-machine's host (computer name). Currently, ACSS only supports host names which are less than or equal to 13 characters long. If this value is not provided, vmName will be used as host name.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgsDict']]]]
+    """
+    The list of network interface name objects for the selected virtual machine. Currently, only one network interface is supported per virtual machine.
+    """
+    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for OS disk attached to the VM. If this value is not provided, it will be named by ARM as per its default naming standards (prefixed with vm name). There is only one OS disk attached per Virtual Machine.
+    """
+    vm_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for virtual machine. The length of this field can be upto 64 characters. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}vm. In case of HA-AvZone systems, default name will be {SID}{app/ascs/db}z{a/b}vm with an incrementor at the end in case of more than 1 vm per layer. For distributed and HA-AvSet systems, default name will be {SID}{app/ascs/db}vm with an incrementor at the end in case of more than 1 vm per layer.
+    """
 
 @pulumi.input_type
 class VirtualMachineResourceNamesArgs:
@@ -8007,6 +7829,7 @@ class VirtualMachineResourceNamesArgs:
                  vm_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The resource names object for virtual machine and related resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] data_disk_names: The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported
         :param pulumi.Input[_builtins.str] host_name: The full name for virtual-machine's host (computer name). Currently, ACSS only supports host names which are less than or equal to 13 characters long. If this value is not provided, vmName will be used as host name.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgs']]] network_interfaces: The list of network interface name objects for the selected virtual machine. Currently, only one network interface is supported per virtual machine.
@@ -8085,21 +7908,18 @@ class VirtualMachineResourceNamesArgs:
         pulumi.set(self, "vm_name", value)
 
 
-if not MYPY:
-    class WeeklyRetentionFormatArgsDict(TypedDict):
-        """
-        Weekly retention format.
-        """
-        days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
-        """
-        List of days of the week.
-        """
-        weeks_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]
-        """
-        List of weeks of month.
-        """
-elif False:
-    WeeklyRetentionFormatArgsDict: TypeAlias = Mapping[str, Any]
+class WeeklyRetentionFormatArgsDict(TypedDict):
+    """
+    Weekly retention format.
+    """
+    days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+    """
+    List of days of the week.
+    """
+    weeks_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]
+    """
+    List of weeks of month.
+    """
 
 @pulumi.input_type
 class WeeklyRetentionFormatArgs:
@@ -8108,6 +7928,7 @@ class WeeklyRetentionFormatArgs:
                  weeks_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]] = None):
         """
         Weekly retention format.
+
         :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_the_week: List of days of the week.
         :param pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]] weeks_of_the_month: List of weeks of month.
         """
@@ -8141,25 +7962,22 @@ class WeeklyRetentionFormatArgs:
         pulumi.set(self, "weeks_of_the_month", value)
 
 
-if not MYPY:
-    class WeeklyRetentionScheduleArgsDict(TypedDict):
-        """
-        Weekly retention schedule.
-        """
-        days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
-        """
-        List of days of week for weekly retention policy.
-        """
-        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
-        """
-        Retention duration of retention Policy.
-        """
-        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Retention times of retention policy.
-        """
-elif False:
-    WeeklyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class WeeklyRetentionScheduleArgsDict(TypedDict):
+    """
+    Weekly retention schedule.
+    """
+    days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+    """
+    List of days of week for weekly retention policy.
+    """
+    retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+    """
+    Retention duration of retention Policy.
+    """
+    retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Retention times of retention policy.
+    """
 
 @pulumi.input_type
 class WeeklyRetentionScheduleArgs:
@@ -8169,6 +7987,7 @@ class WeeklyRetentionScheduleArgs:
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Weekly retention schedule.
+
         :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_the_week: List of days of week for weekly retention policy.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] retention_times: Retention times of retention policy.
@@ -8217,21 +8036,18 @@ class WeeklyRetentionScheduleArgs:
         pulumi.set(self, "retention_times", value)
 
 
-if not MYPY:
-    class WeeklyScheduleArgsDict(TypedDict):
-        """
-        Weekly schedule.
-        """
-        schedule_run_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
-        """
-        Schedule run days.
-        """
-        schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of times of day this schedule has to be run.
-        """
-elif False:
-    WeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class WeeklyScheduleArgsDict(TypedDict):
+    """
+    Weekly schedule.
+    """
+    schedule_run_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+    """
+    Schedule run days.
+    """
+    schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of times of day this schedule has to be run.
+    """
 
 @pulumi.input_type
 class WeeklyScheduleArgs:
@@ -8240,6 +8056,7 @@ class WeeklyScheduleArgs:
                  schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Weekly schedule.
+
         :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] schedule_run_days: Schedule run days.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schedule_run_times: List of times of day this schedule has to be run.
         """
@@ -8273,18 +8090,15 @@ class WeeklyScheduleArgs:
         pulumi.set(self, "schedule_run_times", value)
 
 
-if not MYPY:
-    class WindowsConfigurationArgsDict(TypedDict):
-        """
-        Specifies Windows operating system settings on the virtual machine.
-        """
-        os_type: pulumi.Input[_builtins.str]
-        """
-        The OS Type
-        Expected value is 'Windows'.
-        """
-elif False:
-    WindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WindowsConfigurationArgsDict(TypedDict):
+    """
+    Specifies Windows operating system settings on the virtual machine.
+    """
+    os_type: pulumi.Input[_builtins.str]
+    """
+    The OS Type
+    Expected value is 'Windows'.
+    """
 
 @pulumi.input_type
 class WindowsConfigurationArgs:
@@ -8292,6 +8106,7 @@ class WindowsConfigurationArgs:
                  os_type: pulumi.Input[_builtins.str]):
         """
         Specifies Windows operating system settings on the virtual machine.
+
         :param pulumi.Input[_builtins.str] os_type: The OS Type
                Expected value is 'Windows'.
         """
@@ -8311,37 +8126,34 @@ class WindowsConfigurationArgs:
         pulumi.set(self, "os_type", value)
 
 
-if not MYPY:
-    class YearlyRetentionScheduleArgsDict(TypedDict):
-        """
-        Yearly retention schedule.
-        """
-        months_of_year: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]]
-        """
-        List of months of year of yearly retention policy.
-        """
-        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
-        """
-        Retention duration of retention Policy.
-        """
-        retention_schedule_daily: NotRequired[pulumi.Input['DailyRetentionFormatArgsDict']]
-        """
-        Daily retention format for yearly retention policy.
-        """
-        retention_schedule_format_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionScheduleFormat']]]
-        """
-        Retention schedule format for yearly retention policy.
-        """
-        retention_schedule_weekly: NotRequired[pulumi.Input['WeeklyRetentionFormatArgsDict']]
-        """
-        Weekly retention format for yearly retention policy.
-        """
-        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Retention times of retention policy.
-        """
-elif False:
-    YearlyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class YearlyRetentionScheduleArgsDict(TypedDict):
+    """
+    Yearly retention schedule.
+    """
+    months_of_year: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]]
+    """
+    List of months of year of yearly retention policy.
+    """
+    retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+    """
+    Retention duration of retention Policy.
+    """
+    retention_schedule_daily: NotRequired[pulumi.Input['DailyRetentionFormatArgsDict']]
+    """
+    Daily retention format for yearly retention policy.
+    """
+    retention_schedule_format_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RetentionScheduleFormat']]]
+    """
+    Retention schedule format for yearly retention policy.
+    """
+    retention_schedule_weekly: NotRequired[pulumi.Input['WeeklyRetentionFormatArgsDict']]
+    """
+    Weekly retention format for yearly retention policy.
+    """
+    retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Retention times of retention policy.
+    """
 
 @pulumi.input_type
 class YearlyRetentionScheduleArgs:
@@ -8354,6 +8166,7 @@ class YearlyRetentionScheduleArgs:
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Yearly retention schedule.
+
         :param pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]] months_of_year: List of months of year of yearly retention policy.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention Policy.
         :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for yearly retention policy.

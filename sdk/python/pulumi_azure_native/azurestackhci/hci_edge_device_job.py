@@ -29,6 +29,7 @@ class HciEdgeDeviceJobArgs:
                  jobs_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HciEdgeDeviceJob resource.
+
         :param pulumi.Input[_builtins.str] edge_device_name: The name of the EdgeDevice
         :param pulumi.Input[_builtins.str] kind: Edge device kind.
                Expected value is 'HCI'.
@@ -122,6 +123,7 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] edge_device_name: The name of the EdgeDevice
@@ -141,6 +143,7 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
         Edge device job for Azure Stack HCI solution.
 
         Uses Azure REST API version 2024-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param HciEdgeDeviceJobArgs args: The arguments to use to populate this resource's properties.

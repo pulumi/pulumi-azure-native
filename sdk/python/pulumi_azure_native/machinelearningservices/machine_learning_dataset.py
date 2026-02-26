@@ -32,6 +32,7 @@ class MachineLearningDatasetArgs:
                  time_series: Optional[pulumi.Input['DatasetCreateRequestTimeSeriesArgs']] = None):
         """
         The set of arguments for constructing a MachineLearningDataset resource.
+
         :param pulumi.Input[Union[_builtins.str, 'DatasetType']] dataset_type: Specifies dataset type.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
@@ -160,6 +161,7 @@ class MachineLearningDataset(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset_name: The Dataset name.
@@ -178,6 +180,7 @@ class MachineLearningDataset(pulumi.CustomResource):
         Machine Learning dataset object wrapped into ARM resource envelope.
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MachineLearningDatasetArgs args: The arguments to use to populate this resource's properties.

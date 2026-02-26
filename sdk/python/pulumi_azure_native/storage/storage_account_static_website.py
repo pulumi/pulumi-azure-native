@@ -25,6 +25,7 @@ class StorageAccountStaticWebsiteArgs:
                  index_document: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageAccountStaticWebsite resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
@@ -100,6 +101,7 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
         """
         Enables the static website feature of a storage account.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group.
@@ -115,6 +117,7 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables the static website feature of a storage account.
+
 
         :param str resource_name: The name of the resource.
         :param StorageAccountStaticWebsiteArgs args: The arguments to use to populate this resource's properties.

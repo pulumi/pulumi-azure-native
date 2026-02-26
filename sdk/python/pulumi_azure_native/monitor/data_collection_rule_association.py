@@ -27,6 +27,7 @@ class DataCollectionRuleAssociationArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataCollectionRuleAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The identifier of the resource.
         :param pulumi.Input[_builtins.str] association_name: The name of the association. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The resource ID of the data collection endpoint that is to be associated.
@@ -123,6 +124,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] association_name: The name of the association. The name is case insensitive.
@@ -143,6 +145,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         Uses Azure REST API version 2022-06-01.
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleAssociationArgs args: The arguments to use to populate this resource's properties.

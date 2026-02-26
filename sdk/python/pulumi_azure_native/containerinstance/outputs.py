@@ -88,6 +88,7 @@ class ApiEntityReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The API entity reference.
+
         :param _builtins.str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
         if id is not None:
@@ -111,6 +112,7 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
                  resource: Optional[_builtins.str] = None):
         """
         NGroups application gateway backend address pool
+
         :param _builtins.str resource: The application gateway backend address pool ARM resource Id.
         """
         if resource is not None:
@@ -152,6 +154,7 @@ class ApplicationGatewayResponse(dict):
                  resource: Optional[_builtins.str] = None):
         """
         Application Gateway the CG profile will use to interact with CGs in a backend pool
+
         :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] backend_address_pools: List of Application Gateway Backend Address Pools.
         :param _builtins.str resource: The Application Gateway ARM resource Id.
         """
@@ -215,6 +218,7 @@ class AzureFileVolumeResponse(dict):
                  storage_account_key_reference: Optional[_builtins.str] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
+
         :param _builtins.str share_name: The name of the Azure File share to be mounted as a volume.
         :param _builtins.str storage_account_name: The name of the storage account that contains the Azure File share.
         :param _builtins.bool read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -297,6 +301,7 @@ class ConfidentialComputePropertiesResponse(dict):
                  cce_policy: Optional[_builtins.str] = None):
         """
         The properties for confidential container group
+
         :param _builtins.str cce_policy: The base64 encoded confidential compute enforcement policy
         """
         if cce_policy is not None:
@@ -337,6 +342,7 @@ class ConfigMapResponse(dict):
                  key_value_pairs: Optional[Mapping[str, _builtins.str]] = None):
         """
         The container config map.
+
         :param Mapping[str, _builtins.str] key_value_pairs: The key value pairs dictionary in the config map.
         """
         if key_value_pairs is not None:
@@ -360,6 +366,7 @@ class ContainerExecResponse(dict):
                  command: Optional[Sequence[_builtins.str]] = None):
         """
         The container execution command, for liveness or readiness probe
+
         :param Sequence[_builtins.str] command: The commands to execute within the container.
         """
         if command is not None:
@@ -400,6 +407,7 @@ class ContainerGroupDiagnosticsResponse(dict):
                  log_analytics: Optional['outputs.LogAnalyticsResponse'] = None):
         """
         Container group diagnostic information.
+
         :param 'LogAnalyticsResponse' log_analytics: Container group log analytics information.
         """
         if log_analytics is not None:
@@ -447,6 +455,7 @@ class ContainerGroupIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
         Identity for the container group.
+
         :param _builtins.str principal_id: The principal id of the container group identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the container group. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
@@ -502,6 +511,7 @@ class ContainerGroupProfileReferenceDefinitionResponse(dict):
                  revision: Optional[_builtins.int] = None):
         """
         The container group profile reference.
+
         :param _builtins.str id: The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
         :param _builtins.int revision: The container group profile reference revision.
         """
@@ -561,6 +571,7 @@ class ContainerGroupProfileStubResponse(dict):
                  storage_profile: Optional['outputs.StorageProfileResponse'] = None):
         """
         The object that contains a reference to a Container Group Profile and it's other related properties.
+
         :param 'NGroupContainerGroupPropertiesResponse' container_group_properties:  Container Group properties which can be set while creating or updating the NGroups.
         :param 'NetworkProfileResponse' network_profile: A network profile for network settings of a ContainerGroupProfile.
         :param 'ApiEntityReferenceResponse' resource: A reference to the container group profile ARM resource hosted in ACI RP.
@@ -629,6 +640,7 @@ class ContainerGroupPropertiesResponseInstanceView(dict):
                  state: _builtins.str):
         """
         The instance view of the container group. Only valid in response.
+
         :param Sequence['EventResponse'] events: The events of this container group.
         :param _builtins.str state: The state of the container group. Only valid in response.
         """
@@ -662,6 +674,7 @@ class ContainerGroupSubnetIdResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Container group subnet information.
+
         :param _builtins.str id: Resource ID of virtual network and subnet.
         :param _builtins.str name: Friendly name for the subnet.
         """
@@ -715,6 +728,7 @@ class ContainerHttpGetResponse(dict):
                  scheme: Optional[_builtins.str] = None):
         """
         The container Http Get settings, for liveness or readiness probe
+
         :param _builtins.int port: The port number to probe.
         :param Sequence['HttpHeaderResponse'] http_headers: The HTTP headers.
         :param _builtins.str path: The path to probe.
@@ -771,6 +785,7 @@ class ContainerPortResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         The port exposed on the container instance.
+
         :param _builtins.int port: The port number exposed within the container group.
         :param _builtins.str protocol: The protocol associated with the port.
         """
@@ -839,6 +854,7 @@ class ContainerProbeResponse(dict):
                  timeout_seconds: Optional[_builtins.int] = None):
         """
         The container probe, for liveness or readiness
+
         :param 'ContainerExecResponse' exec_: The execution command to probe
         :param _builtins.int failure_threshold: The failure threshold.
         :param 'ContainerHttpGetResponse' http_get: The Http Get settings to probe
@@ -952,6 +968,7 @@ class ContainerPropertiesResponseInstanceView(dict):
                  restart_count: _builtins.int):
         """
         The instance view of the container instance. Only valid in response.
+
         :param 'ContainerStateResponse' current_state: Current container instance state.
         :param Sequence['EventResponse'] events: The events of the container instance.
         :param 'ContainerStateResponse' previous_state: Previous container instance state.
@@ -1044,6 +1061,7 @@ class ContainerResponse(dict):
                  volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
         """
         A container instance.
+
         :param 'ContainerPropertiesResponseInstanceView' instance_view: The instance view of the container instance. Only valid in response.
         :param _builtins.str name: The user-provided name of the container instance.
         :param Sequence[_builtins.str] command: The commands to execute within the container instance in exec form.
@@ -1213,6 +1231,7 @@ class ContainerStateResponse(dict):
                  state: _builtins.str):
         """
         The container instance state.
+
         :param _builtins.str detail_status: The human-readable status of the container instance state.
         :param _builtins.int exit_code: The container instance exit codes correspond to those from the `docker run` command.
         :param _builtins.str finish_time: The date-time when the container instance state finished.
@@ -1298,6 +1317,7 @@ class DeploymentExtensionSpecResponse(dict):
                  settings: Optional[Any] = None):
         """
         Extension sidecars to be added to the deployment.
+
         :param _builtins.str extension_type: Type of extension to be added.
         :param _builtins.str name: Name of the extension.
         :param _builtins.str version: Version of the extension being used.
@@ -1383,6 +1403,7 @@ class DnsConfigurationResponse(dict):
                  search_domains: Optional[_builtins.str] = None):
         """
         DNS configuration for the container group.
+
         :param Sequence[_builtins.str] name_servers: The DNS servers for the container group.
         :param _builtins.str options: The DNS options for the container group.
         :param _builtins.str search_domains: The DNS search domains for hostname lookup in the container group.
@@ -1450,6 +1471,7 @@ class ElasticProfileResponse(dict):
                  maintain_desired_count: Optional[_builtins.bool] = None):
         """
         Describes the elastic profile of the NGroup
+
         :param 'ElasticProfileResponseContainerGroupNamingPolicy' container_group_naming_policy: Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
         :param _builtins.bool maintain_desired_count: Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
         """
@@ -1570,6 +1592,7 @@ class EncryptionPropertiesResponse(dict):
                  identity: Optional[_builtins.str] = None):
         """
         The container group encryption properties.
+
         :param _builtins.str key_name: The encryption key name.
         :param _builtins.str key_version: The encryption key version.
         :param _builtins.str vault_base_url: The keyvault base url.
@@ -1645,6 +1668,7 @@ class EnvironmentVariableResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The environment variable to set within the container instance.
+
         :param _builtins.str name: The name of the environment variable.
         :param _builtins.str secure_value: The value of the secure environment variable.
         :param _builtins.str secure_value_reference: The reference of the secure environment variable.
@@ -1724,6 +1748,7 @@ class EventResponse(dict):
                  type: _builtins.str):
         """
         A container group or container instance event.
+
         :param _builtins.int count: The count of the event.
         :param _builtins.str first_timestamp: The date-time of the earliest logged event.
         :param _builtins.str last_timestamp: The date-time of the latest logged event.
@@ -1912,6 +1937,7 @@ class GitRepoVolumeResponse(dict):
                  revision: Optional[_builtins.str] = None):
         """
         Represents a volume that is populated with the contents of a git repository
+
         :param _builtins.str repository: Repository URL
         :param _builtins.str directory: Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
         :param _builtins.str revision: Commit hash for the specified revision.
@@ -1957,6 +1983,7 @@ class GpuResourceResponse(dict):
                  sku: _builtins.str):
         """
         The GPU resource.
+
         :param _builtins.int count: The count of the GPU resource.
         :param _builtins.str sku: The SKU of the GPU resource.
         """
@@ -1990,6 +2017,7 @@ class HttpHeaderResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The HTTP header.
+
         :param _builtins.str name: The header name.
         :param _builtins.str value: The header value.
         """
@@ -2048,6 +2076,7 @@ class ImageRegistryCredentialResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Image registry credential.
+
         :param _builtins.str server: The Docker image registry server without a protocol such as "http" and "https".
         :param _builtins.str identity: The identity for the private registry.
         :param _builtins.str identity_url: The identity URL for the private registry.
@@ -2154,6 +2183,7 @@ class InitContainerDefinitionResponse(dict):
                  volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
         """
         The init container definition.
+
         :param 'InitContainerPropertiesDefinitionResponseInstanceView' instance_view: The instance view of the init container. Only valid in response.
         :param _builtins.str name: The name for the init container.
         :param Sequence[_builtins.str] command: The command to execute within the init container in exec form.
@@ -2265,6 +2295,7 @@ class InitContainerPropertiesDefinitionResponseInstanceView(dict):
                  restart_count: _builtins.int):
         """
         The instance view of the init container. Only valid in response.
+
         :param 'ContainerStateResponse' current_state: The current state of the init container.
         :param Sequence['EventResponse'] events: The events of the init container.
         :param 'ContainerStateResponse' previous_state: The previous state of the init container.
@@ -2341,6 +2372,7 @@ class IpAddressResponse(dict):
                  ip: Optional[_builtins.str] = None):
         """
         IP address for the container group.
+
         :param _builtins.str fqdn: The FQDN for the IP.
         :param Sequence['PortResponse'] ports: The list of ports exposed on the container group.
         :param _builtins.str type: Specifies if the IP is exposed to the public internet or private VNET.
@@ -2418,6 +2450,7 @@ class LoadBalancerBackendAddressPoolResponse(dict):
                  resource: Optional[_builtins.str] = None):
         """
         NGroups load balancer backend address pool
+
         :param _builtins.str resource: The Load Balancer backend address pool ARM resource Id.
         """
         if resource is not None:
@@ -2458,6 +2491,7 @@ class LoadBalancerResponse(dict):
                  backend_address_pools: Optional[Sequence['outputs.LoadBalancerBackendAddressPoolResponse']] = None):
         """
         LoadBalancer the CG profile will use to interact with CGs in a backend pool
+
         :param Sequence['LoadBalancerBackendAddressPoolResponse'] backend_address_pools: List of Load Balancer Backend Address Pools.
         """
         if backend_address_pools is not None:
@@ -2508,6 +2542,7 @@ class LogAnalyticsResponse(dict):
                  workspace_resource_id: Optional[_builtins.str] = None):
         """
         Container group log analytics information.
+
         :param _builtins.str workspace_id: The workspace id for log analytics
         :param _builtins.str workspace_key: The workspace key for log analytics
         :param _builtins.str log_type: The log type to be used.
@@ -2574,6 +2609,7 @@ class NGroupCGPropertyContainerResponse(dict):
                  properties: Optional['outputs.NGroupCGPropertyContainerResponseProperties'] = None):
         """
         Container properties that can be provided with NGroups object.
+
         :param _builtins.str name: container name
         :param 'NGroupCGPropertyContainerResponseProperties' properties: container properties
         """
@@ -2662,6 +2698,7 @@ class NGroupCGPropertyVolumeResponse(dict):
                  azure_file: Optional['outputs.AzureFileVolumeResponse'] = None):
         """
         Contains information about the volumes that can be mounted by Containers in the Container Groups.
+
         :param _builtins.str name: The name of the volume.
         :param 'AzureFileVolumeResponse' azure_file: The Azure File volume.
         """
@@ -2714,6 +2751,7 @@ class NGroupContainerGroupPropertiesResponse(dict):
                  volumes: Optional[Sequence['outputs.NGroupCGPropertyVolumeResponse']] = None):
         """
         Container Group properties which can be set while creating or updating the NGroups.
+
         :param Sequence['NGroupCGPropertyContainerResponse'] containers: Contains information about Container which can be set while creating or updating the NGroups.
         :param Sequence['ContainerGroupSubnetIdResponse'] subnet_ids: Contains information about Virtual Network Subnet ARM Resource
         :param Sequence['NGroupCGPropertyVolumeResponse'] volumes: Contains information about the volumes that can be mounted by Containers in the Container Groups.
@@ -2783,6 +2821,7 @@ class NGroupIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
         Identity for the NGroup.
+
         :param _builtins.str principal_id: The principal id of the NGroup identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the NGroup. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
@@ -2857,6 +2896,7 @@ class NetworkProfileResponse(dict):
                  load_balancer: Optional['outputs.LoadBalancerResponse'] = None):
         """
         A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
+
         :param 'ApplicationGatewayResponse' application_gateway: Application Gateway the CG profile will use to interact with CGs in a backend pool
         :param 'LoadBalancerResponse' load_balancer: LoadBalancer the CG profile will use to interact with CGs in a backend pool
         """
@@ -2908,6 +2948,7 @@ class PlacementProfileResponse(dict):
                  fault_domain_count: Optional[_builtins.int] = None):
         """
         Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
+
         :param _builtins.int fault_domain_count: The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
         """
         if fault_domain_count is not None:
@@ -2932,6 +2973,7 @@ class PortResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         The port exposed on the container group.
+
         :param _builtins.int port: The port number.
         :param _builtins.str protocol: The protocol associated with the port.
         """
@@ -2984,6 +3026,7 @@ class ResourceLimitsResponse(dict):
                  memory_in_gb: Optional[_builtins.float] = None):
         """
         The resource limits.
+
         :param _builtins.float cpu: The CPU limit of this container instance.
         :param 'GpuResourceResponse' gpu: The GPU limit of this container instance.
         :param _builtins.float memory_in_gb: The memory limit in GB of this container instance.
@@ -3048,6 +3091,7 @@ class ResourceRequestsResponse(dict):
                  gpu: Optional['outputs.GpuResourceResponse'] = None):
         """
         The resource requests.
+
         :param _builtins.float cpu: The CPU request of this container instance.
         :param _builtins.float memory_in_gb: The memory request in GB of this container instance.
         :param 'GpuResourceResponse' gpu: The GPU request of this container instance.
@@ -3092,6 +3136,7 @@ class ResourceRequirementsResponse(dict):
                  limits: Optional['outputs.ResourceLimitsResponse'] = None):
         """
         The resource requirements.
+
         :param 'ResourceRequestsResponse' requests: The resource requests of this container instance.
         :param 'ResourceLimitsResponse' limits: The resource limits of this container instance.
         """
@@ -3126,6 +3171,7 @@ class SecurityContextCapabilitiesDefinitionResponse(dict):
                  drop: Optional[Sequence[_builtins.str]] = None):
         """
         The capabilities to add or drop from a container.
+
         :param Sequence[_builtins.str] add: The capabilities to add to the container.
         :param Sequence[_builtins.str] drop: The capabilities to drop from the container.
         """
@@ -3188,6 +3234,7 @@ class SecurityContextDefinitionResponse(dict):
                  seccomp_profile: Optional[_builtins.str] = None):
         """
         The security context for the container.
+
         :param _builtins.bool allow_privilege_escalation: A boolean value indicating whether the init process can elevate its privileges
         :param 'SecurityContextCapabilitiesDefinitionResponse' capabilities: The capabilities to add or drop from a container.
         :param _builtins.bool privileged: The flag to determine if the container permissions is elevated to Privileged.
@@ -3284,6 +3331,7 @@ class StandbyPoolProfileDefinitionResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The standby pool profile reference.
+
         :param _builtins.bool fail_container_group_create_on_reuse_failure: The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
         :param _builtins.str id: The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
         """
@@ -3386,6 +3434,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3484,6 +3533,7 @@ class UpdateProfileResponse(dict):
                  update_mode: Optional[_builtins.str] = None):
         """
         Used by the customer to specify the way to update the Container Groups in NGroup.
+
         :param 'UpdateProfileResponseRollingUpdateProfile' rolling_update_profile: This profile allows the customers to customize the rolling update.
         """
         if rolling_update_profile is not None:
@@ -3540,6 +3590,7 @@ class UpdateProfileResponseRollingUpdateProfile(dict):
                  pause_time_between_batches: Optional[_builtins.str] = None):
         """
         This profile allows the customers to customize the rolling update.
+
         :param _builtins.bool in_place_update: Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
         :param _builtins.int max_batch_percent: Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
         :param _builtins.int max_unhealthy_percent: Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
@@ -3616,6 +3667,7 @@ class UserAssignedIdentitiesResponse(dict):
                  principal_id: _builtins.str):
         """
         The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+
         :param _builtins.str client_id: The client id of user assigned identity.
         :param _builtins.str principal_id: The principal id of user assigned identity.
         """
@@ -3669,6 +3721,7 @@ class VolumeMountResponse(dict):
                  read_only: Optional[_builtins.bool] = None):
         """
         The properties of the volume mount.
+
         :param _builtins.str mount_path: The path within the container where the volume should be mounted. Must not contain colon (:).
         :param _builtins.str name: The name of the volume mount.
         :param _builtins.bool read_only: The flag indicating whether the volume mount is read-only.
@@ -3740,6 +3793,7 @@ class VolumeResponse(dict):
                  secret_reference: Optional[Mapping[str, _builtins.str]] = None):
         """
         The properties of the volume.
+
         :param _builtins.str name: The name of the volume.
         :param 'AzureFileVolumeResponse' azure_file: The Azure File volume.
         :param Any empty_dir: The empty directory volume.

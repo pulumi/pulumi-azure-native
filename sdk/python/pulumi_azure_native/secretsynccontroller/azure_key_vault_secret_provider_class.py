@@ -33,6 +33,7 @@ class AzureKeyVaultSecretProviderClassArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureKeyVaultSecretProviderClass resource.
+
         :param pulumi.Input[_builtins.str] client_id: The user assigned managed identity client ID that should be used to access the Azure Key Vault.
         :param pulumi.Input[_builtins.str] keyvault_name: The name of the Azure Key Vault to sync secrets from.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -188,6 +189,7 @@ class AzureKeyVaultSecretProviderClass(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass
@@ -210,6 +212,7 @@ class AzureKeyVaultSecretProviderClass(pulumi.CustomResource):
         The AzureKeyVaultSecretProviderClass resource.
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AzureKeyVaultSecretProviderClassArgs args: The arguments to use to populate this resource's properties.

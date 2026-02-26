@@ -122,32 +122,27 @@ __all__ = [
     'VmssDataDiskArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AddRemoveIncrementalNamedPartitionScalingMechanismArgsDict(TypedDict):
-        """
-        Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enumerates the ways that a service can be partitioned.
-        Expected value is 'AddRemoveIncrementalNamedPartition'.
-        """
-        max_partition_count: pulumi.Input[_builtins.int]
-        """
-        Maximum number of named partitions of the service.
-        """
-        min_partition_count: pulumi.Input[_builtins.int]
-        """
-        Minimum number of named partitions of the service.
-        """
-        scale_increment: pulumi.Input[_builtins.int]
-        """
-        The number of instances to add or remove during a scaling operation.
-        """
-elif False:
-    AddRemoveIncrementalNamedPartitionScalingMechanismArgsDict: TypeAlias = Mapping[str, Any]
+class AddRemoveIncrementalNamedPartitionScalingMechanismArgsDict(TypedDict):
+    """
+    Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enumerates the ways that a service can be partitioned.
+    Expected value is 'AddRemoveIncrementalNamedPartition'.
+    """
+    max_partition_count: pulumi.Input[_builtins.int]
+    """
+    Maximum number of named partitions of the service.
+    """
+    min_partition_count: pulumi.Input[_builtins.int]
+    """
+    Minimum number of named partitions of the service.
+    """
+    scale_increment: pulumi.Input[_builtins.int]
+    """
+    The number of instances to add or remove during a scaling operation.
+    """
 
 @pulumi.input_type
 class AddRemoveIncrementalNamedPartitionScalingMechanismArgs:
@@ -158,6 +153,7 @@ class AddRemoveIncrementalNamedPartitionScalingMechanismArgs:
                  scale_increment: pulumi.Input[_builtins.int]):
         """
         Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.
+
         :param pulumi.Input[_builtins.str] kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'AddRemoveIncrementalNamedPartition'.
         :param pulumi.Input[_builtins.int] max_partition_count: Maximum number of named partitions of the service.
@@ -219,29 +215,26 @@ class AddRemoveIncrementalNamedPartitionScalingMechanismArgs:
         pulumi.set(self, "scale_increment", value)
 
 
-if not MYPY:
-    class AdditionalNetworkInterfaceConfigurationArgsDict(TypedDict):
-        """
-        Specifies the settings for a network interface to attach to the node type.
-        """
-        ip_configurations: pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgsDict']]]
-        """
-        Specifies the IP configurations of the network interface.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the network interface.
-        """
-        dscp_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
-        """
-        Specifies the DSCP configuration to apply to the network interface.
-        """
-        enable_accelerated_networking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the network interface is accelerated networking-enabled.
-        """
-elif False:
-    AdditionalNetworkInterfaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AdditionalNetworkInterfaceConfigurationArgsDict(TypedDict):
+    """
+    Specifies the settings for a network interface to attach to the node type.
+    """
+    ip_configurations: pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgsDict']]]
+    """
+    Specifies the IP configurations of the network interface.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the network interface.
+    """
+    dscp_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    Specifies the DSCP configuration to apply to the network interface.
+    """
+    enable_accelerated_networking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the network interface is accelerated networking-enabled.
+    """
 
 @pulumi.input_type
 class AdditionalNetworkInterfaceConfigurationArgs:
@@ -252,6 +245,7 @@ class AdditionalNetworkInterfaceConfigurationArgs:
                  enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Specifies the settings for a network interface to attach to the node type.
+
         :param pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]] ip_configurations: Specifies the IP configurations of the network interface.
         :param pulumi.Input[_builtins.str] name: Name of the network interface.
         :param pulumi.Input['SubResourceArgs'] dscp_configuration: Specifies the DSCP configuration to apply to the network interface.
@@ -313,32 +307,29 @@ class AdditionalNetworkInterfaceConfigurationArgs:
         pulumi.set(self, "enable_accelerated_networking", value)
 
 
-if not MYPY:
-    class ApplicationHealthPolicyArgsDict(TypedDict):
-        """
-        Defines a health policy used to evaluate the health of an application or one of its children entities.
-        """
-        consider_warning_as_error: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether warnings are treated with the same severity as errors.
-        """
-        max_percent_unhealthy_deployed_applications: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-        The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-        This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-        The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-        """
-        default_service_type_health_policy: NotRequired[pulumi.Input['ServiceTypeHealthPolicyArgsDict']]
-        """
-        The health policy used by default to evaluate the health of a service type.
-        """
-        service_type_health_policy_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgsDict']]]]
-        """
-        The map with service type health policy per service type name. The map is empty by default.
-        """
-elif False:
-    ApplicationHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationHealthPolicyArgsDict(TypedDict):
+    """
+    Defines a health policy used to evaluate the health of an application or one of its children entities.
+    """
+    consider_warning_as_error: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether warnings are treated with the same severity as errors.
+    """
+    max_percent_unhealthy_deployed_applications: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+    The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+    This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+    The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+    """
+    default_service_type_health_policy: NotRequired[pulumi.Input['ServiceTypeHealthPolicyArgsDict']]
+    """
+    The health policy used by default to evaluate the health of a service type.
+    """
+    service_type_health_policy_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgsDict']]]]
+    """
+    The map with service type health policy per service type name. The map is empty by default.
+    """
 
 @pulumi.input_type
 class ApplicationHealthPolicyArgs:
@@ -349,6 +340,7 @@ class ApplicationHealthPolicyArgs:
                  service_type_health_policy_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]] = None):
         """
         Defines a health policy used to evaluate the health of an application or one of its children entities.
+
 
         :param pulumi.Input[_builtins.bool] consider_warning_as_error: Indicates whether warnings are treated with the same severity as errors.
         :param pulumi.Input[_builtins.int] max_percent_unhealthy_deployed_applications: The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
@@ -417,17 +409,14 @@ class ApplicationHealthPolicyArgs:
         pulumi.set(self, "service_type_health_policy_map", value)
 
 
-if not MYPY:
-    class ApplicationTypeVersionsCleanupPolicyArgsDict(TypedDict):
-        """
-        The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
-        """
-        max_unused_versions_to_keep: pulumi.Input[_builtins.int]
-        """
-        Number of unused versions per application type to keep.
-        """
-elif False:
-    ApplicationTypeVersionsCleanupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationTypeVersionsCleanupPolicyArgsDict(TypedDict):
+    """
+    The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
+    """
+    max_unused_versions_to_keep: pulumi.Input[_builtins.int]
+    """
+    Number of unused versions per application type to keep.
+    """
 
 @pulumi.input_type
 class ApplicationTypeVersionsCleanupPolicyArgs:
@@ -435,6 +424,7 @@ class ApplicationTypeVersionsCleanupPolicyArgs:
                  max_unused_versions_to_keep: pulumi.Input[_builtins.int]):
         """
         The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
+
         :param pulumi.Input[_builtins.int] max_unused_versions_to_keep: Number of unused versions per application type to keep.
         """
         pulumi.set(__self__, "max_unused_versions_to_keep", max_unused_versions_to_keep)
@@ -452,41 +442,38 @@ class ApplicationTypeVersionsCleanupPolicyArgs:
         pulumi.set(self, "max_unused_versions_to_keep", value)
 
 
-if not MYPY:
-    class ApplicationUpgradePolicyArgsDict(TypedDict):
-        """
-        Describes the policy for a monitored application upgrade.
-        """
-        application_health_policy: NotRequired[pulumi.Input['ApplicationHealthPolicyArgsDict']]
-        """
-        Defines a health policy used to evaluate the health of an application or one of its children entities.
-        """
-        force_restart: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-        """
-        instance_close_delay_duration: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
-        """
-        recreate_application: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
-        """
-        rolling_upgrade_monitoring_policy: NotRequired[pulumi.Input['RollingUpgradeMonitoringPolicyArgsDict']]
-        """
-        The policy used for monitoring the application upgrade
-        """
-        upgrade_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RollingUpgradeMode']]]
-        """
-        The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
-        """
-        upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-        """
-elif False:
-    ApplicationUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationUpgradePolicyArgsDict(TypedDict):
+    """
+    Describes the policy for a monitored application upgrade.
+    """
+    application_health_policy: NotRequired[pulumi.Input['ApplicationHealthPolicyArgsDict']]
+    """
+    Defines a health policy used to evaluate the health of an application or one of its children entities.
+    """
+    force_restart: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+    """
+    instance_close_delay_duration: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+    """
+    recreate_application: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
+    """
+    rolling_upgrade_monitoring_policy: NotRequired[pulumi.Input['RollingUpgradeMonitoringPolicyArgsDict']]
+    """
+    The policy used for monitoring the application upgrade
+    """
+    upgrade_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RollingUpgradeMode']]]
+    """
+    The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
+    """
+    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
+    """
 
 @pulumi.input_type
 class ApplicationUpgradePolicyArgs:
@@ -500,6 +487,7 @@ class ApplicationUpgradePolicyArgs:
                  upgrade_replica_set_check_timeout: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Describes the policy for a monitored application upgrade.
+
         :param pulumi.Input['ApplicationHealthPolicyArgs'] application_health_policy: Defines a health policy used to evaluate the health of an application or one of its children entities.
         :param pulumi.Input[_builtins.bool] force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         :param pulumi.Input[_builtins.float] instance_close_delay_duration: Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
@@ -608,18 +596,15 @@ class ApplicationUpgradePolicyArgs:
         pulumi.set(self, "upgrade_replica_set_check_timeout", value)
 
 
-if not MYPY:
-    class ApplicationUserAssignedIdentityArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The friendly name of user assigned identity.
-        """
-        principal_id: pulumi.Input[_builtins.str]
-        """
-        The principal id of user assigned identity.
-        """
-elif False:
-    ApplicationUserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationUserAssignedIdentityArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The friendly name of user assigned identity.
+    """
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    The principal id of user assigned identity.
+    """
 
 @pulumi.input_type
 class ApplicationUserAssignedIdentityArgs:
@@ -658,34 +643,31 @@ class ApplicationUserAssignedIdentityArgs:
         pulumi.set(self, "principal_id", value)
 
 
-if not MYPY:
-    class AveragePartitionLoadScalingTriggerArgsDict(TypedDict):
-        """
-        Represents a scaling trigger related to an average load of a metric/resource of a partition.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enumerates the ways that a service can be partitioned.
-        Expected value is 'AveragePartitionLoadTrigger'.
-        """
-        lower_load_threshold: pulumi.Input[_builtins.float]
-        """
-        The lower limit of the load below which a scale in operation should be performed.
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The name of the metric for which usage should be tracked.
-        """
-        scale_interval: pulumi.Input[_builtins.str]
-        """
-        The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
-        """
-        upper_load_threshold: pulumi.Input[_builtins.float]
-        """
-        The upper limit of the load beyond which a scale out operation should be performed.
-        """
-elif False:
-    AveragePartitionLoadScalingTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class AveragePartitionLoadScalingTriggerArgsDict(TypedDict):
+    """
+    Represents a scaling trigger related to an average load of a metric/resource of a partition.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enumerates the ways that a service can be partitioned.
+    Expected value is 'AveragePartitionLoadTrigger'.
+    """
+    lower_load_threshold: pulumi.Input[_builtins.float]
+    """
+    The lower limit of the load below which a scale in operation should be performed.
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The name of the metric for which usage should be tracked.
+    """
+    scale_interval: pulumi.Input[_builtins.str]
+    """
+    The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
+    """
+    upper_load_threshold: pulumi.Input[_builtins.float]
+    """
+    The upper limit of the load beyond which a scale out operation should be performed.
+    """
 
 @pulumi.input_type
 class AveragePartitionLoadScalingTriggerArgs:
@@ -697,6 +679,7 @@ class AveragePartitionLoadScalingTriggerArgs:
                  upper_load_threshold: pulumi.Input[_builtins.float]):
         """
         Represents a scaling trigger related to an average load of a metric/resource of a partition.
+
         :param pulumi.Input[_builtins.str] kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'AveragePartitionLoadTrigger'.
         :param pulumi.Input[_builtins.float] lower_load_threshold: The lower limit of the load below which a scale in operation should be performed.
@@ -772,38 +755,35 @@ class AveragePartitionLoadScalingTriggerArgs:
         pulumi.set(self, "upper_load_threshold", value)
 
 
-if not MYPY:
-    class AverageServiceLoadScalingTriggerArgsDict(TypedDict):
-        """
-        Represents a scaling policy related to an average load of a metric/resource of a service.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enumerates the ways that a service can be partitioned.
-        Expected value is 'AverageServiceLoadTrigger'.
-        """
-        lower_load_threshold: pulumi.Input[_builtins.float]
-        """
-        The lower limit of the load below which a scale in operation should be performed.
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The name of the metric for which usage should be tracked.
-        """
-        scale_interval: pulumi.Input[_builtins.str]
-        """
-        The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
-        """
-        upper_load_threshold: pulumi.Input[_builtins.float]
-        """
-        The upper limit of the load beyond which a scale out operation should be performed.
-        """
-        use_only_primary_load: pulumi.Input[_builtins.bool]
-        """
-        Flag determines whether only the load of primary replica should be considered for scaling. If set to true, then trigger will only consider the load of primary replicas of stateful service. If set to false, trigger will consider load of all replicas. This parameter cannot be set to true for stateless service.
-        """
-elif False:
-    AverageServiceLoadScalingTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class AverageServiceLoadScalingTriggerArgsDict(TypedDict):
+    """
+    Represents a scaling policy related to an average load of a metric/resource of a service.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enumerates the ways that a service can be partitioned.
+    Expected value is 'AverageServiceLoadTrigger'.
+    """
+    lower_load_threshold: pulumi.Input[_builtins.float]
+    """
+    The lower limit of the load below which a scale in operation should be performed.
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The name of the metric for which usage should be tracked.
+    """
+    scale_interval: pulumi.Input[_builtins.str]
+    """
+    The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format "hh:mm:ss".
+    """
+    upper_load_threshold: pulumi.Input[_builtins.float]
+    """
+    The upper limit of the load beyond which a scale out operation should be performed.
+    """
+    use_only_primary_load: pulumi.Input[_builtins.bool]
+    """
+    Flag determines whether only the load of primary replica should be considered for scaling. If set to true, then trigger will only consider the load of primary replicas of stateful service. If set to false, trigger will consider load of all replicas. This parameter cannot be set to true for stateless service.
+    """
 
 @pulumi.input_type
 class AverageServiceLoadScalingTriggerArgs:
@@ -816,6 +796,7 @@ class AverageServiceLoadScalingTriggerArgs:
                  use_only_primary_load: pulumi.Input[_builtins.bool]):
         """
         Represents a scaling policy related to an average load of a metric/resource of a service.
+
         :param pulumi.Input[_builtins.str] kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'AverageServiceLoadTrigger'.
         :param pulumi.Input[_builtins.float] lower_load_threshold: The lower limit of the load below which a scale in operation should be performed.
@@ -905,25 +886,22 @@ class AverageServiceLoadScalingTriggerArgs:
         pulumi.set(self, "use_only_primary_load", value)
 
 
-if not MYPY:
-    class AzureActiveDirectoryArgsDict(TypedDict):
-        """
-        The settings to enable AAD authentication on the cluster.
-        """
-        client_application: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure active directory client application id.
-        """
-        cluster_application: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure active directory cluster application id.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure active directory tenant id.
-        """
-elif False:
-    AzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+class AzureActiveDirectoryArgsDict(TypedDict):
+    """
+    The settings to enable AAD authentication on the cluster.
+    """
+    client_application: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure active directory client application id.
+    """
+    cluster_application: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure active directory cluster application id.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure active directory tenant id.
+    """
 
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
@@ -933,6 +911,7 @@ class AzureActiveDirectoryArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings to enable AAD authentication on the cluster.
+
         :param pulumi.Input[_builtins.str] client_application: Azure active directory client application id.
         :param pulumi.Input[_builtins.str] cluster_application: Azure active directory cluster application id.
         :param pulumi.Input[_builtins.str] tenant_id: Azure active directory tenant id.
@@ -981,29 +960,26 @@ class AzureActiveDirectoryArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ClientCertificateArgsDict(TypedDict):
-        """
-        Client certificate definition.
-        """
-        is_admin: pulumi.Input[_builtins.bool]
-        """
-        Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-        """
-        common_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate common name.
-        """
-        issuer_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Issuer thumbprint for the certificate. Only used together with CommonName.
-        """
-        thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate thumbprint.
-        """
-elif False:
-    ClientCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class ClientCertificateArgsDict(TypedDict):
+    """
+    Client certificate definition.
+    """
+    is_admin: pulumi.Input[_builtins.bool]
+    """
+    Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
+    """
+    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Certificate common name.
+    """
+    issuer_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Issuer thumbprint for the certificate. Only used together with CommonName.
+    """
+    thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Certificate thumbprint.
+    """
 
 @pulumi.input_type
 class ClientCertificateArgs:
@@ -1014,6 +990,7 @@ class ClientCertificateArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Client certificate definition.
+
         :param pulumi.Input[_builtins.bool] is_admin: Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
         :param pulumi.Input[_builtins.str] common_name: Certificate common name.
         :param pulumi.Input[_builtins.str] issuer_thumbprint: Issuer thumbprint for the certificate. Only used together with CommonName.
@@ -1076,33 +1053,30 @@ class ClientCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class ClusterHealthPolicyArgsDict(TypedDict):
-        """
-        Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-        """
-        max_percent_unhealthy_applications: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+class ClusterHealthPolicyArgsDict(TypedDict):
+    """
+    Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+    """
+    max_percent_unhealthy_applications: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 
-        The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-        If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-        This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-        The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-        """
-        max_percent_unhealthy_nodes: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+    The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+    If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+    This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+    The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
+    """
+    max_percent_unhealthy_nodes: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
 
-        The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-        If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-        The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-        The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+    The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+    If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+    The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+    The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
 
-        In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-        """
-elif False:
-    ClusterHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
+    """
 
 @pulumi.input_type
 class ClusterHealthPolicyArgs:
@@ -1111,6 +1085,7 @@ class ClusterHealthPolicyArgs:
                  max_percent_unhealthy_nodes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+
 
         :param pulumi.Input[_builtins.int] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
                
@@ -1171,33 +1146,30 @@ class ClusterHealthPolicyArgs:
         pulumi.set(self, "max_percent_unhealthy_nodes", value)
 
 
-if not MYPY:
-    class ClusterMonitoringPolicyArgsDict(TypedDict):
-        """
-        Describes the monitoring policies for the cluster upgrade.
-        """
-        health_check_retry_timeout: pulumi.Input[_builtins.str]
-        """
-        The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        health_check_stable_duration: pulumi.Input[_builtins.str]
-        """
-        The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        health_check_wait_duration: pulumi.Input[_builtins.str]
-        """
-        The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        upgrade_domain_timeout: pulumi.Input[_builtins.str]
-        """
-        The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        upgrade_timeout: pulumi.Input[_builtins.str]
-        """
-        The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-elif False:
-    ClusterMonitoringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterMonitoringPolicyArgsDict(TypedDict):
+    """
+    Describes the monitoring policies for the cluster upgrade.
+    """
+    health_check_retry_timeout: pulumi.Input[_builtins.str]
+    """
+    The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+    """
+    health_check_stable_duration: pulumi.Input[_builtins.str]
+    """
+    The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+    """
+    health_check_wait_duration: pulumi.Input[_builtins.str]
+    """
+    The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+    """
+    upgrade_domain_timeout: pulumi.Input[_builtins.str]
+    """
+    The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+    """
+    upgrade_timeout: pulumi.Input[_builtins.str]
+    """
+    The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+    """
 
 @pulumi.input_type
 class ClusterMonitoringPolicyArgs:
@@ -1209,6 +1181,7 @@ class ClusterMonitoringPolicyArgs:
                  upgrade_timeout: pulumi.Input[_builtins.str]):
         """
         Describes the monitoring policies for the cluster upgrade.
+
         :param pulumi.Input[_builtins.str] health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param pulumi.Input[_builtins.str] health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param pulumi.Input[_builtins.str] health_check_wait_duration: The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
@@ -1282,32 +1255,29 @@ class ClusterMonitoringPolicyArgs:
         pulumi.set(self, "upgrade_timeout", value)
 
 
-if not MYPY:
-    class ClusterUpgradeDeltaHealthPolicyArgsDict(TypedDict):
-        """
-        Describes the delta health policies for the cluster upgrade.
-        """
-        max_percent_delta_unhealthy_nodes: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-        The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        """
-        max_percent_delta_unhealthy_applications: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-        The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-        NOTE: This value will overwrite the value specified in properties.UpgradeDescription.HealthPolicy.MaxPercentUnhealthyApplications
-        """
-        max_percent_upgrade_domain_delta_unhealthy_nodes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-        The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-        The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-        """
-elif False:
-    ClusterUpgradeDeltaHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterUpgradeDeltaHealthPolicyArgsDict(TypedDict):
+    """
+    Describes the delta health policies for the cluster upgrade.
+    """
+    max_percent_delta_unhealthy_nodes: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+    The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+    The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+    """
+    max_percent_delta_unhealthy_applications: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+    The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+    The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
+    NOTE: This value will overwrite the value specified in properties.UpgradeDescription.HealthPolicy.MaxPercentUnhealthyApplications
+    """
+    max_percent_upgrade_domain_delta_unhealthy_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+    The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+    The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
+    """
 
 @pulumi.input_type
 class ClusterUpgradeDeltaHealthPolicyArgs:
@@ -1317,6 +1287,7 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
                  max_percent_upgrade_domain_delta_unhealthy_nodes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Describes the delta health policies for the cluster upgrade.
+
         :param pulumi.Input[_builtins.int] max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
@@ -1378,36 +1349,33 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
         pulumi.set(self, "max_percent_upgrade_domain_delta_unhealthy_nodes", value)
 
 
-if not MYPY:
-    class ClusterUpgradePolicyArgsDict(TypedDict):
-        """
-        Describes the policy used when upgrading the cluster.
-        """
-        delta_health_policy: NotRequired[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgsDict']]
-        """
-        The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
-        """
-        force_restart: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-        """
-        health_policy: NotRequired[pulumi.Input['ClusterHealthPolicyArgsDict']]
-        """
-        The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
-        """
-        monitoring_policy: NotRequired[pulumi.Input['ClusterMonitoringPolicyArgsDict']]
-        """
-        The cluster monitoring policy describes the parameters for monitoring an upgrade in Monitored mode.
-        """
-        upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues.
-        When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues.
-        The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        This value must be between 00:00:00 and 49710.06:28:15 (unsigned 32 bit integer for seconds)
-        """
-elif False:
-    ClusterUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterUpgradePolicyArgsDict(TypedDict):
+    """
+    Describes the policy used when upgrading the cluster.
+    """
+    delta_health_policy: NotRequired[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgsDict']]
+    """
+    The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+    """
+    force_restart: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+    """
+    health_policy: NotRequired[pulumi.Input['ClusterHealthPolicyArgsDict']]
+    """
+    The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+    """
+    monitoring_policy: NotRequired[pulumi.Input['ClusterMonitoringPolicyArgsDict']]
+    """
+    The cluster monitoring policy describes the parameters for monitoring an upgrade in Monitored mode.
+    """
+    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues.
+    When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues.
+    The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+    This value must be between 00:00:00 and 49710.06:28:15 (unsigned 32 bit integer for seconds)
+    """
 
 @pulumi.input_type
 class ClusterUpgradePolicyArgs:
@@ -1419,6 +1387,7 @@ class ClusterUpgradePolicyArgs:
                  upgrade_replica_set_check_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the policy used when upgrading the cluster.
+
         :param pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs'] delta_health_policy: The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
         :param pulumi.Input[_builtins.bool] force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         :param pulumi.Input['ClusterHealthPolicyArgs'] health_policy: The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
@@ -1503,21 +1472,18 @@ class ClusterUpgradePolicyArgs:
         pulumi.set(self, "upgrade_replica_set_check_timeout", value)
 
 
-if not MYPY:
-    class EndpointRangeDescriptionArgsDict(TypedDict):
-        """
-        Port range details
-        """
-        end_port: pulumi.Input[_builtins.int]
-        """
-        End port of a range of ports
-        """
-        start_port: pulumi.Input[_builtins.int]
-        """
-        Starting port of a range of ports
-        """
-elif False:
-    EndpointRangeDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointRangeDescriptionArgsDict(TypedDict):
+    """
+    Port range details
+    """
+    end_port: pulumi.Input[_builtins.int]
+    """
+    End port of a range of ports
+    """
+    start_port: pulumi.Input[_builtins.int]
+    """
+    Starting port of a range of ports
+    """
 
 @pulumi.input_type
 class EndpointRangeDescriptionArgs:
@@ -1526,6 +1492,7 @@ class EndpointRangeDescriptionArgs:
                  start_port: pulumi.Input[_builtins.int]):
         """
         Port range details
+
         :param pulumi.Input[_builtins.int] end_port: End port of a range of ports
         :param pulumi.Input[_builtins.int] start_port: Starting port of a range of ports
         """
@@ -1557,29 +1524,26 @@ class EndpointRangeDescriptionArgs:
         pulumi.set(self, "start_port", value)
 
 
-if not MYPY:
-    class FrontendConfigurationArgsDict(TypedDict):
-        """
-        Describes the frontend configurations for the node type.
-        """
-        application_gateway_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
-        """
-        ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
-        """
-        The IP address type of this frontend configuration. If omitted the default value is IPv4.
-        """
-        load_balancer_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
-        """
-        load_balancer_inbound_nat_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
-        """
-elif False:
-    FrontendConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FrontendConfigurationArgsDict(TypedDict):
+    """
+    Describes the frontend configurations for the node type.
+    """
+    application_gateway_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
+    """
+    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    """
+    The IP address type of this frontend configuration. If omitted the default value is IPv4.
+    """
+    load_balancer_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+    """
+    load_balancer_inbound_nat_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+    """
 
 @pulumi.input_type
 class FrontendConfigurationArgs:
@@ -1590,6 +1554,7 @@ class FrontendConfigurationArgs:
                  load_balancer_inbound_nat_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the frontend configurations for the node type.
+
         :param pulumi.Input[_builtins.str] application_gateway_backend_address_pool_id: The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
         :param pulumi.Input[Union[_builtins.str, 'IPAddressType']] ip_address_type: The IP address type of this frontend configuration. If omitted the default value is IPv4.
         :param pulumi.Input[_builtins.str] load_balancer_backend_address_pool_id: The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
@@ -1653,25 +1618,22 @@ class FrontendConfigurationArgs:
         pulumi.set(self, "load_balancer_inbound_nat_pool_id", value)
 
 
-if not MYPY:
-    class IpConfigurationPublicIPAddressConfigurationArgsDict(TypedDict):
-        """
-        The public IP address configuration of the network interface.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the network interface.
-        """
-        ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpTagArgsDict']]]]
-        """
-        Specifies the list of IP tags associated with the public IP address.
-        """
-        public_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']]]
-        """
-        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-elif False:
-    IpConfigurationPublicIPAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IpConfigurationPublicIPAddressConfigurationArgsDict(TypedDict):
+    """
+    The public IP address configuration of the network interface.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the network interface.
+    """
+    ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpTagArgsDict']]]]
+    """
+    Specifies the list of IP tags associated with the public IP address.
+    """
+    public_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']]]
+    """
+    Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+    """
 
 @pulumi.input_type
 class IpConfigurationPublicIPAddressConfigurationArgs:
@@ -1681,6 +1643,7 @@ class IpConfigurationPublicIPAddressConfigurationArgs:
                  public_ip_address_version: Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']]] = None):
         """
         The public IP address configuration of the network interface.
+
         :param pulumi.Input[_builtins.str] name: Name of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: Specifies the list of IP tags associated with the public IP address.
         :param pulumi.Input[Union[_builtins.str, 'PublicIPAddressVersion']] public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
@@ -1730,41 +1693,38 @@ class IpConfigurationPublicIPAddressConfigurationArgs:
         pulumi.set(self, "public_ip_address_version", value)
 
 
-if not MYPY:
-    class IpConfigurationArgsDict(TypedDict):
-        """
-        Specifies an IP configuration of the network interface.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the network interface.
-        """
-        application_gateway_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-        """
-        Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
-        """
-        load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-        """
-        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
-        """
-        load_balancer_inbound_nat_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-        """
-        Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
-        """
-        private_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateIPAddressVersion']]]
-        """
-        Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
-        """
-        public_ip_address_configuration: NotRequired[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgsDict']]
-        """
-        The public IP address configuration of the network interface.
-        """
-        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
-        """
-        Specifies the subnet of the network interface.
-        """
-elif False:
-    IpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IpConfigurationArgsDict(TypedDict):
+    """
+    Specifies an IP configuration of the network interface.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the network interface.
+    """
+    application_gateway_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
+    """
+    load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+    """
+    load_balancer_inbound_nat_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
+    """
+    private_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateIPAddressVersion']]]
+    """
+    Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
+    """
+    public_ip_address_configuration: NotRequired[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgsDict']]
+    """
+    The public IP address configuration of the network interface.
+    """
+    subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    Specifies the subnet of the network interface.
+    """
 
 @pulumi.input_type
 class IpConfigurationArgs:
@@ -1778,6 +1738,7 @@ class IpConfigurationArgs:
                  subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         Specifies an IP configuration of the network interface.
+
         :param pulumi.Input[_builtins.str] name: Name of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
@@ -1887,21 +1848,18 @@ class IpConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class IpTagArgsDict(TypedDict):
-        """
-        The IP tag associated with the public IP address.
-        """
-        ip_tag_type: pulumi.Input[_builtins.str]
-        """
-        IP tag type. Example: FirstPartyUsage.
-        """
-        tag: pulumi.Input[_builtins.str]
-        """
-        IP tag associated with the public IP. Example: SQL, Storage etc.
-        """
-elif False:
-    IpTagArgsDict: TypeAlias = Mapping[str, Any]
+class IpTagArgsDict(TypedDict):
+    """
+    The IP tag associated with the public IP address.
+    """
+    ip_tag_type: pulumi.Input[_builtins.str]
+    """
+    IP tag type. Example: FirstPartyUsage.
+    """
+    tag: pulumi.Input[_builtins.str]
+    """
+    IP tag associated with the public IP. Example: SQL, Storage etc.
+    """
 
 @pulumi.input_type
 class IpTagArgs:
@@ -1910,6 +1868,7 @@ class IpTagArgs:
                  tag: pulumi.Input[_builtins.str]):
         """
         The IP tag associated with the public IP address.
+
         :param pulumi.Input[_builtins.str] ip_tag_type: IP tag type. Example: FirstPartyUsage.
         :param pulumi.Input[_builtins.str] tag: IP tag associated with the public IP. Example: SQL, Storage etc.
         """
@@ -1941,41 +1900,38 @@ class IpTagArgs:
         pulumi.set(self, "tag", value)
 
 
-if not MYPY:
-    class LoadBalancingRuleArgsDict(TypedDict):
-        """
-        Describes a load balancing rule.
-        """
-        backend_port: pulumi.Input[_builtins.int]
-        """
-        The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-        """
-        frontend_port: pulumi.Input[_builtins.int]
-        """
-        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-        """
-        probe_protocol: pulumi.Input[Union[_builtins.str, 'ProbeProtocol']]
-        """
-        the reference to the load balancer probe used by the load balancing rule.
-        """
-        protocol: pulumi.Input[Union[_builtins.str, 'Protocol']]
-        """
-        The reference to the transport protocol used by the load balancing rule.
-        """
-        load_distribution: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The load distribution policy for this rule.
-        """
-        probe_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
-        """
-        probe_request_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The probe request path. Only supported for HTTP/HTTPS probes.
-        """
-elif False:
-    LoadBalancingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class LoadBalancingRuleArgsDict(TypedDict):
+    """
+    Describes a load balancing rule.
+    """
+    backend_port: pulumi.Input[_builtins.int]
+    """
+    The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+    """
+    frontend_port: pulumi.Input[_builtins.int]
+    """
+    The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+    """
+    probe_protocol: pulumi.Input[Union[_builtins.str, 'ProbeProtocol']]
+    """
+    the reference to the load balancer probe used by the load balancing rule.
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'Protocol']]
+    """
+    The reference to the transport protocol used by the load balancing rule.
+    """
+    load_distribution: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The load distribution policy for this rule.
+    """
+    probe_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+    """
+    probe_request_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The probe request path. Only supported for HTTP/HTTPS probes.
+    """
 
 @pulumi.input_type
 class LoadBalancingRuleArgs:
@@ -1989,6 +1945,7 @@ class LoadBalancingRuleArgs:
                  probe_request_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes a load balancing rule.
+
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
         :param pulumi.Input[Union[_builtins.str, 'ProbeProtocol']] probe_protocol: the reference to the load balancer probe used by the load balancing rule.
@@ -2093,22 +2050,19 @@ class LoadBalancingRuleArgs:
         pulumi.set(self, "probe_request_path", value)
 
 
-if not MYPY:
-    class ManagedIdentityArgsDict(TypedDict):
-        """
-        Describes the managed identities for an Azure resource.
-        """
-        type: NotRequired[pulumi.Input['ManagedIdentityType']]
-        """
-        The type of managed identity for the resource.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityArgsDict(TypedDict):
+    """
+    Describes the managed identities for an Azure resource.
+    """
+    type: NotRequired[pulumi.Input['ManagedIdentityType']]
+    """
+    The type of managed identity for the resource.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+    '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class ManagedIdentityArgs:
@@ -2117,6 +2071,7 @@ class ManagedIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Describes the managed identities for an Azure resource.
+
         :param pulumi.Input['ManagedIdentityType'] type: The type of managed identity for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -2152,22 +2107,19 @@ class ManagedIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class NamedPartitionSchemeArgsDict(TypedDict):
-        """
-        Describes the named partition scheme of the service.
-        """
-        names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array for the names of the partitions.
-        """
-        partition_scheme: pulumi.Input[_builtins.str]
-        """
-        Enumerates the ways that a service can be partitioned.
-        Expected value is 'Named'.
-        """
-elif False:
-    NamedPartitionSchemeArgsDict: TypeAlias = Mapping[str, Any]
+class NamedPartitionSchemeArgsDict(TypedDict):
+    """
+    Describes the named partition scheme of the service.
+    """
+    names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array for the names of the partitions.
+    """
+    partition_scheme: pulumi.Input[_builtins.str]
+    """
+    Enumerates the ways that a service can be partitioned.
+    Expected value is 'Named'.
+    """
 
 @pulumi.input_type
 class NamedPartitionSchemeArgs:
@@ -2176,6 +2128,7 @@ class NamedPartitionSchemeArgs:
                  partition_scheme: pulumi.Input[_builtins.str]):
         """
         Describes the named partition scheme of the service.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] names: Array for the names of the partitions.
         :param pulumi.Input[_builtins.str] partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Named'.
@@ -2209,69 +2162,66 @@ class NamedPartitionSchemeArgs:
         pulumi.set(self, "partition_scheme", value)
 
 
-if not MYPY:
-    class NetworkSecurityRuleArgsDict(TypedDict):
-        """
-        Describes a network security rule.
-        """
-        access: pulumi.Input[Union[_builtins.str, 'Access']]
-        """
-        The network traffic is allowed or denied.
-        """
-        direction: pulumi.Input[Union[_builtins.str, 'Direction']]
-        """
-        Network security rule direction.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Network security rule name.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        """
-        protocol: pulumi.Input[Union[_builtins.str, 'NsgProtocol']]
-        """
-        Network protocol this rule applies to.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Network security rule description.
-        """
-        destination_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-        """
-        destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The destination address prefixes. CIDR or destination IP ranges.
-        """
-        destination_port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-        """
-        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The destination port ranges.
-        """
-        source_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-        """
-        source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The CIDR or source IP ranges.
-        """
-        source_port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-        """
-        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The source port ranges.
-        """
-elif False:
-    NetworkSecurityRuleArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkSecurityRuleArgsDict(TypedDict):
+    """
+    Describes a network security rule.
+    """
+    access: pulumi.Input[Union[_builtins.str, 'Access']]
+    """
+    The network traffic is allowed or denied.
+    """
+    direction: pulumi.Input[Union[_builtins.str, 'Direction']]
+    """
+    Network security rule direction.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Network security rule name.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'NsgProtocol']]
+    """
+    Network protocol this rule applies to.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Network security rule description.
+    """
+    destination_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+    """
+    destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination address prefixes. CIDR or destination IP ranges.
+    """
+    destination_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
+    destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination port ranges.
+    """
+    source_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+    """
+    source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The CIDR or source IP ranges.
+    """
+    source_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
+    source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The source port ranges.
+    """
 
 @pulumi.input_type
 class NetworkSecurityRuleArgs:
@@ -2292,6 +2242,7 @@ class NetworkSecurityRuleArgs:
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Describes a network security rule.
+
         :param pulumi.Input[Union[_builtins.str, 'Access']] access: The network traffic is allowed or denied.
         :param pulumi.Input[Union[_builtins.str, 'Direction']] direction: Network security rule direction.
         :param pulumi.Input[_builtins.str] name: Network security rule name.
@@ -2500,25 +2451,22 @@ class NetworkSecurityRuleArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
-if not MYPY:
-    class NodeTypeNatConfigArgsDict(TypedDict):
-        """
-        Provides information about NAT configuration on the default public Load Balancer for the node type.
-        """
-        backend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The internal port for the NAT configuration.
-        """
-        frontend_port_range_end: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port range end for the external endpoint.
-        """
-        frontend_port_range_start: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port range start for the external endpoint.
-        """
-elif False:
-    NodeTypeNatConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NodeTypeNatConfigArgsDict(TypedDict):
+    """
+    Provides information about NAT configuration on the default public Load Balancer for the node type.
+    """
+    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The internal port for the NAT configuration.
+    """
+    frontend_port_range_end: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port range end for the external endpoint.
+    """
+    frontend_port_range_start: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port range start for the external endpoint.
+    """
 
 @pulumi.input_type
 class NodeTypeNatConfigArgs:
@@ -2528,6 +2476,7 @@ class NodeTypeNatConfigArgs:
                  frontend_port_range_start: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Provides information about NAT configuration on the default public Load Balancer for the node type.
+
         :param pulumi.Input[_builtins.int] backend_port: The internal port for the NAT configuration.
         :param pulumi.Input[_builtins.int] frontend_port_range_end: The port range end for the external endpoint.
         :param pulumi.Input[_builtins.int] frontend_port_range_start: The port range start for the external endpoint.
@@ -2576,25 +2525,22 @@ class NodeTypeNatConfigArgs:
         pulumi.set(self, "frontend_port_range_start", value)
 
 
-if not MYPY:
-    class NodeTypeSkuArgsDict(TypedDict):
-        """
-        Describes a node type sku.
-        """
-        capacity: pulumi.Input[_builtins.int]
-        """
-        The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
-        """
-elif False:
-    NodeTypeSkuArgsDict: TypeAlias = Mapping[str, Any]
+class NodeTypeSkuArgsDict(TypedDict):
+    """
+    Describes a node type sku.
+    """
+    capacity: pulumi.Input[_builtins.int]
+    """
+    The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+    """
 
 @pulumi.input_type
 class NodeTypeSkuArgs:
@@ -2604,6 +2550,7 @@ class NodeTypeSkuArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes a node type sku.
+
         :param pulumi.Input[_builtins.int] capacity: The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
         :param pulumi.Input[_builtins.str] name: The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
         :param pulumi.Input[_builtins.str] tier: Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
@@ -2651,30 +2598,27 @@ class NodeTypeSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class PartitionInstanceCountScaleMechanismArgsDict(TypedDict):
-        """
-        Represents a scaling mechanism for adding or removing instances of stateless service partition.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enumerates the ways that a service can be partitioned.
-        Expected value is 'ScalePartitionInstanceCount'.
-        """
-        max_instance_count: pulumi.Input[_builtins.int]
-        """
-        Maximum number of instances of the partition.
-        """
-        min_instance_count: pulumi.Input[_builtins.int]
-        """
-        Minimum number of instances of the partition.
-        """
-        scale_increment: pulumi.Input[_builtins.int]
-        """
-        The number of instances to add or remove during a scaling operation.
-        """
-elif False:
-    PartitionInstanceCountScaleMechanismArgsDict: TypeAlias = Mapping[str, Any]
+class PartitionInstanceCountScaleMechanismArgsDict(TypedDict):
+    """
+    Represents a scaling mechanism for adding or removing instances of stateless service partition.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enumerates the ways that a service can be partitioned.
+    Expected value is 'ScalePartitionInstanceCount'.
+    """
+    max_instance_count: pulumi.Input[_builtins.int]
+    """
+    Maximum number of instances of the partition.
+    """
+    min_instance_count: pulumi.Input[_builtins.int]
+    """
+    Minimum number of instances of the partition.
+    """
+    scale_increment: pulumi.Input[_builtins.int]
+    """
+    The number of instances to add or remove during a scaling operation.
+    """
 
 @pulumi.input_type
 class PartitionInstanceCountScaleMechanismArgs:
@@ -2685,6 +2629,7 @@ class PartitionInstanceCountScaleMechanismArgs:
                  scale_increment: pulumi.Input[_builtins.int]):
         """
         Represents a scaling mechanism for adding or removing instances of stateless service partition.
+
         :param pulumi.Input[_builtins.str] kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'ScalePartitionInstanceCount'.
         :param pulumi.Input[_builtins.int] max_instance_count: Maximum number of instances of the partition.
@@ -2746,37 +2691,34 @@ class PartitionInstanceCountScaleMechanismArgs:
         pulumi.set(self, "scale_increment", value)
 
 
-if not MYPY:
-    class RollingUpgradeMonitoringPolicyArgsDict(TypedDict):
-        """
-        The policy used for monitoring the application upgrade
-        """
-        failure_action: pulumi.Input[Union[_builtins.str, 'FailureAction']]
-        """
-        The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
-        """
-        health_check_retry_timeout: pulumi.Input[_builtins.str]
-        """
-        The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
-        """
-        health_check_stable_duration: pulumi.Input[_builtins.str]
-        """
-        The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
-        """
-        health_check_wait_duration: pulumi.Input[_builtins.str]
-        """
-        The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
-        """
-        upgrade_domain_timeout: pulumi.Input[_builtins.str]
-        """
-        The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
-        """
-        upgrade_timeout: pulumi.Input[_builtins.str]
-        """
-        The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
-        """
-elif False:
-    RollingUpgradeMonitoringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RollingUpgradeMonitoringPolicyArgsDict(TypedDict):
+    """
+    The policy used for monitoring the application upgrade
+    """
+    failure_action: pulumi.Input[Union[_builtins.str, 'FailureAction']]
+    """
+    The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+    """
+    health_check_retry_timeout: pulumi.Input[_builtins.str]
+    """
+    The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+    """
+    health_check_stable_duration: pulumi.Input[_builtins.str]
+    """
+    The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+    """
+    health_check_wait_duration: pulumi.Input[_builtins.str]
+    """
+    The amount of time to wait after completing an upgrade domain before applying health policies. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+    """
+    upgrade_domain_timeout: pulumi.Input[_builtins.str]
+    """
+    The amount of time each upgrade domain has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+    """
+    upgrade_timeout: pulumi.Input[_builtins.str]
+    """
+    The amount of time the overall upgrade has to complete before FailureAction is executed. Cannot be larger than 12 hours. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
+    """
 
 @pulumi.input_type
 class RollingUpgradeMonitoringPolicyArgs:
@@ -2789,6 +2731,7 @@ class RollingUpgradeMonitoringPolicyArgs:
                  upgrade_timeout: pulumi.Input[_builtins.str]):
         """
         The policy used for monitoring the application upgrade
+
         :param pulumi.Input[Union[_builtins.str, 'FailureAction']] failure_action: The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
         :param pulumi.Input[_builtins.str] health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
         :param pulumi.Input[_builtins.str] health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
@@ -2876,21 +2819,18 @@ class RollingUpgradeMonitoringPolicyArgs:
         pulumi.set(self, "upgrade_timeout", value)
 
 
-if not MYPY:
-    class ScalingPolicyArgsDict(TypedDict):
-        """
-        Specifies a metric to load balance a service during runtime.
-        """
-        scaling_mechanism: pulumi.Input[Union['AddRemoveIncrementalNamedPartitionScalingMechanismArgsDict', 'PartitionInstanceCountScaleMechanismArgsDict']]
-        """
-        Specifies the mechanism associated with this scaling policy
-        """
-        scaling_trigger: pulumi.Input[Union['AveragePartitionLoadScalingTriggerArgsDict', 'AverageServiceLoadScalingTriggerArgsDict']]
-        """
-        Specifies the trigger associated with this scaling policy.
-        """
-elif False:
-    ScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ScalingPolicyArgsDict(TypedDict):
+    """
+    Specifies a metric to load balance a service during runtime.
+    """
+    scaling_mechanism: pulumi.Input[Union['AddRemoveIncrementalNamedPartitionScalingMechanismArgsDict', 'PartitionInstanceCountScaleMechanismArgsDict']]
+    """
+    Specifies the mechanism associated with this scaling policy
+    """
+    scaling_trigger: pulumi.Input[Union['AveragePartitionLoadScalingTriggerArgsDict', 'AverageServiceLoadScalingTriggerArgsDict']]
+    """
+    Specifies the trigger associated with this scaling policy.
+    """
 
 @pulumi.input_type
 class ScalingPolicyArgs:
@@ -2899,6 +2839,7 @@ class ScalingPolicyArgs:
                  scaling_trigger: pulumi.Input[Union['AveragePartitionLoadScalingTriggerArgs', 'AverageServiceLoadScalingTriggerArgs']]):
         """
         Specifies a metric to load balance a service during runtime.
+
         :param pulumi.Input[Union['AddRemoveIncrementalNamedPartitionScalingMechanismArgs', 'PartitionInstanceCountScaleMechanismArgs']] scaling_mechanism: Specifies the mechanism associated with this scaling policy
         :param pulumi.Input[Union['AveragePartitionLoadScalingTriggerArgs', 'AverageServiceLoadScalingTriggerArgs']] scaling_trigger: Specifies the trigger associated with this scaling policy.
         """
@@ -2930,21 +2871,18 @@ class ScalingPolicyArgs:
         pulumi.set(self, "scaling_trigger", value)
 
 
-if not MYPY:
-    class ServiceCorrelationArgsDict(TypedDict):
-        """
-        Creates a particular correlation between services.
-        """
-        scheme: pulumi.Input[Union[_builtins.str, 'ServiceCorrelationScheme']]
-        """
-        The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        The Arm Resource ID of the service that the correlation relationship is established with.
-        """
-elif False:
-    ServiceCorrelationArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceCorrelationArgsDict(TypedDict):
+    """
+    Creates a particular correlation between services.
+    """
+    scheme: pulumi.Input[Union[_builtins.str, 'ServiceCorrelationScheme']]
+    """
+    The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The Arm Resource ID of the service that the correlation relationship is established with.
+    """
 
 @pulumi.input_type
 class ServiceCorrelationArgs:
@@ -2953,6 +2891,7 @@ class ServiceCorrelationArgs:
                  service_name: pulumi.Input[_builtins.str]):
         """
         Creates a particular correlation between services.
+
         :param pulumi.Input[Union[_builtins.str, 'ServiceCorrelationScheme']] scheme: The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
         :param pulumi.Input[_builtins.str] service_name: The Arm Resource ID of the service that the correlation relationship is established with.
         """
@@ -2984,21 +2923,18 @@ class ServiceCorrelationArgs:
         pulumi.set(self, "service_name", value)
 
 
-if not MYPY:
-    class ServiceEndpointArgsDict(TypedDict):
-        """
-        The service endpoint properties.
-        """
-        service: pulumi.Input[_builtins.str]
-        """
-        The type of the endpoint service.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of locations.
-        """
-elif False:
-    ServiceEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceEndpointArgsDict(TypedDict):
+    """
+    The service endpoint properties.
+    """
+    service: pulumi.Input[_builtins.str]
+    """
+    The type of the endpoint service.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of locations.
+    """
 
 @pulumi.input_type
 class ServiceEndpointArgs:
@@ -3007,6 +2943,7 @@ class ServiceEndpointArgs:
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The service endpoint properties.
+
         :param pulumi.Input[_builtins.str] service: The type of the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: A list of locations.
         """
@@ -3039,33 +2976,30 @@ class ServiceEndpointArgs:
         pulumi.set(self, "locations", value)
 
 
-if not MYPY:
-    class ServiceLoadMetricArgsDict(TypedDict):
-        """
-        Specifies a metric to load balance a service during runtime.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
-        """
-        default_load: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
-        """
-        primary_default_load: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
-        """
-        secondary_default_load: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
-        """
-        weight: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceLoadMetricWeight']]]
-        """
-        The service load metric relative weight, compared to other metrics configured for this service, as a number.
-        """
-elif False:
-    ServiceLoadMetricArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceLoadMetricArgsDict(TypedDict):
+    """
+    Specifies a metric to load balance a service during runtime.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+    """
+    default_load: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+    """
+    primary_default_load: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+    """
+    secondary_default_load: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+    """
+    weight: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceLoadMetricWeight']]]
+    """
+    The service load metric relative weight, compared to other metrics configured for this service, as a number.
+    """
 
 @pulumi.input_type
 class ServiceLoadMetricArgs:
@@ -3077,6 +3011,7 @@ class ServiceLoadMetricArgs:
                  weight: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLoadMetricWeight']]] = None):
         """
         Specifies a metric to load balance a service during runtime.
+
         :param pulumi.Input[_builtins.str] name: The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
         :param pulumi.Input[_builtins.int] default_load: Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
         :param pulumi.Input[_builtins.int] primary_default_load: Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
@@ -3154,22 +3089,19 @@ class ServiceLoadMetricArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class ServicePlacementInvalidDomainPolicyArgsDict(TypedDict):
-        """
-        Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.
-        """
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        The name of the domain that should not be used for placement.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of placement policy for a service fabric service. Following are the possible values.
-        Expected value is 'InvalidDomain'.
-        """
-elif False:
-    ServicePlacementInvalidDomainPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePlacementInvalidDomainPolicyArgsDict(TypedDict):
+    """
+    Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    The name of the domain that should not be used for placement.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of placement policy for a service fabric service. Following are the possible values.
+    Expected value is 'InvalidDomain'.
+    """
 
 @pulumi.input_type
 class ServicePlacementInvalidDomainPolicyArgs:
@@ -3178,6 +3110,7 @@ class ServicePlacementInvalidDomainPolicyArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that should not be used for placement.
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'InvalidDomain'.
@@ -3211,18 +3144,15 @@ class ServicePlacementInvalidDomainPolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServicePlacementNonPartiallyPlaceServicePolicyArgsDict(TypedDict):
-        """
-        The type of placement policy for a service fabric service. Following are the possible values.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of placement policy for a service fabric service. Following are the possible values.
-        Expected value is 'NonPartiallyPlaceService'.
-        """
-elif False:
-    ServicePlacementNonPartiallyPlaceServicePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePlacementNonPartiallyPlaceServicePolicyArgsDict(TypedDict):
+    """
+    The type of placement policy for a service fabric service. Following are the possible values.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of placement policy for a service fabric service. Following are the possible values.
+    Expected value is 'NonPartiallyPlaceService'.
+    """
 
 @pulumi.input_type
 class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
@@ -3230,6 +3160,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         The type of placement policy for a service fabric service. Following are the possible values.
+
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
         """
@@ -3249,29 +3180,26 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServicePlacementPreferPrimaryDomainPolicyArgsDict(TypedDict):
-        """
-        Describes the policy to be used for placement of a Service Fabric service where the service's
-        Primary replicas should optimally be placed in a particular domain.
+class ServicePlacementPreferPrimaryDomainPolicyArgsDict(TypedDict):
+    """
+    Describes the policy to be used for placement of a Service Fabric service where the service's
+    Primary replicas should optimally be placed in a particular domain.
 
-        This placement policy is usually used with fault domains in scenarios where the Service Fabric
-        cluster is geographically distributed in order to indicate that a service's primary replica should
-        be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
-        or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
-        may not end up located in this domain due to failures, capacity limits, or other constraints.
-        """
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        The name of the domain that should used for placement as per this policy.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of placement policy for a service fabric service. Following are the possible values.
-        Expected value is 'PreferredPrimaryDomain'.
-        """
-elif False:
-    ServicePlacementPreferPrimaryDomainPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    This placement policy is usually used with fault domains in scenarios where the Service Fabric
+    cluster is geographically distributed in order to indicate that a service's primary replica should
+    be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
+    or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
+    may not end up located in this domain due to failures, capacity limits, or other constraints.
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    The name of the domain that should used for placement as per this policy.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of placement policy for a service fabric service. Following are the possible values.
+    Expected value is 'PreferredPrimaryDomain'.
+    """
 
 @pulumi.input_type
 class ServicePlacementPreferPrimaryDomainPolicyArgs:
@@ -3287,6 +3215,7 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'PreferredPrimaryDomain'.
@@ -3320,30 +3249,27 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServicePlacementRequireDomainDistributionPolicyArgsDict(TypedDict):
-        """
-        Describes the policy to be used for placement of a Service Fabric service where two replicas
-        from the same partition should never be placed in the same fault or upgrade domain.
+class ServicePlacementRequireDomainDistributionPolicyArgsDict(TypedDict):
+    """
+    Describes the policy to be used for placement of a Service Fabric service where two replicas
+    from the same partition should never be placed in the same fault or upgrade domain.
 
-        While this is not common it can expose the service to an increased risk of concurrent failures
-        due to unplanned outages or other cases of subsequent/concurrent failures. As an example, consider
-        a case where replicas are deployed across different data center, with one replica per location.
-        In the event that one of the datacenters goes offline, normally the replica that was placed in that
-        datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
-        policy should be set.
-        """
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        The name of the domain that should used for placement as per this policy.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of placement policy for a service fabric service. Following are the possible values.
-        Expected value is 'RequiredDomainDistribution'.
-        """
-elif False:
-    ServicePlacementRequireDomainDistributionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    While this is not common it can expose the service to an increased risk of concurrent failures
+    due to unplanned outages or other cases of subsequent/concurrent failures. As an example, consider
+    a case where replicas are deployed across different data center, with one replica per location.
+    In the event that one of the datacenters goes offline, normally the replica that was placed in that
+    datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
+    policy should be set.
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    The name of the domain that should used for placement as per this policy.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of placement policy for a service fabric service. Following are the possible values.
+    Expected value is 'RequiredDomainDistribution'.
+    """
 
 @pulumi.input_type
 class ServicePlacementRequireDomainDistributionPolicyArgs:
@@ -3360,6 +3286,7 @@ class ServicePlacementRequireDomainDistributionPolicyArgs:
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomainDistribution'.
@@ -3393,22 +3320,19 @@ class ServicePlacementRequireDomainDistributionPolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServicePlacementRequiredDomainPolicyArgsDict(TypedDict):
-        """
-        Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
-        """
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        The name of the domain that should used for placement as per this policy.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of placement policy for a service fabric service. Following are the possible values.
-        Expected value is 'RequiredDomain'.
-        """
-elif False:
-    ServicePlacementRequiredDomainPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePlacementRequiredDomainPolicyArgsDict(TypedDict):
+    """
+    Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    The name of the domain that should used for placement as per this policy.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of placement policy for a service fabric service. Following are the possible values.
+    Expected value is 'RequiredDomain'.
+    """
 
 @pulumi.input_type
 class ServicePlacementRequiredDomainPolicyArgs:
@@ -3417,6 +3341,7 @@ class ServicePlacementRequiredDomainPolicyArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomain'.
@@ -3450,40 +3375,37 @@ class ServicePlacementRequiredDomainPolicyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServiceTypeHealthPolicyArgsDict(TypedDict):
-        """
-        Represents the health policy used to evaluate the health of services belonging to a service type.
-        """
-        max_percent_unhealthy_partitions_per_service: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed percentage of unhealthy partitions per service.
+class ServiceTypeHealthPolicyArgsDict(TypedDict):
+    """
+    Represents the health policy used to evaluate the health of services belonging to a service type.
+    """
+    max_percent_unhealthy_partitions_per_service: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed percentage of unhealthy partitions per service.
 
-        The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
-        If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
-        The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
-        The computation rounds up to tolerate one failure on small numbers of partitions.
-        """
-        max_percent_unhealthy_replicas_per_partition: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed percentage of unhealthy replicas per partition.
+    The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
+    If the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.
+    The percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.
+    The computation rounds up to tolerate one failure on small numbers of partitions.
+    """
+    max_percent_unhealthy_replicas_per_partition: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed percentage of unhealthy replicas per partition.
 
-        The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
-        If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
-        The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
-        The computation rounds up to tolerate one failure on small numbers of replicas.
-        """
-        max_percent_unhealthy_services: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed percentage of unhealthy services.
+    The percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.
+    If the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.
+    The percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.
+    The computation rounds up to tolerate one failure on small numbers of replicas.
+    """
+    max_percent_unhealthy_services: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed percentage of unhealthy services.
 
-        The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
-        If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
-        This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
-        The computation rounds up to tolerate one failure on small numbers of services.
-        """
-elif False:
-    ServiceTypeHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    The percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.
+    If the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.
+    This is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.
+    The computation rounds up to tolerate one failure on small numbers of services.
+    """
 
 @pulumi.input_type
 class ServiceTypeHealthPolicyArgs:
@@ -3493,6 +3415,7 @@ class ServiceTypeHealthPolicyArgs:
                  max_percent_unhealthy_services: pulumi.Input[_builtins.int]):
         """
         Represents the health policy used to evaluate the health of services belonging to a service type.
+
 
         :param pulumi.Input[_builtins.int] max_percent_unhealthy_partitions_per_service: The maximum allowed percentage of unhealthy partitions per service.
                
@@ -3569,21 +3492,18 @@ class ServiceTypeHealthPolicyArgs:
         pulumi.set(self, "max_percent_unhealthy_services", value)
 
 
-if not MYPY:
-    class SettingsParameterDescriptionArgsDict(TypedDict):
-        """
-        Describes a parameter in fabric settings of the cluster.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The parameter name of fabric setting.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The parameter value of fabric setting.
-        """
-elif False:
-    SettingsParameterDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsParameterDescriptionArgsDict(TypedDict):
+    """
+    Describes a parameter in fabric settings of the cluster.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The parameter name of fabric setting.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The parameter value of fabric setting.
+    """
 
 @pulumi.input_type
 class SettingsParameterDescriptionArgs:
@@ -3592,6 +3512,7 @@ class SettingsParameterDescriptionArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Describes a parameter in fabric settings of the cluster.
+
         :param pulumi.Input[_builtins.str] name: The parameter name of fabric setting.
         :param pulumi.Input[_builtins.str] value: The parameter value of fabric setting.
         """
@@ -3623,21 +3544,18 @@ class SettingsParameterDescriptionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SettingsSectionDescriptionArgsDict(TypedDict):
-        """
-        Describes a section in the fabric settings of the cluster.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The section name of the fabric settings.
-        """
-        parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgsDict']]]
-        """
-        The collection of parameters in the section.
-        """
-elif False:
-    SettingsSectionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsSectionDescriptionArgsDict(TypedDict):
+    """
+    Describes a section in the fabric settings of the cluster.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The section name of the fabric settings.
+    """
+    parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgsDict']]]
+    """
+    The collection of parameters in the section.
+    """
 
 @pulumi.input_type
 class SettingsSectionDescriptionArgs:
@@ -3646,6 +3564,7 @@ class SettingsSectionDescriptionArgs:
                  parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]):
         """
         Describes a section in the fabric settings of the cluster.
+
         :param pulumi.Input[_builtins.str] name: The section name of the fabric settings.
         :param pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]] parameters: The collection of parameters in the section.
         """
@@ -3677,18 +3596,15 @@ class SettingsSectionDescriptionArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class SingletonPartitionSchemeArgsDict(TypedDict):
-        """
-        Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
-        """
-        partition_scheme: pulumi.Input[_builtins.str]
-        """
-        Enumerates the ways that a service can be partitioned.
-        Expected value is 'Singleton'.
-        """
-elif False:
-    SingletonPartitionSchemeArgsDict: TypeAlias = Mapping[str, Any]
+class SingletonPartitionSchemeArgsDict(TypedDict):
+    """
+    Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+    """
+    partition_scheme: pulumi.Input[_builtins.str]
+    """
+    Enumerates the ways that a service can be partitioned.
+    Expected value is 'Singleton'.
+    """
 
 @pulumi.input_type
 class SingletonPartitionSchemeArgs:
@@ -3696,6 +3612,7 @@ class SingletonPartitionSchemeArgs:
                  partition_scheme: pulumi.Input[_builtins.str]):
         """
         Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+
         :param pulumi.Input[_builtins.str] partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Singleton'.
         """
@@ -3715,17 +3632,14 @@ class SingletonPartitionSchemeArgs:
         pulumi.set(self, "partition_scheme", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Service Fabric managed cluster Sku definition
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        Sku Name.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Service Fabric managed cluster Sku definition
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    Sku Name.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -3733,6 +3647,7 @@ class SkuArgs:
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']]):
         """
         Service Fabric managed cluster Sku definition
+
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: Sku Name.
         """
         pulumi.set(__self__, "name", name)
@@ -3750,88 +3665,85 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class StatefulServicePropertiesArgsDict(TypedDict):
-        """
-        The properties of a stateful service resource.
-        """
-        partition_description: pulumi.Input[Union['NamedPartitionSchemeArgsDict', 'SingletonPartitionSchemeArgsDict', 'UniformInt64RangePartitionSchemeArgsDict']]
-        """
-        Describes how the service is partitioned.
-        """
-        service_kind: pulumi.Input[_builtins.str]
-        """
-        The kind of service (Stateless or Stateful).
-        Expected value is 'Stateful'.
-        """
-        service_type_name: pulumi.Input[_builtins.str]
-        """
-        The name of the service type
-        """
-        correlation_scheme: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]
-        """
-        A list that describes the correlation of the service with other services.
-        """
-        default_move_cost: NotRequired[pulumi.Input[Union[_builtins.str, 'MoveCost']]]
-        """
-        Specifies the move cost for the service.
-        """
-        has_persisted_state: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.
-        """
-        min_replica_set_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum replica set size as a number.
-        """
-        placement_constraints: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-        """
-        quorum_loss_wait_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format "hh:mm:ss".
-        """
-        replica_restart_wait_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format "hh:mm:ss".
-        """
-        scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]
-        """
-        Scaling policies for this service.
-        """
-        service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
-        When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
-        When removing serviceDnsName, removed name may temporarily be resolvable. Do not rely on the name being unresolvable.
-        """
-        service_load_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]
-        """
-        The service load metrics is given as an array of ServiceLoadMetric objects.
-        """
-        service_package_activation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]
-        """
-        The activation Mode of the service package
-        """
-        service_placement_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]
-        """
-        A list that describes the correlation of the service with other services.
-        """
-        service_placement_time_limit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format "hh:mm:ss".
-        """
-        stand_by_replica_keep_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format "hh:mm:ss".
-        """
-        target_replica_set_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The target replica set size as a number.
-        """
-elif False:
-    StatefulServicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StatefulServicePropertiesArgsDict(TypedDict):
+    """
+    The properties of a stateful service resource.
+    """
+    partition_description: pulumi.Input[Union['NamedPartitionSchemeArgsDict', 'SingletonPartitionSchemeArgsDict', 'UniformInt64RangePartitionSchemeArgsDict']]
+    """
+    Describes how the service is partitioned.
+    """
+    service_kind: pulumi.Input[_builtins.str]
+    """
+    The kind of service (Stateless or Stateful).
+    Expected value is 'Stateful'.
+    """
+    service_type_name: pulumi.Input[_builtins.str]
+    """
+    The name of the service type
+    """
+    correlation_scheme: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]
+    """
+    A list that describes the correlation of the service with other services.
+    """
+    default_move_cost: NotRequired[pulumi.Input[Union[_builtins.str, 'MoveCost']]]
+    """
+    Specifies the move cost for the service.
+    """
+    has_persisted_state: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.
+    """
+    min_replica_set_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum replica set size as a number.
+    """
+    placement_constraints: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+    """
+    quorum_loss_wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format "hh:mm:ss".
+    """
+    replica_restart_wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format "hh:mm:ss".
+    """
+    scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]
+    """
+    Scaling policies for this service.
+    """
+    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
+    When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
+    When removing serviceDnsName, removed name may temporarily be resolvable. Do not rely on the name being unresolvable.
+    """
+    service_load_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]
+    """
+    The service load metrics is given as an array of ServiceLoadMetric objects.
+    """
+    service_package_activation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]
+    """
+    The activation Mode of the service package
+    """
+    service_placement_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]
+    """
+    A list that describes the correlation of the service with other services.
+    """
+    service_placement_time_limit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format "hh:mm:ss".
+    """
+    stand_by_replica_keep_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format "hh:mm:ss".
+    """
+    target_replica_set_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The target replica set size as a number.
+    """
 
 @pulumi.input_type
 class StatefulServicePropertiesArgs:
@@ -3856,6 +3768,7 @@ class StatefulServicePropertiesArgs:
                  target_replica_set_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The properties of a stateful service resource.
+
         :param pulumi.Input[Union['NamedPartitionSchemeArgs', 'SingletonPartitionSchemeArgs', 'UniformInt64RangePartitionSchemeArgs']] partition_description: Describes how the service is partitioned.
         :param pulumi.Input[_builtins.str] service_kind: The kind of service (Stateless or Stateful).
                Expected value is 'Stateful'.
@@ -4132,72 +4045,69 @@ class StatefulServicePropertiesArgs:
         pulumi.set(self, "target_replica_set_size", value)
 
 
-if not MYPY:
-    class StatelessServicePropertiesArgsDict(TypedDict):
-        """
-        The properties of a stateless service resource.
-        """
-        instance_count: pulumi.Input[_builtins.int]
-        """
-        The instance count.
-        """
-        partition_description: pulumi.Input[Union['NamedPartitionSchemeArgsDict', 'SingletonPartitionSchemeArgsDict', 'UniformInt64RangePartitionSchemeArgsDict']]
-        """
-        Describes how the service is partitioned.
-        """
-        service_kind: pulumi.Input[_builtins.str]
-        """
-        The kind of service (Stateless or Stateful).
-        Expected value is 'Stateless'.
-        """
-        service_type_name: pulumi.Input[_builtins.str]
-        """
-        The name of the service type
-        """
-        correlation_scheme: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]
-        """
-        A list that describes the correlation of the service with other services.
-        """
-        default_move_cost: NotRequired[pulumi.Input[Union[_builtins.str, 'MoveCost']]]
-        """
-        Specifies the move cost for the service.
-        """
-        min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        MinInstanceCount is the minimum number of instances that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstanceCount computation -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
-        """
-        min_instance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        MinInstancePercentage is the minimum percentage of InstanceCount that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstancePercentage computation, -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
-        """
-        placement_constraints: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-        """
-        scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]
-        """
-        Scaling policies for this service.
-        """
-        service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
-        When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
-        When removing serviceDnsName, removed name may temporarily be resolvable. Do not rely on the name being unresolvable.
-        """
-        service_load_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]
-        """
-        The service load metrics is given as an array of ServiceLoadMetric objects.
-        """
-        service_package_activation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]
-        """
-        The activation Mode of the service package
-        """
-        service_placement_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]
-        """
-        A list that describes the correlation of the service with other services.
-        """
-elif False:
-    StatelessServicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StatelessServicePropertiesArgsDict(TypedDict):
+    """
+    The properties of a stateless service resource.
+    """
+    instance_count: pulumi.Input[_builtins.int]
+    """
+    The instance count.
+    """
+    partition_description: pulumi.Input[Union['NamedPartitionSchemeArgsDict', 'SingletonPartitionSchemeArgsDict', 'UniformInt64RangePartitionSchemeArgsDict']]
+    """
+    Describes how the service is partitioned.
+    """
+    service_kind: pulumi.Input[_builtins.str]
+    """
+    The kind of service (Stateless or Stateful).
+    Expected value is 'Stateless'.
+    """
+    service_type_name: pulumi.Input[_builtins.str]
+    """
+    The name of the service type
+    """
+    correlation_scheme: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationArgsDict']]]]
+    """
+    A list that describes the correlation of the service with other services.
+    """
+    default_move_cost: NotRequired[pulumi.Input[Union[_builtins.str, 'MoveCost']]]
+    """
+    Specifies the move cost for the service.
+    """
+    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    MinInstanceCount is the minimum number of instances that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstanceCount computation -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
+    """
+    min_instance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    MinInstancePercentage is the minimum percentage of InstanceCount that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstancePercentage computation, -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.
+    """
+    placement_constraints: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+    """
+    scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyArgsDict']]]]
+    """
+    Scaling policies for this service.
+    """
+    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dns name used for the service. If this is specified, then the DNS name can be used to return the IP addresses of service endpoints for application layer protocols (e.g., HTTP).
+    When updating serviceDnsName, old name may be temporarily resolvable. However, rely on new name.
+    When removing serviceDnsName, removed name may temporarily be resolvable. Do not rely on the name being unresolvable.
+    """
+    service_load_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricArgsDict']]]]
+    """
+    The service load metrics is given as an array of ServiceLoadMetric objects.
+    """
+    service_package_activation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ServicePackageActivationMode']]]
+    """
+    The activation Mode of the service package
+    """
+    service_placement_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgsDict', 'ServicePlacementNonPartiallyPlaceServicePolicyArgsDict', 'ServicePlacementPreferPrimaryDomainPolicyArgsDict', 'ServicePlacementRequireDomainDistributionPolicyArgsDict', 'ServicePlacementRequiredDomainPolicyArgsDict']]]]]
+    """
+    A list that describes the correlation of the service with other services.
+    """
 
 @pulumi.input_type
 class StatelessServicePropertiesArgs:
@@ -4218,6 +4128,7 @@ class StatelessServicePropertiesArgs:
                  service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementInvalidDomainPolicyArgs', 'ServicePlacementNonPartiallyPlaceServicePolicyArgs', 'ServicePlacementPreferPrimaryDomainPolicyArgs', 'ServicePlacementRequireDomainDistributionPolicyArgs', 'ServicePlacementRequiredDomainPolicyArgs']]]]] = None):
         """
         The properties of a stateless service resource.
+
         :param pulumi.Input[_builtins.int] instance_count: The instance count.
         :param pulumi.Input[Union['NamedPartitionSchemeArgs', 'SingletonPartitionSchemeArgs', 'UniformInt64RangePartitionSchemeArgs']] partition_description: Describes how the service is partitioned.
         :param pulumi.Input[_builtins.str] service_kind: The kind of service (Stateless or Stateful).
@@ -4433,20 +4344,17 @@ class StatelessServicePropertiesArgs:
         pulumi.set(self, "service_placement_policies", value)
 
 
-if not MYPY:
-    class SubResourceArgsDict(TypedDict):
-        """
-        Azure resource identifier.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
-        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
-        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
-        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
-        """
-elif False:
-    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+class SubResourceArgsDict(TypedDict):
+    """
+    Azure resource identifier.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+    An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+    A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+    Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+    """
 
 @pulumi.input_type
 class SubResourceArgs:
@@ -4454,6 +4362,7 @@ class SubResourceArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Azure resource identifier.
+
         :param pulumi.Input[_builtins.str] id: Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
                An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
@@ -4478,33 +4387,30 @@ class SubResourceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SubnetArgsDict(TypedDict):
-        """
-        Describes a Subnet.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Subnet name.
-        """
-        enable_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
-        """
-        network_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Full resource id for the network security group.
-        """
-        private_endpoint_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]
-        """
-        Enable or Disable apply network policies on private end point in the subnet.
-        """
-        private_link_service_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]
-        """
-        Enable or Disable apply network policies on private link service in the subnet.
-        """
-elif False:
-    SubnetArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetArgsDict(TypedDict):
+    """
+    Describes a Subnet.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Subnet name.
+    """
+    enable_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
+    """
+    network_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full resource id for the network security group.
+    """
+    private_endpoint_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointNetworkPolicies']]]
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    private_link_service_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]]
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
 
 @pulumi.input_type
 class SubnetArgs:
@@ -4516,6 +4422,7 @@ class SubnetArgs:
                  private_link_service_network_policies: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceNetworkPolicies']]] = None):
         """
         Describes a Subnet.
+
         :param pulumi.Input[_builtins.str] name: Subnet name.
         :param pulumi.Input[_builtins.bool] enable_ipv6: Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
         :param pulumi.Input[_builtins.str] network_security_group_id: Full resource id for the network security group.
@@ -4593,32 +4500,29 @@ class SubnetArgs:
         pulumi.set(self, "private_link_service_network_policies", value)
 
 
-if not MYPY:
-    class UniformInt64RangePartitionSchemeArgsDict(TypedDict):
-        """
-        Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
-        """
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of partitions.
-        """
-        high_key: pulumi.Input[_builtins.float]
-        """
-        The upper bound of the partition key range that
-        should be split between the partition ‘Count’
-        """
-        low_key: pulumi.Input[_builtins.float]
-        """
-        The lower bound of the partition key range that
-        should be split between the partition ‘Count’
-        """
-        partition_scheme: pulumi.Input[_builtins.str]
-        """
-        Enumerates the ways that a service can be partitioned.
-        Expected value is 'UniformInt64Range'.
-        """
-elif False:
-    UniformInt64RangePartitionSchemeArgsDict: TypeAlias = Mapping[str, Any]
+class UniformInt64RangePartitionSchemeArgsDict(TypedDict):
+    """
+    Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+    """
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of partitions.
+    """
+    high_key: pulumi.Input[_builtins.float]
+    """
+    The upper bound of the partition key range that
+    should be split between the partition ‘Count’
+    """
+    low_key: pulumi.Input[_builtins.float]
+    """
+    The lower bound of the partition key range that
+    should be split between the partition ‘Count’
+    """
+    partition_scheme: pulumi.Input[_builtins.str]
+    """
+    Enumerates the ways that a service can be partitioned.
+    Expected value is 'UniformInt64Range'.
+    """
 
 @pulumi.input_type
 class UniformInt64RangePartitionSchemeArgs:
@@ -4629,6 +4533,7 @@ class UniformInt64RangePartitionSchemeArgs:
                  partition_scheme: pulumi.Input[_builtins.str]):
         """
         Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+
         :param pulumi.Input[_builtins.int] count: The number of partitions.
         :param pulumi.Input[_builtins.float] high_key: The upper bound of the partition key range that
                should be split between the partition ‘Count’
@@ -4694,57 +4599,54 @@ class UniformInt64RangePartitionSchemeArgs:
         pulumi.set(self, "partition_scheme", value)
 
 
-if not MYPY:
-    class VMSSExtensionArgsDict(TypedDict):
-        """
-        Specifies set of extensions that should be installed onto the virtual machines.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extension.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The name of the extension handler publisher.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        type_handler_version: pulumi.Input[_builtins.str]
-        """
-        Specifies the version of the script handler.
-        """
-        auto_upgrade_minor_version: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        """
-        enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
-        """
-        force_update_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        """
-        protected_settings: NotRequired[Any]
-        """
-        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        """
-        provision_after_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Collection of extension names after which this extension needs to be provisioned.
-        """
-        settings: NotRequired[Any]
-        """
-        Json formatted public settings for the extension.
-        """
-        setup_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]
-        """
-        Indicates the setup order for the extension.
-        """
-elif False:
-    VMSSExtensionArgsDict: TypeAlias = Mapping[str, Any]
+class VMSSExtensionArgsDict(TypedDict):
+    """
+    Specifies set of extensions that should be installed onto the virtual machines.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extension.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The name of the extension handler publisher.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of the extension; an example is "CustomScriptExtension".
+    """
+    type_handler_version: pulumi.Input[_builtins.str]
+    """
+    Specifies the version of the script handler.
+    """
+    auto_upgrade_minor_version: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+    """
+    enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+    """
+    force_update_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+    """
+    protected_settings: NotRequired[Any]
+    """
+    The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+    """
+    provision_after_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Collection of extension names after which this extension needs to be provisioned.
+    """
+    settings: NotRequired[Any]
+    """
+    Json formatted public settings for the extension.
+    """
+    setup_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]]
+    """
+    Indicates the setup order for the extension.
+    """
 
 @pulumi.input_type
 class VMSSExtensionArgs:
@@ -4762,6 +4664,7 @@ class VMSSExtensionArgs:
                  setup_order: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmssExtensionSetupOrder']]]]] = None):
         """
         Specifies set of extensions that should be installed onto the virtual machines.
+
         :param pulumi.Input[_builtins.str] name: The name of the extension.
         :param pulumi.Input[_builtins.str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -4926,21 +4829,18 @@ class VMSSExtensionArgs:
         pulumi.set(self, "setup_order", value)
 
 
-if not MYPY:
-    class VaultCertificateArgsDict(TypedDict):
-        """
-        Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
-        """
-        certificate_store: pulumi.Input[_builtins.str]
-        """
-        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
-        """
-        certificate_url: pulumi.Input[_builtins.str]
-        """
-        This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-        """
-elif False:
-    VaultCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VaultCertificateArgsDict(TypedDict):
+    """
+    Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+    """
+    certificate_store: pulumi.Input[_builtins.str]
+    """
+    For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+    """
+    certificate_url: pulumi.Input[_builtins.str]
+    """
+    This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+    """
 
 @pulumi.input_type
 class VaultCertificateArgs:
@@ -4949,6 +4849,7 @@ class VaultCertificateArgs:
                  certificate_url: pulumi.Input[_builtins.str]):
         """
         Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+
         :param pulumi.Input[_builtins.str] certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
         :param pulumi.Input[_builtins.str] certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
         """
@@ -4980,21 +4881,18 @@ class VaultCertificateArgs:
         pulumi.set(self, "certificate_url", value)
 
 
-if not MYPY:
-    class VaultSecretGroupArgsDict(TypedDict):
-        """
-        Specifies set of certificates that should be installed onto the virtual machines.
-        """
-        source_vault: pulumi.Input['SubResourceArgsDict']
-        """
-        The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        """
-        vault_certificates: pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgsDict']]]
-        """
-        The list of key vault references in SourceVault which contain certificates.
-        """
-elif False:
-    VaultSecretGroupArgsDict: TypeAlias = Mapping[str, Any]
+class VaultSecretGroupArgsDict(TypedDict):
+    """
+    Specifies set of certificates that should be installed onto the virtual machines.
+    """
+    source_vault: pulumi.Input['SubResourceArgsDict']
+    """
+    The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+    """
+    vault_certificates: pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgsDict']]]
+    """
+    The list of key vault references in SourceVault which contain certificates.
+    """
 
 @pulumi.input_type
 class VaultSecretGroupArgs:
@@ -5003,6 +4901,7 @@ class VaultSecretGroupArgs:
                  vault_certificates: pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgs']]]):
         """
         Specifies set of certificates that should be installed onto the virtual machines.
+
         :param pulumi.Input['SubResourceArgs'] source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
         :param pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgs']]] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
@@ -5034,29 +4933,26 @@ class VaultSecretGroupArgs:
         pulumi.set(self, "vault_certificates", value)
 
 
-if not MYPY:
-    class VmImagePlanArgsDict(TypedDict):
-        """
-        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plan ID.
-        """
-        product: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        """
-        promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The promotion code.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher ID.
-        """
-elif False:
-    VmImagePlanArgsDict: TypeAlias = Mapping[str, Any]
+class VmImagePlanArgsDict(TypedDict):
+    """
+    Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plan ID.
+    """
+    product: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The promotion code.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher ID.
+    """
 
 @pulumi.input_type
 class VmImagePlanArgs:
@@ -5067,6 +4963,7 @@ class VmImagePlanArgs:
                  publisher: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+
         :param pulumi.Input[_builtins.str] name: The plan ID.
         :param pulumi.Input[_builtins.str] product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
         :param pulumi.Input[_builtins.str] promotion_code: The promotion code.
@@ -5130,17 +5027,14 @@ class VmImagePlanArgs:
         pulumi.set(self, "publisher", value)
 
 
-if not MYPY:
-    class VmManagedIdentityArgsDict(TypedDict):
-        """
-        Identities for the virtual machine scale set under the node type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    VmManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class VmManagedIdentityArgsDict(TypedDict):
+    """
+    Identities for the virtual machine scale set under the node type.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class VmManagedIdentityArgs:
@@ -5148,6 +5042,7 @@ class VmManagedIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identities for the virtual machine scale set under the node type.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if user_assigned_identities is not None:
@@ -5166,29 +5061,26 @@ class VmManagedIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class VmssDataDiskArgsDict(TypedDict):
-        """
-        Managed data disk description.
-        """
-        disk_letter: pulumi.Input[_builtins.str]
-        """
-        Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
-        """
-        disk_size_gb: pulumi.Input[_builtins.int]
-        """
-        Disk size for each vm in the node type in GBs.
-        """
-        disk_type: pulumi.Input[Union[_builtins.str, 'DiskType']]
-        """
-        Managed data disk type. Specifies the storage account type for the managed disk
-        """
-        lun: pulumi.Input[_builtins.int]
-        """
-        Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
-        """
-elif False:
-    VmssDataDiskArgsDict: TypeAlias = Mapping[str, Any]
+class VmssDataDiskArgsDict(TypedDict):
+    """
+    Managed data disk description.
+    """
+    disk_letter: pulumi.Input[_builtins.str]
+    """
+    Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+    """
+    disk_size_gb: pulumi.Input[_builtins.int]
+    """
+    Disk size for each vm in the node type in GBs.
+    """
+    disk_type: pulumi.Input[Union[_builtins.str, 'DiskType']]
+    """
+    Managed data disk type. Specifies the storage account type for the managed disk
+    """
+    lun: pulumi.Input[_builtins.int]
+    """
+    Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
+    """
 
 @pulumi.input_type
 class VmssDataDiskArgs:
@@ -5199,6 +5091,7 @@ class VmssDataDiskArgs:
                  lun: pulumi.Input[_builtins.int]):
         """
         Managed data disk description.
+
         :param pulumi.Input[_builtins.str] disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         :param pulumi.Input[_builtins.int] disk_size_gb: Disk size for each vm in the node type in GBs.
         :param pulumi.Input[Union[_builtins.str, 'DiskType']] disk_type: Managed data disk type. Specifies the storage account type for the managed disk

@@ -132,6 +132,7 @@ class ActiveDirectoryConnectorDNSDetailsResponse(dict):
                  replicas: Optional[_builtins.float] = None):
         """
         DNS server details
+
         :param Sequence[_builtins.str] nameserver_ip_addresses: List of Active Directory DNS server IP addresses.
         :param _builtins.str domain_name: DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
         :param _builtins.bool prefer_k8s_dns_for_ptr_lookups: Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
@@ -218,6 +219,7 @@ class ActiveDirectoryConnectorDomainDetailsResponse(dict):
                  service_account_provisioning: Optional[_builtins.str] = None):
         """
         Active Directory domain details
+
         :param _builtins.str realm: Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
         :param 'ActiveDirectoryDomainControllersResponse' domain_controllers: null
         :param _builtins.str netbios_domain_name: NETBIOS name of the Active Directory domain.
@@ -308,6 +310,7 @@ class ActiveDirectoryConnectorPropertiesResponse(dict):
                  status: Optional['outputs.ActiveDirectoryConnectorStatusResponse'] = None):
         """
         The properties of an Active Directory connector resource
+
         :param _builtins.str provisioning_state: The provisioning state of the Active Directory connector resource.
         :param 'ActiveDirectoryConnectorSpecResponse' spec: null
         :param 'BasicLoginInformationResponse' domain_service_account_login_information: Username and password for domain service account authentication.
@@ -380,6 +383,7 @@ class ActiveDirectoryConnectorSpecResponse(dict):
                  dns: 'outputs.ActiveDirectoryConnectorDNSDetailsResponse'):
         """
         The specifications of the AD Kubernetes resource.
+
         :param 'ActiveDirectoryConnectorDomainDetailsResponse' active_directory: null
         :param 'ActiveDirectoryConnectorDNSDetailsResponse' dns: null
         """
@@ -433,6 +437,7 @@ class ActiveDirectoryConnectorStatusResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The status of the Kubernetes custom resource.
+
         :param _builtins.str last_update_time: The time that the custom resource was last updated.
         :param _builtins.float observed_generation: The version of the replicaSet associated with the AD connector custom resource.
         :param _builtins.str state: The state of the AD connector custom resource.
@@ -478,6 +483,7 @@ class ActiveDirectoryDomainControllerResponse(dict):
                  hostname: _builtins.str):
         """
         Information about a domain controller in the AD domain.
+
         :param _builtins.str hostname: Fully-qualified domain name of a domain controller in the AD domain.
         """
         pulumi.set(__self__, "hostname", hostname)
@@ -520,6 +526,7 @@ class ActiveDirectoryDomainControllersResponse(dict):
                  secondary_domain_controllers: Optional[Sequence['outputs.ActiveDirectoryDomainControllerResponse']] = None):
         """
         Details about the Active Directory domain controllers associated with this AD connector instance
+
         :param 'ActiveDirectoryDomainControllerResponse' primary_domain_controller: Information about the Primary Domain Controller (PDC) in the AD domain.
         :param Sequence['ActiveDirectoryDomainControllerResponse'] secondary_domain_controllers: null
         """
@@ -572,6 +579,7 @@ class AuthenticationResponse(dict):
                  sql_server_entra_identity: Optional[Sequence['outputs.EntraAuthenticationResponse']] = None):
         """
         Authentication related configuration for the SQL Server Instance.
+
         :param _builtins.str mode: Mode of authentication in SqlServer.
         :param Sequence['EntraAuthenticationResponse'] sql_server_entra_identity: Entra Authentication configuration for the SQL Server Instance.
         """
@@ -683,6 +691,7 @@ class AvailabilityGroupConfigureResponse(dict):
                  session_timeout: Optional[_builtins.int] = None):
         """
         The specifications of the availability group replica configuration
+
         :param _builtins.str availability_mode_description: The Availability Synchronization mode of the availability group replica.
         :param _builtins.str failover_mode_description: The failover mode of the availability group replica.
         :param _builtins.str primary_role_allow_connections_description: Whether the availability allows all connections or only read-write connections.
@@ -980,6 +989,7 @@ class AvailabilityGroupInfoResponse(dict):
                  required_synchronized_secondaries_to_commit: Optional[_builtins.int] = None):
         """
         The specifications of the availability group state
+
         :param _builtins.str automated_backup_preference_description: Preferred location for performing backups on the availability databases in this availability group.
         :param _builtins.str cluster_type_description: SQL Server availability group cluster type description
         :param _builtins.str primary_recovery_health_description: Indicates the recovery health of the primary replica.
@@ -1202,6 +1212,7 @@ class AvailabilityGroupStateResponse(dict):
                  synchronization_health_description: _builtins.str):
         """
         The specifications of the availability group state
+
         :param _builtins.str availability_group_replica_role: Current Always On availability groups role of the availability group replica.
         :param _builtins.str connected_state_description: Whether a secondary replica is currently connected to the primary replica.
         :param _builtins.str last_connect_error_description: Text description of the last connection error of the availability group replica.
@@ -1289,6 +1300,7 @@ class BackgroundJobResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The background job details.
+
         :param _builtins.str end_time: The end time of the background job.
         :param _builtins.str execution_state: The execution state of the background job.
         :param _builtins.str last_execution_status: The last execution status of the background job.
@@ -1393,6 +1405,7 @@ class BackupPolicyResponse(dict):
                  transaction_log_backup_minutes: Optional[_builtins.int] = None):
         """
         The backup profile for the SQL server.
+
         :param _builtins.int differential_backup_hours: The differential backup interval in hours.
         :param _builtins.int full_backup_days: The value indicating days between full backups.
         :param _builtins.int retention_period_days: The retention period for all the databases in this managed instance.
@@ -1449,6 +1462,7 @@ class BasicLoginInformationResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Username and password for basic login authentication.
+
         :param _builtins.str username: Login username.
         """
         if username is not None:
@@ -1472,6 +1486,7 @@ class ClientConnectionResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Client connection related configuration.
+
         :param _builtins.bool enabled: Indicates if client connection is enabled for this SQL Server instance.
         """
         if enabled is not None:
@@ -1532,6 +1547,7 @@ class DBMEndpointResponse(dict):
                  role: _builtins.str):
         """
         Database mirroring endpoint related properties.
+
         :param _builtins.str certificate_name: Name of the certificate.
         :param _builtins.str connection_auth: The type of connection authentication required for connections to this endpoint
         :param _builtins.str encryption_algorithm: Encryption Algorithm
@@ -1657,6 +1673,7 @@ class DataBaseMigrationAssessmentResponse(dict):
                  target_readiness: 'outputs.TargetReadinessResponse'):
         """
         The migration assessment related configuration.
+
         :param _builtins.str assessment_upload_time: The time when Migration Assessment Report upload was last performed.
         :param Sequence['DataBaseMigrationAssessmentResponseDatabaseAssessments'] database_assessments: Issues and warnings impacting the migration of Database to particular Azure Migration Target.
         :param 'TargetReadinessResponse' target_readiness: The target readiness for migration for this database.
@@ -1759,6 +1776,7 @@ class DataBaseMigrationResponse(dict):
                  assessment: Optional['outputs.DataBaseMigrationAssessmentResponse'] = None):
         """
         Migration related configuration.
+
         :param 'DataBaseMigrationAssessmentResponse' assessment: Migration assessments related configuration.
         """
         if assessment is not None:
@@ -1833,6 +1851,7 @@ class DataControllerPropertiesResponse(dict):
                  upload_watermark: Optional['outputs.UploadWatermarkResponse'] = None):
         """
         The data controller properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the Arc Data Controller resource.
         :param 'BasicLoginInformationResponse' basic_login_information: Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
         :param _builtins.str cluster_id: If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
@@ -2009,6 +2028,7 @@ class EntraAuthenticationResponse(dict):
                  identity_type: Optional[_builtins.str] = None):
         """
         Entra Authentication configuration.
+
         :param _builtins.str client_id: The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity.
         :param _builtins.str identity_type: The method used for Entra authentication
         """
@@ -2044,6 +2064,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The complex type of the extended location.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -2105,6 +2126,7 @@ class FailoverClusterResponse(dict):
                  sql_instance_ids: Sequence[_builtins.str]):
         """
         Failover Cluster Instance properties.
+
         :param Sequence['HostIPAddressInformationResponse'] host_ip_addresses: The IP addresses and subnet masks associated with the SQL Failover Cluster Instance on this host.
         :param Sequence[_builtins.str] host_names: The host names which are part of the SQL FCI resource group.
         :param _builtins.str id: The GUID of the SQL Server's underlying Failover Cluster.
@@ -2189,6 +2211,7 @@ class FailoverGroupPropertiesResponse(dict):
                  status: Optional[Any] = None):
         """
         The properties of a failover group resource.
+
         :param _builtins.str partner_managed_instance_id: The resource ID of the partner SQL managed instance.
         :param _builtins.str provisioning_state: The provisioning state of the failover group resource.
         :param 'FailoverGroupSpecResponse' spec: The specifications of the failover group resource.
@@ -2275,6 +2298,7 @@ class FailoverGroupSpecResponse(dict):
                  source_mi: Optional[_builtins.str] = None):
         """
         The specifications of the failover group resource.
+
         :param _builtins.str role: The role of the SQL managed instance in this failover group.
         :param _builtins.str partner_mi: The name of the partner SQL managed instance.
         :param _builtins.str partner_mirroring_cert: The mirroring endpoint public certificate for the partner SQL managed instance. Only PEM format is supported.
@@ -2387,6 +2411,7 @@ class HostIPAddressInformationResponse(dict):
                  subnet_mask: _builtins.str):
         """
         IP address and subnet mask.
+
         :param _builtins.str ip_address: IP address
         :param _builtins.str subnet_mask: Subnet mask
         """
@@ -2443,6 +2468,7 @@ class K8sActiveDirectoryResponse(dict):
                  keytab_secret: Optional[_builtins.str] = None):
         """
         The kubernetes active directory information.
+
         :param _builtins.str account_name: Account name for AAD
         :param Sequence[_builtins.str] encryption_types: An array of encryption types
         :param _builtins.str keytab_secret: Keytab secret used to authenticate with Active Directory.
@@ -2528,6 +2554,7 @@ class K8sNetworkSettingsResponse(dict):
                  tlsprotocols: Optional[_builtins.str] = None):
         """
         The kubernetes network settings information.
+
         :param _builtins.int forceencryption: If 1, then SQL Server forces all connections to be encrypted. By default, this option is 0
         :param _builtins.str tlsciphers: Specifies which ciphers are allowed by SQL Server for TLS
         :param _builtins.str tlsprotocols: A comma-separated list of which TLS protocols are allowed by SQL Server
@@ -2574,6 +2601,7 @@ class K8sResourceRequirementsResponse(dict):
                  requests: Optional[Mapping[str, _builtins.str]] = None):
         """
         The kubernetes resource limits and requests used to restrict or reserve resource usage.
+
         :param Mapping[str, _builtins.str] limits: Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
         :param Mapping[str, _builtins.str] requests: Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
         """
@@ -2608,6 +2636,7 @@ class K8sSchedulingOptionsResponse(dict):
                  resources: Optional['outputs.K8sResourceRequirementsResponse'] = None):
         """
         The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+
         :param 'K8sResourceRequirementsResponse' resources: The kubernetes resource limits and requests used to restrict or reserve resource usage.
         """
         if resources is not None:
@@ -2631,6 +2660,7 @@ class K8sSchedulingResponse(dict):
                  default: Optional['outputs.K8sSchedulingOptionsResponse'] = None):
         """
         The kubernetes scheduling information.
+
         :param 'K8sSchedulingOptionsResponse' default: The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
         """
         if default is not None:
@@ -2680,6 +2710,7 @@ class K8sSecurityResponse(dict):
                  transparent_data_encryption: Optional['outputs.K8stransparentDataEncryptionResponse'] = None):
         """
         The kubernetes security information.
+
         :param 'K8sActiveDirectoryResponse' active_directory: The kubernetes active directory information.
         :param _builtins.str admin_login_secret: Admin login secret key
         :param _builtins.str service_certificate_secret: Service certificate secret used
@@ -2736,6 +2767,7 @@ class K8sSettingsResponse(dict):
                  network: Optional['outputs.K8sNetworkSettingsResponse'] = None):
         """
         The kubernetes settings information.
+
         :param 'K8sNetworkSettingsResponse' network: The kubernetes network settings information.
         """
         if network is not None:
@@ -2777,6 +2809,7 @@ class K8stransparentDataEncryptionResponse(dict):
                  protector_secret: Optional[_builtins.str] = None):
         """
         Transparent data encryption information.
+
         :param _builtins.str mode: Transparent data encryption mode. Can be Service Managed, Customer managed or disabled
         :param _builtins.str protector_secret: Protector secret for customer managed Transparent data encryption mode
         """
@@ -2828,6 +2861,7 @@ class LogAnalyticsWorkspaceConfigResponse(dict):
                  workspace_id: Optional[_builtins.str] = None):
         """
         Log analytics workspace id and primary key
+
         :param _builtins.str workspace_id: Azure Log Analytics workspace ID
         """
         if workspace_id is not None:
@@ -2875,6 +2909,7 @@ class MigrationAssessmentResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The migration assessment related configuration.
+
         :param _builtins.str assessment_upload_time: The time when Migration Assessment Report upload was last performed.
         :param Sequence['MigrationAssessmentResponseServerAssessments'] server_assessments: Issues and warnings impacting the migration of SQL Server instance to particular Azure Migration Target.
         :param 'SkuRecommendationResultsResponse' sku_recommendation_results: SKU Recommendation results for Azure migration targets for SQL Server.
@@ -3046,6 +3081,7 @@ class MigrationResponse(dict):
                  assessment: Optional['outputs.MigrationAssessmentResponse'] = None):
         """
         Migration related configuration.
+
         :param 'MigrationAssessmentResponse' assessment: Migration assessments related configuration.
         """
         if assessment is not None:
@@ -3069,6 +3105,7 @@ class MonitoringResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The monitoring configuration.
+
         :param _builtins.bool enabled: Indicates if monitoring is enabled for this SQL Server instance.
         """
         if enabled is not None:
@@ -3113,6 +3150,7 @@ class OnPremisePropertyResponse(dict):
                  signing_certificate_thumbprint: Optional[_builtins.str] = None):
         """
         Properties from the Kubernetes data controller
+
         :param _builtins.str id: A globally unique ID identifying the associated Kubernetes cluster
         :param _builtins.str public_signing_key: Certificate that contains the Kubernetes cluster public key used to verify signing
         :param _builtins.str signing_certificate_thumbprint: Unique thumbprint returned to customer to verify the certificate being uploaded
@@ -3186,6 +3224,7 @@ class PostgresInstancePropertiesResponse(dict):
                  last_uploaded_date: Optional[_builtins.str] = None):
         """
         Postgres Instance properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the Azure Arc-enabled PostgreSQL instance.
         :param _builtins.str admin: The instance admin
         :param 'BasicLoginInformationResponse' basic_login_information: Username and password for basic authentication.
@@ -3268,6 +3307,7 @@ class PostgresInstanceSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
+
         :param _builtins.str name: The name of the SKU.  It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.bool dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
@@ -3351,6 +3391,7 @@ class SequencerActionResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The sequencer action details.
+
         :param _builtins.str action_id: The unique identifier of the sequencer action.
         :param _builtins.str result: The result of the sequencer action.
         :param _builtins.str state: The state of the sequencer action.
@@ -3422,6 +3463,7 @@ class SkuRecommendationResultsAzureSqlDatabaseResponse(dict):
                  target_sku: Optional['outputs.SkuRecommendationResultsAzureSqlDatabaseResponseTargetSku'] = None):
         """
         SKU Recommendation results for Azure SQL Database.
+
         :param 'SkuRecommendationResultsMonthlyCostResponse' monthly_cost: The Monthly cost of the particular SKU.
         :param _builtins.int number_of_server_blocker_issues: Number of blocker issues to fix before migrating to the target platform.
         :param _builtins.str recommendation_status: The target recommendation Status for this database.
@@ -3605,6 +3647,7 @@ class SkuRecommendationResultsAzureSqlManagedInstanceResponse(dict):
                  target_sku: Optional['outputs.SkuRecommendationResultsAzureSqlManagedInstanceResponseTargetSku'] = None):
         """
         SKU Recommendation results for Azure SQL Managed Instance.
+
         :param 'SkuRecommendationResultsMonthlyCostResponse' monthly_cost: The Monthly cost of the particular SKU.
         :param _builtins.int number_of_server_blocker_issues: Number of blocker issues to fix before migrating to the target platform.
         :param _builtins.str recommendation_status: The target recommendation Status for this database.
@@ -3788,6 +3831,7 @@ class SkuRecommendationResultsAzureSqlVirtualMachineResponse(dict):
                  target_sku: Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponseTargetSku'] = None):
         """
         SKU Recommendation results for Azure SQL Virtual Machine.
+
         :param 'SkuRecommendationResultsMonthlyCostResponse' monthly_cost: The Monthly cost of the particular SKU.
         :param _builtins.int number_of_server_blocker_issues: Number of blocker issues to fix before migrating to the target platform.
         :param _builtins.str recommendation_status: The target recommendation Status for this database.
@@ -3926,6 +3970,7 @@ class SkuRecommendationResultsMonthlyCostResponse(dict):
                  total_cost: Optional[_builtins.float] = None):
         """
         The Monthly cost of the particular SKU.
+
         :param _builtins.float compute_cost: Represents the Cost of Compute.
         :param _builtins.float storage_cost: Represents the Cost of Storage.
         :param _builtins.float total_cost: Represents the Total Cost.
@@ -3994,6 +4039,7 @@ class SkuRecommendationResultsResponse(dict):
                  azure_sql_virtual_machine: Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponse'] = None):
         """
         SKU Recommendation results for Azure migration targets for SQL Server.
+
         :param 'SkuRecommendationResultsAzureSqlDatabaseResponse' azure_sql_database: SKU Recommendation results for Azure SQL Database.
         :param 'SkuRecommendationResultsAzureSqlManagedInstanceResponse' azure_sql_managed_instance: SKU Recommendation results for Azure SQL Managed Instance.
         :param 'SkuRecommendationResultsAzureSqlVirtualMachineResponse' azure_sql_virtual_machine: SKU Recommendation results for Azure SQL Virtual Machine.
@@ -4059,6 +4105,7 @@ class SkuRecommendationSummaryResponse(dict):
                  recommendation_status: Optional[_builtins.str] = None):
         """
         The SKU recommendation summary.
+
         :param _builtins.int num_of_blocker_issues: Number of blocker issues to fix before migrating this database to the target platform.
         :param _builtins.str recommendation_status: The target recommendation Status for this database.
         """
@@ -4137,6 +4184,7 @@ class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse(dict):
                  database_name: Optional[_builtins.str] = None):
         """
         The properties of Arc Sql availability group database replica resource
+
         :param _builtins.str database_state_description: Description of the database state of the availability replica.
         :param _builtins.bool is_commit_participant: Whether this replica is transaction committer.
         :param _builtins.bool is_local: Whether the availability database is local.
@@ -4275,6 +4323,7 @@ class SqlAvailabilityGroupReplicaResourcePropertiesResponse(dict):
                  state: Optional['outputs.AvailabilityGroupStateResponse'] = None):
         """
         The properties of Arc Sql availability group replica resource
+
         :param _builtins.str replica_id: ID GUID of the availability group.
         :param 'AvailabilityGroupConfigureResponse' configure: null
         :param _builtins.str replica_name: The replica name.
@@ -4365,6 +4414,7 @@ class SqlAvailabilityGroupStaticIPListenerPropertiesResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         The properties of a static IP Arc Sql availability group listener
+
         :param _builtins.str dns_name: the DNS name for the listener.
         :param Sequence['SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks'] ip_v4_addresses_and_masks: IP V4 Addresses and masks for the listener.
         :param Sequence[_builtins.str] ip_v6_addresses: IP V6 Addresses for the listener
@@ -4469,6 +4519,7 @@ class SqlManagedInstanceK8sRawResponse(dict):
                  spec: Optional['outputs.SqlManagedInstanceK8sSpecResponse'] = None):
         """
         The raw kubernetes information.
+
         :param 'SqlManagedInstanceK8sSpecResponse' spec: The kubernetes spec information.
         """
         if spec is not None:
@@ -4495,6 +4546,7 @@ class SqlManagedInstanceK8sSpecResponse(dict):
                  settings: Optional['outputs.K8sSettingsResponse'] = None):
         """
         The kubernetes spec information.
+
         :param _builtins.int replicas: This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
         :param 'K8sSchedulingResponse' scheduling: The kubernetes scheduling information.
         :param 'K8sSecurityResponse' security: The kubernetes security information.
@@ -4596,6 +4648,7 @@ class SqlManagedInstancePropertiesResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Properties of sqlManagedInstance.
+
         :param _builtins.str provisioning_state: The provisioning state of the Arc-enabled SQL Managed Instance resource.
         :param _builtins.str admin: The instance admin user
         :param 'BasicLoginInformationResponse' basic_login_information: Username and password for basic authentication.
@@ -4735,6 +4788,7 @@ class SqlManagedInstanceSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU for Azure Managed Instance - Azure Arc
+
         :param _builtins.str name: The name of the SKU.
         :param _builtins.int capacity: The SKU capacity
         :param _builtins.bool dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
@@ -4851,6 +4905,7 @@ class SqlServerAvailabilityGroupResourcePropertiesResponse(dict):
                  replicas: Optional['outputs.SqlServerAvailabilityGroupResourcePropertiesResponseReplicas'] = None):
         """
         The properties of Arc Sql Server availability group resource
+
         :param _builtins.str availability_group_id: ID GUID of the availability group.
         :param _builtins.str collection_timestamp: Timestamp for when the data was collected from the client machine.
         :param _builtins.str instance_name: the SQL Server Instance name.
@@ -4974,6 +5029,7 @@ class SqlServerAvailabilityGroupResourcePropertiesResponseDatabases(dict):
                  value: Optional[Sequence['outputs.SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse']] = None):
         """
         A list of Availability Group Database Replicas.
+
         :param _builtins.str next_link: Link to retrieve next page of results.
         :param Sequence['SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse'] value: Array of Availability Group Database Replicas.
         """
@@ -5025,6 +5081,7 @@ class SqlServerAvailabilityGroupResourcePropertiesResponseReplicas(dict):
                  value: Optional[Sequence['outputs.SqlAvailabilityGroupReplicaResourcePropertiesResponse']] = None):
         """
         A list of Availability Group Replicas.
+
         :param _builtins.str next_link: Link to retrieve next page of results.
         :param Sequence['SqlAvailabilityGroupReplicaResourcePropertiesResponse'] value: Array of Availability Group Replicas.
         """
@@ -5131,6 +5188,7 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The properties of Arc Sql Server database resource
+
         :param _builtins.str earliest_restore_date: This records the earliest start date and time that restore is available for this database (ISO8601 format).
         :param _builtins.str last_database_upload_time: The time when last successful database upload was performed.
         :param _builtins.str provisioning_state: The provisioning state of the Arc-enabled SQL Server database resource.
@@ -5561,6 +5619,7 @@ class SqlServerEsuLicensePropertiesResponse(dict):
                  version: _builtins.str):
         """
         Properties of SQL Server ESU license.
+
         :param _builtins.str activated_at: The timestamp of the activation of the SqlServerEsuLicense in ISO 8601 date-time format.
         :param _builtins.str activation_state: The activation state of the license.
         :param _builtins.str billing_plan: SQL Server ESU license type.
@@ -5668,6 +5727,7 @@ class SqlServerInstanceJobStatusResponse(dict):
                  sequencer_actions: Optional[Sequence['outputs.SequencerActionResponse']] = None):
         """
         The status of the job running on the SQL Server instance.
+
         :param 'BackgroundJobResponse' background_job: The background job details.
         :param _builtins.str id: The unique identifier of the job.
         :param _builtins.str instance_name: The name of the SQL Server instance.
@@ -5858,6 +5918,7 @@ class SqlServerInstancePropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Properties of SqlServerInstance.
+
         :param _builtins.str always_on_role: The role of the SQL Server, based on availability.
         :param _builtins.str azure_defender_status: Status of Azure Defender.
         :param _builtins.str azure_defender_status_last_updated: Timestamp of last Azure Defender status update.
@@ -6265,6 +6326,7 @@ class SqlServerInstanceTelemetryColumnResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The telemetry column for the SQL Server instance.
+
         :param _builtins.str name: The name of the telemetry column.
         :param _builtins.str type: The type of the telemetry column.
         """
@@ -6337,6 +6399,7 @@ class SqlServerLicensePropertiesResponse(dict):
                  tenant_id: _builtins.str):
         """
         Properties of SQL Server License.
+
         :param _builtins.str activation_state: The activation state of the license.
         :param _builtins.str billing_plan: SQL Server license type.
         :param _builtins.str last_activated_at: The timestamp of the most recent activation of the SqlServerLicense.
@@ -6461,6 +6524,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -6562,6 +6626,7 @@ class TargetReadinessResponse(dict):
                  azure_sql_virtual_machine: Optional['outputs.SkuRecommendationSummaryResponse'] = None):
         """
         The target readiness for migration for this database.
+
         :param 'SkuRecommendationSummaryResponse' azure_sql_database: The SKU recommendation summary.
         :param 'SkuRecommendationSummaryResponse' azure_sql_managed_instance: The SKU recommendation summary.
         :param 'SkuRecommendationSummaryResponse' azure_sql_virtual_machine: The SKU recommendation summary.
@@ -6628,6 +6693,7 @@ class UploadServicePrincipalResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Service principal for uploading billing, metrics and logs.
+
         :param _builtins.str authority: Authority for the service principal. Example: https://login.microsoftonline.com/
         :param _builtins.str client_id: Client ID of the service principal for uploading data.
         :param _builtins.str tenant_id: Tenant ID of the service principal.
@@ -6675,6 +6741,7 @@ class UploadWatermarkResponse(dict):
                  usages: Optional[_builtins.str] = None):
         """
         Properties on upload watermark.  Mostly timestamp for each upload data type
+
         :param _builtins.str logs: Last uploaded date for logs from kubernetes cluster. Defaults to current date time
         :param _builtins.str metrics: Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
         :param _builtins.str usages: Last uploaded date for usages from kubernetes cluster. Defaults to current date time

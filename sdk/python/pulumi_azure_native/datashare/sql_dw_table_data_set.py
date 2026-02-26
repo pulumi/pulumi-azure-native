@@ -31,6 +31,7 @@ class SqlDWTableDataSetArgs:
                  data_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlDWTableDataSet resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] data_warehouse_name: DataWarehouse name of the source data set
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
@@ -184,6 +185,7 @@ class SqlDWTableDataSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
@@ -207,6 +209,7 @@ class SqlDWTableDataSet(pulumi.CustomResource):
         A SQL DW table data set.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
 
         :param str resource_name: The name of the resource.
         :param SqlDWTableDataSetArgs args: The arguments to use to populate this resource's properties.

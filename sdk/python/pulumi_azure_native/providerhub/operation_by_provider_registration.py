@@ -23,6 +23,7 @@ class OperationByProviderRegistrationArgs:
                  provider_namespace: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OperationByProviderRegistration resource.
+
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
         pulumi.set(__self__, "provider_namespace", provider_namespace)
@@ -55,6 +56,7 @@ class OperationByProviderRegistration(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -71,6 +73,7 @@ class OperationByProviderRegistration(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param OperationByProviderRegistrationArgs args: The arguments to use to populate this resource's properties.

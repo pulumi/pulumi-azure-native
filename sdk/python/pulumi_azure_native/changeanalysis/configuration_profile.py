@@ -28,6 +28,7 @@ class ConfigurationProfileArgs:
                  properties: Optional[pulumi.Input['ConfigurationProfileResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
+
         :param pulumi.Input['ResourceIdentityArgs'] identity: The identity block returned by ARM resource that supports managed identity.
         :param pulumi.Input[_builtins.str] location: The location where the resource is to be deployed.
         :param pulumi.Input[_builtins.str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
@@ -107,6 +108,7 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-04-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The identity block returned by ARM resource that supports managed identity.
@@ -124,6 +126,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         A profile object that contains change analysis configuration, such as notification settings, for this subscription
 
         Uses Azure REST API version 2020-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-04-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

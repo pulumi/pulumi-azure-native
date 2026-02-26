@@ -96,6 +96,7 @@ class AzureBlobDefinitionResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Parameters to reconcile to the AzureBlob source kind type.
+
         :param _builtins.str account_key: The account key (shared key) to access the storage account
         :param _builtins.str container_name: The Azure Blob container name to sync from the url endpoint for the flux configuration.
         :param _builtins.str local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
@@ -242,6 +243,7 @@ class BucketDefinitionResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Parameters to reconcile to the Bucket source kind type.
+
         :param _builtins.str access_key: Plaintext access key used to securely access the S3 bucket
         :param _builtins.str bucket_name: The bucket name to sync from the url endpoint for the flux configuration.
         :param _builtins.bool insecure: Specify whether to use insecure communication when puling data from the S3 bucket.
@@ -361,6 +363,7 @@ class ComplianceStatusResponse(dict):
                  message_level: Optional[_builtins.str] = None):
         """
         Compliance Status details
+
         :param _builtins.str compliance_state: The compliance state of the configuration.
         :param _builtins.str last_config_applied: Datetime the configuration was last applied.
         :param _builtins.str message: Message from when the configuration was applied.
@@ -417,6 +420,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -470,6 +474,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -553,6 +558,7 @@ class ExtensionResponseAksAssignedIdentity(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity of the Extension resource in an AKS cluster
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -617,6 +623,7 @@ class ExtensionStatusResponse(dict):
                  time: Optional[_builtins.str] = None):
         """
         Status from the extension.
+
         :param _builtins.str code: Status code provided by the Extension
         :param _builtins.str display_status: Short description of status of the extension.
         :param _builtins.str level: Level of the status.
@@ -722,6 +729,7 @@ class GitRepositoryDefinitionResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Parameters to reconcile to the GitRepository source kind type.
+
         :param _builtins.str https_ca_cert: Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
         :param _builtins.str https_user: Plaintext HTTPS username used to access private git repositories over HTTPS
         :param _builtins.str local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
@@ -846,6 +854,7 @@ class HelmOperatorPropertiesResponse(dict):
                  chart_version: Optional[_builtins.str] = None):
         """
         Properties for Helm operator.
+
         :param _builtins.str chart_values: Values override for the operator Helm chart.
         :param _builtins.str chart_version: Version of the operator Helm chart.
         """
@@ -909,6 +918,7 @@ class HelmReleasePropertiesDefinitionResponse(dict):
                  upgrade_failure_count: Optional[_builtins.float] = None):
         """
         Properties for HelmRelease objects
+
         :param _builtins.float failure_count: Total number of times that the HelmRelease failed to install or upgrade
         :param 'ObjectReferenceDefinitionResponse' helm_chart_ref: The reference to the HelmChart object used as the source to this HelmRelease
         :param _builtins.float install_failure_count: Number of times that the HelmRelease failed to install
@@ -997,6 +1007,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -1069,6 +1080,7 @@ class KubernetesConfigurationPrivateLinkScopePropertiesResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         Properties that define a Azure Arc PrivateLinkScope resource.
+
         :param _builtins.str cluster_resource_id: Managed Cluster ARM ID for the private link scope  (Required)
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The collection of associated Private Endpoint Connections.
         :param _builtins.str private_link_scope_id: The Guid id of the private link scope.
@@ -1166,6 +1178,7 @@ class KustomizationDefinitionResponse(dict):
                  wait: Optional[_builtins.bool] = None):
         """
         The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
+
         :param _builtins.str name: Name of the Kustomization, matching the key in the Kustomizations object map.
         :param Sequence[_builtins.str] depends_on: Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         :param _builtins.bool force: Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
@@ -1316,6 +1329,7 @@ class ManagedIdentityDefinitionResponse(dict):
                  client_id: Optional[_builtins.str] = None):
         """
         Parameters to authenticate using a Managed Identity.
+
         :param _builtins.str client_id: The client Id for authenticating a Managed Identity.
         """
         if client_id is not None:
@@ -1340,6 +1354,7 @@ class ObjectReferenceDefinitionResponse(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Object reference to a Kubernetes object on a cluster
+
         :param _builtins.str name: Name of the object
         :param _builtins.str namespace: Namespace of the object
         """
@@ -1395,6 +1410,7 @@ class ObjectStatusConditionDefinitionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Status condition of Kubernetes object
+
         :param _builtins.str last_transition_time: Last time this status condition has changed
         :param _builtins.str message: A more verbose description of the object status condition
         :param _builtins.str reason: Reason for the specified status condition type status
@@ -1491,6 +1507,7 @@ class ObjectStatusDefinitionResponse(dict):
                  status_conditions: Optional[Sequence['outputs.ObjectStatusConditionDefinitionResponse']] = None):
         """
         Statuses of objects deployed by the user-specified kustomizations from the git repository.
+
         :param 'ObjectReferenceDefinitionResponse' applied_by: Object reference to the Kustomization that applied this object
         :param _builtins.str compliance_state: Compliance state of the applied object showing whether the applied object has come into a ready state on the cluster.
         :param 'HelmReleasePropertiesDefinitionResponse' helm_release_properties: Additional properties that are provided from objects of the HelmRelease kind
@@ -1601,6 +1618,7 @@ class PlanResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Plan for the resource.
+
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
         :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
@@ -1683,6 +1701,7 @@ class PostBuildDefinitionResponse(dict):
                  substitute_from: Optional[Sequence['outputs.SubstituteFromDefinitionResponse']] = None):
         """
         The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
+
         :param Mapping[str, _builtins.str] substitute: Key/value pairs holding the variables to be substituted in this Kustomization.
         :param Sequence['SubstituteFromDefinitionResponse'] substitute_from: Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
         """
@@ -1746,6 +1765,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -1829,6 +1849,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -1870,6 +1891,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1918,6 +1940,7 @@ class RepositoryRefDefinitionResponse(dict):
                  tag: Optional[_builtins.str] = None):
         """
         The source reference for the GitRepository object.
+
         :param _builtins.str branch: The git repository branch name to checkout.
         :param _builtins.str commit: The commit SHA to checkout. This value must be combined with the branch name to be valid. This takes precedence over semver.
         :param _builtins.str semver: The semver range used to match against git repository tags. This takes precedence over tag.
@@ -1991,6 +2014,7 @@ class ScopeClusterResponse(dict):
                  release_namespace: Optional[_builtins.str] = None):
         """
         Specifies that the scope of the extension is Cluster
+
         :param _builtins.str release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
         if release_namespace is not None:
@@ -2031,6 +2055,7 @@ class ScopeNamespaceResponse(dict):
                  target_namespace: Optional[_builtins.str] = None):
         """
         Specifies that the scope of the extension is Namespace
+
         :param _builtins.str target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
         if target_namespace is not None:
@@ -2055,6 +2080,7 @@ class ScopeResponse(dict):
                  namespace: Optional['outputs.ScopeNamespaceResponse'] = None):
         """
         Scope of the extension. It can be either Cluster or Namespace; but not both.
+
         :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extension is Cluster
         :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extension is Namespace
         """
@@ -2121,6 +2147,7 @@ class ServicePrincipalDefinitionResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Parameters to authenticate using Service Principal.
+
         :param _builtins.str client_certificate: Base64-encoded certificate used to authenticate a Service Principal 
         :param _builtins.str client_certificate_password: The password for the certificate used to authenticate a Service Principal 
         :param _builtins.bool client_certificate_send_chain: Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
@@ -2203,6 +2230,7 @@ class SubstituteFromDefinitionResponse(dict):
                  optional: Optional[_builtins.bool] = None):
         """
         Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+
         :param _builtins.str kind: Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
         :param _builtins.str name: Name of the ConfigMap/Secret that holds the variables to be used in substitution.
         :param _builtins.bool optional: Set to True to proceed without ConfigMap/Secret, if it is not present.
@@ -2282,6 +2310,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

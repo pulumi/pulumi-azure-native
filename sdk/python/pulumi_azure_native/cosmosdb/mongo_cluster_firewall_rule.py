@@ -27,6 +27,7 @@ class MongoClusterFirewallRuleArgs:
                  firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MongoClusterFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
         :param pulumi.Input[_builtins.str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +121,7 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
@@ -140,6 +142,7 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-15-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param MongoClusterFirewallRuleArgs args: The arguments to use to populate this resource's properties.

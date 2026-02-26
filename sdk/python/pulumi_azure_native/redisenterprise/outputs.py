@@ -61,6 +61,7 @@ class AccessPolicyAssignmentPropertiesResponseUser(dict):
                  object_id: Optional[_builtins.str] = None):
         """
         The user associated with the access policy.
+
         :param _builtins.str object_id: The object ID of the user.
         """
         if object_id is not None:
@@ -104,6 +105,7 @@ class ClusterPropertiesResponseCustomerManagedKeyEncryption(dict):
                  key_encryption_key_url: Optional[_builtins.str] = None):
         """
         All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+
         :param 'ClusterPropertiesResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param _builtins.str key_encryption_key_url: Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
         """
@@ -155,6 +157,7 @@ class ClusterPropertiesResponseEncryption(dict):
                  customer_managed_key_encryption: Optional['outputs.ClusterPropertiesResponseCustomerManagedKeyEncryption'] = None):
         """
         Encryption-at-rest configuration for the cluster.
+
         :param 'ClusterPropertiesResponseCustomerManagedKeyEncryption' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
         """
         if customer_managed_key_encryption is not None:
@@ -198,6 +201,7 @@ class ClusterPropertiesResponseKeyEncryptionKeyIdentity(dict):
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
         :param _builtins.str identity_type: Only userAssignedIdentity is supported in this API version; other types may be supported in the future
         :param _builtins.str user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
         """
@@ -252,6 +256,7 @@ class DatabasePropertiesResponseGeoReplication(dict):
                  linked_databases: Optional[Sequence['outputs.LinkedDatabaseResponse']] = None):
         """
         Optional set of properties to configure geo replication for this database.
+
         :param _builtins.str group_nickname: Name for the group of linked database resources
         :param Sequence['LinkedDatabaseResponse'] linked_databases: List of database resources to link with this database
         """
@@ -287,6 +292,7 @@ class LinkedDatabaseResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Specifies details of a linked database resource.
+
         :param _builtins.str state: State of the link between the database resources.
         :param _builtins.str id: Resource ID of a database resource to link with this database.
         """
@@ -344,6 +350,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -399,6 +406,7 @@ class ModuleResponse(dict):
                  args: Optional[_builtins.str] = None):
         """
         Specifies configuration of a redis module
+
         :param _builtins.str name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
         :param _builtins.str version: The version of the module, e.g. '1.0'.
         :param _builtins.str args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
@@ -468,6 +476,7 @@ class PersistenceResponse(dict):
                  rdb_frequency: Optional[_builtins.str] = None):
         """
         Persistence-related configuration for the Redis Enterprise database
+
         :param _builtins.bool aof_enabled: Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         :param _builtins.str aof_frequency: Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         :param _builtins.bool rdb_enabled: Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
@@ -550,6 +559,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -623,6 +633,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -664,6 +675,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -710,6 +722,7 @@ class SkuDetailsResponse(dict):
                  size_in_gb: _builtins.float):
         """
         Details of a Redis Enterprise cluster SKU.
+
         :param _builtins.str name: The name of the SKU.
         :param _builtins.float size_in_gb: The cache size in GB.
         """
@@ -743,6 +756,7 @@ class SkuResponse(dict):
                  capacity: Optional[_builtins.int] = None):
         """
         SKU parameters supplied to the create Redis Enterprise cluster operation.
+
         :param _builtins.str name: The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
         :param _builtins.int capacity: This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
@@ -808,6 +822,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -906,6 +921,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

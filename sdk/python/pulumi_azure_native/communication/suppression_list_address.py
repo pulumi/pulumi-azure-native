@@ -31,6 +31,7 @@ class SuppressionListAddressArgs:
                  notes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SuppressionListAddress resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the Domains resource.
         :param pulumi.Input[_builtins.str] email: Email address of the recipient.
         :param pulumi.Input[_builtins.str] email_service_name: The name of the EmailService resource.
@@ -187,6 +188,7 @@ class SuppressionListAddress(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_id: The id of the address in a suppression list.
@@ -211,6 +213,7 @@ class SuppressionListAddress(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SuppressionListAddressArgs args: The arguments to use to populate this resource's properties.

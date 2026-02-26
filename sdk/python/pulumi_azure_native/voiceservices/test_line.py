@@ -30,6 +30,7 @@ class TestLineArgs:
                  test_line_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TestLine resource.
+
         :param pulumi.Input[_builtins.str] communications_gateway_name: Unique identifier for this deployment
         :param pulumi.Input[_builtins.str] phone_number: The phone number
         :param pulumi.Input[Union[_builtins.str, 'TestLinePurpose']] purpose: Purpose of this test line, e.g. automated or manual testing
@@ -155,6 +156,7 @@ class TestLine(pulumi.CustomResource):
 
         Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] communications_gateway_name: Unique identifier for this deployment
@@ -177,6 +179,7 @@ class TestLine(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
 
         Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param TestLineArgs args: The arguments to use to populate this resource's properties.

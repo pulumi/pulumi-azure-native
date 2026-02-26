@@ -29,6 +29,7 @@ class ReportArgs:
                  schedule: Optional[pulumi.Input['ReportScheduleArgs']] = None):
         """
         The set of arguments for constructing a Report resource.
+
         :param pulumi.Input['ReportDefinitionArgs'] definition: Has definition for the report.
         :param pulumi.Input['ReportDeliveryInfoArgs'] delivery_info: Has delivery information for the report.
         :param pulumi.Input[Union[_builtins.str, 'FormatType']] format: The format of the report being delivered.
@@ -122,6 +123,7 @@ class Report(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']] definition: Has definition for the report.
@@ -140,6 +142,7 @@ class Report(pulumi.CustomResource):
         A report resource.
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ReportArgs args: The arguments to use to populate this resource's properties.

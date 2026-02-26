@@ -31,6 +31,7 @@ class RoleAssignmentArtifactArgs:
                  resource_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleAssignmentArtifact resource.
+
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of blueprint artifact.
                Expected value is 'roleAssignment'.
@@ -203,6 +204,7 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_name: Name of the blueprint artifact.
@@ -227,6 +229,7 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
         Blueprint artifact that applies a Role assignment.
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArtifactArgs args: The arguments to use to populate this resource's properties.

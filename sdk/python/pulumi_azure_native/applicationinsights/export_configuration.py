@@ -33,6 +33,7 @@ class ExportConfigurationArgs:
                  record_types: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExportConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] destination_account_id: The name of destination storage account.
@@ -238,6 +239,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_account_id: The name of destination storage account.
@@ -263,6 +265,7 @@ class ExportConfiguration(pulumi.CustomResource):
         Properties that define a Continuous Export configuration.
 
         Uses Azure REST API version 2015-05-01.
+
 
         :param str resource_name: The name of the resource.
         :param ExportConfigurationArgs args: The arguments to use to populate this resource's properties.

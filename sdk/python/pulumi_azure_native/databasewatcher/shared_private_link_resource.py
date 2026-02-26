@@ -29,6 +29,7 @@ class SharedPrivateLinkResourceArgs:
                  shared_private_link_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
+
         :param pulumi.Input[_builtins.str] group_id: The group id from the provider of resource the shared private link resource is for.
         :param pulumi.Input[_builtins.str] private_link_resource_id: The resource ID of the resource the shared private link resource is for.
         :param pulumi.Input[_builtins.str] request_message: The request message for requesting approval of the shared private link resource.
@@ -153,6 +154,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dns_zone: The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
@@ -175,6 +177,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.

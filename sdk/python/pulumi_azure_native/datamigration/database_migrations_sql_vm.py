@@ -28,6 +28,7 @@ class DatabaseMigrationsSqlVmArgs:
                  target_db_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseMigrationsSqlVm resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input['DatabaseMigrationPropertiesSqlVmArgs'] properties: Database Migration Resource properties for SQL Virtual Machine.
         :param pulumi.Input[_builtins.str] target_db_name: The name of the target database.
@@ -103,6 +104,7 @@ class DatabaseMigrationsSqlVm(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DatabaseMigrationPropertiesSqlVmArgs', 'DatabaseMigrationPropertiesSqlVmArgsDict']] properties: Database Migration Resource properties for SQL Virtual Machine.
@@ -121,6 +123,7 @@ class DatabaseMigrationsSqlVm(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-30.
 
         Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseMigrationsSqlVmArgs args: The arguments to use to populate this resource's properties.

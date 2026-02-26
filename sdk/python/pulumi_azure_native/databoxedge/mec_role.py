@@ -32,6 +32,7 @@ class MECRoleArgs:
                  resource_unique_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MECRole resource.
+
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.str] kind: Role type.
                Expected value is 'MEC'.
@@ -173,6 +174,7 @@ class MECRole(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']] connection_string: Activation key of the MEC.
@@ -195,6 +197,7 @@ class MECRole(pulumi.CustomResource):
         MEC role.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+
 
         :param str resource_name: The name of the resource.
         :param MECRoleArgs args: The arguments to use to populate this resource's properties.

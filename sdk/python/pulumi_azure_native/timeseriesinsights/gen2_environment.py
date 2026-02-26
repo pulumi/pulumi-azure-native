@@ -33,6 +33,7 @@ class Gen2EnvironmentArgs:
                  warm_store_configuration: Optional[pulumi.Input['WarmStoreConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Gen2Environment resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the environment.
                Expected value is 'Gen2'.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
@@ -189,6 +190,7 @@ class Gen2Environment(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_name: Name of the environment
@@ -212,6 +214,7 @@ class Gen2Environment(pulumi.CustomResource):
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
+
 
         :param str resource_name: The name of the resource.
         :param Gen2EnvironmentArgs args: The arguments to use to populate this resource's properties.

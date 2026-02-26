@@ -27,6 +27,7 @@ class LinkerDryrunArgs:
                  parameters: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']] = None):
         """
         The set of arguments for constructing a LinkerDryrun resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
         :param pulumi.Input[_builtins.str] dryrun_name: The name of dryrun.
         :param pulumi.Input['CreateOrUpdateDryrunParametersArgs'] parameters: The parameters of the dryrun
@@ -91,6 +92,7 @@ class LinkerDryrun(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dryrun_name: The name of dryrun.
@@ -109,6 +111,7 @@ class LinkerDryrun(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param LinkerDryrunArgs args: The arguments to use to populate this resource's properties.

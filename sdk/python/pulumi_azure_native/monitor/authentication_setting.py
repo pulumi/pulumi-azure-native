@@ -28,6 +28,7 @@ class AuthenticationSettingArgs:
                  properties: Optional[pulumi.Input['ManagedIdentityAuthenticationSettingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthenticationSetting resource.
+
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +121,7 @@ class AuthenticationSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-03-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_setting_name: Name of the authentication setting. Must be unique within a health model.
@@ -138,6 +140,7 @@ class AuthenticationSetting(pulumi.CustomResource):
         An authentication setting in a health model
 
         Uses Azure REST API version 2025-05-03-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AuthenticationSettingArgs args: The arguments to use to populate this resource's properties.

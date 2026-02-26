@@ -35,6 +35,7 @@ class GroundStationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GroundStation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]] capabilities: Ground station capabilities.
         :param pulumi.Input['GroundStationsPropertiesGlobalCommunicationsSiteArgs'] global_communications_site: A reference to global communications site.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -225,6 +226,7 @@ class GroundStation(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] altitude_meters: Altitude of the ground station.
@@ -251,6 +253,7 @@ class GroundStation(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param GroundStationArgs args: The arguments to use to populate this resource's properties.

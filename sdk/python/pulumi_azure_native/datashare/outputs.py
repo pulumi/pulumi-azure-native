@@ -55,6 +55,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity of resource
+
         :param _builtins.str principal_id: service principal Id
         :param _builtins.str tenant_id: Tenant Id
         :param _builtins.str type: Identity Type
@@ -100,6 +101,7 @@ class ScheduledSourceSynchronizationSettingResponse(dict):
                  synchronization_time: Optional[_builtins.str] = None):
         """
         A type of synchronization setting based on schedule
+
         :param _builtins.str kind: Kind of synchronization setting on share.
                Expected value is 'ScheduleBased'.
         :param _builtins.str recurrence_interval: Recurrence Interval
@@ -152,6 +154,7 @@ class ShareSubscriptionSynchronizationResponse(dict):
                  synchronization_mode: _builtins.str):
         """
         A ShareSubscriptionSynchronization data transfer object.
+
         :param _builtins.int duration_ms: Synchronization duration
         :param _builtins.str end_time: End time of synchronization
         :param _builtins.str message: message of Synchronization
@@ -243,6 +246,7 @@ class ShareSynchronizationResponse(dict):
                  synchronization_id: Optional[_builtins.str] = None):
         """
         A ShareSynchronization data transfer object.
+
         :param _builtins.str synchronization_mode: Synchronization mode
         :param _builtins.str consumer_email: Email of the user who created the synchronization
         :param _builtins.str consumer_name: Name of the user who created the synchronization
@@ -378,6 +382,7 @@ class SynchronizationDetailsResponse(dict):
                  v_core: _builtins.float):
         """
         Synchronization details at data set level
+
         :param _builtins.str data_set_id: Id of data set
         :param _builtins.str data_set_type: Type of the data set
         :param _builtins.int duration_ms: Duration of data set level copy
@@ -572,6 +577,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -682,6 +688,7 @@ class TableLevelSharingPropertiesResponse(dict):
                  tables_to_include: Optional[Sequence[_builtins.str]] = None):
         """
         Table level sharing properties dto for kusto data set properties
+
         :param Sequence[_builtins.str] external_tables_to_exclude: External tables to be excluded in the data set
         :param Sequence[_builtins.str] external_tables_to_include: External tables to be included in the data set
         :param Sequence[_builtins.str] materialized_views_to_exclude: Materialized views to be excluded in the data set

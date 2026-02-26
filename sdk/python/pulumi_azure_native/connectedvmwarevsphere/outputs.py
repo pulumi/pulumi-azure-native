@@ -58,6 +58,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -111,6 +112,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -174,6 +176,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The extended location.
+
         :param _builtins.str name: The extended location name.
         :param _builtins.str type: The extended location type.
         """
@@ -241,6 +244,7 @@ class GuestAgentProfileResponse(dict):
                  client_public_key: Optional[_builtins.str] = None):
         """
         Specifies the guest agent settings for the virtual machine.
+
         :param _builtins.str agent_version: The hybrid machine agent full version.
         :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
         :param _builtins.str last_status_change: The time of the last status change.
@@ -342,6 +346,7 @@ class GuestCredentialResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Username / Password Credentials to connect to guest.
+
         :param _builtins.str private_key: Private key used to authenticate to a virtual machine through ssh.
         :param _builtins.str username: Gets or sets username to connect with the guest.
         """
@@ -408,6 +413,7 @@ class HardwareProfileResponse(dict):
                  num_cores_per_socket: Optional[_builtins.int] = None):
         """
         Specifies the hardware settings for the virtual machine.
+
         :param _builtins.bool cpu_hot_add_enabled: Gets or sets a value indicating whether virtual processors can be added while this virtual machine is running.
         :param _builtins.bool cpu_hot_remove_enabled: Gets or sets a value indicating whether virtual processors can be removed while this virtual machine is running.
         :param _builtins.bool memory_hot_add_enabled: Gets or sets a value indicating whether memory can be added while this virtual machine is running.
@@ -500,6 +506,7 @@ class HttpProxyConfigurationResponse(dict):
                  https_proxy: Optional[_builtins.str] = None):
         """
         HTTP Proxy configuration for the VM.
+
         :param _builtins.str https_proxy: Gets or sets httpsProxy url.
         """
         if https_proxy is not None:
@@ -544,6 +551,7 @@ class IdentityResponse(dict):
                  type: _builtins.str):
         """
         Managed service identity.
+
         :param _builtins.str principal_id: The principal id of managed service identity.
         :param _builtins.str tenant_id: The tenant of managed service identity.
         :param _builtins.str type: The type of managed service identity.
@@ -630,6 +638,7 @@ class InfrastructureProfileResponse(dict):
                  v_center_id: Optional[_builtins.str] = None):
         """
         Specifies the vCenter infrastructure specific settings for the virtual machine.
+
         :param _builtins.str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
         :param _builtins.str folder_path: Gets or sets the folder path of the vm.
         :param _builtins.str instance_uuid: Gets or sets the instance uuid of the vm.
@@ -768,6 +777,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
                  time: _builtins.str):
         """
         Instance view status.
+
         :param _builtins.str code: The status code.
         :param _builtins.str display_status: The short localizable label for the status.
         :param _builtins.str level: The level code.
@@ -850,6 +860,7 @@ class MachineExtensionPropertiesResponseInstanceView(dict):
                  status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None):
         """
         The machine extension instance view.
+
         :param _builtins.str name: The machine extension name.
         :param _builtins.str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param _builtins.str type_handler_version: Specifies the version of the script handler.
@@ -946,6 +957,7 @@ class NetworkInterfaceResponse(dict):
                  power_on_boot: Optional[_builtins.str] = None):
         """
         Network Interface model
+
         :param Sequence[_builtins.str] ip_addresses: Gets or sets the nic ip addresses.
         :param _builtins.str label: Gets or sets the label of the virtual network in vCenter that the nic is connected to.
         :param _builtins.str mac_address: Gets or sets the NIC MAC address.
@@ -1093,6 +1105,7 @@ class NetworkProfileResponse(dict):
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None):
         """
         Specifies the network interfaces of the virtual machine.
+
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: Gets or sets the list of network interfaces associated with the virtual machine.
         """
         if network_interfaces is not None:
@@ -1139,6 +1152,7 @@ class NicIPAddressSettingsResponse(dict):
                  subnet_mask: _builtins.str):
         """
         IP address information for a virtual network adapter reported by the fabric.
+
         :param _builtins.str allocation_method: Gets the ip address allocation method.
         :param _builtins.str ip_address: Gets the ip address for the nic.
         :param _builtins.str subnet_mask: Gets the mask.
@@ -1217,6 +1231,7 @@ class NicIPSettingsResponse(dict):
                  subnet_mask: Optional[_builtins.str] = None):
         """
         Defines the network interface ip settings.
+
         :param Sequence['NicIPAddressSettingsResponse'] ip_address_info: Gets or sets the IP address information being reported for this NIC. This contains the same IPv4 information above plus IPV6 information.
         :param _builtins.str primary_wins_server: Gets or sets the primary server.
         :param _builtins.str secondary_wins_server: Gets or sets the secondary server.
@@ -1355,6 +1370,7 @@ class OsProfileForVMInstanceResponse(dict):
                  windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None):
         """
         Specifies the operating system settings for the virtual machine.
+
         :param _builtins.str os_sku: Gets or sets os sku.
         :param _builtins.str tools_running_status: Gets or sets the current running status of VMware Tools running in the guest operating system.
         :param _builtins.str tools_version: Gets or sets the current version of VMware Tools.
@@ -1509,6 +1525,7 @@ class OsProfileResponse(dict):
                  windows_configuration: Optional['outputs.OsProfileResponseWindowsConfiguration'] = None):
         """
         Specifies the operating system settings for the virtual machine.
+
         :param _builtins.bool allow_extension_operations: Gets or sets a value indicating whether the VM is ready for extension operations.
         :param _builtins.str os_name: Gets or sets os name.
         :param _builtins.str tools_running_status: Gets or sets the current running status of VMware Tools running in the guest operating system.
@@ -1657,6 +1674,7 @@ class OsProfileResponseLinuxConfiguration(dict):
                  patch_mode: Optional[_builtins.str] = None):
         """
         Specifies the linux configuration for update management.
+
         :param _builtins.str assessment_mode: Specifies the assessment mode.
         :param _builtins.str patch_mode: Specifies the patch mode.
         """
@@ -1711,6 +1729,7 @@ class OsProfileResponseWindowsConfiguration(dict):
                  patch_mode: Optional[_builtins.str] = None):
         """
         Specifies the windows configuration for update management.
+
         :param _builtins.str assessment_mode: Specifies the assessment mode.
         :param _builtins.str patch_mode: Specifies the patch mode.
         """
@@ -1771,6 +1790,7 @@ class PlacementProfileResponse(dict):
                  resource_pool_id: Optional[_builtins.str] = None):
         """
         Specifies the compute and storage placement settings for the virtual machine.
+
         :param _builtins.str cluster_id: Gets or sets the ARM Id of the cluster resource on which this virtual machine will deploy.
         :param _builtins.str datastore_id: Gets or sets the ARM Id of the datastore resource on which the data for the virtual machine will be kept.
         :param _builtins.str host_id: Gets or sets the ARM Id of the host resource on which this virtual machine will deploy.
@@ -1849,6 +1869,7 @@ class ResourceStatusResponse(dict):
                  type: _builtins.str):
         """
         The resource status information.
+
         :param _builtins.str last_updated_at: The last update time for this condition.
         :param _builtins.str message: A human readable message indicating details about the status.
         :param _builtins.str reason: The reason for the condition's status.
@@ -1938,6 +1959,7 @@ class SecurityProfileResponse(dict):
                  uefi_settings: Optional['outputs.UefiSettingsResponse'] = None):
         """
         Specifies the Security profile settings for the virtual machine.
+
         :param 'UefiSettingsResponse' uefi_settings: Specifies the security settings like secure boot used while creating the virtual machine.
         """
         if uefi_settings is not None:
@@ -1979,6 +2001,7 @@ class StorageProfileResponse(dict):
                  disks: Optional[Sequence['outputs.VirtualDiskResponse']] = None):
         """
         Specifies the storage settings for the virtual machine disks.
+
         :param Sequence['VirtualSCSIControllerResponse'] scsi_controllers: Gets or sets the list of virtual SCSI controllers associated with the virtual machine.
         :param Sequence['VirtualDiskResponse'] disks: Gets or sets the list of virtual disks associated with the virtual machine.
         """
@@ -2044,6 +2067,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2139,6 +2163,7 @@ class UefiSettingsResponse(dict):
                  secure_boot_enabled: Optional[_builtins.bool] = None):
         """
         Specifies the security settings like secure boot used while creating the virtual machine.
+
         :param _builtins.bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
         """
         if secure_boot_enabled is not None:
@@ -2162,6 +2187,7 @@ class VICredentialResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Username / Password Credentials to connect to vcenter.
+
         :param _builtins.str username: Gets or sets username to connect with the vCenter.
         """
         if username is not None:
@@ -2225,6 +2251,7 @@ class VirtualDiskResponse(dict):
                  unit_number: Optional[_builtins.int] = None):
         """
         Virtual disk model
+
         :param _builtins.str disk_object_id: Gets or sets the disk object id.
         :param _builtins.str label: Gets or sets the label of the virtual disk in vCenter.
         :param _builtins.int controller_key: Gets or sets the controller id.
@@ -2370,6 +2397,7 @@ class VirtualSCSIControllerResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         This data object type contains the properties of a SCSI controller device attached to a virtual machine that is reported by the controller.
+
         :param _builtins.int bus_number: Gets or sets the bus number of the controller.
         :param _builtins.int controller_key: Gets or sets the key of the controller.
         :param _builtins.int scsi_ctlr_unit_number: Gets or sets the SCSI controller unit number.
@@ -2481,6 +2509,7 @@ class WindowsConfigurationResponse(dict):
                  work_group_name: Optional[_builtins.str] = None):
         """
         Specifies the Windows Configuration settings for the virtual machine.
+
         :param _builtins.bool auto_logon: Sets a value indicating whether auto logon is enabled.
         :param _builtins.int auto_logon_count: Sets auto logon count.
         :param _builtins.str domain_name: Sets domain name that vm should join.

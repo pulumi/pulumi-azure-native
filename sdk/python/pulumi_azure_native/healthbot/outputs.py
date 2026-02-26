@@ -36,6 +36,7 @@ class HealthBotKeyResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         An entry of HealthBotKeysResponse
+
         :param _builtins.str key_name: The name of the key.
         :param _builtins.str value: The value of the key.
         """
@@ -93,6 +94,7 @@ class HealthBotPropertiesResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+
         :param _builtins.str bot_management_portal_link: The link.
         :param _builtins.str provisioning_state: The provisioning state of the Azure Health Bot resource.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: KeyVault properties for the resource encryption.
@@ -160,6 +162,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of resource. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
@@ -242,6 +245,7 @@ class KeyVaultPropertiesResponse(dict):
                  user_identity: Optional[_builtins.str] = None):
         """
         Properties of the key vault.
+
         :param _builtins.str key_name: The name of the key vault key.
         :param _builtins.str key_vault_uri: The Uri of the key vault.
         :param _builtins.str key_version: The version of the key vault key.
@@ -296,6 +300,7 @@ class SkuResponse(dict):
                  name: _builtins.str):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the Azure Health Bot SKU
         """
         pulumi.set(__self__, "name", name)
@@ -350,6 +355,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Read only system data
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC)
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource
@@ -448,6 +454,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         The details of the user assigned managed identity used by the Video Analyzer resource.
+
         :param _builtins.str client_id: The client ID of user assigned identity.
         :param _builtins.str principal_id: The principal ID of user assigned identity.
         """

@@ -39,6 +39,7 @@ class NewNotificationsResponse(dict):
                  plans: Optional[Sequence['outputs.PlanNotificationDetailsResponse']] = None):
         """
         New plans notification details
+
         :param _builtins.str display_name: Gets offer display name
         :param _builtins.str icon: Gets or sets the icon url
         :param _builtins.bool is_future_plans_enabled: Gets a value indicating whether future plans is enabled.
@@ -118,6 +119,7 @@ class PlanNotificationDetailsResponse(dict):
                  plan_id: Optional[_builtins.str] = None):
         """
         Plan notification details
+
         :param _builtins.str plan_display_name: Gets or sets the plan display name
         :param _builtins.str plan_id: Gets or sets the plan id
         """
@@ -285,6 +287,7 @@ class StopSellOffersPlansNotificationsListPropertiesResponse(dict):
                  subscriptions_ids: Sequence[_builtins.str]):
         """
         List of stop sell offers and plans notifications.
+
         :param _builtins.str display_name: The offer display name
         :param _builtins.str icon: The icon url
         :param _builtins.bool is_entire: A value indicating whether entire offer is in stop sell or only few of its plans
@@ -409,6 +412,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Read only system data
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC)
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource

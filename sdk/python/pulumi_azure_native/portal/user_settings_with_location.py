@@ -27,6 +27,7 @@ class UserSettingsWithLocationArgs:
                  user_settings_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserSettingsWithLocation resource.
+
         :param pulumi.Input[_builtins.str] location: The provider location
         :param pulumi.Input['UserPropertiesArgs'] properties: The cloud shell user settings properties.
         :param pulumi.Input[_builtins.str] user_settings_name: The name of the user settings
@@ -88,6 +89,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The provider location
@@ -104,6 +106,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         Response to get user settings
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
+
 
         :param str resource_name: The name of the resource.
         :param UserSettingsWithLocationArgs args: The arguments to use to populate this resource's properties.

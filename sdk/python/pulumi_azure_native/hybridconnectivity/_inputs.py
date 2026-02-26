@@ -20,27 +20,22 @@ __all__ = [
     'AwsCloudProfileArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AwsCloudProfileArgsDict(TypedDict):
-        """
-        cloud profile for AWS.
-        """
-        account_id: pulumi.Input[_builtins.str]
-        """
-        Account id for the AWS account.
-        """
-        excluded_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AWS accounts which need to be excluded.
-        """
-        is_organizational_account: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
-        """
-elif False:
-    AwsCloudProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AwsCloudProfileArgsDict(TypedDict):
+    """
+    cloud profile for AWS.
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    Account id for the AWS account.
+    """
+    excluded_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AWS accounts which need to be excluded.
+    """
+    is_organizational_account: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
+    """
 
 @pulumi.input_type
 class AwsCloudProfileArgs:
@@ -50,6 +45,7 @@ class AwsCloudProfileArgs:
                  is_organizational_account: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         cloud profile for AWS.
+
         :param pulumi.Input[_builtins.str] account_id: Account id for the AWS account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS accounts which need to be excluded.
         :param pulumi.Input[_builtins.bool] is_organizational_account: Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.

@@ -35,6 +35,7 @@ class ContactProfileArgs:
                  third_party_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileThirdPartyConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a ContactProfile resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         :param pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs'] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -223,6 +224,7 @@ class ContactProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto-tracking configuration.
@@ -247,6 +249,7 @@ class ContactProfile(pulumi.CustomResource):
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
+
 
         :param str resource_name: The name of the resource.
         :param ContactProfileArgs args: The arguments to use to populate this resource's properties.

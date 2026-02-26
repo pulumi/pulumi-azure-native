@@ -57,6 +57,7 @@ class MachineLearningDatastoreArgs:
                  workspace_system_assigned_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a MachineLearningDatastore resource.
+
         :param pulumi.Input[Union[_builtins.str, 'DatastoreTypeArm']] data_store_type: Specifies datastore type.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
@@ -617,6 +618,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_key: Account Key of storage account.
@@ -664,6 +666,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
         Machine Learning datastore object wrapped into ARM resource envelope.
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param MachineLearningDatastoreArgs args: The arguments to use to populate this resource's properties.

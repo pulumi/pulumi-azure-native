@@ -24,6 +24,7 @@ class GuestSubscriptionArgs:
                  guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GuestSubscription resource.
+
         :param pulumi.Input[_builtins.str] location: The name of the Azure region.
         :param pulumi.Input[_builtins.str] guest_subscription_id: The name of the GuestSubscription
         """
@@ -70,6 +71,7 @@ class GuestSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-15.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] guest_subscription_id: The name of the GuestSubscription
@@ -85,6 +87,7 @@ class GuestSubscription(pulumi.CustomResource):
         Guest subscription that consumes shared compute limits.
 
         Uses Azure REST API version 2025-08-15.
+
 
         :param str resource_name: The name of the resource.
         :param GuestSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -74,6 +74,7 @@ class AssociatedTenantPropertiesResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         An associated tenant.
+
         :param _builtins.str provisioning_billing_request_id: The unique identifier for the billing request that is created when enabling provisioning for an associated tenant.
         :param _builtins.str provisioning_state: The provisioning state of the resource during a long-running operation.
         :param _builtins.str billing_management_state: The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
@@ -173,6 +174,7 @@ class AzurePlanResponse(dict):
                  sku_id: Optional[_builtins.str] = None):
         """
         Details of the Azure plan.
+
         :param _builtins.str product_id: The ID that uniquely identifies a product.
         :param _builtins.str sku_description: The sku description.
         :param _builtins.str sku_id: The ID that uniquely identifies a sku.
@@ -295,6 +297,7 @@ class BillingProfilePropertiesResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         A billing profile.
+
         :param _builtins.str billing_relationship_type: Identifies the billing relationship represented by the billing profile. The billing relationship may be between Microsoft, the customer, and/or a third-party.
         :param _builtins.str currency: The currency in which the charges for the billing profile are billed.
         :param _builtins.bool has_read_access: Indicates whether user has read access to the billing profile.
@@ -597,6 +600,7 @@ class BillingProfilePropertiesResponseBillTo(dict):
                  region: Optional[_builtins.str] = None):
         """
         Billing address.
+
         :param _builtins.str address_line1: Address line 1.
         :param _builtins.str country: Country code uses ISO 3166-1 Alpha-2 format.
         :param _builtins.str address_line2: Address line 2.
@@ -796,6 +800,7 @@ class BillingProfilePropertiesResponseCurrentPaymentTerm(dict):
                  term: Optional[_builtins.str] = None):
         """
         The current payment term of the billing profile.
+
         :param _builtins.bool is_default: Indicates payment term is the standard payment term.
         :param _builtins.str end_date: The date on when the defined 'Payment Term' will end and is always in UTC.
         :param _builtins.str start_date: The date on when the defined 'Payment Term' will be effective from and is always in UTC.
@@ -874,6 +879,7 @@ class BillingProfilePropertiesResponseIndirectRelationshipInfo(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+
         :param _builtins.str billing_account_name: The billing account name of the partner or the customer for an indirect motion.
         :param _builtins.str billing_profile_name: The billing profile name of the partner or the customer for an indirect motion.
         :param _builtins.str display_name: The display name of the partner or customer for an indirect motion.
@@ -968,6 +974,7 @@ class BillingProfilePropertiesResponseShipTo(dict):
                  region: Optional[_builtins.str] = None):
         """
         The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
+
         :param _builtins.str address_line1: Address line 1.
         :param _builtins.str country: Country code uses ISO 3166-1 Alpha-2 format.
         :param _builtins.str address_line2: Address line 2.
@@ -1192,6 +1199,7 @@ class BillingProfilePropertiesResponseSoldTo(dict):
                  region: Optional[_builtins.str] = None):
         """
         The address of the individual or organization that is responsible for the billing account.
+
         :param _builtins.str address_line1: Address line 1.
         :param _builtins.str country: Country code uses ISO 3166-1 Alpha-2 format.
         :param _builtins.str address_line2: Address line 2.
@@ -1469,6 +1477,7 @@ class BillingRoleAssignmentPropertiesResponse(dict):
                  user_email_address: Optional[_builtins.str] = None):
         """
         The properties of the billing role assignment.
+
         :param _builtins.str billing_account_display_name: The name of the billing account.
         :param _builtins.str billing_account_id: The fully qualified ID that uniquely identifies a billing account.
         :param _builtins.str billing_profile_display_name: The name of the billing profile.
@@ -1818,6 +1827,7 @@ class InvoiceSectionPropertiesResponse(dict):
                  target_cloud: Optional[_builtins.str] = None):
         """
         An invoice section.
+
         :param _builtins.str provisioning_state: The provisioning state of the resource during a long-running operation.
         :param _builtins.str system_id: The system generated unique identifier for an invoice section.
         :param _builtins.str display_name: The name of the invoice section.
@@ -1914,6 +1924,7 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
                  invoice_section_system_id: _builtins.str):
         """
         Invoice section properties with create subscription permission.
+
         :param _builtins.str billing_profile_display_name: The name of the billing profile.
         :param _builtins.str billing_profile_id: The fully qualified ID that uniquely identifies a billing profile.
         :param _builtins.str billing_profile_spending_limit: The billing profile spending limit.
@@ -2050,6 +2061,7 @@ class PaymentTermResponse(dict):
                  term: Optional[_builtins.str] = None):
         """
         The properties of payment term.
+
         :param _builtins.bool is_default: Indicates payment term is the standard payment term.
         :param _builtins.str end_date: The date on when the defined 'Payment Term' will end and is always in UTC.
         :param _builtins.str start_date: The date on when the defined 'Payment Term' will be effective from and is always in UTC.
@@ -2129,6 +2141,7 @@ class SpendingLimitDetailsResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The billing profile spending limit.
+
         :param _builtins.float amount: The initial amount for the billing profile.
         :param _builtins.str currency: The currency in which the charges for the billing profile are billed.
         :param _builtins.str end_date: The date when this spending limit is no longer in effect.
@@ -2239,6 +2252,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

@@ -27,6 +27,7 @@ class JWTAuthenticatorArgs:
                  jwt_authenticator_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a JWTAuthenticator resource.
+
         :param pulumi.Input['JWTAuthenticatorPropertiesArgs'] properties: The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
@@ -105,6 +106,7 @@ class JWTAuthenticator(pulumi.CustomResource):
 
         Other available API versions: 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] jwt_authenticator_name: The name of the JWT authenticator.
@@ -124,6 +126,7 @@ class JWTAuthenticator(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-02-preview.
 
         Other available API versions: 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param JWTAuthenticatorArgs args: The arguments to use to populate this resource's properties.

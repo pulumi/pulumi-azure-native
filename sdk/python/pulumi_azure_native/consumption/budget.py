@@ -33,6 +33,7 @@ class BudgetArgs:
                  notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]]] = None):
         """
         The set of arguments for constructing a Budget resource.
+
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget
         :param pulumi.Input[Union[_builtins.str, 'CategoryType']] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
@@ -189,6 +190,7 @@ class Budget(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget
@@ -213,6 +215,7 @@ class Budget(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.

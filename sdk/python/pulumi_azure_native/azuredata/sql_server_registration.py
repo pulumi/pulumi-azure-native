@@ -29,6 +29,7 @@ class SqlServerRegistrationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlServerRegistration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] property_bag: Optional Properties as JSON string
@@ -155,6 +156,7 @@ class SqlServerRegistration(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -175,6 +177,7 @@ class SqlServerRegistration(pulumi.CustomResource):
         A SQL server registration.
 
         Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
+
 
         :param str resource_name: The name of the resource.
         :param SqlServerRegistrationArgs args: The arguments to use to populate this resource's properties.

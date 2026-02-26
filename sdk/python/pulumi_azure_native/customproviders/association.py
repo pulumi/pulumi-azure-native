@@ -24,6 +24,7 @@ class AssociationArgs:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Association resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
         :param pulumi.Input[_builtins.str] association_name: The name of the association.
         :param pulumi.Input[_builtins.str] target_resource_id: The REST resource instance of the target resource for this association.
@@ -86,6 +87,7 @@ class Association(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] association_name: The name of the association.
@@ -102,6 +104,7 @@ class Association(pulumi.CustomResource):
         The resource definition of this association.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param AssociationArgs args: The arguments to use to populate this resource's properties.

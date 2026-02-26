@@ -26,6 +26,7 @@ class ApplicationArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']] source_resource_type: The application source, what it affects, e.g. Assessments
         :param pulumi.Input[_builtins.str] application_id: The security Application key - unique key for the standard application
         :param pulumi.Input[_builtins.str] description: description of the application
@@ -104,6 +105,7 @@ class Application(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The security Application key - unique key for the standard application
@@ -121,6 +123,7 @@ class Application(pulumi.CustomResource):
         Security Application over a given scope
 
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

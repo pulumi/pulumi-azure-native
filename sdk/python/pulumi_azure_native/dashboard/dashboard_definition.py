@@ -27,6 +27,7 @@ class DashboardDefinitionArgs:
                  properties: Optional[pulumi.Input['DashboardDefinitionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DashboardDefinition resource.
+
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the Azure Managed Dashboard.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] definition_name: The name of the Dashboard Definition.
@@ -104,6 +105,7 @@ class DashboardDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the Azure Managed Dashboard.
@@ -121,6 +123,7 @@ class DashboardDefinition(pulumi.CustomResource):
         The dashboard definition resource type.
 
         Uses Azure REST API version 2025-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param DashboardDefinitionArgs args: The arguments to use to populate this resource's properties.

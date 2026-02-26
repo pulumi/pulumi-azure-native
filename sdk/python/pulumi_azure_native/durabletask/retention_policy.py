@@ -27,6 +27,7 @@ class RetentionPolicyArgs:
                  properties: Optional[pulumi.Input['RetentionPolicyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a RetentionPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] scheduler_name: The name of the Scheduler
         :param pulumi.Input['RetentionPolicyPropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -90,6 +91,7 @@ class RetentionPolicy(pulumi.CustomResource):
 
         Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RetentionPolicyPropertiesArgs', 'RetentionPolicyPropertiesArgsDict']] properties: The resource-specific properties for this resource.
@@ -108,6 +110,7 @@ class RetentionPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-04-01-preview.
 
         Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param RetentionPolicyArgs args: The arguments to use to populate this resource's properties.

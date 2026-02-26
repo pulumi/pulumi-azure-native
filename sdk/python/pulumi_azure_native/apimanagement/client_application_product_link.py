@@ -26,6 +26,7 @@ class ClientApplicationProductLinkArgs:
                  client_application_product_link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClientApplicationProductLink resource.
+
         :param pulumi.Input[_builtins.str] client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] product_id: The unique resource identifier of the Product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -119,6 +120,7 @@ class ClientApplicationProductLink(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
@@ -139,6 +141,7 @@ class ClientApplicationProductLink(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview.
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param ClientApplicationProductLinkArgs args: The arguments to use to populate this resource's properties.

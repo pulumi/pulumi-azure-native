@@ -25,23 +25,18 @@ __all__ = [
     'TrackingDataStoreArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BusinessProcessIdentifierArgsDict(TypedDict):
-        """
-        The properties of business process identifier.
-        """
-        property_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property name of the business process identifier.
-        """
-        property_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property type of the business process identifier.
-        """
-elif False:
-    BusinessProcessIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessProcessIdentifierArgsDict(TypedDict):
+    """
+    The properties of business process identifier.
+    """
+    property_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property name of the business process identifier.
+    """
+    property_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property type of the business process identifier.
+    """
 
 @pulumi.input_type
 class BusinessProcessIdentifierArgs:
@@ -50,6 +45,7 @@ class BusinessProcessIdentifierArgs:
                  property_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of business process identifier.
+
         :param pulumi.Input[_builtins.str] property_name: The property name of the business process identifier.
         :param pulumi.Input[_builtins.str] property_type: The property type of the business process identifier.
         """
@@ -83,29 +79,26 @@ class BusinessProcessIdentifierArgs:
         pulumi.set(self, "property_type", value)
 
 
-if not MYPY:
-    class BusinessProcessMappingItemArgsDict(TypedDict):
-        """
-        The properties of business process mapping.
-        """
-        logic_app_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The logic app resource id.
-        """
-        operation_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operation name.
-        """
-        operation_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The mapping item operation type of the business process.
-        """
-        workflow_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The workflow name within the logic app.
-        """
-elif False:
-    BusinessProcessMappingItemArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessProcessMappingItemArgsDict(TypedDict):
+    """
+    The properties of business process mapping.
+    """
+    logic_app_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The logic app resource id.
+    """
+    operation_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operation name.
+    """
+    operation_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The mapping item operation type of the business process.
+    """
+    workflow_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The workflow name within the logic app.
+    """
 
 @pulumi.input_type
 class BusinessProcessMappingItemArgs:
@@ -116,6 +109,7 @@ class BusinessProcessMappingItemArgs:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of business process mapping.
+
         :param pulumi.Input[_builtins.str] logic_app_resource_id: The logic app resource id.
         :param pulumi.Input[_builtins.str] operation_name: The operation name.
         :param pulumi.Input[_builtins.str] operation_type: The mapping item operation type of the business process.
@@ -179,25 +173,22 @@ class BusinessProcessMappingItemArgs:
         pulumi.set(self, "workflow_name", value)
 
 
-if not MYPY:
-    class BusinessProcessStageArgsDict(TypedDict):
-        """
-        The properties of business process stage.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the business stage.
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The properties within the properties of the business process stage.
-        """
-        stages_before: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The property to keep track of stages before current in the business process stage.
-        """
-elif False:
-    BusinessProcessStageArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessProcessStageArgsDict(TypedDict):
+    """
+    The properties of business process stage.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the business stage.
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The properties within the properties of the business process stage.
+    """
+    stages_before: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The property to keep track of stages before current in the business process stage.
+    """
 
 @pulumi.input_type
 class BusinessProcessStageArgs:
@@ -207,6 +198,7 @@ class BusinessProcessStageArgs:
                  stages_before: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The properties of business process stage.
+
         :param pulumi.Input[_builtins.str] description: The description of the business stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The properties within the properties of the business process stage.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stages_before: The property to keep track of stages before current in the business process stage.
@@ -255,29 +247,26 @@ class BusinessProcessStageArgs:
         pulumi.set(self, "stages_before", value)
 
 
-if not MYPY:
-    class TrackingDataStoreArgsDict(TypedDict):
-        """
-        The properties of tracking data store.
-        """
-        data_store_ingestion_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data store ingestion URI.
-        """
-        data_store_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data store resource id.
-        """
-        data_store_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data store URI.
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The database name.
-        """
-elif False:
-    TrackingDataStoreArgsDict: TypeAlias = Mapping[str, Any]
+class TrackingDataStoreArgsDict(TypedDict):
+    """
+    The properties of tracking data store.
+    """
+    data_store_ingestion_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data store ingestion URI.
+    """
+    data_store_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data store resource id.
+    """
+    data_store_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data store URI.
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The database name.
+    """
 
 @pulumi.input_type
 class TrackingDataStoreArgs:
@@ -288,6 +277,7 @@ class TrackingDataStoreArgs:
                  database_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of tracking data store.
+
         :param pulumi.Input[_builtins.str] data_store_ingestion_uri: The data store ingestion URI.
         :param pulumi.Input[_builtins.str] data_store_resource_id: The data store resource id.
         :param pulumi.Input[_builtins.str] data_store_uri: The data store URI.

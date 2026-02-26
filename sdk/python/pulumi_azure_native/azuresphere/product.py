@@ -26,6 +26,7 @@ class ProductArgs:
                  product_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Product resource.
+
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Description of the product
@@ -103,6 +104,7 @@ class Product(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
@@ -120,6 +122,7 @@ class Product(pulumi.CustomResource):
         An product resource belonging to a catalog resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.

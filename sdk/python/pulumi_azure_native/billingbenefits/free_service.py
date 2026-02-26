@@ -38,6 +38,7 @@ class FreeServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FreeService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] end_at: Expiration date and time of the free services
         :param pulumi.Input[_builtins.str] free_service_name: Name of the free service
@@ -276,6 +277,7 @@ class FreeService(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-12-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_at: Expiration date and time of the free services
@@ -303,6 +305,7 @@ class FreeService(pulumi.CustomResource):
         The Free Services API includes operations for creating and managing free services.
 
         Uses Azure REST API version 2025-12-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param FreeServiceArgs args: The arguments to use to populate this resource's properties.

@@ -54,6 +54,7 @@ class ExecutionParametersResponse(dict):
                  retry_policy: Optional['outputs.RetryPolicyResponse'] = None):
         """
         Extra details needed to run the user's request
+
         :param _builtins.str optimization_preference: Details that could optimize the user's request
         :param 'RetryPolicyResponse' retry_policy: Retry policy the user can pass
         """
@@ -91,6 +92,7 @@ class NotificationPropertiesResponse(dict):
                  disabled: Optional[_builtins.bool] = None):
         """
         The information about notifications to be send to about upcoming operations.
+
         :param _builtins.str destination: Where the notification should be sent. For email, it should follow email format.
         :param _builtins.str language: The language the notification should be sent on.
         :param _builtins.str type: Type of notification to be sent.
@@ -166,6 +168,7 @@ class RetryPolicyResponse(dict):
                  retry_window_in_minutes: Optional[_builtins.int] = None):
         """
         The retry policy for the user request
+
         :param _builtins.int retry_count: Retry count for user request
         :param _builtins.int retry_window_in_minutes: Retry window in minutes for user request
         """
@@ -234,6 +237,7 @@ class ScheduledActionPropertiesResponse(dict):
                  end_time: Optional[_builtins.str] = None):
         """
         Scheduled action properties
+
         :param _builtins.str action_type: The action the scheduled action should perform in the resources
         :param Sequence['NotificationPropertiesResponse'] notification_settings: The notification settings for the scheduled action
         :param _builtins.str provisioning_state: The status of the last provisioning operation performed on the resource.
@@ -365,6 +369,7 @@ class ScheduledActionsScheduleResponse(dict):
                  execution_parameters: Optional['outputs.ExecutionParametersResponse'] = None):
         """
         Specify the schedule in which the scheduled action is supposed to follow
+
         :param Sequence[_builtins.int] requested_days_of_the_month: The days of the month the scheduled action is supposed to run on. If empty, it means it will run on every day of the month.
         :param Sequence[_builtins.str] requested_months: The months the scheduled action is supposed to run on
         :param Sequence[_builtins.str] requested_week_days: The week days the scheduled action is supposed to run on
@@ -481,6 +486,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

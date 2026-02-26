@@ -30,6 +30,7 @@ class ConnectorArgs:
                  is_internal: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[Mapping[str, Any]] connector_properties: The connector properties.
         :param pulumi.Input[Union[_builtins.str, 'ConnectorTypes']] connector_type: Type of connector.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
@@ -169,6 +170,7 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_name: Name of the connector.
@@ -190,6 +192,7 @@ class Connector(pulumi.CustomResource):
         The connector resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

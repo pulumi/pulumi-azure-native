@@ -56,6 +56,7 @@ class GatewayDetailsResponse(dict):
                  gateway_resource_id: Optional[_builtins.str] = None):
         """
         The gateway details.
+
         :param _builtins.str dmts_cluster_uri: Uri of the DMTS cluster.
         :param _builtins.str gateway_object_id: Gateway object id from in the DMTS cluster for the gateway resource.
         :param _builtins.str gateway_resource_id: Gateway resource to be associated with the server.
@@ -122,6 +123,7 @@ class IPv4FirewallRuleResponse(dict):
                  range_start: Optional[_builtins.str] = None):
         """
         The detail of firewall rule.
+
         :param _builtins.str firewall_rule_name: The rule name.
         :param _builtins.str range_end: The end range of IPv4.
         :param _builtins.str range_start: The start range of IPv4.
@@ -187,6 +189,7 @@ class IPv4FirewallSettingsResponse(dict):
                  firewall_rules: Optional[Sequence['outputs.IPv4FirewallRuleResponse']] = None):
         """
         An array of firewall rules.
+
         :param _builtins.bool enable_power_bi_service: The indicator of enabling PBI service.
         :param Sequence['IPv4FirewallRuleResponse'] firewall_rules: An array of firewall rules.
         """
@@ -223,6 +226,7 @@ class ResourceSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Represents the SKU name and Azure pricing tier for Analysis Services resource.
+
         :param _builtins.str name: Name of the SKU level.
         :param _builtins.int capacity: The number of instances in the read only query pool.
         :param _builtins.str tier: The name of the Azure pricing tier to which the SKU applies.
@@ -269,6 +273,7 @@ class ServerAdministratorsResponse(dict):
                  members: Optional[Sequence[_builtins.str]] = None):
         """
         An array of administrator user identities.
+
         :param Sequence[_builtins.str] members: An array of administrator user identities.
         """
         if members is not None:

@@ -32,6 +32,7 @@ class EventHubConnectionArgs:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHubConnection resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] consumer_group: The event hub consumer group.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto cluster.
@@ -202,6 +203,7 @@ class EventHubConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-07-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-07-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
@@ -225,6 +227,7 @@ class EventHubConnection(pulumi.CustomResource):
         Class representing an event hub connection.
 
         Uses Azure REST API version 2018-09-07-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-07-preview.
+
 
         :param str resource_name: The name of the resource.
         :param EventHubConnectionArgs args: The arguments to use to populate this resource's properties.

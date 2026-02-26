@@ -29,6 +29,7 @@ class JobArgs:
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
         :param pulumi.Input[_builtins.str] job_name: The name of the import/export job.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the job should be created
@@ -123,6 +124,7 @@ class Job(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_name: The name of the import/export job.
@@ -141,6 +143,7 @@ class Job(pulumi.CustomResource):
         Contains the job information.
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

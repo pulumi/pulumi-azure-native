@@ -54,6 +54,7 @@ class EmissionPoliciesPropertiesFormatResponse(dict):
                  emission_type: Optional[_builtins.str] = None):
         """
         Emission policy properties.
+
         :param Sequence['EmissionPolicyDestinationResponse'] emission_destinations: Emission policy destinations.
         :param _builtins.str emission_type: Emission format type.
         """
@@ -105,6 +106,7 @@ class EmissionPolicyDestinationResponse(dict):
                  destination_type: Optional[_builtins.str] = None):
         """
         Emission policy destination properties.
+
         :param _builtins.str destination_type: Emission destination type.
         """
         if destination_type is not None:
@@ -148,6 +150,7 @@ class IngestionPolicyPropertiesFormatResponse(dict):
                  ingestion_type: Optional[_builtins.str] = None):
         """
         Ingestion Policy properties.
+
         :param Sequence['IngestionSourcesPropertiesFormatResponse'] ingestion_sources: Ingestion Sources.
         :param _builtins.str ingestion_type: The ingestion type.
         """
@@ -202,6 +205,7 @@ class IngestionSourcesPropertiesFormatResponse(dict):
                  source_type: Optional[_builtins.str] = None):
         """
         Ingestion policy properties.
+
         :param _builtins.str resource_id: Resource ID.
         :param _builtins.str source_type: Ingestion source type.
         """
@@ -236,6 +240,7 @@ class ResourceReferenceResponse(dict):
                  id: _builtins.str):
         """
         Resource reference properties.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -287,6 +292,7 @@ class TrackedResourceResponseSystemData(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

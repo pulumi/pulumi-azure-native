@@ -29,6 +29,7 @@ class VirtualNetworkSubnetArgs:
                  subnet_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkSubnet resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] virtual_network_name: Name of the virtual network
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
@@ -122,6 +123,7 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
@@ -140,6 +142,7 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
         The virtual network resource definition.
 
         Uses Azure REST API version 2025-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkSubnetArgs args: The arguments to use to populate this resource's properties.

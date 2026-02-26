@@ -26,6 +26,7 @@ class ServiceGroupMemberRelationshipArgs:
                  properties: Optional[pulumi.Input['ServiceGroupMemberRelationshipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ServiceGroupMemberRelationship resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] name: Name of ServiceGroupMember relationship.
         :param pulumi.Input['ServiceGroupMemberRelationshipPropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -88,6 +89,7 @@ class ServiceGroupMemberRelationship(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of ServiceGroupMember relationship.
@@ -104,6 +106,7 @@ class ServiceGroupMemberRelationship(pulumi.CustomResource):
         Defines a ServiceGroupMember relationship resource.
 
         Uses Azure REST API version 2023-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceGroupMemberRelationshipArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class GatewayArgs:
                  tcp: Optional[pulumi.Input[Sequence[pulumi.Input['TcpConfigArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
+
         :param pulumi.Input['NetworkRefArgs'] destination_network: Network that the Application is using.
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
         :param pulumi.Input['NetworkRefArgs'] source_network: Network the gateway should listen on for requests.
@@ -189,6 +190,7 @@ class Gateway(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: User readable description of the gateway.
@@ -211,6 +213,7 @@ class Gateway(pulumi.CustomResource):
         This type describes a gateway resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
