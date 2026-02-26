@@ -5,7 +5,7 @@ go 1.23
 require (
 	github.com/pulumi/pulumi-azure-native-sdk/containerservice/v3 v3.13.0
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.13.0
-	github.com/pulumi/pulumi-azuread/sdk/v6 v6.8.0
+	github.com/pulumi/pulumi-azuread/sdk/v6 v6.8.1
 	github.com/pulumi/pulumi-random/sdk/v4 v4.19.1
 	github.com/pulumi/pulumi-tls/sdk/v5 v5.3.0
 	github.com/pulumi/pulumi/sdk/v3 v3.160.0
@@ -34,7 +34,7 @@ require (
 	github.com/charmbracelet/x/ansi v0.2.3 // indirect
 	github.com/charmbracelet/x/term v0.2.0 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.6.1 // indirect
+	github.com/cloudflare/circl v1.6.3 // indirect
 	github.com/cyphar/filepath-securejoin v0.3.6 // indirect
 	github.com/djherbis/times v1.6.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect

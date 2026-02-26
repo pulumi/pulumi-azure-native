@@ -31,8 +31,8 @@ require (
 	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.6.0
-	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.101.0
-	github.com/pulumi/pulumi-java/pkg v1.21.1
+	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.101.2
+	github.com/pulumi/pulumi-java/pkg v1.21.2
 	github.com/pulumi/pulumi-yaml v1.29.1
 	github.com/pulumi/pulumi/pkg/v3 v3.223.0
 	github.com/pulumi/pulumi/sdk/v3 v3.223.0
@@ -66,7 +66,7 @@ require (
 	github.com/charmbracelet/x/term v0.2.2 // indirect
 	github.com/clipperhouse/displaywidth v0.10.0 // indirect
 	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
-	github.com/cloudflare/circl v1.6.1 // indirect
+	github.com/cloudflare/circl v1.6.3 // indirect
 	github.com/cyphar/filepath-securejoin v0.4.1 // indirect
 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
