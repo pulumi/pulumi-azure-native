@@ -11,6 +11,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/servicebus/armservicebus"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
@@ -36,6 +37,7 @@ func azureNativeBinary(t *testing.T) opttest.Option {
 	if err != nil {
 		t.Fatal(err)
 	}
+	t.Logf("Using azure-native binary from %s", binPath)
 	return opttest.LocalProviderPath("azure-native", binPath)
 }
 
@@ -87,7 +89,7 @@ func createTest(t *testing.T, source string) *pulumitest.PulumiTest {
 
 func azureCredentials(t *testing.T) azcore.TokenCredential {
 	if os.Getenv("CI") == "" {
-		// local test, use CLI credentials
+		// local test, use CLI credentials which assumers the user is logged in via `az login`
 		cred, err := azidentity.NewAzureCLICredential(nil)
 		require.NoError(t, err)
 		return cred
@@ -151,4 +153,52 @@ func TestServiceBusRefreshAfterNamespaceDeletion(t *testing.T) {
 	// Deleting the namespace is done, now refresh the stack
 	pt.Refresh(t)
 	t.Log("Refresh done, attempting to destroy leftover resources (resource group)")
+}
+
+func keyVaultClient(t *testing.T) *armkeyvault.VaultsClient {
+	tokenCred := azureCredentials(t)
+	sub := os.Getenv("ARM_SUBSCRIPTION_ID")
+	client, err := armkeyvault.NewVaultsClient(sub, tokenCred, nil)
+	require.NoError(t, err)
+	return client
+}
+
+// Assert that a RoleAssignment is deleted when performing a pulumi refresh
+// after the KeyVault that contains the RoleAssignment is deleted outside of pulumi.
+func TestRoleAssignmentRefreshAfterVaultDeletion(t *testing.T) {
+	source := filepath.Join(getCwd(t), "keyvault-role-assignment-refresh-after-deletion")
+	pt := createTest(t, source)
+	upResult := pt.Up(t)
+
+	defer func() {
+		// clean up left over resources which should only be the resource group
+		pt.Destroy(t)
+	}()
+
+	vaultName := ""
+	resourceGroupName := ""
+	for key, value := range upResult.Outputs {
+		if key == "vaultName" {
+			vaultName = value.Value.(string)
+		}
+		if key == "resourceGroupName" {
+			resourceGroupName = value.Value.(string)
+		}
+	}
+
+	assert.NotEmpty(t, vaultName, "key vault name should not be empty")
+	assert.NotEmpty(t, resourceGroupName, "resource group name should not be empty")
+
+	// delete the key vault via the API
+	client := keyVaultClient(t)
+	ctx := context.Background()
+	_, err := client.Delete(ctx, resourceGroupName, vaultName, nil)
+	assert.NoError(t, err, "begin deleting vault should not error")
+
+	t.Log("Finished deleting the vault")
+	t.Log("Attempting to refresh...")
+	// Deleting the vault is done, now refresh the stack
+	result, err := pt.CurrentStack().Refresh(ctx)
+	assert.NoError(t, err, "refresh should not error")
+	assert.Empty(t, result.StdErr, "refresh should not have any errors in stderr")
 }

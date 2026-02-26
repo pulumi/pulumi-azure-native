@@ -1297,6 +1297,9 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		var exists bool
 		response, exists, err = customRes.Read(ctx, id, oldState)
 		if err != nil {
+			if azure.IsNotFound(err) {
+				return &rpc.ReadResponse{Id: ""}, nil
+			}
 			return nil, err
 		}
 		if !exists {

@@ -1,0 +1,34 @@
+name: keyvault-role-assignment-refresh-after-deletion
+runtime: yaml
+description: Program that tests role assignment removal with refresh after a key vault has been deleted
+variables:
+  reportsReaderRoleId: 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027
+  config:
+    fn::invoke:
+      function: azure-native:authorization:getClientConfig
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+  vault:
+    type: azure-native:keyvault:Vault
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      location: ${resourceGroup.location}
+      properties:
+        publicNetworkAccess: "Enabled"
+        sku:
+          family: A
+          name: standard
+        tenantId: ${config.tenantId}
+  testUserAssignment:
+    type: azure-native:authorization:RoleAssignment
+    properties:
+      roleDefinitionId: ${resourceGroup.id}/providers/Microsoft.Authorization/roleDefinitions/${reportsReaderRoleId}
+      principalId: e61877e9-d26b-4890-9a3c-2287e77ca427
+      principalType: User
+      scope: ${vault.id}
+    options:
+      parent: ${vault}
+outputs:
+  resourceGroupName: ${resourceGroup.name}
+  vaultName: ${vault.name}
