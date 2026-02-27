@@ -3,9 +3,9 @@ module go-user-assigned-identity
 go 1.24
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.13.0
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.13.0
-	github.com/pulumi/pulumi-azure-native-sdk/storage/v3 v3.13.0
+	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.14.0
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.14.0
+	github.com/pulumi/pulumi-azure-native-sdk/storage/v3 v3.14.0
 	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
@@ -70,7 +70,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.22.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.13.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.14.0 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
