@@ -8,7 +8,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v2 v2.2.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault v1.5.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/servicebus/armservicebus v1.2.0
-	github.com/pulumi/examples/misc/test v0.0.0-20260227112451-22ceef2eb592
+	github.com/pulumi/examples/misc/test v0.0.0-20260227200400-8131c981c49f
 	github.com/pulumi/providertest v0.6.0
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.14.0
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.14.0
