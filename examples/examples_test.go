@@ -285,6 +285,7 @@ func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) 
 	// Deploy the storage account
 	upResult := test.Up(t)
 	assert.Empty(t, upResult.StdErr, "up should not have any errors")
+	defer test.Destroy(t)
 
 	// Update the storage account to add the IsHnsEnabled property
 	storageAccountProperties["isHnsEnabled"] = false
